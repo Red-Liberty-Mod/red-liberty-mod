@@ -446,7 +446,7 @@ shared_focus = {
 	prerequisite = { focus = USA_the_air_corps }
     completion_reward = {
         add_ideas = {
-			USA_usac
+			USA_usac_a
 		}
     }
 	
@@ -536,7 +536,18 @@ shared_focus = {
 	relative_position_id = USA_recon_aircraft
 	prerequisite = { focus = USA_recon_aircraft }
     completion_reward = {
-        
+        if = {
+			limit = { has_idea = USA_usac_a }
+			swap_ideas = {
+				add_idea = USA_usac_ab
+				remove_idea = USA_usac_a}
+		}
+		else_if = { has_idea = USA_usac_ac
+			swap_ideas = {
+				add_idea = USA_usac_abc
+				remove_idea = USA_usac_ac
+			}
+		}
     }
 	
 	ai_will_do = {
@@ -555,9 +566,17 @@ shared_focus = {
 	relative_position_id = USA_recon_aircraft
 	prerequisite = { focus = USA_recon_aircraft }
     completion_reward = {
-        swap_ideas = {
-			add_idea = USA_usac_2
-			remove_idea = USA_usac
+		if = {
+			limit = { has_idea = USA_usac_a }
+			swap_ideas = {
+				add_idea = USA_usac_ac
+				remove_idea = USA_usac_a}
+		}
+		else_if = { has_idea = USA_usac_ab
+			swap_ideas = {
+				add_idea = USA_usac_abc
+				remove_idea = USA_usac_ab
+			}
 		}
     }
 	
@@ -579,8 +598,8 @@ shared_focus = {
 	prerequisite = { focus = USA_pilot_rotation }
     completion_reward = {
         swap_ideas = {
-			add_idea = USA_usac_3
-			remove_idea = USA_usac_2
+			add_idea = USA_usac_abcd
+			remove_idea = USA_usac_abc
 		}
     }
 	
