@@ -82,9 +82,7 @@ shared_focus = {
 	relative_position_id = USA_butler_reform_plan
 	prerequisite = { focus = USA_butler_reform_plan }
     completion_reward = {
-        add_ideas = {
-			USA_20_division_plan
-		}
+        add_ideas = { USA_20_division_plan_a }
     }
 	
 	ai_will_do = {
@@ -160,8 +158,21 @@ shared_focus = {
 	prerequisite = { focus = USA_adequate_defense }
 	prerequisite = { focus = USA_scrap_reserves }
     completion_reward = {
-	add_ideas = { USA_decentralized_national_guard }
-    }
+		if = {
+			limit = { 
+				has_idea = USA_20_division_plan_a }
+			swap_ideas = {
+				remove_idea = USA_20_division_plan_a
+				add_idea = USA_20_division_plan_ab
+			}
+		}
+		else = {
+			swap_ideas = {
+				remove_idea = USA_20_division_plan_ad
+				add_idea = USA_20_division_plan_abd
+			}
+		}
+	}
 	
 	ai_will_do = {
 		factor = 10
@@ -180,11 +191,29 @@ shared_focus = {
 	prerequisite = { focus = USA_scrap_reserves }
 	prerequisite = { focus = USA_collective_conciousness }
     completion_reward = {
-        swap_ideas = {
-			remove_idea = USA_20_division_plan
-			add_idea = USA_20_division_plan_1
+		if = {
+			limit = { 
+				has_idea = USA_20_division_plan_a }
+			swap_ideas = {
+				remove_idea = USA_20_division_plan_a
+				add_idea = USA_20_division_plan_ad
+			}
 		}
-    }
+		else_if = {
+			limit = {
+				has_idea = USA_20_division_plan_ab }
+			swap_ideas = {
+				remove_idea = USA_20_division_plan_ab
+				add_idea = USA_20_division_plan_abd
+			}
+		}
+		else = {
+			swap_ideas = {
+				remove_idea = USA_20_division_plan_abc
+				add_idea = USA_20_division_plan_abcd
+			}
+		}
+	}
 	
 	ai_will_do = {
 		factor = 10
@@ -203,8 +232,21 @@ shared_focus = {
 	prerequisite = { focus = USA_decentralize_national_guard }
 	prerequisite = { focus = USA_adequate_defense }
     completion_reward = {
-        add_ideas = USA_and_nothing_more
-    }
+		if = {
+			limit = { 
+				has_idea = USA_20_division_plan_ab }
+			swap_ideas = {
+				remove_idea = USA_20_division_plan_ab
+				add_idea = USA_20_division_plan_abc
+			}
+		}
+		else = {
+			swap_ideas = {
+				remove_idea = USA_20_division_plan_abd
+				add_idea = USA_20_division_plan_abcd
+			}
+		}
+	}
 	
 	ai_will_do = {
 		factor = 10
