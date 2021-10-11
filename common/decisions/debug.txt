@@ -292,4 +292,70 @@ debug_category = {
 			WGR_start_revolt = yes
 		}
 	}
+	
+	debug_start_GER_civil_war = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			tag = GER
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = GER
+			#NOT = {
+			#	has_country_flag = WGR_revolt_started
+			#}
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			hidden_effect = {
+				start_german_civil_war_CGR = yes
+				start_german_civil_war_RGR = yes
+				start_german_civil_war_PLR = yes
+			}
+			
+			dismantle_faction = yes
+			end_puppet = POL
+			end_puppet = LIT
+			end_puppet = ROM
+			end_puppet = CRI
+			end_puppet = BAL
+			
+			BAY = {
+				add_state_core = 52
+				add_state_core = 53
+				transfer_state = 52
+				transfer_state = 53
+			}
+			
+			GER = {
+				declare_war_on = {
+					target = CGR
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = RGR
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = PLR
+					type = annex_everything
+				}
+			}
+			CGR = {
+				declare_war_on = {
+					target = RGR
+					type = annex_everything
+				}
+			}
+		}
+	}
 }

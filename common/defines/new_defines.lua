@@ -1,7 +1,7 @@
 
 -- Game
 NDefines.NGame.START_DATE = "1936.1.1.12"
-NDefines.NPolitics.BASE_POLITICAL_POWER_INCREASE = 1.75						-- Vanilla is 2
+NDefines.NPolitics.BASE_POLITICAL_POWER_INCREASE = 2.00						-- Vanilla is 2
 
 NDefines.NMilitary.MAX_DIVISION_BRIGADE_WIDTH = 5		-- Max width of regiments in division designer.
 NDefines.NMilitary.MAX_DIVISION_BRIGADE_HEIGHT = 5		-- Max height of regiments in division designer.

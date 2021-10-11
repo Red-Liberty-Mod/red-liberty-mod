@@ -1,0 +1,30 @@
+scripted_gui = {
+	
+	IRE_parliament_scripted_gui = {
+		window_name = "IRE_parliament_gui"
+		context_type = decision_category
+
+		dynamic_lists = {
+			parliament_diagram = {
+				array = IRE_x_array
+				change_scope = no
+				entry_container = IRE_seat_container
+				index = seat_idx
+			}
+		}
+
+		properties = {
+			parliament_dot_icon = {
+				x = IRE_x_array^seat_idx
+				y = IRE_y_array^seat_idx
+				frame = IRE_frame_array^seat_idx
+			}
+		}
+		
+		effects = {
+			refresh_button_click = {
+				IRE_refresh_parliament = yes
+			}
+		}
+	}
+}

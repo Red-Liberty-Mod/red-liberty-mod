@@ -1,0 +1,201 @@
+start_german_civil_war_CGR = {
+	create_dynamic_country = {
+		original_tag = GER
+		save_event_target_as = communist_germany
+		every_state = {
+			limit = {
+				OR = {
+					state = 51
+					state = 57
+					state = 60
+					state = 878
+					state = 937
+				}
+			}
+			add_core_of = PREV
+			event_target:communist_germany = { transfer_state = PREV }
+		}
+		every_state = { #set up cores
+			limit = {
+				is_core_of = GER
+				NOT = {
+					is_controlled_by = event_target:communist_germany
+				}
+			}
+			add_core_of = PREV
+		}
+		set_rule = {
+			can_join_factions = no 
+			can_create_factions = no
+			can_not_declare_war = yes
+		}
+		set_capital = 878
+		set_politics = {
+			ruling_party = proletarian_dictatorship
+			elections_allowed = no
+		}
+		set_popularities = {
+			revolutionary_autocracy = 20
+			proletarian_dictatorship = 50
+			libertarian_socialism = 30
+		}
+		
+		create_country_leader = {
+			name = "Karl Liebknecht"
+			desc = ""
+			picture = ""
+			expire = "1965.1.1"
+			ideology = revolutionary_socialism_subtype
+			traits = {
+				
+			}
+		}
+		
+		set_cosmetic_tag = GER_communist_germany
+		
+		set_country_flag = GER_communist_germany
+		
+		CGR = {
+			set_province_controller = 3499
+			set_province_controller = 3535
+			set_province_controller = 6441
+			set_province_controller = 9347
+			set_province_controller = 9441
+			set_province_controller = 9471
+			set_province_controller = 11481
+		}
+		
+		GER = {
+			transfer_units_fraction = {
+				target = event_target:communist_germany
+				size = 0
+				stockpile_ratio = 0.15
+				army_ratio = 0.2
+				navy_ratio = 0
+				air_ratio = 0
+			}
+		}
+		
+		CGR = {
+			load_oob = CGR_militia
+		}
+	}
+}
+
+start_german_civil_war_RGR = {
+	create_dynamic_country = {
+		original_tag = GER
+		save_event_target_as = republican_germany
+		every_state = {
+			limit = {
+				OR = {
+					state = 8
+					state = 28
+					state = 42
+					state = 50
+					state = 54
+					state = 55
+					state = 59
+					state = 67
+					state = 762
+					state = 819
+					state = 877
+				}
+			}
+			add_core_of = PREV
+			event_target:republican_germany = { transfer_state = PREV }
+		}
+		every_state = { #set up cores
+			limit = {
+				is_core_of = GER
+				NOT = {
+					is_controlled_by = event_target:republican_germany
+				}
+			}
+			add_core_of = PREV
+		}
+		set_rule = {
+			can_join_factions = no 
+			can_create_factions = no
+			can_not_declare_war = yes
+		}
+		set_capital = 55
+		set_politics = {
+			ruling_party = social_democracy
+			elections_allowed = no
+		}
+		set_popularities = {
+			libertarian_socialism = 10
+			social_democracy = 55
+			progressive_liberalism = 20
+			market_libertarianism = 15
+		}
+		
+		set_cosmetic_tag = GER_republican_germany
+		
+		set_country_flag = GER_republican_germany
+		
+		
+		RGR = {
+			set_province_controller = 405
+			set_province_controller = 3234
+			set_province_controller = 3355
+		}
+		
+		GER = {
+			transfer_units_fraction = {
+				target = event_target:republican_germany
+				size = 0
+				stockpile_ratio = 0.4
+				army_ratio = 0.45
+				navy_ratio = 0
+				air_ratio = 0.4
+			}
+			
+			set_province_controller = 561
+			set_province_controller = 11544
+		}
+	}
+}
+
+start_german_civil_war_PLR = {
+	create_dynamic_country = {
+		original_tag = GER
+		save_event_target_as = germany_polish_revolt
+		every_state = {
+			limit = {
+				state = 86
+			}
+			add_core_of = PREV
+			event_target:germany_polish_revolt = { transfer_state = PREV }
+		}
+		set_rule = {
+			can_join_factions = no 
+			can_create_factions = no
+			can_not_declare_war = yes
+		}
+		set_capital = 86
+		set_politics = {
+			ruling_party = authoritarian_democracy
+			elections_allowed = no
+		}
+		set_popularities = {
+			authoritarian_democracy = 100
+		}
+		
+		set_cosmetic_tag = GER_polish_revolt
+		
+		set_country_flag = GER_polish_revolt
+		
+		PLR = {
+			set_province_controller = 3324
+			set_province_controller = 6347
+		}
+		
+		GER = {
+			set_province_controller = 3460
+			set_province_controller = 9532
+			set_province_controller = 11558
+		}
+	}
+}
