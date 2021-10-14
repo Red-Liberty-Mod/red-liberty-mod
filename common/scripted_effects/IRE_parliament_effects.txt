@@ -8,8 +8,9 @@ IRE_recalc_parliament = { # this will recalculate the number of members of parli
 	set_variable = {
 		communist_tds = party_popularity@revolutionary_autocracy
 	}
-	add_to_variable = {
-		communist_tds = party_popularity@proletarian_dictatorship
+	
+	set_variable = {
+		rev_socialist_tds = party_popularity@proletarian_dictatorship
 	}
 	
 	set_variable = {
@@ -40,6 +41,9 @@ IRE_recalc_parliament = { # this will recalculate the number of members of parli
 		communist_tds = tds_total
 	}
 	multiply_variable = {
+		rev_socialist_tds = tds_total
+	}
+	multiply_variable = {
 		socialist_tds = tds_total
 	}
 	multiply_variable = {
@@ -57,10 +61,10 @@ IRE_recalc_parliament = { # this will recalculate the number of members of parli
 	
 	#rounds
 	round_variable = communist_tds
+	round_variable = rev_socialist_tds
 	round_variable = socialist_tds
 	round_variable = labour_tds
 	round_variable = liberal_tds
-	round_variable = national_liberal_tds
 	round_variable = conservative_tds
 	round_variable = authoritarian_tds
 	
@@ -70,6 +74,9 @@ IRE_recalc_parliament = { # this will recalculate the number of members of parli
 	}
 	add_to_variable = {
 		tds_total = communist_tds
+	}
+	add_to_variable = {
+		tds_total = rev_socialist_tds
 	}
 	add_to_variable = {
 		tds_total = socialist_tds
@@ -106,13 +113,18 @@ IRE_recalc_parliament = { # this will recalculate the number of members of parli
 		}
 		if = {
 			limit = {
-				OR = {
-					has_government = revolutionary_autocracy
-					has_government = proletarian_dictatorship
-				}
+				has_government = revolutionary_autocracy
 			}
 			add_to_variable = {
 				communist_tds = IRE_old_tds_total
+			}
+		}
+		if = {
+			limit = {
+				has_government = proletarian_dictatorship
+			}
+			add_to_variable = {
+				rev_socialist_tds = IRE_old_tds_total
 			}
 		}
 		else_if = {
@@ -168,18 +180,20 @@ IRE_recalc_parliament = { # this will recalculate the number of members of parli
 IRE_refresh_parliament = {
 	
 	set_temp_variable = { t1 = communist_tds }
-	set_temp_variable = { t2 = socialist_tds }
-	set_temp_variable = { t3 = labour_tds }
-	set_temp_variable = { t4 = liberal_tds }
-	set_temp_variable = { t5 = conservative_tds }
-	set_temp_variable = { t6 = authoritarian_tds }
-	set_temp_variable = { t7 = 160 }
+	set_temp_variable = { t2 = rev_socialist_tds }
+	set_temp_variable = { t3 = socialist_tds }
+	set_temp_variable = { t4 = labour_tds }
+	set_temp_variable = { t5 = liberal_tds }
+	set_temp_variable = { t6 = conservative_tds }
+	set_temp_variable = { t7 = authoritarian_tds }
+	set_temp_variable = { t8 = 160 }
 
 	add_to_temp_variable = { t2 = t1 }
 	add_to_temp_variable = { t3 = t2 }
 	add_to_temp_variable = { t4 = t3 }
 	add_to_temp_variable = { t5 = t4 }
 	add_to_temp_variable = { t6 = t5 }
+	add_to_temp_variable = { t7 = t6 }
 	
 	clear_array = IRE_frame_array
 	
@@ -219,11 +233,17 @@ IRE_refresh_parliament = {
 		value = 6
 		size = t6
 	}
-	# Resize array to all 160 seats, setting remaining frame numbers to 6 (Party 6 color)
+	# Resize array to all t7, setting P6 frame numbers to 7 (Party 7 color)
 	resize_array = {
 		array = IRE_frame_array
-		value = 6
+		value = 7
 		size = t7
+	}
+	# Resize array to all 160 seats, setting remaining frame numbers to 7 (Party 7 color)
+	resize_array = {
+		array = IRE_frame_array
+		value = 7
+		size = t8
 	}
 }
 
