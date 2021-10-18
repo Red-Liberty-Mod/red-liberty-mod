@@ -2,15 +2,16 @@ ideas = {
 	
 	country = {
 	
-       	ENG_a_unstable_coalition = {
-			removal_cost = -1 
+		ENG_british_empire = {
 			
-			picture = ENG_a_unstable_coalition
+			removal_cost = -1
 			
 			allowed = {
 				tag = ENG
 			} 
+			
 			available = {
+				
 			}
 			
 			allowed_civil_war = { 
@@ -18,15 +19,61 @@ ideas = {
 			}
 			
 			modifier = {
-				stability_factor = -0.10 
+				political_power_gain = -0.1
+				stability_factor = 0.05
+				consumer_goods_factor = -0.05
+			}
+		}
+	
+		ENG_memories_of_the_national_govt = {
+			
+			removal_cost = -1
+			
+			allowed = {
+				tag = ENG
+			} 
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				stability_factor = -0.1
 				political_power_gain = -0.2
 			}
-		}  
+		}
 		
-       	ENG_polarized_politics = {
-			removal_cost = -1 
+		ENG_echoes_of_the_depression = {
 			
-			picture = ENG_polarized_politics
+			removal_cost = -1
+			
+			allowed = {
+				tag = ENG
+			} 
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				consumer_goods_factor = 0.1
+				industrial_capacity_factory = -0.1
+				production_factory_max_efficiency_factor = -0.05
+				production_factory_efficiency_gain_factor = -0.05
+			}
+		}
+		
+       	ENG_extremism = {
+			
+			removal_cost = -1
 			
 			allowed = {
 				tag = ENG
@@ -39,63 +86,10 @@ ideas = {
 			}
 			
 			modifier = {
-				conscription_factor = -0.05
-				#revolutionary_autocracy_drift = 0.01
-				#proletarian_dictatorship_drift = 0.01
-				#ultranational_statism_drift = 0.01
-			}
-		} 
-		
-       	ENG_extremist_militant_groups = {
-			removal_cost = -1 
-			
-			picture = ENG_extremist_militant_groups
-			
-			allowed = {
-				tag = ENG
-			} 
-			available = {
-			}
-			
-			allowed_civil_war = { 
-				always = yes
-			}
-			
-			modifier = {
-				#revolutionary_autocracy_drift = 0.01
-				#proletarian_dictatorship_drift = 0.01
-				#ultranational_statism_drift = 0.01
-				army_core_attack_factor = -0.10 
-				army_core_defence_factor = -0.10  
-				army_org = -20
+				army_core_attack_factor = -0.10
+				army_core_defence_factor = -0.10
+				army_org_factor = -0.2
 			}
 		}
 	}
-	
-	
-
-       
-
-
-	#Military
-	army_chief = {
-	}
-	navy_chief = {
-	}
-	air_chief = {
-	}
-	high_command = {
-	}
-	#Manufacturers
-	tank_manufacturer = {
-	}
-	naval_manufacturer = {
-	}
-	aircraft_manufacturer = {
-	}
-	materiel_manufacturer = {
-	}
-	theorist = {
-	}
-}
 }

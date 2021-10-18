@@ -1,15 +1,11 @@
 shared_focus = {
-    id = ENG_the_great_divide
-	icon = GFX_ENG_the_great_divide
+    id = ENG_the_attlee_ministry
+	icon = GFX_ENG_the_attlee_ministry
 	
-    x = 2
+    x = 8
 	y = 0
 	
-	available = {
-		always = no
-	}
-	
-	cost = 1
+	cost = 2
     completion_reward = {
         
     }
@@ -20,15 +16,128 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = ENG_crooks_and_thieves
-	icon = GFX_ENG_crooks_and_thieves
+    id = ENG_key_to_prosperity
+	icon = GFX_ENG_key_to_prosperity
+	
+    x = -2
+	y = 1
+	
+	cost = 2
+	relative_position_id = ENG_the_attlee_ministry
+	prerequisite = { focus = ENG_the_attlee_ministry }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ENG_serve_the_people
+	icon = GFX_ENG_serve_the_people
 	
     x = 0
 	y = 1
 	
-	available = {
-		always = no
+	cost = 2
+	relative_position_id = ENG_the_attlee_ministry
+	prerequisite = { focus = ENG_the_attlee_ministry }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
 	}
+}
+
+shared_focus = {
+    id = ENG_for_peace
+	icon = GFX_ENG_for_peace
+	
+    x = 2
+	y = 1
+	
+	cost = 2
+	relative_position_id = ENG_the_attlee_ministry
+	prerequisite = { focus = ENG_the_attlee_ministry }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ENG_the_liberals
+	icon = GFX_ENG_the_liberals
+	
+    x = 1
+	y = 1
+	
+	cost = 2
+	relative_position_id = ENG_key_to_prosperity
+	prerequisite = { focus = ENG_key_to_prosperity }
+	prerequisite = { focus = ENG_serve_the_people }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ENG_the_conservatives
+	icon = GFX_ENG_the_conservatives
+	
+    x = 1
+	y = 1
+	
+	cost = 2
+	relative_position_id = ENG_serve_the_people
+	prerequisite = { focus = ENG_serve_the_people }
+	prerequisite = { focus = ENG_for_peace }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ENG_the_great_divide
+	icon = GFX_ENG_the_great_divide
+	
+    x = 1
+	y = 1
+	
+	cost = 2
+	relative_position_id = ENG_the_liberals
+	prerequisite = { focus = ENG_the_liberals }
+	prerequisite = { focus = ENG_the_conservatives }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ENG_foreign_policy
+	icon = GFX_ENG_foreign_policy
+	
+    x = -8
+	y = 1
 	
 	cost = 2
 	relative_position_id = ENG_the_great_divide
@@ -43,19 +152,15 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = ENG_holy_bountiful_england
-	icon = GFX_ENG_holy_bountiful_england
+    id = ENG_domestic_policy
+	icon = GFX_ENG_domestic_policy
 	
     x = 0
 	y = 1
 	
-	available = {
-		always = no
-	}
-	
 	cost = 2
-	relative_position_id = ENG_crooks_and_thieves
-	prerequisite = { focus = ENG_crooks_and_thieves }
+	relative_position_id = ENG_the_great_divide
+	prerequisite = { focus = ENG_the_great_divide }
     completion_reward = {
         
     }
@@ -66,19 +171,15 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = ENG_the_kings_speech
-	icon = GFX_ENG_the_kings_speech
+    id = ENG_restore_public_order
+	icon = GFX_ENG_restore_public_order
 	
-    x = 0
+    x = -4
 	y = 1
 	
-	available = {
-		always = no
-	}
-	
 	cost = 2
-	relative_position_id = ENG_holy_bountiful_england
-	prerequisite = { focus = ENG_holy_bountiful_england }
+	relative_position_id = ENG_domestic_policy
+	prerequisite = { focus = ENG_domestic_policy }
     completion_reward = {
         
     }
@@ -89,19 +190,16 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = ENG_he_knocks
-	icon = GFX_ENG_he_knocks
+    id = ENG_focus_on_left
+	icon = GFX_ENG_focus_on_left
 	
-    x = 0
+    x = -1
 	y = 1
 	
-	available = {
-		always = no
-	}
-	
-	cost = 2
-	relative_position_id = ENG_the_kings_speech
-	prerequisite = { focus = ENG_the_kings_speech }
+	cost = 3
+	relative_position_id = ENG_restore_public_order
+	prerequisite = { focus = ENG_restore_public_order }
+	mutually_exclusive = { focus = ENG_focus_on_right }
     completion_reward = {
         
     }
@@ -112,13 +210,152 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = ENG_the_attlee_ministry
-	icon = GFX_ENG_the_attlee_ministry
+    id = ENG_focus_on_right
+	icon = GFX_ENG_focus_on_right
+	
+    x = 1
+	y = 1
+	
+	cost = 3
+	relative_position_id = ENG_restore_public_order
+	prerequisite = { focus = ENG_restore_public_order }
+	mutually_exclusive = { focus = ENG_focus_on_left }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ENG_meet_with_moderate_tories
+	icon = GFX_ENG_meet_with_moderate_tories
+	
+    x = 1
+	y = 1
+	
+	cost = 3
+	relative_position_id = ENG_focus_on_left
+	prerequisite = {
+		focus = ENG_focus_on_left
+		focus = ENG_focus_on_right
+	}
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ENG_rumblings_from_germany
+	icon = GFX_ENG_rumblings_from_germany
+	
+    x = 0
+	y = 1
+	
+	cost = 2
+	relative_position_id = ENG_domestic_policy
+	prerequisite = { focus = ENG_domestic_policy }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ENG_new_drydocks
+	icon = GFX_ENG_new_drydocks
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = ENG_rumblings_from_germany
+	prerequisite = { focus = ENG_rumblings_from_germany }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ENG_restructure_air_command
+	icon = GFX_ENG_restructure_air_command
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = ENG_rumblings_from_germany
+	prerequisite = { focus = ENG_rumblings_from_germany }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ENG_national_rearmament_board
+	icon = GFX_ENG_national_rearmament_board
+	
+    x = 0
+	y = 2
+	
+	cost = 5
+	relative_position_id = ENG_rumblings_from_germany
+	prerequisite = { focus = ENG_rumblings_from_germany }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ENG_remove_strike_restrictions
+	icon = GFX_ENG_remove_strike_restrictions
+	
+    x = 4
+	y = 1
+	
+	cost = 2
+	relative_position_id = ENG_domestic_policy
+	prerequisite = { focus = ENG_domestic_policy }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ENG_colonial_policy
+	icon = GFX_ENG_colonial_policy
 	
     x = 8
-	y = 0
+	y = 1
 	
 	cost = 2
+	relative_position_id = ENG_the_great_divide
+	prerequisite = { focus = ENG_the_great_divide }
     completion_reward = {
         
     }

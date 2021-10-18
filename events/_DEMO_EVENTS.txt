@@ -6,6 +6,7 @@ add_namespace = demo_rus
 add_namespace = demo_eng
 add_namespace = demo_ire
 add_namespace = demo_bal
+add_namespace = demo_cen
 add_namespace = demo_ww2
 
 country_event = { # election event
@@ -599,6 +600,92 @@ country_event = {
 		UKR = {
 			declare_war_on = {
 				target = CRI
+				type = annex_everything
+			}
+		}
+	}
+}
+
+country_event = {
+	id = demo_cen.1
+	title = ""
+	desc = demo_cen.1.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ""
+		CEN = {
+			add_state_core = 312
+			add_state_core = 313
+			add_state_core = 316
+			add_state_core = 317
+			add_state_core = 311
+			add_state_claim = 314
+			add_state_claim = 475
+			
+			annex_country = {
+				target = GUA
+			}
+			annex_country = {
+				target = HON
+			}
+			annex_country = {
+				target = NIC
+			}
+			annex_country = {
+				target = COS
+			}
+			
+			country_event = {
+				id = demo_cen.2
+			}
+			country_event = {
+				id = demo_cen.3
+				days = 35
+			}
+			
+			load_oob = CEN
+			
+			delete_unit_template_and_units = {
+				division_template = "Brigada de Infanteria 2"
+			}
+		}
+	}
+}
+
+news_event = {
+	id = demo_cen.2
+	title = ""
+	desc = demo_cen.2.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ""
+	}
+}
+
+country_event = {
+	id = demo_cen.3
+	title = ""
+	desc = demo_cen.3.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ""
+		CEN = {
+			declare_war_on = {
+				target = ELS
 				type = annex_everything
 			}
 		}
