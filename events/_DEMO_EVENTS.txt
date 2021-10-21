@@ -1,3 +1,4 @@
+add_namespace = demo_fra
 add_namespace = demo_mex
 add_namespace = demo_ita
 add_namespace = demo_ahe
@@ -8,6 +9,51 @@ add_namespace = demo_ire
 add_namespace = demo_bal
 add_namespace = demo_cen
 add_namespace = demo_ww2
+
+country_event = { # de la rocque takes power
+	id = demo_fra.1
+	title = ""
+	desc = demo_fra.1.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ""
+		FRA = {
+			set_politics = {
+				ruling_party = far_right_authoritarianism
+				last_election = "1936.1.1"
+				election_frequency = 48
+				elections_allowed = no
+			}
+			add_popularity = {
+				ideology = far_right_authoritarianism
+				popularity = 0.05
+			}
+		}
+		country_event = {
+			id = demo_fra.2
+		}
+	}
+}
+
+news_event = { # de la rocque takes power - news
+	id = demo_fra.2
+	title = ""
+	desc = demo_fra.2.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ""
+	}
+}
 
 country_event = { # election event
 	id = demo_mex.1

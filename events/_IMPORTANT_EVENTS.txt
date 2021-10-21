@@ -1,4 +1,5 @@
 add_namespace = politics_saver
+add_namespace = opinion_modifier
 
 country_event = { # called by keep_current_politics
 	id = politics_saver.1
@@ -23,6 +24,19 @@ country_event = { # test event
 		}
 		ENG = {
 			puppet = IRE
+		}
+	}
+}
+
+country_event = { # called on gamestart
+	id = opinion_modifier.1
+	hidden = yes
+	is_triggered_only = yes
+
+	option = {
+		### opinion modifiers ###
+		every_other_country = {
+			setup_opinion_modifiers = yes
 		}
 	}
 }

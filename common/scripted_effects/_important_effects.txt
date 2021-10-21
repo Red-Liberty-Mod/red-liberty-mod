@@ -223,3 +223,93 @@ reset_government = {
 	clear_variable = save_far_right_authoritarianism
 	clear_variable = save_fascism
 }
+
+clr_opinion_modifiers = {
+	remove_opinion_modifier = {
+		target = PREV
+		modifier = RL_similar_ideology_close
+	}
+	remove_opinion_modifier = {
+		target = PREV
+		modifier = RL_similar_ideology
+	}
+	remove_opinion_modifier = {
+		target = PREV
+		modifier = RL_similar_ideology_distant
+	}
+	remove_opinion_modifier = {
+		target = PREV
+		modifier = RL_different_ideology_close
+	}
+	remove_opinion_modifier = {
+		target = PREV
+		modifier = RL_different_ideology
+	}
+	remove_opinion_modifier = {
+		target = PREV
+		modifier = RL_same_ideology
+	}
+	PREV = {
+		remove_opinion_modifier = {
+			target = PREV
+			modifier = RL_similar_ideology_close
+		}
+		remove_opinion_modifier = {
+			target = PREV
+			modifier = RL_similar_ideology
+		}
+		remove_opinion_modifier = {
+			target = PREV
+			modifier = RL_similar_ideology_distant
+		}
+		remove_opinion_modifier = {
+			target = PREV
+			modifier = RL_different_ideology_close
+		}
+		remove_opinion_modifier = {
+			target = PREV
+			modifier = RL_different_ideology
+		}
+		remove_opinion_modifier = {
+			target = PREV
+			modifier = RL_same_ideology
+		}
+	}
+}
+
+setup_opinion_modifiers = {
+	if = {
+		limit = { has_same_govt_as_ROOT = yes }
+		add_opinion_modifier = {
+			target = ROOT
+			modifier = RL_same_ideology
+		}
+	}
+	else_if = {
+		limit = { has_similar_close_govt_to_ROOT = yes }
+		add_opinion_modifier = {
+			target = ROOT
+			modifier = RL_similar_ideology_close
+		}
+	}
+	else_if = {
+		limit = { has_similar_govt_to_ROOT = yes }
+		add_opinion_modifier = {
+			target = ROOT
+			modifier = RL_similar_ideology
+		}
+	}
+	else_if = {
+		limit = { has_similar_distant_govt_to_ROOT = yes }
+		add_opinion_modifier = {
+			target = ROOT
+			modifier = RL_similar_ideology_distant
+		}
+	}
+	else = {
+		add_opinion_modifier = {
+			target = ROOT
+			modifier = RL_different_ideology
+		}
+	}
+}

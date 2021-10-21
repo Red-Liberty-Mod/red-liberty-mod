@@ -1,46 +1,5 @@
 ﻿capital = 41
 
-oob = "SPR_1936"
-if = {
-	limit = { has_dlc = "Man the Guns" }
-		set_naval_oob = "SPR_1936_naval_mtg"
-	else = {
-		set_naval_oob = "SPR_1936_naval_legacy"
-	}
-}
-
-set_politics = {
-	ruling_party = far_right_authoritarianism
-	last_election = "1932.11.8"
-	election_frequency = 48
-	elections_allowed = no
-}
-set_popularities = {
-	insurrectionary_anarchism = 0
-	revolutionary_autocracy = 2
-	proletarian_dictatorship = 4
-	libertarian_socialism = 17
-	social_democracy = 28
-	progressive_liberalism = 6
-	market_libertarianism = 4
-	national_conservatism = 21
-	authoritarian_democracy = 2
-	autocratic_despotism = 2
-	far_right_authoritarianism = 5
-	fascism = 9
-}
-
-create_country_leader = {
-	name = "Alfonso XIII"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = far_right_authoritarianism_subtype
-	traits = {
-		
-	}
-}
-
 set_research_slots = 3
 
 set_technology = {
@@ -87,6 +46,51 @@ if = {
 		basic_torpedo = 1
 		basic_depth_charges = 1
 		mtg_transport = 1
+	}
+}
+
+oob = "SPR_1936"
+if = {
+	limit = { has_dlc = "Man the Guns" }
+		set_naval_oob = "SPR_1936_naval_mtg"
+	else = {
+		set_naval_oob = "SPR_1936_naval_legacy"
+	}
+}
+
+set_politics = {
+	ruling_party = autocratic_despotism
+	last_election = "1932.11.8"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	insurrectionary_anarchism = 0
+	revolutionary_autocracy = 2
+	proletarian_dictatorship = 4
+	libertarian_socialism = 17
+	social_democracy = 28
+	progressive_liberalism = 6
+	market_libertarianism = 4
+	national_conservatism = 21
+	authoritarian_democracy = 12
+	autocratic_despotism = 2
+	far_right_authoritarianism = 3
+	fascism = 1
+}
+
+set_country_flag = conservative_coalition
+set_country_flag = authoritarian_coalition
+set_country_flag = despotist_coalition
+
+create_country_leader = {
+	name = "Alfonso XIII"
+	desc = ""
+	picture = ""
+	expire = "1965.1.1"
+	ideology = autocratic_despotism_subtype
+	traits = {
+		
 	}
 }
 
