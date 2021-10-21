@@ -18,10 +18,14 @@ add_ideas = {
 	partial_economic_mobilisation
 }
 
-set_country_flag = authoritarian_coalition
-set_country_flag = despotist_coalition
-set_country_flag = far_right_coalition
-set_country_flag = ultranationalist_coalition
+add_opinion_modifier = {
+    target = ENG
+    modifier = protest_action
+}
+add_opinion_modifier = {
+    target = FRA
+    modifier = protest_action
+}
 
 if = {
 	limit = {
@@ -176,6 +180,11 @@ set_popularities = {
 	far_right_authoritarianism = 10
 	fascism = 34
 }
+
+set_country_flag = authoritarian_coalition
+set_country_flag = despotist_coalition
+set_country_flag = far_right_coalition
+set_country_flag = ultranationalist_coalition
 
 create_country_leader = {
 	name = "Ferruccio Parri"

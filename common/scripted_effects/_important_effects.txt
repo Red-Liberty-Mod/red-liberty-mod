@@ -306,6 +306,13 @@ setup_opinion_modifiers = {
 			modifier = RL_similar_ideology_distant
 		}
 	}
+	else_if = {
+		limit = { has_different_close_govt_to_ROOT = yes }
+		add_opinion_modifier = {
+			target = ROOT
+			modifier = RL_different_ideology_close
+		}
+	}
 	else = {
 		add_opinion_modifier = {
 			target = ROOT
