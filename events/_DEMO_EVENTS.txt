@@ -78,6 +78,8 @@ country_event = { # mexico civil war demo event
 	title = ""
 	desc = demo_mex.2.desc
 	
+	hidden = yes
+	
 	is_triggered_only = yes
 	
 	fire_only_once = yes
@@ -150,6 +152,11 @@ country_event = { # mexico civil war demo event
 				}
 			}
 		}
+		MEX = {
+			country_event = {
+				id = demo_mex.3
+			}
+		}
 	}
 }
 
@@ -160,9 +167,9 @@ news_event = {
 	
 	major = yes
 	
-	show_major = {
-		is_north_american_tag = yes
-	}
+	#show_major = {
+	#	is_north_american_tag = yes
+	#}
 	
 	is_triggered_only = yes
 	
@@ -273,6 +280,22 @@ country_event = {
 				target = ASA
 			}
 		}
+	}
+}
+
+news_event = { # war over news
+	id = demo_ita.3
+	title = demo_ita.3.title
+	desc = demo_ita.3.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = "The embarrassment of 1896 has been rectified..."
 	}
 }
 
@@ -500,7 +523,7 @@ country_event = { # baltic collapse/federation
 	option = {
 		name = ""
 		BAL_collapse = yes
-		country_event = {
+		news_event = {
 			id = demo_bal.2
 		}
 		ai_chance = { factor = 7 }
@@ -509,7 +532,7 @@ country_event = { # baltic collapse/federation
 	option = {
 		name = ""
 		BAL_form_autonomies = yes
-		country_event = {
+		news_event = {
 			id = demo_bal.3
 		}
 		ai_chance = { factor = 2 }
@@ -518,7 +541,7 @@ country_event = { # baltic collapse/federation
 	option = {
 		name = ""
 		BAL_form_federation = yes
-		country_event = {
+		news_event = {
 			id = demo_bal.4
 		}
 		ai_chance = { factor = 1 }
@@ -685,8 +708,9 @@ country_event = {
 				target = COS
 			}
 			
-			country_event = {
+			news_event = {
 				id = demo_cen.2
+				days = 1
 			}
 			country_event = {
 				id = demo_cen.3
@@ -704,7 +728,7 @@ country_event = {
 
 news_event = {
 	id = demo_cen.2
-	title = ""
+	title = demo_cen.2.title
 	desc = demo_cen.2.desc
 	
 	is_triggered_only = yes
@@ -714,13 +738,13 @@ news_event = {
 	fire_only_once = yes
 
 	option = {
-		name = ""
+		name = "Will hey succeed where their forebears failed?"
 	}
 }
 
 country_event = {
 	id = demo_cen.3
-	title = ""
+	title = demo_cen.3.title
 	desc = demo_cen.3.desc
 	
 	is_triggered_only = yes
@@ -735,5 +759,25 @@ country_event = {
 				type = annex_everything
 			}
 		}
+		news_event = {
+			id = demo_cen.4
+			days = 1
+		}
+	}
+}
+
+news_event = {
+	id = demo_cen.4
+	title = demo_cen.4.title
+	desc = demo_cen.4.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = "The first test of unity."
 	}
 }

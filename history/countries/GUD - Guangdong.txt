@@ -1,6 +1,6 @@
 ﻿capital = 592
 
-oob = "GUD_1936"
+oob = "GUD"
 
 set_stability = 0.6
 set_war_support = 0.4
@@ -21,19 +21,46 @@ set_politics = {
 set_popularities = {
 	insurrectionary_anarchism = 10
 	revolutionary_autocracy = 0
-	proletarian_dictatorship = 1
-	libertarian_socialism = 2
-	social_democracy = 25
+	proletarian_dictatorship = 0
+	libertarian_socialism = 0
+	social_democracy = 28
 	progressive_liberalism = 20
 	market_libertarianism = 0
 	national_conservatism = 15
-	far_right_authoritarianism = 0
 	authoritarian_democracy = 15
 	autocratic_despotism = 12
+	far_right_authoritarianism = 0
 	fascism = 0
 }
 
+add_ideas = {
+	GUD_widespread_corruption
+	GUD_political_instability
+}
+
 set_cosmetic_tag = CHI_empire_puppet
+
+create_country_leader = {
+	name = "The Four Elders"
+	desc = ""
+	picture = ""
+	expire = "1965.1.1"
+	ideology = insurrectionary_anarchism_subtype
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "Jiang Jieshi"
+	desc = ""
+	picture = ""
+	expire = "1965.1.1"
+	ideology = authoritarian_democracy_subtype
+	traits = {
+		#
+	}
+}
 
 create_country_leader = {
 	name = "Long Jigaung"

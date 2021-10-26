@@ -18,6 +18,18 @@ has_similar_close_govt_to_ROOT = {
 		}
 		AND = {
 			OR = {
+				has_government = social_democracy
+				has_government = libertarian_socialism
+			}
+			ROOT = {
+				OR = {
+					has_government = social_democracy
+					has_government = libertarian_socialism
+				}
+			}
+		}
+		AND = {
+			OR = {
 				has_government = revolutionary_autocracy
 				has_government = proletarian_dictatorship
 			}
@@ -57,18 +69,6 @@ has_similar_govt_to_ROOT = {
 				}
 			}
 		}
-		AND = {
-			OR = {
-				has_government = libertarian_socialism
-				has_government = social_democracy
-			}
-			ROOT = {
-				OR = {
-					has_government = libertarian_socialism
-					has_government = social_democracy
-				}
-			}
-		}
 	}
 }
 
@@ -91,6 +91,24 @@ has_similar_distant_govt_to_ROOT = {
 				has_government = authoritarian_democracy
 			}
 			ROOT = { has_government = social_democracy }
+		}
+		AND = {
+			has_government = market_libertarianism
+			ROOT = {
+				OR = {
+					has_government = progressive_liberalism
+					has_government = national_conservatism
+					has_government = authoritarian_democracy
+				}
+			}
+		}
+		AND = {
+			OR = {
+				has_government = progressive_liberalism
+				has_government = national_conservatism
+				has_government = authoritarian_democracy
+			}
+			ROOT = { has_government = market_libertarianism }
 		}
 		AND = {
 			OR = {

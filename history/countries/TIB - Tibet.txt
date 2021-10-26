@@ -7,68 +7,44 @@ set_technology = {
 	infantry_weapons = 1
 }
 
-1939.1.1 = {
-
-	add_political_power = 1198
-	
-	#generic focuses
-	complete_national_focus = army_effort
-	complete_national_focus = equipment_effort
-	complete_national_focus = motorization_effort
-	complete_national_focus = aviation_effort
-	complete_national_focus = construction_effort_2
-	complete_national_focus = production_effort_2
-	complete_national_focus = infrastructure_effort
-	complete_national_focus = industrial_effort
-	complete_national_focus = construction_effort
-	complete_national_focus = production_effort
-	
-	oob = "TIB_1939"
-	set_technology = {
-		#doctrines
-		air_superiority = 1
-
-		mass_assault = 1
-		pocket_defence = 1
-		defence_in_depth = 1
-
-		#electronics
-		electronic_mechanical_engineering = 1
-		radio = 1
-		radio_detection = 1
-
-		#industry
-		basic_machine_tools = 1
-		improved_machine_tools = 1
-		construction1 = 1
-		construction2 = 1
-		dispersed_industry = 1
-		dispersed_industry2 = 1
-	}
-}
-
 set_politics = {
-	ruling_party = autocratic_despotism
+	ruling_party = social_democracy
 	last_election = "1932.11.8"
 	election_frequency = 48
-	elections_allowed = yes
+	elections_allowed = no
 }
 set_popularities = {
-	conservatism = 5
-	revolutionary_socialism = 5
-	democratic_socialism = 5
-	liberalism = 85 
-	conservatism = 0 
-	autocratic_despotism = 0 
-	empowered_nationalism = 0 
+	insurrectionary_anarchism = 0
+	revolutionary_autocracy = 0
+	proletarian_dictatorship = 5
+	libertarian_socialism = 10
+	social_democracy = 25
+	progressive_liberalism = 0
+	market_libertarianism = 0
+	national_conservatism = 15
+	authoritarian_democracy = 0
+	autocratic_despotism = 40
+	far_right_authoritarianism = 5
+	fascism = 0
+}
+
+create_country_leader = {
+	name = "9th Panchen Lama"
+	desc = ""
+	picture = ""
+	expire = "1965.1.1"
+	ideology = social_democracy_subtype
+	traits = {
+		#
+	}
 }
 
 create_country_leader = {
 	name = "Jamphel Yeshe Gyaltsen"
-	desc = "POLITICS_JAMPHEL_YESHE_GYALTSEN_DESC"
-	picture = "Portrait_Tibet_Jamphel_Yeshe_Gyaltsen.dds"
+	desc = ""
+	picture = ""
 	expire = "1965.1.1"
-	ideology = despotism
+	ideology = autocratic_despotism_subtype
 	traits = {
 		#
 	}

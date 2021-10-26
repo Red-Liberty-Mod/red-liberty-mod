@@ -16,8 +16,7 @@ on_actions = {
 				}
 				country_event = {
 					id = demo_mex.2
-					days = 385
-					random = 15
+					days = 5 # 385
 				}
 			}
 			
@@ -60,9 +59,30 @@ on_actions = {
 			}
 		}
 	}
-	on_monthly = {
+	on_weekly = {
 		every_country = {
-			country_event = opinion_modifier.2
+			country_event = {
+				id = opinion_modifier.2
+			}
+		}
+	}
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					FROM = {
+						original_tag = ITA
+					}
+					ROOT = {
+						original_tag = ETH
+					}
+				}
+				every_country = {
+					news_event = {
+						id = demo_ita.3
+					}
+				}
+			}
 		}
 	}
 }
