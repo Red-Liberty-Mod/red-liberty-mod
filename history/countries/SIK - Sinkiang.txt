@@ -28,6 +28,22 @@ set_popularities = {
 	fascism = 0
 }
 
+if = {
+	limit = {
+		OR = {
+			has_dlc = "Together for Victory"
+			has_dlc = "Man the Guns"
+		}
+	}
+	set_autonomy = {
+		target = KUM
+		autonomous_state = autonomy_RL_protectorate
+	}
+	else = {
+		puppet = KUM
+	}
+}
+
 create_country_leader = {
 	name = "Yang Zengxin"
 	desc = ""
@@ -35,6 +51,6 @@ create_country_leader = {
 	expire = "1965.1.1"
 	ideology = autocratic_despotism_subtype
 	traits = {
-		#
+		
 	}
 }

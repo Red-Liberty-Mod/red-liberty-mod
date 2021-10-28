@@ -1,0 +1,736 @@
+shared_focus = {
+    id = FRA_reassure_diplomats
+	icon = GFX_FRA_reassure_diplomats
+	
+    x = 8
+	y = 0
+	
+	cost = 7
+    completion_reward = {
+		add_political_power = 100
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_reorg_colonial_army
+	icon = GFX_FRA_reorg_colonial_army
+	
+    x = -3
+	y = 1
+	
+	cost = 5
+	relative_position_id = FRA_reassure_diplomats
+	prerequisite = { focus = FRA_reassure_diplomats }
+    completion_reward = {
+		army_experience = 20
+		add_stability = 0.05
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_establish_national_departments
+	icon = GFX_FRA_establish_national_departments
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = FRA_reorg_colonial_army
+	prerequisite = { focus = FRA_reorg_colonial_army }
+    completion_reward = {
+		add_research_slot = 1
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_colonial_army_department
+	icon = GFX_FRA_colonial_army_department
+	
+    x = -3
+	y = 1
+	
+	cost = 5
+	relative_position_id = FRA_establish_national_departments
+	prerequisite = { focus = FRA_establish_national_departments }
+    completion_reward = {
+		army_experience = 30
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 1
+			category = land_doctrine
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_secure_contracts
+	icon = GFX_FRA_secure_contracts
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = FRA_colonial_army_department
+	prerequisite = { focus = FRA_colonial_army_department }
+    completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = infantry_tech
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_learn_from_europe
+	icon = GFX_FRA_learn_from_europe
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = FRA_secure_contracts
+	prerequisite = { focus = FRA_secure_contracts }
+    completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = land_doctrine
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_advancements_in_artillery
+	icon = GFX_FRA_advancements_in_artillery
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = FRA_learn_from_europe
+	prerequisite = { focus = FRA_learn_from_europe }
+    completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = artillery
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_specialist_support_companies
+	icon = GFX_FRA_specialist_support_companies
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = FRA_advancements_in_artillery
+	prerequisite = { focus = FRA_advancements_in_artillery }
+    completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = support_tech
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_motorise_our_forces
+	icon = GFX_FRA_motorise_our_forces
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = FRA_learn_from_europe
+	prerequisite = { focus = FRA_learn_from_europe }
+    completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 1
+			category = motorized_equipment
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_study_new_cavalry
+	icon = GFX_FRA_study_new_cavalry
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = FRA_motorise_our_forces
+	prerequisite = { focus = FRA_motorise_our_forces }
+    completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 1
+			ahead_reduction = 2
+			category = armor
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_broaden_recruitment
+	icon = GFX_FRA_broaden_recruitment
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = FRA_secure_contracts
+	prerequisite = { focus = FRA_secure_contracts }
+    completion_reward = {
+		add_ideas = {
+			FRAC_broadened_recruitment
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_colonial_naval_department
+	icon = GFX_FRA_colonial_naval_department
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = FRA_establish_national_departments
+	prerequisite = { focus = FRA_establish_national_departments }
+    completion_reward = {
+		navy_experience = 50
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 1
+			category = naval_doctrine
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_local_ship_production
+	icon = GFX_FRA_local_ship_production
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = FRA_colonial_naval_department
+	prerequisite = { focus = FRA_colonial_naval_department }
+    completion_reward = {
+		random_owned_state = {
+			limit = { is_coastal = yes }
+			add_building_construction = {
+				type = dockyard
+				level = 2
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 2
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_supplement_french_patrols
+	icon = GFX_FRA_supplement_french_patrols
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = FRA_local_ship_production
+	prerequisite = { focus = FRA_local_ship_production }
+    completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = naval_equipment
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_search_and_destroy
+	icon = GFX_FRA_search_and_destroy
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = FRA_supplement_french_patrols
+	prerequisite = { focus = FRA_supplement_french_patrols }
+    completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 1
+			ahead_reduction = 1
+			category = ss_tech
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_detect_and_repel
+	icon = GFX_FRA_detect_and_repel
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = FRA_supplement_french_patrols
+	prerequisite = { focus = FRA_supplement_french_patrols }
+    completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 1
+			ahead_reduction = 1
+			category = dd_tech
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_colonial_air_department
+	icon = GFX_FRA_colonial_air_department
+	
+    x = 3
+	y = 1
+	
+	cost = 5
+	relative_position_id = FRA_establish_national_departments
+	prerequisite = { focus = FRA_establish_national_departments }
+    completion_reward = {
+		air_experience = 50
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 1
+			category = air_doctrine
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_clear_the_runways
+	icon = GFX_FRA_clear_the_runways
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = FRA_colonial_air_department
+	prerequisite = { focus = FRA_colonial_air_department }
+    completion_reward = {
+		random_owned_state = {
+			limit = { is_capital = yes }
+			add_building_construction = {
+				type = air_base
+				level = 2
+				instant_build = yes
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_import_french_air
+	icon = GFX_FRA_import_french_air
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = FRA_colonial_air_department
+	prerequisite = { focus = FRA_colonial_air_department }
+    completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 1
+			category = air_doctrine
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_local_air_production
+	icon = GFX_FRA_local_air_production
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = FRA_clear_the_runways
+	prerequisite = { focus = FRA_clear_the_runways }
+	prerequisite = { focus = FRA_import_french_air }
+    completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 1
+			category = light_fighter
+		}
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 1
+			category = cas_bomber
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_call_in_the_investors
+	icon = GFX_FRA_call_in_the_investors
+	
+    x = 4
+	y = 1
+	
+	cost = 5
+	relative_position_id = FRA_reassure_diplomats
+	prerequisite = { focus = FRA_reassure_diplomats }
+    completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = industry
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_modern_infrastructure
+	icon = GFX_FRA_modern_infrastructure
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = FRA_call_in_the_investors
+	prerequisite = { focus = FRA_call_in_the_investors }
+    completion_reward = {
+		random_owned_state = {
+			limit = { is_capital = yes }
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		add_stability = 0.05
+		# add bonus to railway construction when NSB releases
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_develop_export_links
+	icon = GFX_FRA_develop_export_links
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = FRA_modern_infrastructure
+	prerequisite = { focus = FRA_modern_infrastructure }
+    completion_reward = {
+		add_equipment_to_stockpile = {
+			type = convoy
+			amount = 20
+			producer = FRA
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_enhance_rural_ties
+	icon = GFX_FRA_enhance_rural_ties
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = FRA_develop_export_links
+	prerequisite = { focus = FRA_develop_export_links }
+    completion_reward = {
+		every_owned_state = {
+			limit = {
+				infrastructure < 5
+				NOT = {
+					has_state_category = wasteland
+				}
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		add_stability = 0.05
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_mechanise_the_mines
+	icon = GFX_FRA_mechanise_the_mines
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = FRA_enhance_rural_ties
+	prerequisite = { focus = FRA_enhance_rural_ties }
+    completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = excavation_tech
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_protect_farmers
+	icon = GFX_FRA_protect_farmers
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = FRA_enhance_rural_ties
+	prerequisite = { focus = FRA_enhance_rural_ties }
+    completion_reward = {
+		add_ideas = {
+			FRAC_protected_farmers
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_economic_subsidies
+	icon = GFX_FRA_protect_farmers
+	
+    x = 3
+	y = 1
+	
+	cost = 5
+	relative_position_id = FRA_call_in_the_investors
+	prerequisite = { focus = FRA_call_in_the_investors }
+    completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 1
+			category = industry
+		}
+		add_timed_idea = {
+			idea = FRAC_eco_subsidies
+			days = 365
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_industrial_development
+	icon = GFX_FRA_industrial_development
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = FRA_economic_subsidies
+	prerequisite = { focus = FRA_economic_subsidies }
+    completion_reward = {
+		random_owned_state = {
+			limit = { is_capital = yes }
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 2
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_industrial_development_ii
+	icon = GFX_FRA_industrial_development
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = FRA_industrial_development
+	prerequisite = { focus = FRA_industrial_development }
+    completion_reward = {
+		random_owned_state = {
+			limit = { is_capital = no }
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_industrial_development_iii
+	icon = GFX_FRA_industrial_development
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = FRA_industrial_development_ii
+	prerequisite = { focus = FRA_industrial_development_ii }
+    completion_reward = {
+		random_owned_state = {
+			limit = { is_capital = no }
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		if = {
+			limit = {
+				has_idea = FRAC_eco_subsidies
+			}
+			swap_ideas = {
+				remove_idea = FRAC_eco_subsidies
+				add_idea = FRAC_eco_subsidies_2
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = FRAC_eco_subsidies_2
+				days = 365
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
