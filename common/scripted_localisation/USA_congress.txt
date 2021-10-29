@@ -1,4 +1,41 @@
 defined_text = {
+	name = get_bill_house_status
+	
+	text = { 
+        trigger = {
+			has_country_flag = USA_bill_house_phase
+        }
+        localization_key = "USA_bill_being_considered"
+    }
+	
+	text = {
+		trigger = {
+			has_country_flag = USA_bill_passed_house
+		}
+		localization_key = "USA_bill_house_passed"
+	}
+	
+	text = {
+		localization_key = ""
+    }
+}
+
+defined_text = {
+	name = get_bill_senate_status
+	
+	text = { 
+        trigger = {
+			has_country_flag = USA_bill_senate_phase
+        }
+        localization_key = "USA_bill_being_considered"
+    }
+	
+	text = {
+		localization_key = "USA_bill_status_awaiting_house"
+    }
+}
+
+defined_text = {
 	name = get_us_communist_rep_count
 	
 	text = { 
@@ -314,7 +351,23 @@ defined_text = {
 }
 
 defined_text = {
-	name = get_congress_status
+	name = get_congress_makeup
+	
+	text = {
+        trigger = {
+			check_variable = { bill_id > 0 }
+			has_country_flag = USA_discussing_bill
+        }
+        localization_key = ""
+    }
+	
+	text = {
+		localization_key = "USA_congress_makeup_tt"
+    }
+}
+
+defined_text = {
+	name = get_congress_voting_status
 	
 	text = {
         trigger = {

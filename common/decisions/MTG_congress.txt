@@ -546,44 +546,44 @@ USA_congress = {
 	
 ############## DO NOT MODIFY BELOW THIS LINE ### I'm gonna modify beyond this line if I don't get my 1 million dollars #################################
 	
-	start_vote = {
-		icon = ger_mefo_bills
-		available = {
-			
-		}
-		
-		visible = {
-			original_tag = USA
-			has_country_flag = USA_discussing_bill
-		}
-		
-		cost = 0
-		
-		days_remove = 5
-		
-		complete_effect = {
-			custom_effect_tooltip = start_vote_tt
-		}
-		
-		remove_effect = {
-			if = {
-				limit = {
-					OR = {
-						check_variable = { senators_support < quorum_medium }
-						check_variable = { representatives_support < rep_quorum_medium }
-					}
-				}
-				custom_effect_tooltip = vote_will_fail_tt
-			}
-			else_if = {
-				custom_effect_tooltip = vote_will_pass_tt
-			}
-		
-			USA_bill_vote = yes
-		}
-		
-		priority = 100
-	}
+	#start_vote = {
+	#	icon = ger_mefo_bills
+	#	available = {
+	#		
+	#	}
+	#	
+	#	visible = {
+	#		original_tag = USA
+	#		has_country_flag = USA_discussing_bill
+	#	}
+	#	
+	#	cost = 0
+	#	
+	#	days_remove = 5
+	#	
+	#	complete_effect = {
+	#		custom_effect_tooltip = start_vote_tt
+	#	}
+	#	
+	#	remove_effect = {
+	#		if = {
+	#			limit = {
+	#				OR = {
+	#					check_variable = { senators_support < quorum_medium }
+	#					check_variable = { representatives_support < rep_quorum_medium }
+	#				}
+	#			}
+	#			custom_effect_tooltip = vote_will_fail_tt
+	#		}
+	#		else_if = {
+	#			custom_effect_tooltip = vote_will_pass_tt
+	#		}
+	#	
+	#		USA_bill_vote = yes
+	#	}
+	#	
+	#	priority = 100
+	#}
 	
 	USA_eliminate_payroll_tax = {
 		
@@ -644,13 +644,12 @@ USA_congress = {
 				NOT = { check_variable = { USA_communist_bill_support = 1 } }
 			}
 		}
-    	days_remove = 5
-    	remove_effect = {
+    	complete_effect = {
 			
 		}
 	}
 	
-	USA_talk_with_dem_socialists = {
+	USA_talk_with_socialists = {
 		
 		visible = {
 			AND = {
@@ -682,9 +681,19 @@ USA_congress = {
 				NOT = { check_variable = { USA_socialist_bill_support = 1 } }
 			}
 		}
-    	days_remove = 5
-    	remove_effect = {
-			USA_socialist_support_eventless = yes
+    	complete_effect = {
+			if = {
+				limit = {
+					has_country_flag = USA_bill_house_phase
+				}
+				USA_socialist_support_house_eventless = yes
+			}
+			else_if = {
+				limit = {
+					has_country_flag = USA_bill_senate_phase
+				}
+				USA_socialist_support_senate_eventless = yes
+			}
 		}
 	}
 	
@@ -720,8 +729,7 @@ USA_congress = {
 				NOT = { check_variable = { USA_farmer_labor_bill_support = 1 } }
 			}
 		}
-    	days_remove = 5
-    	remove_effect = {
+    	complete_effect = {
 			
 		}
 	}
@@ -758,9 +766,19 @@ USA_congress = {
 				NOT = { check_variable = { USA_republican_bill_support = 1 } }
 			}
 		}
-    	days_remove = 5
-    	remove_effect = {
-			USA_republican_support_eventless = yes
+    	complete_effect = {
+			if = {
+				limit = {
+					has_country_flag = USA_bill_house_phase
+				}
+				USA_republican_support_house_eventless = yes
+			}
+			else_if = {
+				limit = {
+					has_country_flag = USA_bill_senate_phase
+				}
+				USA_republican_support_senate_eventless = yes
+			}
 		}
 	}
 	
@@ -796,9 +814,19 @@ USA_congress = {
 				NOT = { check_variable = { USA_democrat_bill_support = 1 } }
 			}
 		}
-    	days_remove = 5
-    	remove_effect = {
-			USA_democrat_support_eventless = yes
+    	complete_effect = {
+			if = {
+				limit = {
+					has_country_flag = USA_bill_house_phase
+				}
+				USA_democrat_support_house_eventless = yes
+			}
+			else_if = {
+				limit = {
+					has_country_flag = USA_bill_senate_phase
+				}
+				USA_democrat_support_senate_eventless = yes
+			}
 		}
 	}
 	
@@ -834,8 +862,7 @@ USA_congress = {
 				NOT = { check_variable = { USA_fascist_bill_support = 1 } }
 			}
 		}
-    	days_remove = 5
-    	remove_effect = {
+    	complete_effect = {
 			
 		}
 	}
@@ -867,6 +894,67 @@ USA_congress = {
 		}
 	}
 	
+	USA_house_phase = {
+		visible = {
+			original_tag = USA
+		}
+		available = { #Mission is completed when the player brings the bill to a vote
+			always = no
+		}
+		activation = {
+			has_country_flag = USA_bill_house_phase
+		}
+		is_good = yes
+		
+		days_mission_timeout = 30
+		
+		timeout_effect = {
+			if = {
+				limit = {
+					OR = {
+						check_variable = { representatives_support < rep_quorum_medium }
+					}
+				}
+				custom_effect_tooltip = vote_will_fail_tt
+				USA_bill_vote = yes
+			}
+			else = {
+				custom_effect_tooltip = vote_will_pass_tt
+				USA_senate_phase = yes
+			}
+		}
+	}
+	
+	USA_senate_phase = {
+		visible = {
+			original_tag = USA
+		}
+		available = { #Mission is completed when the player brings the bill to a vote
+			always = no
+		}
+		activation = {
+			has_country_flag = USA_bill_senate_phase
+		}
+		is_good = yes
+		
+		days_mission_timeout = 30
+		
+		timeout_effect = {
+			if = {
+				limit = {
+					OR = {
+						check_variable = { senators_support < quorum_medium }
+					}
+				}
+				custom_effect_tooltip = vote_will_fail_tt
+			}
+			else = {
+				custom_effect_tooltip = vote_will_pass_tt
+			}
+			USA_bill_vote = yes
+		}
+	}
+	
 	USA_bill_timer = {
 		visible = {
 			original_tag = USA
@@ -889,46 +977,4 @@ USA_congress = {
 			add_political_power = -50
 		}
 	}
-	
-	USA_depression_recovery = {
-		visible = {
-			original_tag = USA
-		}
-		activation = { #Mission is completed when the player finishes the focus
-			has_country_flag = USA_recovery_enabled
-		}
-		available = {
-			NOT = {
-				has_country_flag = USA_recovery_enabled
-			}
-		}
-		is_good = yes
-		
-		days_mission_timeout = USA_recovery_length
-		
-		timeout_effect = {
-			improve_great_depression = yes
-		}
-	}
-	
-	#USA_recession_timer = {
-	#	visible = {
-	#		original_tag = USA
-	#	}
-	#	available = { #Mission is completed when the player finishes the focus
-	#		has_completed_focus = USA_back_on_track
-	#	}
-	#	activation = {
-	#		has_country_flag = USA_1937_recession
-	#	}
-	#	is_good = no
-	#	
-	#	days_mission_timeout = 150
-	#	
-	#	timeout_effect = {
-	#		custom_effect_tooltip = USA_recession_timer_fail_tt
-	#		add_stability = -0.1
-	#		add_political_power = -200
-	#	}
-	#}
 }

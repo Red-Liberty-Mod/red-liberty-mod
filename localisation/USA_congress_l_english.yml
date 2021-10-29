@@ -1,6 +1,8 @@
 ﻿l_english:
  USA_congress:0 "Congress"
- USA_congress_desc:0 "The Hill has its own rules and ideas. We will have to work with them to make things happen, but there are ways to ensure that we have a sympathetic and supportive §YCongress§! to work with.\n[get_us_communist_rep_count][get_us_socialist_rep_count][get_us_farmer_labor_rep_count][get_us_liberal_rep_count][get_us_republican_rep_count][get_us_democrat_rep_count][get_us_fascist_rep_count]\nTotal Representatives: §G[?representatives_total]§!\nOur foothold in the house nets us §G+[?USA_house_control|2]§! political power per day.\n[get_us_communist_senator_count][get_us_socialist_senator_count][get_us_republican_senator_count][get_us_democrat_senator_count][get_us_fascist_senator_count]\nTotal Senators: §G[?senators_total]§!\nOur foothold in the senate nets us §G+[?USA_senate_control|2]§! political power per day.\n\n[get_congress_status]"
+ USA_congress_desc:0 "The Hill has its own rules and ideas. We will have to work with them to make things happen, but there are ways to ensure that we have a sympathetic and supportive §YCongress§! to work with.[get_congress_makeup][get_congress_voting_status]"
+ 
+ USA_congress_makeup_tt:0 "\n[get_us_communist_rep_count][get_us_socialist_rep_count][get_us_farmer_labor_rep_count][get_us_liberal_rep_count][get_us_republican_rep_count][get_us_democrat_rep_count][get_us_fascist_rep_count]\nTotal Representatives: §G[?representatives_total]§!\nOur foothold in the house nets us §G+[?USA_house_control|2]§! political power per day.\n[get_us_communist_senator_count][get_us_socialist_senator_count][get_us_republican_senator_count][get_us_democrat_senator_count][get_us_fascist_senator_count]\nTotal Senators: §G[?senators_total]§!\nOur foothold in the senate nets us §G+[?USA_senate_control|2]§! political power per day.\n\n"
  
  USA_congress_communist_rep_count:0 "\n§r[?representatives_communist]§! Representative(s) support the §rCommunist Party USA§!."
  USA_congress_communist_senator_count:0 "\n§r[?senators_communist]§! Senator(s) support the §rCommunist Party USA§!."
@@ -25,7 +27,15 @@
  USA_house_control_modifier:0 "House Control"
  
  USA_congress_voting_none:0 "Congress is currently in session, but there is no important legislation being considered."
- USA_congress_voting_bill:0 "§YCongress§! is currently considering §Y[get_bill_name]§!, which currently expects the support of [get_rep_color]/§Y[?USA.rep_quorum_medium]§! Representatives and [get_senator_color]/§Y[?USA.quorum_medium]§! Senators.\n[get_us_communist_rep_support][get_us_socialist_rep_support][get_us_farmer_labor_rep_support][get_us_liberal_rep_support][get_us_republican_rep_support][get_us_democrat_rep_support][get_us_afp_rep_support]\n\n§G[?republican_supporting_senators]§! Republican Senator(s) support the bill.\n§G[?democrat_supporting_senators]§! Democratic Senator(s) support the bill.\n§G[?socialist_supporting_senators]§! Socialist Senator(s) support the bill.\n§G[?fascist_supporting_senators]§! America First Senator(s) support the bill.\n§G[?communist_supporting_senators]§! Communist Senator(s) support the bill."
+ USA_congress_voting_bill:0 "\n\n§YCongress§! is currently considering §Y[get_bill_name]§!, which currently expects the support of [get_rep_color]/§Y[?USA.rep_quorum_medium]§! Representatives and [get_senator_color]/§Y[?USA.quorum_medium]§! Senators.\n\nStatus in the §LHouse§!: [get_bill_house_status][get_us_communist_rep_support][get_us_socialist_rep_support][get_us_farmer_labor_rep_support][get_us_liberal_rep_support][get_us_republican_rep_support][get_us_democrat_rep_support][get_us_afp_rep_support]\n\nStatus in the §gSenate§!: [get_bill_senate_status]\n§G[?communist_supporting_senators]§! Communist Senator(s) support the bill.\n§G[?socialist_supporting_senators]§! Socialist Senator(s) support the bill.\n§G[?republican_supporting_senators]§! Republican Senator(s) support the bill.\n§G[?democrat_supporting_senators]§! Democratic Senator(s) support the bill.\n§G[?fascist_supporting_senators]§! America First Senator(s) support the bill."
+ 
+ USA_house_phase:0 "House Discussions"
+ USA_senate_phase:0 "Senate Discussions"
+ 
+ USA_bill_go_to_senate:0 "§GThe bill will move on to the Senate.§!"
+ USA_bill_being_considered:0 "§YThe bill is being debated.§!"
+ USA_bill_house_passed:0 "§GThe bill has passed!§!"
+ USA_bill_status_awaiting_house:0 "§YThe bill is awaiting passage by the House.§!"
  
  USA_congress_communist_rep_support:0 "\n§G[?communist_supporting_reps]§! Communist Representative(s) support the bill."
  USA_congress_socialist_rep_support:0 "\n§G[?socialist_supporting_reps]§! Socialist Representative(s) support this bill."
@@ -34,8 +44,6 @@
  USA_congress_republican_rep_support:0 "\n§G[?republican_supporting_reps]§! Republican Representative(s) support this bill."
  USA_congress_democrat_rep_support:0 "\n§G[?democrat_supporting_reps]§! Democratic Representative(s) support this bill."
  USA_congress_afp_rep_support:0 "\n§G[?fascist_supporting_reps]§! America First Representative(s) support the bill."
- 
- USA_house_voting_bill:0 "§YThe House of Representatives§! is currently considering §Y[get_bill_name]§!, which currently expects the support of [get_rep_color] of the necessary§Y[?USA.rep_quorum_medium]§! Representatives.\n\n§G[?republican_supporting_reps]§! Republican Representative(s) support this bill.\n§G[?democrat_supporting_reps]§! Democratic Representative(s) support this bill.\n§G[?socialist_supporting_reps]§! Socialist Representative(s) support this bill.\n§G[?fascist_supporting_reps]§! America First Representative(s) support the bill.\n§G[?communist_supporting_reps]§! Communist Representative(s) support the bill."
  
  not_working:0 "\n§RIF YOU SEE THIS, SOMETHING HAS BROKEN§!"
  
@@ -64,21 +72,21 @@
  negotiate_some_republican_support:0 "We will negotiate the support of some §RRepublican§! members of Congress."
  USA_talk_with_democrats:0 "Negotiate with the Democrats"
  negotiate_some_democrat_support:0 "We will negotiate the support of some §CDemocratic§! members of Congress."
- USA_talk_with_dem_socialists:0 "Negotiate with the Socialists"
+ USA_talk_with_socialists:0 "Negotiate with the Socialists"
  negotiate_some_socialist_support:0 "We will negotiate the support of some §PSocialist§! members of Congress."
  USA_talk_with_communists:0 "Negotiate with the Communists"
  USA_talk_with_fascists:0 "Negotiate with the AFP"
  
+ communists_talking:0 "The Communists are willing to negotiate."
+ communists_fully_support:0 "The Communists don't fully support this bill."
+ socialist_talking:0 "The Socialists are willing to negotiate."
+ socialist_fully_support:0 "The Socialists don't fully support this bill."
  reps_talking:0 "The Republicans are willing to negotiate."
  reps_fully_support:0 "The Republicans don't fully support this bill."
  dems_talking:0 "The Democrats are willing to negotiate."
  dems_fully_support:0 "The Democrats don't fully support this bill."
- socialist_talking:0 "The Socialists are willing to negotiate."
- socialist_fully_support:0 "The Socialists don't fully support this bill."
  fascists_talking:0 "The AFP is willing to negotiate."
  fascists_fully_support:0 "The AFP doesn't fully support this bill."
- 
- communists_fully_support:0 "The Communists don't fully support this bill."
  
  USA_bill_executive_order:0 "Force it Through"
  
@@ -118,6 +126,7 @@
  
  start_USA_reorg_act:0 "The Reorganization Act"
  reorg_act_passed:0 "We have passed the Reorganization Act"
+ us_bill.5.title_passed:0 "Reorganization Act Passes!"
  
  start_USA_union_rep_act:0 "The Union Representation Act"
  union_act_passed:0 "We have passed the Union Representation Act"
