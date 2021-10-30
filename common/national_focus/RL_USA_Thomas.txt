@@ -114,7 +114,9 @@ shared_focus = {
 		focus = USA_preparing_our_agenda
 	}
     completion_reward = {
-        
+        add_ideas = {
+			USA_emerging_civil_rights_1
+		}
     }
 	
 	ai_will_do = {
@@ -152,9 +154,6 @@ shared_focus = {
 	relative_position_id = USA_the_forgotten
 	prerequisite = { focus = USA_the_forgotten }
     completion_reward = {
-        country_event = {
-			id = united_states_thomas.26
-		}
 		custom_effect_tooltip = USA_SPA_better_south
     }
 	
@@ -566,7 +565,11 @@ shared_focus = {
 	prerequisite = { focus = USA_federal_relief_programs }
 	prerequisite = { focus = USA_create_the_fprc }
     completion_reward = {
-        # add event about taxes
+        unlock_decision_tooltip = start_USA_wealth_tax_act
+		custom_effect_tooltip = USA_bill_pass_req_tt
+		effect_tooltip = {
+			improve_great_depression = yes
+		}
     }
 	
 	ai_will_do = {
@@ -763,9 +766,6 @@ shared_focus = {
 	prerequisite = { focus = USA_reorganization }
     completion_reward = {
         add_political_power = 25
-		remove_ideas = {
-			USA_bloated_federal_government
-		}
     }
 	
 	ai_will_do = {
@@ -837,7 +837,6 @@ shared_focus = {
 		#custom_effect_tooltip = USA_bill_over_time_tt
 		#unlock_decision_tooltip = start_USA_court_packing_act
 		#unlock_decision_tooltip = start_USA_union_rep_act
-		#unlock_decision_tooltip = start_USA_wealth_tax_act
     }
 	
 	ai_will_do = {

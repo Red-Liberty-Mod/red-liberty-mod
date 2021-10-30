@@ -338,11 +338,19 @@ USA_wealth_tax_act_setup = { # wealth tax act
 	#set_country_flag = bill_enable_mission
 	#set_variable = { USA_bill_mission_deadline = 75 }
 	
-	set_variable = { USA_republican_bill_support = 0 }
-	set_variable = { USA_democrat_bill_support = 0.2 }
 	set_variable = { USA_communist_bill_support = 1 }
 	set_variable = { USA_socialist_bill_support = 1 }
-	set_variable = { USA_fascist_bill_support = 0.2 } # longists like this idea
+	set_variable = { USA_republican_bill_support = 0.05 }
+	set_variable = { USA_democrat_bill_support = 0.2 }
+	set_variable = { USA_fascist_bill_support = 0.1 } # longists like this idea
+	
+	set_variable = { average_boost_republican = 0.15 }
+	set_variable = { average_boost_democrat = 0.1 }
+	
+	set_variable = { socialist_flip_cost = 20 }
+	set_variable = { republican_flip_cost = 60 }
+	set_variable = { democrat_flip_cost = 80 }
+	set_variable = { fascist_flip_cost = 130 }
 	
 	USA_bill_setup = yes # always required
 }
@@ -449,7 +457,10 @@ USA_senate_phase = {
 	
 	set_country_flag = USA_bill_senate_phase
 	
+	clr_country_flag = socialists_negotiated
 	clr_country_flag = republicans_negotiated
+	clr_country_flag = democrats_negotiated
+	clr_country_flag = fascists_negotiated
 }
 
 check_if_bill_passed = {
