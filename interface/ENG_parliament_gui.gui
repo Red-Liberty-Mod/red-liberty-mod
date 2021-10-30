@@ -1,12 +1,19 @@
 guiTypes = {
 	containerWindowType = {
         name = "parliament_gui_container"
-        position = { x = 0 y = 0 }
-		size = { width = 400 height = 250 }
+        position = { x = 560 y = 200 }
+		size = { width = 600 height = 600 }
+		
+		moveable = yes
+		
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_tiled_window_thin_border2"
+		}
 
 		instantTextBoxType = {
 			name = "parliament_gui_title"
-			position = { x = 55 y = 0 }
+			position = { x = 85 y = 20 }
 			font = "hoi_24header"
 			text = "parliament_gui_title"
 			maxWidth = 400
@@ -17,16 +24,11 @@ guiTypes = {
 		containerWindowType = {
 			name = "parliament_main_container"
 			position = { x = 0 y = 35 }
-			size = { width = 490 height = 200 }
-
-			background = {
-				name = "Background"
-				quadTextureSprite = "GFX_tiled_window_thin_border2"
-			}
+			size = { width = 700 height = 500 }
 
 			gridboxtype = {
 				name = "parliament_main_grid"
-				position = { x = -420 y = 25 }
+				position = { x = -650 y = 25 }
 				size = { width = 100%% height = 100%% }
 				slotsize = { width = 15 height = 15 }
 				max_slots_vertical = 10

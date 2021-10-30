@@ -367,6 +367,11 @@ USA_enforcement_act_setup = { # ban the kkk
 	set_variable = { USA_socialist_bill_support = 1 }
 	set_variable = { USA_fascist_bill_support = 0 }
 	
+	set_variable = { farmer_labor_flip_cost = 30 }
+	set_variable = { republican_flip_cost = 40 }
+	set_variable = { democrat_flip_cost = 50 }
+	set_variable = { fascist_flip_cost = 80 }
+	
 	USA_bill_setup = yes # always required
 }
 
@@ -873,7 +878,7 @@ USA_recalc_house = { # this will recalculate the number of representatives based
 		representatives_fascist = party_popularity@authoritarian_democracy
 	}
 	add_to_variable = {
-		representatives_fascist = party_popularity@fascism
+		representatives_fascist = party_popularity@far_right_authoritarianism
 	}
 	multiply_variable = {
 		representatives_fascist = 0.85
