@@ -597,18 +597,14 @@ focus_tree = {
 		cost = 5.00
 		prerequisite = {
 			focus = ITA_begin_to_weaken_fascism
-			focus = ITA_invite_the_moderates_in
-		}
-		#mutually_exclusive = {
-		#focus = ITA_introduce_less_extreme_parties_to_the_parliment
 		}
 		x = 37
 		y = 3
-			available_if_capitulated = yes
-			search_filters = { FOCUS_FILTER_FRA_POLITICAL_VIOLENCE }
-			ai_will_do = {
-					factor = 10
-				}
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_FRA_POLITICAL_VIOLENCE }
+		ai_will_do = {
+			factor = 10
+		}
 		completion_reward = {
 			add_popularity = {
     			ideology = proletarian_dictatorship
