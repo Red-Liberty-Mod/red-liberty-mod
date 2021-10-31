@@ -370,6 +370,76 @@ country_event = { #
 	}
 }
 
+country_event = {
+	id = demo_rus.2
+	title = ""
+	desc = demo_rus.2.desc
+	
+	trigger = {
+		tag = FER
+		PRI = {
+			exists = no
+		}
+	}
+	
+	fire_only_once = yes
+
+	option = {
+		name = ""
+		RUS = {
+			declare_war_on = {
+				target = FER
+				type = annex_everything
+			}
+		}
+		country_event = {
+			id = demo_rus.3
+			days = 15
+		}
+		country_event = {
+			id = demo_rus.4
+			days = 35
+		}
+	}
+}
+
+country_event = { # russian state ethnic revolts
+	id = demo_rus.3
+	title = ""
+	desc = demo_rus.3.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ""
+	}
+}
+
+country_event = { # russian state declares on transbaikalia
+	id = demo_rus.4
+	title = ""
+	desc = demo_rus.4.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ""
+		RUS = {
+			declare_war_on = {
+				target = TRB
+				type = annex_everything
+			}
+		}
+		TRB = {
+			drop_cosmetic_tag = yes
+		}
+	}
+}
+
 country_event = { # king suspends parliament
 	id = demo_eng.1
 	title = ""
