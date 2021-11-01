@@ -2,7 +2,7 @@ shared_focus = {
     id = USA_the_second_thomas_admin
 	icon = GFX_USA_the_second_thomas_admin
 	
-    x = 6
+    x = 5
 	
 	cost = 2
     completion_reward = {
@@ -105,7 +105,7 @@ shared_focus = {
     id = USA_the_forgotten
 	icon = GFX_USA_the_forgotten
 	
-    x = -5
+    x = -6
 	y = 1
 	
 	cost = 2
@@ -378,7 +378,7 @@ shared_focus = {
     id = USA_of_agriculture
 	icon = GFX_USA_of_agriculture
 	
-    x = -2
+    x = -3
 	y = 1
 	
 	cost = 2
@@ -434,35 +434,16 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = USA_dealing_with_the_dustbowl
-	icon = GFX_USA_dealing_with_the_dustbowl
+    id = USA_ccc
+	icon = GFX_USA_ccc
 	
     x = 1
 	y = 1
 	
-	cost = 5
+	cost = 3
 	relative_position_id = USA_buy_up_produce
 	prerequisite = { focus = USA_buy_up_produce }
 	prerequisite = { focus = USA_federal_relief_programs }
-    completion_reward = {
-		
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_ccc
-	icon = GFX_USA_ccc
-	
-    x = 0
-	y = 2
-	
-	cost = 3
-	relative_position_id = USA_dealing_with_the_dustbowl
-	prerequisite = { focus = USA_dealing_with_the_dustbowl }
     completion_reward = {
 		effect_tooltip = {
 			improve_dust_bowl = yes
@@ -475,10 +456,29 @@ shared_focus = {
 }
 
 shared_focus = {
+    id = USA_dealing_with_the_dustbowl
+	icon = GFX_USA_dealing_with_the_dustbowl
+	
+    x = 0
+	y = 2
+	
+	cost = 5
+	relative_position_id = USA_ccc
+	prerequisite = { focus = USA_ccc }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
     id = USA_of_industry
 	icon = GFX_USA_of_industry
 	
-    x = 2
+    x = 3
 	y = 1
 	
 	cost = 2
@@ -497,7 +497,7 @@ shared_focus = {
     id = USA_create_the_fprc
 	icon = GFX_USA_create_the_fprc
 	
-    x = -1
+    x = 1
 	y = 1
 	
 	cost = 4
@@ -518,7 +518,7 @@ shared_focus = {
     id = USA_bank_regulation
 	icon = GFX_USA_bank_regulation
 	
-    x = 1
+    x = -1
 	y = 1
 	
 	cost = 4
@@ -534,10 +534,10 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = USA_regulate_stock_markets
-	icon = GFX_USA_regulate_stock_markets
+    id = USA_restructure_the_reserve
+	icon = GFX_USA_restructure_the_reserve
 	
-    x = 1
+    x = -1
 	y = 1
 	
 	cost = 3
@@ -557,13 +557,13 @@ shared_focus = {
     id = USA_paying_for_it_all
 	icon = GFX_USA_paying_for_it_all
 	
-    x = 1
+    x = 2
 	y = 1
 	
-	cost = 8
+	cost = 4
 	relative_position_id = USA_federal_relief_programs
 	prerequisite = { focus = USA_federal_relief_programs }
-	prerequisite = { focus = USA_create_the_fprc }
+	prerequisite = { focus = USA_bank_regulation }
     completion_reward = {
         unlock_decision_tooltip = start_USA_wealth_tax_act
 		custom_effect_tooltip = USA_bill_pass_req_tt
@@ -578,15 +578,38 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = USA_federal_project_one
-	icon = GFX_USA_federal_project_one
+    id = USA_simplify_tax_code
+	icon = GFX_USA_simplify_tax_code
 	
     x = -1
 	y = 1
 	
-	cost = 6
+	cost = 4
+	relative_position_id = USA_restructure_the_reserve
+	prerequisite = {
+		focus = USA_paying_for_it_all
+		focus = USA_restructure_the_reserve
+	}
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_federal_project_one
+	icon = GFX_USA_federal_project_one
+	
+    x = -2
+	y = 1
+	
+	cost = 4
 	relative_position_id = USA_paying_for_it_all
 	prerequisite = { focus = USA_paying_for_it_all }
+	prerequisite = { focus = USA_ccc }
     completion_reward = {
         # add event about local 829
     }
@@ -600,10 +623,10 @@ shared_focus = {
     id = USA_cut_the_military
 	icon = GFX_USA_cut_the_military
 	
-    x = 1
+    x = 0
 	y = 1
 	
-	cost = 6
+	cost = 4
 	relative_position_id = USA_paying_for_it_all
 	prerequisite = { focus = USA_paying_for_it_all }
     completion_reward = {
@@ -619,13 +642,14 @@ shared_focus = {
     id = USA_federal_aid_commission
 	icon = GFX_USA_federal_aid_commission
 	
-    x = 1
+    x = 2
 	y = 1
 	
-	cost = 8
+	cost = 5
 	relative_position_id = USA_federal_project_one
 	prerequisite = { focus = USA_federal_project_one }
 	prerequisite = { focus = USA_cut_the_military }
+	prerequisite = { focus = USA_simplify_tax_code }
     completion_reward = {
 		improve_great_depression = yes
     }
@@ -642,9 +666,9 @@ shared_focus = {
     x = 0
 	y = 2
 	
-	cost = 5
-	relative_position_id = USA_regulate_stock_markets
-	prerequisite = { focus = USA_regulate_stock_markets }
+	cost = 4
+	relative_position_id = USA_create_the_fprc
+	prerequisite = { focus = USA_create_the_fprc }
     completion_reward = {
 		custom_effect_tooltip = USA_bill_over_time_tt
         unlock_decision_tooltip = USA_executive_order_7806
@@ -661,17 +685,40 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = USA_of_poverty
-	icon = GFX_USA_of_poverty
+    id = USA_form_boards_of_govs
+	icon = GFX_USA_form_boards_of_govs
 	
-    x = 2
+    x = 1
 	y = 1
 	
 	cost = 5
-	relative_position_id = USA_ccc
-	prerequisite = { focus = USA_ccc }
+	relative_position_id = USA_simplify_tax_code
+	prerequisite = {
+		focus = USA_simplify_tax_code
+		focus = USA_strengthen_labor_regs
+	}
+	prerequisite = {  }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_of_poverty
+	icon = GFX_USA_of_poverty
+	
+    x = 3
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_dealing_with_the_dustbowl
+	prerequisite = { focus = USA_dealing_with_the_dustbowl }
 	prerequisite = { focus = USA_federal_aid_commission }
-	prerequisite = { focus = USA_strengthen_labor_regs }
+	prerequisite = { focus = USA_form_boards_of_govs }
     completion_reward = {
         unlock_decision_tooltip = start_USA_social_security_act
 		custom_effect_tooltip = USA_bill_pass_req_tt
@@ -691,7 +738,7 @@ shared_focus = {
     id = USA_our_mandate
 	icon = GFX_USA_our_mandate
 	
-    x = 5
+    x = 6
 	y = 1
 	
 	cost = 2
