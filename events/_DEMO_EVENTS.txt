@@ -400,6 +400,10 @@ country_event = {
 			id = demo_rus.4
 			days = 35
 		}
+		country_event = {
+			id = demo_rus.5
+			days = 41
+		}
 	}
 }
 
@@ -436,6 +440,34 @@ country_event = { # russian state declares on transbaikalia
 		}
 		TRB = {
 			drop_cosmetic_tag = yes
+		}
+	}
+}
+
+country_event = { # soviet-state war
+	id = demo_rus.5
+	title = ""
+	desc = demo_rus.5.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ""
+		SOV = {
+			declare_war_on = {
+				target = RUS
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = ORE
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = URL
+				type = annex_everything
+			}
 		}
 	}
 }
