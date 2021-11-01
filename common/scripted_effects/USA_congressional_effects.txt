@@ -805,6 +805,94 @@ USA_socialist_support_senate_eventless = {
 	clear_variable = { new_senate_support }
 }
 
+USA_fascist_support_house_eventless = {
+	custom_effect_tooltip = negotiate_some_fascist_support
+	
+	USA = {# representatives
+		set_variable = { temp_house_fascist = representatives_fascist }
+		set_variable = { temp_house_already_supporting = fascist_supporting_reps }
+		
+		subtract_from_variable = { temp_house_fascist = temp_house_already_supporting }
+		log = "[GetDateText]: [Root.GetName]: calculated non-supporting fascists: [?temp_house_fascist]"
+	
+		set_variable = { new_house_support = temp_house_fascist }
+		multiply_variable = { new_house_support = average_boost_fascist }
+		log = "[GetDateText]: [Root.GetName]: House - calculated new fascist support: [?new_house_support]"
+		
+		randomize_variable = {
+			var = new_house_support
+			distribution = uniform
+			min = 1
+			max = 20
+		}
+		
+		round_variable = new_house_support
+		log = "[GetDateText]: [Root.GetName]: rounded fascist representative support: [?new_house_support]"
+		
+		add_to_variable = { fascist_supporting_reps = new_house_support }
+		clamp_variable = {
+			var = fascist_supporting_reps
+			min = 0
+			max = representatives_fascist
+		}
+		clamp_variable = {
+			var = new_house_support
+			min = 0
+			max = representatives_fascist
+		}
+		add_to_variable = { representatives_support = new_house_support }
+		log = "[GetDateText]: [Root.GetName]: added fascist house support: [?new_house_support]"
+	}
+	
+	set_country_flag = fascist_negotiated
+	clear_variable = { new_house_support }
+}
+
+USA_fascist_support_senate_eventless = {
+	custom_effect_tooltip = negotiate_some_fascist_support
+	
+	USA = {
+		set_variable = { temp_senate_fascist = senators_fascist }
+		set_variable = { temp_senate_already_supporting = fascist_supporting_senators }
+		
+		subtract_from_variable = { temp_senate_fascist = temp_senate_already_supporting }
+		log = "[GetDateText]: [Root.GetName]: calculated non-supporting fascists: [?temp_senate_fascist]"
+		
+		set_variable = { new_senate_support = temp_senate_fascist }
+		log = "[GetDateText]: [Root.GetName]: set fascist senator support: [?new_senate_support]"
+		
+		multiply_variable = { new_senate_support = average_boost_fascist }
+		log = "[GetDateText]: [Root.GetName]: Senate - calculated new fascist support: [?new_senate_support]"
+		
+		randomize_variable = {
+			var = new_senate_support
+			distribution = uniform
+			min = 1
+			max = 20
+		}
+		
+		round_variable = new_senate_support
+		log = "[GetDateText]: [Root.GetName]: rounded fascist senator support: [?new_senate_support]"
+		
+		add_to_variable = { fascist_supporting_senators = new_senate_support }
+		clamp_variable = {
+			var = fascist_supporting_senators
+			min = 0
+			max = senators_fascist
+		}
+		clamp_variable = {
+			var = new_senate_support
+			min = 0
+			max = senators_fascist
+		}
+		add_to_variable = { senators_support = new_senate_support }
+		log = "[GetDateText]: [Root.GetName]: added fascist senator support: [?new_senate_support]"
+	}
+	
+	set_country_flag = fascist_negotiated
+	clear_variable = { new_senate_support }
+}
+
 USA_recalc_house = { # this will recalculate the number of representatives based on party popularity, in an unbiased manner which does not favor any parties
 	
 	#Sets variable to check for discrepencies

@@ -863,7 +863,18 @@ USA_congress = {
 			}
 		}
     	complete_effect = {
-			
+			if = {
+				limit = {
+					has_country_flag = USA_bill_house_phase
+				}
+				USA_fascist_support_house_eventless = yes
+			}
+			else_if = {
+				limit = {
+					has_country_flag = USA_bill_senate_phase
+				}
+				USA_fascist_support_senate_eventless = yes
+			}
 		}
 	}
 	
