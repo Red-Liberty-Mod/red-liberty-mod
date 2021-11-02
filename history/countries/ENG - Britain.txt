@@ -11,16 +11,6 @@ if = {
 	}
 }
 
-set_country_flag = libertarian_socialism_coalition
-set_country_flag = social_democracy_coalition
-set_country_flag = progressive_coalition
-
-set_country_flag = market_libertarian_opposition
-set_country_flag = conservative_opposition
-set_country_flag = authoritarian_opposition
-set_country_flag = despotist_opposition
-set_country_flag = ultranationalist_opposition
-
 load_oob = "ENG_Motorized"
 
 set_research_slots = 4
@@ -121,10 +111,10 @@ if = {
 }
 
 add_ideas = {
-	ENG_british_empire
-	ENG_memories_of_the_national_govt
-	ENG_echoes_of_the_depression
-	ENG_extremism
+	ENG_puppet_minister
+	ENG_rivers_of_blood
+	ENG_imperial_economics
+	ENG_unemployment_crisis
 }
 
 set_convoys = 800
@@ -169,25 +159,37 @@ if = {
 }
 
 set_politics = {
-	ruling_party = libertarian_socialism
+	ruling_party = social_democracy
 	last_election = "1935.11.14"
 	election_frequency = 48
 	elections_allowed = yes
 }
 set_popularities = {
 	insurrectionary_anarchism = 0
-	revolutionary_autocracy = 3
-	proletarian_dictatorship = 6
-	libertarian_socialism = 41
-	social_democracy = 4
-	progressive_liberalism = 6
-	market_libertarianism = 4
-	national_conservatism = 22
-	far_right_authoritarianism = 0
-	authoritarian_democracy = 2
+	revolutionary_autocracy = 1
+	proletarian_dictatorship = 1
+	libertarian_socialism = 24
+	social_democracy = 6
+	progressive_liberalism = 5
+	market_libertarianism = 15
+	national_conservatism = 39
+	authoritarian_democracy = 7
 	autocratic_despotism = 1
-	fascism = 11
+	far_right_authoritarianism = 0
+	fascism = 1
 }
+
+set_country_flag = social_democracy_coalition
+set_country_flag = market_libertarian_coalition
+set_country_flag = conservative_coalition
+set_country_flag = authoritarian_coalition
+set_country_flag = despotist_coalition
+
+set_country_flag = rev_autocracy_opposition
+set_country_flag = proletarian_opposition
+set_country_flag = libertarian_socialism_opposition
+set_country_flag = progressive_opposition
+set_country_flag = ultranationalist_opposition
 
 create_faction = Commonwealth
 add_to_faction = ENG
@@ -213,9 +215,9 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "Clement Attlee"
-	desc = "POLITICS_CLEMENT_ATTLEE_DESC"
-	picture = "Portrait_ENG_Clement_Attlee.tga"
+	name = "Ramsay MacDonald"
+	desc = ""
+	picture = ""
 	expire = "1965.1.1"
 	ideology = social_democracy_subtype
 	traits = {
