@@ -1,0 +1,776 @@
+
+### MEXICO WAR TREE ###
+
+shared_focus = {
+    id = USA_down_mexico_way
+	icon = GFX_USA_down_mexico_way
+	
+    x = 20
+	y = 10
+	
+	available = {
+		has_global_flag = MEX_cristero_war_bad
+	}
+	
+	cost = 3
+    completion_reward = {
+		# add event giving player choice of path
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_get_involved
+	icon = GFX_USA_get_involved
+	
+    x = -1
+	y = 1
+	
+	available = {
+		
+	}
+	
+	cost = 3
+	mutually_exclusive = {
+		focus = USA_maintain_neutrality
+	}
+	relative_position_id = USA_down_mexico_way
+	prerequisite = { focus = USA_down_mexico_way }
+    completion_reward = {
+		add_stability = -0.15
+		add_war_support = 0.05
+    }
+	
+	ai_will_do = {
+		factor = 4
+	}
+}
+
+shared_focus = {
+    id = USA_permit_volunteers
+	icon = GFX_USA_permit_volunteers
+	
+    x = -1
+	y = 1
+	
+	available = {
+		MXR = {
+			exists = yes
+			has_war_with = MEX
+		}
+	}
+	
+	cost = 3
+	relative_position_id = USA_get_involved
+	prerequisite = { focus = USA_get_involved }
+    completion_reward = {
+		custom_effect_tooltip = USA_mexican_volunteers_lost_tt
+		add_ideas = {
+			USA_mexican_volunteers
+		}
+		# add event about volunteers going off to fight?
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_maintain_neutrality
+	icon = GFX_USA_maintain_neutrality
+	
+    x = 1
+	y = 1
+	
+	available = {
+		
+	}
+	
+	cost = 3
+	mutually_exclusive = {
+		focus = USA_get_involved
+	}
+	relative_position_id = USA_down_mexico_way
+	prerequisite = { focus = USA_down_mexico_way }
+    completion_reward = {
+		add_stability = 0.05
+    }
+	
+	ai_will_do = {
+		factor = 6
+	}
+}
+
+shared_focus = {
+    id = USA_support_yucatec_indep
+	icon = GFX_USA_support_yucatec_indep
+	
+    x = 1
+	y = 1
+	
+	available = {
+		YUC = {
+			exists = yes
+		}
+	}
+	
+	cost = 3
+	relative_position_id = USA_get_involved
+	prerequisite = {
+		focus = USA_get_involved
+		focus = USA_maintain_neutrality
+	}
+    completion_reward = {
+		USA = {
+			send_equipment = {
+				equipment = infantry_equipment
+				amount = 1500
+				target = YUC
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = demo_mex.4
+				days = 25
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_negotiated_peace
+	icon = GFX_USA_negotiated_peace
+	
+    x = 0
+	y = 2
+	
+	available = {
+		MXR = {
+			exists = yes
+			has_war_with = MEX
+		}
+	}
+	
+	cost = 3
+	relative_position_id = USA_maintain_neutrality
+	prerequisite = { focus = USA_maintain_neutrality }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_debate_full_intervention
+	icon = GFX_USA_debate_full_intervention
+	
+    x = 1
+	y = 1
+	
+	available = {
+		MXR = {
+			exists = yes
+			has_war_with = MEX
+		}
+	}
+	
+	cost = 5
+	relative_position_id = USA_permit_volunteers
+	prerequisite = { focus = USA_permit_volunteers }
+	prerequisite = { focus = USA_support_yucatec_indep }
+    completion_reward = {
+		# def add an event here
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+### JAPAN WAR TREE ###
+
+shared_focus = {
+    id = USA_day_of_infamy
+	icon = GFX_USA_day_of_infamy
+	
+    x = 25
+	y = 10
+	
+	available = {
+		USA = {
+			has_war_with = JAP
+		}
+	}
+	
+	cost = 3
+    completion_reward = {
+		# add event giving player choice of path
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_cave
+	icon = GFX_USA_cave
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = USA_pacific_war
+	}
+	relative_position_id = USA_day_of_infamy
+	prerequisite = { focus = USA_day_of_infamy }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_pacific_war
+	icon = GFX_USA_pacific_war
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = USA_cave
+	}
+	relative_position_id = USA_day_of_infamy
+	prerequisite = { focus = USA_day_of_infamy }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_assist_china
+	icon = GFX_USA_assist_china
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_pacific_war
+	prerequisite = { focus = USA_pacific_war }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_continental_intervention
+	icon = GFX_USA_continental_intervention
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_assist_china
+	prerequisite = { focus = USA_assist_china }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_wartime_measures
+	icon = GFX_USA_wartime_measures
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_pacific_war
+	prerequisite = { focus = USA_pacific_war }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_code_talkers
+	icon = GFX_USA_code_talkers
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_wartime_measures
+	prerequisite = { focus = USA_wartime_measures }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_expand_marines
+	icon = GFX_USA_expand_marines
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_assist_china
+	prerequisite = { focus = USA_assist_china }
+	prerequisite = { focus = USA_wartime_measures }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_pacific_allies
+	icon = GFX_USA_pacific_allies
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_expand_marines
+	prerequisite = { focus = USA_expand_marines }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_the_olive_branch
+	icon = GFX_USA_the_olive_branch
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = USA_unconditional_surrender
+	}
+	relative_position_id = USA_pacific_allies
+	prerequisite = { focus = USA_pacific_allies }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_unconditional_surrender
+	icon = GFX_USA_unconditional_surrender
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = USA_the_olive_branch
+	}
+	relative_position_id = USA_pacific_allies
+	prerequisite = { focus = USA_pacific_allies }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+### EUROPE WAR BRANCH ###
+
+shared_focus = {
+    id = USA_europe_aflame
+	icon = GFX_USA_europe_aflame
+	
+    x = 33
+	y = 10
+	
+	available = {
+		has_country_flag = USA_europe_war
+	}
+	
+	cost = 5
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_peace_in_our_time
+	icon = GFX_USA_peace_in_our_time
+	
+    x = -2
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = USA_congress_reigns_supreme
+	}
+	relative_position_id = USA_europe_aflame
+	prerequisite = { focus = USA_europe_aflame }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_aef
+	icon = GFX_USA_aef
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_peace_in_our_time
+	prerequisite = { focus = USA_peace_in_our_time }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_send_supplies
+	icon = GFX_USA_send_supplies
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_aef
+	prerequisite = { focus = USA_aef }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_offer_arbitration
+	icon = GFX_USA_send_supplies
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_send_supplies
+	prerequisite = { focus = USA_send_supplies }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_congress_reigns_supreme
+	icon = GFX_USA_congress_reigns_supreme
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = USA_peace_in_our_time
+	}
+	relative_position_id = USA_europe_aflame
+	prerequisite = { focus = USA_europe_aflame }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_the_resignation
+	icon = GFX_USA_the_resignation
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_congress_reigns_supreme
+	prerequisite = { focus = USA_congress_reigns_supreme }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_united_front
+	icon = GFX_USA_united_front
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_the_resignation
+	prerequisite = { focus = USA_the_resignation }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_oss
+	icon = GFX_USA_oss
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_the_resignation
+	prerequisite = { focus = USA_the_resignation }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_share_our_knowledge
+	icon = GFX_USA_share_our_knowledge
+	
+    x = 3
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_the_resignation
+	prerequisite = { focus = USA_the_resignation }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_full_commitment
+	icon = GFX_USA_full_commitment
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_united_front
+	prerequisite = { focus = USA_united_front }
+	prerequisite = { focus = USA_oss }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_bomber_command
+	icon = GFX_USA_bomber_command
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_share_our_knowledge
+	prerequisite = { focus = USA_share_our_knowledge }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_a_second_versailles
+	icon = GFX_USA_a_second_versailles
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = USA_europe_dictates_peace
+		focus = USA_ideological_hegemony
+	}
+	relative_position_id = USA_offer_arbitration
+	prerequisite = { focus = USA_offer_arbitration }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_europe_dictates_peace
+	icon = GFX_USA_europe_dictates_peace
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = USA_a_second_versailles
+		focus = USA_ideological_hegemony
+	}
+	relative_position_id = USA_offer_arbitration
+	prerequisite = {
+		focus = USA_offer_arbitration
+		focus = USA_full_commitment
+	}
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_business_as_usual
+	icon = GFX_USA_business_as_usual
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_europe_dictates_peace
+	prerequisite = { focus = USA_europe_dictates_peace }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_ideological_hegemony
+	icon = GFX_USA_ideological_hegemony
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = USA_a_second_versailles
+		focus = USA_europe_dictates_peace
+	}
+	relative_position_id = USA_full_commitment
+	prerequisite = { focus = USA_full_commitment }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_new_world_order
+	icon = GFX_USA_new_world_order
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_ideological_hegemony
+	prerequisite = { focus = USA_ideological_hegemony }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
