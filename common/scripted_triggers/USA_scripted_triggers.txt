@@ -20,6 +20,26 @@ is_presidential_election_year = {
 	}
 }
 
+socialists_have_congress_majority = {
+	custom_trigger_tooltip = {
+		tooltip = socialist_majority_tt
+		AND = {
+			check_variable = { senators_socialist > 48 }
+			check_variable = { representatives_socialist > 242 }
+		}
+	}
+}
+
+democrats_have_congress_majority = {
+	custom_trigger_tooltip = {
+		tooltip = democrat_majority_tt
+		AND = {
+			check_variable = { senators_democrat > 48 }
+			check_variable = { representatives_democrat > 242 }
+		}
+	}
+}
+
 is_new_england_state = {
 	OR = {
 		state = 357 # Massachussets

@@ -1,0 +1,153 @@
+shared_focus = {
+    id = IRE_state_of_the_nation
+	icon = GFX_IRE_state_of_the_nation
+	
+    x = 8
+	y = 0
+	
+	cost = 2
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_alone_in_the_atlantic
+	icon = GFX_IRE_alone_in_the_atlantic
+	
+    x = -1
+	y = 1
+	
+	cost = 2
+	relative_position_id = IRE_state_of_the_nation
+	prerequisite = { focus = IRE_state_of_the_nation }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+
+shared_focus = {
+    id = IRE_poor_and_prideful
+	icon = GFX_IRE_poor_and_prideful
+	
+    x = 1
+	y = 1
+	
+	cost = 2
+	relative_position_id = IRE_state_of_the_nation
+	prerequisite = { focus = IRE_state_of_the_nation }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_concrete_republic
+	icon = GFX_IRE_concrete_republic
+	
+    x = 1
+	y = 1
+	
+	cost = 2
+	relative_position_id = IRE_alone_in_the_atlantic
+	prerequisite = { focus = IRE_alone_in_the_atlantic }
+	prerequisite = { focus = IRE_poor_and_prideful }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_military_reform
+	icon = GFX_IRE_military_reform
+	
+    x = -2
+	y = 1
+	
+	cost = 2
+	relative_position_id = IRE_concrete_republic
+	prerequisite = { focus = IRE_concrete_republic }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_rifle_and_ballotbox
+	icon = GFX_IRE_military_reform
+	
+    x = 0
+	y = 1
+	
+	cost = 2
+	relative_position_id = IRE_concrete_republic
+	prerequisite = { focus = IRE_concrete_republic }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_industry_and_economy
+	icon = GFX_IRE_industry_and_economy
+	
+    x = 2
+	y = 1
+	
+	cost = 2
+	relative_position_id = IRE_concrete_republic
+	prerequisite = { focus = IRE_concrete_republic }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_campaign_season
+	icon = GFX_IRE_campaign_season
+	
+    x = 0
+	y = 1
+	
+	cost = 2
+	relative_position_id = IRE_rifle_and_ballotbox
+	prerequisite = { focus = IRE_military_reform }
+	prerequisite = { focus = IRE_rifle_and_ballotbox }
+	prerequisite = { focus = IRE_industry_and_economy }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
