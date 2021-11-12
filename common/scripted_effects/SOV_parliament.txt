@@ -1,4 +1,6 @@
 SOV_refresh_parliament = {
+
+	set_temp_variable = { old_seats_total = 542 }
 	
 	set_variable = { SOV_industrialist_seats = party_popularity@revolutionary_autocracy }
 	set_variable = { SOV_technocrat_seats = party_popularity@proletarian_dictatorship }
@@ -27,6 +29,52 @@ SOV_refresh_parliament = {
 	round_variable = SOV_libertarian_seats
 	round_variable = SOV_eser_seats
 	round_variable = SOV_liberal_seats
+	
+	set_temp_variable = { seats_total = 0 }
+	add_to_temp_variable = { seats_total = SOV_industrialist_seats }
+	add_to_temp_variable = { seats_total = SOV_technocrat_seats }
+	add_to_temp_variable = { seats_total = SOV_libertarian_seats }
+	add_to_temp_variable = { seats_total = SOV_eser_seats }
+	add_to_temp_variable = { seats_total = SOV_liberal_seats }
+	
+	if = {
+		limit = {
+			check_temp_variable = { seats_total < old_seats_total }
+		}
+		
+		subtract_from_temp_variable = { old_seats_total = seats_total }
+		
+		if = {
+			limit = {
+				has_government = revolutionary_autocracy
+			}
+			add_to_variable = { SOV_industrialist_seats = old_seats_total }
+		}
+		else_if = {
+			limit = {
+				has_government = proletarian_dictatorship
+			}
+			add_to_variable = { SOV_technocrat_seats = old_seats_total }
+		}
+		else_if = {
+			limit = {
+				has_government = libertarian_socialism
+			}
+			add_to_variable = { SOV_libertarian_seats = old_seats_total }
+		}
+		else_if = {
+			limit = {
+				has_government = social_democracy
+			}
+			add_to_variable = { SOV_libertarian_seats = old_seats_total }
+		}
+		else_if = {
+			limit = {
+				has_government = progressive_liberalism
+			}
+			add_to_variable = { SOV_libertarian_seats = old_seats_total }
+		}
+	}
 	
 	set_temp_variable = { t1 = SOV_industrialist_seats }
 	set_temp_variable = { t2 = SOV_technocrat_seats }

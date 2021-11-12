@@ -15,6 +15,7 @@ guiTypes = {
 			position = { x = 0 y = 0 }
 			spriteType = "GFX_SOV_parliament_button"
 			pdx_tooltip = "SOV_congress_tt"
+			pdx_tooltip_delayed = "SOV_congress_desc"
 		}
 	}
 	
@@ -93,12 +94,28 @@ guiTypes = {
 		
 		instantTextBoxType = {
 			name = "SOV_parliament_gui_desc"
-			position = { x = 80 y = 430 }
-			format = center
+			position = { x = 90 y = 430 }
+			format = right
 			maxHeight = 50
 			maxWidth = 500
 			font = hoi_24header
 			text = "SOV_congress_desc"
+		}
+		
+		instantTextBoxType = {
+			name = "SOV_parliament_chairman_title"
+			position = { x = 30 y = 400 }
+			format = center
+			font = hoi_24header
+			text = "Chairman"
+		}
+		
+		iconType = {
+			name = "SOV_parliament_chairman"
+			position = { x = 65 y = 435 }
+			scale = 0.85
+			quadTextureSprite = "SOV_kalinin_portrait"
+			pdx_tooltip = "SOV_chairman"
 		}
 	}
 }
