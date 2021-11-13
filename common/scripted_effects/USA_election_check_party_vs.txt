@@ -14,33 +14,33 @@ USA_check_election_vs = {
 	### check first place
 	if = {
 		limit = { # socialists in first
-			check_variable = { socialist_popularity > republican_popularity }
-			check_variable = { socialist_popularity > democrat_popularity }
-			check_variable = { socialist_popularity > afp_popularity }
+			check_variable = { socialist_election_pop > republican_election_pop }
+			check_variable = { socialist_election_pop > democrat_election_pop }
+			check_variable = { socialist_election_pop > afp_election_pop }
 		}
 		set_state_flag = socialist_first_place
 	}
 	if = {
 		limit = {
-			check_variable = { republican_popularity > socialist_popularity }
-			check_variable = { republican_popularity > democrat_popularity }
-			check_variable = { republican_popularity > afp_popularity }
+			check_variable = { republican_election_pop > socialist_election_pop }
+			check_variable = { republican_election_pop > democrat_election_pop }
+			check_variable = { republican_election_pop > afp_election_pop }
 		}
 		set_state_flag = republican_first_place
 	}
 	if = {
 		limit = {
-			check_variable = { democrat_popularity > socialist_popularity }
-			check_variable = { democrat_popularity > republican_popularity }
-			check_variable = { democrat_popularity > afp_popularity }
+			check_variable = { democrat_election_pop > socialist_election_pop }
+			check_variable = { democrat_election_pop > republican_election_pop }
+			check_variable = { democrat_election_pop > afp_election_pop }
 		}
 		set_state_flag = democrat_first_place
 	}
 	if = {
 		limit = {
-			check_variable = { afp_popularity > socialist_popularity }
-			check_variable = { afp_popularity > republican_popularity }
-			check_variable = { afp_popularity > democrat_popularity }
+			check_variable = { afp_election_pop > socialist_election_pop }
+			check_variable = { afp_election_pop > republican_election_pop }
+			check_variable = { afp_election_pop > democrat_election_pop }
 		}
 		set_state_flag = afp_first_place
 	}
@@ -50,19 +50,19 @@ USA_check_election_vs = {
 		limit = { # socialists in second
 			OR = {
 				AND = {
-					check_variable = { socialist_popularity < republican_popularity }
-					check_variable = { socialist_popularity > democrat_popularity }
-					check_variable = { socialist_popularity > afp_popularity }
+					check_variable = { socialist_election_pop < republican_election_pop }
+					check_variable = { socialist_election_pop > democrat_election_pop }
+					check_variable = { socialist_election_pop > afp_election_pop }
 				}
 				AND = {
-					check_variable = { socialist_popularity > republican_popularity }
-					check_variable = { socialist_popularity < democrat_popularity }
-					check_variable = { socialist_popularity > afp_popularity }
+					check_variable = { socialist_election_pop > republican_election_pop }
+					check_variable = { socialist_election_pop < democrat_election_pop }
+					check_variable = { socialist_election_pop > afp_election_pop }
 				}
 				AND = {
-					check_variable = { socialist_popularity > republican_popularity }
-					check_variable = { socialist_popularity > democrat_popularity }
-					check_variable = { socialist_popularity < afp_popularity }
+					check_variable = { socialist_election_pop > republican_election_pop }
+					check_variable = { socialist_election_pop > democrat_election_pop }
+					check_variable = { socialist_election_pop < afp_election_pop }
 				}
 			}
 		}
@@ -73,19 +73,19 @@ USA_check_election_vs = {
 		limit = { # democrats in second
 			OR = {
 				AND = {
-					check_variable = { democrat_popularity < republican_popularity }
-					check_variable = { democrat_popularity > socialist_popularity }
-					check_variable = { democrat_popularity > afp_popularity }
+					check_variable = { democrat_election_pop < republican_election_pop }
+					check_variable = { democrat_election_pop > socialist_election_pop }
+					check_variable = { democrat_election_pop > afp_election_pop }
 				}
 				AND = {
-					check_variable = { democrat_popularity > republican_popularity }
-					check_variable = { democrat_popularity < socialist_popularity }
-					check_variable = { democrat_popularity > afp_popularity }
+					check_variable = { democrat_election_pop > republican_election_pop }
+					check_variable = { democrat_election_pop < socialist_election_pop }
+					check_variable = { democrat_election_pop > afp_election_pop }
 				}
 				AND = {
-					check_variable = { democrat_popularity > republican_popularity }
-					check_variable = { democrat_popularity > socialist_popularity }
-					check_variable = { democrat_popularity < afp_popularity }
+					check_variable = { democrat_election_pop > republican_election_pop }
+					check_variable = { democrat_election_pop > socialist_election_pop }
+					check_variable = { democrat_election_pop < afp_election_pop }
 				}
 			}
 		}
@@ -96,19 +96,19 @@ USA_check_election_vs = {
 		limit = { # republicans in second
 			OR = {
 				AND = {
-					check_variable = { republican_popularity < democrat_popularity }
-					check_variable = { republican_popularity > socialist_popularity }
-					check_variable = { republican_popularity > afp_popularity }
+					check_variable = { republican_election_pop < democrat_election_pop }
+					check_variable = { republican_election_pop > socialist_election_pop }
+					check_variable = { republican_election_pop > afp_election_pop }
 				}
 				AND = {
-					check_variable = { republican_popularity > democrat_popularity }
-					check_variable = { republican_popularity < socialist_popularity }
-					check_variable = { republican_popularity > afp_popularity }
+					check_variable = { republican_election_pop > democrat_election_pop }
+					check_variable = { republican_election_pop < socialist_election_pop }
+					check_variable = { republican_election_pop > afp_election_pop }
 				}
 				AND = {
-					check_variable = { republican_popularity > democrat_popularity }
-					check_variable = { republican_popularity > socialist_popularity }
-					check_variable = { republican_popularity < afp_popularity }
+					check_variable = { republican_election_pop > democrat_election_pop }
+					check_variable = { republican_election_pop > socialist_election_pop }
+					check_variable = { republican_election_pop < afp_election_pop }
 				}
 			}
 		}
@@ -119,19 +119,19 @@ USA_check_election_vs = {
 		limit = { # afp in second
 			OR = {
 				AND = {
-					check_variable = { afp_popularity < democrat_popularity }
-					check_variable = { afp_popularity > socialist_popularity }
-					check_variable = { afp_popularity > republican_popularity }
+					check_variable = { afp_election_pop < democrat_election_pop }
+					check_variable = { afp_election_pop > socialist_election_pop }
+					check_variable = { afp_election_pop > republican_election_pop }
 				}
 				AND = {
-					check_variable = { afp_popularity > democrat_popularity }
-					check_variable = { afp_popularity < socialist_popularity }
-					check_variable = { afp_popularity > republican_popularity }
+					check_variable = { afp_election_pop > democrat_election_pop }
+					check_variable = { afp_election_pop < socialist_election_pop }
+					check_variable = { afp_election_pop > republican_election_pop }
 				}
 				AND = {
-					check_variable = { afp_popularity > democrat_popularity }
-					check_variable = { afp_popularity > socialist_popularity }
-					check_variable = { afp_popularity < republican_popularity }
+					check_variable = { afp_election_pop > democrat_election_pop }
+					check_variable = { afp_election_pop > socialist_election_pop }
+					check_variable = { afp_election_pop < republican_election_pop }
 				}
 			}
 		}
@@ -147,8 +147,8 @@ USA_check_election_margin = {
 				has_state_flag = democrat_second_place
 			}
 		}
-		set_variable = { USA_state_poll_pop_diff = socialist_popularity }
-		subtract_from_variable = { USA_state_poll_pop_diff = democrat_popularity }
+		set_variable = { USA_state_poll_pop_diff = socialist_election_pop }
+		subtract_from_variable = { USA_state_poll_pop_diff = democrat_election_pop }
 		log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
 	}
 	if = {
@@ -158,8 +158,8 @@ USA_check_election_margin = {
 				has_state_flag = socialist_second_place
 			}
 		}
-		set_variable = { USA_state_poll_pop_diff = democrat_popularity }
-		subtract_from_variable = { USA_state_poll_pop_diff = socialist_popularity }
+		set_variable = { USA_state_poll_pop_diff = democrat_election_pop }
+		subtract_from_variable = { USA_state_poll_pop_diff = socialist_election_pop }
 		log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
 	}
 	
@@ -170,8 +170,8 @@ USA_check_election_margin = {
 				has_state_flag = republican_second_place
 			}
 		}
-		set_variable = { USA_state_poll_pop_diff = socialist_popularity }
-		subtract_from_variable = { USA_state_poll_pop_diff = republican_popularity }
+		set_variable = { USA_state_poll_pop_diff = socialist_election_pop }
+		subtract_from_variable = { USA_state_poll_pop_diff = republican_election_pop }
 		log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
 	}
 	if = {
@@ -181,8 +181,8 @@ USA_check_election_margin = {
 				has_state_flag = socialist_second_place
 			}
 		}
-		set_variable = { USA_state_poll_pop_diff = republican_popularity }
-		subtract_from_variable = { USA_state_poll_pop_diff = socialist_popularity }
+		set_variable = { USA_state_poll_pop_diff = republican_election_pop }
+		subtract_from_variable = { USA_state_poll_pop_diff = socialist_election_pop }
 		log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
 	}
 	
@@ -193,8 +193,8 @@ USA_check_election_margin = {
 				has_state_flag = democrat_second_place
 			}
 		}
-		set_variable = { USA_state_poll_pop_diff = republican_popularity }
-		subtract_from_variable = { USA_state_poll_pop_diff = democrat_popularity }
+		set_variable = { USA_state_poll_pop_diff = republican_election_pop }
+		subtract_from_variable = { USA_state_poll_pop_diff = democrat_election_pop }
 		log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
 	}
 	if = {
@@ -204,8 +204,8 @@ USA_check_election_margin = {
 				has_state_flag = republican_second_place
 			}
 		}
-		set_variable = { USA_state_poll_pop_diff = democrat_popularity }
-		subtract_from_variable = { USA_state_poll_pop_diff = republican_popularity }
+		set_variable = { USA_state_poll_pop_diff = democrat_election_pop }
+		subtract_from_variable = { USA_state_poll_pop_diff = republican_election_pop }
 		log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
 	}
 	
@@ -216,8 +216,8 @@ USA_check_election_margin = {
 				has_state_flag = afp_second_place
 			}
 		}
-		set_variable = { USA_state_poll_pop_diff = democrat_popularity }
-		subtract_from_variable = { USA_state_poll_pop_diff = afp_popularity }
+		set_variable = { USA_state_poll_pop_diff = democrat_election_pop }
+		subtract_from_variable = { USA_state_poll_pop_diff = afp_election_pop }
 		log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
 	}
 	if = {
@@ -227,8 +227,8 @@ USA_check_election_margin = {
 				has_state_flag = democrat_second_place
 			}
 		}
-		set_variable = { USA_state_poll_pop_diff = afp_popularity }
-		subtract_from_variable = { USA_state_poll_pop_diff = democrat_popularity }
+		set_variable = { USA_state_poll_pop_diff = afp_election_pop }
+		subtract_from_variable = { USA_state_poll_pop_diff = democrat_election_pop }
 		log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
 	}
 }
