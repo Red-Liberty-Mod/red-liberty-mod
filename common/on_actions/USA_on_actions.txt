@@ -230,8 +230,13 @@ on_actions = {
 	
 	on_daily_USA = {
 		effect = {
-			limit = {
-				has_country_flag = USA_discussing_bill
+			if = {
+				limit = {
+					has_country_flag = USA_bill_senate_phase
+					NOT = {
+						has_country_flag = bill_passed
+					}
+				}
 			}
 			check_if_bill_passed = yes
 		}

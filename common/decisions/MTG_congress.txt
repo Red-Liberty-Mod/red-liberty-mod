@@ -922,16 +922,14 @@ USA_congress = {
 		timeout_effect = {
 			if = {
 				limit = {
-					OR = {
-						check_variable = { representatives_support < rep_quorum_medium }
-					}
+					bill_will_pass = yes
 				}
-				custom_effect_tooltip = vote_will_fail_tt
-				USA_bill_vote = yes
-			}
-			else = {
 				custom_effect_tooltip = vote_will_pass_tt
 				USA_senate_phase = yes
+			}
+			else = {
+				custom_effect_tooltip = vote_will_fail_tt
+				USA_bill_vote = yes
 			}
 		}
 	}
@@ -953,16 +951,15 @@ USA_congress = {
 		timeout_effect = {
 			if = {
 				limit = {
-					OR = {
-						check_variable = { senators_support < quorum_medium }
-					}
+					bill_will_pass = yes
 				}
-				custom_effect_tooltip = vote_will_fail_tt
+				custom_effect_tooltip = vote_will_pass_tt
+				USA_bill_vote = yes
 			}
 			else = {
-				custom_effect_tooltip = vote_will_pass_tt
+				custom_effect_tooltip = vote_will_fail_tt
+				USA_bill_vote = yes
 			}
-			USA_bill_vote = yes
 		}
 	}
 	
