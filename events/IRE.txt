@@ -28,3 +28,45 @@ country_event = { # cathal brugha released
 		name = ireland.2.a
 	}
 }
+
+country_event = { # hyde asassinated
+	id = ireland.3
+	title = ireland.3.title
+	desc = ireland.3.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ireland.3.a
+		hidden_effect = {
+			set_politics = {
+				ruling_party = national_conservatism
+				last_election = "1930.11.24"
+				election_frequency = 84
+				elections_allowed = no
+			}
+			country_event = {
+				id = ireland.4
+			}
+		}
+	}
+}
+
+news_event = { # hyde asassinated - world news
+	id = ireland.4
+	title = ireland.4.title
+	desc = ireland.4.desc
+	picture = GFX_report_event_hyde_death
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ireland.4.a
+	}
+}
