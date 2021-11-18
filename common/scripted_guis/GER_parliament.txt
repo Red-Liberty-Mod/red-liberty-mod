@@ -1,0 +1,75 @@
+scripted_gui = {
+	
+	GER_parliament_button_gui = {
+		context_type = player_context
+		parent_window_token = politics_tab
+		window_name = "GER_parliament_button_container"
+		
+		triggers = {
+			GER_parliament_button_visible = {
+				tag = GER
+			}
+			GER_parliament_button_bg_visible = {
+				tag = GER
+			}
+		}
+
+		effects = {
+			GER_parliament_button_click = {
+				if = {
+					limit = {
+						NOT = { has_country_flag = GER_open_parliament_gui }
+					}
+					ROOT = {
+						set_country_flag = GER_open_parliament_gui
+					}
+				}
+				else = {
+					clr_country_flag = GER_open_parliament_gui
+				}
+			}
+		}
+	}
+
+
+	GER_reichstag_scripted_gui = {
+		window_name = "GER_parliament_gui"
+		context_type = player_context
+
+		visible = {
+			has_country_flag = GER_open_parliament_gui
+		}
+		
+		triggers = {
+			refresh_button_visible = {
+				is_debug = yes
+			}
+		}
+
+		dynamic_lists = {
+			parliament_diagram = {
+				array = GER_x_array
+				change_scope = no
+				entry_container = GER_seat_container
+				index = seat_idx
+			}
+		}
+
+		properties = {
+			parliament_dot_icon = {
+				x = GER_x_array^seat_idx
+				y = GER_y_array^seat_idx
+				frame = GER_frame_array^seat_idx
+			}
+		}
+
+		effects = {
+			GER_close_button_click = {
+				clr_country_flag = GER_open_parliament_gui
+			}
+			GER_refresh_button_click = {
+				GER_recalc_parliament = yes
+			}
+		}
+	}
+}

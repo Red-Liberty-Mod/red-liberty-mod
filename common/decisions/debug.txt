@@ -23,6 +23,30 @@ debug_category = {
 		}
 	}
 	
+	debug_recalc_pie_chart = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			tag = USA
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = USA
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			USA_pie_adjustment_effect = yes
+		}
+	}
+	
 	debug_recalc_house = {
 	
 		icon = generic_political_discourse
@@ -68,7 +92,7 @@ debug_category = {
 		
 		complete_effect = {
 			USA_class_1_senate_prepare = yes
-			USA_recalculate_polls = yes
+			#USA_recalculate_polls = yes
 			
 			USA_hold_senate_election = yes
 			
@@ -262,6 +286,30 @@ debug_category = {
 		
 		complete_effect = {
 			set_country_flag = USA_silver_legion_enabled
+		}
+	}
+	
+	debug_GER_recalc_parliament = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			tag = GER
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = GER
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			GER_recalc_parliament = yes
 		}
 	}
 	

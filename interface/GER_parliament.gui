@@ -1,0 +1,115 @@
+guiTypes = {
+
+	containerWindowType = {
+		name = "GER_parliament_button_container"
+		position = { x = 140 y = 385 }
+
+		buttonType = {
+			name = "GER_parliament_button"
+			position = { x = 0 y = 0 }
+			spriteType = "GFX_GER_parliament_button"
+			pdx_tooltip = "GER_congress_tt"
+			pdx_tooltip_delayed = "GER_congress_desc"
+		}
+	}
+	
+	containerWindowType = {
+		name = "GER_seat_container"
+		position = { x = 0 y = 0 }
+
+		iconType = {
+			name = "parliament_dot_icon"
+			quadTextureSprite = "GER_seat_icon"
+			pdx_tooltip = "GER_congress_seat_tt"
+		}
+	}
+	
+	containerWindowType = {
+		name = "GER_parliament_gui"
+		position = { x = -1100 y = -450 }
+		show_position = { x = -400 y =-450 }
+		size = { width = 650 height = 650 }
+		
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
+
+		animation_time = 300
+		moveable = yes
+		show_sound = menu_open_window
+		click_to_front = yes
+		
+		orientation = center
+		
+		background = {
+			name = "background"		
+			quadTextureSprite = "GFX_tiled_window_thin_border2"
+		}
+
+		gridboxtype = {
+			name = "parliament_diagram"
+			position = { x = 40 y = 100 }
+			size = { width = 100%% height = 100%% }
+			slotsize = { width = 100%% height = 0 }
+			max_slots_horizontal = 1
+			add_horizontal = no
+		}
+		
+		buttonType = {
+			name = "GER_close_button"
+			spriteType = "GFX_closebutton"
+			orientation = right
+			position = { x = 600 y = 16 }
+			pdx_tooltip = "CLOSE"
+			shortcut = "ESCAPE"
+		}
+		buttonType = {
+			name = "GER_refresh_button"
+			spriteType = "GFX_browser_refresh"
+			position = { x = 16 y = 16 }
+		}
+		
+		instantTextBoxType = {
+			name = "GER_parliament_gui_name"
+			position = { x = 230 y = 30 }
+			format = center
+			maxHeight = 50
+			font = hoi_24header
+			text = "The Reichstag"
+		}
+		
+		instantTextBoxType = {
+			name = "GER_parliament_gui_seats_total"
+			position = { x = 230 y = 350 }
+			format = center
+			maxHeight = 50
+			font = hoi_24header
+			text = "397"
+		}
+		
+		instantTextBoxType = {
+			name = "GER_parliament_gui_desc"
+			position = { x = 90 y = 410 }
+			format = right
+			maxHeight = 50
+			maxWidth = 500
+			font = hoi_24header
+			text = "GER_reichstag_desc"
+		}
+		
+		#instantTextBoxType = {
+		#	name = "GER_parliament_chairman_title"
+		#	position = { x = 30 y = 400 }
+		#	format = center
+		#	font = hoi_24header
+		#	text = "Chairman"
+		#}
+		
+		#iconType = {
+		#	name = "GER_parliament_chairman"
+		#	position = { x = 65 y = 435 }
+		#	scale = 0.85
+		#	quadTextureSprite = "GER_kalinin_portrait"
+		#	pdx_tooltip = "GER_chairman"
+		#}
+	}
+}
