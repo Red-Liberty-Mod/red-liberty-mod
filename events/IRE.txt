@@ -50,6 +50,14 @@ country_event = { # hyde asassinated
 			country_event = {
 				id = ireland.4
 			}
+			country_event = {
+				id = ireland.5
+				days = 14
+			}
+			country_event = {
+				id = ireland.6
+				days = 30
+			}
 		}
 	}
 }
@@ -68,5 +76,205 @@ news_event = { # hyde asassinated - world news
 
 	option = {
 		name = ireland.4.a
+	}
+}
+
+news_event = { # unrest in ireland
+	id = ireland.5
+	title = ireland.5.title
+	desc = ireland.5.desc
+	
+	immediate = {
+		hidden_effect = {
+			134 = {
+				set_demilitarized_zone = yes
+			}
+		}
+	}
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ireland.5.a
+	}
+}
+
+news_event = { # second civil war starts
+	id = ireland.6
+	title = ireland.6.title
+	desc = ireland.6.desc
+	
+	immediate = {
+		hidden_effect = {
+			135 = {
+				set_demilitarized_zone = yes
+			}
+		}
+		random_list = {
+			20 = {
+				country_event = {
+					id = ireland.7
+					days = 65
+					days_random = 10
+				}
+			}
+			40 = {
+				country_event = {
+					id = ireland.8
+					days = 65
+					days_random = 10
+				}
+			}
+			40 = {
+				country_event = {
+					id = ireland.9
+					days = 65
+					days_random = 10
+				}
+			}
+		}
+	}
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ireland.6.a
+	}
+}
+
+news_event = { # civil war - collins victory
+	id = ireland.7
+	title = ireland.7.title
+	desc = ireland.7.desc
+	
+	immediate = {
+		hidden_effect = {
+			134 = {
+				set_demilitarized_zone = no
+			}
+			135 = {
+				set_demilitarized_zone = no
+			}
+		}
+	}
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ireland.7.a
+	}
+}
+
+news_event = { # civil war - socialist victory
+	id = ireland.8
+	title = ireland.8.title
+	desc = ireland.8.desc
+	
+	immediate = {
+		hidden_effect = {
+			134 = {
+				set_demilitarized_zone = no
+			}
+			135 = {
+				set_demilitarized_zone = no
+			}
+			IRE = {
+				set_politics = {
+					ruling_party = insurrectionary_anarchism
+					last_election = "1930.11.24"
+					election_frequency = 84
+					elections_allowed = no
+				}
+				set_popularities = {
+					insurrectionary_anarchism = 23
+					revolutionary_autocracy = 11
+					proletarian_dictatorship = 14
+					libertarian_socialism = 14
+					social_democracy = 11
+					progressive_liberalism = 6
+					market_libertarianism = 3
+					national_conservatism = 9
+					authoritarian_democracy = 6
+					autocratic_despotism = 3
+					far_right_authoritarianism = 0
+					fascism = 0
+				}
+				clr_country_flag = market_libertarian_coalition
+				clr_country_flag = conservative_coalition
+			}
+		}
+	}
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ireland.8.a
+	}
+}
+
+news_event = { # civil war - ira victory
+	id = ireland.9
+	title = ireland.9.title
+	desc = ireland.9.desc
+	
+	immediate = {
+		hidden_effect = {
+			134 = {
+				set_demilitarized_zone = no
+			}
+			135 = {
+				set_demilitarized_zone = no
+			}
+			IRE = {
+				set_politics = {
+					ruling_party = autocratic_despotism
+					last_election = "1930.11.24"
+					election_frequency = 84
+					elections_allowed = no
+				}
+				set_popularities = {
+					insurrectionary_anarchism = 0
+					revolutionary_autocracy = 0
+					proletarian_dictatorship = 4
+					libertarian_socialism = 8
+					social_democracy = 9
+					progressive_liberalism = 3
+					market_libertarianism = 6
+					national_conservatism = 11
+					authoritarian_democracy = 13
+					autocratic_despotism = 26
+					far_right_authoritarianism = 11
+					fascism = 9
+				}
+				clr_country_flag = market_libertarian_coalition
+				clr_country_flag = conservative_coalition
+			}
+		}
+	}
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ireland.9.a
 	}
 }
