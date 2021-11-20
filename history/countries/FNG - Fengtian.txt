@@ -9,10 +9,10 @@ set_technology = {
 	infantry_weapons = 1
 }
 
-set_cosmetic_tag = CHI_empire_puppet
+#set_cosmetic_tag = CHI_empire_puppet
 
 set_politics = {
-	ruling_party = autocratic_despotism
+	ruling_party = authoritarian_democracy
 	last_election = "1932.11.8"
 	election_frequency = 48
 	elections_allowed = no
@@ -32,12 +32,51 @@ set_popularities = {
 	fascism = 0
 }
 
+if = {
+	limit = {
+		OR = {
+			has_dlc = "Together for Victory"
+			has_dlc = "Man the Guns"
+		}
+	}
+	set_autonomy = {
+		target = MEN
+		autonomous_state = autonomy_RL_protectorate
+	}
+	else = {
+		puppet = MEN
+	}
+}
+
+MEN = {
+	set_politics = {
+		ruling_party = autocratic_despotism
+		last_election = "1932.11.8"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		insurrectionary_anarchism = 0
+		revolutionary_autocracy = 0
+		proletarian_dictatorship = 0
+		libertarian_socialism = 0
+		social_democracy = 0
+		progressive_liberalism = 0
+		market_libertarianism = 0
+		national_conservatism = 0
+		far_right_authoritarianism = 0
+		authoritarian_democracy = 20
+		autocratic_despotism = 80
+		fascism = 0
+	}
+}
+
 create_country_leader = {
 	name = "Zhang Xueliang"
 	desc = ""
 	picture = ""
 	expire = "1965.1.1"
-	ideology = autocratic_despotism_subtype
+	ideology = authoritarian_democracy_subtype
 	traits = {
 		#
 	}
