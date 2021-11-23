@@ -259,18 +259,12 @@ on_actions = {
 	
 	on_monthly_USA { # update
 		effect = {
-			every_owned_state = {
-				limit = { can_have_elections_in_state = yes }
-				USA_convert_party_pop_percentage = yes
-				USA_clamp_state_popularities = yes
-				
-				USA_check_election_vs = yes
-				USA_check_election_margin = yes
-			}
+			USA_recalculate_polls = yes
 			USA_calculate_senators = yes
 		}
 	}
 	
+	# completely deprecated now
 	# moved to countdown decision - moved again to on_actions above
 	#on_new_term_election = { # elections go here, in chronological order, stopgap measure until election system is more developed
 	#	random_events = {

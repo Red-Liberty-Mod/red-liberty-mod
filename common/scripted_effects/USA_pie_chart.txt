@@ -1,0 +1,112 @@
+
+USA_pie_adjustment_effect = {	
+
+	set_variable = { socialist_pie_var = 0 }
+	set_variable = { republican_pie_var = 0 }
+	set_variable = { democrat_pie_var = 0 }
+	set_variable = { afp_pie_var = 0 }
+	set_variable = { pie_var_total = 0 }
+	
+	every_owned_state = {
+		limit = { can_have_elections_in_state = yes }
+		USA_clamp_state_popularities = yes
+		USA_adjust_pie_state = yes
+	}
+	
+	add_to_variable = { pie_var_total = socialist_pie_var }
+	add_to_variable = { pie_var_total = republican_pie_var }
+	add_to_variable = { pie_var_total = democrat_pie_var }
+	add_to_variable = { pie_var_total = afp_pie_var }
+
+	divide_variable = { socialist_pie_var = pie_var_total }
+	divide_variable = { republican_pie_var = pie_var_total }
+	divide_variable = { democrat_pie_var = pie_var_total }
+	divide_variable = { afp_pie_var = pie_var_total }
+
+	multiply_variable = { socialist_pie_var = 100 }
+	multiply_variable = { republican_pie_var = 100 }
+	multiply_variable = { democrat_pie_var = 100 }
+	multiply_variable = { afp_pie_var = 100 }
+
+	round_variable =  socialist_pie_var
+	round_variable =  republican_pie_var
+	round_variable =  democrat_pie_var
+	round_variable =  afp_pie_var
+
+	set_temp_variable = { rounded_total = 0 } #Will store the total rounded %age
+
+	add_to_temp_variable = { rounded_total = socialist_pie_var }
+	add_to_temp_variable = { rounded_total = republican_pie_var }
+	add_to_temp_variable = { rounded_total = democrat_pie_var }
+	add_to_temp_variable = { rounded_total = afp_pie_var }
+
+	set_temp_variable = { rounding_error = rounded_total}
+	add_to_temp_variable = { rounding_error = -100 } #Basically, the rounding error for our total of popularities. Commonly equal to 101
+
+	if = {
+		limit = { 
+			check_variable = {
+				var = rounding_error
+				value = 0
+				compare = not_equals
+			}
+		}
+		if = { #fix the rounding error by changing one party big enough for the rounding not to be seen too much (cant bother to compute the max)
+			limit = { 
+				check_variable = { socialist_pie_var > 15 }
+			}
+			subtract_from_variable = { socialist_pie_var = rounding_error }
+		}
+		else_if = { 
+			limit = { 
+				check_variable = { republican_pie_var > 15 }
+			}
+			subtract_from_variable = { republican_pie_var = rounding_error }
+		}
+		else_if = { 
+			limit = { 
+				check_variable = { democrat_pie_var > 15 }
+			}
+			subtract_from_variable = { democrat_pie_var = rounding_error }
+		}
+		else = { 
+			subtract_from_variable = { afp_pie_var = rounding_error }
+		}
+	}
+	
+	#log = "socialist_pie_var: [?socialist_pie_var] republican_pie_var: [?republican_pie_var]"
+	
+	hidden_effect = {
+		set_popularities = {
+			insurrectionary_anarchism = 0
+			revolutionary_autocracy = 0
+			proletarian_dictatorship = 0
+			libertarian_socialism = socialist_pie_var
+			social_democracy = 0
+			progressive_liberalism = 0
+			market_libertarianism = republican_pie_var
+			national_conservatism = democrat_pie_var
+			authoritarian_democracy = afp_pie_var
+			autocratic_despotism = 0
+			far_right_authoritarianism = 0
+			fascism = 0
+		}
+	}
+}
+
+USA_adjust_pie_state = {
+	set_temp_variable = { socialist_temp_popularity = socialist_election_pop }
+	set_temp_variable = { republican_pie_temp_popularity = republican_election_pop }
+	set_temp_variable = { democrat_pie_temp_popularity = democrat_election_pop }
+	set_temp_variable = { afp_pie_temp_popularity = afp_election_pop }
+	
+	multiply_temp_variable = { socialist_temp_popularity = state_population_k }
+	multiply_temp_variable = { republican_pie_temp_popularity = state_population_k }
+	multiply_temp_variable = { democrat_pie_temp_popularity = state_population_k }
+	multiply_temp_variable = { afp_pie_temp_popularity = state_population_k }
+
+	add_to_variable = { USA.socialist_pie_var = socialist_temp_popularity }
+	add_to_variable = { USA.republican_pie_var = republican_pie_temp_popularity }
+	add_to_variable = { USA.democrat_pie_var = democrat_pie_temp_popularity }
+	add_to_variable = { USA.afp_pie_var = afp_pie_temp_popularity }
+}

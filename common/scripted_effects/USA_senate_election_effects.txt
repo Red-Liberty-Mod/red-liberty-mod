@@ -1,33 +1,17 @@
+@SENATE_TIEBREAKER = 0.05
 @POPULARITY_CLAMP_MIN = 0.001
 @POPULARITY_CLAMP_MAX = 1000
 
 #Fire this every time you want the polls to update
 USA_recalculate_polls = {
-	if = {
-		limit = { has_country_flag = USA_senate_elections }
-		every_owned_state = {
-			limit = {
-				OR = { 
-					has_state_flag = elections_senator_1
-				}	
-			}
-			log = "[This.GetName]: calculate senate poll, because senator 1 is up for election"
-			USA_calculate_senate_predictions = yes
+	every_owned_state = {
+		limit = {
+			can_have_elections_in_state = yes
 		}
-		every_owned_state = {
-			limit = {
-				has_state_flag = elections_senator_2
-			}
-			log = "[This.GetName]: calculate senate poll, because senator 2 is up for election"
-			USA_calculate_senate_predictions = yes
-		}
-		every_owned_state = {
-			limit = {
-				can_have_elections_in_state = yes
-			}
-			US_update_presidential_election_race_in_state = yes
-			USA_calculate_president_predictions = yes
-		}
+		USA_convert_party_pop_percentage = yes
+		USA_clamp_state_popularities = yes
+		USA_check_election_vs = yes
+		USA_check_election_margin = yes
 	}
 }
 

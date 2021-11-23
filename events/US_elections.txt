@@ -125,7 +125,10 @@ country_event = { # new congress gets sworn in
 	
 	option = {
 		name = us_election.3.a
-		USA_recalc_house = yes
+		every_owned_state = {
+			limit = { can_have_elections_in_state = yes }
+			USA_recalc_house_state = yes
+		}	
 	}
 }
 
@@ -391,14 +394,9 @@ country_event = { #mark states for election
 	immediate = {
  		hidden_effect = {
  			country_event = { id = us_election_trigger.2 days = 280 } # hold the election
+			
 			USA_class_1_senate_prepare = yes
 			USA_recalculate_polls = yes
-			
-			USA_convert_party_pop_percentage = yes
-			USA_clamp_state_popularities = yes
-				
-			USA_check_election_vs = yes
-			USA_check_election_margin = yes
  		}
 	}
 
@@ -459,6 +457,8 @@ country_event = { #Prep Class II election
 	immediate = {
  		hidden_effect = {
  			country_event = { id = us_election_trigger.4 days = 280 }
+			USA_class_2_senate_prepare = yes
+			USA_recalculate_polls = yes
  		}
 	}
 
@@ -475,10 +475,6 @@ country_event = { #Prep Class II election
 			custom_effect_tooltip = USA_presidential_elections_visible_tt
 			USA_prepare_presidential_election = yes
 		}
- 		hidden_effect = {
- 			USA_class_2_senate_prepare = yes
-			USA_recalculate_polls = yes
- 		}
  	}
 	option = {
  		name = us_election_trigger.3.b
@@ -491,10 +487,6 @@ country_event = { #Prep Class II election
 			custom_effect_tooltip = USA_presidential_elections_visible_tt
 			USA_prepare_presidential_election = yes
 		}
- 		hidden_effect = {
- 			USA_class_2_senate_prepare = yes
-			USA_recalculate_polls = yes
- 		}
  	}
 }
 
@@ -526,6 +518,8 @@ country_event = { #Prep for Class III election
 	immediate = {
  		hidden_effect = {
  			country_event = { id = us_election_trigger.7 days = 280 }
+			USA_class_3_senate_prepare = yes
+			USA_recalculate_polls = yes
  		}
 	}
 
@@ -542,10 +536,6 @@ country_event = { #Prep for Class III election
 			custom_effect_tooltip = USA_presidential_elections_visible_tt
 			USA_prepare_presidential_election = yes
 		}
- 		hidden_effect = {
- 			USA_class_3_senate_prepare = yes
-			USA_recalculate_polls = yes
- 		}
  	}
 	option = {
  		name = us_election_trigger.6.b
@@ -558,10 +548,6 @@ country_event = { #Prep for Class III election
 			custom_effect_tooltip = USA_presidential_elections_visible_tt
 			USA_prepare_presidential_election = yes
 		}
- 		hidden_effect = {
- 			USA_class_3_senate_prepare = yes
-			USA_recalculate_polls = yes
- 		}
  	}
 }
 

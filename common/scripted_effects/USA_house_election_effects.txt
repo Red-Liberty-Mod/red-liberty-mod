@@ -1,7 +1,9 @@
 USA_recalc_house_state = { # call within state
 	
-	set_variable = { old_reps_total = electoral_votes } # find total reps to distribute
-	subtract_from_variable = { old_reps_total = 2 } # remove 2 senators
+	set_variable = { old_state_reps_total = electoral_votes } # find total reps to distribute
+	subtract_from_variable = { old_state_reps_total = 2 } # remove 2 senators
+	
+	#log = "[This.GetName] : old_state_reps_total - [?old_state_reps_total]"
 	
 	set_variable = {
 		state_socialist_reps = socialist_election_pop
@@ -20,16 +22,16 @@ USA_recalc_house_state = { # call within state
 	}
 	
 	multiply_variable = {
-		state_socialist_reps = old_reps_total
+		state_socialist_reps = old_state_reps_total
 	}
 	multiply_variable = {
-		state_democrat_reps = old_reps_total
+		state_democrat_reps = old_state_reps_total
 	}
 	multiply_variable = {
-		state_republican_reps = old_reps_total
+		state_republican_reps = old_state_reps_total
 	}
 	multiply_variable = {
-		state_afp_reps = old_reps_total
+		state_afp_reps = old_state_reps_total
 	}
 	
 	round_variable = state_socialist_reps
@@ -53,51 +55,51 @@ USA_recalc_house_state = { # call within state
 		state_reps_total = state_afp_reps
 	}
 	
-	log = "[This.GetName] : state_socialist_reps - [?state_socialist_reps]"
-	log = "[This.GetName] : state_democrat_reps - [?state_democrat_reps]"
-	log = "[This.GetName] : state_republican_reps - [?state_republican_reps]"
-	log = "[This.GetName] : state_afp_reps - [?state_afp_reps]"
+	#log = "[This.GetName] : state_reps_total: [?state_reps_total]"
 	
 	subtract_from_variable = { # checks for discrepancy
-		old_reps_total = state_reps_total
+		old_state_reps_total = state_reps_total
 	}
 	
-	log = "[This.GetName] : state_reps_total - [?state_reps_total]"
+	#log = "[This.GetName] : old_state_reps_total - state_reps_total: [?old_state_reps_total]"
 	
 	if = { # fixes discrepancy
 		limit = {
 			NOT = {
 				check_variable = {
-					old_reps_total = 0
+					old_state_reps_total = 0
 				}
 			}
-		}
-		add_to_variable = {
-			state_reps_total = old_reps_total
 		}
 		if = {
 			limit = {
-				USA = {
-					has_government = libertarian_socialism
-				}
+				check_variable = { socialist_election_pop > democrat_election_pop }
+				check_variable = { socialist_election_pop > republican_election_pop }
+				check_variable = { socialist_election_pop > afp_election_pop }
 			}
 			add_to_variable = {
-				state_socialist_reps = old_reps_total
+				state_socialist_reps = old_state_reps_total
 			}
 		}
+	}
+	
+	log = "[This.GetName] : state_socialist_reps - [?state_socialist_reps]"
+	log = "[This.GetName] : state_democrat_reps - [?state_democrat_reps]"
+	log = "[This.GetName] : state_republican_reps - [?state_republican_reps]"
+	log = "[This.GetName] : state_afp_reps - [?state_afp_reps]"
+	
+	USA = {
+		USA_calculate_reps = yes
 	}
 }
 
 USA_calculate_reps = {
 
 	USA = {
-		set_variable = { representatives_total_old = 0 }
-		add_to_variable = { representatives_total_old = representatives_socialist }
-		add_to_variable = { representatives_total_old = representatives_republican }
-		add_to_variable = { representatives_total_old = representatives_democrat }
-		add_to_variable = { representatives_total_old = representatives_fascist }
-		add_to_variable = { representatives_total_old = representatives_communist }
+		set_variable = { representatives_total_old = representatives_total }
 	}
+	
+	#log = "[This.GetName] : representatives_total_old - [?representatives_total_old]"
 
 	USA = {
 		set_variable = { representatives_communist = 0 }
@@ -109,7 +111,7 @@ USA_calculate_reps = {
 	
 	every_owned_state = {
 		limit = {
-			has_state_flag = US_election_state
+			can_have_elections_in_state = yes
 		}
 		add_to_variable = { USA.representatives_socialist = state_socialist_reps }
 		add_to_variable = { USA.representatives_democrat = state_democrat_reps }
@@ -125,11 +127,13 @@ USA_calculate_reps = {
 		add_to_variable = { representatives_total = representatives_fascist }
 	}
 	
-	log = "[This.GetName] : representatives_total - [?representatives_total]"
+	#log = "[This.GetName] : representatives_total - [?representatives_total]"
 	
 	subtract_from_variable = { # checks for discrepancy
 		representatives_total_old = representatives_total
 	}
+	
+	#log = "[This.GetName] : representatives_total_old - [?representatives_total_old]"
 	
 	if = {
 		limit = {
@@ -139,5 +143,23 @@ USA_calculate_reps = {
 				}
 			}
 		}
+		add_to_variable = {
+			representatives_total = representatives_total_old
+		}
+		if = {
+			limit = {
+				USA = {
+					has_government = libertarian_socialism
+				}
+			}
+			add_to_variable = {
+				representatives_socialist = representatives_total_old
+			}
+		}
 	}
+	
+	log = "[This.GetName] : representatives_socialist - [?representatives_socialist]"
+	log = "[This.GetName] : representatives_republican - [?representatives_republican]"
+	log = "[This.GetName] : representatives_democrat - [?representatives_democrat]"
+	log = "[This.GetName] : representatives_fascist - [?representatives_fascist]"
 }
