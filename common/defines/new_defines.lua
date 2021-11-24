@@ -11,10 +11,10 @@ NDefines.NMilitary.MAX_DIVISION_SUPPORT_HEIGHT = 5		-- Max height of support in 
 NDefines.NBuildings.MAX_SHARED_SLOTS = 56				-- Max slots shared by factories
 
 -- Combat
-NDefines.NMilitary.COMBAT_OVER_WIDTH_PENALTY = -1
-NDefines.NMilitary.COMBAT_OVER_WIDTH_PENALTY_MAX = -0.33
-NDefines.NMilitary.BASE_COMBAT_WIDTH = 96
-NDefines.NMilitary.ADDITIONAL_COMBAT_WIDTH = 48
+-- NDefines.NMilitary.COMBAT_OVER_WIDTH_PENALTY = -1
+-- NDefines.NMilitary.COMBAT_OVER_WIDTH_PENALTY_MAX = -0.33
+-- NDefines.NMilitary.BASE_COMBAT_WIDTH = 96
+-- NDefines.NMilitary.ADDITIONAL_COMBAT_WIDTH = 48
 
 -- Diplomacy
 NDefines.NDiplomacy.MAX_TRUST_VALUE = 200									-- Vanilla is 100
