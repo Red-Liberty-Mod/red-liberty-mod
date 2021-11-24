@@ -9,6 +9,8 @@ if = {
 	}
 }
 
+starting_train_buffer = 5
+
 load_focus_tree = USA_thomas_tree
 unlock_national_focus = USA_the_thomas_admin
 unlock_national_focus = USA_reach_across
@@ -98,6 +100,7 @@ set_technology = {
 	fuel_silos = 1
 	fuel_refining = 1
 	marines = 1
+	basic_train = 1
 }
 
 if = {
@@ -175,6 +178,34 @@ set_popularities = {
 	fascism = 1
 }
 
+# DIPLOMACY
+set_autonomy = {
+	target = PHI
+	autonomous_state =  autonomy_RL_nominal_puppet
+}
+
+### LEADERS ###
+recruit_character = USA_earl_browder
+recruit_character = USA_norman_thomas
+
+### ADVISORS ###
+recruit_character = USA_jack_reed
+recruit_character = USA_henry_wallace
+recruit_character = USA_max_shachtman
+recruit_character = USA_eugene_dennis
+recruit_character = USA_paul_mattick
+recruit_character = USA_maynard_krueger
+recruit_character = USA_elizabeth_flynn
+recruit_character = USA_john_lewis
+recruit_character = USA_harry_hopkins
+recruit_character = USA_john_abt
+recruit_character = USA_lee_pressman
+recruit_character = USA_martin_abern
+recruit_character = USA_john_edgar_hoover
+
+### GENERALS ###
+recruit_character = USA_douglas_macarthur
+
 add_ideas = {
 	USA_city_on_a_hill
 	USA_the_great_depression_1
@@ -192,12 +223,6 @@ add_ideas = {
 	free_trade
 }
 
-# DIPLOMACY
-set_autonomy = {
-	target = PHI
-	autonomous_state =  autonomy_RL_nominal_puppet
-}
-
 create_country_leader = {
 	name = "No Organized Leadership"
 	expire = "1965.1.1"
@@ -213,28 +238,6 @@ create_country_leader = {
 	picture = ""
 	expire = "1965.1.1"
 	ideology = revolutionary_autocracy_subtype
-	traits = {
-		
-	}
-}
-
-create_country_leader = {
-	name = "Earl Browder"
-	desc = "POLITICS_EARL_BROWDER_DESC"
-	picture = "portrait_USA_earl_browder.dds"
-	expire = "1965.1.1"
-	ideology = proletarian_dictatorship_subtype
-	traits = {
-		
-	}
-}
-
-create_country_leader = {
-	name = "Norman Thomas"
-	desc = "POLITICS_NORMAN_THOMAS_DESC"
-	picture = "Portrait_USA_Norman_Thomas.png"
-	expire = "1947.1.1"
-	ideology = christian_socialism_subtype
 	traits = {
 		
 	}
