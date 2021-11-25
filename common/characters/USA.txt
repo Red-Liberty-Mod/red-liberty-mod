@@ -5,11 +5,12 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				large = "gfx/leaders/USA/Portrait_USA_Norman_Thomas.png"
+				large = "GFX_portrait_USA_norman_thomas"
 			}
 		}
 		
 		country_leader = {
+			desc = "POLITICS_NORMAN_THOMAS_DESC"
 			ideology = christian_socialism_subtype
 			traits = {  }
 			expire = "1965.1.1.1"
@@ -72,6 +73,7 @@ characters = {
 		
 		advisor = {
 			cost = 100
+			remove_cost = 10
 			
 			slot = head_of_government
 			idea_token = USA_jack_reed_hog
@@ -481,7 +483,7 @@ characters = {
 	### GENERALS ###
 	
 	USA_douglas_macarthur = {
-		name = USA_douglas_macarthur
+		name = USA_douglas_macarthur_army_chief
 		
 		portraits = {
 			army = {
@@ -520,12 +522,97 @@ characters = {
 			defense_skill = 3
 			planning_skill = 4
 			logistics_skill = 2
+			legacy_id = 1
 		}
 		
 		country_leader = {
 			ideology = autocratic_despotism_subtype
 			traits = {  }
 			expire = "1965.1.1.1"
+		}
+	}
+	
+	USA_malin_craig = {
+		name = USA_malin_craig_army_chief
+		
+		portraits = {
+			army = {
+				large = "gfx/leaders/USA/Portrait_USA_Malin_Craig.tga"
+				#small = "GFX_idea_george_patton"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			
+			slot = army_chief
+			idea_token = USA_malin_craig_army_chief
+			ledger = army
+			
+			allowed = {
+				original_tag = USA
+			}
+			
+			traits = {
+				army_chief
+			}
+		}
+
+		field_marshal = {
+			traits = { 
+				logistics_wizard
+				organizer
+				trait_cautious
+			}
+			skill = 4
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 4
+			logistics_skill = 5
+			legacy_id = 2
+		}
+	}
+	
+	USA_smedley_butler = {
+		name = USA_smedley_butler_army_chief
+		
+		portraits = {
+			army = {
+				large = "gfx/leaders/USA/Portrait_USA_Smedley_Butler.tga"
+				#small = "GFX_idea_george_patton"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			
+			slot = army_chief
+			idea_token = USA_smedley_butler_army_chief
+			ledger = army
+			
+			allowed = {
+				original_tag = USA
+			}
+			
+			traits = {
+				army_chief
+			}
+		}
+
+		field_marshal = {
+			traits = {
+				career_officer
+				offensive_doctrine
+				inspirational_leader
+				commando
+				naval_invader
+			}
+			skill = 3
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 3
+			logistics_skill = 3
+			legacy_id = 3
 		}
 	}
 }
