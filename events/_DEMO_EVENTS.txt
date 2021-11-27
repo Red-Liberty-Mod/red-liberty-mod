@@ -167,8 +167,11 @@ country_event = { # mexico civil war demo event
 
 news_event = {
 	id = demo_mex.3
-	title = "The Cristiada Intensifies!"
-	desc = demo_mex.3.desc
+	title = demo_mex.3.t
+	desc = demo_mex.3.d
+	picture = ""
+
+	is_trigger_only = yes
 	
 	major = yes
 	
@@ -181,7 +184,7 @@ news_event = {
 	fire_only_once = yes
 
 	option = {
-		name = ""
+		name = demo_mex.3.a
 	}
 }
 
@@ -645,6 +648,8 @@ country_event = {
 	
 	fire_only_once = yes
 
+	major = yes
+
 	option = {
 		name = ""
 		WGR_start_revolt = yes
@@ -778,7 +783,7 @@ news_event = {
 	fire_only_once = yes
 
 	option = {
-		name = "Will hey succeed where their forebears failed?"
+		name = "Will they succeed where their forebears failed?"
 	}
 }
 
@@ -854,8 +859,8 @@ news_event = {
 		name = demo_ger_civil_war.1.a
 	}
 }
-
-news_event = {
+ 
+news_event = { # Italo Albanian war
 	id = demo_ita_alb_war.1
 	title = demo_ita_alb_war.1.t
 	desc = demo_ita_alb_war.1.d
@@ -873,15 +878,39 @@ news_event = {
 }
 
 
-#news_event = {
-#	## add italy victory proper syntax
-#	}
-#}
+news_event = { # Italian Subjugation of Albania 
+ 	id = demo.ita_Victory.1
+	title = demo.ita_Victory.1.t
+	desc = demo.ita_Victory.1.d
+	picture = ## get picture
 
-#news_event = {
-#	## add albania victory proper syntax
-#	}
-#}
+	major = yes
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = demo.ita_Victory.1.a
+	}
+}
+
+news_event = { # Albanian Victory against Italy
+ 	id = demo.alb_Victory.1
+	title = demo.alb_Victory.1.t
+	desc = demo.alb_Victory.1.d
+	picture = ## get picture
+
+	major = yes
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = demo.alb_Victory.1.a
+	}
+}
 
 country_event = {
 	id = demo_jap.1
@@ -896,5 +925,56 @@ country_event = {
 
 	option = {
 		name = ""
+	}
+}
+
+news_event = { #Italo Greco War
+ 	id = demo.ita_gre_war.1
+	title = demo.ita_gre_war.1.t
+	desc = demo.ita_gre_war.1.d
+	picture = ## get picture
+
+	major = yes
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = demo.ita_gre_war.1.a
+	}
+}
+
+news_event = { #Italian  victory in Italo Greco War
+ 	id = demo.Ita_Victory.1
+	title = demo.Ita_Victory.1.t
+	desc = demo.Ita_Victory.1.d
+	picture = ## get picture
+
+	major = yes
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = demo.Ita_Victory.1.a
+	}
+}
+
+news_event = { # Greece victory in Italo Greco War
+ 	id = demo.Gre_Victory.1
+	title = demo.Gre_Victory.1.t
+	desc = demo.Gre_Victory.1.d
+	picture = ## get picture
+
+	major = yes
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = demo.Gre_Victory.1.a
 	}
 }
