@@ -1,5 +1,7 @@
 characters = {
-
+	
+	### USA HAS RESERVED LEGACY IDS 1-100 ###
+	
 	USA_norman_thomas = {
 		name = USA_norman_thomas
 		
@@ -18,13 +20,31 @@ characters = {
 		}
 	}
 	
+	USA_william_foster = {
+		name = USA_william_foster
+		
+		portraits = {
+			civilian = {
+				#large = "GFX_portrait_USA_william_foster"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_WILLIAM_FOSTER_DESC"
+			ideology = revolutionary_autocracy_subtype
+			traits = {  }
+			expire = "1965.1.1.1"
+			id=-1
+		}
+	}
+	
 	USA_earl_browder = {
 		name = USA_earl_browder_hog
 		
 		portraits = {
-			#civilian = {
-			#	large = "gfx/leaders/USA/Portrait_USA_Norman_Thomas.png"
-			#}
+			civilian = {
+				#large = "gfx/leaders/USA/Portrait_USA_Norman_Thomas.png"
+			}
 			army = {
 				small = "gfx/interface/ministers/USA/USA_Earl_Browder.png"
 			}
@@ -130,6 +150,58 @@ characters = {
 				hog_curious_intellectual
 				social_democrat
 			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_HENRY_WALLACE_DESC"
+			ideology = social_democracy_subtype
+			traits = {  }
+			expire = "1965.1.1.1"
+			id=-1
+		}
+	}
+	
+	USA_charles_lindbergh = {
+		name = USA_charles_lindbergh
+		
+		portraits = {
+			civilian = {
+				#large = "GFX_portrait_USA_charles_lindbergh"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_CHARLES_LINDBERGH_DESC"
+			ideology = authoritarian_democracy_subtype
+			traits = {  }
+			expire = "1965.1.1.1"
+			id=-1
+		}
+		
+		country_leader = {
+			desc = "POLITICS_CHARLES_LINDBERGH_DESC"
+			ideology = far_right_authoritarianism_subtype
+			traits = {  }
+			expire = "1965.1.1.1"
+			id=-1
+		}
+	}
+	
+	USA_william_dudley_pelley = {
+		name = USA_william_dudley_pelley
+		
+		portraits = {
+			civilian = {
+				#large = "GFX_portrait_USA_william_dudley_pelley"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_WILLIAM_DUDLEY_PELLEY_DESC"
+			ideology = clerical_fascism_subtype
+			traits = {  }
+			expire = "1965.1.1.1"
+			id=-1
 		}
 	}
 	
@@ -483,7 +555,7 @@ characters = {
 	### GENERALS ###
 	
 	USA_douglas_macarthur = {
-		name = USA_douglas_macarthur_army_chief
+		name = USA_douglas_macarthur
 		
 		portraits = {
 			army = {
@@ -504,7 +576,8 @@ characters = {
 			}
 			
 			traits = {
-				army_chief
+				army_chief_of_staff
+				army_infantry_leader
 			}
 		}
 
@@ -533,7 +606,7 @@ characters = {
 	}
 	
 	USA_malin_craig = {
-		name = USA_malin_craig_army_chief
+		name = USA_malin_craig
 		
 		portraits = {
 			army = {
@@ -554,7 +627,7 @@ characters = {
 			}
 			
 			traits = {
-				army_chief
+				army_chief_of_staff
 			}
 		}
 
@@ -574,7 +647,7 @@ characters = {
 	}
 	
 	USA_smedley_butler = {
-		name = USA_smedley_butler_army_chief
+		name = USA_smedley_butler
 		
 		portraits = {
 			army = {
@@ -595,7 +668,8 @@ characters = {
 			}
 			
 			traits = {
-				army_chief
+				army_chief_of_staff
+				army_gimlet_eye
 			}
 		}
 
@@ -613,6 +687,332 @@ characters = {
 			planning_skill = 3
 			logistics_skill = 3
 			legacy_id = 3
+		}
+	}
+	
+	USA_henry_arnold = {
+		name = USA_henry_arnold
+		
+		portraits = {
+			army = {
+				large = "gfx/leaders/USA/Portrait_USA_Henry_H_Arnold_Gen.tga"
+				#small = "GFX_idea_george_patton"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			
+			slot = air_chief
+			idea_token = USA_henry_arnold_air_chief
+			ledger = army
+			
+			allowed = {
+				original_tag = USA
+			}
+			
+			traits = {
+				air_chief_of_staff
+				air_reformer
+			}
+		}
+
+		corps_commander = {
+			traits = {
+				career_officer
+				politically_connected
+				inspirational_leader
+				organizer
+			}
+			skill = 4
+			attack_skill = 4
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 3
+			legacy_id = 4
+		}
+	}
+	
+	USA_walter_krueger = {
+		name = USA_walter_krueger
+		
+		portraits = {
+			army = {
+				large = "gfx/leaders/USA/Portrait_USA_Walter_Krueger_Gen.tga"
+			}
+		}
+
+		corps_commander = {
+			traits = {
+				armor_officer
+				career_officer
+				brilliant_strategist
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 1
+			legacy_id = 5
+		}
+	}
+	
+	USA_george_van_horn_moseley = {
+		name = USA_george_van_horn_moseley
+		
+		portraits = {
+			army = {
+				large = "gfx/leaders/USA/Portrait_USA_George_Van_Horn_Moseley.tga"
+			}
+		}
+
+		corps_commander = {
+			traits = {
+				politically_connected
+				brilliant_strategist
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 3
+			legacy_id = 6
+		}
+	}
+	
+	USA_john_dewitt = {
+		name = USA_john_dewitt
+		
+		portraits = {
+			army = {
+				large = "gfx/leaders/USA/Portrait_USA_John_DeWitt.tga"
+			}
+		}
+
+		corps_commander = {
+			traits = {
+				inflexible_strategist
+				trait_cautious
+			}
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 1
+			logistics_skill = 4
+			legacy_id = 7
+		}
+	}
+	
+	USA_william_cole = {
+		name = USA_william_cole
+		
+		portraits = {
+			army = {
+				large = "gfx/leaders/USA/Portrait_USA_William_E_Cole.tga"
+			}
+		}
+
+		corps_commander = {
+			traits = {
+				career_officer
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
+			legacy_id = 8
+		}
+	}
+	
+	USA_hugh_drum = {
+		name = USA_hugh_drum
+		
+		portraits = {
+			army = {
+				large = "gfx/leaders/USA/Portrait_USA_Hugh_A_Drum.tga"
+			}
+		}
+
+		corps_commander = {
+			traits = {
+				old_guard
+				career_officer
+			}
+			skill = 2
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+			legacy_id = 9
+		}
+	}
+	
+	USA_leslie_mcnair = {
+		name = USA_leslie_mcnair
+		
+		portraits = {
+			army = {
+				large = "gfx/leaders/USA/Portrait_USA_Leslie_McNair.tga"
+			}
+		}
+
+		corps_commander = {
+			traits = {
+				old_guard
+				career_officer
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 3
+			logistics_skill = 1
+			legacy_id = 10
+		}
+	}
+	
+	USA_edward_brooks = {
+		name = USA_edward_brooks
+		
+		portraits = {
+			army = {
+				large = "gfx/leaders/USA/Portrait_USA_Edward_H_Brooks.png"
+			}
+		}
+
+		corps_commander = {
+			traits = {
+				trait_engineer
+				trait_reckless
+			}
+			skill = 1
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+			legacy_id = 11
+		}
+	}
+	
+	USA_ernest_king = {
+		name = USA_ernest_king
+		
+		portraits = {
+			army = {
+				large = "gfx/leaders/USA/Portrait_USA_Ernest_King.png"
+				#small = "GFX_idea_george_patton"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			
+			slot = navy_chief
+			idea_token = USA_ernest_king_navy_chief
+			ledger = army
+			
+			allowed = {
+				original_tag = USA
+			}
+			
+			traits = {
+				navy_chief_of_staff
+			}
+		}
+
+		navy_leader = {
+			traits = {
+				navy_career_officer
+				aviation_enthusiast
+				caustic_personality
+				blockade_runner
+				superior_tactician
+			}
+			skill = 5
+			attack_skill = 4
+			defense_skill = 3
+			maneuvering_skill = 3
+			coordination_skill = 6
+		}
+	}
+	
+	USA_william_leahy = {
+		name = USA_william_leahy
+		
+		portraits = {
+			army = {
+				large = "gfx/leaders/USA/Portrait_USA_William_Leahy.png"
+				#small = "GFX_idea_george_patton"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			
+			slot = navy_chief
+			idea_token = USA_william_leahy_chief
+			ledger = army
+			
+			allowed = {
+				original_tag = USA
+			}
+			
+			traits = {
+				navy_chief_of_staff
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				old_guard_navy
+				superior_tactician
+				ironside
+				fleet_protector
+			}
+			skill = 4
+			attack_skill = 3
+			defense_skill = 3
+			maneuvering_skill = 3
+			coordination_skill = 4
+		}
+	}
+	
+	USA_harold_stark = {
+		name = USA_harold_stark
+		
+		portraits = {
+			army = {
+				#large = "gfx/leaders/USA/Portrait_USA_Henry_H_Arnold_Gen.tga"
+				#small = "GFX_idea_george_patton"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			
+			slot = navy_chief
+			idea_token = USA_harold_stark_navy_chief
+			ledger = army
+			
+			allowed = {
+				original_tag = USA
+			}
+			
+			traits = {
+				navy_chief_of_staff
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				old_guard_navy
+				spotter
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			maneuvering_skill = 2
+			coordination_skill = 2
 		}
 	}
 }

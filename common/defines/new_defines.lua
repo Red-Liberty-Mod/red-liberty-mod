@@ -16,6 +16,13 @@ NDefines.NBuildings.MAX_SHARED_SLOTS = 56				-- Max slots shared by factories
 -- NDefines.NMilitary.BASE_COMBAT_WIDTH = 96
 -- NDefines.NMilitary.ADDITIONAL_COMBAT_WIDTH = 48
 
+-- Buildings
+NDefines.NBuildings.INFRASTRUCTURE_RESOURCE_BONUS = 0.1						-- multiplicative resource bonus for each level of (non damaged) infrastructure, vanilla is 0.2
+
+-- Supply
+NDefines.NSupply.INFRA_TO_SUPPLY = 0.15									-- each level of infra gives this many supply, vanilla is 0.3
+NDefines.NSupply.SUPPLY_FROM_DAMAGED_INFRA = 0.075        		        -- damaged infrastructure counts as this in supply calcs, vanilla is 0.15
+
 -- Diplomacy
 NDefines.NDiplomacy.MAX_TRUST_VALUE = 200									-- Vanilla is 100
 NDefines.NDiplomacy.MIN_TRUST_VALUE = -200									-- Vanilla is -100

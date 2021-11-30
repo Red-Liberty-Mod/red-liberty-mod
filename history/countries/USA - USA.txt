@@ -1,11 +1,11 @@
 ﻿capital = 361
 
-oob = "USA_1936"
+oob = "USA"
 if = {
 	limit = { has_dlc = "Man the Guns" }
-		set_naval_oob = "USA_1936_naval_mtg"
+		set_naval_oob = "USA_naval_mtg"
 	else = {
-		set_naval_oob = "USA_1936_naval_legacy"
+		set_naval_oob = "USA_naval_legacy"
 	}
 }
 
@@ -185,8 +185,11 @@ set_autonomy = {
 }
 
 ### LEADERS ###
+recruit_character = USA_william_foster
 recruit_character = USA_earl_browder
 recruit_character = USA_norman_thomas
+recruit_character = USA_charles_lindbergh
+recruit_character = USA_william_dudley_pelley
 
 ### ADVISORS ###
 recruit_character = USA_jack_reed
@@ -207,6 +210,19 @@ recruit_character = USA_john_edgar_hoover
 recruit_character = USA_douglas_macarthur
 recruit_character = USA_malin_craig
 recruit_character = USA_smedley_butler
+recruit_character = USA_henry_arnold
+recruit_character = USA_walter_krueger
+recruit_character = USA_george_van_horn_moseley
+recruit_character = USA_john_dewitt
+recruit_character = USA_william_cole
+recruit_character = USA_hugh_drum
+recruit_character = USA_leslie_mcnair
+recruit_character = USA_edward_brooks
+
+### ADMIRALS ###
+recruit_character = USA_ernest_king
+recruit_character = USA_william_leahy
+recruit_character = USA_harold_stark
 
 add_ideas = {
 	USA_city_on_a_hill
@@ -229,28 +245,6 @@ create_country_leader = {
 	name = "No Organized Leadership"
 	expire = "1965.1.1"
 	ideology = insurrectionary_anarchism_subtype
-	traits = {
-		
-	}
-}
-
-create_country_leader = {
-	name = "William Z. Foster"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = revolutionary_autocracy_subtype
-	traits = {
-		
-	}
-}
-
-create_country_leader = {
-	name = "Henry A. Wallace"
-	desc = ""
-	picture = ""
-	expire = "1947.1.1"
-	ideology = social_democracy_subtype
 	traits = {
 		
 	}
@@ -290,161 +284,12 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "Charles Lindbergh"
-	desc = "POLITICS_CHARLES_LINDBERGH_DESC"
-	picture = ""
-	expire = "1965.1.1"
-	ideology = authoritarian_democracy_subtype
-	traits = {
-		
-	}
-}
-
-create_country_leader = {
 	name = "Various Military Officers"
 	expire = "1965.1.1"
 	ideology = autocratic_despotism_subtype
 	traits = {
 		
 	}
-}
-
-create_country_leader = {
-	name = "Charles Lindbergh"
-	desc = "POLITICS_CHARLES_LINDBERGH_DESC"
-	picture = ""
-	expire = "1965.1.1"
-	ideology = far_right_authoritarianism_subtype
-	traits = {
-		
-	}
-}
-
-create_country_leader = {
-	name = "William Dudley Pelley"
-	desc = "POLITICS_WILLIAM_DUDLEY_PELLEY_DESC"
-	picture = "Portrait_USA_William_Dudley_Pelley.dds"
-	expire = "1965.1.1"
-	ideology = clerical_fascism_subtype
-	traits = {
-		
-	}
-}
-
-### USA HAS RESERVED IDS 1-100 ###
-
-create_corps_commander = {
-	name = "Henry H. Arnold"
-	portrait_path = "gfx/leaders/USA/Portrait_USA_Henry_H_Arnold_Gen.tga"
-	traits = {
-		career_officer
-		politically_connected
-		inspirational_leader
-		organizer
-	}
-	skill = 4
-	attack_skill = 4
-	defense_skill = 3
-	planning_skill = 3
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Walter Krueger"
-	portrait_path = "gfx/leaders/USA/Portrait_USA_Walter_Krueger_Gen.tga"
-	traits = {
-		armor_officer
-		career_officer
-		brilliant_strategist
-	}
-	skill = 2
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 1
-	logistics_skill = 1
-}
-
-create_corps_commander = {
-	name = "George Van Horn Moseley"
-	portrait_path = "gfx/leaders/USA/Portrait_USA_George_Van_Horn_Moseley.tga"
-	traits = {
-		politically_connected
-		brilliant_strategist
-	}
-	skill = 2
-	attack_skill = 1
-	defense_skill = 2
-	planning_skill = 3
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Edward H. Brooks"
-	portrait_path = "gfx/leaders/USA/Portrait_USA_Edward_H_Brooks.png"
-	traits = {
-		trait_engineer
-		trait_reckless
-	}
-	skill = 1
-	attack_skill = 2
-	defense_skill = 1
-	planning_skill = 1
-	logistics_skill = 1
-}
-
-create_corps_commander = {
-	name = "John L. DeWitt"
-	portrait_path = "gfx/leaders/USA/Portrait_USA_John_DeWitt.tga"
-	traits = {
-		inflexible_strategist
-		trait_cautious
-	}
-	skill = 3
-	attack_skill = 2
-	defense_skill = 3
-	planning_skill = 1
-	logistics_skill = 4
-}
-
-create_corps_commander = {
-	name = "William E. Cole"
-	portrait_path = "gfx/leaders/USA/Portrait_USA_William_E_Cole.tga"
-	traits = {
-		career_officer
-	}
-	skill = 2
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 3
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Hugh Aloysius Drum"
-	portrait_path = "gfx/leaders/USA/Portrait_USA_Hugh_A_Drum.tga"
-	traits = {
-		old_guard
-		career_officer
-	}
-	skill = 2
-	attack_skill = 3
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 1
-}
-
-create_corps_commander = {
-	name = "Leslie McNair"
-	portrait_path = "gfx/leaders/USA/Portrait_USA_Leslie_McNair.tga"
-	traits = {
-		old_guard
-		career_officer
-	}
-	skill = 2
-	attack_skill = 1
-	defense_skill = 1
-	planning_skill = 3
-	logistics_skill = 1
 }
 
 if = {

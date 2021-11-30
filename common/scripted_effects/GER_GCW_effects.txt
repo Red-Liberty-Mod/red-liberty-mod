@@ -164,10 +164,24 @@ start_german_civil_war_PLR = {
 		save_event_target_as = germany_polish_revolt
 		every_state = {
 			limit = {
+				state = 67
+				state = 85
 				state = 86
+				state = 762
 			}
 			add_core_of = PREV
 			event_target:germany_polish_revolt = { transfer_state = PREV }
+		}
+		every_state = {
+			limit = {
+				NOT = {
+					state = 67
+					state = 85
+					state = 86
+					state = 762
+				}
+			}
+			remove_core_of = PREV
 		}
 		set_rule = {
 			can_join_factions = no 
@@ -188,7 +202,10 @@ start_german_civil_war_PLR = {
 		set_country_flag = GER_polish_revolt
 		
 		PLR = {
+			set_province_controller = 17
+			set_province_controller = 243
 			set_province_controller = 3324
+			set_province_controller = 3381
 			set_province_controller = 6347
 		}
 		
