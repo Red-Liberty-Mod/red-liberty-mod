@@ -1,4 +1,4 @@
-version="1.10.8"
+version="0.1"
 tags={
 	"Alternative History"
 	"Events"
@@ -41,4 +41,4 @@ replace_path = "map"
 replace_path = "map/strategicregions"
 name="Red Liberty"
 picture="thumbnail.png"
-supported_version="1.10.8"
+supported_version="1.11.3"
