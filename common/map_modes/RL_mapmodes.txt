@@ -1,0 +1,141 @@
+scripted_map_modes = {
+
+	USA_segregation_mapmode = {
+		top = {
+			type = state
+
+			color = {
+				FROM = {
+					set_temp_variable = { alpha = 0.8 }
+					if = {
+						limit = {
+							is_core_of = USA
+							has_dynamic_modifier = {
+								modifier = USA_segregation_modifier
+							}
+						}
+						set_temp_variable = { red = 0.8 }
+						set_temp_variable = { green = 0.2 }
+						set_temp_variable = { blue = 0.05 }
+					}
+					else_if = {
+						limit = {
+							is_core_of = USA
+							has_dynamic_modifier = {
+								modifier = USA_segregation_lite_modifier
+							}
+						}
+						set_temp_variable = { red = 0.9 }
+						set_temp_variable = { green = 0.7 }
+						set_temp_variable = { blue = 0.0 }
+					}
+					else_if = {
+						limit = {
+							is_core_of = USA
+							NOT = {
+								OR = {
+									has_dynamic_modifier = {
+										modifier = USA_segregation_modifier
+									}
+									has_dynamic_modifier = {
+										modifier = USA_segregation_lite_modifier
+									}
+								}
+							}
+						}
+						set_temp_variable = { red = 0.0 }
+						set_temp_variable = { green = 1.0 }
+						set_temp_variable = { blue = 0.0 }
+					}
+				}
+			}
+
+			thickness = no
+
+			targets = {
+				target_array = core_states
+				target_array = owned_states
+				target_array = controlled_states
+			}
+		}
+
+		bottom = {
+			type = country
+
+			color = {
+				set_temp_variable = { alpha = 0.4 }
+				set_temp_variable = { thickness = 10.0 }
+				set_temp_variable = { red = 0.0 }
+				set_temp_variable = { green = 0.0 }
+				set_temp_variable = { blue = 0.0 }
+			}
+
+			thickness = yes
+
+			targets = {
+				targets = { ROOT }
+			}
+		}
+
+		far_text = country
+		near_text = state
+
+		update_daily = yes
+	}
+	
+	sphere_mapmode = {
+		top = {
+			type = country
+
+			color = {
+				FROM = {
+					set_temp_variable = { alpha = 1.0 }
+					if = {
+						limit = {
+							is_in_array = { USA.USA_sphere_members = FROM }
+						}
+						set_temp_variable = { alpha = 0.6 }
+						set_temp_variable = { red = 0.25 }
+						set_temp_variable = { green = 0.6 }
+						set_temp_variable = { blue = 0.9 }
+					}
+					else_if = {
+						limit = {
+							is_in_array = { GER.GER_sphere_members = FROM }
+						}
+						set_temp_variable = { alpha = 0.8 }
+						set_temp_variable = { red = 0.7 }
+						set_temp_variable = { green = 0.5 }
+						set_temp_variable = { blue = 0.1 }
+					}
+					else = {
+						set_temp_variable = { red = 0.0 }
+						set_temp_variable = { green = 0.0 }
+						set_temp_variable = { blue = 0.0 }
+					}
+				}
+			}
+
+			thickness = no
+		}
+
+		bottom = {
+			type = country
+
+			color = {
+				set_temp_variable = { alpha = 0.2 }
+				set_temp_variable = { thickness = 1.0 }
+				set_temp_variable = { red = 0.33 }
+				set_temp_variable = { green = 0.33 }
+				set_temp_variable = { blue = 0.33 }
+			}
+
+			thickness = yes
+		}
+
+		far_text = country
+		near_text = state
+
+		update_daily = yes
+	}
+}
