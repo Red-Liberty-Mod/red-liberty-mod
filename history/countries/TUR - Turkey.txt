@@ -60,47 +60,28 @@ if = {
 }
 
 set_politics = {
-	ruling_party = market_libertarianism
+	ruling_party = social_democracy
 	last_election = "1936.1.1"
 	election_frequency = 48
 	elections_allowed = yes
 }
 set_popularities = {
 	insurrectionary_anarchism = 0
-	revolutionary_autocracy = 2
-	proletarian_dictatorship = 5
-	libertarian_socialism = 3
-	social_democracy = 4
-	progressive_liberalism = 10
-	market_libertarianism = 29
-	national_conservatism = 16
-	far_right_authoritarianism = 8
-	authoritarian_democracy = 7
-	autocratic_despotism = 11
-	fascism = 5
+	revolutionary_autocracy = 0
+	proletarian_dictatorship = 10
+	libertarian_socialism = 0
+	social_democracy = 40
+	progressive_liberalism = 0
+	market_libertarianism = 20
+	national_conservatism = 20
+	far_right_authoritarianism = 0
+	authoritarian_democracy = 0
+	autocratic_despotism = 0
+	fascism = 10
 }
-
-set_country_flag = progressive_coalition
-set_country_flag = market_libertarian_coalition
 
 set_convoys = 20
 set_stability = 0.55
-
-if = {
-	limit = {
-		OR = {
-			has_dlc = "Together for Victory"
-			has_dlc = "Man the Guns"
-		}
-	}
-	set_autonomy = {
-		target = SCM
-		autonomous_state = autonomy_RL_nominal_puppet
-	}
-	else = {
-		puppet = SCM
-	}
-}
 
 create_country_leader = {
 	name = "İsmet İnönü"
@@ -108,17 +89,6 @@ create_country_leader = {
 	picture = ""
 	expire = "1965.1.1"
 	ideology = social_democracy_subtype 
-	traits = {
-		#
-	}
-}
-
-create_country_leader = {
-	name = "Rauf Orbay"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = liberal_conservatism_subtype 
 	traits = {
 		#
 	}
@@ -317,6 +287,29 @@ if = {
 			mid_1_custom_slot = ship_secondaries_1
 			mid_2_custom_slot = empty
 			rear_1_custom_slot = empty
+		}
+	}
+}
+
+# 1939 Start #
+1939.1.1 = {
+	if = {
+		limit = { not = { has_dlc = "Man the Guns" } }
+		# Ship variants #
+	}
+	if = {
+		limit = { has_dlc = "Man the Guns" }
+		# Submarines #
+		create_equipment_variant = {
+			name = "Saldiray Class"				
+			type = ship_hull_submarine_2
+			name_group = TUR_SS_HISTORICAL
+			parent_version = 0
+			modules = {
+				fixed_ship_torpedo_slot = ship_torpedo_sub_2
+				fixed_ship_engine_slot = sub_ship_engine_2
+				rear_1_custom_slot = empty
+			}
 		}
 	}
 }
