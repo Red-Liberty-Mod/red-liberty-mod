@@ -7,7 +7,8 @@ ideas = {
 			
 			allowed = {
 				
-			} 
+			}
+			
 			available = {
 				
 			}
@@ -16,20 +17,21 @@ ideas = {
 				always = no
 			}
 			
-			modifier = {  
+			modifier = {
 				stability_factor = 0.05
-				non_core_manpower = 0.15
-				compliance_gain = 0.2
-				political_advisor_cost_factor = -0.2
+				non_core_manpower = 0.05
+				compliance_gain = 0.1
+				political_advisor_cost_factor = -0.1
 			}
 		}
 		
-		TUR_shadows_of_the_past = {
+		TUR_unequal_treaties = {
 			removal_cost = -1
 			
 			allowed = {
 				
-			} 
+			}
+			
 			available = {
 				
 			}
@@ -38,25 +40,12 @@ ideas = {
 				always = no
 			}
 			
-			modifier = {  
-				economy_cost_factor = 0.15
-				war_support_factor = -0.15
-				conscription_factor = -0.05
-			}
-		}
-		
-		TUR_foreign_influence = {
-			removal_cost = -1
-			
-			allowed = {
-				
-			} 
-			available = {
-				
+			on_remove = {
+				clr_country_flag = conscription_banned
 			}
 			
-			allowed_civil_war = { 
-				always = no
+			research_bonus = {
+				land_doctrine = -0.1
 			}
 			
 			targeted_modifier = {
@@ -69,13 +58,83 @@ ideas = {
 				cic_to_target_factor = 0.05
 			}
 			
+			modifier = {
+				economy_cost_factor = 0.5
+				war_support_factor = -0.25
+				conscription_factor = -0.1
+				custom_modifier_tooltip = TUR_army_restrictions_mobilization_law_tt
+			}
+		}
+		
+		TUR_foreign_expertise = {
+			removal_cost = -1
+			
+			allowed = {
+				
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = no
+			}
+			
 			research_bonus = {
 				industry = -0.05
 				electronics = 0.07
 			}
 			
-			modifier = {  
+			modifier = {
+				global_building_slots_factor = 0.1
+			}
+		}
+		
+		TUR_growing_opposition = {
+			removal_cost = -1
+			
+			allowed = {
 				
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = no
+			}
+			
+			modifier = {
+				political_power_factor = -0.05
+				stability_factor = -0.05
+				national_conservatism_drift = 0.01
+				autocratic_despotism_drift = 0.01
+			}
+		}
+		
+		TUR_karakol_society = {
+			removal_cost = -1
+			
+			allowed = {
+				
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = no
+			}
+			
+			modifier = {
+				political_power_factor = -0.1
+				stability_factor = -0.05
+				army_morale_factor = -0.02
+				defense = -0.02
+				wounded_chance_factor = 0.15
 			}
 		}
 	}
