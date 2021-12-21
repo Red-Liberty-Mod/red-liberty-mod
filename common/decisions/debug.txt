@@ -23,6 +23,30 @@ debug_category = {
 		}
 	}
 	
+	debug_recalc_kill_republicans = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			tag = USA
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = USA
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			USA_kill_republican_party = yes
+		}
+	}
+	
 	debug_recalc_pie_chart = {
 	
 		icon = generic_political_discourse
@@ -67,7 +91,10 @@ debug_category = {
 		}
 		
 		complete_effect = {
-			USA_recalc_house = yes
+			every_owned_state = {
+				limit = { can_have_elections_in_state = yes }
+				USA_recalc_house_state = yes
+			}
 		}
 	}
 	
