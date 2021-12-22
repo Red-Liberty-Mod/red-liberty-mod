@@ -1,6 +1,6 @@
 ### CONSTANTS ###
 @PRESIDENTIAL_TIEBREAKER = 0.05
-@POPULARITY_CLAMP_MIN = 0.001
+@POPULARITY_CLAMP_MIN = 0 # used to be 0.001
 @POPULARITY_CLAMP_MAX = 1000
 @PULSE_POPULARITY_CLAMP_MIN = 0
 @PULSE_POPULARITY_CLAMP_MAX_FIRST = 10
@@ -736,10 +736,19 @@ US_hold_presidential_election = {
 		limit = { has_state_flag = US_election_state }
 		USA_clamp_state_popularities = yes
 		
-		clamp_variable = { #make sure to clamp any support variable that can change! 
-   			var = republican_popularity
-    		min = @POPULARITY_CLAMP_MIN
-    		max = @POPULARITY_CLAMP_MAX
+		if = {
+			limit = {
+				NOT = {
+					ROOT = {
+						has_country_flag = USA_republicans_ded
+					}
+				}
+			}
+			clamp_variable = {
+				var = republican_popularity
+				min = @POPULARITY_CLAMP_MIN
+				max = @POPULARITY_CLAMP_MAX
+			}
 		}
 		
 		clamp_variable = { #make sure to clamp any support variable that can change! 
@@ -768,10 +777,20 @@ US_hold_presidential_election = {
 }
 
 USA_clamp_state_popularities = {
-	clamp_variable = {
-		var = republican_popularity
-		min = @PULSE_POPULARITY_CLAMP_MIN
-		max = @PULSE_POPULARITY_CLAMP_MAX_FIRST
+	
+	if = {
+		limit = {
+			NOT = {
+				ROOT = {
+					has_country_flag = USA_republicans_ded
+				}
+			}
+		}
+		clamp_variable = {
+			var = republican_popularity
+			min = @PULSE_POPULARITY_CLAMP_MIN
+			max = @PULSE_POPULARITY_CLAMP_MAX_FIRST
+		}
 	}
 	clamp_variable = {
 		var = democrat_popularity
@@ -948,4 +967,20 @@ USA_clear_presidential_election_values = {
 	clr_country_flag = USA_presidential_conclusion
 	clr_country_flag = USA_presidential_elections
 	clr_country_flag = currently_campaigning
+}
+
+USA_kill_republican_party = {
+	# we do a little trolling
+	
+	set_country_flag = USA_republicans_ded
+	
+	every_owned_state = {
+		limit = {
+			can_have_elections_in_state = yes
+		}
+		set_variable = { republican_popularity = 0 }
+		set_variable = { republican_election_pop = 0 }
+	}
+	
+	USA_recalculate_polls = yes
 }
