@@ -168,8 +168,10 @@ shared_focus = {
 	
 	cost = 5
 	relative_position_id = TUR_token_praise
-	prerequisite = { focus = TUR_token_praise }
-	prerequisite = { focus = TUR_respect_autonomy }
+	prerequisite = {
+		focus = TUR_token_praise
+		focus = TUR_respect_autonomy
+	}
     completion_reward = {
         
     }
@@ -372,7 +374,6 @@ shared_focus = {
 	}
 	relative_position_id = TUR_diplomatic_hardball
 	prerequisite = {
-		focus = TUR_keep_things_cordial
 		focus = TUR_diplomatic_hardball
 	}
     completion_reward = {
@@ -434,11 +435,15 @@ shared_focus = {
 	
 	cost = 5
 	relative_position_id = TUR_the_twos_approval
-	prerequisite = { focus = TUR_the_twos_approval }
 	prerequisite = { focus = TUR_draft_reintegration_act }
-	prerequisite = { focus = TUR_and_the_french }
-	prerequisite = { focus = TUR_caving_to_demands }
-	prerequisite = { focus = TUR_meet_with_admiralty }
+	prerequisite = {
+		focus = TUR_the_twos_approval
+		focus = TUR_caving_to_demands
+	}
+	prerequisite = {
+		focus = TUR_and_the_french
+		focus = TUR_meet_with_admiralty
+	}
     completion_reward = {
         
     }
