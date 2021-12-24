@@ -1,6 +1,7 @@
 
 USA_pie_adjustment_effect = {	
-
+	
+	set_variable = { communist_pie_var = 0 }
 	set_variable = { socialist_pie_var = 0 }
 	set_variable = { republican_pie_var = 0 }
 	set_variable = { democrat_pie_var = 0 }
@@ -13,28 +14,33 @@ USA_pie_adjustment_effect = {
 		USA_adjust_pie_state = yes
 	}
 	
+	add_to_variable = { pie_var_total = communist_pie_var }
 	add_to_variable = { pie_var_total = socialist_pie_var }
 	add_to_variable = { pie_var_total = republican_pie_var }
 	add_to_variable = { pie_var_total = democrat_pie_var }
 	add_to_variable = { pie_var_total = afp_pie_var }
-
+	
+	divide_variable = { communist_pie_var = pie_var_total }
 	divide_variable = { socialist_pie_var = pie_var_total }
 	divide_variable = { republican_pie_var = pie_var_total }
 	divide_variable = { democrat_pie_var = pie_var_total }
 	divide_variable = { afp_pie_var = pie_var_total }
-
+	
+	multiply_variable = { communist_pie_var = 100 }
 	multiply_variable = { socialist_pie_var = 100 }
 	multiply_variable = { republican_pie_var = 100 }
 	multiply_variable = { democrat_pie_var = 100 }
 	multiply_variable = { afp_pie_var = 100 }
-
+	
+	round_variable =  communist_pie_var
 	round_variable =  socialist_pie_var
 	round_variable =  republican_pie_var
 	round_variable =  democrat_pie_var
 	round_variable =  afp_pie_var
 
 	set_temp_variable = { rounded_total = 0 } #Will store the total rounded %age
-
+	
+	add_to_temp_variable = { rounded_total = communist_pie_var }
 	add_to_temp_variable = { rounded_total = socialist_pie_var }
 	add_to_temp_variable = { rounded_total = republican_pie_var }
 	add_to_temp_variable = { rounded_total = democrat_pie_var }
@@ -52,6 +58,12 @@ USA_pie_adjustment_effect = {
 			}
 		}
 		if = { #fix the rounding error by changing one party big enough for the rounding not to be seen too much (cant bother to compute the max)
+			limit = { 
+				check_variable = { communist_pie_var > 15 }
+			}
+			subtract_from_variable = { communist_pie_var = rounding_error }
+		}
+		if = {
 			limit = { 
 				check_variable = { socialist_pie_var > 15 }
 			}
@@ -79,7 +91,7 @@ USA_pie_adjustment_effect = {
 	hidden_effect = {
 		set_popularities = {
 			insurrectionary_anarchism = 0
-			revolutionary_autocracy = 0
+			revolutionary_autocracy = communist_pie_var
 			proletarian_dictatorship = 0
 			libertarian_socialism = socialist_pie_var
 			social_democracy = 0
@@ -95,16 +107,19 @@ USA_pie_adjustment_effect = {
 }
 
 USA_adjust_pie_state = {
+	set_temp_variable = { communist_temp_popularity = communist_election_pop }
 	set_temp_variable = { socialist_temp_popularity = socialist_election_pop }
 	set_temp_variable = { republican_pie_temp_popularity = republican_election_pop }
 	set_temp_variable = { democrat_pie_temp_popularity = democrat_election_pop }
 	set_temp_variable = { afp_pie_temp_popularity = afp_election_pop }
 	
+	multiply_temp_variable = { communist_temp_popularity = state_population_k }
 	multiply_temp_variable = { socialist_temp_popularity = state_population_k }
 	multiply_temp_variable = { republican_pie_temp_popularity = state_population_k }
 	multiply_temp_variable = { democrat_pie_temp_popularity = state_population_k }
 	multiply_temp_variable = { afp_pie_temp_popularity = state_population_k }
 
+	add_to_variable = { USA.communist_pie_var = communist_temp_popularity }
 	add_to_variable = { USA.socialist_pie_var = socialist_temp_popularity }
 	add_to_variable = { USA.republican_pie_var = republican_pie_temp_popularity }
 	add_to_variable = { USA.democrat_pie_var = democrat_pie_temp_popularity }
