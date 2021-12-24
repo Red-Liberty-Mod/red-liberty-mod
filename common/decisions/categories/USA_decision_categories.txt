@@ -19,99 +19,6 @@ USA_congress = {
 	priority = 100
 }
 
-USA_interest_groups_category = {
-	icon = usa_congress
-	allowed = {
-		original_tag = USA
-	}
-	
-	visible = {
-		always = no
-	}
-
-	visible_when_empty = yes
-
-	priority = 98
-}
-
-USA_nationalizing_defense_category = {
-	icon = usa_congress
-	allowed = {
-		original_tag = USA
-	}
-	
-	visible = {
-		has_completed_focus = USA_remove_the_profit
-	}
-
-	visible_when_empty = yes
-
-	priority = 98
-}
-
-USA_distribute_produce = {
-	icon = usa_congress
-	allowed = {
-		original_tag = USA
-	}
-	
-	visible = {
-		has_government = libertarian_socialism
-	}
-
-	visible_when_empty = yes
-
-	priority = 95
-}
-
-USA_managing_spa = {
-	icon = usa_spa
-	allowed = {
-		original_tag = USA
-	}
-	
-	visible = {
-		has_government = libertarian_socialism
-		always = no
-	}
-
-	scripted_gui = USA_SPA_pie_chart
-
-	visible_when_empty = yes
-
-	priority = 90
-}
-
-USA_amendments_category = {
-	icon = usa_congress
-	allowed = {
-		original_tag = USA
-	}
-	
-	priority = 85
-}
-
-USA_american_army_category = {
-	icon = usa_congress
-	allowed = {
-		original_tag = USA
-	}
-}
-
-#USA_thomas_tyranny_category = {
-#	icon = usa_congress
-#	
-#	visible_when_empty = yes
-#	
-#	allowed = {
-#		original_tag = USA
-#		has_country_leader = {
-#			name = "Norman Thomas"
-#			ruling_only = yes
-#		}
-#	}
-#}
-
 USA_election_season_category = {
 	icon = usa_congress
 	allowed = {
@@ -128,26 +35,122 @@ USA_election_season_category = {
 		has_country_flag = USA_senate_elections
 	}
 	visible_when_empty = yes
+	
+	priority = 99
 }
 
-USA_american_economy_category = {
+#USA_american_army_category = {
+#	icon = usa_congress
+#	allowed = {
+#		original_tag = USA
+#	}
+#	visible_when_empty = yes
+#}
+
+#USA_interest_groups_category = {
+#	icon = usa_congress
+#	allowed = {
+#		original_tag = USA
+#	}
+#	
+#	visible = {
+#		always = no
+#	}
+#
+#	visible_when_empty = yes
+#
+#	priority = 98
+#}
+
+USA_nationalizing_defense_category = {
 	icon = usa_congress
 	allowed = {
 		original_tag = USA
-		always = no
 	}
-}
-
-USA_macarthur_actions_category = {
-	icon = usa_congress
 	
+	visible = {
+		has_completed_focus = USA_remove_the_profit
+	}
+
 	visible_when_empty = yes
-	
-	allowed = {
-		original_tag = USA
-		has_country_leader = {
-			name = "Douglas MacArthur"
-			ruling_only = yes
-		}
-	}
+
+	priority = 98
 }
+
+#USA_distribute_produce = {
+#	icon = usa_congress
+#	allowed = {
+#		original_tag = USA
+#	}
+#	
+#	visible = {
+#		has_government = libertarian_socialism
+#	}
+#
+#	visible_when_empty = yes
+#
+#	priority = 95
+#}
+
+#USA_managing_spa = {
+#	icon = usa_spa
+#	allowed = {
+#		original_tag = USA
+#	}
+#	
+#	visible = {
+#		has_government = libertarian_socialism
+#		always = no
+#	}
+#
+#	scripted_gui = USA_SPA_pie_chart
+#
+#	visible_when_empty = yes
+#
+#	priority = 90
+#}
+
+#USA_amendments_category = {
+#	icon = usa_congress
+#	allowed = {
+#		original_tag = USA
+#	}
+#	
+#	priority = 85
+#}
+
+#USA_thomas_tyranny_category = {
+#	icon = usa_congress
+#	
+#	visible_when_empty = yes
+#	
+#	allowed = {
+#		original_tag = USA
+#		has_country_leader = {
+#			name = "Norman Thomas"
+#			ruling_only = yes
+#		}
+#	}
+#}
+
+#USA_american_economy_category = {
+#	icon = usa_congress
+#	allowed = {
+#		original_tag = USA
+#		always = yes
+#	}
+#}
+
+#USA_macarthur_actions_category = {
+#	icon = usa_congress
+#	
+#	visible_when_empty = yes
+#	
+#	allowed = {
+#		original_tag = USA
+#		has_country_leader = {
+#			name = "Douglas MacArthur"
+#			ruling_only = yes
+#		}
+#	}
+#}

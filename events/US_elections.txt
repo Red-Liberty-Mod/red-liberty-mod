@@ -412,7 +412,18 @@ country_event = { #mark states for election
 			custom_effect_tooltip = USA_presidential_elections_visible_tt
 			USA_prepare_presidential_election = yes
 		}
-		set_country_flag = USA_campaigning_socialist
+		set_country_flag = USA_campaigning_for_socialists
+		
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 100
+				has_game_rule = {
+					rule = USA_ELECTION_OUTCOME
+					option = USA_ELECTION_OUTCOME_SOCIALIST
+				}
+			}
+		}
  	}
 	option = {
  		name = "Protect our American way of life! Vote Democrat!"
@@ -424,7 +435,18 @@ country_event = { #mark states for election
 			custom_effect_tooltip = USA_presidential_elections_visible_tt
 			USA_prepare_presidential_election = yes
 		}
-		set_country_flag = USA_campaigning_democrat
+		set_country_flag = USA_campaigning_for_democrats
+		
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 100
+				has_game_rule = {
+					rule = USA_ELECTION_OUTCOME
+					option = USA_ELECTION_OUTCOME_DEMOCRAT
+				}
+			}
+		}
  	}
 }
 

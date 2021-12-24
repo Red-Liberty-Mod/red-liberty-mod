@@ -1,5 +1,5 @@
 @SENATE_TIEBREAKER = 0.05
-@POPULARITY_CLAMP_MIN = 0.001
+@POPULARITY_CLAMP_MIN = 0 # used to be 0.001
 @POPULARITY_CLAMP_MAX = 1000
 
 #Fire this every time you want the polls to update
@@ -11,7 +11,6 @@ USA_recalculate_polls = {
 		USA_convert_party_pop_percentage = yes
 		USA_clamp_state_popularities = yes
 		USA_check_election_vs = yes
-		USA_check_election_margin = yes
 	}
 }
 
@@ -420,10 +419,19 @@ USA_hold_senate_election = {
     		max = @POPULARITY_CLAMP_MAX
 		}
 		
-		clamp_variable = {
-   			var = republican_popularity
-    		min = @POPULARITY_CLAMP_MIN
-    		max = @POPULARITY_CLAMP_MAX
+		if = {
+			limit = {
+				NOT = {
+					ROOT = {
+						has_country_flag = USA_republicans_ded
+					}
+				}
+			}
+			clamp_variable = {
+				var = republican_popularity
+				min = @POPULARITY_CLAMP_MIN
+				max = @POPULARITY_CLAMP_MAX
+			}
 		}
 		
 		clamp_variable = {
@@ -460,10 +468,19 @@ USA_hold_senate_election = {
     		max = @POPULARITY_CLAMP_MAX
 		}
 		
-		clamp_variable = {
-   			var = republican_popularity
-    		min = @POPULARITY_CLAMP_MIN
-    		max = @POPULARITY_CLAMP_MAX
+		if = {
+			limit = {
+				NOT = {
+					ROOT = {
+						has_country_flag = USA_republicans_ded
+					}
+				}
+			}
+			clamp_variable = {
+				var = republican_popularity
+				min = @POPULARITY_CLAMP_MIN
+				max = @POPULARITY_CLAMP_MAX
+			}
 		}
 		
 		clamp_variable = {

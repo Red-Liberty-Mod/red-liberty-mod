@@ -81,7 +81,12 @@ USA_campaign_area_west_coast = {
 USA_campaigning_effect = {
 	set_temp_variable = { USA_pop_factor = 1 }
 	if = {
-		limit = { has_country_flag = USA_campaigning_for_socialists }
+		limit = {
+			OR = {
+				has_country_flag = USA_campaigning_for_socialists
+				has_country_flag = USA_campaigning_for_democrats
+			}
+		}
 		random_list = {
 			15 = {
 				add_to_temp_variable = { USA_pop_factor = @CAMPAIGNING_GREAT_BOOST }
@@ -111,11 +116,21 @@ USA_campaigning_effect = {
 		log = "[This.GetName]: USA_campaigning_state_boost: SPA: [?socialist_popularity] || DP: [?democrat_popularity] || RP: [?republican_popularity] || AFP: [?afp_popularity]"
 	}
 	clear_array = USA_campaign_states
+	
+	else_if = {
+		limit = { USA = { has_country_flag = USA_campaigning_for_democrats } }
+	}
 }
 
 USA_campaigning_state_boost = {
 	if = {
 		limit = { USA = { has_country_flag = USA_campaigning_for_socialists } }
 		multiply_variable = { socialist_popularity = USA_pop_factor }
+		log = "[This.GetName]: USA_campaigning_state_boost: socialists boosted"
+	}
+	else_if = {
+		limit = { USA = { has_country_flag = USA_campaigning_for_democrats } }
+		multiply_variable = { democrat_popularity = USA_pop_factor }
+		log = "[This.GetName]: USA_campaigning_state_boost: democrats boosted"
 	}
 }

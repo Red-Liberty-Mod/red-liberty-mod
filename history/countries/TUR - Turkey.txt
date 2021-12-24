@@ -9,11 +9,9 @@ if = {
 	}
 }
 
+set_convoys = 20
+set_stability = 0.55
 set_research_slots = 3
-
-add_ideas = {
-	limited_conscription
-}
 
 set_technology = {
 	infantry_weapons = 1
@@ -60,28 +58,45 @@ if = {
 }
 
 set_politics = {
-	ruling_party = social_democracy
+	ruling_party = market_libertarianism
 	last_election = "1936.1.1"
 	election_frequency = 48
 	elections_allowed = yes
 }
 set_popularities = {
 	insurrectionary_anarchism = 0
-	revolutionary_autocracy = 0
-	proletarian_dictatorship = 10
-	libertarian_socialism = 0
-	social_democracy = 40
-	progressive_liberalism = 0
-	market_libertarianism = 20
-	national_conservatism = 20
-	far_right_authoritarianism = 0
-	authoritarian_democracy = 0
-	autocratic_despotism = 0
-	fascism = 10
+	revolutionary_autocracy = 2
+	proletarian_dictatorship = 5
+	libertarian_socialism = 3
+	social_democracy = 4
+	progressive_liberalism = 10
+	market_libertarianism = 29
+	national_conservatism = 16
+	far_right_authoritarianism = 8
+	authoritarian_democracy = 7
+	autocratic_despotism = 11
+	fascism = 5
 }
 
-set_convoys = 20
-set_stability = 0.55
+set_country_flag = social_democracy_coalition
+set_country_flag = progressive_coalition
+set_country_flag = market_libertarian_coalition
+
+set_country_flag = conscription_banned
+
+add_ideas = {
+	TUR_federation
+	TUR_unequal_treaties
+	TUR_foreign_expertise
+	TUR_growing_opposition
+	TUR_karakol_society
+}
+
+### LEADERS ###
+recruit_character = TUR_adnan_adivar
+
+### ADVISORS ###
+recruit_character = TUR_kazim_karabekir
 
 create_country_leader = {
 	name = "İsmet İnönü"
@@ -93,54 +108,6 @@ create_country_leader = {
 		#
 	}
 }
-
-create_corps_commander = {
-	name = "Cemil Cahit Toydemir"
-	portrait_path = "gfx/leaders/South America/Portrait_South_America_Generic_land_1.dds"
-	traits = { desert_fox }
-	skill = 3
-
-	attack_skill = 3
-	defense_skill = 2
-	planning_skill = 3
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Nazmi Solok"
-	portrait_path = "gfx/leaders/South America/Portrait_South_America_Generic_land_3.dds"
-	traits = { trickster }
-	skill = 2
-
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 1
-}
-
-create_corps_commander = {
-	name = "Salih Omurtak"
-	portrait_path = "gfx/leaders/South America/Portrait_South_America_Generic_land_4.dds"
-	traits = {  hill_fighter }
-	skill = 2
-
-	attack_skill = 2
-	defense_skill = 1
-	planning_skill = 2
-	logistics_skill = 2
-}
-
-create_navy_leader = {
-	name = "Rauf Orbay"
-	portrait_path = "gfx/leaders/South America/Portrait_South_America_Generic_navy_1.dds"
-	traits = { bold }
-	skill = 2
-	attack_skill = 3
-	defense_skill = 1
-	maneuvering_skill = 1
-	coordination_skill = 2
-}
-
 
 ### VARIANTS ###
 # 1936 Start #
