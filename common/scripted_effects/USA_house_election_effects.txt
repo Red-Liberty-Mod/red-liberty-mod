@@ -6,6 +6,13 @@ USA_recalc_house_state = { # call within state
 	#log = "[This.GetName] : old_state_reps_total - [?old_state_reps_total]"
 	
 	set_variable = {
+		state_communist_reps = communist_election_pop
+	}
+	multiply_variable = {
+		state_republican_reps = 0.5
+	}
+	
+	set_variable = {
 		state_socialist_reps = socialist_election_pop
 	}
 	
@@ -28,6 +35,9 @@ USA_recalc_house_state = { # call within state
 	}
 	
 	multiply_variable = {
+		state_communist_reps = old_state_reps_total
+	}
+	multiply_variable = {
 		state_socialist_reps = old_state_reps_total
 	}
 	multiply_variable = {
@@ -40,6 +50,7 @@ USA_recalc_house_state = { # call within state
 		state_afp_reps = old_state_reps_total
 	}
 	
+	round_variable = state_communist_reps
 	round_variable = state_socialist_reps
 	round_variable = state_democrat_reps
 	round_variable = state_republican_reps
@@ -47,6 +58,9 @@ USA_recalc_house_state = { # call within state
 	
 	set_variable = {
 		state_reps_total = 0
+	}
+	add_to_variable = {
+		state_reps_total = state_communist_reps
 	}
 	add_to_variable = {
 		state_reps_total = state_socialist_reps
@@ -109,6 +123,7 @@ USA_recalc_house_state = { # call within state
 		}
 	}
 	
+	log = "[This.GetName] : state_communist_reps - [?state_communist_reps]"
 	log = "[This.GetName] : state_socialist_reps - [?state_socialist_reps]"
 	log = "[This.GetName] : state_democrat_reps - [?state_democrat_reps]"
 	log = "[This.GetName] : state_republican_reps - [?state_republican_reps]"
@@ -140,6 +155,7 @@ USA_calculate_reps = {
 		limit = {
 			can_have_elections_in_state = yes
 		}
+		add_to_variable = { USA.representatives_communist = state_communist_reps }
 		add_to_variable = { USA.representatives_socialist = state_socialist_reps }
 		add_to_variable = { USA.representatives_democrat = state_democrat_reps }
 		add_to_variable = { USA.representatives_republican = state_republican_reps }
@@ -148,6 +164,7 @@ USA_calculate_reps = {
 	
 	USA = {
 		set_variable = { representatives_total = 0 }
+		add_to_variable = { representatives_total = representatives_communist }
 		add_to_variable = { representatives_total = representatives_socialist }
 		add_to_variable = { representatives_total = representatives_republican }
 		add_to_variable = { representatives_total = representatives_democrat }
