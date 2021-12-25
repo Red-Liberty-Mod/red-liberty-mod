@@ -23,7 +23,7 @@ debug_category = {
 		}
 	}
 	
-	debug_recalc_kill_republicans = {
+	debug_kill_republicans = {
 	
 		icon = generic_political_discourse
 		
@@ -47,7 +47,7 @@ debug_category = {
 		}
 	}
 	
-	debug_recalc_pie_chart = {
+	debug_boost_farmer_labor = {
 	
 		icon = generic_political_discourse
 		
@@ -67,7 +67,63 @@ debug_category = {
 		}
 		
 		complete_effect = {
-			USA_pie_adjustment_effect = yes
+			USA = {
+				add_to_variable = { representatives_farmer_labor = 5 }
+			}
+		}
+	}
+	
+	debug_boost_communist = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			tag = USA
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = USA
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			every_owned_state = {
+				limit = { can_have_elections_in_state = yes }
+				add_to_variable = { communist_popularity = 0.05 }
+			}
+		}
+	}
+	
+	debug_boost_afp = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			tag = USA
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = USA
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			every_owned_state = {
+				limit = { can_have_elections_in_state = yes }
+				add_to_variable = { afp_popularity = 0.05 }
+			}
 		}
 	}
 	
@@ -159,86 +215,6 @@ debug_category = {
 			}
 		}
 	}
-
-	#debug_load_thomas_second_term = {
-	#
-	#	icon = generic_political_discourse
-	#	
-	#	available = {
-	#		tag = USA
-	#	}
-	#	
-	#	visible = {
-	#		is_debug = yes
-	#		tag = USA
-	#	}
-	#	
-	#	cost = 0
-	#
-	#	ai_will_do = {
-	#		base = 0
-	#	}
-	#	
-	#	complete_effect = {
-	#		country_event = {
-	#			id = us_election.5
-	#		}
-	#		set_country_flag = USA_thomas_second_term_tree_force_on
-	#		clr_country_flag = USA_lister_tree_force_on
-	#	}
-	#}
-	
-	debug_load_thomas_lost_election_tree = {
-	
-		icon = generic_political_discourse
-		
-		available = {
-			tag = USA
-		}
-		
-		visible = {
-			is_debug = yes
-			tag = USA
-		}
-		
-		cost = 0
-
-		ai_will_do = {
-			base = 0
-		}
-		
-		complete_effect = {
-			load_focus_tree = USA_flame_burnt_out_tree
-		}
-	}
-	
-	debug_load_lister_first_term = {
-	
-		icon = generic_political_discourse
-		
-		available = {
-			tag = USA
-		}
-		
-		visible = {
-			is_debug = yes
-			tag = USA
-		}
-		
-		cost = 0
-
-		ai_will_do = {
-			base = 0
-		}
-		
-		complete_effect = {
-			country_event = {
-				id = us_election.7
-			}
-			set_country_flag = USA_lister_tree_force_on
-			clr_country_flag = USA_thomas_second_term_tree_force_on
-		}
-	}
 	
 	debug_load_FRA_far_left_tree = {
 	
@@ -262,57 +238,6 @@ debug_category = {
 		complete_effect = {
 			load_focus_tree = FRA_communist_tree
 			set_country_flag = FRA_far_left_force_on
-		}
-	}
-	
-	debug_start_second_acw = {
-	
-		icon = generic_political_discourse
-		
-		available = {
-			tag = USA
-		}
-		
-		visible = {
-			is_debug = yes
-			tag = USA
-		}
-		
-		cost = 0
-
-		ai_will_do = {
-			base = 0
-		}
-		
-		complete_effect = {
-			country_event = {
-				id = acw.1
-			}
-			clr_country_flag = USA_thomas_second_term_tree_force_on
-		}
-	}
-	
-	debug_start_silver_legion = {
-	
-		icon = generic_political_discourse
-		
-		available = {
-			tag = USA
-		}
-		
-		visible = {
-			is_debug = yes
-			tag = USA
-		}
-		
-		cost = 0
-
-		ai_will_do = {
-			base = 0
-		}
-		
-		complete_effect = {
-			set_country_flag = USA_silver_legion_enabled
 		}
 	}
 	
