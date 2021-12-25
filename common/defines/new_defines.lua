@@ -19,7 +19,7 @@ NDefines.NBuildings.MAX_SHARED_SLOTS = 56				-- Max slots shared by factories
 
 -- Country
 NDefines.NCountry.MIN_STABILITY = -0.5
-NDefines.NCountry.MIN_WAR_SUPPORT = -0.5
+NDefines.NCountry.MIN_WAR_SUPPORT = 0
 
 -- Buildings
 NDefines.NBuildings.INFRASTRUCTURE_RESOURCE_BONUS = 0.1						-- multiplicative resource bonus for each level of (non damaged) infrastructure, vanilla is 0.2
