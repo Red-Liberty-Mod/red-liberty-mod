@@ -1,3 +1,11 @@
+USA_recalc_house = {
+	every_owned_state = {
+		limit = { can_have_elections_in_state = yes }
+		USA_recalc_house_state = yes
+	}
+	USA_calculate_reps = yes
+}
+
 USA_recalc_house_state = { # call within state
 	
 	set_variable = { old_state_reps_total = electoral_votes } # find total reps to distribute
@@ -91,14 +99,27 @@ USA_recalc_house_state = { # call within state
 				}
 			}
 		}
+		log = "[This.GetName] : found state discrepancy: [?old_state_reps_total]"
 		if = {
 			limit = {
 				check_variable = { socialist_election_pop > democrat_election_pop }
 				check_variable = { socialist_election_pop > republican_election_pop }
 				check_variable = { socialist_election_pop > afp_election_pop }
 			}
+			log = "[This.GetName] : state discrepancy: state_socialist_reps"
 			add_to_variable = {
 				state_socialist_reps = old_state_reps_total
+			}
+		}
+		if = {
+			limit = {
+				check_variable = { republican_election_pop > socialist_election_pop }
+				check_variable = { republican_election_pop > democrat_election_pop }
+				check_variable = { republican_election_pop > afp_election_pop }
+			}
+			log = "[This.GetName] : state discrepancy: state_republican_reps"
+			add_to_variable = {
+				state_republican_reps = old_state_reps_total
 			}
 		}
 		if = {
@@ -107,6 +128,7 @@ USA_recalc_house_state = { # call within state
 				check_variable = { democrat_election_pop > republican_election_pop }
 				check_variable = { democrat_election_pop > afp_election_pop }
 			}
+			log = "[This.GetName] : state discrepancy: state_democrat_reps"
 			add_to_variable = {
 				state_democrat_reps = old_state_reps_total
 			}
@@ -117,6 +139,7 @@ USA_recalc_house_state = { # call within state
 				check_variable = { afp_election_pop > republican_election_pop }
 				check_variable = { afp_election_pop > democrat_election_pop }
 			}
+			log = "[This.GetName] : state discrepancy: state_afp_reps"
 			add_to_variable = {
 				state_afp_reps = old_state_reps_total
 			}
@@ -128,11 +151,6 @@ USA_recalc_house_state = { # call within state
 	log = "[This.GetName] : state_democrat_reps - [?state_democrat_reps]"
 	log = "[This.GetName] : state_republican_reps - [?state_republican_reps]"
 	log = "[This.GetName] : state_afp_reps - [?state_afp_reps]"
-	
-	USA = {
-		#log = "[This.GetName] : USA_calculate_reps"
-		USA_calculate_reps = yes
-	}
 }
 
 USA_calculate_reps = {
@@ -187,6 +205,7 @@ USA_calculate_reps = {
 				}
 			}
 		}
+		log = "[This.GetName] : found national discrepancy - [?representatives_total_old]"
 		add_to_variable = {
 			representatives_total = representatives_total_old
 		}
@@ -202,6 +221,7 @@ USA_calculate_reps = {
 		}
 	}
 	
+	log = "[This.GetName] : representatives_communist - [?representatives_communist]"
 	log = "[This.GetName] : representatives_socialist - [?representatives_socialist]"
 	log = "[This.GetName] : representatives_republican - [?representatives_republican]"
 	log = "[This.GetName] : representatives_democrat - [?representatives_democrat]"
