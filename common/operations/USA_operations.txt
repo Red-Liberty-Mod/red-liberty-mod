@@ -1,0 +1,100 @@
+
+
+operation_lincolnlooker = {
+	
+	icon = GFX_operations_rescue_captured_operative
+	map_icon = GFX_operations_rescue_captured_operative_map
+	name = operation_lincolnlooker_name
+	desc = operation_lincolnlooker_desc
+	priority = 0
+
+	days = 90
+	network_strength = 1
+	operatives = 1
+
+	visible = {
+		network_national_coverage = {
+			target = FROM
+			value > 0
+		}
+		always = no
+	}
+
+	available = {
+		
+	}
+
+	requirements = {
+		
+	}
+
+	equipment = {
+		
+	}
+	risk_chance = 0.1
+	experience = 2
+	cost_multiplier = 0
+
+	outcome_execute = {
+		ROOT = {
+			add_stability = 0.03
+		}
+	}
+
+	outcome_potential = {
+		
+	}
+
+	phases = { #infiltration
+		infiltration_border = { base = 25 }
+		infiltration_submarine = { base = 25 }
+		infiltration_paradrop = { 
+			base = 25 
+			modifier = {
+				ROOT = { 
+					has_equipment = {
+						transport_plane_equipment < 1
+					}
+				}
+				factor = 0.1 #less likely if we have no transports
+			}
+		}
+		infiltration_diplomatic = {
+			base = 25
+			modifier = {
+				factor = 20
+				ROOT = { has_war = no }
+				FROM = {
+					has_war = no
+				}
+			}
+			modifier = {
+				FROM = {
+					has_war_with = ROOT
+				}
+				factor = 0
+			}
+		}
+	}
+	phases = {
+		free_operative_free_in_transit = { base = 33 }
+		free_operative_liberate_camp = { base = 33 }
+		free_operative_smuggle_in_escape_gear = { base = 33 }
+	}
+	phases = { #exfiltration
+		exfiltration_air_pickup = { 
+			base = 15 
+			modifier = {
+				ROOT = { 
+					has_equipment = {
+						transport_plane_equipment < 1
+					}
+				}
+				factor = 0.1 #less likely if we have no transports
+			}
+		}
+		exfiltration_border = { base = 30 }
+		exfiltration_go_to_ground = { base = 30 }
+		exfiltration_submarine_pickup = { base = 25 }
+	}
+}
