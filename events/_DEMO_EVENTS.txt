@@ -1026,7 +1026,7 @@ news_event = { #Italo Greco War
  	id = demo.ita_gre_war.1
 	title = demo.ita_gre_war.1.t
 	desc = demo.ita_gre_war.1.d
-	picture = GFX_news_event_italo_greco_War
+	picture = GFX_news_event_Italo_Greco_War
 
 	major = yes
 
@@ -1043,7 +1043,7 @@ news_event = { #Italian  victory in Italo Greco War
  	id = demo.Ita_Victory.1
 	title = demo.Ita_Victory.1.t
 	desc = demo.Ita_Victory.1.d
-	picture = GFX_news_event_Italy_victory_Italo_Greco_War
+	picture = GFX_news_event_Italian_Victory_Italo_Greco_war
 
 	major = yes
 
@@ -1060,7 +1060,7 @@ news_event = { # Greece victory in Italo Greco War
  	id = demo.Gre_Victory.1
 	title = demo.Gre_Victory.1.t
 	desc = demo.Gre_Victory.1.d
-	picture = #get picture
+	picture = GFX_news_event_Greece_Victory_Italo_Greco_war
 
 	major = yes
 
@@ -1076,7 +1076,7 @@ news_event = { # Russian declaration of war against Germany
  	id = demo.Rus_Ger_war_declaration.1
 	title = demo.Rus_Ger_war_declaration.1.t
 	desc = demo.Rus_Ger_war_declaration.1.d
-	picture = #get picture
+	picture = GFX_news_event_Soviet_Russia_Invades_Germany
 
 	major = yes
 
@@ -1092,7 +1092,7 @@ news_event = { # German declaration of war against Russia
  	id = demo.Ger_Rus_war_declaration.1
 	title = demo.Ger_Rus_war_declaration.1.t
 	desc = demo.Ger_Rus_war_declaration.1.d
-	picture = #get picture
+	picture = GFX_news_event_German_invasion_Russia
 
 	major = yes
 
@@ -1102,5 +1102,37 @@ news_event = { # German declaration of war against Russia
 
 	option = {
 		name = demo.Ger_Rus_war_declaration.1.a
+	}
+}
+news_event = { # Second Great War between France, Uk, and Germany
+	id = demo.Second_Great_War
+	title = demo.Second_Great_War.t
+	desc = demo.Second_Great_War.d
+	picture = GFX_news_event_Italian_Intervention
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo.Second_Great_War.a
+	}
+}
+news_event = { # Italian Intervention in Great War on the side of Germany
+	id = demo.Italy_Intervenes_In_Great_War
+	title = demo.Italy_Intervenes_In_Great_War.t
+	desc = demo.Italy_Intervenes_In_Great_War.d
+	picture = GFX_news_event_Second_Great_War
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo.Italy_Intervenes_In_Great_War.a
 	}
 }
