@@ -259,9 +259,9 @@ country_event = { # 1940 spa convention
 	}
 }
 
-country_event = {
+country_event = { # appalachian insurgency start
 	id = united_states.13
-	title = ""
+	title = united_states.13.title
 	desc = united_states.13.desc
 	
 	is_triggered_only = yes
@@ -269,13 +269,17 @@ country_event = {
 	fire_only_once = yes
 
 	option = {
-		name = ""
+		name = united_states.13.a
+		country_event = {
+			id = united_states.14
+			days = 17
+		}
 	}
 }
 
 country_event = {
 	id = united_states.14
-	title = ""
+	title = united_states.14.title
 	desc = united_states.14.desc
 	
 	is_triggered_only = yes
@@ -283,34 +287,75 @@ country_event = {
 	fire_only_once = yes
 
 	option = {
-		name = ""
+		name = united_states.14.a
+		country_event = {
+			id = united_states.14
+			days = 9
+		}
 	}
 }
 
 country_event = {
 	id = united_states.15
-	title = "Appalachian Insurgency"
+	title = united_states.15.title
 	desc = united_states.15.desc
-	
-	trigger = {
-		has_government = libertarian_socialism
-	}
 	
 	is_triggered_only = yes
 	
 	fire_only_once = yes
 
 	option = {
-		name = "He's Insane!"
+		name = united_states.15.a
+		set_country_flag = USA_insurgency_start
+		unlock_decision_category_tooltip = USA_appalachian_insurgency_category
+		
+		set_variable = { USA_insurgency_strength = 76 }
+		
 		853 = {
 			set_demilitarized_zone = yes
 		}
-		857 = {
-			set_demilitarized_zone = yes
-		}
-		860 = {
-			set_demilitarized_zone = yes
-		}
+	}
+}
+
+country_event = {
+	id = united_states.16
+	title = united_states.16.title
+	desc = united_states.16.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states.16.a
+	}
+}
+
+country_event = {
+	id = united_states.17
+	title = united_states.17.title
+	desc = united_states.17.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states.17.a
+	}
+}
+
+country_event = {
+	id = united_states.18
+	title = united_states.18.title
+	desc = united_states.18.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states.18.a
 	}
 }
 
@@ -350,7 +395,7 @@ country_event = { # may day
 
 country_event = { # aw yea its cthulhu ftaghn time
 	id = united_states_flavor.3
-	title = "A Rhode Island Newspaper Article"
+	title = united_states_flavor.3.title
 	desc = united_states_flavor.3.desc
 	picture = GFX_report_event_lovecraft
 	

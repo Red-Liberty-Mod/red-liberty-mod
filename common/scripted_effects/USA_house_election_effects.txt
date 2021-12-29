@@ -157,6 +157,12 @@ USA_calculate_reps = {
 
 	USA = {
 		set_variable = { representatives_total_old = representatives_total }
+		
+		set_variable = { representatives_communist_change = representatives_communist }
+		set_variable = { representatives_socialist_change = representatives_socialist }
+		set_variable = { representatives_republican_change = representatives_republican }
+		set_variable = { representatives_democrat_change = representatives_democrat }
+		set_variable = { representatives_fascist_change = representatives_fascist }
 	}
 	
 	#log = "[This.GetName] : representatives_total_old - [?representatives_total_old]"
@@ -226,4 +232,21 @@ USA_calculate_reps = {
 	log = "[This.GetName] : representatives_republican - [?representatives_republican]"
 	log = "[This.GetName] : representatives_democrat - [?representatives_democrat]"
 	log = "[This.GetName] : representatives_fascist - [?representatives_fascist]"
+}
+
+USA_calc_rep_change = {
+	
+	USA = {
+		subtract_from_variable = { representatives_communist_change = representatives_communist }
+		subtract_from_variable = { representatives_socialist_change = representatives_socialist }
+		subtract_from_variable = { representatives_republican_change = representatives_republican }
+		subtract_from_variable = { representatives_democrat_change = representatives_democrat }
+		subtract_from_variable = { representatives_fascist_change = representatives_fascist }
+		
+		multiply_variable = { representatives_communist_change = -1 }
+		multiply_variable = { representatives_socialist_change = -1 }
+		multiply_variable = { representatives_republican_change = -1 }
+		multiply_variable = { representatives_democrat_change = -1 }
+		multiply_variable = { representatives_fascist_change = -1 }
+	}
 }

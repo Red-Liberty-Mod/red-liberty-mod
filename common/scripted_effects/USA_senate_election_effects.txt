@@ -1,6 +1,4 @@
 @SENATE_TIEBREAKER = 0.05
-@POPULARITY_CLAMP_MIN = 0 # used to be 0.001
-@POPULARITY_CLAMP_MAX = 1000
 
 #Fire this every time you want the polls to update
 USA_recalculate_polls = {
@@ -406,47 +404,11 @@ USA_hold_senate_election = {
 		}
 		set_variable = { prev_senator_1 = senator_1 }
 		
+		USA_gerrymandering_bonus = yes
+		
 		USA_clamp_state_popularities = yes
-		clamp_variable = {
-   			var = communist_popularity
-    		min = @POPULARITY_CLAMP_MIN
-    		max = @POPULARITY_CLAMP_MAX
-		}
 		
-		clamp_variable = {
-   			var = socialist_popularity
-    		min = @POPULARITY_CLAMP_MIN
-    		max = @POPULARITY_CLAMP_MAX
-		}
-		
-		if = {
-			limit = {
-				NOT = {
-					ROOT = {
-						has_country_flag = USA_republicans_ded
-					}
-				}
-			}
-			clamp_variable = {
-				var = republican_popularity
-				min = @POPULARITY_CLAMP_MIN
-				max = @POPULARITY_CLAMP_MAX
-			}
-		}
-		
-		clamp_variable = {
-   			var = democrat_popularity
-    		min = @POPULARITY_CLAMP_MIN
-    		max = @POPULARITY_CLAMP_MAX
-		}
-		
-		clamp_variable = {
-   			var = afp_popularity
-    		min = @POPULARITY_CLAMP_MIN
-    		max = @POPULARITY_CLAMP_MAX
-		}
-		
-		log = " pick senate 1 race"
+		log = "pick senate 1 race"
 		USA_pick_senator_1_in_state = yes
 	}
 	every_owned_state = {
@@ -455,47 +417,11 @@ USA_hold_senate_election = {
 		}
 		set_variable = { prev_senator_2 = senator_2 }
 		
+		USA_gerrymandering_bonus = yes
+		
 		USA_clamp_state_popularities = yes
-		clamp_variable = {
-   			var = communist_popularity
-    		min = @POPULARITY_CLAMP_MIN
-    		max = @POPULARITY_CLAMP_MAX
-		}
 		
-		clamp_variable = {
-   			var = socialist_popularity
-    		min = @POPULARITY_CLAMP_MIN
-    		max = @POPULARITY_CLAMP_MAX
-		}
-		
-		if = {
-			limit = {
-				NOT = {
-					ROOT = {
-						has_country_flag = USA_republicans_ded
-					}
-				}
-			}
-			clamp_variable = {
-				var = republican_popularity
-				min = @POPULARITY_CLAMP_MIN
-				max = @POPULARITY_CLAMP_MAX
-			}
-		}
-		
-		clamp_variable = {
-   			var = democrat_popularity
-    		min = @POPULARITY_CLAMP_MIN
-    		max = @POPULARITY_CLAMP_MAX
-		}
-		
-		clamp_variable = {
-   			var = afp_popularity
-    		min = @POPULARITY_CLAMP_MIN
-    		max = @POPULARITY_CLAMP_MAX
-		}
-		
-		log = " pick senate 1 race"
+		log = "pick senate 1 race"
 		USA_pick_senator_2_in_state = yes
 	}
 	
@@ -525,36 +451,36 @@ USA_pick_senator_1_in_state = {
 	
 	if = {
 		limit = {
-			check_variable = { THIS.socialist_popularity > THIS.democrat_popularity }
-			check_variable = { THIS.socialist_popularity > THIS.republican_popularity }
-			check_variable = { THIS.socialist_popularity > THIS.afp_popularity }
+			check_variable = { THIS.socialist_election_pop > THIS.democrat_election_pop }
+			check_variable = { THIS.socialist_election_pop > THIS.republican_election_pop }
+			check_variable = { THIS.socialist_election_pop > THIS.afp_election_pop }
 		}
 		set_variable = { senator_1 = 1 }
 		log = "[This.GetName] elected [?senator_1]"
 	}
 	else_if = {
 		limit = {
-			check_variable = { THIS.republican_popularity > THIS.democrat_popularity }
-			check_variable = { THIS.republican_popularity > THIS.socialist_popularity }
-			check_variable = { THIS.republican_popularity > THIS.afp_popularity }
+			check_variable = { THIS.republican_election_pop > THIS.democrat_election_pop }
+			check_variable = { THIS.republican_election_pop > THIS.socialist_election_pop }
+			check_variable = { THIS.republican_election_pop > THIS.afp_election_pop }
 		}
 		set_variable = { senator_1 = 2 }
 		log = "[This.GetName] elected [?senator_1]"
 	}
 	else_if = {
 		limit = {
-			check_variable = { THIS.democrat_popularity > THIS.republican_popularity }
-			check_variable = { THIS.democrat_popularity > THIS.socialist_popularity }
-			check_variable = { THIS.democrat_popularity > THIS.afp_popularity }
+			check_variable = { THIS.democrat_election_pop > THIS.republican_election_pop }
+			check_variable = { THIS.democrat_election_pop > THIS.socialist_election_pop }
+			check_variable = { THIS.democrat_election_pop > THIS.afp_election_pop }
 		}
 		set_variable = { senator_1 = 3 }
 		log = "[This.GetName] elected [?senator_1]"
 	}
 	else_if = {
 		limit = {
-			check_variable = { THIS.afp_popularity > THIS.republican_popularity }
-			check_variable = { THIS.afp_popularity > THIS.socialist_popularity }
-			check_variable = { THIS.afp_popularity > THIS.democrat_popularity }
+			check_variable = { THIS.afp_election_pop > THIS.republican_election_pop }
+			check_variable = { THIS.afp_election_pop > THIS.socialist_election_pop }
+			check_variable = { THIS.afp_election_pop > THIS.democrat_election_pop }
 		}
 		set_variable = { senator_1 = 4 }
 		log = "[This.GetName] elected [?senator_1]"
@@ -602,36 +528,36 @@ USA_pick_senator_2_in_state = {
 	
 	if = {
 		limit = {
-			check_variable = { THIS.socialist_popularity > THIS.democrat_popularity }
-			check_variable = { THIS.socialist_popularity > THIS.republican_popularity }
-			check_variable = { THIS.socialist_popularity > THIS.afp_popularity }
+			check_variable = { THIS.socialist_election_pop > THIS.democrat_election_pop }
+			check_variable = { THIS.socialist_election_pop > THIS.republican_election_pop }
+			check_variable = { THIS.socialist_election_pop > THIS.afp_election_pop }
 		}
 		set_variable = { senator_2 = 1 }
 		log = "[This.GetName] elected [?senator_2]"
 	}
 	else_if = {
 		limit = {
-			check_variable = { THIS.republican_popularity > THIS.democrat_popularity }
-			check_variable = { THIS.republican_popularity > THIS.socialist_popularity }
-			check_variable = { THIS.republican_popularity > THIS.afp_popularity }
+			check_variable = { THIS.republican_election_pop > THIS.democrat_election_pop }
+			check_variable = { THIS.republican_election_pop > THIS.socialist_election_pop }
+			check_variable = { THIS.republican_election_pop > THIS.afp_election_pop }
 		}
 		set_variable = { senator_2 = 2 }
 		log = "[This.GetName] elected [?senator_2]"
 	}
 	else_if = {
 		limit = {
-			check_variable = { THIS.democrat_popularity > THIS.republican_popularity }
-			check_variable = { THIS.democrat_popularity > THIS.socialist_popularity }
-			check_variable = { THIS.democrat_popularity > THIS.afp_popularity }
+			check_variable = { THIS.democrat_election_pop > THIS.republican_election_pop }
+			check_variable = { THIS.democrat_election_pop > THIS.socialist_election_pop }
+			check_variable = { THIS.democrat_election_pop > THIS.afp_election_pop }
 		}
 		set_variable = { senator_2 = 3 }
 		log = "[This.GetName] elected [?senator_2]"
 	}
 	else_if = {
 		limit = {
-			check_variable = { THIS.afp_popularity > THIS.republican_popularity }
-			check_variable = { THIS.afp_popularity > THIS.socialist_popularity }
-			check_variable = { THIS.afp_popularity > THIS.democrat_popularity }
+			check_variable = { THIS.afp_election_pop > THIS.republican_election_pop }
+			check_variable = { THIS.afp_election_pop > THIS.socialist_election_pop }
+			check_variable = { THIS.afp_election_pop > THIS.democrat_election_pop }
 		}
 		set_variable = { senator_2 = 4 }
 		log = "[This.GetName] elected [?senator_2]"
