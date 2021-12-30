@@ -21,7 +21,7 @@ country_event = { # intro event
 
 country_event = { # danubian wars start
 	id = danubian_war.1
-	title = ""
+	title = "Hungary Breaks Away From Us"
 	desc = danubian_war.1.desc
 
 	is_triggered_only = yes
@@ -58,7 +58,7 @@ country_event = { # danubian wars start
 
 	option = {
 		ai_chance = { factor = 1 }
-		name = ""
+		name = "Hopefully things don't get worse"
 		country_event = {
 			id = danubian_war_news.1
 			days = 2
@@ -83,9 +83,9 @@ news_event = {
 	} 
 }
 
-country_event = { # danubian wars start
+country_event = { # Hungarian civil war
 	id = danubian_war.2
-	title = ""
+	title = "Socialist Rebellion"
 	desc = danubian_war.2.desc
 
 	is_triggered_only = yes
@@ -137,7 +137,7 @@ country_event = { # danubian wars start
 
 country_event = { # austria invades hungary
 	id = danubian_war.3
-	title = ""
+	title = "Reconquering Hungary"
 	desc = danubian_war.3.desc
 
 	is_triggered_only = yes
@@ -170,8 +170,8 @@ country_event = { # austria invades hungary
 	}
 
 	option = {
-		ai_chance = { factor = 1 }
-		name = ""
+		ai_chance = { factor = 50 }
+		name = "Time to take back what is rightfully ours!"
 		AHE = {
 			declare_war_on = {
 				target = HSR
@@ -181,7 +181,22 @@ country_event = { # austria invades hungary
 				target = HUN
 				type = annex_everything
 			}
-			
+			hidden_effect = {
+				country_event = {
+					id = danubian_war.4
+					days = 7
+				}
+				country_event = {
+					id = danubian_war.5
+					days = 10
+				}
+			}
+		}
+	}
+	option = {
+		ai_chance = { factor = 1 }
+		name = "We don't need to bother with the Hungarians"
+		hidden_effect = {
 			country_event = {
 				id = danubian_war.4
 				days = 7
@@ -196,7 +211,7 @@ country_event = { # austria invades hungary
 
 country_event = { # czech revolt
 	id = danubian_war.4
-	title = ""
+	title = "Rebellion of the Czech"
 	desc = danubian_war.4.desc
 
 	is_triggered_only = yes
@@ -222,7 +237,7 @@ country_event = { # czech revolt
 
 	option = {
 		ai_chance = { factor = 1 }
-		name = ""
+		name = "Another problem for us"
 		
 	} 
 }
@@ -291,7 +306,7 @@ country_event = { # galicia falls
 
 country_event = { # intervention event - romania
 	id = danubian_war_interventions.1
-	title = ""
+	title = "Forming a Greater Romania"
 	desc = danubian_war_interventions.1.desc
 
 	is_triggered_only = yes
@@ -299,8 +314,8 @@ country_event = { # intervention event - romania
 	fire_only_once = yes
 
 	option = {
-		ai_chance = { factor = 1 }
-		name = ""
+		ai_chance = { factor = 50 }
+		name = "We'll make Romania great and happy again!"
 		ROM = {
 			declare_war_on = {
 				target = HSR
@@ -318,22 +333,36 @@ country_event = { # intervention event - romania
 				generator = { 80 }
 			}
 		}
-		BUL = {
-			country_event = {
-				id = danubian_war_interventions.3
-				days = 2
+		hidden_effect = {
+			BUL = {
+				country_event = {
+					id = danubian_war_interventions.3
+					days = 2
+				}
+			}
+			ITA = {
+				country_event = {
+					id = danubian_war_interventions.4
+					days = 10
+				}
 			}
 		}
-		TUR = {
-			country_event = {
-				id = danubian_war_interventions.4
-				days = 7
+	}
+	option = {
+		ai_chance = { factor = 1 }
+		name = "We just aren't ready yet"
+		hidden_effect = {
+			BUL = {
+				country_event = {
+					id = danubian_war_interventions.3
+					days = 2
+				}
 			}
-		}
-		ITA = {
-			country_event = {
-				id = danubian_war_interventions.5
-				days = 10
+			ITA = {
+				country_event = {
+					id = danubian_war_interventions.4
+					days = 10
+				}
 			}
 		}
 	} 
@@ -341,7 +370,7 @@ country_event = { # intervention event - romania
 
 country_event = { # intervention event - serbia
 	id = danubian_war_interventions.2
-	title = ""
+	title = "Our Chance at Conquest"
 	desc = danubian_war_interventions.2.desc
 
 	is_triggered_only = yes
@@ -349,8 +378,8 @@ country_event = { # intervention event - serbia
 	fire_only_once = yes
 
 	option = {
-		ai_chance = { factor = 1 }
-		name = ""
+		ai_chance = { factor = 10 }
+		name = "It's now or never!"
 		SER = {
 			declare_war_on = {
 				target = AHE
@@ -363,12 +392,16 @@ country_event = { # intervention event - serbia
 				generator = { 106 801 }
 			}
 		}
+	}
+	option = {
+		ai_chance = { factor = 1 }
+		name = "Maybe in a different time..."
 	} 
 }
 
 country_event = { # intervention event - bulgaria
 	id = danubian_war_interventions.3
-	title = ""
+	title = "The Romanian Gamble"
 	desc = danubian_war_interventions.3.desc
 
 	is_triggered_only = yes
@@ -376,8 +409,8 @@ country_event = { # intervention event - bulgaria
 	fire_only_once = yes
 
 	option = {
-		ai_chance = { factor = 1 }
-		name = ""
+		ai_chance = { factor = 25 }
+		name = "No reason why we shouldn't try"
 		BUL = {
 			declare_war_on = {
 				target = ROM
@@ -386,33 +419,15 @@ country_event = { # intervention event - bulgaria
 			}
 		}
 	} 
-}
-
-country_event = { # intervention event - turkey
-	id = danubian_war_interventions.4
-	title = ""
-	desc = danubian_war_interventions.4.desc
-
-	is_triggered_only = yes
-
-	fire_only_once = yes
-
 	option = {
-		ai_chance = { factor = 1 }
-		name = ""
-		TUR = {
-			declare_war_on = {
-				target = BUL
-				type = take_state_focus 
-				generator = { 820 }
-			}
-		}
-	} 
+		ai_chance = { factor = 1 } 
+		name = "We don't need to make things more complicated"
+	}
 }
 
 country_event = { # intervention event - italy
-	id = danubian_war_interventions.5
-	title = ""
+	id = danubian_war_interventions.4
+	title = "Finally Getting our Cut"
 	desc = danubian_war_interventions.5.desc
 
 	is_triggered_only = yes
@@ -420,8 +435,8 @@ country_event = { # intervention event - italy
 	fire_only_once = yes
 
 	option = {
-		ai_chance = { factor = 1 }
-		name = ""
+		ai_chance = { factor = 75 }
+		name = "The liberation of all Italians is near!"
 		ITA = {
 			declare_war_on = {
 				target = AHE
@@ -430,4 +445,8 @@ country_event = { # intervention event - italy
 			}
 		}
 	} 
+	option = {
+		ai_chance = { factor = 1 }
+		name = "We have other concerns"
+	}
 }
