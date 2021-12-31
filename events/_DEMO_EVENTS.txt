@@ -16,6 +16,7 @@ add_namespace = demo.alb_Victory
 add_namespace = demo.ita_Victory
 add_namespace = demo.ita_gr_war
 add_namespace = demo.jap_chi_war
+add_namespace = demo.sov_fin_war
 
 country_event = { # de la rocque takes power
 	id = demo_fra.1
@@ -344,6 +345,25 @@ country_event = { # election event for austria
 		add_popularity = {
 			ideology = national_conservatism
 			popularity = 0.03
+		}
+	}
+}
+
+country_event = {
+	id = demo.sov_fin_war.1
+	title = ""
+	desc = demo.sov_fin_war.1.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ""
+		SOV = {
+			annex_country = {
+				target = FIN 
+			}
 		}
 	}
 }
