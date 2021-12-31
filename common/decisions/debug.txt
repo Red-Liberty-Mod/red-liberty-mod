@@ -151,7 +151,32 @@ debug_category = {
 		}
 	}
 	
-	debug_trigger_election = {
+	debug_start_election = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			tag = USA
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = USA
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			USA_class_1_senate_prepare = yes
+			USA_recalculate_polls = yes
+		}
+	}
+	
+	debug_end_election = {
 	
 		icon = generic_political_discourse
 		

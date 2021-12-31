@@ -1,0 +1,118 @@
+USA_appalachian_insurgency_category = {
+
+	USA_strike_the_final_blow = {
+	
+		icon = generic_army_support
+		
+		visible = {
+			has_country_flag = USA_insurgency_start
+			NOT = {
+				has_country_flag = USA_insurgency_end
+			}
+		}
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = USA_insurgency_15_end_tt
+				check_variable = { USA_insurgency_strength < 15 }
+			}
+		}
+		
+		fire_only_once = yes
+		
+		days_remove = 15
+		
+		cost = 10
+		
+		remove_effect = {
+			
+		}
+	}
+	
+	USA_send_in_the_army = {
+	
+		icon = generic_army_support
+		
+		visible = {
+			has_country_flag = USA_insurgency_start
+			NOT = {
+				has_country_flag = USA_insurgency_end
+			}
+		}
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = USA_insurgency_25_end_tt
+				check_variable = { USA_insurgency_strength < 25 }
+			}
+		}
+		
+		fire_only_once = yes
+		
+		days_remove = 15
+		
+		cost = 10
+		
+		remove_effect = {
+			random_list = {
+				75 = {
+				
+				}
+				25 = {
+					custom_effect_tooltip = USA_insurgency_operation_fail
+				}
+			}
+		}
+	}
+
+	USA_mobilize_national_guard = {
+	
+		icon = generic_army_support
+		
+		visible = {
+			has_country_flag = USA_insurgency_start
+			NOT = {
+				has_country_flag = USA_insurgency_end
+			}
+		}
+		
+		available = {
+			
+		}
+		
+		fire_only_once = yes
+		
+		days_remove = 10
+		
+		cost = 25
+		
+		remove_effect = {
+			add_manpower = 10000
+			subtract_from_variable = { USA_insurgency_strength = 7 }
+		}
+	}
+	
+	USA_construct_additional_barricades = {
+	
+		icon = generic_army_support
+		
+		visible = {
+			has_country_flag = USA_insurgency_start
+			NOT = {
+				has_country_flag = USA_insurgency_end
+			}
+		}
+		
+		available = {
+			
+		}
+		
+		days_remove = 10
+		
+		cost = 25
+		
+		remove_effect = {
+			subtract_from_variable = { USA_insurgency_strength = 3 }
+		}
+	}
+}

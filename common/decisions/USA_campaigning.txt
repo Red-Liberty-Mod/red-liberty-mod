@@ -420,4 +420,41 @@ USA_election_season_category = {
 			}
 		}
 	}
+	
+	USA_opposition_campaign = {
+		
+		icon = ger_mefo_bills
+		
+		available = {
+			always = no
+		}
+		
+		activation = {
+			always = no
+		}
+		
+		visible = {
+			has_country_flag = USA_senate_elections
+			NOT = {
+				OR = {
+					has_country_flag = USA_senate_conclusion
+					has_country_flag = USA_presidential_conclusion
+				}
+			}
+		}
+		
+		is_good = no
+		
+		cancel_if_not_visible = yes
+		
+		days_mission_timeout = 30
+		
+		timeout_effect = {
+			
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
 }
