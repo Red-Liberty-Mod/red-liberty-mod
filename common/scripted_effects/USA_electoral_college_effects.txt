@@ -1059,17 +1059,24 @@ USA_gerrymandering_bonus = {
 	
 	if = {
 		limit = {
-			has_country_flag = USA_gerrymandered_democrat
+			has_state_flag = USA_gerrymandered_democrat
 		}
 		add_to_variable = { democrat_temp_pop = 0.05 }
 		log = "[This.GetName] : added USA_gerrymandered_democrat bonus"
 	}
-	else_ifif = {
+	else_if = {
 		limit = {
-			has_country_flag = USA_gerrymandered_socialist
+			has_state_flag = USA_gerrymandered_socialist
 		}
 		add_to_variable = { socialist_temp_pop = 0.05 }
 		log = "[This.GetName] : added USA_gerrymandered_socialist bonus"
+	}
+	else_if = {
+		limit = {
+			has_state_flag = USA_gerrymandered_afp
+		}
+		add_to_variable = { afp_temp_pop = 0.05 }
+		log = "[This.GetName] : added USA_gerrymandered_afp bonus"
 	}
 }
 
