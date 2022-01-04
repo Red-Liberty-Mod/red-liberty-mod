@@ -149,6 +149,8 @@ USA_start_elections_system = {
 		set_variable = { senator_2 = 3 }
 		
 		set_variable = { electoral_votes = 8 } # was 7
+		
+		set_state_flag = USA_gerrymandered_democrat
 	}
 	
 	365 = { # Georgia, like Alabama, very pro-segregation
@@ -160,6 +162,8 @@ USA_start_elections_system = {
 		set_variable = { senator_2 = 3 }
 		
 		set_variable = { electoral_votes = 13 } # was 12
+		
+		set_state_flag = USA_gerrymandered_democrat
 	}
 	
 	387 = { # Idaho, potato state
@@ -741,8 +745,6 @@ US_hold_presidential_election = {
 	every_owned_state = {
 		limit = { has_state_flag = US_election_state }
 		
-		#USA_gerrymandering_bonus = yes
-		
 		USA_clamp_state_popularities = yes
 		
 		clamp_variable = { #make sure to clamp any support variable that can change! 
@@ -895,6 +897,8 @@ USA_convert_party_pop_percentage = {
 	add_to_temp_variable = { republican_temp_pop = republican_popularity_special }
 	add_to_temp_variable = { democrat_temp_pop = democrat_popularity_special }
 	add_to_temp_variable = { afp_temp_pop = afp_popularity_special }
+	
+	USA_gerrymandering_bonus = yes
 	
 	set_temp_variable = { total_party_pop = socialist_popularity }
 	add_to_temp_variable = { total_party_pop = communist_popularity }
@@ -1055,17 +1059,24 @@ USA_gerrymandering_bonus = {
 	
 	if = {
 		limit = {
-			has_country_flag = USA_gerrymandered_democrat
+			has_state_flag = USA_gerrymandered_democrat
 		}
-		add_to_variable = { democrat_popularity = 0.05 }
+		add_to_variable = { democrat_temp_pop = 0.05 }
 		log = "[This.GetName] : added USA_gerrymandered_democrat bonus"
 	}
-	else_ifif = {
+	else_if = {
 		limit = {
-			has_country_flag = USA_gerrymandered_socialist
+			has_state_flag = USA_gerrymandered_socialist
 		}
-		add_to_variable = { socialist_popularity = 0.05 }
+		add_to_variable = { socialist_temp_pop = 0.05 }
 		log = "[This.GetName] : added USA_gerrymandered_socialist bonus"
+	}
+	else_if = {
+		limit = {
+			has_state_flag = USA_gerrymandered_afp
+		}
+		add_to_variable = { afp_temp_pop = 0.05 }
+		log = "[This.GetName] : added USA_gerrymandered_afp bonus"
 	}
 }
 
