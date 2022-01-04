@@ -13,11 +13,11 @@ add_namespace = demo_ww2
 add_namespace = demo.ita_alb_war
 add_namespace = demo_ger_civil_war
 add_namespace = demo.alb_Victory
-add_namespace = demo.ita_Victory
+add_namespace = demo.ita_victory
 add_namespace = demo.ita_gr_war
 add_namespace = demo.jap_chi_war
 add_namespace = demo.sov_fin_war
-add_namespace = demo.Gre_Victory
+add_namespace = demo.gre_victory
 add_namespace = demo.Rus_Ger_war_declaration
 add_namespace = demo.Ger_Rus_war_declaration
 
@@ -173,7 +173,7 @@ country_event = { # mexico civil war demo event
 
 news_event = {
 	id = demo_mex.3
-	title = demo_mex.3.t
+	title = demo_mex.3.title
 	desc = demo_mex.3.d
 	picture = ""
 
@@ -308,8 +308,6 @@ news_event = { # war over news
 	major = yes
 	
 	is_triggered_only = yes
-	
-	fire_only_once = yes
 
 	option = {
 		name = "The embarrassment of 1896 has been rectified..."
@@ -406,14 +404,14 @@ country_event = { # far eastern revolt
 		}
 		country_event = {
 			id = demo_rus.2
-			days = 14
+			days = 10
 		}
 	}
 }
 
 country_event = { # soviet-state war
 	id = demo_rus.2
-	title = ""
+	title = demo_rus.2.title
 	desc = demo_rus.2.desc
 	
 	is_triggered_only = yes
@@ -421,19 +419,51 @@ country_event = { # soviet-state war
 	fire_only_once = yes
 
 	option = {
-		name = ""
+		name = demo_rus.2.a
 		SOV = {
 			declare_war_on = {
 				target = RUS
 				type = annex_everything
 			}
-			declare_war_on = {
-				target = ORE
-				type = annex_everything
+		}
+		hidden_effect = {
+			random_other_country = {
+				limit = { is_ai = yes }
+				news_event = { id = demo_rus.3 days = 1 }
 			}
-			declare_war_on = {
-				target = URL
-				type = annex_everything
+		}
+	}
+}
+
+news_event = { # soviet-state war news
+	id = demo_rus.3
+	title = demo_rus.3.title
+	desc = demo_rus.3.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = demo_rus.3.a
+		trigger = {
+			OR = {
+				has_government = revolutionary_autocracy
+				has_government = proletarian_dictatorship
+				has_government = libertarian_socialism
+			}
+		}
+	}
+	
+	option = {
+		name = demo_rus.3.b
+		trigger = {
+			NOT = {
+				OR = {
+					has_government = revolutionary_autocracy
+					has_government = proletarian_dictatorship
+					has_government = libertarian_socialism
+				}
 			}
 		}
 	}
@@ -871,7 +901,7 @@ news_event = {
 
 news_event = {
 	id = demo_ger_civil_war.1
-	title = demo_ger_civil_war.1.t
+	title = demo_ger_civil_war.1.title
 	desc = demo_ger_civil_war.1.d
 	picture = ## get picture
 
@@ -905,9 +935,9 @@ news_event = { # Italo Albanian war
 
 
 news_event = { # Italian Subjugation of Albania 
- 	id = demo.ita_Victory.1
-	title = demo.ita_Victory.1.t
-	desc = demo.ita_Victory.1.d
+ 	id = demo.ita_victory.1
+	title = demo.ita_victory.1.t
+	desc = demo.ita_victory.1.d
 	picture = ## get picture
 
 	major = yes
@@ -917,7 +947,7 @@ news_event = { # Italian Subjugation of Albania
 	fire_only_once = yes
 
 	option = {
-		name = demo.ita_Victory.1.a
+		name = demo.ita_victory.1.a
 	}
 }
 
@@ -1026,7 +1056,7 @@ country_event = {
 	}
 }
 
-country_event = {
+news_event = {
 	id = demo.ita_gr_war.1
 	title = demo.ita_gr_war.1.title
 	desc = demo.ita_gr_war.1.desc
@@ -1067,9 +1097,9 @@ news_event = { #Italian  victory in Italo Greco War
 }
 
 news_event = { # Greece victory in Italo Greco War
- 	id = demo.Gre_Victory.1
-	title = demo.Gre_Victory.1.t
-	desc = demo.Gre_Victory.1.d
+ 	id = demo.gre_victory.1
+	title = demo.gre_victory.1.t
+	desc = demo.gre_victory.1.d
 	picture = GFX_news_event_Greek_victory_Italo_Greco_war
 
 	major = yes
@@ -1079,7 +1109,7 @@ news_event = { # Greece victory in Italo Greco War
 	fire_only_once = yes
 
 	option = {
-		name = demo.Gre_Victory.1.a
+		name = demo.gre_victory.1.a
 	}
 }
 news_event = { # Russian declaration of war against Germany 
