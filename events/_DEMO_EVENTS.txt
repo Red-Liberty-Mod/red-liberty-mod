@@ -44,8 +44,11 @@ country_event = { # de la rocque takes power
 				popularity = 0.05
 			}
 		}
-		country_event = {
-			id = demo_fra.2
+		hidden_effect = {
+			random_other_country = {
+				limit = { is_ai = yes }
+				news_event = { id = demo_fra.2 days = 1 }
+			}
 		}
 	}
 }
@@ -163,9 +166,10 @@ country_event = { # mexico civil war demo event
 				}
 			}
 		}
-		MEX = {
-			country_event = {
-				id = demo_mex.3
+		hidden_effect = {
+			random_other_country = {
+				limit = { is_ai = yes }
+				news_event = { id = demo_mex.3 days = 1 }
 			}
 		}
 	}
