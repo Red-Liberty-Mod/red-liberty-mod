@@ -1,0 +1,129 @@
+add_namespace = indochina
+add_namespace = indochina_revolt
+
+country_event = {
+	id = indochina_revolt.1
+	title = indochina_revolt.1.title
+	desc = indochina_revolt.1.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = indochina_revolt.2
+				days = 3
+			}
+			FRA = {
+				end_puppet = FIC
+				remove_from_faction = FIC
+				set_state_owner = 728
+			}
+		}
+	}
+
+	option = {
+		name = indochina_revolt.1.a
+		SRV = {
+			set_state_owner = 671
+			add_state_core = 286
+			add_state_core = 671
+			add_state_core = 952
+			
+			load_oob = "SRV_revolt"
+			
+			set_province_controller = 1185
+			set_province_controller = 4075
+			set_province_controller = 10103
+			set_province_controller = 10129
+			set_province_controller = 12048
+			set_province_controller = 12075
+			
+			declare_war_on = {
+				target = FIC
+				type = annex_everything
+			}
+		}
+	}
+}
+
+country_event = {
+	id = indochina_revolt.2
+	title = indochina_revolt.2.title
+	desc = indochina_revolt.2.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = indochina_revolt.3
+				days = 3
+			}
+		}
+	}
+
+	option = {
+		name = indochina_revolt.2.a
+		LAO = {
+			set_state_owner = 670
+			
+			set_province_controller = 1464
+			set_province_controller = 1507
+			set_province_controller = 7356
+			set_province_controller = 12332
+			
+			declare_war_on = {
+				target = FIC
+				type = annex_everything
+			}
+		}
+		CAM = {
+			set_state_owner = 741
+			set_state_owner = 841
+			
+			set_province_controller = 7319
+			set_province_controller = 7376
+			set_province_controller = 10289
+			
+			declare_war_on = {
+				target = FIC
+				type = annex_everything
+			}
+		}
+		VIN = {
+			set_state_owner = 952
+			
+			set_province_controller = 1302
+			set_province_controller = 4379
+			set_province_controller = 7229
+			set_province_controller = 10137
+			set_province_controller = 10309
+			
+			load_oob = "VIN_revolt"
+			
+			declare_war_on = {
+				target = FIC
+				type = annex_everything
+			}
+		}
+	}
+}
+
+country_event = {
+	id = indochina_revolt.3
+	title = indochina_revolt.3.title
+	desc = indochina_revolt.3.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = indochina_revolt.3.a
+	}
+}
