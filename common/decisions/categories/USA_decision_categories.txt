@@ -40,7 +40,7 @@ USA_election_season_category = {
 }
 
 USA_appalachian_insurgency_category = {
-	icon = usa_congress
+	icon = GFX_decision_category_generic_crisis
 	allowed = {
 		original_tag = USA
 	}
@@ -49,6 +49,25 @@ USA_appalachian_insurgency_category = {
 		NOT = {
 			has_country_flag = USA_insurgency_end
 		}
+	}
+}
+
+USA_gerrymandering_category = {
+	icon = usa_congress
+	allowed = {
+		original_tag = USA
+	}
+	
+	on_map_area = {
+		state = 361
+		name = USA_select_gerrymandering_location
+		zoom = 250
+	}
+	
+	visible_when_empty = yes
+	
+	visible = {
+		always = no
 	}
 }
 

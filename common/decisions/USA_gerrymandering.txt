@@ -1,0 +1,47 @@
+USA_gerrymandering_category = {
+	
+	USA_gerrymander_state = {
+	
+		icon = ger_mefo_bills
+		
+		visible = {
+			always = yes
+		}
+		
+		available = {
+			
+		}
+		
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+		
+		days_remove = 30
+		
+		state_target = yes
+		
+		target_trigger = {
+            FROM = {
+				can_have_elections_in_state = yes
+				check_variable = { socialist_election_pop > republican_election_pop }
+				check_variable = { socialist_election_pop > democrat_election_pop }
+				check_variable = { socialist_election_pop > afp_election_pop }
+				NOT = {
+					has_state_flag = USA_gerrymandered_socialist
+				}
+			}
+        }
+		
+		cost = 25
+		
+		remove_effect = {
+			FROM = {
+				set_state_flag = USA_gerrymandered_socialist
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}
