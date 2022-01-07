@@ -372,6 +372,34 @@ country_event = {
 	}
 }
 
+country_event = {
+	id = demo.sov_fin_war.2
+	title = ""
+	desc = demo.sov_fin_war.2.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+    mean_time_to_happen = {
+		days = 1095
+		modifier = {
+		  factor = 200
+		  country_exists = RUS 
+		}
+    }
+	
+	option = {
+		name = ""
+		FIN = {
+			declare_war_on = {
+				target = SOV
+				type = annex_everything
+			}
+		}
+	}
+}
+
 country_event = { # far eastern revolt
 	id = demo_rus.1
 	title = ""
