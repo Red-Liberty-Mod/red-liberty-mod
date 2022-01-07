@@ -1,0 +1,258 @@
+shared_focus = {
+    id = FIC_indochina
+	icon = GFX_FIC_indochina
+	
+    x = 8
+	y = 0
+	
+	cost = 2
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FIC_finish_north_south_line
+	icon = GFX_FIC_finish_north_south_line
+	
+    x = -2
+	y = 1
+	
+	cost = 2
+	relative_position_id = FIC_indochina
+	prerequisite = { focus = FIC_indochina }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FIC_grand_interior_route
+	icon = GFX_FIC_grand_interior_route
+	
+    x = -1
+	y = 1
+	
+	cost = 3
+	mutually_exclusive = {
+		focus = FIC_coastal_route
+	}
+	relative_position_id = FIC_finish_north_south_line
+	prerequisite = { focus = FIC_finish_north_south_line }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FIC_coastal_route
+	icon = GFX_FIC_coastal_route
+	
+    x = 1
+	y = 1
+	
+	cost = 3
+	mutually_exclusive = {
+		focus = FIC_grand_interior_route
+	}
+	relative_position_id = FIC_finish_north_south_line
+	prerequisite = { focus = FIC_finish_north_south_line }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FIC_clear_forests
+	icon = GFX_FIC_clear_forests
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = FIC_grand_interior_route
+	prerequisite = { focus = FIC_grand_interior_route }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FIC_the_money_issue
+	icon = GFX_FIC_the_money_issue
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = FIC_grand_interior_route
+	prerequisite = {
+		focus = FIC_grand_interior_route
+		focus = FIC_coastal_route
+	}
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FIC_over_the_hills
+	icon = GFX_FIC_over_the_hills
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = FIC_coastal_route
+	prerequisite = { focus = FIC_coastal_route }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FIC_open_the_line
+	icon = GFX_FIC_open_the_line
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = FIC_the_money_issue
+	prerequisite = { focus = FIC_the_money_issue }
+	prerequisite = {
+		focus = FIC_clear_forests
+		focus = FIC_over_the_hills
+	}
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FIC_deal_with_rebels
+	icon = GFX_FIC_deal_with_rebels
+	
+    x = 2
+	y = 1
+	
+	cost = 2
+	relative_position_id = FIC_indochina
+	prerequisite = { focus = FIC_indochina }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FIC_ties_to_japan
+	icon = GFX_FIC_ties_to_japan
+	
+    x = -1
+	y = 1
+	
+	cost = 4
+	relative_position_id = FIC_deal_with_rebels
+	prerequisite = { focus = FIC_deal_with_rebels }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FIC_ties_to_royalty
+	icon = GFX_FIC_ties_to_royalty
+	
+    x = 1
+	y = 1
+	
+	cost = 4
+	relative_position_id = FIC_deal_with_rebels
+	prerequisite = { focus = FIC_deal_with_rebels }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FIC_hunting_down_ho
+	icon = GFX_FIC_hunting_down_ho
+	
+    x = 1
+	y = 1
+	
+	cost = 4
+	relative_position_id = FIC_ties_to_japan
+	prerequisite = { focus = FIC_ties_to_japan }
+	prerequisite = { focus = FIC_ties_to_royalty }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FIC_run_through_the_jungle
+	icon = GFX_FIC_run_through_the_jungle
+	
+    x = 0
+	y = 1
+	
+	cost = 4
+	relative_position_id = FIC_hunting_down_ho
+	prerequisite = { focus = FIC_hunting_down_ho }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}

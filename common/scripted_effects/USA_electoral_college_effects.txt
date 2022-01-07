@@ -310,6 +310,8 @@ USA_start_elections_system = {
 		set_variable = { senator_2 = 1 }
 		
 		set_variable = { electoral_votes = 12 } # was 11
+		
+		set_state_flag = USA_gerrymandered_socialist
 	}
 	
 	370 = { # Mississippi, pro-segregation
@@ -949,13 +951,29 @@ USA_convert_party_pop_percentage = {
 		
 		log = "[This.GetName] : total_election_pop discrepancy found - [?total_election_pop]"
 		
-		random_list = {
-			50 = {
-				add_to_variable = { communist_election_pop = total_election_pop }
+		if = {
+			limit = {
+				check_variable = { communist_election_pop > 0 }
 			}
-			50 = {
-				add_to_variable = { democrat_election_pop = total_election_pop }
+			add_to_variable = { communist_election_pop = total_election_pop }
+		}
+		else_if = {
+			limit = {
+				check_variable = { afp_election_pop > 0 }
 			}
+			add_to_variable = { afp_election_pop = total_election_pop }
+		}
+		else_if = {
+			limit = {
+				check_variable = { democrat_election_pop > 0 }
+			}
+			add_to_variable = { democrat_election_pop = total_election_pop }
+		}
+		else_if = {
+			limit = {
+				check_variable = { socialist_election_pop > 0 }
+			}
+			add_to_variable = { socialist_election_pop = total_election_pop }
 		}
 	}
 }
@@ -1056,26 +1074,25 @@ USA_kill_republican_party = {
 }
 
 USA_gerrymandering_bonus = {
-	
 	if = {
 		limit = {
 			has_state_flag = USA_gerrymandered_democrat
 		}
-		add_to_variable = { democrat_temp_pop = 0.05 }
+		add_to_temp_variable = { democrat_temp_pop = 0.05 }
 		log = "[This.GetName] : added USA_gerrymandered_democrat bonus"
 	}
 	else_if = {
 		limit = {
 			has_state_flag = USA_gerrymandered_socialist
 		}
-		add_to_variable = { socialist_temp_pop = 0.05 }
+		add_to_temp_variable = { socialist_temp_pop = 0.05 }
 		log = "[This.GetName] : added USA_gerrymandered_socialist bonus"
 	}
 	else_if = {
 		limit = {
 			has_state_flag = USA_gerrymandered_afp
 		}
-		add_to_variable = { afp_temp_pop = 0.05 }
+		add_to_temp_variable = { afp_temp_pop = 0.05 }
 		log = "[This.GetName] : added USA_gerrymandered_afp bonus"
 	}
 }

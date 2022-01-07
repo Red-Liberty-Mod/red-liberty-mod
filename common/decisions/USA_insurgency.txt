@@ -2,7 +2,7 @@ USA_appalachian_insurgency_category = {
 
 	USA_strike_the_final_blow = {
 	
-		icon = generic_army_support
+		icon = GFX_decision_infiltrate_state
 		
 		visible = {
 			has_country_flag = USA_insurgency_start
@@ -31,7 +31,7 @@ USA_appalachian_insurgency_category = {
 	
 	USA_send_in_the_army = {
 	
-		icon = generic_army_support
+		icon = GFX_decision_oppression
 		
 		visible = {
 			has_country_flag = USA_insurgency_start
@@ -89,12 +89,13 @@ USA_appalachian_insurgency_category = {
 		remove_effect = {
 			add_manpower = 10000
 			subtract_from_variable = { USA_insurgency_strength = 7 }
+			custom_effect_tooltip = USA_weaken_insurgency_tt
 		}
 	}
 	
-	USA_construct_additional_barricades = {
+	USA_airdrop_leaflets = {
 	
-		icon = generic_army_support
+		icon = GFX_decision_generic_air
 		
 		visible = {
 			has_country_flag = USA_insurgency_start
@@ -113,6 +114,32 @@ USA_appalachian_insurgency_category = {
 		
 		remove_effect = {
 			subtract_from_variable = { USA_insurgency_strength = 3 }
+			custom_effect_tooltip = USA_weaken_insurgency_tt
+		}
+	}
+	
+	USA_construct_additional_barricades = {
+	
+		icon = GFX_decision_border_war
+		
+		visible = {
+			has_country_flag = USA_insurgency_start
+			NOT = {
+				has_country_flag = USA_insurgency_end
+			}
+		}
+		
+		available = {
+			
+		}
+		
+		days_remove = 10
+		
+		cost = 25
+		
+		remove_effect = {
+			subtract_from_variable = { USA_insurgency_strength = 3 }
+			custom_effect_tooltip = USA_weaken_insurgency_tt
 		}
 	}
 }
