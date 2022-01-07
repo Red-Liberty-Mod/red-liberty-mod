@@ -41,31 +41,35 @@ country_event = { # de la rocque takes power
 			}
 			add_popularity = {
 				ideology = authoritarian_democracy
-				popularity = 0.05
+				popularity = 0.1
+			}
+			remove_ideas = {
+				FRA_fallen_govt
+				FRA_rising_right
 			}
 		}
-		hidden_effect = {
-			random_other_country = {
+		random_other_country = {
 				limit = { is_ai = yes }
 				news_event = { id = demo_fra.2 days = 1 }
 			}
-		}
 	}
 }
 
 news_event = { # de la rocque takes power - news
 	id = demo_fra.2
-	title = ""
+	title = demo_fra.2.title
 	desc = demo_fra.2.desc
 	
 	major = yes
 	
-	is_triggered_only = yes
+	show_major = {
+		always = yes
+	}
 	
-	fire_only_once = yes
+	is_triggered_only = yes
 
 	option = {
-		name = ""
+		name = demo_fra.2.a
 	}
 }
 
@@ -190,8 +194,6 @@ news_event = {
 	#}
 	
 	is_triggered_only = yes
-	
-	fire_only_once = yes
 
 	option = {
 		name = demo_mex.3.a
