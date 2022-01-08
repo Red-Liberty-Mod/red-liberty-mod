@@ -1,0 +1,91 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			every_country = {
+				if = {
+					limit = {
+						NOT = {
+							has_dynamic_modifier = {
+								modifier = ECON_poverty_modifier
+							}
+						}
+					}
+					add_dynamic_modifier = {
+						modifier = ECON_poverty_modifier
+					}
+				}
+			}
+		
+			BRA = {
+				set_variable = { poverty_rate = 83.5 }
+				set_variable = { poverty_monthly_change = 0.09 }
+			}
+			
+			CHI = {
+				set_variable = { poverty_rate = 92.5 }
+				set_variable = { poverty_monthly_change = 0.06 }
+			}
+			
+			ENG = {
+				set_variable = { poverty_rate = 24.2 }
+				set_variable = { poverty_monthly_change = 0.12 }
+			}
+			
+			IRE = {
+				set_variable = { poverty_rate = 78.3 }
+				set_variable = { poverty_monthly_change = 0.2 }
+			}
+			
+			RAJ = {
+				set_variable = { poverty_rate = 90.3 }
+				set_variable = { poverty_monthly_change = 0.06 }
+			}
+			
+			RUS = {
+				set_variable = { poverty_rate = 87.6 }
+				set_variable = { poverty_monthly_change = 0.06 }
+			}
+			
+			SOV = {
+				set_variable = { poverty_rate = 58.3 }
+				set_variable = { poverty_monthly_change = 0.09 }
+			}
+			
+			UOB = {
+				set_variable = { poverty_rate = 81.2 }
+				set_variable = { poverty_monthly_change = 0.09 }
+			}
+			
+			USA = {
+				set_variable = { poverty_rate = 55.4 }
+				set_variable = { poverty_monthly_change = 0.22 }
+			}
+			
+			every_country = {
+				if = {
+					limit = {
+						check_variable = { poverty_rate = 0 }
+					}
+					set_variable = { poverty_rate = 35 }
+				}
+				if = {
+					limit = {
+						check_variable = { poverty_monthly_change = 0 }
+					}
+					set_variable = { poverty_monthly_change = 0.09 }
+				}
+			}
+			
+			every_country = {
+				ECON_reload_poverty_effects = yes
+			}
+		}
+	}
+	on_monthly_URG = {
+		effect = {
+			every_country = {
+				ECON_poverty_change_monthly = yes
+			}
+		}
+	}
+}

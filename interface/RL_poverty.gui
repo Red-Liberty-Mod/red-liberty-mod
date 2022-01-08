@@ -1,0 +1,43 @@
+guiTypes = {
+	
+	containerWindowType = {
+		name = "poverty_topbar_container"
+		position = { x = 709 y = 5 }
+		clipping = no
+		size = { width = 62 height = 30 }
+		Orientation = UPPER_LEFT
+
+		background = {
+			name = "bg"
+			quadTextureSprite = "GFX_generic_box_smallest"
+		}
+		
+		iconType = {
+			name ="poverty_icon"
+			spriteType = "GFX_idea_ENG_unemployment_crisis"
+			scale = 0.3
+			position = { x = 2 y = 3 }
+			Orientation = "UPPER_LEFT"
+		}		
+		
+		instantTextBoxType = {
+			name ="poverty_value"
+			position = { x = 30 y = -1 }
+			font = "hoi_18mbs"
+			text = "poverty_rate_topbar_value"
+			format = left
+			maxWidth = 60
+			maxHeight = 24
+			fixedsize = yes
+			pdx_tooltip = "poverty_rate_topbar_value_desc"
+			pdx_tooltip_delayed = "poverty_rate_topbar_desc"
+		}
+		
+		iconType = {
+			name = "poverty_progressbar"
+			spriteType = "GFX_topbar_poverty_bar"
+			position = { x = 23 y = 15 }
+			alwaystransparent = yes
+		}
+	}
+}

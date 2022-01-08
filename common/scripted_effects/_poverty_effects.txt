@@ -1,0 +1,105 @@
+ECON_poverty_change_monthly = {
+
+	if = {
+		limit = {
+			NOT = {
+				has_dynamic_modifier = {
+					modifier = ECON_poverty_modifier
+				}
+			}
+		}
+		add_dynamic_modifier = {
+			modifier = ECON_poverty_modifier
+		}
+	}
+
+	set_temp_variable = { temp_poverty_rate_monthly = poverty_monthly_change }
+	add_to_temp_variable = { temp_poverty_rate_monthly = modifier@poverty_monthly_rate }
+
+	ECON_calculate_poverty_dampener_effect = yes
+	multiply_temp_variable = { temp_poverty_rate_monthly = poverty_dampener_effect }
+	subtract_from_variable = { poverty_rate = temp_poverty_rate_monthly }
+
+	if = {
+		limit = { check_variable = { poverty_rate > 40 } }
+		divide_variable = { poverty_monthly_change = 1.02 }
+	}
+	else = {
+		divide_variable = { poverty_monthly_change = 1.06 }
+	}
+	
+	log = "[GetDateText]: [THIS.GetName] poverty_monthly_change: [?poverty_monthly_change]"
+
+	clamp_variable = {
+		var = poverty_rate
+		min = 0
+		max = 100
+	}
+
+	ECON_reload_poverty_effects = yes
+}
+
+ECON_calculate_poverty_dampener_effect = {
+	set_variable = { poverty_dampener_effect = 200 }
+	set_temp_variable = { temp_poverty_dampener_effect = -100 }
+	multiply_temp_variable = { temp_poverty_dampener_effect = poverty_rate }
+	subtract_from_temp_variable = { temp_poverty_dampener_effect = 100 }
+	divide_variable = { poverty_dampener_effect = temp_poverty_dampener_effect }
+	add_to_variable = { poverty_dampener_effect = 1.181 } #magic number
+	clamp_variable = {
+		var = poverty_dampener_effect
+		min = 0
+		max = 1
+	}
+}
+
+ECON_reload_poverty_effects = {
+
+	set_variable = { poverty_rate_rounded = poverty_rate }
+	round_variable = { poverty_rate_rounded }
+
+	# curve used https://www.desmos.com/calculator/wiesidbpai (still needs to account for bonuses??)
+
+	set_temp_variable = { poverty_effect_temp_cuber = poverty_rate }
+	multiply_temp_variable = { poverty_effect_temp_cuber = 0.01 } #convert to a real number 
+	add_to_temp_variable = { poverty_effect_temp_cuber = 0.1 }
+	set_temp_variable = { poverty_effect_temp_calc = poverty_effect_temp_cuber }
+
+	multiply_temp_variable = { poverty_effect_temp_cuber = poverty_effect_temp_calc }
+	
+	multiply_temp_variable = { poverty_effect_temp_cuber = poverty_effect_temp_calc } # cube that shit!
+	
+
+	set_temp_variable = { poverty_effect_numerator = poverty_effect_temp_cuber }
+	set_temp_variable = { poverty_effect_denominator = poverty_effect_temp_cuber }
+
+	multiply_temp_variable = { poverty_effect_numerator = 0.5 }
+	subtract_from_temp_variable = { poverty_effect_numerator = 1 }
+
+	multiply_temp_variable = { poverty_effect_denominator = 20 }
+	add_to_temp_variable = { poverty_effect_denominator = 1 }
+
+	divide_temp_variable = { poverty_effect_numerator = poverty_effect_denominator }
+	set_variable = { poverty_effect_multiplier = poverty_effect_numerator }
+	add_to_variable = { poverty_effect_multiplier = 1 }
+
+	set_variable = { poverty_rate_stability_effect = poverty_effect_multiplier }
+	set_variable = { poverty_rate_war_support_effect = poverty_effect_multiplier }
+	set_variable = { poverty_rate_conscription_effect = poverty_effect_multiplier }
+	set_variable = { poverty_rate_monthly_pop_effect = poverty_effect_multiplier }
+	set_variable = { poverty_rate_research_effect = poverty_effect_multiplier }
+	
+	set_variable = { poverty_rate_factory_prod_effect = poverty_effect_multiplier }
+	set_variable = { poverty_rate_dockyard_prod_effect = poverty_effect_multiplier }
+	set_variable = { poverty_rate_construction_effect = poverty_effect_multiplier }
+
+	multiply_variable = { poverty_rate_stability_effect = -0.3 }
+	multiply_variable = { poverty_rate_war_support_effect = -0.2 }
+	multiply_variable = { poverty_rate_conscription_effect = 0.2 }
+	multiply_variable = { poverty_rate_monthly_pop_effect = 0.8 }
+	multiply_variable = { poverty_rate_research_effect = -0.2 }
+	
+	multiply_variable = { poverty_rate_factory_prod_effect = -0.25 }
+	multiply_variable = { poverty_rate_dockyard_prod_effect = -0.15 }
+	multiply_variable = { poverty_rate_construction_effect = -0.25 }
+}
