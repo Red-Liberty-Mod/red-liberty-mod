@@ -502,6 +502,72 @@ news_event = { # soviet-state war news
 		}
 	}
 }
+news_event = { # soviet victory
+	id = demo_rus.4
+	title = demo_rus.4.title
+	desc = demo_rus.4.desc
+	picture = #get picture
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = demo_rus.4.a
+		trigger = {
+			OR = {
+				has_government = revolutionary_autocracy
+				has_government = proletarian_dictatorship
+				has_government = libertarian_socialism
+			}
+		}
+	}
+	
+	option = {
+		name = demo_rus.4.b
+		trigger = {
+			NOT = {
+				OR = {
+					has_government = revolutionary_autocracy
+					has_government = proletarian_dictatorship
+					has_government = libertarian_socialism
+				}
+			}
+		}
+	}
+}
+news_event = { # white victory 
+	id = demo_rus.5
+	title = demo_rus.5.title
+	desc = demo_rus.5.desc
+	picture = #getpicture
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = demo_rus.5.a
+		trigger = {
+			OR = {
+				has_government = revolutionary_autocracy
+				has_government = proletarian_dictatorship
+				has_government = libertarian_socialism
+			}
+		}
+	}
+	
+	option = {
+		name = demo_rus.5.b
+		trigger = {
+			NOT = {
+				OR = {
+					has_government = revolutionary_autocracy
+					has_government = proletarian_dictatorship
+					has_government = libertarian_socialism
+				}
+			}
+		}
+	}
+}
 
 country_event = { # king suspends parliament
 	id = demo_eng.1
@@ -1167,6 +1233,54 @@ news_event = { # German declaration of war against Russia
 	title = demo.Ger_Rus_war_declaration.1.t
 	desc = demo.Ger_Rus_war_declaration.1.d
 	picture = GFX_news_event_German_invasion_Russia_news_event_picture
+
+	major = yes
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = demo.Ger_Rus_war_declaration.1.a
+	}
+}
+news_event = { # Finnish intervention in the second Russian civil war
+    id = demo.Finnish_Intervention_In_Russian_Civil_War.1.t
+	title =  demo.Finnish_Intervention_In_Russian_Civil_War.1.d
+	desc =  demo.Finnish_Intervention_In_Russian_Civil_War.1.a
+	picture = #get picture 
+
+	major = yes
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = demo.Ger_Rus_war_declaration.1.a
+	}
+}
+news_event = { # Bolsheviks impose harse cease fire to finns
+    id = demo.Finnish_Intervention_In_Russian_Civil_War.2.t
+	title =  demo.Finnish_Intervention_In_Russian_Civil_War.2.d
+	desc =  demo.Finnish_Intervention_In_Russian_Civil_War.2.a
+	picture = #get picture 
+
+	major = yes
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = demo.Ger_Rus_war_declaration.1.a
+	}
+}
+news_event = { # Finns beat the Bolshevik Government
+    id = demo.Finnish_Intervention_In_Russian_Civil_War.3.t
+	title =  demo.Finnish_Intervention_In_Russian_Civil_War.3.d
+	desc =  demo.Finnish_Intervention_In_Russian_Civil_War.3.a
+	picture = #get picture 
 
 	major = yes
 
