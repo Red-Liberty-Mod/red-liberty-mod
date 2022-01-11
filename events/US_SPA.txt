@@ -8,17 +8,15 @@ country_event = { # east coast campaign - nyc
 	is_triggered_only = yes
 	
 	trigger = {
-		has_country_flag = USA_campaigning_socialist
+		NOT = {
+			has_country_flag = USA_campaigning_democrat
+		}
 	}
 	
 	fire_only_once = yes
 
 	option = {
 		name = united_states_thomas.1.a
-		add_popularity = {
-			ideology = libertarian_socialism
-			popularity = 0.01
-		}
 		hidden_effect = {
 			358 = { # new york state
 				add_to_variable = { socialist_popularity = 0.025 }
@@ -36,44 +34,36 @@ country_event = { # great lakes campaign
 	is_triggered_only = yes
 	
 	trigger = {
-		has_country_flag = USA_campaigning_socialist
+		NOT = {
+			has_country_flag = USA_campaigning_democrat
+		}
 	}
 	
 	fire_only_once = yes
 
 	option = {
 		name = united_states_thomas.2.a
-		add_popularity = {
-			ideology = libertarian_socialism
-			popularity = 0.01
-		}
-		add_popularity = {
-			ideology = market_libertarianism
-			popularity = -0.01
-		}
 		add_political_power = 25
 	}
 }
 
 country_event = { # west coast campaign
 	id = united_states_thomas.3
-	title = "The Grapes of Wrath"
+	title = united_states_thomas.3.title
 	desc = united_states_thomas.3.desc
 	
 	is_triggered_only = yes
 	
 	trigger = {
-		has_country_flag = USA_campaigning_socialist
+		NOT = {
+			has_country_flag = USA_campaigning_democrat
+		}
 	}
 	
 	fire_only_once = yes
 
 	option = {
-		name = "Haunting."
-		add_popularity = {
-			ideology = libertarian_socialism
-			popularity = 0.01
-		}
+		name = united_states_thomas.3.a
 	}
 }
 
@@ -102,36 +92,26 @@ country_event = { # midwest campaign
 
 	option = {
 		name = "One step at a time..."
-		add_popularity = {
-			ideology = libertarian_socialism
-			popularity = 0.01
-		}
-		add_popularity = {
-			ideology = national_conservatism
-			popularity = -0.01
-		}
 	}
 }
 
 country_event = { # southern campaign
 	id = united_states_thomas.6
-	title = "Every Man a King"
+	title = united_states_thomas.6.title
 	desc = united_states_thomas.6.desc
 	
 	is_triggered_only = yes
 	
 	trigger = {
-		has_country_flag = USA_campaigning_socialist
+		NOT = {
+			has_country_flag = USA_campaigning_democrat
+		}
 	}
 	
 	fire_only_once = yes
 
 	option = {
 		name = "Damn you, Long!"
-		add_popularity = {
-			ideology = libertarian_socialism
-			popularity = -0.01
-		}
 	}
 }
 
@@ -170,7 +150,7 @@ country_event = { # choice to keep or abandon the undistributed profits tax
 	}
 }
 
-country_event = { # second thomas admin event
+country_event = { # assembling a radical cabinet
 	id = united_states_thomas.9
 	title = "No More Deluded By Reaction"
 	desc = united_states_thomas.9.desc
@@ -180,7 +160,7 @@ country_event = { # second thomas admin event
 	fire_only_once = yes
 
 	option = {
-		name = ""
+		name = united_states_thomas.9.a
 	}
 }
 
@@ -364,6 +344,9 @@ country_event = { # shits gotten complicated
 
 	option = {
 		name = "Make it so."
+		add_ideas = {
+			USA_bloated_federal_government
+		}
 	}
 }
 
@@ -397,7 +380,7 @@ country_event = { # scenic artists
 
 country_event = { # reed retires as vp
 	id = united_states_thomas.23
-	title = "An Inevitable Parting"
+	title = united_states_thomas.23.title
 	desc = united_states_thomas.23.desc
 	picture = GFX_report_event_jack_reed
 	
@@ -406,14 +389,14 @@ country_event = { # reed retires as vp
 	fire_only_once = yes
 
 	option = {
-		name = "...I promise."
+		name = united_states_thomas.23.a
 		custom_effect_tooltip = USA_reed_will_remember_tt
 	}
 }
 
 country_event = { # your move mr law man
 	id = united_states_thomas.24
-	title = "An Unwelcome Surprise"
+	title = united_states_thomas.24.title
 	desc = united_states_thomas.24.desc
 	
 	is_triggered_only = yes
@@ -421,14 +404,14 @@ country_event = { # your move mr law man
 	fire_only_once = yes
 
 	option = {
-		name = "'Guilty on all charges.'"
+		name = united_states_thomas.24.a
 		add_manpower = -1
 	}
 }
 
 country_event = { # WE'LL ALL GO DOWN TO DIXIE, AWAY, AWAY
 	id = united_states_thomas.25
-	title = "Lee Marches North"
+	title = united_states_thomas.25.title
 	desc = united_states_thomas.25.desc
 	picture = GFX_report_event_usa_lee_removal
 	
@@ -437,7 +420,7 @@ country_event = { # WE'LL ALL GO DOWN TO DIXIE, AWAY, AWAY
 	fire_only_once = yes
 
 	option = {
-		name = "So what do we do with the pedestal?"
+		name = united_states_thomas.25.a
 		362 = {
 			subtract_from_variable = { socialist_popularity = 0.05 }
 		}
@@ -446,7 +429,7 @@ country_event = { # WE'LL ALL GO DOWN TO DIXIE, AWAY, AWAY
 
 country_event = { # 
 	id = united_states_thomas.26
-	title = "The All-Mighty Ballot"
+	title = united_states_thomas.26.title
 	desc = united_states_thomas.26.desc
 	
 	is_triggered_only = yes
