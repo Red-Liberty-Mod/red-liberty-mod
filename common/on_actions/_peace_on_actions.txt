@@ -6,6 +6,7 @@ on_actions = {
 		
 			set_global_flag = skip_default_capitulation
 			
+			### DANUBIAN WARS ###
 			if = {
 				limit = {
 					ROOT = {
@@ -247,6 +248,35 @@ on_actions = {
 					KRA = {
 						transfer_state = 88
 					}
+				}
+			}
+			
+			### ITALO-ALBANIAN WAR ###
+			
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = ALB
+					}
+					FROM = {
+						original_tag = ITA
+					}
+				}
+				ITA_peace_ALB_war = yes
+			}
+			
+			if = {
+				limit = {
+					FROM = {
+						original_tag = ITA
+					}
+					ROOT = {
+						original_tag = ETH
+					}
+				}
+				random_other_country = {
+					limit = { is_ai = yes }
+					news_event = { id = demo_ita.3 hours = 6 }
 				}
 			}
 			

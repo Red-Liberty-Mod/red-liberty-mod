@@ -12,8 +12,6 @@ add_namespace = demo_jap
 add_namespace = demo_ww2
 add_namespace = demo.ita_alb_war
 add_namespace = demo_ger_civil_war
-add_namespace = demo.alb_Victory
-add_namespace = demo.ita_victory
 add_namespace = demo.ita_gr_war
 add_namespace = demo.jap_chi_war
 add_namespace = demo.sov_fin_war
@@ -311,12 +309,135 @@ news_event = { # war over news
 	title = demo_ita.3.title
 	desc = demo_ita.3.desc
 	
+	is_triggered_only = yes
+
+	option = {
+		name = "The embarrassment of 1896 has been rectified..."
+	}
+}
+
+news_event = { # improve nat spirits
+	id = demo_ita.4
+	title = demo_ita.4.title
+	desc = demo_ita.4.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ita.4.a
+	}
+}
+
+news_event = { # improve nat spirits again
+	id = demo_ita.5
+	title = demo_ita.5.title
+	desc = demo_ita.5.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ita.5.a
+	}
+}
+
+country_event = { # ita-alb war
+	id = demo_ita.6
+	title = demo_ita.6.title
+	desc = demo_ita.6.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ita.5.a
+		ITA = {
+			declare_war_on = {
+				target = ALB
+				type = annex_everything
+			}
+			country_event = {
+				id = demo_ita.9
+				days = 90
+			}
+		}
+	}
+}
+
+news_event = { # ita-alb war news
+	id = demo_ita.7
+	title = demo_ita.7.title
+	desc = demo_ita.7.desc
+	
 	major = yes
 	
 	is_triggered_only = yes
 
 	option = {
-		name = "The embarrassment of 1896 has been rectified..."
+		name = demo_ita.7.a
+	}
+}
+
+news_event = { # ita victory news
+	id = demo_ita.8
+	title = demo_ita.8.title
+	desc = demo_ita.8.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = demo_ita.8.a
+	}
+}
+
+country_event = { # ita loses, white peace
+	id = demo_ita.9
+	title = demo_ita.9.title
+	desc = demo_ita.9.desc
+	
+	trigger = {
+		NOT = {
+			ALB = {
+				is_puppet_of = ITA
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ita.9.a
+		white_peace = {
+			tag = ALB
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_ita.10 hours = 6 }
+		}
+	}
+}
+
+news_event = { # ita loss news
+	id = demo_ita.10
+	title = demo_ita.10.title
+	desc = demo_ita.10.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = demo_ita.10.a
 	}
 }
 
@@ -1014,58 +1135,6 @@ news_event = {
 
 	option = {
 		name = demo_ger_civil_war.1.a
-	}
-}
- 
-news_event = { # Italo Albanian war
-	id = demo_ita_alb_war.1
-	title = demo_ita_alb_war.1.t
-	desc = demo_ita_alb_war.1.d
-	picture = ## get picture
-
-	major = yes
-
-	is_triggered_only = yes
-
-	fire_only_once = yes
-
-	option = {
-		name = demo_ita_alb_war.1.a
-	}
-}
-
-
-news_event = { # Italian Subjugation of Albania 
- 	id = demo.ita_victory.1
-	title = demo.ita_victory.1.t
-	desc = demo.ita_victory.1.d
-	picture = ## get picture
-
-	major = yes
-
-	is_triggered_only = yes
-
-	fire_only_once = yes
-
-	option = {
-		name = demo.ita_victory.1.a
-	}
-}
-
-news_event = { # Albanian Victory against Italy
- 	id = demo.alb_Victory.1
-	title = demo.alb_Victory.1.t
-	desc = demo.alb_Victory.1.d
-	picture = ## get picture
-
-	major = yes
-
-	is_triggered_only = yes
-
-	fire_only_once = yes
-
-	option = {
-		name = demo.alb_Victory.1.a
 	}
 }
 

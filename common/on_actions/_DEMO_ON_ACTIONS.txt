@@ -36,16 +36,13 @@ on_actions = {
 			### italy ###
 			
 			ITA = {
-				country_event = {
+				country_event = { # puppet aussa
 					id = demo_ita.1
 					days = 35
 				}
-			}
-			
-			ITA = {
-				country_event = {
-					id = demo.ita_gr_war.1
-					days = 745
+				country_event = { # war with alb
+					id = demo_ita.6
+					days = 1186
 					days_random = 35
 				}
 			}
@@ -96,31 +93,6 @@ on_actions = {
 					id = demo_cen.1
 					days = 1391
 					days_random = 35
-				}
-			}
-		}
-	}
-	on_weekly = {
-		every_country = {
-			country_event = {
-				id = opinion_modifier.2
-			}
-		}
-	}
-	on_capitulation = {
-		effect = {
-			if = {
-				limit = {
-					FROM = {
-						original_tag = ITA
-					}
-					ROOT = {
-						original_tag = ETH
-					}
-				}
-				random_other_country = {
-					limit = { is_ai = yes }
-					news_event = { id = demo_ita.3 hours = 6 }
 				}
 			}
 		}
