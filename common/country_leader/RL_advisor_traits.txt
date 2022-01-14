@@ -18,7 +18,10 @@ leader_traits = {
 	economy_minister = {}
 	
 	### USA specific ###
-	vice_president = {}
+	vice_president = {
+		random = no
+		custom_modifier_tooltip = head_of_gov_available
+	}
 	secretary_of_state = {}
 	secretary_of_the_treasury = {}
 	secretary_of_labor = {}
@@ -158,8 +161,114 @@ leader_traits = {
 	}
 	
 	navy_chief_of_staff = {
+		sprite = 14
 		experience_gain_navy = 0.05
 
 		command_cap = 10
+	}
+	
+	### manufacturer ###
+	
+	tank_designer_light_tanks = {
+		experience_gain_army = 0.01
+		equipment_bonus = {
+			armored_car_equipment = {
+				instant = yes
+				maximum_speed = 0.075
+				soft_attack = 0.05
+				armor_value = -0.05
+			}
+			armor = {
+				instant = yes
+				maximum_speed = 0.075
+				soft_attack = 0.05
+				armor_value = -0.05
+			}
+		}
+	}
+	
+	tank_designer_infantry_tanks = {
+		experience_gain_army = 0.01
+		equipment_bonus = {
+			armor = {
+				instant = yes
+				soft_attack = 0.05
+				armor_value = 0.05
+				maximum_speed = -0.05
+			}
+		}
+	}
+	
+	tank_designer_mass_production = {
+		experience_gain_army = 0.01
+		equipment_bonus = {
+			armor = {
+				instant = yes
+				build_cost_ic = -0.075
+				reliability = -0.05
+			}
+		}
+	}
+	
+	tank_designer_engines = {
+		experience_gain_army = 0.01
+		equipment_bonus = {
+			armored_car_equipment = {
+				instant = yes
+				reliability = 0.05
+				fuel_consumption = -0.05
+			}
+			armor = {
+				instant = yes
+				reliability = 0.05
+				fuel_consumption = -0.05
+			}
+		}
+	}
+	
+	ship_designer_govt_shipyard = {
+		experience_gain_navy = 0.01
+		equipment_bonus = {
+			screen_ship = {
+				instant = yes
+				build_cost_ic = -0.05
+			}
+			submarine = {
+				instant = yes
+				build_cost_ic = -0.05
+			}
+			capital_ship = {
+				instant = yes
+				build_cost_ic = -0.05
+			}
+			carrier = {
+				instant = yes
+				build_cost_ic = -0.05
+			}
+		}
+	}
+	
+	material_designer_mass_production = {
+		equipment_bonus = {
+			infantry_equipment = {
+				instant = yes
+				reliability = -0.05
+				build_cost_ic = -0.075
+			}
+		}
+	}
+	
+	material_designer_govt_armory = {
+		equipment_bonus = {
+			infantry_equipment = {
+				instant = yes
+				reliability = -0.05
+				build_cost_ic = -0.075
+			}
+		}
+	}
+	
+	material_designer_chemical_weapons = {
+		
 	}
 }

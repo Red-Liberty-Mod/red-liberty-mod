@@ -24,6 +24,9 @@ NDefines.NCountry.MIN_WAR_SUPPORT = 0
 -- Buildings
 NDefines.NBuildings.INFRASTRUCTURE_RESOURCE_BONUS = 0.1						-- multiplicative resource bonus for each level of (non damaged) infrastructure, vanilla is 0.2
 
+-- Production
+NDefines.NProduction.CAPITAL_SHIP_MAX_NAV_FACTORIES_PER_LINE = 10		-- Vanilla is 5
+
 -- Supply
 NDefines.NSupply.INFRA_TO_SUPPLY = 0.15									-- each level of infra gives this many supply, vanilla is 0.3
 NDefines.NSupply.SUPPLY_FROM_DAMAGED_INFRA = 0.075        		        -- damaged infrastructure counts as this in supply calcs, vanilla is 0.15
