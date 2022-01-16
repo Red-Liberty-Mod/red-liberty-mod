@@ -51,3 +51,49 @@ TAG_help_leftists = {
 		value = 1000
 	}
 }
+
+UOB_hate_BRA = {
+	enable = {
+		original_tag = UOB
+		country_exists = BRA
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		tag = BRA
+		execution_type = rush
+		execute_order = yes
+		manual_attack = no
+	}
+	
+	ai_strategy = {
+		type = conquer
+		id = BRA
+		value = 1000
+	}
+}
+
+BRA_hate_UOB = {
+	enable = {
+		original_tag = BRA
+		country_exists = UOB
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		tag = UOB
+		execution_type = rush
+		execute_order = yes
+		manual_attack = no
+	}
+	
+	ai_strategy = {
+		type = conquer
+		id = UOB
+		value = 1000
+	}
+}

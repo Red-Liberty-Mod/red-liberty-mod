@@ -255,11 +255,11 @@ on_actions = {
 			
 			if = {
 				limit = {
-					ROOT = {
-						original_tag = ALB
-					}
 					FROM = {
 						original_tag = ITA
+					}
+					ROOT = {
+						original_tag = ALB
 					}
 				}
 				ITA_peace_ALB_war = yes
@@ -277,6 +277,74 @@ on_actions = {
 				random_other_country = {
 					limit = { is_ai = yes }
 					news_event = { id = demo_ita.3 hours = 6 }
+				}
+			}
+			
+			### BRAZIL ###
+			if = {
+				limit = {
+					FROM = {
+						original_tag = UOB
+					}
+					ROOT = {
+						original_tag = BRA
+					}
+				}
+				random_list = {
+					25 = {
+						random_other_country = {
+							limit = { is_ai = yes }
+							news_event = { id = demo_uob.1 hours = 6 }
+						}
+					}
+					25 = {
+						random_other_country = {
+							limit = { is_ai = yes }
+							news_event = { id = demo_uob.2 hours = 6 }
+						}
+					}
+					25 = {
+						random_other_country = {
+							limit = { is_ai = yes }
+							news_event = { id = demo_uob.3 hours = 6 }
+						}
+					}
+					25 = {
+						random_other_country = {
+							limit = { is_ai = yes }
+							news_event = { id = demo_uob.4 hours = 6 }
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					FROM = {
+						original_tag = BRA
+					}
+					ROOT = {
+						original_tag = UOB
+					}
+				}
+				random_list = {
+					34 = {
+						random_other_country = {
+							limit = { is_ai = yes }
+							news_event = { id = demo_bra.1 hours = 6 }
+						}
+					}
+					33 = {
+						random_other_country = {
+							limit = { is_ai = yes }
+							news_event = { id = demo_bra.2 hours = 6 }
+						}
+					}
+					33 = {
+						random_other_country = {
+							limit = { is_ai = yes }
+							news_event = { id = demo_bra.3 hours = 6 }
+						}
+					}
 				}
 			}
 			
