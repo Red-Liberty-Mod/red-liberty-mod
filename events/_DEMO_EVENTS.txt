@@ -358,7 +358,7 @@ country_event = { # ita-alb war
 	fire_only_once = yes
 
 	option = {
-		name = demo_ita.5.a
+		name = demo_ita.6.a
 		ITA = {
 			declare_war_on = {
 				target = ALB
@@ -368,6 +368,10 @@ country_event = { # ita-alb war
 				id = demo_ita.9
 				days = 90
 			}
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_ita.7 hours = 6 }
 		}
 	}
 }
@@ -440,6 +444,105 @@ news_event = { # ita loss news
 
 	option = {
 		name = demo_ita.10.a
+	}
+}
+
+country_event = { # ita-gre war
+	id = demo_ita.11
+	title = demo_ita.11.title
+	desc = demo_ita.11.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ita.11.a
+		ITA = {
+			declare_war_on = {
+				target = GRE
+				type = annex_everything
+			}
+			country_event = {
+				id = demo_ita.14
+				days = 120
+			}
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_ita.12 hours = 6 }
+		}
+	}
+}
+
+news_event = { # ita-gre war news
+	id = demo_ita.12
+	title = demo_ita.12.title
+	desc = demo_ita.12.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = demo_ita.12.a
+	}
+}
+
+news_event = { # ita-gre war news, ita victory
+	id = demo_ita.13
+	title = demo_ita.13.title
+	desc = demo_ita.13.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = demo_ita.13.a
+	}
+}
+
+country_event = { # ita-gre war, ita loss
+	id = demo_ita.14
+	title = demo_ita.14.title
+	desc = demo_ita.14.desc
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = {
+			ALB = {
+				is_puppet_of = ITA
+			}
+		}
+	}
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ita.14.a
+		white_peace = {
+			tag = GRE
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_ita.15 hours = 6 }
+		}
+	}
+}
+
+news_event = { # ita-gre war, ita loss
+	id = demo_ita.15
+	title = demo_ita.15.title
+	desc = demo_ita.15.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = demo_ita.15.a
 	}
 }
 

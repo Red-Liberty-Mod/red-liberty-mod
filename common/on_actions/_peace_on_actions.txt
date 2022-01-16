@@ -251,19 +251,7 @@ on_actions = {
 				}
 			}
 			
-			### ITALO-ALBANIAN WAR ###
-			
-			if = {
-				limit = {
-					FROM = {
-						original_tag = ITA
-					}
-					ROOT = {
-						original_tag = ALB
-					}
-				}
-				ITA_peace_ALB_war = yes
-			}
+			### ITALIAN WARS ###
 			
 			if = {
 				limit = {
@@ -278,6 +266,28 @@ on_actions = {
 					limit = { is_ai = yes }
 					news_event = { id = demo_ita.3 hours = 6 }
 				}
+			}
+			if = {
+				limit = {
+					FROM = {
+						original_tag = ITA
+					}
+					ROOT = {
+						original_tag = ALB
+					}
+				}
+				ITA_peace_ALB_war = yes
+			}
+			if = {
+				limit = {
+					FROM = {
+						original_tag = ITA
+					}
+					ROOT = {
+						original_tag = GRE
+					}
+				}
+				ITA_peace_GRE_war = yes
 			}
 			
 			### BRAZIL ###
