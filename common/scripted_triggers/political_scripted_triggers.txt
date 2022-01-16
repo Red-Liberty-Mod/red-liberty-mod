@@ -7,6 +7,16 @@ has_socialist_govt = {
 	}
 }
 
+has_democratic_govt = {
+	OR = {
+		has_government = libertarian_socialism
+		has_government = social_democracy
+		has_government = progressive_liberalism
+		has_government = market_libertarianism
+		has_government = national_conservatism
+	}
+}
+
 has_same_govt_as_ROOT = {
 	has_government = var:ROOT.current_party_ideology_group
 }
