@@ -1,0 +1,84 @@
+scripted_gui = {
+	
+	SWI_parliament_button_gui = {
+		context_type = player_context
+		parent_window_token = politics_tab
+		window_name = "SWI_parliament_button_container"
+		
+		triggers = {
+			SWI_parliament_button_visible = {
+				tag = SWI
+			}
+		}
+
+		effects = {
+			SWI_parliament_button_click = {
+				if = {
+					limit = {
+						NOT = { has_country_flag = SWI_open_parliament_gui }
+					}
+					ROOT = {
+						set_country_flag = SWI_open_parliament_gui
+					}
+				}
+				else = {
+					clr_country_flag = SWI_open_parliament_gui
+				}
+			}
+		}
+	}
+
+
+	SWI_parliament_scripted_gui = {
+		window_name = "SWI_parliament_council_gui_container"
+		context_type = player_context
+
+		visible = {
+			has_country_flag = SWI_open_parliament_gui
+		}
+		
+		triggers = {
+			refresh_button_visible = {
+				is_debug = yes
+			}
+		}
+
+		dynamic_lists = {
+			SWI_parliament_council_diagram = {
+				array = SWI_council_x_array
+				change_scope = no
+				entry_container = SWI_council_seat_container
+				index = seat_idx
+			}
+			SWI_parliament_senate_diagram = {
+				array = SWI_senate_x_array
+				change_scope = no
+				entry_container = SWI_senate_seat_container
+				index = seat_idx
+			}
+		}
+
+		properties = {
+			SWI_council_dot_icon = {
+				x = SWI_council_x_array^seat_idx
+				y = SWI_council_y_array^seat_idx
+				frame = SWI_council_frame_array^seat_idx
+			}
+			SWI_senate_dot_icon = {
+				x = SWI_senate_x_array^seat_idx
+				y = SWI_senate_y_array^seat_idx
+				frame = SWI_senate_frame_array^seat_idx
+			}
+		}
+
+		effects = {
+			close_button_click = {
+				clr_country_flag = SWI_open_parliament_gui
+			}
+			refresh_button_click = {
+				SWI_recalc_council = yes
+				SWI_recalc_senate = yes
+			}
+		}
+	}
+}
