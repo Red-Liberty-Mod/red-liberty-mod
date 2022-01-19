@@ -109,11 +109,11 @@ USA_congress = {
 		}
 	}
 	
-	start_voting_rights_act = { # voting rights act
+	start_USA_voting_rights_act = { # voting rights act
 		icon = ger_mefo_bills
 		available = {
 			NOT = {
-			has_country_flag = voting_rights_act_passed
+				has_country_flag = voting_rights_act_passed
 			}
 			has_completed_focus = USA_voting_rights_act
 			
@@ -131,7 +131,9 @@ USA_congress = {
 		
 		complete_effect = {
 			custom_effect_tooltip = USA_bill_pass_req_tt
-			add_stability = 0.1
+			effect_tooltip = {
+				add_stability = 0.2
+			}
 			USA_voting_rights_act_setup = yes
 		}
 	}
@@ -937,7 +939,10 @@ USA_congress = {
 			original_tag = USA
 		}
 		available = { #Mission is completed when the player brings the bill to a vote
-			always = no
+			custom_trigger_tooltip = {
+				tooltip = vote_will_pass_tt
+				bill_will_pass = yes
+			}
 		}
 		activation = {
 			has_country_flag = USA_bill_house_phase
@@ -946,12 +951,28 @@ USA_congress = {
 		
 		days_mission_timeout = 30
 		
+		selectable_mission = yes
+		
+		complete_effect = {
+			if = {
+				limit = {
+					bill_will_pass = yes
+				}
+				#custom_effect_tooltip = vote_will_pass_tt
+				USA_senate_phase = yes
+			}
+			else = {
+				custom_effect_tooltip = vote_will_fail_tt
+				USA_bill_vote = yes
+			}
+		}
+		
 		timeout_effect = {
 			if = {
 				limit = {
 					bill_will_pass = yes
 				}
-				custom_effect_tooltip = vote_will_pass_tt
+				#custom_effect_tooltip = vote_will_pass_tt
 				USA_senate_phase = yes
 			}
 			else = {
@@ -966,7 +987,10 @@ USA_congress = {
 			original_tag = USA
 		}
 		available = { #Mission is completed when the player brings the bill to a vote
-			always = no
+			custom_trigger_tooltip = {
+				tooltip = vote_will_pass_tt
+				bill_will_pass = yes
+			}
 		}
 		activation = {
 			has_country_flag = USA_bill_senate_phase
@@ -975,12 +999,28 @@ USA_congress = {
 		
 		days_mission_timeout = 30
 		
+		selectable_mission = yes
+		
+		complete_effect = {
+			if = {
+				limit = {
+					bill_will_pass = yes
+				}
+				#custom_effect_tooltip = vote_will_pass_tt
+				USA_bill_vote = yes
+			}
+			else = {
+				custom_effect_tooltip = vote_will_fail_tt
+				USA_bill_vote = yes
+			}
+		}
+		
 		timeout_effect = {
 			if = {
 				limit = {
 					bill_will_pass = yes
 				}
-				custom_effect_tooltip = vote_will_pass_tt
+				#custom_effect_tooltip = vote_will_pass_tt
 				USA_bill_vote = yes
 			}
 			else = {

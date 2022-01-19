@@ -447,25 +447,26 @@ country_event = { # wealth tax act
 		add_political_power = -50
 		USA_bill_clear = yes # ALWAYS DO THIS
 	}
+}
 
 country_event = { # voting rights act
 	id = us_bill.11
 	
 	# different loc based on if it passes or fails
 	title = {
-		text = us_bill.11.t_passed
+		text = us_bill.11.title_passed
 		trigger = { has_country_flag = bill_passed }
 	}
 	title = { 
-		text = us_bill.11.t_failed
+		text = us_bill.11.title_failed
 		trigger = { NOT = { has_country_flag = bill_passed } }
 	}
 	desc = {
-		text = us_bill.11.d_passed
+		text = us_bill.11.desc_passed
 		trigger = { has_country_flag = bill_passed }
 	}
 	desc = {
-		text = us_bill.11.d_failed
+		text = us_bill.11.desc_failed
 		trigger = { NOT = { has_country_flag = bill_passed } }
 	}
 	
@@ -489,6 +490,4 @@ country_event = { # voting rights act
 		add_political_power = -75
 		USA_bill_clear = yes # ALWAYS DO THIS
 	}
-}
-
 }
