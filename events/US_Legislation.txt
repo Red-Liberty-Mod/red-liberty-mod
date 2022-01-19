@@ -447,4 +447,48 @@ country_event = { # wealth tax act
 		add_political_power = -50
 		USA_bill_clear = yes # ALWAYS DO THIS
 	}
+
+country_event = { # voting rights act
+	id = us_bill.11
+	
+	# different loc based on if it passes or fails
+	title = {
+		text = us_bill.11.t_passed
+		trigger = { has_country_flag = bill_passed }
+	}
+	title = { 
+		text = us_bill.11.t_failed
+		trigger = { NOT = { has_country_flag = bill_passed } }
+	}
+	desc = {
+		text = us_bill.11.d_passed
+		trigger = { has_country_flag = bill_passed }
+	}
+	desc = {
+		text = us_bill.11.d_failed
+		trigger = { NOT = { has_country_flag = bill_passed } }
+	}
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event us_bill.11"
+	}
+
+	is_triggered_only = yes
+
+	option = { # bill passes
+		name = us_bill.11.a
+		trigger = { has_country_flag = bill_passed }
+		add_stability = 0.2
+		set_country_flag = voting_rights_act_passed		
+		USA_bill_clear = yes # ALWAYS DO THIS
+	}
+	
+	option = { # bill fails
+		name = us_bill.11.b
+		trigger = { NOT = { has_country_flag = bill_passed } }
+		add_political_power = -75
+		USA_bill_clear = yes # ALWAYS DO THIS
+	}
+}
+
 }

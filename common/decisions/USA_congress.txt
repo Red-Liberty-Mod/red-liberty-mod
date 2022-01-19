@@ -109,6 +109,33 @@ USA_congress = {
 		}
 	}
 	
+	start_voting_rights_act = { # voting rights act
+		icon = ger_mefo_bills
+		available = {
+			NOT = {
+			has_country_flag = voting_rights_act_passed
+			}
+			has_completed_focus = USA_voting_rights_act
+			
+		}
+		
+		visible = {
+			original_tag = USA
+			NOT = {
+				has_country_flag = USA_discussing_bill
+			}
+		    has_completed_focus = USA_voting_rights_act
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			custom_effect_tooltip = USA_bill_pass_req_tt
+			add_stability = 0.1
+			USA_voting_rights_act_setup = yes
+		}
+	}
+	
 	start_USA_reorg_act = {
 		icon = ger_mefo_bills
 		available = {
