@@ -391,6 +391,46 @@ USA_enforcement_act_setup = { # ban the kkk
 	USA_bill_setup = yes # always required
 }
 
+USA_civil_rights_setup = { # civil rights act
+	log = "[GetDateText]: [Root.GetName]: bill setup active"
+	
+	set_variable = { bill_id = 11 } # EACH BILL MUST HAVE A UNIQUE ID
+	
+	set_country_flag = USA_communist_discussing
+	set_country_flag = USA_socialist_discussing
+	set_country_flag = USA_farmer_labor_discussing
+	set_country_flag = USA_republican_discussing
+	set_country_flag = USA_democrat_discussing
+	
+	#set_country_flag = bill_enable_mission
+	#set_variable = { USA_bill_mission_deadline = 150 }
+	
+	set_variable = { USA_communist_bill_support = 1 }
+	set_variable = { USA_socialist_bill_support = 1 }
+	set_variable = { USA_farmer_labor_bill_support = 1 }
+	set_variable = { USA_republican_bill_support = 0.6 }
+	set_variable = { USA_democrat_bill_support = 0.3 }
+	set_variable = { USA_fascist_bill_support = 0 }
+	
+	#set_country_flag = USA_special_decisions_enabled # hides generic decisions in favor of special ones
+	
+	set_variable = { average_boost_communist = 0.4 }
+	set_variable = { average_boost_socialist = 0.5 }
+	set_variable = { average_boost_farmer_labor = 0.5 }
+	set_variable = { average_boost_republican = 0.3 }
+	set_variable = { average_boost_democrat = 0.1 }
+	set_variable = { average_boost_fascist = 0 }
+	
+	set_variable = { communist_flip_cost = 20 } # how much pp negotiation decisions cost
+	set_variable = { socialist_flip_cost = 20 }
+	set_variable = { farmer_labor_flip_cost = 20 }
+	set_variable = { republican_flip_cost = 25 }
+	set_variable = { democrat_flip_cost = 50 }
+	set_variable = { fascist_flip_cost = 150 }
+	
+	USA_bill_setup = yes # always required
+}
+
 USA_bill_setup = {
 	USA_initialize_bill_support = yes
 	set_country_flag = USA_bill_house_phase
