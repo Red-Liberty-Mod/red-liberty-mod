@@ -934,6 +934,44 @@ USA_congress = {
 		}
 	}
 	
+	USA_extend_session = {
+		visible = {
+			AND = {
+				original_tag = USA
+				check_variable = { bill_id > 0 }
+			}
+        }
+		
+		cost = 0
+		
+		available  = {
+			
+   		}
+		
+		days_re_enable = 14
+		
+		complete_effect = {
+			if = {
+				limit = { 
+					has_country_flag = USA_bill_house_phase
+				}
+				add_days_mission_timeout = {
+					mission = USA_house_phase
+					days = 15
+				}
+			}
+			else_if = {
+				limit = { 
+					has_country_flag = USA_bill_senate_phase
+				}
+				add_days_mission_timeout = {
+					mission = USA_senate_phase
+					days = 15
+				}
+			}
+		}
+	}
+	
 	USA_house_phase = {
 		visible = {
 			original_tag = USA
@@ -960,10 +998,7 @@ USA_congress = {
 				}
 				#custom_effect_tooltip = vote_will_pass_tt
 				USA_senate_phase = yes
-			}
-			else = {
-				custom_effect_tooltip = vote_will_fail_tt
-				USA_bill_vote = yes
+				add_political_power = 10
 			}
 		}
 		
@@ -1007,10 +1042,6 @@ USA_congress = {
 					bill_will_pass = yes
 				}
 				#custom_effect_tooltip = vote_will_pass_tt
-				USA_bill_vote = yes
-			}
-			else = {
-				custom_effect_tooltip = vote_will_fail_tt
 				USA_bill_vote = yes
 			}
 		}
