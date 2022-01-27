@@ -24,8 +24,8 @@ socialists_have_congress_majority = {
 	custom_trigger_tooltip = {
 		tooltip = socialist_majority_tt
 		AND = {
-			check_variable = { senators_socialist > 48 }
-			check_variable = { representatives_socialist > 242 }
+			check_variable = { senators_socialist > quorum_medium }
+			check_variable = { representatives_socialist > rep_quorum_medium }
 		}
 	}
 }
@@ -34,8 +34,8 @@ democrats_have_congress_majority = {
 	custom_trigger_tooltip = {
 		tooltip = democrat_majority_tt
 		AND = {
-			check_variable = { senators_democrat > 48 }
-			check_variable = { representatives_democrat > 242 }
+			check_variable = { senators_democrat > quorum_medium }
+			check_variable = { representatives_democrat > rep_quorum_medium }
 		}
 	}
 }
