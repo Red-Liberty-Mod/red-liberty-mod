@@ -76,6 +76,15 @@ country_event = { # social security act
 		}
 		set_country_flag = social_security_passed
 		USA_bill_clear = yes # ALWAYS DO THIS
+		
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					can_have_elections_in_state = yes
+				}
+				add_to_variable = { socialist_popularity = 0.05 }
+			}
+		}
 	}
 	
 	option = { # bill fails
@@ -88,6 +97,15 @@ country_event = { # social security act
 		}
 		trigger = { NOT = { has_country_flag = bill_passed } }
 		USA_bill_clear = yes # ALWAYS DO THIS
+		
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					can_have_elections_in_state = yes
+				}
+				subtract_from_variable = { socialist_popularity = 0.03 }
+			}
+		}
 	}
 }
 
@@ -124,6 +142,24 @@ country_event = { # farm tenant act
 		improve_great_depression = yes
 		set_country_flag = farm_tenant_act_passed
 		USA_bill_clear = yes # ALWAYS DO THIS
+		
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					is_great_plains_state = yes
+				}
+				add_to_variable = { socialist_popularity = 0.05 }
+			}
+			every_owned_state = {
+				limit = {
+					OR = {
+						is_southwest_state = yes
+						is_deep_south_state = yes
+					}
+				}
+				add_to_variable = { socialist_popularity = 0.03 }
+			}
+		}
 	}
 	
 	option = { # bill fails
@@ -489,5 +525,26 @@ country_event = { # voting rights act
 		trigger = { NOT = { has_country_flag = bill_passed } }
 		add_political_power = -75
 		USA_bill_clear = yes # ALWAYS DO THIS
+	}
+}
+
+country_event = { # activates filibuster
+	id = us_bill.1000
+	title = us_bill.1000.title
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event us_bill.1000"
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = us_bill.1000.a
+		USA_activate_filibuster = yes
+	}
+	
+	option = {
+		name = us_bill.1000.b
+		USA_clear_filibuster = yes
 	}
 }

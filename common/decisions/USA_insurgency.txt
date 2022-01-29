@@ -29,42 +29,6 @@ USA_appalachian_insurgency_category = {
 		}
 	}
 	
-	USA_send_in_the_army = {
-	
-		icon = GFX_decision_oppression
-		
-		visible = {
-			has_country_flag = USA_insurgency_start
-			NOT = {
-				has_country_flag = USA_insurgency_end
-			}
-		}
-		
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = USA_insurgency_25_end_tt
-				check_variable = { USA_insurgency_strength < 25 }
-			}
-		}
-		
-		fire_only_once = yes
-		
-		days_remove = 15
-		
-		cost = 10
-		
-		remove_effect = {
-			random_list = {
-				75 = {
-				
-				}
-				25 = {
-					custom_effect_tooltip = USA_insurgency_operation_fail
-				}
-			}
-		}
-	}
-
 	USA_mobilize_national_guard = {
 	
 		icon = generic_army_support
@@ -82,11 +46,16 @@ USA_appalachian_insurgency_category = {
 		
 		fire_only_once = yes
 		
-		days_remove = 10
+		days_remove = 5
 		
-		cost = 25
+		custom_cost_trigger = {
+			command_power > 24
+		}
+
+		custom_cost_text = decision_cost_CP_25
 		
 		remove_effect = {
+			hidden_effect = { add_command_power = -25 }
 			add_manpower = 10000
 			subtract_from_variable = { USA_insurgency_strength = 7 }
 			custom_effect_tooltip = USA_weaken_insurgency_tt
@@ -108,11 +77,16 @@ USA_appalachian_insurgency_category = {
 			
 		}
 		
-		days_remove = 10
+		days_remove = 5
 		
-		cost = 25
+		custom_cost_trigger = {
+			command_power > 14
+		}
+
+		custom_cost_text = decision_cost_CP_15
 		
 		remove_effect = {
+			hidden_effect = { add_command_power = -15 }
 			subtract_from_variable = { USA_insurgency_strength = 3 }
 			custom_effect_tooltip = USA_weaken_insurgency_tt
 		}
@@ -133,7 +107,41 @@ USA_appalachian_insurgency_category = {
 			
 		}
 		
-		days_remove = 10
+		modifier = {
+			consumer_goods_factor = 0.05
+		}
+		
+		days_remove = 5
+		
+		custom_cost_trigger = {
+			command_power > 14
+		}
+
+		custom_cost_text = decision_cost_CP_15
+		
+		remove_effect = {
+			hidden_effect = { add_command_power = -15 }
+			subtract_from_variable = { USA_insurgency_strength = 3 }
+			custom_effect_tooltip = USA_weaken_insurgency_tt
+		}
+	}
+	
+	USA_advanced_interrogation = {
+	
+		icon = GFX_decision_generic_political_discourse
+		
+		visible = {
+			has_country_flag = USA_insurgency_start
+			NOT = {
+				has_country_flag = USA_insurgency_end
+			}
+		}
+		
+		available = {
+			
+		}
+		
+		days_remove = 5
 		
 		cost = 25
 		
