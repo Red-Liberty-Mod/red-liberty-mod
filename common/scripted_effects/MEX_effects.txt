@@ -1,0 +1,47 @@
+MEX_setup_CRT = {
+	hidden_effect = {
+		every_state = {
+			limit = {
+				is_core_of = MEX
+			}
+			add_core_of = CRT
+		}
+		CRT = {
+			transfer_state = 478
+			load_oob = "CRT"
+			
+			if = {
+				limit = { has_template = "Brigada Agrarista" }
+				delete_unit_template_and_units = { division_template = "Brigada Agrarista" }
+			}
+		}
+	}
+}
+
+MEX_setup_YUC = {
+	hidden_effect = {
+		474 = {
+			add_core_of = YUC
+		}
+		YUC = {
+			transfer_state = 474
+			load_oob = "YUC"
+		}
+	}
+}
+
+MEX_setup_ZAP = {
+	hidden_effect = {
+		every_state = {
+			limit = {
+				is_core_of = MEX
+			}
+			add_core_of = ZAP
+		}
+		ZAP = {
+			transfer_state = 485
+			transfer_state = 905
+			load_oob = "ZAP"
+		}
+	}
+}
