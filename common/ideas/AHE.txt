@@ -2,16 +2,15 @@ ideas = {
 	
 	country = {
 	
-		AHE_ethnic_division = {
+		AHE_incompetent_military = {
 			removal_cost = -1 
-				
-			picture = ethnic_division
 				
 			allowed = {
 				always = no
 			}  
 
 			available = {
+				
 			}
 				
 			allowed_civil_war = { 
@@ -19,13 +18,15 @@ ideas = {
 			}
 				
 			modifier = {
-				army_core_defence_factor  = -0.1
-				stability_factor = -0.1
-				war_support_factor = -0.1
+				war_support_factor = -0.2
+				land_doctrine_cost_factor = 0.5
+				air_doctrine_cost_factor = 0.5
+				naval_doctrine_cost_factor = 0.5
+				custom_modifier_tooltip = SPR_military_disloyalty_tt
 			}
 		}
 		
-       	AHE_embarrassment_on_the_italian_front = {
+		AHE_doomed_empire = {
 			removal_cost = -1 
 				
 			allowed = {
@@ -33,6 +34,7 @@ ideas = {
 			}  
 
 			available = {
+				
 			}
 				
 			allowed_civil_war = { 
@@ -40,10 +42,9 @@ ideas = {
 			}
 				
 			modifier = {
-				political_power_gain = -0.05
-				justify_war_goal_time = 0.35 
-				army_morale_factor = -0.15 
-				conscription_factor = -0.15
+				stability_factor = -0.15
+				proletarian_dictatorship_drift = 0.01
+				fascism_drift = 0.01
 			}
 		}
 		
@@ -55,6 +56,7 @@ ideas = {
 			}  
 
 			available = {
+				
 			}
 				
 			allowed_civil_war = { 
@@ -62,18 +64,20 @@ ideas = {
 			}
 				
 			modifier = {
-				political_power_gain = -0.15
+				consumer_goods_factor = 0.1
+				production_speed_buildings_factor = -0.15
 			}
-		} 
-
-       	AHE_economic_downturn = {
-			removal_cost = -1 
+		}
+		
+		AHE_inept_legislature = {
+			removal_cost = -1
 				
 			allowed = {
 				always = no
 			}  
 
 			available = {
+				
 			}
 				
 			allowed_civil_war = { 
@@ -81,9 +85,8 @@ ideas = {
 			}
 				
 			modifier = {
-				consumer_goods_factor = 0.12 
-				industrial_capacity_factory = -0.1
-				production_speed_buildings_factor = -0.1
+				disabled_ideas = 1
+				poverty_monthly_rate = -0.01
 			}
 		}
 	}
