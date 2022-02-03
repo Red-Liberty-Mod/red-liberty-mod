@@ -255,10 +255,7 @@ focus_tree = {
 					factor = 1
 				}
 			completion_reward = {
-					add_timed_idea = {
-							idea = ITA_new_black_shirt_conscription
-							days = 110
-						}
+				add_timed_idea = { idea = ITA_new_black_shirt_conscription  days = 110 }
 				}
 
 	}
@@ -928,7 +925,7 @@ focus_tree = {
 				}
 		completion_reward = {
 			add_political_power = 50
-			add_war_support = 0.13
+			add_war_support = 0.1
 		}
 
 	}
@@ -1069,8 +1066,8 @@ focus_tree = {
 		completion_reward = {
 			GER = {
 				add_popularity = {
-					ideology = martial_despotism
-					popularity = 0.10
+					ideology = fascism
+					popularity = 0.075
 				}
 			}
 		}
@@ -1220,9 +1217,8 @@ focus_tree = {
 					factor = 1
 				}
 		completion_reward = {
-			add_ideas = {
-				ITA_rally_call
-			}
+			add_political_power = 50
+			add_timed_idea = { idea = ITA_rally_call_people  days = 110 }
 		}
 
 	}
@@ -3222,5 +3218,25 @@ focus_tree = {
 				days = 1
 			}
 		}
+
+		ITA_new_black_shirt_conscription = {
+		
+			removal_cost = -1
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				political_power_gain = -0.05
+				command_power_gain = 0.20
+				experience_gain_army = 0.25
+			}
+		}
+	}
 	}
 }
