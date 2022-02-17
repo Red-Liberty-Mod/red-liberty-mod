@@ -36,9 +36,6 @@ guiTypes = {
 			name ="frontend_game_logo"
 			spriteType = "GFX_frontend_game_logo"
 			position = { x= 20 y = 20 }
-							 
-														 
-																					 
 		}
 
 	}
@@ -198,6 +195,11 @@ guiTypes = {
 		Orientation = LOWER_LEFT
 		Origo = lower_left
 
+		positionType = {
+			name = "subscription_size"
+			position = { x = 320 y = 523 }
+		}
+		
 		background = {
 			name = "Background"
 			quadTextureSprite ="GFX_tiled_window"
@@ -242,7 +244,13 @@ guiTypes = {
 			maxWidth = 250
 			maxHeight = 20
 		}
-
+		
+		positionType = {
+			name = "version_label_subscription_position"
+			position = { x = 35 y = 484 }
+		}
+		
+		
 		ButtonType = {
 			name = "settings_button"
 			position = { x = 16 y = 98 }
@@ -252,11 +260,20 @@ guiTypes = {
 			clicksound = click_default
 			oversound = ui_menu_over
 		}
-
+		
+		buttonType = {
+			name = "career_profile_button"
+			position = { x = 16 y = 138 }
+			quadTextureSprite ="GFX_main_lobby_button"
+			buttonText = "MENU_BAR_CAREER_PROFILE"
+			buttonFont = "hoi_24header"
+			clicksound = click_default
+			oversound = ui_menu_over
+		}
 
 		ButtonType = {
 			name = "credits_button"
-			position = { x = 16 y = 138 }
+			position = { x = 16 y = 178 }
 			quadTextureSprite ="GFX_main_lobby_button"
 			buttonText = "FE_CREDITS"
 			buttonFont = "hoi_24header"
@@ -266,12 +283,11 @@ guiTypes = {
 
 		ButtonType = {
 			name = "nudge_button"
-			position = { x = 16 y = 178 }
+			position = { x = 16 y = 218 }
 			quadTextureSprite ="GFX_main_lobby_button"
 			buttonText = "Nudge!"
 			buttonFont = "hoi_24header"
 		}
-
 
 		ButtonType = {
 			name = "exit_button"
@@ -283,53 +299,48 @@ guiTypes = {
 			oversound = ui_menu_over
 
 		}
+		
+		iconType = {
+			name = "subscription_divider"
+			position = { x = 4 y = 296}
+			spriteType = "GFX_main_lobby_divider"
+		}
+		
+		containerWindowType = {
+			name = "subscription_widget"
+			position = { x = 16 y = 312 }
+			size = { width = 288 height = 108 }
 
-		### Discord, Forum, Steam and Twitter links
-		ButtonType = { #Actually Discord
-			name = "homepage_button"
-			position = { x = 79 y = 298 }
-			quadTextureSprite ="homepage"
-			clicksound = click_default
-			pdx_tooltip = "MENU_HOMEPAGE"
-			web_link = "https://discord.gg/uyh9Me2"
+			ButtonType = {
+				name = "show_subscription"
+				position = { x = 0 y = 0 }
+				quadTextureSprite ="GFX_subscription_widget"
+				buttonText = "SUBSCRIPTION_WIDGET"
+				buttonFont = "hoi_24header"
+				multiline = yes
+			}
 		}
-		ButtonType = { #Actually Forum
-			name = "forum_button"
-			position = { x = 119 y = 298 }
-			quadTextureSprite ="forum"
-			clicksound = click_default
-			pdx_tooltip = "MENU_FORUM"
-			web_link = "http://forum.paradoxplaza.com/forum/forumdisplay.php?844-Hearts-of-Iron-IV"
-		}
-		ButtonType = {
-			name = "facebook_button"
-			position = { x = 159 y = 298 }
-			quadTextureSprite ="facebook"
-			clicksound = click_default
-			pdx_tooltip = "MENU_FACEBOOK"
-			web_link = "https://www.facebook.com/Heartsofiron"
-		}
-		ButtonType = { 
-			name = "twitter_button"
-			position = { x = 199 y = 298 }
-			quadTextureSprite ="twitter"
-			clicksound = click_default
-			pdx_tooltip = "MENU_TWITTER"
-			web_link = "https://twitter.com/hoi_game"
-		}
-		ButtonType = { #Sent far far away because we don't want you
-			name = "privacy_policy_button"
-			position = { x = 10000 y = 10000 }
-			quadTextureSprite ="privacy"
-			#clicksound = click_default
-			pdx_tooltip = "MENU_PRIVACY_POLICY"
+
+		containerWindowType = {
+			name = "subscription_widget_subscribed"
+			position = { x = 16 y = 312 }
+			size = { width = 288 height = 108 }
+
+			ButtonType = {
+				name = "show_subscription"
+				position = { x = 0 y = 0 }
+				quadTextureSprite ="GFX_subscription_widget_active"
+				frame = 1
+				buttonText = "SUBSCRIPTION_WIDGET_SUBSCRIBED"
+				buttonFont = "hoi_24header"
+				multiline = yes
+			}
 		}
 	}
 
-	### Copied from vanilla w/ new launcher probably gonna break at some point ###
 	containerWindowType = {
 		name = "mainmenu_social_buttons"
-		position = { x=-50 y=25 }
+		position = { x=-50 y=25 }	
 		size = { width = 240 height = 90 }
 		Orientation = center
 		origo = center
@@ -337,6 +348,16 @@ guiTypes = {
 		positionType = {
 			name = "position_without_social_gui"
 			position = { x = 0 y = 155 }
+		}
+		
+		positionType = {
+			name = "subscription_position"
+			position = { x = -50 y = 89 }
+		}
+
+		positionType = {
+			name = "subscription_position_without_social_gui"
+			position = { x = 0 y = 219 }
 		}
 
 		containerWindowType = {
@@ -383,16 +404,60 @@ guiTypes = {
 				pdx_tooltip = "SOCIAL_NEW_FRIEND"
 			}
 		}
-
-		ButtonType = { # old homepage button
+		
+		ButtonType = {
 			name = "homepage_button"
-			position = { x=10000 y=10000 }
+			position = { x=0 y=0 }
 			quadTextureSprite ="homepage"
+			clicksound = click_default
+			pdx_tooltip = "MENU_HOMEPAGE"
 		}
-		ButtonType = { #GTFO MK II
+		ButtonType = {
+			name = "forum_button"
+			position = { x=50 y=0 }
+			quadTextureSprite ="forum"
+			clicksound = click_default
+			pdx_tooltip = "MENU_FORUM"
+			web_link = "http://forum.paradoxplaza.com/forum/forumdisplay.php?844-Hearts-of-Iron-IV"
+		}
+		ButtonType = {
+			name = "facebook_button"
+			position = { x=100 y=0 }
+			quadTextureSprite ="facebook"
+			clicksound = click_default
+			pdx_tooltip = "MENU_FACEBOOK"
+			web_link = "https://www.facebook.com/Heartsofiron"
+		}
+		ButtonType = {
+			name = "twitter_button"
+			position = { x=150 y=0 }
+			quadTextureSprite ="twitter"
+			#clicksound = click_default
+			pdx_tooltip = "MENU_TWITTER"
+			web_link = "https://twitter.com/hoi_game"
+		}
+		ButtonType = {
 			name = "privacy_policy_button"
-			position = { x = 10000 y = 10000 }
-			quadTextureSprite ="privacy"				  				  
+			position = { x=200 y=0 }
+			quadTextureSprite ="privacy"
+			#clicksound = click_default
+			pdx_tooltip = "MENU_PRIVACY_POLICY"
 		}
+	}
+
+	## This position needs updated
+	containerWindowType = {
+		name = "mainmenu_achievement_button"
+		position = { x = -500 y = 20 }	
+		size = { width = 100 height = 100 }
+		Orientation = upper_right
+		clipping = no
+		
+		ButtonType = {
+			name = "achievements_button"
+			position = { x = 0 y = 0 }
+			quadTextureSprite ="achievements"
+			pdx_tooltip = "MENU_ACHIEVEMENTS"
+		}		
 	}
 }
