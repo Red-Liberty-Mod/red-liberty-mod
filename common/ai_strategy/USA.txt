@@ -29,3 +29,28 @@ USA_friends_with_canada = {
 		value = -500
 	}
 }
+
+USA_help_mexico = {
+	enable = {
+		OR = {
+			original_tag = USA
+			original_tag = SOV
+		}
+		MEX = {
+			has_war_with = CRT
+		}
+	}
+
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = protect
+		id = "MEX"
+		value = 500
+	}
+	ai_strategy = {
+		type = support
+		id = "MEX"
+		value = 1000
+	}
+}

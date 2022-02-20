@@ -141,9 +141,10 @@ set_popularities = {
 	fascism = 0
 }
 
-set_variable = { SOV_parliament_seats = 200 }
 SOV_init_parliament = yes
-SOV_refresh_parliament_one_party = yes
+set_variable = { SOV_parliament_seats = 542 } # max is 542
+SOV_recalc_parliament = yes
+SOV_refresh_parliament = yes
 
 add_ideas = {
 	SOV_home_of_the_revolution
@@ -151,19 +152,10 @@ add_ideas = {
 	SOV_nep
 	SOV_tsarist_captives
 }
-
 set_country_flag = conscription_banned
 
-create_country_leader = {
-	name = "Nikolai Bukharin"
-	desc = "POLITICS_NIKOLAI_BUKHARIN_DESC"
-	picture = "gfx/leaders/SOV/Portrait_SOV_Nikolai_Bukharin.png"
-	expire = "1953.3.1"
-	ideology = revolutionary_autocracy_subtype
-	traits = {
-		
-	}
-}
+### LEADERS ###
+recruit_character = SOV_nikolai_bukharin
 
 add_namespace = {
 	name = "unit_leader_sov"
