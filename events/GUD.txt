@@ -2,7 +2,7 @@ add_namespace = guangxicivilwar
 
 country_event = { # intro event
 	id = guangxicivilwar.1
-	title = "Guomindang Soliders Revolt in Guangdong"
+	title = "Guomindang Soldiers Revolt in Guangdong!"
 	desc = "The GMD is a party derviing from Dr. Sun Yat Sen and his ideas of a republican China. Now his followers seek to keep his legacy alive ftaer he lost power to Rongyao's father."
 	
 	picture = "GFX_report_event_student_protest_CHI"
@@ -10,54 +10,27 @@ country_event = { # intro event
 	is_triggered_only = yes
 	
 	fire_only_once = yes
+	
+	immediate = {
+		KMT_uprising_start = yes
+	}
 
 	option = {
-		name = "For China!(Play As KMT)"
+		name = "For China! (Play As KMT)"
+		
 		add_political_power = 10
 		add_stability = -0.1
 		add_command_power = 5
+		
 		KMT = { change_tag_from = GUD }
-		
-		KMT = {
-		transfer_state = 865
-		transfer_state = 593
-		transfer_state = 592
-		
-		add_state_core = 865
-		add_state_core = 593
-		add_state_core = 592
-		
-		declare_war_on = {
-				target = GUD
-				type = annex_everything
-			}
-			
-			load_oob = "KMT"
-		}
-		
 	}
 	
 	option = {
 		name = "For Rongyao!"
+		
 		add_political_power = -100
 		add_stability = -0.10
 		add_command_power = 5
-		KMT = {
-		transfer_state = 865
-		transfer_state = 593
-		transfer_state = 592
-		
-		add_state_core = 865
-		add_state_core = 593
-		add_state_core = 592
-		
-		declare_war_on = {
-				target = GUD
-				type = annex_everything
-			}
-			
-			load_oob = "KMT"
-		}
 	}
 }
 
