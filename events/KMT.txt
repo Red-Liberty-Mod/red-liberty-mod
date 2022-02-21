@@ -1,83 +1,74 @@
-add_namespace = kuomintangcomgress
-add_namespace = cc-clique
+add_namespace = kuomintang
+add_namespace = kuomintang_congress
+add_namespace = koumintang_cc_clique
 
 country_event = { # intro event
-	id = kuomintangcomgress.1
-	title = "Calling of the Intermediate Revolutionary Congress"
-	desc = "Alas we have secured the guangdong revolutionary basin, we shall organise a government to which shall function during the revolution."
-	
-	picture = "GFX_report_event_student_protest_CHI"
+	id = kuomintang.1
+	title = kuomintang.1.title
+	desc = kuomintang.1.desc
+	picture = GFX_report_event_student_protest_CHI
 	
 	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	option = {
+		name = kuomintang.1.a
+	}
+}
+
+country_event = { # congress starts
+	id = kuomintang_congress.1
+	title = kuomintang_congress.1.title
+	desc = kuomintang_congress.1.desc
+	picture = GFX_report_event_student_protest_CHI
+	
+	is_triggered_only = yes
+	
 	trigger = {
-	GUD = {
-		has_capitulated = yes
-		
-		NOT = {
-		exists = yes
-		
+		GUD = {
+			has_capitulated = yes
+			NOT = {
+				exists = yes
+			}
 		}
-				}
-				
 	}
 	
 	fire_only_once = yes
 
 	option = {
-		name = kuomintangcomgress.1.a
+		name = kuomintang_congress.1.a
 		custom_effect_tooltip = ULE_KMT_tt
-		hidden_effect = { set_country_flag = {
-			flag = KMT_RAD
-			value = 0
-			}	
-		} 
+		set_variable = { KMT_RAD = 0 )
+		
 		custom_effect_tooltip = MLE_KMT_tt
-		hidden_effect = { set_country_flag = {
-			flag = KMT_SOC
-			value = 0
-			}	
-		} 
+		set_variable = { KMT_SOC = 0 }
+		
 		custom_effect_tooltip = MKM_KMT_tt
-		hidden_effect = { set_country_flag = {
-			flag = KMT_MOD
-			value = 0
-			}	
-		} 
+		set_variable = { KMT_MOD = 0 }
+		
 		custom_effect_tooltip = MKK_KMT_tt
-		hidden_effect = { set_country_flag = {
-			flag = KMT_CEN
-			value = 0
-			}	
-		} 
+		set_variable = { KMT_CEN = 0 }
+		
 		custom_effect_tooltip = RKM_KMT_tt
-		hidden_effect = { set_country_flag = {
-			flag = KMT_CCC
-			value = 0
-			}	
-		} 
+		set_variable = { KMT_CCC = 0 }
+		
 		custom_effect_tooltip = FRK_KMT_tt
-		hidden_effect = { set_country_flag = {
-			flag = KMT_BSS
-			value = 0
-			}	
-		} 
+		set_variable = { KMT_BSS = 0 }
+		
 		add_political_power = 10
 		add_stability = -0.1
 		add_command_power = 5
 		country_event = {
-		id = kuomintangcomgress.2
-		days = 2
+			id = kuomintang_congress.2
+			days = 2
 		}
-		
-		
 	}
-	
-	
 }
 
 
 country_event = { # intro event
-	id = kuomintangcomgress.2
+	id = kuomintang_congress.2
 	title = "The Question of Landlords"
 	desc = "Landlords have forever been in China, tho ther nature and practises are questionable. They control the land but they arent the majoiry of the land toilers, hence the factions question whether to align with them. Mainly the  leftwing and  the centrist factions support the idea of not giving support to landlords, mainly headed by Zhou Enlai and Wang Jingwei. Whilst the rightwing factions like the Blue Shirts and the CC Clique support the landlords so they can get better labour and finance from them. "
 	
@@ -88,147 +79,95 @@ country_event = { # intro event
 	fire_only_once = yes
 
 	option = {
-	
-	ai_chance = {
-			factor = 50
-			modifier = {
-		    factor = 0
-		    OR = {
-				  has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_RADICAL
-					}
-				  has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_LIBERAL
-					}
-				  has_game_rule = {
-						rule = KMT_congress_outcome
-						option =RULE_OPTION_KMT_CONGRES_MODERATE
-					}
-				has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_CENTRIST
-					}
-				has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_CLIQUE
-					}
-					has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_BSS
-					}
-				}
-		  }
-		}
 		name = "We Must Support Our True Cause"
+		
 		custom_effect_tooltip = ULE_KMT_tt
-		hidden_effect = {
-		modify_country_flag = {
-			flag = KMT_RAD
-			value = 1
-		}
+		add_to_variable = { KMT_RAD = 1 }
 		
-		}
 		custom_effect_tooltip = MLE_KMT_tt
-		hidden_effect = {
-		modify_country_flag = {
-			flag = KMT_SOC
-			value = 1
-		}
+		add_to_variable = { KMT_SOC = 1 }
 		
-		}
 		custom_effect_tooltip = MKM_KMT_tt
-		hidden_effect = {
-		modify_country_flag = {
-			flag = KMT_MOD
-			value = 1
-		}
+		add_to_variable = { KMT_MOD = 1 }
 		
-		}
 		custom_effect_tooltip = MKK_KMT_tt
-		hidden_effect = {
-		modify_country_flag = {
-			flag = KMT_CEN
-			value = 1
-		}
+		add_to_variable = { KMT_CEN = 1 }
 		
-		}
 		country_event = {
-		id = kuomintangcomgress.3
-		days = 2
+			id = kuomintang_congress.3
+			days = 2
 		}
 		
 		add_ideas = KMT_hardline_influences
 		add_ideas = KMT_jingwei_influences
 		add_ideas = KMT_centrist_influences
+		
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = KMT_congress_outcome
+						option = RULE_OPTION_KMT_CONGRESS_CLIQUE
+					}
+					has_game_rule = {
+						rule = KMT_congress_outcome
+						option = RULE_OPTION_KMT_CONGRESS_BSS
+					}
+				}
+			}
+		}
 	}
+	
 	option = {
+		name = "Maybe We Can Trust the Landlords"
+		
+		custom_effect_tooltip = CCC_KMT_tt
+		add_to_variable = { KMT_CCC = 1 }
+		
+		custom_effect_tooltip = BSS_KMT_tt
+		add_to_variable = { KMT_BSS = 1 }
+		
+		country_event = {
+			id = kuomintang_congress.3
+			days = 2
+		}
+		
+		add_ideas = KMT_cc_clique_influences
+		add_ideas = KMT_blue_shirt_influences
+		
 		ai_chance = {
 			factor = 50
 			modifier = {
 		    factor = 0
-		    OR = {
-				  has_game_rule = {
+				OR = {
+					has_game_rule = {
 						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_RADICAL
-					}
-				  has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_LIBERAL
-					}
-				  has_game_rule = {
-						rule = KMT_congress_outcome
-						option =RULE_OPTION_KMT_CONGRES_MODERATE
-					}
-				has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_CENTRIST
-					}
-				has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_CLIQUE
+						option = RULE_OPTION_KMT_CONGRESS_RADICAL
 					}
 					has_game_rule = {
 						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_BSS
+						option = RULE_OPTION_KMT_CONGRESS_LIBERAL
+					}
+					has_game_rule = {
+						rule = KMT_congress_outcome
+						option =RULE_OPTION_KMT_CONGRESS_MODERATE
+					}
+					has_game_rule = {
+						rule = KMT_congress_outcome
+						option = RULE_OPTION_KMT_CONGRESS_CENTRIST
 					}
 				}
-		  }
+			}
 		}
-		name = "Maybe We Can Trust the Landlords"
-		custom_effect_tooltip = CCC_KMT_tt
-		hidden_effect = {
-		modify_country_flag = {
-			flag = KMT_CCC
-			value = 1
-		}
-		
-		}
-		custom_effect_tooltip = BSS_KMT_tt
-		hidden_effect = {
-		modify_country_flag = {
-			flag = KMT_BSS
-			value = 1
-		}
-		
-		}
-		country_event = {
-		id = kuomintangcomgress.3
-		days = 2
-		}
-		add_ideas = KMT_cc_clique_influences
-		add_ideas = KMT_blue_shirt_influences
-		
 	}
-	
-	
 }
 
 country_event = { # intro event
-	id = kuomintangcomgress.3
+	id = kuomintang_congress.3
 	title = "The Question of Communists"
-	desc = "The KMT is divided on how to deal with the CCP, in which the leftist factions wanting further integration and better CCP cooperations. The Centrists want some interaction with the CCP and then dissassociate afterwards whilst the far right factions demand complete destruction of the communists."
+	desc = "The KMT is divided on how to deal with the CCP, in which the leftist factions want further integration and more cooperation. The Centrists want some interaction with the CCP and then dissassociation afterwards, whilst the far right factions demand the complete destruction of the communists."
 	
 	picture = "GFX_report_event_student_protest_CHI"
 	
@@ -237,193 +176,138 @@ country_event = { # intro event
 	fire_only_once = yes
 
 	option = {
-	ai_chance = {
-			factor = 50
-			modifier = {
-		    factor = 0
-		    OR = {
-				  has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_RADICAL
-					}
-				  has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_LIBERAL
-					}
-				  has_game_rule = {
-						rule = KMT_congress_outcome
-						option =RULE_OPTION_KMT_CONGRES_MODERATE
-					}
-				has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_CENTRIST
-					}
-				has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_CLIQUE
-					}
-					has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_BSS
-					}
-				}
-		  }
-		}
 		name = "Long Live a United China!"
+		
 		custom_effect_tooltip = ULE_KMT_tt
-		hidden_effect = {
-		modify_country_flag = {
-			flag = KMT_RAD
-			value = 1
-		}
+		add_to_variable = { KMT_RAD = 1 }
 		
-		}
 		custom_effect_tooltip = MLE_KMT_tt
-		hidden_effect = {
-		modify_country_flag = {
-			flag = KMT_SOC
-			value = 1
-		}
+		add_to_variable = { KMT_SOC = 1 }
 		
-		}
 		custom_effect_tooltip = MKM_KMT_tt
-		hidden_effect = {
-		modify_country_flag = {
-			flag = KMT_MOD
-			value = 1
+		add_to_variable = { KMT_MOD = 1 }
+		
+		country_event = {
+			id = kuomintang_congress.4
+			days = 2
 		}
 		
-		}
-		country_event = {
-		id = kuomintangcomgress.4
-		days = 2
-		}
 		add_ideas = KMT_jingwei_influences
 		add_ideas = KMT_hardline_influences
 		
-		
-		
-	}
-	
-	option = {
-	ai_chance = {
+		ai_chance = {
 			factor = 50
 			modifier = {
 		    factor = 0
-		    OR = {
-				  has_game_rule = {
+				OR = {
+					has_game_rule = {
 						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_RADICAL
-					}
-				  has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_LIBERAL
-					}
-				  has_game_rule = {
-						rule = KMT_congress_outcome
-						option =RULE_OPTION_KMT_CONGRES_MODERATE
-					}
-				has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_CENTRIST
-					}
-				has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_CLIQUE
+						option = RULE_OPTION_KMT_CONGRESS_CENTRIST
 					}
 					has_game_rule = {
 						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_BSS
+						option = RULE_OPTION_KMT_CONGRESS_CLIQUE
+					}
+					has_game_rule = {
+						rule = KMT_congress_outcome
+						option = RULE_OPTION_KMT_CONGRESS_BSS
 					}
 				}
-		  }
+			}
 		}
-	name = "Friends For Now"
-	custom_effect_tooltip = MKK_KMT_tt
-		hidden_effect = {
-		modify_country_flag = {
-			flag = KMT_CEN
-			value = 1
-		}
+	}
+	
+	option = {
+		name = "Friends... for now."
 		
-		}
+		custom_effect_tooltip = MKK_KMT_tt
+		add_to_variable = { KMT_CEN = 1 }
+		
 		country_event = {
-		id = kuomintangcomgress.4
-		days = 2
+			id = kuomintang_congress.4
+			days = 2
 		}
-	add_ideas = KMT_centrist_influences
-	
-	
-	}
-	option = {
-	ai_chance = {
+		
+		add_ideas = KMT_centrist_influences
+		
+		ai_chance = {
 			factor = 50
 			modifier = {
 		    factor = 0
-		    OR = {
-				  has_game_rule = {
+				OR = {
+					has_game_rule = {
 						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_RADICAL
-					}
-				  has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_LIBERAL
-					}
-				  has_game_rule = {
-						rule = KMT_congress_outcome
-						option =RULE_OPTION_KMT_CONGRES_MODERATE
-					}
-				has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_CENTRIST
-					}
-				has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_CLIQUE
+						option = RULE_OPTION_KMT_CONGRESS_RADICAL
 					}
 					has_game_rule = {
 						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_BSS
+						option = RULE_OPTION_KMT_CONGRESS_LIBERAL
+					}
+					has_game_rule = {
+						rule = KMT_congress_outcome
+						option = RULE_OPTION_KMT_CONGRESS_MODERATE
+					}
+					has_game_rule = {
+						rule = KMT_congress_outcome
+						option = RULE_OPTION_KMT_CONGRESS_CLIQUE
+					}
+					has_game_rule = {
+						rule = KMT_congress_outcome
+						option = RULE_OPTION_KMT_CONGRESS_BSS
 					}
 				}
-		  }
+			}
 		}
-		name = "Crush the Traitors"
+	}
+	
+	option = {
+		name = "Crush the traitors!"
+		
 		custom_effect_tooltip = CCC_KMT_tt
-		hidden_effect = {
-		modify_country_flag = {
-			flag = KMT_CCC
-			value = 1
-		}
+		add_to_variable = { KMT_CCC = 1 }
 		
-		}
 		custom_effect_tooltip = BSS_KMT_tt
-		hidden_effect = {
-		modify_country_flag = {
-			flag = KMT_BSS
-			value = 1
+		add_to_variable = { KMT_BSS = 1 }
+		
+		country_event = {
+			id = kuomintang_congress.4
+			days = 2
 		}
 		
-		}
-		country_event = {
-		id = kuomintangcomgress.4
-		days = 2
-		}
 		add_ideas = KMT_cc_clique_influences
 		add_ideas = KMT_blue_shirt_influences
 		
-		
-		
+		ai_chance = {
+			factor = 50
+			modifier = {
+		    factor = 0
+				OR = {
+					has_game_rule = {
+						rule = KMT_congress_outcome
+						option = RULE_OPTION_KMT_CONGRESS_RADICAL
+					}
+					has_game_rule = {
+						rule = KMT_congress_outcome
+						option = RULE_OPTION_KMT_CONGRESS_LIBERAL
+					}
+					has_game_rule = {
+						rule = KMT_congress_outcome
+						option = RULE_OPTION_KMT_CONGRESS_MODERATE
+					}
+					has_game_rule = {
+						rule = KMT_congress_outcome
+						option = RULE_OPTION_KMT_CONGRESS_CENTRIST
+					}
+				}
+			}
+		}
 	}
-	
-	
 }
 
-
 country_event = { # intro event
-	id = kuomintangcomgress.4
+	id = kuomintang_congress.4
 	title = "The Question of the Federalists"
-	desc = "The Federalists are a party in which have similar ideas to republicanism but yet aso have opposition to most factions of the KMT except for the Centrists and Social Democrats. The far right and far left factions detest this and proclaim the federalists as traitors to China."
+	desc = "The Federalists are a party in which have similar ideas to republicanism but yet also have opposition to most factions of the KMT except for the Centrists and Social Democrats. The far right and far left factions detest this and proclaim the federalists as traitors to China."
 	
 	picture = "GFX_report_event_student_protest_CHI"
 	
@@ -432,157 +316,96 @@ country_event = { # intro event
 	fire_only_once = yes
 
 	option = {
-	ai_chance = {
-			factor = 50
-			modifier = {
-		    factor = 0
-		    OR = {
-				  has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_RADICAL
-					}
-				  has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_LIBERAL
-					}
-				  has_game_rule = {
-						rule = KMT_congress_outcome
-						option =RULE_OPTION_KMT_CONGRES_MODERATE
-					}
-				has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_CENTRIST
-					}
-				has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_CLIQUE
-					}
-					has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_BSS
-					}
-				}
-		  }
-		}
-		name = "Unifcation By Peace"
-		
+		name = "Unification through peace."
 		
 		custom_effect_tooltip = MKM_KMT_tt
-		hidden_effect = {
-		modify_country_flag = {
-			flag = KMT_MOD
-			value = 1
-		}
-		}
+		add_to_variable = { KMT_MOD = 1 }
+		
 		custom_effect_tooltip = MKK_KMT_tt
+		add_to_variable = { KMT_CEN = 1 }
 		
-		hidden_effect = {
-		modify_country_flag = {
-			flag = KMT_CEN
-			value = 1
-		}
-		
-		
-		}
 		country_event = {
-		id = kuomintangcomgress.5
-		days = 2
+			id = kuomintang_congress.5
+			days = 2
 		}
+		
 		add_ideas = KMT_centrist_influencese
 		add_ideas = KMT_jingwei_influences
 		
-		
-	}
-	
-	
-	option = {
-	ai_chance = {
+		ai_chance = {
 			factor = 50
 			modifier = {
 		    factor = 0
-		    OR = {
-				  has_game_rule = {
+				OR = {
+					has_game_rule = {
 						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_RADICAL
-					}
-				  has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_LIBERAL
-					}
-				  has_game_rule = {
-						rule = KMT_congress_outcome
-						option =RULE_OPTION_KMT_CONGRES_MODERATE
-					}
-				has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_CENTRIST
-					}
-				has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_CLIQUE
+						option = RULE_OPTION_KMT_CONGRESS_RADICAL
 					}
 					has_game_rule = {
 						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_BSS
+						option = RULE_OPTION_KMT_CONGRESS_LIBERAL
+					}
+					has_game_rule = {
+						rule = KMT_congress_outcome
+						option = RULE_OPTION_KMT_CONGRESS_CLIQUE
+					}
+					has_game_rule = {
+						rule = KMT_congress_outcome
+						option = RULE_OPTION_KMT_CONGRESS_BSS
 					}
 				}
-		  }
+			}
 		}
-		name = "Crush the Traitors"
+	}
+	
+	option = {
+		name = "Crush the traitors!"
+		
 		custom_effect_tooltip = CCC_KMT_tt
-		hidden_effect = {
-		modify_country_flag = {
-			flag = KMT_CCC
-			value = 1
-		}
+		add_to_variable = { KMT_CCC = 1 }
 		
-		}
 		custom_effect_tooltip = BSS_KMT_tt
-		hidden_effect = {
-		modify_country_flag = {
-			flag = KMT_BSS
-			value = 1
-		}
+		add_to_variable = { KMT_BSS = 1 }
 		
-		}
 		custom_effect_tooltip = ULE_KMT_tt
-		hidden_effect = {
-		modify_country_flag = {
-			flag = KMT_RAD
-			value = 1
-		}
+		add_to_variable = { KMT_RAD = 1 }
 		
-		}
 		custom_effect_tooltip = MLE_KMT_tt
-		hidden_effect = {
-		modify_country_flag = {
-			flag = KMT_SOC
-			value = 1
+		add_to_variable = { KMT_SOC = 1 }
+		
+		country_event = {
+			id = kuomintang_congress.5
+			days = 2
 		}
 		
-		}
-		country_event = {
-		id = kuomintangcomgress.5
-		days = 2
-		}
 		add_ideas = KMT_cc_clique_influences
 		add_ideas = KMT_blue_shirt_influences
 		add_ideas = KMT_hardline_influences
 		add_ideas = KMT_jingwei_influences
 		
-		
-		
+		ai_chance = {
+			factor = 50
+			modifier = {
+		    factor = 0
+				OR = {
+					has_game_rule = {
+						rule = KMT_congress_outcome
+						option = RULE_OPTION_KMT_CONGRESS_MODERATE
+					}
+					has_game_rule = {
+						rule = KMT_congress_outcome
+						option = RULE_OPTION_KMT_CONGRESS_CENTRIST
+					}
+				}
+			}
+		}
 	}
-	
-	
 }
 
-
-
 country_event = { # intro event
-	id = kuomintangcomgress.5
+	id = kuomintang_congress.5
 	title = "Question of the NRA"
-	desc = "During the disscuions in the congress, the topic on how the military should be run cam up. The Leftists favour a national unification, the cetrists favour a regional approach and the rightists support a subjective approach."
+	desc = "During the disscuions in the congress, the topic on how the military should be run cam up. The Leftists favour a national unification, the centrists favour a regional approach and the rightists support a subjective approach."
 	
 	picture = "GFX_report_event_student_protest_CHI"
 	
@@ -592,279 +415,195 @@ country_event = { # intro event
 	
 	
 	option = {
-	ai_chance = {
-			factor = 50
-			modifier = {
-		    factor = 0
-		    OR = {
-				  has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_RADICAL
-					}
-				  has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_LIBERAL
-					}
-				  has_game_rule = {
-						rule = KMT_congress_outcome
-						option =RULE_OPTION_KMT_CONGRES_MODERATE
-					}
-				has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_CENTRIST
-					}
-				has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_CLIQUE
-					}
-					has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_BSS
-					}
-				}
-		  }
-		}
 		name = "Favor National Reunification"
 		
 		custom_effect_tooltip = ULE_KMT_tt
-		hidden_effect = {
-		modify_country_flag = {
-			flag = KMT_RAD
-			value = 1
-		}
+		add_to_variable = { KMT_RAD = 1 }
 		
-		}
 		custom_effect_tooltip = MLE_KMT_tt
-		hidden_effect = {
+		add_to_variable = { KMT_SOC = 1 }
 		
 		country_event = {
-		id = kuomintangcomgress.200
-		days = 2
-		}
-		modify_country_flag = {
-			flag = KMT_SOC
-			value = 1
+			id = kuomintang_congress.200
+			days = 2
 		}
 		
-		}
 		add_ideas = KMT_jingwei_influences
 		add_ideas = KMT_hardline_influences
 		
-		
-		
-		
-	}
-	
-	
-	
-	option = {
-	ai_chance = {
+		ai_chance = {
 			factor = 50
 			modifier = {
 		    factor = 0
-		    OR = {
-				  has_game_rule = {
+				OR = {
+					has_game_rule = {
 						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_RADICAL
-					}
-				  has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_LIBERAL
-					}
-				  has_game_rule = {
-						rule = KMT_congress_outcome
-						option =RULE_OPTION_KMT_CONGRES_MODERATE
-					}
-				has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_CENTRIST
-					}
-				has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_CLIQUE
+						option = RULE_OPTION_KMT_CONGRESS_MODERATE
 					}
 					has_game_rule = {
 						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_BSS
+						option = RULE_OPTION_KMT_CONGRESS_CENTRIST
+					}
+					has_game_rule = {
+						rule = KMT_congress_outcome
+						option = RULE_OPTION_KMT_CONGRESS_CLIQUE
+					}
+					has_game_rule = {
+						rule = KMT_congress_outcome
+						option = RULE_OPTION_KMT_CONGRESS_BSS
 					}
 				}
-		  }
+			}
 		}
+	}
+	
+	option = {
 		name = "Favor Regional Reunification"
 		
-		
 		custom_effect_tooltip = MKM_KMT_tt
-		hidden_effect = {
-		modify_country_flag = {
-			flag = KMT_MOD
-			value = 1
-		}
-		country_event = {
-		id = kuomintangcomgress.200
-		days = 2
-		}
-		}
+		add_to_variable = { KMT_MOD = 1 }
+		
 		custom_effect_tooltip = MKK_KMT_tt
+		add_to_variable = { KMT_CEN = 1 }
 		
-		hidden_effect = {
-		modify_country_flag = {
-			flag = KMT_CEN
-			value = 1
+		country_event = {
+			id = kuomintang_congress.200
+			days = 2
 		}
 		
-		
-		}
 		add_ideas = KMT_centrist_influences
 		
-		
-		
-	}
-	
-	
-	option = {
-	ai_chance = {
+		ai_chance = {
 			factor = 50
 			modifier = {
 		    factor = 0
-		    OR = {
-				  has_game_rule = {
+				OR = {
+					has_game_rule = {
 						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_RADICAL
-					}
-				  has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_LIBERAL
-					}
-				  has_game_rule = {
-						rule = KMT_congress_outcome
-						option =RULE_OPTION_KMT_CONGRES_MODERATE
-					}
-				has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_CENTRIST
-					}
-				has_game_rule = {
-						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_CLIQUE
+						option = RULE_OPTION_KMT_CONGRESS_RADICAL
 					}
 					has_game_rule = {
 						rule = KMT_congress_outcome
-						option = RULE_OPTION_KMT_CONGRES_BSS
+						option = RULE_OPTION_KMT_CONGRESS_LIBERAL
+					}
+					has_game_rule = {
+						rule = KMT_congress_outcome
+						option = RULE_OPTION_KMT_CONGRESS_CLIQUE
+					}
+					has_game_rule = {
+						rule = KMT_congress_outcome
+						option = RULE_OPTION_KMT_CONGRESS_BSS
 					}
 				}
-		  }
+			}
 		}
+	}
+	
+	option = {
 		name = "Favour a Subjegative Unification"
+		
 		custom_effect_tooltip = CCC_KMT_tt
-		hidden_effect = {
-		modify_country_flag = {
-			flag = KMT_CCC
-			value = 1
-		}
+		add_to_variable = { KMT_CCC = 1 }
 		
-		}
 		custom_effect_tooltip = BSS_KMT_tt
-		hidden_effect = {
-		modify_country_flag = {
-			flag = KMT_BSS
-			value = 1
-		}
-		country_event = {
-		id = kuomintangcomgress.200
-		days = 2
-		}
+		add_to_variable = { KMT_BSS = 1 }
 		
+		country_event = {
+			id = kuomintang_congress.200
+			days = 2
 		}
 		
 		add_ideas = KMT_cc_clique_influences
 		add_ideas = KMT_blue_shirt_influences
 		
-		
+		ai_chance = {
+			factor = 50
+			modifier = {
+		    factor = 0
+				OR = {
+					has_game_rule = {
+						rule = KMT_congress_outcome
+						option = RULE_OPTION_KMT_CONGRESS_RADICAL
+					}
+					has_game_rule = {
+						rule = KMT_congress_outcome
+						option = RULE_OPTION_KMT_CONGRESS_LIBERAL
+					}
+					has_game_rule = {
+						rule = KMT_congress_outcome
+						option = RULE_OPTION_KMT_CONGRESS_MODERATE
+					}
+					has_game_rule = {
+						rule = KMT_congress_outcome
+						option = RULE_OPTION_KMT_CONGRESS_CENTRIST
+					}
+				}
+			}
+		}
 	}
-	
-	
 }
 
 country_event = {
-	id = kuomintangcomgress.200
+	id = kuomintang_congress.200
+	title = "Electing a Chairman"
 	
 	is_triggered_only = yes
-	hidden = yes
-
-	immediate = {
+	
+	option = {
+		name = "May the best man win!"
+		
+		remove_ideas = KMT_blue_shirt_influences
+		remove_ideas = KMT_cc_clique_influences
+		remove_ideas = KMT_centrist_influences
+		remove_ideas = KMT_jingwei_influences
+		remove_ideas = KMT_hardline_influences
 		
 		if = {
 			limit = {
-				has_country_flag = {
-					flag = KMT_SOC
-					value > 3
+				OR = {
+					check_variable = { KMT_SOC > 3 }
+					check_variable = { KMT_RAD > 3 }
 				}
 			}
-			limit = {
-				has_country_flag = {
-					flag = KMT_RAD
-					value > 3
-				}
+			country_event = {
+				id = kuomintang_congress.7
+				days = 1
 			}
-			country_event = { id = kuomintangcomgress.7 }
-			remove_ideas = KMT_blue_shirt_influences
-			remove_ideas = KMT_cc_clique_influences
-			remove_ideas = KMT_centrist_influences
-			remove_ideas = KMT_jingwei_influences
-			remove_ideas = KMT_hardline_influences
 		}
 		if = {
 			limit = {
-				has_country_flag = {
-					flag = KMT_MOD
-					value > 3
-				}
+				check_variable = { KMT_MOD > 3 }
 			}
-			country_event = { id = kuomintangcomgress.8 }
-			remove_ideas = KMT_blue_shirt_influences
-			remove_ideas = KMT_cc_clique_influences
-			remove_ideas = KMT_centrist_influences
-			remove_ideas = KMT_jingwei_influences
-			remove_ideas = KMT_hardline_influences
+			country_event = {
+				id = kuomintang_congress.8
+				days = 1
+			}
 		}
 		if = {
 			limit = {
-				has_country_flag = {
-					flag = KMT_CEN
-					value > 3
-				}
+				check_variable = { KMT_CEN > 3 }
 			}
-			country_event = { id = kuomintangcomgress.9 }
-			remove_ideas = KMT_blue_shirt_influences
-			remove_ideas = KMT_cc_clique_influences
-			remove_ideas = KMT_centrist_influences
-			remove_ideas = KMT_jingwei_influences
-			remove_ideas = KMT_hardline_influences
+			country_event = {
+				id = kuomintang_congress.9
+				days = 1
+			}
 		}
 		
 		if = {
 			limit = {
-				has_country_flag = {
-					flag = KMT_CCC
-					value > 3
-				}
+				check_variable = { KMT_CCC > 3 }
 			}
-			country_event = { id = kuomintangcomgress.10 }
-			remove_ideas = KMT_blue_shirt_influences
-			remove_ideas = KMT_cc_clique_influences
-			remove_ideas = KMT_centrist_influences
-			remove_ideas = KMT_jingwei_influences
-			remove_ideas = KMT_hardline_influences
+			country_event = {
+				id = kuomintang_congress.10
+				days = 1
+			}
 		}
-		
-		
-		
 	}
 }
 
 country_event = {
-    id = kuomintangcomgress.6
-    title = "Zhou Enlai's Vicotry"
+    id = kuomintang_congress.6
+    title = "Zhou Enlai's Victory"
     desc = "The congress has now elected a new chairman, it shall be Zhou Enlai who shall lead us to victory."
     picture = "-" 
     fire_only_once = yes
@@ -872,20 +611,12 @@ country_event = {
 
     option = {
 		name = "Long Live the Revolution!"
-		
 		set_politics = { ruling_party = proletarian_dictatorship }
-		
-		
-		
-		}
-     }
+	}
+}
 	 
-	 
-	 
-	 
-	 
-	 country_event = {
-    id = kuomintangcomgress.7
+country_event = {
+    id = kuomintang_congress.7
     title = "Radical Leftist Victory"
     desc = "The leftists of the KMT have managed to succeed, now we must decide on who shall lead."
     picture = "-" 
@@ -894,28 +625,27 @@ country_event = {
 
     option = {
 		name = "Long Live A New China!"
-		
 		set_politics = { ruling_party = libertarian_socialism }
 		
+		clear_all_coalitions = yes
+		add_revsoc_coalition = yes
+		add_demsoc_coalition = yes
+		add_socdem_coalition = yes
+	}
 		
-		
-		}
-		
-		
-		option = {
+	option = {
 		name = "For Comrade Zhou!"
-		
 		set_politics = { ruling_party = proletarian_dictatorship }
 		
-		
-		
-		}
-     }
+		clear_all_coalitions = yes
+		add_revsoc_coalition = yes
+		add_demsoc_coalition = yes
+		add_socdem_coalition = yes
+	}
+}
 	 
-	 
-	 
-	  country_event = {
-    id = kuomintangcomgress.8
+country_event = {
+    id = kuomintang_congress.8
     title = "Mingshu's Victory"
     desc = "The congress has now elected a new chairman, it shall be Chen Mingshu who shall lead us to victory."
     picture = "-" 
@@ -924,16 +654,17 @@ country_event = {
 
     option = {
 		name = "For the People!"
-		
 		set_politics = { ruling_party = social_democracy }
 		
-		
-		
-		}
-     }
-	 
-	 country_event = {
-    id = kuomintangcomgress.9
+		clear_all_coalitions = yes
+		add_demsoc_coalition = yes
+		add_socdem_coalition = yes
+		add_proglib_coalition = yes
+	}
+}
+
+country_event = {
+    id = kuomintang_congress.9
     title = "Control of the Center"
     desc = "The congress has now elected a new chairman, it shall be the centrist faction which shall lead us to victory."
     picture = "-" 
@@ -942,18 +673,18 @@ country_event = {
 
     option = {
 		name = "For the People!"
-		
 		set_politics = { ruling_party = progressive_liberalism }
 		
-		
-		
-		}
-     }
+		clear_all_coalitions = yes
+		add_socdem_coalition = yes
+		add_proglib_coalition = yes
+		add_libcon_coalition = yes
+		add_natcon_coalition = yes
+	}
+}
 	 
-	 
-	 
-	 country_event = {
-    id = kuomintangcomgress.10
+country_event = {
+    id = kuomintang_congress.10
     title = "The Rise of the CC Clique"
     desc = "After the GMD party congress the nation now seeks to build a new China under an authoritarian nation."
     picture = "-" 
@@ -962,90 +693,88 @@ country_event = {
 
     option = {
 		name = "For the People!"
-		
 		set_politics = { ruling_party = autocratic_despotism }
 		
-		country_event = {
-		id = cc-clique.1
-		days = 1
+		clear_all_coalitions = yes
+		add_authdem_coalition = yes
+		add_autdes_coalition = yes
+		add_farauth_coalition = yes
+		add_fash_coalition = yes
+		
+		add_popularity = {
+			ideology = authoritarian_democracy
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = autocratic_despotism
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = far_right_authoritarianism
+			popularity = 0.03
+		}
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.01
 		}
 		
+		country_event = {
+			id = koumintang_cc_clique.1
+			days = 3
 		}
-     }
+	}
+}
 	 
-	 
-	  country_event = {
-    id = cc-clique.1
+country_event = {
+    id = koumintang_cc_clique.1
     title = "The CC Clique Elections"
     desc = "After the GMD party congress the nation now seeks to build a new China under an authoritarian nation. Question is who in the gang of 3 shall lead."
     picture = "-" 
+	
     fire_only_once = yes
+	
     is_triggered_only  = yes
 
     option = {
 		name = "Support the Left Faction of Li Zongren"
 		custom_effect_tooltip = LFC_CC_tt
-		
-		
-		
-		
-		}
+	}
 		
 	option = {
 		name = "Support the Moderates of Chen Guofu"
 		custom_effect_tooltip = LFC_CC_tt
-		
-		
-		
-		
-		}
-		
-		
-		option = {
-		name = "Support the Right Faction of Chiang Kai Shek"
+	}
+	
+	option = {
+		name = "Support the Right Faction of Jiang Jieshi"
 		custom_effect_tooltip = RFC_CC_tt
 		custom_effect_tooltip = BSS_CC_tt
-		
-		
-		
-		
-		}
-     }
+	}
+}
 	 
-	 
-	  country_event = {
-    id = cc-clique.2
-    title = "Selecting a Cabinent"
-    desc = "Due to our victory we shall choose our faction under our new president.Now we must choose the vice president."
+country_event = {
+    id = koumintang_cc_clique.2
+    title = "Selecting a Cabinet"
+    desc = "Due to our victory we shall choose our faction under our new president. Now we must choose the vice president."
     picture = "-" 
     fire_only_once = yes
     is_triggered_only  = yes
-
 		
-		
-		option = {
-		name = "Choose Chiang's Son"
+	option = {
+		name = "Choose Jiang's son."
 		custom_effect_tooltip = LFC_CC_tt
 		add_popularity = {
-		ideology = authoritarian_democracy
-		popularity = 0.1
-		
+			ideology = authoritarian_democracy
+			popularity = 0.1
 		}
+	}
 		
-		
-		
-		
-		}
-		option = {
-		name = "Choose the Loyal Dai Anlan"
+	option = {
+		name = "Choose the loyal Dai Anlan."
 		custom_effect_tooltip = BSS_CC_tt
 		add_popularity = {
-		ideology = fascism
-		popularity = 0.1
-		
+			ideology = fascism
+			popularity = 0.1
 		}
-		
-		
-		
-		}
-     }
+	}
+}
