@@ -8,6 +8,9 @@ JAP_calc_house = { # this will recalculate the number of members of parliament b
 	set_variable = {
 		kyosan_mps = party_popularity@revolutionary_autocracy
 	}
+	set_variable = {
+		kyosan_mps = party_popularity@insurrectionary_anarchism
+	}
 	add_to_variable = {
 		kyosan_mps = party_popularity@proletarian_dictatorship
 	}
@@ -22,7 +25,7 @@ JAP_calc_house = { # this will recalculate the number of members of parliament b
 		ronoto_mps = party_popularity@social_democracy
 	}
 	multiply_variable = {
-		ronoto_mps = 0.8
+		ronoto_mps = 0.9
 	}
 	
 	set_variable = {
@@ -40,10 +43,20 @@ JAP_calc_house = { # this will recalculate the number of members of parliament b
 		tohokai_mps = party_popularity@authoritarian_democracy
 	}
 	add_to_variable = {
+		tohokai_mps = party_popularity@autocratic_despotism
+	}
+	add_to_variable = {
+		tohokai_mps = party_popularity@far_right_authoritarianism
+	}
+	add_to_variable = {
 		tohokai_mps = party_popularity@fascism
 	}
 	multiply_variable = {
 		tohokai_mps = 0.75
+	}
+	
+	set_variable = {
+		independent_mps = 0
 	}
 	
 	#Gets seats
@@ -107,7 +120,10 @@ JAP_calc_house = { # this will recalculate the number of members of parliament b
 		add_to_variable = {
 			mps_total = JAP_old_mps_total
 		}
-		if = {
+		
+		add_to_variable = { independent_mps = JAP_old_mps_total }
+		
+		else_if = {
 			limit = {
 				has_government = proletarian_dictatorship
 			}
