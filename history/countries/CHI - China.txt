@@ -9,9 +9,9 @@ set_country_flag = authoritarian_coalition
 set_country_flag = despotist_coalition
 
 country_event = {
-		id = chinacollapse.1
-		days = 10
-		}
+	id = chinacollapse.1
+	days = 10
+}
 
 #set_stability = 0.35
 #set_war_support = 0.2
@@ -72,6 +72,22 @@ set_popularities = {
 	authoritarian_democracy = 40
 	autocratic_despotism = 6
 	fascism = 0
+}
+
+if = {
+	limit = {
+		OR = {
+			has_dlc = "Together for Victory"
+			has_dlc = "Man the Guns"
+		}
+	}
+	set_autonomy = {
+		target = SHA
+		autonomous_state = autonomy_RL_nominal_puppet
+	}
+	else = {
+		puppet = SHA
+	}
 }
 
 create_faction = CHI_imperial_govt
