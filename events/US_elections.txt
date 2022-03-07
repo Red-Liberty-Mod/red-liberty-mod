@@ -6,12 +6,6 @@ country_event = { # 1936 election trigger
 	id = us_election.1
 	title = "Election Day"
 	desc = us_election.1.desc
-	
-	trigger = {
-		tag = USA
-		date < 1936.12.31
-		date > 1936.1.1
-	}
 
 	is_triggered_only = yes
 	
@@ -356,6 +350,60 @@ news_event = { # deadlocked EC news event
 	}
 }
 
+### 1940 ELECTION ###
+country_event = { # 1940 election trigger
+	id = us_election.20
+	title = us_election.20.title
+	desc = us_election.20.desc
+
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			US_hold_presidential_election = yes
+			set_country_flag = USA_presidential_conclusion
+		}
+	}
+	
+	option = {
+		name = us_election.20.a
+		country_event = {
+			id = us_election.21
+			days = 2
+		}
+	}
+}
+
+country_event = {
+	id = us_election.21
+	title = us_election.21.title
+	desc = us_election.21.desc
+
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			country_event = { id = us_election_trigger.12 days = 30 }
+			clr_country_flag = USA_presidential_elections
+		}
+	}
+	
+	option = { # socialist victory - thomas
+		name = us_election.21.a
+		trigger = {
+			check_variable = { ROOT.socialist_electoral_votes > 290 }
+		}
+	}
+	
+	option = { # democrat victory
+		name = us_election.2.b
+		trigger = {
+			check_variable = { ROOT.democrat_electoral_votes > 290 }
+		}
+	}
+}
+
+### GENERIC CAMPAIGN EVENTS ###
 country_event = { #Great campaign
 	id = us_campaign.1
 	title = us_campaign.1.title
@@ -424,7 +472,7 @@ country_event = { #mark states for election
 	is_triggered_only = yes
 
  	option = {
- 		name = "SPA! SPA! SPA!"
+ 		name = us_election_trigger.1.a
  		custom_effect_tooltip = USA_senate_elections_visible_tt
 		if = {
 			limit = {
