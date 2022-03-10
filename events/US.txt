@@ -1,6 +1,8 @@
 add_namespace = united_states
 add_namespace = united_states_insurgency
+add_namespace = united_states_intervention
 add_namespace = united_states_flavor
+add_namespace = united_states_designer
 
 country_event = { # intro event
 	id = united_states.1
@@ -40,7 +42,7 @@ country_event = { # dnc
 	fire_only_once = yes
 
 	option = {
-		name = "J. Lister Hill!"
+		name = united_states.3.a
 		#country_event = {
 		#	id = united_states.5
 		#	days = 3
@@ -251,7 +253,9 @@ country_event = { # 1940 spa convention
 	option = { # thomas third term
 		name = "Four More Years!"
 		trigger = {
-			has_government = national_conservatism
+			NOT = {
+				has_government = national_conservatism
+			}
 		}
 	}
 	
@@ -565,5 +569,108 @@ country_event = { #
 	option = {
 		name = united_states_flavor.7.b
 		add_stability = 0.05
+	}
+}
+
+country_event = { # 
+	id = united_states_flavor.8
+	title = united_states_flavor.8.title
+	desc = united_states_flavor.8.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_flavor.8.a
+	}
+	
+	option = {
+		name = united_states_flavor.8.b
+		add_political_power = 15
+		trigger = {
+			has_government = libertarian_socialism
+		}
+	}
+}
+
+country_event = { # mexico ablaze
+	id = united_states_intervention.1
+	title = united_states_intervention.1.title
+	desc = united_states_intervention.1.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_intervention.1.a
+		add_war_support = 0.05
+	}
+	
+	option = {
+		name = united_states_intervention.1.b
+		add_stability = 0.05
+	}
+}
+
+country_event = { # intel division report
+	id = united_states_intervention.2
+	title = united_states_intervention.2.title
+	desc = united_states_intervention.2.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_intervention.2.a
+		add_political_power = -50
+	}
+}
+
+country_event = { # setting off
+	id = united_states_intervention.3
+	title = united_states_intervention.3.title
+	desc = united_states_intervention.3.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_intervention.3.a
+	}
+}
+
+country_event = { # 
+	id = united_states_intervention.4
+	title = united_states_intervention.4.title
+	desc = united_states_intervention.4.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_intervention.4.a
+	}
+}
+
+country_event = { # extend/end contract
+	id = united_states_designer.1
+	title = united_states_designer.1.title
+	desc = united_states.1.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_designer.1.a
+	}
+	
+	option = {
+		name = united_states_designer.1.b
 	}
 }

@@ -67,9 +67,7 @@ USA_congress = {
 		complete_effect = {
 			custom_effect_tooltip = USA_bill_pass_req_tt
 			effect_tooltip = {
-				add_ideas = {
-					USA_safety_net_barebones
-				}
+				USA_add_social_security = yes
 			}
 			USA_social_security_act_setup = yes
 		}
@@ -348,6 +346,31 @@ USA_congress = {
 				improve_great_depression = yes
 			}
 			USA_wealth_tax_act_setup = yes
+		}
+	}
+	
+	start_USA_public_contracts_act = {
+		icon = ger_mefo_bills
+		available = {
+			NOT = {
+				has_country_flag = public_contracts_act_passed
+			}
+			has_completed_focus = USA_public_contracts_act
+		}
+		
+		visible = {
+			original_tag = USA
+			NOT = {
+				has_country_flag = public_contracts_act_passed
+				has_country_flag = USA_discussing_bill
+			}
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			custom_effect_tooltip = USA_bill_pass_req_tt
+			USA_public_contracts_act_setup = yes
 		}
 	}
 	
@@ -722,6 +745,7 @@ USA_congress = {
 					has_country_flag = USA_bill_senate_phase
 				}
 				USA_socialist_support_senate_eventless = yes
+				check_if_bill_passed = yes
 			}
 		}
 	}
@@ -807,6 +831,7 @@ USA_congress = {
 					has_country_flag = USA_bill_senate_phase
 				}
 				USA_republican_support_senate_eventless = yes
+				check_if_bill_passed = yes
 			}
 		}
 	}
@@ -855,6 +880,7 @@ USA_congress = {
 					has_country_flag = USA_bill_senate_phase
 				}
 				USA_democrat_support_senate_eventless = yes
+				check_if_bill_passed = yes
 			}
 		}
 	}
@@ -903,6 +929,7 @@ USA_congress = {
 					has_country_flag = USA_bill_senate_phase
 				}
 				USA_fascist_support_senate_eventless = yes
+				check_if_bill_passed = yes
 			}
 		}
 	}
@@ -951,6 +978,7 @@ USA_congress = {
 		days_re_enable = 14
 		
 		complete_effect = {
+			add_stability = -0.03
 			if = {
 				limit = { 
 					has_country_flag = USA_bill_house_phase
