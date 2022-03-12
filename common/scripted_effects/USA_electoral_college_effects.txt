@@ -653,6 +653,49 @@ USA_start_elections_system = {
 	log = "US Presidential Election System Initialization Complete"
 }
 
+USA_puerto_rico_create_state = {
+	686 = {
+		add_core_of = USA
+	}
+	
+	hidden_effect = {
+		686 = { # Puerto Rico, swing state
+			set_state_flag = US_election_state
+			set_variable = { socialist_popularity = 0.55 }
+			set_variable = { republican_popularity = 0 }
+			set_variable = { democrat_popularity = 0.5 }
+			set_variable = { afp_popularity = 0.1 }
+			
+			set_variable = { senator_1 = 1 } # socialist
+			set_variable = { senator_2 = 3 } # democrat
+			
+			set_variable = { electoral_votes = 8 }
+		}
+		360 = {
+			subtract_from_variable = { electoral_votes = 1 }
+		}
+		372 = {
+			subtract_from_variable = { electoral_votes = 1 }
+		}
+		378 = {
+			subtract_from_variable = { electoral_votes = 1 }
+		}
+		383 = {
+			subtract_from_variable = { electoral_votes = 1 }
+		}
+		392 = {
+			subtract_from_variable = { electoral_votes = 1 }
+		}
+		395 = {
+			subtract_from_variable = { electoral_votes = 1 }
+		}
+		
+		USA_calculate_senators = yes
+	}
+	
+	log = "[THIS.GetName] USA_puerto_rico_create_state = yes"
+}
+
 USA_calculate_senators = {
 	USA = {
 		set_variable = { senators_socialist = 0 }
@@ -735,6 +778,14 @@ USA_calculate_senators = {
 			}
 			add_to_variable = { USA.senators_farmer_labor = 1 }
 		}
+	}
+	USA = {
+		set_variable = { senators_total = 0 }
+		add_to_variable = { senators_total = senators_socialist }
+		add_to_variable = { senators_total = senators_republican }
+		add_to_variable = { senators_total = senators_democrat }
+		add_to_variable = { senators_total = senators_fascist }
+		add_to_variable = { senators_total = senators_communist }
 	}
 }
 
@@ -1020,6 +1071,20 @@ USA_hold_presidential_election_in_state = {
 		add_to_variable = { ROOT.afp_electoral_votes = electoral_votes }
 		log = "[This.GetName] : Voted for afp with [?electoral_votes] electoral votes"
 		set_state_flag = voted_afp
+	}
+	else = {
+		random_list = {
+			50 = {
+				add_to_variable = { ROOT.socialist_electoral_votes = electoral_votes }
+				log = "[This.GetName] : Voted for socialists with [?electoral_votes] electoral votes"
+				set_state_flag = voted_socialist
+			}
+			50 = {
+				add_to_variable = { ROOT.democrat_electoral_votes = electoral_votes }
+				log = "[This.GetName] : Voted for democrats with [?electoral_votes] electoral votes"
+				set_state_flag = voted_democrat
+			}
+		}
 	}
 }
 
