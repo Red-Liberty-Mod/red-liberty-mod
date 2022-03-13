@@ -67,7 +67,7 @@ news_event = { # vorbeck takes power - news
 	}
 }
 
-country_event = { # versailles conference
+country_event = {
 	id = demo_ger.3
 	title = demo_ger.3.title
 	desc = demo_ger.3.desc
@@ -78,16 +78,6 @@ country_event = { # versailles conference
 
 	option = {
 		name = demo_ger.3.a
-		GER = {
-			add_to_faction = FRA
-		}
-		FRA = {
-			transfer_state = 28
-		}
-		random_other_country = {
-			limit = { is_ai = yes }
-			news_event = { id = demo_ger.4 hours = 6 }
-		}
 	}
 }
 
@@ -206,6 +196,11 @@ country_event = { # mexico civil war demo event
 					target = YUC
 					type = annex_everything
 				}
+			}
+			
+			add_named_threat = { 
+				threat = 10
+				name = MEX_civil_war
 			}
 		}
 		hidden_effect = {
@@ -712,6 +707,10 @@ country_event = { # soviet-state war
 				target = RUS
 				type = annex_everything
 			}
+		}
+		add_named_threat = { 
+			threat = 25
+			name = SOV_RUS_civil_war
 		}
 		hidden_effect = {
 			random_other_country = {
