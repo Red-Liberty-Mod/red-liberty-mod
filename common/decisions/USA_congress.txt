@@ -472,6 +472,38 @@ USA_congress = {
 		}
 	}
 	
+	start_USA_second_bill_of_rights = { # second bill of rights
+		icon = ger_mefo_bills
+		available = {
+			NOT = {
+				has_country_flag = second_bill_of_rights_passed
+			}
+			has_completed_focus = USA_second_bill_of_rights
+		}
+		
+		visible = {
+			original_tag = USA
+			NOT = {
+				has_country_flag = USA_discussing_bill
+				has_country_flag = second_bill_of_rights_passed
+			}
+			has_completed_focus = USA_the_thomas_admin
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			custom_effect_tooltip = USA_bill_pass_req_tt
+			effect_tooltip = {
+				USA_add_second_bill_of_rights = yes
+				add_ideas = {
+					USA_second_bill_of_rights
+				}
+			}
+			USA_second_bill_of_rights_setup = yes
+		}
+	}
+	
 	start_USA_naval_act_fake = {
 		
 		icon = ger_mefo_bills

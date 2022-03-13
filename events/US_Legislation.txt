@@ -607,7 +607,7 @@ country_event = { # fail labor standards act
 		trigger = { NOT = { has_country_flag = bill_passed } }
 		USA_bill_clear = yes # ALWAYS DO THIS
 	}
-	
+}	
 	country_event = { # equal education act
 	id = us_bill.14
 	
@@ -628,7 +628,7 @@ country_event = { # fail labor standards act
 		text = us_bill.14.desc_failed
 		trigger = { NOT = { has_country_flag = bill_passed } }
 	}
-	
+}	
 	country_event = { # economic equality act
 	id = us_bill.15
 	
@@ -649,7 +649,8 @@ country_event = { # fail labor standards act
 		text = us_bill.15.desc_failed
 		trigger = { NOT = { has_country_flag = bill_passed } }
 	}
-	
+}	
+
 	country_event = { # national healthcare act
 	id = us_bill.16
 	
@@ -670,7 +671,28 @@ country_event = { # fail labor standards act
 		text = us_bill.16.desc_failed
 		trigger = { NOT = { has_country_flag = bill_passed } }
 	}
+}
+
+	country_event = { # second bill of rights
+	id = us_bill.17
 	
+	# different loc based on if it passes or fails
+	title = {
+		text = us_bill.17.title_passed
+		trigger = { has_country_flag = bill_passed }
+	}
+	title = { 
+		text = us_bill.17.title_failed
+		trigger = { NOT = { has_country_flag = bill_passed } }
+	}
+	desc = {
+		text = us_bill.17.desc_passed
+		trigger = { has_country_flag = bill_passed }
+	}
+	desc = {
+		text = us_bill.17.desc_failed
+		trigger = { NOT = { has_country_flag = bill_passed } }
+	}
 }
 
 
