@@ -55,7 +55,7 @@ shared_focus = {
 	prerequisite = { focus = USA_right_to_learn }
     completion_reward = {
         add_political_power = 25
-		add_stability = 0.05
+		add_stability = 0.02
     }
 	
 	ai_will_do = {
@@ -113,7 +113,7 @@ shared_focus = {
 	prerequisite = { focus = USA_right_to_learn }
     completion_reward = {
         add_political_power = 50
-		add_stability = 0.1
+		add_stability = 0.03
     }
 	
 	ai_will_do = {
@@ -171,7 +171,7 @@ shared_focus = {
 	relative_position_id = USA_work_with_teachers_unions
 	prerequisite = { focus = USA_work_with_teachers_unions }
     completion_reward = {
-        
+        ECON_poverty_change_small
     }
 	
 	ai_will_do = {
@@ -585,7 +585,15 @@ shared_focus = {
 	relative_position_id = USA_protect_the_first
 	prerequisite = { focus = USA_protect_the_first }
     completion_reward = {
-     unlock_decison_tooltip = start_USA_voting_rights_act   
+      unlock_decison_tooltip = start_USA_voting_rights_act
+	  custom_effect_tooltip = USA_bill_pass_req_tt
+		effect_tooltip = {
+			add_stability = 0.05
+			custom_effect_tooltip = USA_SPA_worse_south
+		    add_ideas = {
+				USA_voting_rights_act
+			}
+		}
     }
 	
 	ai_will_do = {
