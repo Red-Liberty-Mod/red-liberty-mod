@@ -130,7 +130,9 @@ USA_congress = {
 		complete_effect = {
 			custom_effect_tooltip = USA_bill_pass_req_tt
 			effect_tooltip = {
-				add_stability = 0.2
+				add_ideas = {
+					USA_voting_rights_act
+				}
 			}
 			USA_voting_rights_act_setup = yes
 		}
@@ -371,6 +373,102 @@ USA_congress = {
 		complete_effect = {
 			custom_effect_tooltip = USA_bill_pass_req_tt
 			USA_public_contracts_act_setup = yes
+		}
+	}
+	
+	start_USA_equal_education_act = { # equal education act
+		icon = ger_mefo_bills
+		available = {
+			NOT = {
+				has_country_flag = equal_education_passed
+			}
+			has_completed_focus = USA_attempt_standardization
+		}
+		
+		visible = {
+			original_tag = USA
+			NOT = {
+				has_country_flag = USA_discussing_bill
+				has_country_flag = equal_education_passed
+			}
+			has_completed_focus = USA_the_thomas_admin
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			custom_effect_tooltip = USA_bill_pass_req_tt
+			effect_tooltip = {
+				USA_add_equal_education = yes
+				add_ideas = {
+					USA_equal_education_act
+				}
+			}
+			USA_equal_education_act_setup = yes
+		}
+	}
+	
+	start_USA_economic_equality_act = { # economic equality act
+		icon = ger_mefo_bills
+		available = {
+			NOT = {
+				has_country_flag = economic_equality_passed
+			}
+			has_completed_focus = USA_economic_equality_act
+		}
+		
+		visible = {
+			original_tag = USA
+			NOT = {
+				has_country_flag = USA_discussing_bill
+				has_country_flag = economic_equality_passed
+			}
+			has_completed_focus = USA_the_thomas_admin
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			custom_effect_tooltip = USA_bill_pass_req_tt
+			effect_tooltip = {
+				USA_add_economic_equality = yes
+				add_ideas = {
+					USA_economic_equality_act
+				}
+			}
+			USA_economic_equality_act_setup = yes
+		}
+	}
+	
+	start_USA_national_healthcare_act = { # national healthcare act
+		icon = ger_mefo_bills
+		available = {
+			NOT = {
+				has_country_flag = national_healthcare_passed
+			}
+			has_completed_focus = USA_national_healthcare_act
+		}
+		
+		visible = {
+			original_tag = USA
+			NOT = {
+				has_country_flag = USA_discussing_bill
+				has_country_flag = national_healthcare_passed
+			}
+			has_completed_focus = USA_the_thomas_admin
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			custom_effect_tooltip = USA_bill_pass_req_tt
+			effect_tooltip = {
+				USA_add_national_healthcare = yes
+				add_ideas = {
+					USA_national_healthcare_act
+				}
+			}
+			USA_national_healthcare_act_setup = yes
 		}
 	}
 	
