@@ -366,6 +366,7 @@ USA_congress = {
 				has_country_flag = public_contracts_act_passed
 				has_country_flag = USA_discussing_bill
 			}
+			always = no
 		}
 		
 		cost = 0
@@ -391,7 +392,7 @@ USA_congress = {
 				has_country_flag = USA_discussing_bill
 				has_country_flag = equal_education_passed
 			}
-			has_completed_focus = USA_the_thomas_admin
+			has_completed_focus = USA_second_bill_of_rights
 		}
 		
 		cost = 0
@@ -423,7 +424,7 @@ USA_congress = {
 				has_country_flag = USA_discussing_bill
 				has_country_flag = economic_equality_passed
 			}
-			has_completed_focus = USA_the_thomas_admin
+			has_completed_focus = USA_second_bill_of_rights
 		}
 		
 		cost = 0
@@ -455,7 +456,7 @@ USA_congress = {
 				has_country_flag = USA_discussing_bill
 				has_country_flag = national_healthcare_passed
 			}
-			has_completed_focus = USA_the_thomas_admin
+			has_completed_focus = USA_second_bill_of_rights
 		}
 		
 		cost = 0
@@ -487,7 +488,7 @@ USA_congress = {
 				has_country_flag = USA_discussing_bill
 				has_country_flag = second_bill_of_rights_passed
 			}
-			has_completed_focus = USA_the_thomas_admin
+			has_completed_focus = USA_second_bill_of_rights
 		}
 		
 		cost = 0
@@ -501,6 +502,34 @@ USA_congress = {
 				}
 			}
 			USA_second_bill_of_rights_setup = yes
+		}
+	}
+	
+	start_USA_puerto_rico_statehood = { # pr statehood
+		icon = ger_mefo_bills
+		available = {
+			NOT = {
+				686 = {
+					is_core_of = USA
+				}
+			}
+			has_country_flag = USA_pr_state_available
+		}
+		
+		visible = {
+			original_tag = USA
+			NOT = {
+				has_country_flag = USA_discussing_bill
+				#686 = {
+				#	is_core_of = USA
+				#}
+			}
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			USA_puerto_rico_statehood_setup = yes
 		}
 	}
 	
