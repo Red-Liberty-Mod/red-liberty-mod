@@ -8,12 +8,12 @@ shared_focus = {
 	cost = 5
 	relative_position_id = USA_of_poverty
 	prerequisite = { focus = USA_of_poverty }
-	prerequisite = {
-		focus = USA_itll_never_happen_here
-		focus = USA_spqa
-	}
+	prerequisite = { focus = USA_itll_never_happen_here }
+	prerequisite = { focus = USA_spqa }
     completion_reward = {
-        
+        add_ideas = {
+			USA_second_bill_of_rights
+		}
     }
 	
 	ai_will_do = {
@@ -192,7 +192,10 @@ shared_focus = {
 	prerequisite = { focus = USA_fund_public_libraries }
 	prerequisite = { focus = USA_federal_education_grants }
     completion_reward = {
-        
+        custom_effect_tooltip = USA_bill_pass_req_tt
+		add_ideas = {
+			USA_equal_education_act
+		}
     }
 	
 	ai_will_do = {
@@ -466,8 +469,8 @@ shared_focus = {
 	prerequisite = { focus = USA_look_at_causes }
     completion_reward = {
 		custom_effect_tooltip = USA_bill_pass_req_tt
-        effect_tooltip = {
-			improve_safety_net = yes
+        add_ideas = {
+			USA_national_healthcare_act
 		}
     }
 	
@@ -570,8 +573,8 @@ shared_focus = {
 	relative_position_id = USA_more_perfect_union
 	prerequisite = { focus = USA_more_perfect_union }
     completion_reward = {
-        custom_effect_tooltip = USA_SPA_better_west
-		add_stability = 0.03
+        custom_effect_tooltip = USA_first_amendment_tooltip
+		add_stability = 0.05
     }
 	
 	ai_will_do = {

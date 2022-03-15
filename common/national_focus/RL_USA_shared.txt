@@ -49,7 +49,35 @@ shared_focus = {
 	relative_position_id = USA_the_philippine_question
 	prerequisite = { focus = USA_the_philippine_question }
     completion_reward = {
-        
+        327 = {
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 2
+		}
+		327 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		628 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		623 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
     }
 	
 	ai_will_do = {
@@ -219,7 +247,9 @@ shared_focus = {
 	relative_position_id = USA_nuclear_rumors
 	prerequisite = { focus = USA_nuclear_rumors }
     completion_reward = {
-        
+      set_technology = {
+       atomic_research = 1
+      }
     }
 	
 	ai_will_do = {
@@ -238,7 +268,7 @@ shared_focus = {
 	relative_position_id = USA_the_manhattan_project
 	prerequisite = { focus = USA_the_manhattan_project }
     completion_reward = {
-        
+       custom_effect_tooltip = USA_theoretic_dev_tooltip 
     }
 	
 	ai_will_do = {
