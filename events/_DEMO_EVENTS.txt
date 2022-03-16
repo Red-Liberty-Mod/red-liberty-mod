@@ -22,6 +22,8 @@ add_namespace = demo_gre_victory
 add_namespace = demo.Rus_Ger_war_declaration
 add_namespace = demo.Ger_Rus_war_declaration
 add_namespace = demo_swi_leader_change
+add_namespace = demo_mex_war
+add_namespace = demo_yuc
 
 country_event = { # vorbeck takes power
 	id = demo_ger.1
@@ -1653,5 +1655,23 @@ news_event = { # Finns beat the Bolshevik Government
 
 	option = {
 		name = demo.Ger_Rus_war_declaration.1.a
+	}
+}
+country_event = {
+	id = demo_yuc.1
+	title = demo_yuc.1.title
+	desc = demo_yuc.1.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = "demo_yuc.1.a"
+		white_peace = {
+			tag = MEX
+		}
 	}
 }
