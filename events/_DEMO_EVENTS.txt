@@ -22,6 +22,8 @@ add_namespace = demo_gre_victory
 add_namespace = demo.Rus_Ger_war_declaration
 add_namespace = demo.Ger_Rus_war_declaration
 add_namespace = demo_swi_leader_change
+add_namespace = demo_mex_war
+add_namespace = demo_yuc
 
 country_event = { # vorbeck takes power
 	id = demo_ger.1
@@ -67,7 +69,7 @@ news_event = { # vorbeck takes power - news
 	}
 }
 
-country_event = { # versailles conference
+country_event = {
 	id = demo_ger.3
 	title = demo_ger.3.title
 	desc = demo_ger.3.desc
@@ -78,16 +80,6 @@ country_event = { # versailles conference
 
 	option = {
 		name = demo_ger.3.a
-		GER = {
-			add_to_faction = FRA
-		}
-		FRA = {
-			transfer_state = 28
-		}
-		random_other_country = {
-			limit = { is_ai = yes }
-			news_event = { id = demo_ger.4 hours = 6 }
-		}
 	}
 }
 
@@ -206,16 +198,17 @@ country_event = { # mexico civil war demo event
 					target = YUC
 					type = annex_everything
 				}
-				country_event = {
-					id = demo_mex.3
-					days = 14
-				}
+			}
+			
+			add_named_threat = { 
+				threat = 10
+				name = MEX_civil_war
 			}
 		}
 		hidden_effect = {
 			random_other_country = {
 				limit = { is_ai = yes }
-				news_event = { id = demo_mex.3 days = 1 }
+				news_event = { id = demo_mex.3 hours = 6 }
 			}
 		}
 	}
@@ -227,9 +220,9 @@ news_event = {
 	desc = demo_mex.3.desc
 	picture = ""
 	
-	major = yes
-	
 	is_triggered_only = yes
+	
+	major = yes
 
 	option = {
 		name = demo_mex.3.a
@@ -260,7 +253,7 @@ country_event = {
 		
 			random_other_country = {
 				limit = { is_ai = yes }
-				news_event = { id = demo_mex.5 days = 1 }
+				news_event = { id = demo_mex.5 hours = 6 }
 			}
 		}
 	}
@@ -717,6 +710,10 @@ country_event = { # soviet-state war
 				type = annex_everything
 			}
 		}
+		add_named_threat = { 
+			threat = 25
+			name = SOV_RUS_civil_war
+		}
 		hidden_effect = {
 			random_other_country = {
 				limit = { is_ai = yes }
@@ -852,7 +849,7 @@ country_event = { # king suspends parliament
 country_event = { # civil war
 	id = demo_eng.2
 	title = ""
-	desc = demo_ww2.2.desc
+	desc = demo_eng.2.desc
 	
 	is_triggered_only = yes
 	
@@ -1230,41 +1227,46 @@ country_event = {
 
 	option = {
 		name = ""
-		WGR_start_revolt = yes
-		FRA = {
-			country_event = {
-				id = demo_ww2.2
-				days = 15
-			}
-		}
-	}
-}
-
-country_event = {
-	id = demo_ww2.2
-	title = ""
-	desc = demo_ww2.2.desc
-	
-	is_triggered_only = yes
-	
-	fire_only_once = yes
-
-	option = {
-		name = ""
 		FRA = {
 			declare_war_on = {
 				target = GER
 				type = annex_everything
 			}
 			declare_war_on = {
-				target = WGR
+				target = BEL
 				type = annex_everything
+			}
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_ww2.2 hours = 6 }
+		}
+		GER = {
+			country_event = {
+				id = demo_ww2.3
+				days = 35
 			}
 		}
 	}
 }
 
 news_event = {
+	id = demo_ww2.2
+	title = ""
+	desc = demo_ww2.2.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ""
+	}
+}
+
+country_event = {
 	id = demo_ww2.3
 	title = ""
 	desc = demo_ww2.3.desc
@@ -1275,6 +1277,25 @@ news_event = {
 
 	option = {
 		name = ""
+		UKR = {
+			leave_faction = yes
+		}
+		BLR = {
+			leave_faction = yes
+		}
+		GEO = {
+			leave_faction = yes
+		}
+		SOV = {
+			declare_war_on = {
+				target = UKR
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = BLR
+				type = annex_everything
+			}
+		}
 	}
 }
 
@@ -1658,5 +1679,23 @@ news_event = { # Finns beat the Bolshevik Government
 
 	option = {
 		name = demo.Ger_Rus_war_declaration.1.a
+	}
+}
+country_event = {
+	id = demo_yuc.1
+	title = demo_yuc.1.title
+	desc = demo_yuc.1.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = "demo_yuc.1.a"
+		white_peace = {
+			tag = MEX
+		}
 	}
 }

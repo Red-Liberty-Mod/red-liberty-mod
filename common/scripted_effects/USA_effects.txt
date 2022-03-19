@@ -86,6 +86,15 @@ USA_calc_congress_control = {
 improve_safety_net = {
 	if = {
 		limit = {
+			has_idea = USA_safety_net_large
+		}
+		swap_ideas = {
+			remove_idea = USA_safety_net_large
+			add_idea = USA_safety_net_welfare_state
+		}
+	}
+	else_if = {
+		limit = {
 			has_idea = USA_safety_net_acceptable
 		}
 		swap_ideas = {
@@ -502,5 +511,38 @@ USA_calc_poverty_goal = {
 		var = USA_unemployment
 		min = 0
 		max = 95
+	}
+}
+
+USA_add_social_security = {
+	if = {
+		limit = {
+			check_variable = { USA_bill_strength > 20 }
+		}
+		add_ideas = {
+			USA_safety_net_acceptable
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { USA_bill_strength > 10 }
+		}
+		add_ideas = {
+			USA_safety_net_small
+		}
+	}
+	else = {
+		add_ideas = {
+			USA_safety_net_barebones
+		}
+	}
+}
+
+USA_contract_three_months = {
+	hidden_effect = {
+		country_event = {
+			id = united_states_designer.1
+			days = 180
+		}
 	}
 }

@@ -67,9 +67,7 @@ USA_congress = {
 		complete_effect = {
 			custom_effect_tooltip = USA_bill_pass_req_tt
 			effect_tooltip = {
-				add_ideas = {
-					USA_safety_net_barebones
-				}
+				USA_add_social_security = yes
 			}
 			USA_social_security_act_setup = yes
 		}
@@ -132,7 +130,9 @@ USA_congress = {
 		complete_effect = {
 			custom_effect_tooltip = USA_bill_pass_req_tt
 			effect_tooltip = {
-				add_stability = 0.2
+				add_ideas = {
+					USA_voting_rights_act
+				}
 			}
 			USA_voting_rights_act_setup = yes
 		}
@@ -348,6 +348,188 @@ USA_congress = {
 				improve_great_depression = yes
 			}
 			USA_wealth_tax_act_setup = yes
+		}
+	}
+	
+	start_USA_public_contracts_act = {
+		icon = ger_mefo_bills
+		available = {
+			NOT = {
+				has_country_flag = public_contracts_act_passed
+			}
+			has_completed_focus = USA_public_contracts_act
+		}
+		
+		visible = {
+			original_tag = USA
+			NOT = {
+				has_country_flag = public_contracts_act_passed
+				has_country_flag = USA_discussing_bill
+			}
+			always = no
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			custom_effect_tooltip = USA_bill_pass_req_tt
+			USA_public_contracts_act_setup = yes
+		}
+	}
+	
+	start_USA_equal_education_act = { # equal education act
+		icon = ger_mefo_bills
+		available = {
+			NOT = {
+				has_country_flag = equal_education_passed
+			}
+			has_completed_focus = USA_attempt_standardization
+		}
+		
+		visible = {
+			original_tag = USA
+			NOT = {
+				has_country_flag = USA_discussing_bill
+				has_country_flag = equal_education_passed
+			}
+			has_completed_focus = USA_second_bill_of_rights
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			custom_effect_tooltip = USA_bill_pass_req_tt
+			effect_tooltip = {
+				USA_add_equal_education = yes
+				add_ideas = {
+					USA_equal_education_act
+				}
+			}
+			USA_equal_education_act_setup = yes
+		}
+	}
+	
+	start_USA_economic_equality_act = { # economic equality act
+		icon = ger_mefo_bills
+		available = {
+			NOT = {
+				has_country_flag = economic_equality_passed
+			}
+			has_completed_focus = USA_economic_equality_act
+		}
+		
+		visible = {
+			original_tag = USA
+			NOT = {
+				has_country_flag = USA_discussing_bill
+				has_country_flag = economic_equality_passed
+			}
+			has_completed_focus = USA_second_bill_of_rights
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			custom_effect_tooltip = USA_bill_pass_req_tt
+			effect_tooltip = {
+				USA_add_economic_equality = yes
+				add_ideas = {
+					USA_economic_equality_act
+				}
+			}
+			USA_economic_equality_act_setup = yes
+		}
+	}
+	
+	start_USA_national_healthcare_act = { # national healthcare act
+		icon = ger_mefo_bills
+		available = {
+			NOT = {
+				has_country_flag = national_healthcare_passed
+			}
+			has_completed_focus = USA_national_healthcare_act
+		}
+		
+		visible = {
+			original_tag = USA
+			NOT = {
+				has_country_flag = USA_discussing_bill
+				has_country_flag = national_healthcare_passed
+			}
+			has_completed_focus = USA_second_bill_of_rights
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			custom_effect_tooltip = USA_bill_pass_req_tt
+			effect_tooltip = {
+				USA_add_national_healthcare = yes
+				add_ideas = {
+					USA_national_healthcare_act
+				}
+			}
+			USA_national_healthcare_act_setup = yes
+		}
+	}
+	
+	start_USA_second_bill_of_rights = { # second bill of rights
+		icon = ger_mefo_bills
+		available = {
+			NOT = {
+				has_country_flag = second_bill_of_rights_passed
+			}
+			has_completed_focus = USA_second_bill_of_rights
+		}
+		
+		visible = {
+			original_tag = USA
+			NOT = {
+				has_country_flag = USA_discussing_bill
+				has_country_flag = second_bill_of_rights_passed
+			}
+			has_completed_focus = USA_second_bill_of_rights
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			custom_effect_tooltip = USA_bill_pass_req_tt
+			effect_tooltip = {
+				USA_add_second_bill_of_rights = yes
+				add_ideas = {
+					USA_second_bill_of_rights
+				}
+			}
+			USA_second_bill_of_rights_setup = yes
+		}
+	}
+	
+	start_USA_puerto_rico_statehood = { # pr statehood
+		icon = ger_mefo_bills
+		available = {
+			NOT = {
+				686 = {
+					is_core_of = USA
+				}
+			}
+			has_country_flag = USA_pr_state_available
+		}
+		
+		visible = {
+			original_tag = USA
+			NOT = {
+				has_country_flag = USA_discussing_bill
+				#686 = {
+				#	is_core_of = USA
+				#}
+			}
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			USA_puerto_rico_statehood_setup = yes
 		}
 	}
 	
@@ -722,6 +904,7 @@ USA_congress = {
 					has_country_flag = USA_bill_senate_phase
 				}
 				USA_socialist_support_senate_eventless = yes
+				check_if_bill_passed = yes
 			}
 		}
 	}
@@ -807,6 +990,7 @@ USA_congress = {
 					has_country_flag = USA_bill_senate_phase
 				}
 				USA_republican_support_senate_eventless = yes
+				check_if_bill_passed = yes
 			}
 		}
 	}
@@ -855,6 +1039,7 @@ USA_congress = {
 					has_country_flag = USA_bill_senate_phase
 				}
 				USA_democrat_support_senate_eventless = yes
+				check_if_bill_passed = yes
 			}
 		}
 	}
@@ -903,6 +1088,7 @@ USA_congress = {
 					has_country_flag = USA_bill_senate_phase
 				}
 				USA_fascist_support_senate_eventless = yes
+				check_if_bill_passed = yes
 			}
 		}
 	}
@@ -951,6 +1137,7 @@ USA_congress = {
 		days_re_enable = 14
 		
 		complete_effect = {
+			add_stability = -0.03
 			if = {
 				limit = { 
 					has_country_flag = USA_bill_house_phase

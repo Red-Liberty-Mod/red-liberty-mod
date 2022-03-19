@@ -109,6 +109,16 @@ USA_class_1_senate_prepare = {
 	394 = { #Wisconsin
 		set_state_flag = elections_senator_1
 	}
+	if = {
+		limit = {
+			686 = {
+				can_have_elections_in_state = yes
+			}
+		}
+		686 = { #Puerto Rico
+			set_state_flag = elections_senator_1
+		}
+	}
 	
 	USA_calculate_senators = yes
 }
@@ -386,6 +396,16 @@ USA_class_3_senate_prepare = {
 	#Wyoming
 	381 = {
 		set_state_flag = elections_senator_2
+	}
+	if = {
+		limit = {
+			686 = {
+				can_have_elections_in_state = yes
+			}
+		}
+		686 = { #Puerto Rico
+			set_state_flag = elections_senator_2
+		}
 	}
 	
 	USA_calculate_senators = yes

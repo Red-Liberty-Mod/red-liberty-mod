@@ -20,6 +20,24 @@ characters = {
 		}
 	}
 	
+	USA_jay_lovestone = {
+		name = USA_jay_lovestone
+		
+		portraits = {
+			civilian = {
+				#large = "GFX_portrait_USA_jay_lovestone"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_JAY_LOVESTONE_DESC"
+			ideology = revolutionary_autocracy_subtype
+			traits = {  }
+			expire = "1965.1.1.1"
+			id=-1
+		}
+	}
+	
 	USA_william_foster = {
 		name = USA_william_foster
 		
@@ -688,7 +706,10 @@ characters = {
 			ledger = army
 			
 			allowed = {
-				original_tag = USA
+				OR = {
+					original_tag = USA
+					original_tag = PHI
+				}
 			}
 			
 			traits = {
@@ -1095,7 +1116,7 @@ characters = {
 		
 		portraits = {
 			army = {
-				#large = "gfx/leaders/USA/Portrait_USA_Henry_H_Arnold_Gen.tga"
+				large = "gfx/leaders/USA/Portrait_USA_Harold_Stark.png"
 				#small = "GFX_idea_george_patton"
 			}
 		}

@@ -6,7 +6,7 @@ shared_focus = {
 	icon = GFX_USA_down_mexico_way
 	
     x = 20
-	y = 10
+	y = 0
 	
 	available = {
 		has_global_flag = MEX_cristero_war_bad
@@ -14,7 +14,11 @@ shared_focus = {
 	
 	cost = 3
     completion_reward = {
-		# add event giving player choice of path
+		custom_effect_tooltip = USA_down_mexico_tooltip
+		country_event = {
+			id = united_states_intervention.1
+			hours = 6
+		}
     }
 	
 	ai_will_do = {
@@ -42,6 +46,37 @@ shared_focus = {
     completion_reward = {
 		add_stability = -0.15
 		add_war_support = 0.05
+		set_country_flag = may_send_volunteers_to_MEX
+		
+		country_event = {
+			id = united_states_intervention.2
+			hours = 6
+		}
+		
+		hidden_effect = {
+			if = {
+				limit = {
+					has_government = libertarian_socialism
+				}
+				every_owned_state = {
+					limit = {
+						can_have_elections_in_state = yes
+					}
+					subtract_from_variable = { socialist_popularity = 0.03 }
+				}
+			}
+			else_if = {
+				limit = {
+					has_government = national_conservatism
+				}
+				every_owned_state = {
+					limit = {
+						can_have_elections_in_state = yes
+					}
+					subtract_from_variable = { democrat_popularity = 0.03 }
+				}
+			}
+		}
     }
 	
 	ai_will_do = {
@@ -71,7 +106,10 @@ shared_focus = {
 		add_ideas = {
 			USA_mexican_volunteers
 		}
-		# add event about volunteers going off to fight?
+		country_event = {
+			id = united_states_intervention.3
+			hours = 6
+		}
     }
 	
 	ai_will_do = {
@@ -205,7 +243,7 @@ shared_focus = {
 	icon = GFX_USA_day_of_infamy
 	
     x = 25
-	y = 10
+	y = 0
 	
 	available = {
 		USA = {
@@ -433,7 +471,7 @@ shared_focus = {
 	icon = GFX_USA_europe_aflame
 	
     x = 33
-	y = 10
+	y = 0
 	
 	available = {
 		has_country_flag = USA_europe_war
