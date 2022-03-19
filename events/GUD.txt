@@ -1,4 +1,6 @@
 add_namespace = guangxicivilwar
+add_namespace = guangxianarchist
+add_namespace = guangxifederalist
 
 country_event = { # intro event
 	id = guangxicivilwar.1
@@ -35,3 +37,93 @@ country_event = { # intro event
 }
 
 
+country_event = { # intro event
+	id = guangxicivilwar.2
+	title = "Issue of Alliance"
+	desc = "After the success of the Guangdong Uprising the question arises with to support the federalists more, or the anarchists more."
+	
+	picture = "GFX_report_event_student_protest_CHI"
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	
+
+	option = {
+		name = "Support Our Anarchist Brothers"
+		custom_effect_tooltip = FED_GUD_tt
+		hidden_effect = {
+		add_ideas = KMT_federalist_unrest
+		}
+		country_event = {
+		id = guangxifederalist.1
+		days = 1
+		}
+	}
+	
+	option = {
+		name = "Secure A Federalist Alliance"
+		custom_effect_tooltip = ANA_GUD_tt
+		hidden_effect = {
+		add_ideas = KMT_anarchist_unrest
+		}
+		country_event = {
+		id = guangxianarchist.1
+		days = 1
+		}
+		
+	}
+}
+
+
+country_event = { # intro event
+	id = guangxianarchist.1
+	title = "Anarchist Riots"
+	desc = "Frustrated with the KMT congress federalist alignment, riots from the anarchist society launches a series of strikes on Guangdong."
+	
+	picture = "GFX_report_event_student_protest_CHI"
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	
+
+	
+	
+	option = {
+		name = "Send in the Police"
+		custom_effect_tooltip = ANA_GUD_tt
+		hidden_effect = {
+		add_stability = -0.1
+		}
+		
+	}
+}
+
+
+country_event = { # intro event
+	id = guangxifederalist.1
+	title = "Federalist Riots"
+	desc = "Frustrated with the KMT with anarchist alignment, strikes  from the Federalist Party occur in Guangdong."
+	
+	picture = "GFX_report_event_student_protest_CHI"
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	
+
+	
+	
+	option = {
+		name = "Send in the Police"
+		custom_effect_tooltip = FED_GUD_tt
+		hidden_effect = {
+		add_stability = -0.1
+		}
+		
+	}
+}

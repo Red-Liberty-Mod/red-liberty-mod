@@ -725,33 +725,50 @@ country_event = {
 	}
 }
 	 
+
+	
+
 country_event = {
     id = koumintang_cc_clique.1
-    title = "The CC Clique Elections"
-    desc = "After the GMD party congress the nation now seeks to build a new China under an authoritarian nation. Question is who in the gang of 3 shall lead."
+    title = "Electing a CC Member"
+    desc = "Now we must choose the president of our party and click."
     picture = "-" 
-	
     fire_only_once = yes
-	
     is_triggered_only  = yes
-
-    option = {
-		name = "Support the Left Faction of Li Zongren"
+		
+	option = {
+		name = "Li Zongren's Left Faction Wins"
 		custom_effect_tooltip = LFC_CC_tt
+		add_popularity = {
+			ideology = authoritarian_democracy
+			popularity = 0.1
+		}
+		country_event = {
+			id = koumintang_cc_clique.2
+			days = 3
+		}
 	}
 		
 	option = {
-		name = "Support the Moderates of Chen Guofu"
-		custom_effect_tooltip = LFC_CC_tt
+		name = "Elected Gofu's Center"
+		custom_effect_tooltip = CFC_CC_tt
+		country_event = {
+			id = koumintang_cc_clique.2
+			days = 3
+		}
+		
 	}
 	
 	option = {
-		name = "Support the Right Faction of Jiang Jieshi"
+		name = "Chiang Kai Shek Secure's the Government"
 		custom_effect_tooltip = RFC_CC_tt
 		custom_effect_tooltip = BSS_CC_tt
+		country_event = {
+			id = koumintang_cc_clique.2
+			days = 3
+		}
 	}
-}
-	 
+} 	
 country_event = {
     id = koumintang_cc_clique.2
     title = "Selecting a Cabinet"
@@ -767,6 +784,10 @@ country_event = {
 			ideology = authoritarian_democracy
 			popularity = 0.1
 		}
+		country_event = {
+			id = koumintang_cc_clique.3
+			days = 3
+		}
 	}
 		
 	option = {
@@ -776,5 +797,55 @@ country_event = {
 			ideology = fascism
 			popularity = 0.1
 		}
+		country_event = {
+			id = koumintang_cc_clique.3
+			days = 3
+		}
+	}
+}
+
+
+country_event = {
+    id = koumintang_cc_clique.3
+    title = "Selecting a Cabinet Part 2"
+    desc = "Now we must decide our foreign minister"
+    picture = "-" 
+    fire_only_once = yes
+    is_triggered_only  = yes
+		
+	option = {
+		name = "Stick With Soong Chingling"
+		custom_effect_tooltip = LFC_CC_tt
+		custom_effect_tooltip = CFC_CC_tt
+	}
+		
+	option = {
+		name = "Elect Hu Zongnan"
+		custom_effect_tooltip = BSS_CC_tt
+		custom_effect_tooltip = RFC_CC_tt
+		
+	}
+}
+
+
+country_event = {
+    id = koumintang_cc_clique.4
+    title = "Selecting a Cabinet Part 3"
+    desc = "Now we must decide our minister of defence."
+    picture = "-" 
+    fire_only_once = yes
+    is_triggered_only  = yes
+		
+	option = {
+		name = "Elect Cheng Geng"
+		custom_effect_tooltip = LFC_CC_tt
+		custom_effect_tooltip = CFC_CC_tt
+	}
+		
+	option = {
+		name = "Elect Tang Enbo"
+		custom_effect_tooltip = BSS_CC_tt
+		custom_effect_tooltip = RFC_CC_tt
+		
 	}
 }
