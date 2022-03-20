@@ -242,7 +242,7 @@ shared_focus = {
     id = USA_day_of_infamy
 	icon = GFX_USA_day_of_infamy
 	
-    x = 25
+    x = 30
 	y = 0
 	
 	available = {
@@ -253,29 +253,7 @@ shared_focus = {
 	
 	cost = 3
     completion_reward = {
-		# add event giving player choice of path
-    }
 	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_cave
-	icon = GFX_USA_cave
-	
-    x = -1
-	y = 1
-	
-	cost = 5
-	mutually_exclusive = {
-		focus = USA_pacific_war
-	}
-	relative_position_id = USA_day_of_infamy
-	prerequisite = { focus = USA_day_of_infamy }
-    completion_reward = {
-		
     }
 	
 	ai_will_do = {
@@ -291,13 +269,15 @@ shared_focus = {
 	y = 1
 	
 	cost = 5
-	mutually_exclusive = {
-		focus = USA_cave
-	}
 	relative_position_id = USA_day_of_infamy
 	prerequisite = { focus = USA_day_of_infamy }
     completion_reward = {
-		
+	  	 add_ideas = {
+		  USA_the_pacific_war
+		  
+		}
+	  
+	  
     }
 	
 	ai_will_do = {
@@ -316,7 +296,13 @@ shared_focus = {
 	relative_position_id = USA_pacific_war
 	prerequisite = { focus = USA_pacific_war }
     completion_reward = {
-		
+		USA = {
+			send_equipment = {
+				equipment = infantry_equipment
+				amount = 4200
+				target = CHI
+			}
+		}
     }
 	
 	ai_will_do = {
@@ -335,7 +321,8 @@ shared_focus = {
 	relative_position_id = USA_assist_china
 	prerequisite = { focus = USA_assist_china }
     completion_reward = {
-		
+	  RAJ =
+		declare_war_on = { type = annex_everything   target = JAP }
     }
 	
 	ai_will_do = {
@@ -354,7 +341,6 @@ shared_focus = {
 	relative_position_id = USA_pacific_war
 	prerequisite = { focus = USA_pacific_war }
     completion_reward = {
-		
     }
 	
 	ai_will_do = {
@@ -393,8 +379,20 @@ shared_focus = {
 	prerequisite = { focus = USA_assist_china }
 	prerequisite = { focus = USA_wartime_measures }
     completion_reward = {
-		
-    }
+      set_technology = {
+       marines3 = 1
+	   
+      }
+	  create_unit = {
+	   division = "name = \"Marine Brigade\" division_template = \"USA_MAR_02\" start_experience_factor = 0.5" 
+		owner = USA
+	  }
+	  
+	  create_unit = {
+	   division = "name = \"Marine Brigade\" division_template = \"USA_MAR_02\" start_experience_factor = 0.5" 
+		owner = USA
+	  }
+	}
 	
 	ai_will_do = {
 		factor = 10
