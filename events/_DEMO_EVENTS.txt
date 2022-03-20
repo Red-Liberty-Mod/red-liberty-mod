@@ -1042,29 +1042,30 @@ country_event = { # baltic collapse/federation
 
 	option = {
 		name = ""
-		BAL_collapse = yes
-		news_event = {
-			id = demo_bal.2
+		
+		random_list = {
+			20 = {
+				BAL_collapse = yes
+				random_other_country = {
+					limit = { is_ai = yes }
+					news_event = { id = demo_bal.2 hours = 6 }
+				}
+			}
+			30 = {
+				BAL_form_autonomies = yes
+				random_other_country = {
+					limit = { is_ai = yes }
+					news_event = { id = demo_bal.3 hours = 6 }
+				}
+			}
+			50 = {
+				BAL_form_federation = yes
+				random_other_country = {
+					limit = { is_ai = yes }
+					news_event = { id = demo_bal.4 hours = 6 }
+				}
+			}
 		}
-		ai_chance = { factor = 7 }
-	}
-	
-	option = {
-		name = ""
-		BAL_form_autonomies = yes
-		news_event = {
-			id = demo_bal.3
-		}
-		ai_chance = { factor = 2 }
-	}
-	
-	option = {
-		name = ""
-		BAL_form_federation = yes
-		news_event = {
-			id = demo_bal.4
-		}
-		ai_chance = { factor = 1 }
 	}
 }
 
