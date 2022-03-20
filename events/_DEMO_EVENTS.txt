@@ -850,7 +850,7 @@ country_event = { # king suspends parliament
 country_event = { # civil war
 	id = demo_eng.2
 	title = ""
-	desc = demo_ww2.2.desc
+	desc = demo_eng.2.desc
 	
 	is_triggered_only = yes
 	
@@ -1043,29 +1043,30 @@ country_event = { # baltic collapse/federation
 
 	option = {
 		name = ""
-		BAL_collapse = yes
-		news_event = {
-			id = demo_bal.2
+		
+		random_list = {
+			20 = {
+				BAL_collapse = yes
+				random_other_country = {
+					limit = { is_ai = yes }
+					news_event = { id = demo_bal.2 hours = 6 }
+				}
+			}
+			30 = {
+				BAL_form_autonomies = yes
+				random_other_country = {
+					limit = { is_ai = yes }
+					news_event = { id = demo_bal.3 hours = 6 }
+				}
+			}
+			50 = {
+				BAL_form_federation = yes
+				random_other_country = {
+					limit = { is_ai = yes }
+					news_event = { id = demo_bal.4 hours = 6 }
+				}
+			}
 		}
-		ai_chance = { factor = 7 }
-	}
-	
-	option = {
-		name = ""
-		BAL_form_autonomies = yes
-		news_event = {
-			id = demo_bal.3
-		}
-		ai_chance = { factor = 2 }
-	}
-	
-	option = {
-		name = ""
-		BAL_form_federation = yes
-		news_event = {
-			id = demo_bal.4
-		}
-		ai_chance = { factor = 1 }
 	}
 }
 
@@ -1228,41 +1229,46 @@ country_event = {
 
 	option = {
 		name = ""
-		WGR_start_revolt = yes
-		FRA = {
-			country_event = {
-				id = demo_ww2.2
-				days = 15
-			}
-		}
-	}
-}
-
-country_event = {
-	id = demo_ww2.2
-	title = ""
-	desc = demo_ww2.2.desc
-	
-	is_triggered_only = yes
-	
-	fire_only_once = yes
-
-	option = {
-		name = ""
 		FRA = {
 			declare_war_on = {
 				target = GER
 				type = annex_everything
 			}
 			declare_war_on = {
-				target = WGR
+				target = BEL
 				type = annex_everything
+			}
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_ww2.2 hours = 6 }
+		}
+		GER = {
+			country_event = {
+				id = demo_ww2.3
+				days = 35
 			}
 		}
 	}
 }
 
 news_event = {
+	id = demo_ww2.2
+	title = ""
+	desc = demo_ww2.2.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ""
+	}
+}
+
+country_event = {
 	id = demo_ww2.3
 	title = ""
 	desc = demo_ww2.3.desc
@@ -1273,6 +1279,25 @@ news_event = {
 
 	option = {
 		name = ""
+		UKR = {
+			leave_faction = yes
+		}
+		BLR = {
+			leave_faction = yes
+		}
+		GEO = {
+			leave_faction = yes
+		}
+		SOV = {
+			declare_war_on = {
+				target = UKR
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = BLR
+				type = annex_everything
+			}
+		}
 	}
 }
 
