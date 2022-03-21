@@ -816,7 +816,7 @@ country_event = { # pr statehood
 	}
 }
 
-country_event = { # activates filibuster
+country_event = { # filibuster debug event
 	id = us_bill.1000
 	title = us_bill.1000.title
 	
@@ -834,5 +834,22 @@ country_event = { # activates filibuster
 	option = {
 		name = us_bill.1000.b
 		USA_clear_filibuster = yes
+	}
+}
+
+country_event = { # activates filibuster
+	id = us_bill.1001
+	title = us_bill.1001.title
+	desc = us_bill.1001.desc
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event us_bill.1000"
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = us_bill.1001.a
+		USA_activate_filibuster = yes
 	}
 }
