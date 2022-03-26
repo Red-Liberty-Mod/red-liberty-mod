@@ -32,12 +32,19 @@ guiTypes = {
 			quadTextureSprite = "GFX_tiled_window_thin_border2"
 		}
 		
+		#iconType = { # background
+		#	name = "USA_states_gui_capitol"
+		#	position = { x = 70 y = 20 }
+		#	spriteType = "GFX_USA_states_gui_capitol"
+		#}
+		
 		instantTextBoxType = {
 			name = "USA_states_gui_name"
 			position = { x = 400 y = 30 }
 			format = center
 			maxHeight = 50
-			font = hoi_24header
+			maxWidth = 300
+			font = hoi_30header
 			text = "The United States"
 		}
 		
@@ -47,11 +54,64 @@ guiTypes = {
 			spriteType = "GFX_USA_states_gui_BG"
 		}
 		
-		iconType = { # speaker of the house
-			name = "USA_states_gui_speaker"
-			position = { x = 950 y = 140 }
-			spriteType = "GFX_USA_speaker"
-			pdx_tooltip = "USA_speaker"
+		containerWindowType = {
+			name = "USA_states_speaker"
+			size = { width = 0 height = 0 }
+			position = { x = 950 y = 90 }
+			
+			iconType = { # speaker of the house
+				name = "USA_states_gui_speaker"
+				position = { x = 0 y = 0 }
+				quadTextureSprite = "GFX_USA_speaker"
+				pdx_tooltip = "USA_speaker_name"
+				pdx_tooltip_delayed = "USA_speaker_desc"
+			}
+			
+			iconType = {
+				name = "USA_states_gui_speaker_frame"
+				spriteType = "GFX_pol_leader_frame"
+				position = { x = -8 y = -7 }		
+				alwaystransparent = yes
+			}
+			
+			instantTextBoxType = {
+				name = "USA_states_gui_speaker_title"
+				position = { x = -23 y = 217 }
+				format = center
+				maxHeight = 50
+				font = hoi_24header
+				text = "Mr. Speaker"
+			}
+		}
+		
+		containerWindowType = {
+			name = "USA_states_vice_president"
+			size = { width = 0 height = 0 }
+			position = { x = 950 y = 380 }
+			
+			iconType = { # speaker of the house
+				name = "USA_states_gui_vp"
+				position = { x = 0 y = 0 }
+				quadTextureSprite = "GFX_USA_vice_president"
+				pdx_tooltip = "USA_vice_president_name"
+				pdx_tooltip_delayed = "USA_vp_desc"
+			}
+			
+			iconType = {
+				name = "USA_states_gui_vp_frame"
+				spriteType = "GFX_pol_leader_frame"
+				position = { x = -8 y = -7 }		
+				alwaystransparent = yes
+			}
+			
+			instantTextBoxType = {
+				name = "USA_states_gui_vp_title"
+				position = { x = -23 y = 217 }
+				format = center
+				maxHeight = 50
+				font = hoi_24header
+				text = "Vice President"
+			}
 		}
 		
 		##################################################
@@ -146,7 +206,7 @@ guiTypes = {
 				quadTextureSprite = "GFX_USA_states_gui_IN"
 				pdx_tooltip = "GFX_USA_states_gui_IN_tt"
 				pdx_tooltip_delayed = "USA_states_gui_IN_selected_info_tt"
-				position = { x = 0 y = 0 }
+				position = { x = 625 y = 294 }
 			}
 			
 			buttonType = {
@@ -178,7 +238,7 @@ guiTypes = {
 				quadTextureSprite = "GFX_USA_states_gui_ME"
 				pdx_tooltip = "GFX_USA_states_gui_ME_tt"
 				pdx_tooltip_delayed = "USA_states_gui_ME_selected_info_tt"
-				position = { x = 0 y = 0 }
+				position = { x = 831 y = 149 }
 			}
 			
 			buttonType = {
@@ -242,7 +302,7 @@ guiTypes = {
 				quadTextureSprite = "GFX_USA_states_gui_NJ"
 				pdx_tooltip = "GFX_USA_states_gui_NJ_tt"
 				pdx_tooltip_delayed = "USA_states_gui_NJ_selected_info_tt"
-				position = { x = 0 y = 0 }
+				position = { x = 796 y = 276 }
 			}
 			
 			buttonType = {
@@ -258,7 +318,7 @@ guiTypes = {
 				quadTextureSprite = "GFX_USA_states_gui_MA"
 				pdx_tooltip = "GFX_USA_states_gui_MA_tt"
 				pdx_tooltip_delayed = "USA_states_gui_MA_selected_info_tt"
-				position = { x = 0 y = 0 }
+				position = { x = 813 y = 238 }
 			}
 			
 			buttonType = {
@@ -266,7 +326,7 @@ guiTypes = {
 				quadTextureSprite = "GFX_USA_states_gui_NH"
 				pdx_tooltip = "GFX_USA_states_gui_NH_tt"
 				pdx_tooltip_delayed = "USA_states_gui_NH_selected_info_tt"
-				position = { x = 0 y = 0 }
+				position = { x = 822 y = 195 }
 			}
 			
 			buttonType = {
@@ -314,7 +374,7 @@ guiTypes = {
 				quadTextureSprite = "GFX_USA_states_gui_MD"
 				pdx_tooltip = "GFX_USA_states_gui_MD_tt"
 				pdx_tooltip_delayed = "USA_states_gui_MD_selected_info_tt"
-				position = { x = 0 y = 0 }
+				position = { x = 742 y = 309 }
 			}
 			
 			buttonType = {
@@ -322,7 +382,7 @@ guiTypes = {
 				quadTextureSprite = "GFX_USA_states_gui_RI"
 				pdx_tooltip = "GFX_USA_states_gui_RI_tt"
 				pdx_tooltip_delayed = "USA_states_gui_RI_selected_info_tt"
-				position = { x = 0 y = 0 }
+				position = { x = 836 y = 255 }
 			}
 			
 			buttonType = {
@@ -394,7 +454,7 @@ guiTypes = {
 				quadTextureSprite = "GFX_USA_states_gui_CT"
 				pdx_tooltip = "GFX_USA_states_gui_CT_tt"
 				pdx_tooltip_delayed = "USA_states_gui_CT_selected_info_tt"
-				position = { x = 0 y = 0 }
+				position = { x = 814 y = 256 }
 			}
 			
 			buttonType = {
@@ -402,7 +462,7 @@ guiTypes = {
 				quadTextureSprite = "GFX_USA_states_gui_DE"
 				pdx_tooltip = "GFX_USA_states_gui_DE_tt"
 				pdx_tooltip_delayed = "USA_states_gui_DE_selected_info_tt"
-				position = { x = 0 y = 0 }
+				position = { x = 794 y = 313 }
 			}
 			
 			buttonType = {
@@ -426,7 +486,7 @@ guiTypes = {
 				quadTextureSprite = "GFX_USA_states_gui_WV"
 				pdx_tooltip = "GFX_USA_states_gui_WV_tt"
 				pdx_tooltip_delayed = "USA_states_gui_WV_selected_info_tt"
-				position = { x = 0 y = 0 }
+				position = { x = 701 y = 307 }
 			}
 			
 			buttonType = {

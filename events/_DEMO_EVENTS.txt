@@ -24,6 +24,7 @@ add_namespace = demo.Ger_Rus_war_declaration
 add_namespace = demo_swi_leader_change
 add_namespace = demo_mex_war
 add_namespace = demo_yuc
+add_namespace = demo_nzl
 
 country_event = { # vorbeck takes power
 	id = demo_ger.1
@@ -1042,29 +1043,30 @@ country_event = { # baltic collapse/federation
 
 	option = {
 		name = ""
-		BAL_collapse = yes
-		news_event = {
-			id = demo_bal.2
+		
+		random_list = {
+			20 = {
+				BAL_collapse = yes
+				random_other_country = {
+					limit = { is_ai = yes }
+					news_event = { id = demo_bal.2 hours = 6 }
+				}
+			}
+			30 = {
+				BAL_form_autonomies = yes
+				random_other_country = {
+					limit = { is_ai = yes }
+					news_event = { id = demo_bal.3 hours = 6 }
+				}
+			}
+			50 = {
+				BAL_form_federation = yes
+				random_other_country = {
+					limit = { is_ai = yes }
+					news_event = { id = demo_bal.4 hours = 6 }
+				}
+			}
 		}
-		ai_chance = { factor = 7 }
-	}
-	
-	option = {
-		name = ""
-		BAL_form_autonomies = yes
-		news_event = {
-			id = demo_bal.3
-		}
-		ai_chance = { factor = 2 }
-	}
-	
-	option = {
-		name = ""
-		BAL_form_federation = yes
-		news_event = {
-			id = demo_bal.4
-		}
-		ai_chance = { factor = 1 }
 	}
 }
 
@@ -1697,5 +1699,22 @@ country_event = {
 		white_peace = {
 			tag = MEX
 		}
+	}
+}
+country_event = {
+	id = demo_nzl.1
+	title = demo_nzl.1.title
+	desc = demo_nzl.1.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = "demo_nzl.1.a"
+		give_miliary_access = USA
+		declare_war_on = { type = annex_everything   target = JAP }
 	}
 }
