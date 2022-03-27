@@ -253,7 +253,7 @@ shared_focus = {
 	
 	cost = 3
     completion_reward = {
-	
+	   
     }
 	
 	ai_will_do = {
@@ -272,9 +272,10 @@ shared_focus = {
 	relative_position_id = USA_day_of_infamy
 	prerequisite = { focus = USA_day_of_infamy }
     completion_reward = {
-		#add_ideas = {
-		#	USA_the_pacific_war
-		#}
+		add_ideas = {
+			USA_the_pacific_war
+		}
+		custom_effect_tooltip = USA_pacific_war_tooltip
     }
 	
 	ai_will_do = {
@@ -318,8 +319,9 @@ shared_focus = {
 	relative_position_id = USA_assist_china
 	prerequisite = { focus = USA_assist_china }
     completion_reward = {
-	  RAJ =
-		declare_war_on = { type = annex_everything   target = JAP }
+	    RAJ = {
+			declare_war_on = { type = annex_everything  target = JAP }
+		}
     }
 	
 	ai_will_do = {
@@ -338,7 +340,9 @@ shared_focus = {
 	relative_position_id = USA_pacific_war
 	prerequisite = { focus = USA_pacific_war }
     completion_reward = {
-    }
+      add_consumer_goods = 0.25
+	  industrial_capacity_factory = 0.3
+	}
 	
 	ai_will_do = {
 		factor = 10
@@ -451,6 +455,13 @@ shared_focus = {
 	relative_position_id = USA_pacific_allies
 	prerequisite = { focus = USA_pacific_allies }
     completion_reward = {
+		white_peace = JAP
+		custom_effect_tooltip = USA_jap_surrender_tooltip
+		add_war_support = -0.35
+      add_popularity = {
+	    ideology = libertarian_socialism
+	    popularity = -0.07
+      }		
 		
     }
 	

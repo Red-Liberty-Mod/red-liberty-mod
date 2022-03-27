@@ -1,8 +1,15 @@
-﻿capital = 670 #today Vientiane in 1945 Luang Prabang sel proclaimed indie Laos 
+﻿capital = 671 #Hanoi
 
-oob = "empty"
+oob = "VIN_1936"
 
-set_research_slots = 2
+set_research_slots = 3
+
+add_ideas = {
+VIN_republican_protests
+VIN_japanese_influence
+VIN_vietminh_presense
+VIN_la_lutte_agitation
+}
 
 # Starting tech
 # clone of France
@@ -25,17 +32,6 @@ set_technology = {
 	early_bomber = 1
 	tactical_bomber1 = 1
 	CAS1 = 1
-	early_submarine = 1
-	basic_submarine = 1
-	early_destroyer = 1
-	early_light_cruiser = 1
-	basic_light_cruiser = 1
-	early_heavy_cruiser = 1
-	basic_heavy_cruiser = 1
-	early_battleship = 1
-	early_battlecruiser = 1
-	early_carrier = 1
-	transport = 1
 	trench_warfare = 1
 	fleet_in_being = 1
 }
@@ -78,33 +74,28 @@ if = {
 
 set_politics = {
 	ruling_party = autocratic_despotism
-	last_election = "1936.1.1"
-	election_frequency = 48
+	last_election = "1933.2.16"
+	election_frequency = 36
 	elections_allowed = no
 }
 set_popularities = {
-	insurrectionary_anarchism = 0
-	revolutionary_autocracy = 0
-	proletarian_dictatorship = 15
+	national_conservatism = 1
+	proletarian_dictatorship = 0
 	libertarian_socialism = 0
-	social_democracy = 0
-	progressive_liberalism = 0
-	market_libertarianism = 0
-	national_conservatism = 0
-	authoritarian_democracy = 0
-	autocratic_despotism = 70
-	far_right_authoritarianism = 15
-	fascism = 0
-	}
+	progressive_liberalism = 0  
+	autocratic_despotism = 85 
+	far_right_authoritarianism = 10
+	fascism = 4 
 }
 
+#NOTICE# please watch out for spelling, im using Vietnamese names as they spell them, game might not support these characters!
 
 create_country_leader = {
-	name = "Souphanouvong" 
+	name = "Phan Bôi Châu" 
 	desc = ""
-	picture = "gfx/leaders/Asia/Portrait_Asia_Generic_communism.dds"
+	picture = "gfx/leaders/Asia/Portrait_Asia_Generic_warlord2.dds"
 	expire = "1953.3.1"
-	ideology = proletarian_dictatorship_subtype
+	ideology = insurrectionary_anarchism_subtype
 	traits = {
 		
 	}
@@ -112,7 +103,62 @@ create_country_leader = {
 
 
 create_country_leader = {
-	name = "Souvanna Phouma"
+	name = "Ta Thu Thau" 
+	desc = ""
+	picture = "gfx/leaders/Asia/Portrait_Asia_Generic_warlord2.dds"
+	expire = "1953.3.1"
+	ideology = left_nationalism_subtype
+	traits = {
+		
+	}
+}
+
+create_country_leader = {
+	name = "Ho Chí Minh" 
+	desc = ""
+	picture = "gfx/leaders/Asia/Portrait_Asia_Generic_communism.dds"
+	expire = "1953.3.1"
+	ideology = revolutionary_autocracy_subtype
+	traits = {
+		
+	}
+}
+
+create_country_leader = {
+	name = "Phan Bôi Châu"
+	desc = ""
+	picture = "gfx/leaders/Asia/Portrait_Asia_Generic_3.dds"
+	expire = "1953.3.1"
+	ideology = libertarian_socialism_subtype
+	traits = {
+		
+	}
+}
+
+create_country_leader = {
+	name = "Nguyen Thai Hoc"
+	desc = ""
+	picture = "gfx/leaders/Asia/Portrait_Asia_Generic_3.dds"
+	expire = "1953.3.1"
+	ideology = social_democracy_subtype
+	traits = {
+		
+	}
+}
+
+create_country_leader = {
+	name = "Cuong De"
+	desc = ""
+	picture = "gfx/leaders/Asia/Portrait_Asia_Generic_2.dds"
+	expire = "1953.3.1"
+	ideology = national_conservatism_subtype
+	traits = {
+		
+	}
+}
+
+create_country_leader = {
+	name = "Nguyen Tuong Tam"
 	desc = ""
 	picture = "gfx/leaders/Asia/Portrait_Asia_Generic_3.dds"
 	expire = "1953.3.1"
@@ -122,11 +168,22 @@ create_country_leader = {
 	}
 }
 
-
 create_country_leader = {
-	name = "Sisavang Vong"
+	name = "Nguyen Thai Hoc"
 	desc = ""
 	picture = "gfx/leaders/Asia/Portrait_Asia_Generic_3.dds"
+	expire = "1953.3.1"
+	ideology = authoritarian_democracy_subtype
+	traits = {
+		
+	}
+}
+
+
+create_country_leader = {
+	name = "Bao Dai"
+	desc = ""
+	picture = "gfx/leaders/VIN/Portrait_VIN_Bao_Dai.png"
 	expire = "1953.3.1"
 	ideology = autocratic_despotism_subtype
 	traits = {
@@ -134,13 +191,5 @@ create_country_leader = {
 	}
 }
 
-create_country_leader = {
-	name = "Boun Oum"
-	desc = ""
-	picture = "gfx/leaders/Asia/Portrait_Asia_Generic_3.dds"
-	expire = "1953.3.1"
-	ideology = far_right_authoritarianism_subtype
-	traits = {
-		
-	}
-}
+
+
