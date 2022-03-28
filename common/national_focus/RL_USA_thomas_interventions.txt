@@ -322,6 +322,19 @@ shared_focus = {
 	    RAJ = {
 			declare_war_on = { type = annex_everything  target = JAP }
 		}
+		RAJ = {
+			give_military_access = USA
+		}
+		CHI = {
+			give_military_access = USA
+		}
+		CHI = {
+			diplomatic_relation = {
+                country = USA
+                relation = docking_rights
+                active = yes
+            }
+		}
     }
 	
 	ai_will_do = {
@@ -340,8 +353,8 @@ shared_focus = {
 	relative_position_id = USA_pacific_war
 	prerequisite = { focus = USA_pacific_war }
     completion_reward = {
-      add_consumer_goods = 0.25
-	  industrial_capacity_factory = 0.3
+      add_war_support = 0.25
+	  add_command_power = 30
 	}
 	
 	ai_will_do = {
@@ -360,7 +373,8 @@ shared_focus = {
 	relative_position_id = USA_wartime_measures
 	prerequisite = { focus = USA_wartime_measures }
     completion_reward = {
-		
+	  custom_effect_tooltip = USA_codetalkers_tooltip
+	  custom_effect_tooltip =  USA_codetalkers_effect_tooltip
     }
 	
 	ai_will_do = {
@@ -384,15 +398,15 @@ shared_focus = {
        marines3 = 1
 	   
       }
-	  create_unit = {
-	   division = "name = \"Marine Brigade\" division_template = \"USA_MAR_02\" start_experience_factor = 0.5" 
-		owner = USA
-	  }
+	    create_unit = {
+	        division = "name = \"Marine Brigade\" division_template = \"Marine Brigade\" start_experience_factor = 0.5" 
+		    owner = ROOT
+	    }
 	  
-	  create_unit = {
-	   division = "name = \"Marine Brigade\" division_template = \"USA_MAR_02\" start_experience_factor = 0.5" 
-		owner = USA
-	  }
+	    create_unit = {
+	        division = "name = \"Marine Brigade\" division_template = \"Marine Brigade\" start_experience_factor = 0.5" 
+		    owner = ROOT
+	    }
 	}
 	
 	ai_will_do = {
@@ -411,7 +425,18 @@ shared_focus = {
 	relative_position_id = USA_expand_marines
 	prerequisite = { focus = USA_expand_marines }
     completion_reward = {
-		
+	  	AST = {
+			declare_war_on = { type = annex_everything  target = JAP }
+		}
+		NZL = {
+			declare_war_on = { type = annex_everything  target = JAP }
+		}
+		NZL = {
+			give_military_access = USA
+		}
+		AST = {
+			give_military_access = USA
+		}
     }
 	
 	ai_will_do = {
@@ -433,7 +458,12 @@ shared_focus = {
 	relative_position_id = USA_pacific_allies
 	prerequisite = { focus = USA_pacific_allies }
     completion_reward = {
-		
+        country_event = {
+           id = demo_usa_jap_peace.1
+           days = 10
+           random = 1
+           random_days = 1
+        }		
     }
 	
 	ai_will_do = {
@@ -576,7 +606,7 @@ shared_focus = {
     id = USA_congress_reigns_supreme
 	icon = GFX_USA_congress_reigns_supreme
 	
-    x = 1
+    x = 2
 	y = 1
 	
 	cost = 5
