@@ -247,10 +247,14 @@ shared_focus = {
 	relative_position_id = USA_nuclear_rumors
 	prerequisite = { focus = USA_nuclear_rumors }
     completion_reward = {
-      set_technology = {
-       atomic_research = 1
-      }
-      custom_effect_tooltip = USA_manhattan_tooltip
+		set_technology = {
+			atomic_research = 1
+		}
+		custom_effect_tooltip = USA_manhattan_tooltip
+		country_event = {
+			id = united_states_mproject.2
+			hours = 6
+		}
 	}
 	
 	ai_will_do = {
@@ -329,7 +333,10 @@ shared_focus = {
 		focus = USA_physical_development
 	}
     completion_reward = {
-        
+        country_event = {
+			id = united_states_mproject.3
+			hours = 6
+		}
     }
 	
 	ai_will_do = {
