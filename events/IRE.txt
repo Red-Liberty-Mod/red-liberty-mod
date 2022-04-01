@@ -276,3 +276,67 @@ news_event = { # civil war - ira victory
 		name = ireland.9.a
 	}
 }
+
+country_event = { # intro event
+	id = ireland.1918
+	title = ireland.1918.title
+	desc = ireland.1918.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ireland.1918.a
+		hidden_effect = {
+			IRE = {
+				set_politics = {
+					ruling_party = autocratic_despotism
+					last_election = "1930.11.24"
+					election_frequency = 84
+					elections_allowed = no
+				}
+				set_popularities = {
+					insurrectionary_anarchism = 23
+					revolutionary_autocracy = 0
+					proletarian_dictatorship = 0
+					libertarian_socialism = 0
+					social_democracy = 0
+					progressive_liberalism = 0
+					market_libertarianism = 0
+					national_conservatism = 0
+					authoritarian_democracy = 0
+					autocratic_despotism = 77
+					far_right_authoritarianism = 0
+					fascism = 0
+				}
+				
+				remove_ideas = {
+					IRE_anglo_irish_trade_war
+					IRE_paramilitary_violence
+					IRE_ireland_divided
+				}
+				
+				add_ideas = {
+					IRE_autocrat_of_celts
+					IRE_pot_of_gold
+					IRE_leprechuan_movie
+				}
+				
+				clr_country_flag = market_libertarian_coalition
+				clr_country_flag = conservative_coalition
+				
+				create_country_leader = {
+					name = "Alasdair O'Kolchak"
+					desc = ""
+					picture = "gfx/leaders/IRE/Portrait_IRE_Alex_Kolchak.png"
+					expire = "1965.1.1"
+					ideology = fundamentalist_theocracy_subtype
+					traits = {
+						#
+					}
+				}
+			}
+		}
+	}
+}
