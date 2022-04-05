@@ -572,9 +572,9 @@ news_event = { # ita-gre war, ita loss
 	}
 }
 
-country_event = { # election event for austria
+country_event = { # vienna uprising
 	id = demo_ahe.1
-	title = ""
+	title = demo_ahe.1.tile
 	desc = demo_ahe.1.desc
 	
 	is_triggered_only = yes
@@ -582,28 +582,242 @@ country_event = { # election event for austria
 	fire_only_once = yes
 
 	option = {
-		name = ""
-		set_politics = {
-			ruling_party = social_democracy
-			elections_allowed = yes
-			last_election = "1936.10.8"
-			election_frequency = 48
+		name = demo_ahe.1.a
+		AHE = {
+			set_politics = {
+				ruling_party = proletarian_dictatorship
+				elections_allowed = no
+				last_election = "1932.10.8"
+				election_frequency = 48
+			}
+			country_event = {
+				id = demo_ahe.3
+				days = 7
+			}
+			remove_ideas = {
+				AHE_doomed_empire
+				AHE_german_dependence
+			}
 		}
-		add_popularity = {
-			ideology = social_democracy
-			popularity = 0.02
-		}
-		add_popularity = {
-			ideology = libertarian_socialism
-			popularity = 0.01
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_ahe.2 hours = 6 }
 		}
 	}
+}
+
+news_event = { # vienna uprising - news
+	id = demo_ahe.2
+	title = demo_ahe.2.title
+	desc = demo_ahe.2.desc
 	
+	is_triggered_only = yes
+	
+	major = yes
+
 	option = {
-		name = ""
-		add_popularity = {
-			ideology = national_conservatism
-			popularity = 0.03
+		name = demo_ahe.2.a
+	}
+}
+
+country_event = { # september constitution
+	id = demo_ahe.3
+	title = demo_ahe.3.title
+	desc = demo_ahe.3.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ahe.3.a
+		AHE = {
+			set_cosmetic_tag = AHE_peoples_republic
+			
+			remove_ideas = {
+				AHE_incompetent_military
+				AHE_inept_legislature
+			}
+			
+			country_event = {
+				id = demo_ahe.5
+				days = 2
+			}
+			country_event = {
+				id = demo_ahe.6
+				days = 3
+			}
+			country_event = {
+				id = demo_ahe.7
+				days = 4
+			}
+			country_event = {
+				id = demo_ahe.8
+				days = 12
+			}
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_ahe.4 hours = 6 }
+		}
+	}
+}
+
+news_event = { # september constitution - news
+	id = demo_ahe.4
+	title = demo_ahe.4.title
+	desc = demo_ahe.4.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = demo_ahe.4.a
+	}
+}
+
+country_event = { # royalists form govt
+	id = demo_ahe.5
+	title = demo_ahe.5.title
+	desc = demo_ahe.5.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ahe.5.a
+		AUS = {
+			transfer_state = 39
+			transfer_state = 153
+			transfer_state = 875
+			transfer_state = 963
+		}
+		AHE = {
+			transfer_units_fraction = {
+				target = AUS
+				size = 0.6
+				stockpile_ratio = 0.5
+				army_ratio = 0.5
+				navy_ratio = 0
+				air_ratio = 0.5
+				keep_unit_leaders_trigger = {
+					
+				}
+			}
+		}
+	}
+}
+
+country_event = { # czechs form govt
+	id = demo_ahe.6
+	title = demo_ahe.6.title
+	desc = demo_ahe.6.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ahe.6.a
+		CZE = {
+			transfer_state = 9
+			transfer_state = 69
+			transfer_state = 74
+			transfer_state = 75
+			transfer_state = 815
+		}
+	}
+}
+
+country_event = { # hungarians form govt
+	id = demo_ahe.7
+	title = demo_ahe.7.title
+	desc = demo_ahe.7.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ahe.7.a
+		HUN = {
+			transfer_state = 43
+			transfer_state = 45
+			transfer_state = 73
+			transfer_state = 76
+			transfer_state = 82
+			transfer_state = 83
+			transfer_state = 84
+			transfer_state = 154
+			transfer_state = 155
+			transfer_state = 664
+			transfer_state = 764
+			transfer_state = 885
+			
+			load_oob = HUN_danubian_war
+			
+			AHE_remove_templates = yes
+			
+			country_event = {
+				id = demo_ahe.9
+				days = 12
+			}
+		}
+	}
+}
+
+country_event = { # croats form govt
+	id = demo_ahe.8
+	title = demo_ahe.8.title
+	desc = demo_ahe.8.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ahe.8.a
+		CRO = {
+			transfer_state = 103
+			transfer_state = 104
+			transfer_state = 109
+			transfer_state = 798
+			transfer_state = 886
+			transfer_state = 887
+		}
+	}
+}
+
+country_event = { # rom-hun war
+	id = demo_ahe.9
+	title = demo_ahe.9.title
+	desc = demo_ahe.9.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ahe.9.a
+		ROM = {
+			declare_war_on = {
+				target = HUN
+				type = annex_everything
+			}
 		}
 	}
 }
