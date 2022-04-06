@@ -319,7 +319,7 @@ shared_focus = {
 	relative_position_id = USA_assist_china
 	prerequisite = { focus = USA_assist_china }
     completion_reward = {
-	    RAJ = {
+		RAJ = {
 			declare_war_on = { type = annex_everything  target = JAP }
 		}
 		RAJ = {
@@ -353,8 +353,8 @@ shared_focus = {
 	relative_position_id = USA_pacific_war
 	prerequisite = { focus = USA_pacific_war }
     completion_reward = {
-      add_war_support = 0.25
-	  add_command_power = 30
+		add_war_support = 0.25
+		add_command_power = 30
 	}
 	
 	ai_will_do = {
@@ -373,8 +373,8 @@ shared_focus = {
 	relative_position_id = USA_wartime_measures
 	prerequisite = { focus = USA_wartime_measures }
     completion_reward = {
-	  custom_effect_tooltip = USA_codetalkers_tooltip
-	  custom_effect_tooltip =  USA_codetalkers_effect_tooltip
+		custom_effect_tooltip = USA_codetalkers_tooltip
+		custom_effect_tooltip =  USA_codetalkers_effect_tooltip
     }
 	
 	ai_will_do = {
@@ -394,19 +394,21 @@ shared_focus = {
 	prerequisite = { focus = USA_assist_china }
 	prerequisite = { focus = USA_wartime_measures }
     completion_reward = {
-      set_technology = {
-       marines3 = 1
-	   
-      }
-	    create_unit = {
-	        division = "name = \"Marine Brigade\" division_template = \"Marine Brigade\" start_experience_factor = 0.5" 
-		    owner = ROOT
-	    }
-	  
-	    create_unit = {
-	        division = "name = \"Marine Brigade\" division_template = \"Marine Brigade\" start_experience_factor = 0.5" 
-		    owner = ROOT
-	    }
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 1
+			category = marine_tech
+		}
+		364 = {
+			create_unit = {
+				division = "name = \"Marine Brigade\" division_template = \"Marine Brigade\" start_experience_factor = 0.5" 
+				owner = ROOT
+			}
+			create_unit = {
+				division = "name = \"Marine Brigade\" division_template = \"Marine Brigade\" start_experience_factor = 0.5" 
+				owner = ROOT
+			}
+		}
 	}
 	
 	ai_will_do = {
@@ -460,9 +462,7 @@ shared_focus = {
     completion_reward = {
         country_event = {
            id = demo_usa_jap_peace.1
-           days = 10
-           random = 1
-           random_days = 1
+           days = 1
         }		
     }
 	
@@ -510,7 +510,7 @@ shared_focus = {
 	y = 0
 	
 	available = {
-		has_country_flag = USA_europe_war
+		has_country_flag = USA_europe_aflame_flag
 	}
 	
 	cost = 5
