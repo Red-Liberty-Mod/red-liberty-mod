@@ -572,7 +572,7 @@ news_event = { # ita-gre war, ita loss
 	}
 }
 
-country_event = { # vienna uprising
+country_event = { # vienna uprising - september 19, 1936
 	id = demo_ahe.1
 	title = demo_ahe.1.tile
 	desc = demo_ahe.1.desc
@@ -590,6 +590,11 @@ country_event = { # vienna uprising
 				last_election = "1932.10.8"
 				election_frequency = 48
 			}
+			set_country_flag = rev_autocracy_coalition
+			set_country_flag = proletarian_coalition
+			set_country_flag = libertarian_socialism_coalition
+			set_country_flag = social_democracy_coalition
+			
 			country_event = {
 				id = demo_ahe.3
 				days = 7
@@ -620,7 +625,7 @@ news_event = { # vienna uprising - news
 	}
 }
 
-country_event = { # september constitution
+country_event = { # september constitution - september 26, 1936
 	id = demo_ahe.3
 	title = demo_ahe.3.title
 	desc = demo_ahe.3.desc
@@ -640,22 +645,37 @@ country_event = { # september constitution
 				AHE_incompetent_military
 				AHE_inept_legislature
 			}
+			add_ideas = {
+				AHE_beacon_of_hope
+			}
 			
-			country_event = {
+			country_event = { # september 28
 				id = demo_ahe.5
 				days = 2
 			}
-			country_event = {
+			country_event = { # september 29
 				id = demo_ahe.6
 				days = 3
 			}
-			country_event = {
+			country_event = { # september 30
 				id = demo_ahe.7
 				days = 4
 			}
-			country_event = {
+			country_event = { # october 8
 				id = demo_ahe.8
 				days = 12
+			}
+			country_event = { # october 22
+				id = demo_ahe.10
+				days = 26
+			}
+			country_event = { # november 1
+				id = demo_ahe.11
+				days = 35
+			}
+			country_event = { # november 1
+				id = demo_ahe.12
+				days = 45
 			}
 		}
 		random_other_country = {
@@ -697,6 +717,10 @@ country_event = { # royalists form govt
 			transfer_state = 153
 			transfer_state = 875
 			transfer_state = 963
+			
+			add_ideas = {
+				AUS_last_chance
+			}
 		}
 		AHE = {
 			transfer_units_fraction = {
@@ -814,10 +838,72 @@ country_event = { # rom-hun war
 	option = {
 		name = demo_ahe.9.a
 		ROM = {
+			transfer_state = 80
 			declare_war_on = {
 				target = HUN
 				type = annex_everything
 			}
+		}
+	}
+}
+
+country_event = { # bosnians form govt
+	id = demo_ahe.10
+	title = demo_ahe.10.title
+	desc = demo_ahe.10.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ahe.10.a
+		BOS = {
+			transfer_state = 104
+			transfer_state = 886
+		}
+	}
+}
+
+country_event = { # slovenians form govt
+	id = demo_ahe.11
+	title = demo_ahe.11.title
+	desc = demo_ahe.11.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ahe.11.a
+		SLV = {
+			transfer_state = 102
+			transfer_state = 736
+			transfer_state = 882
+		}
+	}
+}
+
+country_event = { # slovaks form govt
+	id = demo_ahe.12
+	title = demo_ahe.12.title
+	desc = demo_ahe.12.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ahe.12.a
+		SLO = {
+			transfer_state = 70
+			transfer_state = 71
 		}
 	}
 }
