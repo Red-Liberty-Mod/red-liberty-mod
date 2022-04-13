@@ -642,6 +642,8 @@ country_event = { # september constitution - september 26, 1936
 		AHE = {
 			set_cosmetic_tag = AHE_peoples_republic
 			
+			AHE_create_demilitarized_zones = yes
+			
 			remove_ideas = {
 				AHE_incompetent_military
 				AHE_inept_legislature
@@ -650,6 +652,21 @@ country_event = { # september constitution - september 26, 1936
 				AHE_beacon_of_hope
 			}
 			
+			set_popularities = {
+				insurrectionary_anarchism = 0
+				revolutionary_autocracy = 12
+				proletarian_dictatorship = 42
+				libertarian_socialism = 19
+				social_democracy = 23
+				progressive_liberalism = 4
+				market_libertarianism = 0
+				national_conservatism = 0
+				authoritarian_democracy = 0
+				autocratic_despotism = 0
+				far_right_authoritarianism = 0
+				fascism = 0
+			}
+
 			country_event = { # september 28
 				id = demo_ahe.5
 				days = 2
@@ -721,29 +738,7 @@ country_event = { # royalists form govt
 
 	option = {
 		name = demo_ahe.5.a
-		AUS = {
-			transfer_state = 39
-			transfer_state = 153
-			transfer_state = 875
-			transfer_state = 963
-			
-			add_ideas = {
-				AUS_last_chance
-			}
-		}
-		AHE = {
-			transfer_units_fraction = {
-				target = AUS
-				size = 0.6
-				stockpile_ratio = 0.5
-				army_ratio = 0.5
-				navy_ratio = 0
-				air_ratio = 0.5
-				keep_unit_leaders_trigger = {
-					
-				}
-			}
-		}
+		AHE_setup_AUS = yes
 	}
 }
 
@@ -760,13 +755,7 @@ country_event = { # czechs form govt
 
 	option = {
 		name = demo_ahe.6.a
-		CZE = {
-			transfer_state = 9
-			transfer_state = 69
-			transfer_state = 74
-			transfer_state = 75
-			transfer_state = 815
-		}
+		AHE_setup_CZE = yes
 	}
 }
 
@@ -783,24 +772,8 @@ country_event = { # hungarians form govt
 
 	option = {
 		name = demo_ahe.7.a
+		AHE_setup_HUN = yes
 		HUN = {
-			transfer_state = 43
-			transfer_state = 45
-			transfer_state = 73
-			transfer_state = 76
-			transfer_state = 82
-			transfer_state = 83
-			transfer_state = 84
-			transfer_state = 154
-			transfer_state = 155
-			transfer_state = 664
-			transfer_state = 764
-			transfer_state = 885
-			
-			load_oob = HUN_danubian_war
-			
-			AHE_remove_templates = yes
-			
 			country_event = {
 				id = demo_ahe.9
 				days = 12
@@ -822,14 +795,7 @@ country_event = { # croats form govt
 
 	option = {
 		name = demo_ahe.8.a
-		CRO = {
-			transfer_state = 103
-			transfer_state = 104
-			transfer_state = 109
-			transfer_state = 798
-			transfer_state = 886
-			transfer_state = 887
-		}
+		AHE_setup_CRO = yes
 	}
 }
 
@@ -889,11 +855,7 @@ country_event = { # slovenians form govt
 
 	option = {
 		name = demo_ahe.11.a
-		SLV = {
-			transfer_state = 102
-			transfer_state = 736
-			transfer_state = 882
-		}
+		AHE_setup_SLV = yes
 	}
 }
 
