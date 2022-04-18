@@ -210,3 +210,31 @@ AHE_setup_SLV = {
 		}
 	}
 }
+
+AHE_setup_SLO = {
+	hidden_effect {
+		SLO = {
+			add_state_core = 70
+			add_state_core = 71
+			add_state_core = 664
+			
+			AHE = {
+				every_owned_state = {
+					limit = { is_core_of = SLO }
+					
+					set_demilitarized_zone = no
+					remove_core_of = AHE
+					SLO = { transfer_state = PREV }
+					
+					teleport_armies = {
+						limit = { tag = AHE }
+						to_state_array = owned_controlled_states
+					}
+				}
+			}
+			
+			load_oob = SLO_danubian_war
+			AHE_remove_templates = yes
+		}
+	}
+}

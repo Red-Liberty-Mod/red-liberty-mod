@@ -1,9 +1,35 @@
 effect = {
-	on_monthly_URG {
+	#on_monthly_URG {
+	#	effect = {
+	#		every_country = {
+	#			country_event = { id = opinion_modifier.2 }
+	#		}
+	#	}
+	#}
+	
+	on_state_control_changed = {
 		effect = {
-			every_country = {
+			log = "[GetDateText] - [ROOT.GetName]: on_state_control_changed OLD CONTROLLER: [FROM.GetName] STATE: [FROM.FROM.GetName]"
+		
+			### Adding opinion modifiers to newly-spawned countries
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = opinion_modifiers_set_up
+					}
+				}
+				set_country_flag = opinion_modifiers_set_up
 				country_event = { id = opinion_modifier.2 }
 			}
+		}
+	}
+	
+	on_government_change = {
+		effect = {
+			log = "[GetDateText] - [ROOT.GetName]: on_government_change"
+			
+			### Updating opinion modifiers upon change in govt
+			country_event = { id = opinion_modifier.2 }
 		}
 	}
 }
