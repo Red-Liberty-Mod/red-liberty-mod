@@ -26,6 +26,7 @@ add_namespace = demo_mex_war
 add_namespace = demo_yuc
 add_namespace = demo_usa_jap_peace
 add_namespace = demo_raj_brm
+add_namespace = demo_jap_usa_war
 
 
 country_event = { # vorbeck takes power
@@ -1746,6 +1747,26 @@ country_event = {
 
 	option = {
 		name = ""
+	}
+}
+country_event = {
+	id = demo_jap_usa_war.1
+	title = demo_jap_usa_war.1.title
+	desc = demo_jap_usa_war.1.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ""
+		JAP = 
+		declare_war_on = {
+			target = USA
+			type = annex_everything
+		}
 	}
 }
 
