@@ -26,6 +26,7 @@ add_namespace = demo_mex_war
 add_namespace = demo_yuc
 add_namespace = demo_usa_jap_peace
 add_namespace = demo_raj_brm
+add_namespace = demo_jap_usa_war
 
 
 country_event = { # vorbeck takes power
@@ -1748,6 +1749,26 @@ country_event = {
 		name = ""
 	}
 }
+country_event = {
+	id = demo_jap_usa_war.1
+	title = demo_jap_usa_war.1.title
+	desc = demo_jap_usa_war.1.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ""
+		JAP = 
+		declare_war_on = {
+			target = USA
+			type = annex_everything
+		}
+	}
+}
 
 country_event = {
 	id = demo.jap_chi_war.1
@@ -1966,7 +1987,7 @@ country_event = {
 	fire_only_once = yes
 
 	option = {
-		name = "demo_yuc.1.a"
+		name = demo_yuc.1.a
 		white_peace = {
 			tag = MEX
 		}
@@ -1977,7 +1998,11 @@ country_event = {
 	title = demo_raj_brm.1.title
 	desc = demo_raj_brm.1.desc
 	
-	is_triggered_only = yes
+	trigger = {
+		BRM = {
+			controls_state = 288
+		}
+	}
 	
 	fire_only_once = yes
 
@@ -1986,19 +2011,10 @@ country_event = {
 		white_peace = {
 			tag = RAJ
 			tag = ENG
-			tag = AST
-			tag = NZL
-			tag = MAL 
-			tag = IRQ 
-			tag = EGY
-			tag = SRW
-			tag = NFL
-			tag = SAF
-			tag = OMA 
-			tag = CAN
 		}
 	}
 }
+
 country_event = {
 	id = demo_usa_jap_peace.1
 	title = demo_usa_jap_peace.1.title

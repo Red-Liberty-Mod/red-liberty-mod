@@ -515,7 +515,8 @@ shared_focus = {
 	
 	cost = 5
     completion_reward = {
-		
+	   custom_effect_tooltip = USA_europe_aflame_tooltip
+	   unlock_decision_tooltip = start_USA_war_declaration
     }
 	
 	ai_will_do = {
@@ -530,6 +531,10 @@ shared_focus = {
     x = -2
 	y = 1
 	
+	available = {
+		has_country_flag = USA_war_declaration_failed
+	}
+	
 	cost = 5
 	mutually_exclusive = {
 		focus = USA_congress_reigns_supreme
@@ -537,7 +542,7 @@ shared_focus = {
 	relative_position_id = USA_europe_aflame
 	prerequisite = { focus = USA_europe_aflame }
     completion_reward = {
-		
+	    custom_effect_tooltip = USA_peace_our_tooltip		
     }
 	
 	ai_will_do = {
@@ -556,7 +561,8 @@ shared_focus = {
 	relative_position_id = USA_peace_in_our_time
 	prerequisite = { focus = USA_peace_in_our_time }
     completion_reward = {
-		
+		add_war_support = 0.15
+		add_manpower = 95000
     }
 	
 	ai_will_do = {
@@ -575,7 +581,21 @@ shared_focus = {
 	relative_position_id = USA_aef
 	prerequisite = { focus = USA_aef }
     completion_reward = {
-		
+		send_equipment = {
+          equipment = infantry_equipment
+          amount = 6500
+          target = FRA
+        }
+	    send_equipment = {
+          equipment = support_equipment
+          amount = 850
+          target = FRA
+        }
+		send_equipment = {
+          equipment = light_tank_equipment
+          amount = 250
+          target = FRA
+        }
     }
 	
 	ai_will_do = {
@@ -585,7 +605,7 @@ shared_focus = {
 
 shared_focus = {
     id = USA_offer_arbitration
-	icon = GFX_USA_send_supplies
+	icon = GFX_USA_offer_arbitration
 	
     x = 0
 	y = 1
@@ -594,7 +614,7 @@ shared_focus = {
 	relative_position_id = USA_send_supplies
 	prerequisite = { focus = USA_send_supplies }
     completion_reward = {
-		
+	   custom_effect_tooltip = USA_arbitration_tooltip
     }
 	
 	ai_will_do = {
@@ -609,6 +629,10 @@ shared_focus = {
     x = 2
 	y = 1
 	
+	available = {
+		has_country_flag = USA_war_declaration_passed
+	}
+	
 	cost = 5
 	mutually_exclusive = {
 		focus = USA_peace_in_our_time
@@ -616,7 +640,7 @@ shared_focus = {
 	relative_position_id = USA_europe_aflame
 	prerequisite = { focus = USA_europe_aflame }
     completion_reward = {
-		
+		custom_effect_tooltip = USA_wwii_declaration_tooltip
     }
 	
 	ai_will_do = {

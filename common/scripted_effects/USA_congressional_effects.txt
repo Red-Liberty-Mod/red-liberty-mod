@@ -730,6 +730,47 @@ USA_puerto_rico_statehood_setup = { # pr statehood
 	USA_bill_setup = yes # always required
 }
 
+USA_war_declaration_setup = { # joining ww2
+	log = "[GetDateText]: [Root.GetName]: bill setup active"
+	
+	set_variable = { bill_id = 19 } # EACH BILL MUST HAVE A UNIQUE ID
+	
+	set_country_flag = USA_communist_discussing # Sets up who you can negotiate with
+	set_country_flag = USA_socialist_discussing
+	set_country_flag = USA_farmer_labor_discussing
+	set_country_flag = USA_republican_discussing
+	set_country_flag = USA_democrat_discussing
+	set_country_flag = USA_fascist_discussing
+	
+	#set_country_flag = bill_enable_mission # Gives the President penalties if they drag their feet for too long doing this
+	#set_variable = { USA_bill_mission_deadline = 120 }
+	
+	set_variable = { USA_communist_bill_support = 0.2 } # percentage of congresspeople who will initially support the bill
+	set_variable = { USA_socialist_bill_support = 0.2 }
+	set_variable = { USA_farmer_labor_bill_support = 0.1 }
+	set_variable = { USA_republican_bill_support = 0.3 }
+	set_variable = { USA_democrat_bill_support = 0.5 }
+	set_variable = { USA_fascist_bill_support = 0.7 }
+	
+	#set_country_flag = USA_special_decisions_enabled # hides generic decisions in favor of special ones
+	
+	set_variable = { average_boost_communist = 0.2 } # this shows the percentage of politicians (who are not currently supportive) who would be on average would be flipped by a compromise
+	set_variable = { average_boost_socialist = 0.2 }
+	set_variable = { average_boost_farmer_labor = 0 }
+	set_variable = { average_boost_republican = 0.4 }
+	set_variable = { average_boost_democrat = 0.2 }
+	set_variable = { average_boost_fascist = 0.2 }
+	
+	set_variable = { communist_flip_cost = 70 } # how much pp negotiation decisions cost
+	set_variable = { socialist_flip_cost = 80 }
+	set_variable = { farmer_labor_flip_cost = 120 }
+	set_variable = { republican_flip_cost = 35 }
+	set_variable = { democrat_flip_cost = 35 }
+	set_variable = { fascist_flip_cost = 20 }
+	
+	USA_bill_setup = yes # always required
+}
+
 USA_bill_setup = {
 	USA_initialize_bill_support = yes
 	set_country_flag = USA_bill_house_phase
@@ -1596,6 +1637,15 @@ USA_bill_vote = {
 		}
 		country_event = {
 			id = us_bill.18
+			hours = 1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { bill_id = 19} # usa joins ww2
+		}
+		country_event = {
+			id = us_bill.19
 			hours = 1
 		}
 	}

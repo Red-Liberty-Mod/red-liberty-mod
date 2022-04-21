@@ -3,40 +3,112 @@ defined_text = {
 	
 	text = { 
         trigger = {
-			check_variable = { USA_SPA_unity > 80 }
+			check_variable = { SPA_unity > 80 }
         }
         localization_key = "USA_spa_party_unity_very_high"
     }
 	
 	text = { 
         trigger = {
-			check_variable = { USA_SPA_unity < 80 }
-			check_variable = { USA_SPA_unity > 50 }
+			check_variable = { SPA_unity < 80 }
+			check_variable = { SPA_unity > 50 }
         }
         localization_key = "USA_spa_party_unity_high"
     }
 	
 	text = { 
         trigger = {
-			check_variable = { USA_SPA_unity > 30 }
-			check_variable = { USA_SPA_unity < 50 }
+			check_variable = { SPA_unity > 30 }
+			check_variable = { SPA_unity < 50 }
         }
         localization_key = "USA_spa_party_unity_middling"
     }
 	
 	text = {
 		trigger = {
-			check_variable = { USA_SPA_unity < 30 }
-			check_variable = { USA_SPA_unity > 15 }
+			check_variable = { SPA_unity < 30 }
+			check_variable = { SPA_unity > 15 }
         }
         localization_key = "USA_spa_party_unity_low"
     }
 	
 	text = {
 		trigger = {
-			check_variable = { USA_SPA_unity < 15 }
+			check_variable = { SPA_unity < 15 }
         }
         localization_key = "USA_spa_party_unity_very_low"
+    }
+}
+
+defined_text = {
+	name = GetSPAUnionistInfluence
+	
+	text = { 
+        trigger = {
+			check_variable = { SPA_unionist_pop > 24 }
+        }
+        localization_key = "USA_spa_party_high_influence"
+    }
+	text = { 
+        trigger = {
+			check_variable = { SPA_unionist_pop > 14 }
+			check_variable = { SPA_unionist_pop < 25 }
+        }
+        localization_key = "USA_spa_party_mid_influence"
+    }
+	text = {
+		trigger = {
+			check_variable = { SPA_unionist_pop < 15 }
+        }
+        localization_key = "USA_spa_party_low_influence"
+    }
+}
+
+defined_text = {
+	name = GetSPAMilitantInfluence
+	
+	text = { 
+        trigger = {
+			check_variable = { SPA_militant_pop > 24 }
+        }
+        localization_key = "USA_spa_party_high_influence"
+    }
+	text = { 
+        trigger = {
+			check_variable = { SPA_militant_pop > 14 }
+			check_variable = { SPA_militant_pop < 25 }
+        }
+        localization_key = "USA_spa_party_mid_influence"
+    }
+	text = {
+		trigger = {
+			check_variable = { SPA_militant_pop < 15 }
+        }
+        localization_key = "USA_spa_party_low_influence"
+    }
+}
+
+defined_text = {
+	name = GetSPAModerateInfluence
+	
+	text = { 
+        trigger = {
+			check_variable = { SPA_moderate_pop > 24 }
+        }
+        localization_key = "USA_spa_party_high_influence"
+    }
+	text = { 
+        trigger = {
+			check_variable = { SPA_moderate_pop > 14 }
+			check_variable = { SPA_moderate_pop < 25 }
+        }
+        localization_key = "USA_spa_party_mid_influence"
+    }
+	text = {
+		trigger = {
+			check_variable = { SPA_moderate_pop < 15 }
+        }
+        localization_key = "USA_spa_party_low_influence"
     }
 }
 

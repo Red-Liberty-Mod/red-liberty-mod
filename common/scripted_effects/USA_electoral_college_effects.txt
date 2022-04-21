@@ -955,6 +955,7 @@ USA_convert_party_pop_percentage = {
 	add_to_temp_variable = { afp_temp_pop = afp_popularity_special }
 	
 	USA_gerrymandering_bonus = yes
+	USA_party_unity_bonus = yes
 	
 	set_temp_variable = { total_party_pop = communist_temp_pop }
 	add_to_temp_variable = { total_party_pop = socialist_temp_pop }
@@ -1162,6 +1163,37 @@ USA_gerrymandering_bonus = {
 		}
 		add_to_temp_variable = { afp_temp_pop = 0.05 }
 		log = "[This.GetName] : added USA_gerrymandered_afp bonus"
+	}
+}
+
+USA_party_unity_bonus = {
+	if = {
+		limit = {
+			check_variable = { SPA_unity < 5 }
+		}
+		subtract_from_temp_variable = { socialist_temp_pop = 0.1 }
+		log = "[This.GetName] : added USA_party_unity_bonus -0.1"
+	}
+	else_if = {
+		limit = {
+			check_variable = { SPA_unity < 10 }
+		}
+		subtract_from_temp_variable = { socialist_temp_pop = 0.075 }
+		log = "[This.GetName] : added USA_party_unity_bonus -0.075"
+	}
+	else_if = {
+		limit = {
+			check_variable = { SPA_unity < 15 }
+		}
+		subtract_from_temp_variable = { socialist_temp_pop = 0.05 }
+		log = "[This.GetName] : added USA_party_unity_bonus -0.05"
+	}
+	else_if = {
+		limit = {
+			check_variable = { SPA_unity > 25 }
+		}
+		add_to_temp_variable = { socialist_temp_pop = 0.05 }
+		log = "[This.GetName] : added USA_party_unity_bonus +0.05"
 	}
 }
 
