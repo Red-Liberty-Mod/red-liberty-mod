@@ -1,6 +1,15 @@
 # Scripted GUI Pie Chart example by Yard1
 # Feel free to use in your mods, but give credits to Yard1 (both in code, with comments; and on your download page)
 
+USA_setup_SPA_pie_chart_values = {
+	
+	set_variable = { SPA_unionist_pop = 27 }
+	set_variable = { SPA_militant_pop = 10 }
+	set_variable = { SPA_moderate_pop = 19 }
+	
+	set_variable = { SPA_unity = 17 }
+}
+
 # this creates a pie chart of popularities - can be easily adapted to show anything that adds up to 100%
 create_pie_chart = {
 	clear_array = pie_chart
@@ -10,9 +19,9 @@ create_pie_chart = {
 		size = 100 # 100 pieces, each percent is one piece
 	}
 	
-	set_temp_variable = { libsoc_pop = party_popularity@libertarian_socialism }
-	set_temp_variable = { communism_pop = party_popularity@proletarian_dictatorship }
-	set_temp_variable = { socdem_pop = party_popularity@social_democracy }
+	set_temp_variable = { libsoc_pop = SPA_unionist_pop }
+	set_temp_variable = { communism_pop = SPA_militant_pop }
+	set_temp_variable = { socdem_pop = SPA_moderate_pop }
 	
 	set_temp_variable = { spa_total_pop = libsoc_pop }
 	add_to_temp_variable = { spa_total_pop = communism_pop }
