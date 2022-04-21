@@ -604,6 +604,32 @@ USA_congress = {
 		}
 	}
 	
+	start_USA_war_declaration = { # ww2 war declaration
+		icon = ger_mefo_bills
+		available = {
+			NOT = {
+				start_USA_war_declaration
+				has_country_flag = USA_discussing_bill
+			}
+		}
+		
+		visible = {
+			#original_tag = USA
+			#NOT = {
+			#	has_country_flag = USA_discussing_bill
+			#}
+			#is_debug = yes
+			always = no
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			custom_effect_tooltip = USA_worldwar_tooltip
+			USA_war_declaration_setup = yes 
+		}
+	}
+	
 	### MINOR LEGISLATION ###
 	
 	start_USA_national_cancer_act = {

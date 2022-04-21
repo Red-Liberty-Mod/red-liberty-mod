@@ -816,6 +816,50 @@ country_event = { # pr statehood
 	}
 }
 
+country_event = { # 
+	id = us_bill.19
+	
+	# different loc based on if it passes or fails
+	title = {
+		text = us_bill.19.t_passed
+		trigger = { has_country_flag = bill_passed }
+	}
+	title = { 
+		text = us_bill.19.t_failed
+		trigger = { NOT = { has_country_flag = bill_passed } }
+	}
+	desc = {
+		text = us_bill.19.d_passed
+		trigger = { has_country_flag = bill_passed }
+	}
+	desc = {
+		text = us_bill.19.d_failed
+		trigger = { NOT = { has_country_flag = bill_passed } }
+	}
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event us_bill.1"
+	}
+
+	is_triggered_only = yes
+
+	option = { # bill passes
+		name = us_bill.19.a
+		trigger = { has_country_flag = bill_passed }
+		complete_national_focus = USA_congress_reigns_supreme
+		set_country_flag = USA_war_declaration_passed
+		USA_bill_clear = yes # ALWAYS DO THIS
+	}
+	
+	option = { # bill fails
+		name = us_bill.19.b
+		trigger = { NOT = { has_country_flag = bill_passed } }
+		complete_national_focus = USA_peace_in_our_time
+		set_country_flag = USA_war_declaration_failed
+		USA_bill_clear = yes # ALWAYS DO THIS
+	}
+}
+
 country_event = { # filibuster debug event
 	id = us_bill.1000
 	title = us_bill.1000.title
