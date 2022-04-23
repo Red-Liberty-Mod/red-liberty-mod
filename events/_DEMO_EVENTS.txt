@@ -698,6 +698,10 @@ country_event = { # september constitution - september 26, 1936
 				id = demo_ahe.12
 				days = 45
 			}
+			country_event = { # november 8
+				id = demo_ahe.13
+				days = 52
+			}
 		}
 		random_other_country = {
 			limit = { is_ai = yes }
@@ -876,6 +880,42 @@ country_event = { # slovaks form govt
 	option = {
 		name = demo_ahe.12.a
 		AHE_setup_SLO = yes
+	}
+}
+
+country_event = { # poland and ukraine occupations
+	id = demo_ahe.13
+	title = demo_ahe.13.title
+	desc = demo_ahe.13.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ahe.13.a
+		72 = {
+			set_state_owner_to = POL
+			set_state_controller_to = POL
+			set_demilitarized_zone = no
+		}
+		88 = {
+			set_state_owner_to = POL
+			set_state_controller_to = POL
+			set_demilitarized_zone = no
+		}
+		89 = {
+			set_state_owner_to = UKR
+			set_state_controller_to = UKR
+			set_demilitarized_zone = no
+		}
+		91 = {
+			set_state_owner_to = UKR
+			set_state_controller_to = UKR
+			set_demilitarized_zone = no
+		}
 	}
 }
 
@@ -1999,6 +2039,7 @@ country_event = {
 	desc = demo_raj_brm.1.desc
 	
 	trigger = {
+		original_tag = BRM
 		BRM = {
 			controls_state = 288
 		}
@@ -2010,8 +2051,11 @@ country_event = {
 		name = demo_raj_brm.1.a
 		white_peace = {
 			tag = RAJ
+		}
+		white_peace = {
 			tag = ENG
 		}
+		transfer_state = 288
 	}
 }
 
