@@ -1478,6 +1478,47 @@ news_event = { # vargas victory 3
 	}
 }
 
+news_event = { # brazil politics
+	id = demo_bra.4
+	title = demo_bra.4.title
+	desc = demo_bra.4.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = { # authdem vargas
+		name = demo_bra.4.a
+		ai_chance = 4
+	}
+	
+	option = { # far right vargas
+		name = demo_bra.4.b
+		BRA = {
+			set_politics = {
+				ruling_party = far_right_authoritarianism
+				elections_allowed = no
+				last_election = "1936.1.1"
+				election_frequency = 48
+			}
+		}
+		ai_chance = 4
+	}
+	
+	option = { # integralists
+		name = demo_bra.4.c
+		BRA = {
+			set_politics = {
+				ruling_party = fascism
+				elections_allowed = no
+				last_election = "1936.1.1"
+				election_frequency = 48
+			}
+		}
+		ai_chance = 2
+	}
+}
+
 news_event = { # prestes victory 1
 	id = demo_uob.1
 	title = demo_uob.1.title
@@ -1531,6 +1572,57 @@ news_event = { # prestes victory 4
 
 	option = {
 		name = demo_uob.4.a
+	}
+}
+
+news_event = { # brazil politics
+	id = demo_uob.5
+	title = demo_uob.5.title
+	desc = demo_uob.5.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = { # revsocs
+		name = demo_uob.5.a
+		UOB = {
+			drop_cosmetic_tag = yes
+			set_cosmetic_tag = UOB_federative_republic
+		}
+		
+		ai_chance = 4
+	}
+	
+	option = { # demsocs
+		name = demo_uob.5.b
+		UOB = {
+			drop_cosmetic_tag = yes
+			set_cosmetic_tag = UOB_federative_republic
+		
+			set_politics = {
+				ruling_party = libertarian_socialism
+				elections_allowed = no
+				last_election = "1936.1.1"
+				election_frequency = 48
+			}
+		}
+		ai_chance = 4
+	}
+	
+	option = { # authsocs
+		name = demo_uob.5.c
+		UOB = {
+			drop_cosmetic_tag = yes
+		
+			set_politics = {
+				ruling_party = revolutionary_autocracy
+				elections_allowed = no
+				last_election = "1936.1.1"
+				election_frequency = 48
+			}
+		}
+		ai_chance = 2
 	}
 }
 
