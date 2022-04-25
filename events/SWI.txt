@@ -1,0 +1,94 @@
+add_namespace = swiss
+
+country_event = { # change to etter
+	id = swiss.1
+	title = swiss.1.title
+	desc = swiss.1.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = no
+	
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = swiss.2
+				days = 365
+			}
+		}
+	}
+
+	option = {
+		name = swiss.1.a
+		SWI = {
+			set_politics = {
+				ruling_party = national_conservatism
+				last_election = "1935.10.27"
+				election_frequency = 48
+				elections_allowed = yes
+			}
+		}
+	}
+}
+
+country_event = { # change to nobs
+	id = swiss.2
+	title = swiss.2.title
+	desc = swiss.2.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = no
+	
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = swiss.3
+				days = 365
+			}
+		}
+	}
+
+	option = {
+		name = swiss.2.a
+		SWI = {
+			set_politics = {
+				ruling_party = libertarian_socialism
+				last_election = "1935.10.27"
+				election_frequency = 48
+				elections_allowed = yes
+			}
+		}
+	}
+}
+
+country_event = { # change to golaz
+	id = swiss.3
+	title = swiss.3.title
+	desc = swiss.3.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = no
+	
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = swiss.1
+				days = 365
+			}
+		}
+	}
+
+	option = {
+		name = swiss.3.a
+		SWI = {
+			set_politics = {
+				ruling_party = market_libertarian
+				last_election = "1935.10.27"
+				election_frequency = 48
+				elections_allowed = yes
+			}
+		}
+	}
+}

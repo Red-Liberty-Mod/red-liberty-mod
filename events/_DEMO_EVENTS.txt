@@ -21,7 +21,6 @@ add_namespace = demo.sov_fin_war
 add_namespace = demo_gre_victory
 add_namespace = demo.Rus_Ger_war_declaration
 add_namespace = demo.Ger_Rus_war_declaration
-add_namespace = demo_swi_leader_change
 add_namespace = demo_mex_war
 add_namespace = demo_yuc
 add_namespace = demo_usa_jap_peace
@@ -674,11 +673,11 @@ country_event = { # september constitution - september 26, 1936
 				id = demo_ahe.5
 				days = 2
 			}
-			country_event = { # september 29
+			country_event = { # september 29 - czechs
 				id = demo_ahe.6
 				days = 3
 			}
-			country_event = { # september 30
+			country_event = { # september 30 - hungarians
 				id = demo_ahe.7
 				days = 4
 			}
@@ -701,6 +700,18 @@ country_event = { # september constitution - september 26, 1936
 			country_event = { # november 8
 				id = demo_ahe.13
 				days = 52
+			}
+			country_event = { # october 10 - italian occupation
+				id = demo_ahe.14
+				days = 14
+			}
+			country_event = { # october 2 - serb occupation
+				id = demo_ahe.15
+				days = 6
+			}
+			country_event = { # march 12 - aus/ahe war
+				id = demo_ahe.16
+				days = 174
 			}
 		}
 		random_other_country = {
@@ -820,7 +831,14 @@ country_event = { # rom-hun war
 	option = {
 		name = demo_ahe.9.a
 		ROM = {
+			transfer_state = 76
 			transfer_state = 80
+			transfer_state = 82
+			transfer_state = 83
+			transfer_state = 84
+			
+			load_oob = ROM_danubian_war
+			
 			declare_war_on = {
 				target = HUN
 				type = annex_everything
@@ -915,6 +933,60 @@ country_event = { # poland and ukraine occupations
 			set_state_owner_to = UKR
 			set_state_controller_to = UKR
 			set_demilitarized_zone = no
+		}
+	}
+}
+
+country_event = { # italy occupation
+	id = demo_ahe.14
+	title = demo_ahe.14.title
+	desc = demo_ahe.14.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ahe.14.a
+		ITA = {
+			transfer_state = 875
+		}
+	}
+}
+
+country_event = { # serbia occupation
+	id = demo_ahe.15
+	title = demo_ahe.15.title
+	desc = demo_ahe.15.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ahe.15.a
+		SER = {
+			transfer_state = 764
+		}
+	}
+}
+
+country_event = { # ahe/aus war
+	id = demo_ahe.16
+	title = demo_ahe.16.title
+	desc = demo_ahe.16.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ahe.16.a
+		AUS = {
+			declare_war_on = {
+				target = AHE
+				type = annex_everything
+			}
 		}
 	}
 }
@@ -1218,72 +1290,6 @@ country_event = { # civil war
 			end_puppet = OMA
 			end_puppet = EGY
 			end_puppet = SRW
-		}
-	}
-}
-
-country_event = { # swi leader change 1
-	id = demo_swi_leader_change.1
-	title = demo_swi_leader_change.1.title
-	desc = demo_swi_leader_change.1.desc
-	
-	is_triggered_only = yes
-	
-	fire_only_once = no
-
-	option = {
-		name = demo_swi_leader_change.1.a
-		SWI = {
-			set_politics = {
-				ruling_party = national_conservatism
-				last_election = "1936.1.1"
-				election_frequency = 48
-				elections_allowed = yes
-			}
-		}
-	}
-}
-
-country_event = { # swi leader change 2
-	id = demo_swi_leader_change.2
-	title = demo_swi_leader_change.2.title
-	desc = demo_swi_leader_change.2.desc
-	
-	is_triggered_only = yes
-	
-	fire_only_once = no
-
-	option = {
-		name = demo_swi_leader_change.2.a
-		SWI = {
-			set_politics = {
-				ruling_party = libertarian_socialism
-				last_election = "1936.1.1"
-				election_frequency = 48
-				elections_allowed = yes
-			}
-		}
-	}
-}
-
-country_event = { # swi leader change 3
-	id = demo_swi_leader_change.3
-	title = demo_swi_leader_change.3.title
-	desc = demo_swi_leader_change.3.desc
-	
-	is_triggered_only = yes
-	
-	fire_only_once = no
-
-	option = {
-		name = demo_swi_leader_change.3.a
-		SWI = {
-			set_politics = {
-				ruling_party = market_libertarian
-				last_election = "1939.1.1"
-				election_frequency = 48
-				elections_allowed = yes
-			}
 		}
 	}
 }
