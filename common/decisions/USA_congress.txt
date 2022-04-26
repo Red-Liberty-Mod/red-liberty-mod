@@ -392,7 +392,7 @@ USA_congress = {
 				has_country_flag = USA_discussing_bill
 				has_country_flag = equal_education_passed
 			}
-			has_completed_focus = USA_second_bill_of_rights
+			has_completed_focus = USA_attempt_standardization
 		}
 		
 		cost = 0
@@ -424,7 +424,7 @@ USA_congress = {
 				has_country_flag = USA_discussing_bill
 				has_country_flag = economic_equality_passed
 			}
-			has_completed_focus = USA_second_bill_of_rights
+			has_completed_focus = USA_economic_equality_act
 		}
 		
 		cost = 0
@@ -456,7 +456,8 @@ USA_congress = {
 				has_country_flag = USA_discussing_bill
 				has_country_flag = national_healthcare_passed
 			}
-			has_completed_focus = USA_second_bill_of_rights
+			has_completed_focus = USA_national_healthcare_act
+			always = yes
 		}
 		
 		cost = 0
@@ -489,6 +490,7 @@ USA_congress = {
 				has_country_flag = second_bill_of_rights_passed
 			}
 			has_completed_focus = USA_second_bill_of_rights
+			always = yes
 		}
 		
 		cost = 0
@@ -608,18 +610,16 @@ USA_congress = {
 		icon = ger_mefo_bills
 		available = {
 			NOT = {
-				start_USA_war_declaration
 				has_country_flag = USA_discussing_bill
 			}
 		}
 		
 		visible = {
-			#original_tag = USA
-			#NOT = {
-			#	has_country_flag = USA_discussing_bill
-			#}
-			#is_debug = yes
-			always = no
+			original_tag = USA
+			NOT = {
+				has_country_flag = USA_discussing_bill
+			}
+			always = yes
 		}
 		
 		cost = 0
