@@ -1478,18 +1478,18 @@ news_event = { # vargas victory 3
 	}
 }
 
-news_event = { # brazil politics
+country_event = { # brazil politics
 	id = demo_bra.4
 	title = demo_bra.4.title
 	desc = demo_bra.4.desc
 	
 	is_triggered_only = yes
-	
-	major = yes
 
 	option = { # authdem vargas
 		name = demo_bra.4.a
-		ai_chance = 4
+		ai_chance = {
+			base = 2
+		}
 	}
 	
 	option = { # far right vargas
@@ -1502,7 +1502,9 @@ news_event = { # brazil politics
 				election_frequency = 48
 			}
 		}
-		ai_chance = 4
+		ai_chance = {
+			base = 4
+		}
 	}
 	
 	option = { # integralists
@@ -1515,7 +1517,9 @@ news_event = { # brazil politics
 				election_frequency = 48
 			}
 		}
-		ai_chance = 2
+		ai_chance = {
+			base = 4
+		}
 	}
 }
 
@@ -1575,14 +1579,12 @@ news_event = { # prestes victory 4
 	}
 }
 
-news_event = { # brazil politics
+country_event = { # brazil politics
 	id = demo_uob.5
 	title = demo_uob.5.title
 	desc = demo_uob.5.desc
 	
 	is_triggered_only = yes
-	
-	major = yes
 
 	option = { # revsocs
 		name = demo_uob.5.a
@@ -1590,8 +1592,9 @@ news_event = { # brazil politics
 			drop_cosmetic_tag = yes
 			set_cosmetic_tag = UOB_federative_republic
 		}
-		
-		ai_chance = 4
+		ai_chance = {
+			base = 4
+		}
 	}
 	
 	option = { # demsocs
@@ -1607,7 +1610,9 @@ news_event = { # brazil politics
 				election_frequency = 48
 			}
 		}
-		ai_chance = 4
+		ai_chance = {
+			base = 4
+		}
 	}
 	
 	option = { # authsocs
@@ -1622,7 +1627,9 @@ news_event = { # brazil politics
 				election_frequency = 48
 			}
 		}
-		ai_chance = 2
+		ai_chance = {
+			base = 2
+		}
 	}
 }
 
