@@ -4,6 +4,7 @@ country_event = { # east coast campaign - nyc
 	id = united_states_thomas.1
 	title = united_states_thomas.1.title
 	desc = united_states_thomas.1.desc
+	picture = GFX_report_event_new_york
 	
 	is_triggered_only = yes
 	
@@ -127,17 +128,31 @@ country_event = { # southern campaign
 	}
 }
 
-country_event = { # macarthur argues with thomas
+country_event = { # the grand finale
 	id = united_states_thomas.7
-	title = "A Disagreement"
-	desc = united_states_thomas.7.desc
+	title = united_states_thomas.7.title
+	desc = {
+		text = united_states_thomas.7.wallace
+		trigger = { has_country_flag = USA_progressive_veep }
+	}
+	desc = {
+		text = united_states_thomas.7.browder
+		trigger = { has_country_flag = USA_radical_veep }
+	}
+	picture = GFX_report_event_socialist_convention
 	
 	is_triggered_only = yes
 	
 	fire_only_once = yes
 
 	option = {
-		name = "Incendiary."
+		name = united_states_thomas.7.a
+		trigger = { has_country_flag = USA_progressive_veep }
+	}
+	
+	option = {
+		name = united_states_thomas.7.b
+		trigger = { has_country_flag = USA_radical_veep }
 	}
 }
 
