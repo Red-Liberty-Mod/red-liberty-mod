@@ -113,26 +113,6 @@
 	# Bomber Planes
 	add_equipment_to_stockpile = { type = tac_bomber_equipment_0 amount = 13 producer = NFA } # 42 - Breguet 14 & Nieuport-Delage NiD 29
 	add_equipment_to_stockpile = { type = tac_bomber_equipment_0 amount = 3 producer = SIA } # 10 - Bomber Type-2 Boripatr
-
-	# Equipment Production
-	add_equipment_production = {
-		equipment = { # Type 66 Siamese Mausers
-			type = infantry_equipment_1
-			creator = "SIA"
-		}
-		requested_factories = 1
-		progress = 0.1
-		efficiency = 100
-	}
-	add_equipment_production = {
-		equipment = { # Support Equipment
-			type = support_equipment_1
-			creator = "SIA"
-		}
-		requested_factories = 2
-		progress = 0.1
-		efficiency = 80
-	}
 }
 
 division_template = {
@@ -188,7 +168,7 @@ division_template = {
 }
 division_template = {
 	name = "Korngpon Taharn Rarb Raksa Pra-ong" # King's Guard Unit
-	division_names_group = SIA_ROYAL_INF_01
+	division_names_group = SIA_INF_02
 	is_locked = yes
 	regiments = {
 		infantry = { x = 0 y = 0 }
@@ -439,3 +419,24 @@ air_wings = {
 }
 
 ### Production at the 1936 Start ###
+
+instant_effect = {
+	add_equipment_production = {
+		equipment = { # Type 66 Siamese Mausers
+			type = infantry_equipment_1
+			creator = "SIA"
+		}
+		requested_factories = 1
+		progress = 0.1
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = { # Support Equipment
+			type = support_equipment_1
+			creator = "SIA"
+		}
+		requested_factories = 2
+		progress = 0.1
+		efficiency = 80
+	}
+}
