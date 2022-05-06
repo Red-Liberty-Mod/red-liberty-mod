@@ -386,6 +386,15 @@ shared_focus = {
 	prerequisite = { focus = USA_the_american_crisis }
     completion_reward = {
         custom_effect_tooltip = USA_SPA_better_midwest
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					can_have_elections_in_state = yes
+					is_great_lakes_state = yes
+				}
+				add_to_variable = { socialist_popularity = 0.01 }
+			}
+		}
     }
 	
 	ai_will_do = {
@@ -486,6 +495,18 @@ shared_focus = {
 	prerequisite = { focus = USA_the_american_crisis }
     completion_reward = {
 		custom_effect_tooltip = USA_SPA_better_north
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					can_have_elections_in_state = yes
+					NOT = {
+						is_upper_south_state = yes
+						is_deep_south_state = yes
+					}
+				}
+				add_to_variable = { socialist_popularity = 0.01 }
+			}
+		}
     }
 	
 	ai_will_do = {
@@ -590,6 +611,14 @@ shared_focus = {
     completion_reward = {
         # add event about local 829
 		ECON_poverty_change_small = yes
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					can_have_elections_in_state = yes
+				}
+				add_to_variable = { socialist_popularity = 0.01 }
+			}
+		}
     }
 	
 	ai_will_do = {
