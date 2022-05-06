@@ -10,6 +10,16 @@ USA_recalculate_polls = {
 		USA_clamp_state_popularities = yes
 		USA_check_election_vs = yes
 	}
+	if = {
+		limit = {
+			NOT = {
+				has_country_flag = USA_block_poll_event
+			}
+		}
+		country_event = {
+			id = us_election_trigger.9
+		}
+	}
 }
 
 USA_class_1_senate_prepare = {

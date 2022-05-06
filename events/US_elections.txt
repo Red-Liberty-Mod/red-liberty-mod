@@ -698,3 +698,21 @@ country_event = { # clear variables a month after election
  	}
 }
 
+country_event = { # inform the player about polls being updated
+	id = us_election_trigger.9
+ 	title = us_election_trigger.9.title
+ 	desc = us_election_trigger.9.desc
+
+	is_triggered_only = yes
+
+ 	option = {
+ 		name = us_election_trigger.9.a
+ 	}
+	
+	option = {
+ 		name = us_election_trigger.9.b
+		custom_effect_tooltip = USA_dont_show_polls_tt
+		set_country_flag = USA_block_poll_event
+ 	}
+}
+

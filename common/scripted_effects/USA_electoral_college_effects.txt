@@ -1,7 +1,9 @@
 ### CONSTANTS ###
 @PRESIDENTIAL_TIEBREAKER = 0.05
+
 @POPULARITY_CLAMP_MIN = 0 # used to be 0.001
 @POPULARITY_CLAMP_MAX = 1000
+
 @PULSE_POPULARITY_CLAMP_MIN = 0
 @PULSE_POPULARITY_CLAMP_MAX_FIRST = 10
 @PULSE_POPULARITY_CLAMP_MAX_SECOND = 2 # originally 2
@@ -864,32 +866,23 @@ US_hold_presidential_election = {
 
 USA_clamp_state_popularities = {
 	
-	if = {
-		limit = {
-			NOT = {
-				ROOT = {
-					has_country_flag = USA_republicans_ded
-				}
-			}
-		}
-		clamp_variable = {
-			var = republican_popularity
-			min = @PULSE_POPULARITY_CLAMP_MIN
-			max = @PULSE_POPULARITY_CLAMP_MAX_FIRST
-		}
-	}
 	clamp_variable = {
 		var = communist_popularity
 		min = @PULSE_POPULARITY_CLAMP_MIN
 		max = @PULSE_POPULARITY_CLAMP_MAX_FIRST
 	}
 	clamp_variable = {
-		var = democrat_popularity
+		var = socialist_popularity
 		min = @PULSE_POPULARITY_CLAMP_MIN
 		max = @PULSE_POPULARITY_CLAMP_MAX_FIRST
 	}
 	clamp_variable = {
-		var = socialist_popularity
+		var = republican_popularity
+		min = @PULSE_POPULARITY_CLAMP_MIN
+		max = @PULSE_POPULARITY_CLAMP_MAX_FIRST
+	}
+	clamp_variable = {
+		var = democrat_popularity
 		min = @PULSE_POPULARITY_CLAMP_MIN
 		max = @PULSE_POPULARITY_CLAMP_MAX_FIRST
 	}
@@ -908,11 +901,14 @@ USA_clamp_state_popularities = {
 				check_variable = { afp_popularity > @PULSE_POPULARITY_CLAMP_MAX_SECOND }
 			}
 		}
-		set_temp_variable = { divisor = republican_popularity }
-		add_to_temp_variable = { divisor = democrat_popularity }
+		set_temp_variable = { divisor = communist_popularity }
 		add_to_temp_variable = { divisor = socialist_popularity }
+		add_to_temp_variable = { divisor = republican_popularity }
+		add_to_temp_variable = { divisor = democrat_popularity }
 		add_to_temp_variable = { divisor = afp_popularity }
 		divide_temp_variable = { divisor = @PULSE_POPULARITY_CLAMP_MAX_SECOND }
+		
+		divide_variable = { communist_popularity = divisor }
 		divide_variable = { republican_popularity = divisor }
 		divide_variable = { democrat_popularity = divisor }
 		divide_variable = { socialist_popularity = divisor }
@@ -943,7 +939,7 @@ USA_clamp_state_popularities = {
 		min = @PULSE_POPULARITY_CLAMP_MIN
 		max = @PULSE_POPULARITY_CLAMP_MAX_SECOND
 	}
-	log = "[This.GetName] : Clamped state popularities: SPA: [?socialist_popularity] || DP: [?democrat_popularity] || RP: [?republican_popularity] || AFP: [?afp_popularity]"
+	log = "[This.GetName] : USA_clamp_state_popularities: SPA: [?socialist_popularity] || DP: [?democrat_popularity] || RP: [?republican_popularity] || AFP: [?afp_popularity]"
 }
 
 USA_prepare_presidential_election = {
