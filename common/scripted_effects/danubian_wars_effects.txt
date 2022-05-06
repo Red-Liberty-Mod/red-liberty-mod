@@ -183,6 +183,39 @@ AHE_setup_CRO = {
 	}
 }
 
+CRO_setup_BOS = {
+	hidden_effect {
+		BOS = {
+			add_state_core = 104
+			add_state_core = 886
+			
+			CRO = {
+				every_owned_state = {
+					limit = { is_core_of = BOS }
+					
+					remove_core_of = CRO
+					BOS = { transfer_state = PREV }
+					
+					teleport_armies = {
+						limit = { tag = CRO }
+						to_state_array = owned_controlled_states
+					}
+				}
+			}
+			
+			load_oob = BOS_danubian_war
+			if = {
+				limit = { has_template = "Pješačka Divizija" }
+				delete_unit_template_and_units = { division_template = "Pješačka Divizija" }
+			}
+			if = {
+				limit = { has_template = "Divizije Milicije" }
+				delete_unit_template_and_units = { division_template = "Divizije Milicije" }
+			}
+		}
+	}	
+}
+
 AHE_setup_SLV = {
 	hidden_effect {
 		SLV = {
