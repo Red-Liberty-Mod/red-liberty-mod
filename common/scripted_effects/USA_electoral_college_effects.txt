@@ -66,11 +66,10 @@ USA_start_elections_system = {
 		set_variable = { electoral_votes = 12 } # was 11
 	}
 	
-	377 = { # Arizona,  fairly conservative
+	377 = { # Arizona, swing state
 		set_state_flag = US_election_state
-		set_variable = { socialist_popularity = 0.2 }
-		set_variable = { republican_popularity = 0.35 }
-		set_variable = { democrat_popularity = 0.65 }
+		set_variable = { socialist_popularity = 0.55 }
+		set_variable = { democrat_popularity = 0.5 }
 		
 		set_variable = { senator_1 = 3 } # democrat
 		set_variable = { senator_2 = 3 } # democrat
@@ -406,9 +405,9 @@ USA_start_elections_system = {
 	
 	376 = { # New Mexico, swing state
 		set_state_flag = US_election_state
-		set_variable = { socialist_popularity = 0.25 }
+		set_variable = { socialist_popularity = 0.45 }
 		set_variable = { republican_popularity = 0.15 }
-		set_variable = { democrat_popularity = 0.45 }
+		set_variable = { democrat_popularity = 0.55 }
 		set_variable = { afp_popularity = 0.3 }
 		
 		set_variable = { senator_1 = 2 }
@@ -417,7 +416,7 @@ USA_start_elections_system = {
 		set_variable = { electoral_votes = 5 } # was 3
 	}
 	
-	358 = { # New York, very liberal
+	358 = { # New York, very socialist
 		set_state_flag = US_election_state
 		set_variable = { communist_popularity = 0.05 }
 		set_variable = { socialist_popularity = 0.55 }
@@ -433,6 +432,7 @@ USA_start_elections_system = {
 	
 	363 = { # North Carolina, conservative but not super conservative
 		set_state_flag = US_election_state
+		set_variable = { socialist_popularity = 0.2 }
 		set_variable = { democrat_popularity = 0.6 }
 		set_variable = { republican_popularity = 0.1 }
 		set_variable = { afp_popularity = 0.25 }
@@ -471,10 +471,10 @@ USA_start_elections_system = {
 		set_variable = { electoral_votes = 26 } # no change
 	}
 	
-	374 = { # Oklahoma
+	374 = { # Oklahoma, tossup between left and right
 		set_state_flag = US_election_state
-		set_variable = { socialist_popularity = 0.55 }
-		set_variable = { democrat_popularity = 0.65 }
+		set_variable = { socialist_popularity = 0.6 }
+		set_variable = { democrat_popularity = 0.55 }
 		set_variable = { afp_popularity = 0.35 }
 		
 		set_variable = { senator_1 = 1 }
@@ -499,8 +499,9 @@ USA_start_elections_system = {
 	360 = { # Pennsylvania, firmly socialist because of pittsburgh and philly
 		set_state_flag = US_election_state
 		set_variable = { socialist_popularity = 0.7 }
-		set_variable = { republican_popularity = 0.2 }
-		set_variable = { democrat_popularity = 0.1 }
+		set_variable = { republican_popularity = 0.1 }
+		set_variable = { democrat_popularity = 0.55 }
+		set_variable = { afp_popularity = 0.15 }
 		
 		set_variable = { senator_1 = 1 }
 		set_variable = { senator_2 = 1 }
@@ -1181,28 +1182,28 @@ USA_gerrymandering_bonus = {
 USA_party_unity_bonus = {
 	if = {
 		limit = {
-			check_variable = { SPA_unity < 5 }
+			check_variable = { USA.SPA_unity < 5 }
 		}
 		subtract_from_temp_variable = { socialist_temp_pop = 0.1 }
 		log = "[This.GetName] : added USA_party_unity_bonus -0.1"
 	}
 	else_if = {
 		limit = {
-			check_variable = { SPA_unity < 10 }
+			check_variable = { USA.SPA_unity < 10 }
 		}
 		subtract_from_temp_variable = { socialist_temp_pop = 0.075 }
 		log = "[This.GetName] : added USA_party_unity_bonus -0.075"
 	}
 	else_if = {
 		limit = {
-			check_variable = { SPA_unity < 15 }
+			check_variable = { USA.SPA_unity < 15 }
 		}
 		subtract_from_temp_variable = { socialist_temp_pop = 0.05 }
 		log = "[This.GetName] : added USA_party_unity_bonus -0.05"
 	}
 	else_if = {
 		limit = {
-			check_variable = { SPA_unity > 25 }
+			check_variable = { USA.SPA_unity > 25 }
 		}
 		add_to_temp_variable = { socialist_temp_pop = 0.05 }
 		log = "[This.GetName] : added USA_party_unity_bonus +0.05"
