@@ -345,12 +345,19 @@ country_event = { # shit explodes
 		}
 		
 		add_ideas = {
-			USA_insurgency_cp_idea
+			USA_insurgency_idea
+		}
+		
+		hidden_effect = {
+			random_other_country = {
+				limit = { is_ai = yes }
+				news_event = { id = united_states_insurgency.6 hours = 6 }
+			}
 		}
 	}
 }
 
-news_event = {
+country_event = { # insurrection act
 	id = united_states_insurgency.4
 	title = united_states_insurgency.4.title
 	desc = united_states_insurgency.4.desc
@@ -361,10 +368,12 @@ news_event = {
 
 	option = {
 		name = united_states_insurgency.4.a
+		subtract_from_variable = { USA_insurgency_strength = 7 }
+		add_stability = 0.03
 	}
 }
 
-country_event = {
+country_event = { # dont tell mom im in detroit
 	id = united_states_insurgency.5
 	title = united_states_insurgency.5.title
 	desc = united_states_insurgency.5.desc
@@ -375,10 +384,12 @@ country_event = {
 
 	option = {
 		name = united_states_insurgency.5.a
+		add_to_variable = { USA_insurgency_strength = 5 }
+		add_stability = -0.03
 	}
 }
 
-country_event = {
+news_event = { # insurgency world news event
 	id = united_states_insurgency.6
 	title = united_states_insurgency.6.title
 	desc = united_states_insurgency.6.desc
@@ -386,6 +397,8 @@ country_event = {
 	is_triggered_only = yes
 	
 	fire_only_once = yes
+	
+	major = yes
 
 	option = {
 		name = united_states_insurgency.6.a
