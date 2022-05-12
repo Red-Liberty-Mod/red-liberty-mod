@@ -172,9 +172,10 @@ USA_judicial_reform_act_setup = { # court packing plan
 	
 	set_variable = { bill_id = 4 } # EACH BILL MUST HAVE A UNIQUE ID
 	
-	set_country_flag = USA_democrat_discussing
 	set_country_flag = USA_communist_discussing
 	set_country_flag = USA_socialist_discussing
+	set_country_flag = USA_democrat_discussing
+	set_country_flag = USA_republican_discussing
 	
 	set_variable = { USA_republican_bill_support = 0.1 } # GOVERNMENT OVERREACH
 	set_variable = { USA_democrat_bill_support = 0.15 } # DICTATORSHIP ALERT
@@ -183,8 +184,10 @@ USA_judicial_reform_act_setup = { # court packing plan
 	set_variable = { USA_fascist_bill_support = 0 } # FACKING COMMIES RUINING MURICA
 	
 	set_variable = { average_boost_democrat = 0.075 }
-	set_variable = { average_boost_socialist = 0.15 }
+	set_variable = { average_boost_socialist = 0.65 }
+	set_variable = { average_boost_republican = 0.05 }
 	
+	set_variable = { republican_flip_cost = 130 }
 	set_variable = { democrat_flip_cost = 100 }
 	set_variable = { socialist_flip_cost = 50 }
 	
@@ -987,6 +990,13 @@ USA_socialist_support_house_eventless = {
 		log = "[GetDateText]: [Root.GetName]: max_new_support*average_boost_socialist: [?max_new_support]"
 		
 		add_to_variable = { socialist_supporting_reps = max_new_support }
+		add_to_variable = { representatives_support = max_new_support }
+		
+		clamp_variable = {
+			var = socialist_supporting_reps
+			min = 0
+			max = representatives_socialist
+		}
 	}
 	
 	set_country_flag = socialists_negotiated
@@ -1009,6 +1019,13 @@ USA_socialist_support_senate_eventless = {
 		log = "[GetDateText]: [Root.GetName]: max_new_support*average_boost_socialist: [?max_new_support]"
 		
 		add_to_variable = { socialist_supporting_senators = max_new_support }
+		add_to_variable = { senators_support = max_new_support }
+		
+		clamp_variable = {
+			var = socialist_supporting_senators
+			min = 0
+			max = senators_socialist
+		}
 	}
 	
 	set_country_flag = socialists_negotiated
@@ -1018,44 +1035,30 @@ USA_socialist_support_senate_eventless = {
 USA_republican_support_house_eventless = {
 	custom_effect_tooltip = negotiate_some_republican_support
 	
-	USA = {# representatives
-		set_variable = { temp_house_republican = representatives_republican }
-		set_variable = { temp_house_already_supporting = republican_supporting_reps }
+	hidden_effect = {
 		
-		subtract_from_variable = { temp_house_republican = temp_house_already_supporting }
-		log = "[GetDateText]: [Root.GetName]: calculated non-supporting house republicans: [?temp_house_republican]"
-	
-		set_variable = { new_house_support = temp_house_republican }
-		multiply_variable = { new_house_support = average_boost_republican }
-		log = "[GetDateText]: [Root.GetName]: calculated new house republican support: [?new_house_support]"
+		### find how many reps are available to flip ###
+		set_temp_variable = { max_new_support = representatives_republican }
+		subtract_from_temp_variable = { max_new_support = republican_supporting_reps }
 		
-		randomize_variable = {
-			var = new_house_support
-			distribution = uniform
-			min = 1
-			max = 20
-		}
+		log = "[GetDateText]: [Root.GetName]: max_new_support: [?max_new_support]"
 		
-		round_variable = new_house_support
-		log = "[GetDateText]: [Root.GetName]: rounded republican house representative support: [?new_house_support]"
+		multiply_temp_variable = { max_new_support = average_boost_republican }
+		round_temp_variable = max_new_support
 		
-		add_to_variable = { republican_supporting_reps = new_house_support }
+		log = "[GetDateText]: [Root.GetName]: max_new_support*average_boost_republican [?max_new_support]"
+		
+		add_to_variable = { republican_supporting_reps = max_new_support }
+		add_to_variable = { representatives_support = max_new_support }
+		
 		clamp_variable = {
 			var = republican_supporting_reps
 			min = 0
 			max = representatives_republican
 		}
-		clamp_variable = {
-			var = new_house_support
-			min = 0
-			max = representatives_republican
-		}
-		add_to_variable = { representatives_support = new_house_support }
-		log = "[GetDateText]: [Root.GetName]: added republican house support: [?new_house_support]"
 	}
 	
 	set_country_flag = republicans_negotiated
-	clear_variable = { new_house_support }
 }
 
 USA_republican_support_senate_eventless = {
@@ -1106,44 +1109,30 @@ USA_republican_support_senate_eventless = {
 USA_democrat_support_house_eventless = {
 	custom_effect_tooltip = negotiate_some_democrat_support
 	
-	USA = {# representatives
-		set_variable = { temp_house_democrat = representatives_democrat }
-		set_variable = { temp_house_already_supporting = democrat_supporting_reps }
+	hidden_effect = {
 		
-		subtract_from_variable = { temp_house_democrat = temp_house_already_supporting }
-		log = "[GetDateText]: [Root.GetName]: calculated non-supporting democrats: [?temp_house_democrat]"
-	
-		set_variable = { new_house_support = temp_house_democrat }
-		multiply_variable = { new_house_support = average_boost_democrat }
-		log = "[GetDateText]: [Root.GetName]: House - calculated new democrat support: [?new_house_support]"
+		### find how many reps are available to flip ###
+		set_temp_variable = { max_new_support = representatives_democrat }
+		subtract_from_temp_variable = { max_new_support = democrat_supporting_reps }
 		
-		randomize_variable = {
-			var = new_house_support
-			distribution = uniform
-			min = 1
-			max = 20
-		}
+		log = "[GetDateText]: [Root.GetName]: max_new_support: [?max_new_support]"
 		
-		round_variable = new_house_support
-		log = "[GetDateText]: [Root.GetName]: rounded democrat representative support: [?new_house_support]"
+		multiply_temp_variable = { max_new_support = average_boost_democrat }
+		round_temp_variable = max_new_support
 		
-		add_to_variable = { democrat_supporting_reps = new_house_support }
+		log = "[GetDateText]: [Root.GetName]: max_new_support*average_boost_democrat: [?max_new_support]"
+		
+		add_to_variable = { democrat_supporting_reps = max_new_support }
+		add_to_variable = { representatives_support = max_new_support }
+		
 		clamp_variable = {
 			var = democrat_supporting_reps
 			min = 0
 			max = representatives_democrat
 		}
-		clamp_variable = {
-			var = new_house_support
-			min = 0
-			max = representatives_democrat
-		}
-		add_to_variable = { representatives_support = new_house_support }
-		log = "[GetDateText]: [Root.GetName]: added democrat house support: [?new_house_support]"
 	}
 	
 	set_country_flag = democrats_negotiated
-	clear_variable = { new_house_support }
 }
 
 USA_democrat_support_senate_eventless = {
