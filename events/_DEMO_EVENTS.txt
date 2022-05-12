@@ -1226,6 +1226,16 @@ country_event = {
 			annex_country = {
 				target = RUS
 			}
+			annex_country = {
+				target = FER
+			}
+			
+			every_owned_state = {
+				limit = {
+					is_core_of = RUS
+				}
+				add_core_of = SOV
+			}
 		}
 		hidden_effect = {
 			random_other_country = {
@@ -1249,6 +1259,12 @@ country_event = {
 		name = ""
 		SOV = {
 			retire_character = SOV_nikolai_bukharin
+			
+			remove_ideas = {
+				SOV_political_turmoil
+				SOV_nep
+				SOV_tsarist_captives
+			}
 		}
 		ai_chance = {
 			base = 4
@@ -1263,6 +1279,12 @@ country_event = {
 				elections_allowed = no
 				last_election = "1936.10.8"
 				election_frequency = 48
+			}
+			
+			remove_ideas = {
+				SOV_political_turmoil
+				SOV_nep
+				SOV_tsarist_captives
 			}
 		}
 		ai_chance = {
@@ -1279,9 +1301,39 @@ country_event = {
 				last_election = "1936.10.8"
 				election_frequency = 48
 			}
+			
+			remove_ideas = {
+				SOV_political_turmoil
+				SOV_nep
+				SOV_tsarist_captives
+			}
 		}
 		ai_chance = {
 			base = 1
+		}
+	}
+}
+
+country_event = { # 
+	id = demo_sov.3
+	title = demo_sov.3.title
+	desc = demo_sov.3.1.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_sov.3.a
+		SOV = {
+			declare_war_on = {
+				target = TMS
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = TKS
+				type = annex_everything
+			}
 		}
 	}
 }
@@ -1479,8 +1531,6 @@ news_event = { # baltic collapse
 	is_triggered_only = yes
 	
 	major = yes
-	
-	fire_only_once = yes
 
 	option = {
 		name = "I'm surprised it lasted this long!"
@@ -1495,8 +1545,6 @@ news_event = { # baltic compromise
 	is_triggered_only = yes
 	
 	major = yes
-	
-	fire_only_once = yes
 
 	option = {
 		name = "Huh."
@@ -1511,8 +1559,6 @@ news_event = { # baltic federation
 	is_triggered_only = yes
 	
 	major = yes
-	
-	fire_only_once = yes
 
 	option = {
 		name = "But can it last?"
