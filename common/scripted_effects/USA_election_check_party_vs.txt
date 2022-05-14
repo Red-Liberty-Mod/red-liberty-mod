@@ -1,3 +1,6 @@
+@ERROR_MARGIN_MIN = 0.9
+@ERROR_MARGIN_MAX = 1.1
+
 USA_check_election_vs = {
 	log = "[This.GetName] USA_check_election_vs = yes"
 	
@@ -20,7 +23,7 @@ USA_check_election_vs = {
 		}
 		set_state_flag = socialist_first_place
 	}
-	if = {
+	else_if = {
 		limit = {
 			check_variable = { republican_election_pop > socialist_election_pop }
 			check_variable = { republican_election_pop > democrat_election_pop }
@@ -28,7 +31,7 @@ USA_check_election_vs = {
 		}
 		set_state_flag = republican_first_place
 	}
-	if = {
+	else_if = {
 		limit = {
 			check_variable = { democrat_election_pop > socialist_election_pop }
 			check_variable = { democrat_election_pop > republican_election_pop }
@@ -36,7 +39,7 @@ USA_check_election_vs = {
 		}
 		set_state_flag = democrat_first_place
 	}
-	if = {
+	else_if = {
 		limit = {
 			check_variable = { afp_election_pop > socialist_election_pop }
 			check_variable = { afp_election_pop > republican_election_pop }
@@ -142,6 +145,8 @@ USA_check_election_vs = {
 }
 
 USA_check_election_margin = {
+
+	### socialists in first ###
 	if = {
 		limit = {
 			AND = {
@@ -158,36 +163,14 @@ USA_check_election_margin = {
 		randomize_temp_variable = {
 			var = error_margin_state_poll_pop
 			distribution = uniform
-			min = 0.9
-			max = 1.1
+			min = @ERROR_MARGIN_MIN
+			max = @ERROR_MARGIN_MAX
 		}
 		multiply_variable = { USA_state_poll_pop_diff = error_margin_state_poll_pop }
 		
 		log = "[This.GetName] USA_state_poll_pop_diff randomized = [?THIS.USA_state_poll_pop_diff]"
 	}
-	if = {
-		limit = {
-			AND = {
-				has_state_flag = democrat_first_place
-				has_state_flag = socialist_second_place
-			}
-		}
-		set_variable = { USA_state_poll_pop_diff = democrat_election_pop }
-		subtract_from_variable = { USA_state_poll_pop_diff = socialist_election_pop }
-		
-		set_temp_variable = { error_margin_state_poll_pop = 1 }
-		randomize_temp_variable = {
-			var = error_margin_state_poll_pop
-			distribution = uniform
-			min = 0.9
-			max = 1.1
-		}
-		multiply_variable = { USA_state_poll_pop_diff = error_margin_state_poll_pop }
-		
-		log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
-	}
-	
-	if = {
+	else_if = {
 		limit = {
 			AND = {
 				has_state_flag = socialist_first_place
@@ -201,57 +184,58 @@ USA_check_election_margin = {
 		randomize_temp_variable = {
 			var = error_margin_state_poll_pop
 			distribution = uniform
-			min = 0.9
-			max = 1.1
+			min = @ERROR_MARGIN_MIN
+			max = @ERROR_MARGIN_MAX
 		}
 		multiply_variable = { USA_state_poll_pop_diff = error_margin_state_poll_pop }
 		
 		log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
 	}
-	if = {
+	else_if = {
 		limit = {
 			AND = {
-				has_state_flag = republican_first_place
-				has_state_flag = socialist_second_place
+				has_state_flag = socialist_first_place
+				has_state_flag = afp_second_place
 			}
 		}
-		set_variable = { USA_state_poll_pop_diff = republican_election_pop }
-		subtract_from_variable = { USA_state_poll_pop_diff = socialist_election_pop }
+		set_variable = { USA_state_poll_pop_diff = socialist_election_pop }
+		subtract_from_variable = { USA_state_poll_pop_diff = afp_election_pop }
 		
 		set_temp_variable = { error_margin_state_poll_pop = 1 }
 		randomize_temp_variable = {
 			var = error_margin_state_poll_pop
 			distribution = uniform
-			min = 0.9
-			max = 1.1
+			min = @ERROR_MARGIN_MIN
+			max = @ERROR_MARGIN_MAX
 		}
 		multiply_variable = { USA_state_poll_pop_diff = error_margin_state_poll_pop }
 		
 		log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
 	}
 	
+	### democrats in first ###
 	if = {
 		limit = {
 			AND = {
-				has_state_flag = republican_first_place
-				has_state_flag = democrat_second_place
+				has_state_flag = democrat_first_place
+				has_state_flag = socialist_second_place
 			}
 		}
-		set_variable = { USA_state_poll_pop_diff = republican_election_pop }
-		subtract_from_variable = { USA_state_poll_pop_diff = democrat_election_pop }
+		set_variable = { USA_state_poll_pop_diff = democrat_election_pop }
+		subtract_from_variable = { USA_state_poll_pop_diff = socialist_election_pop }
 		
 		set_temp_variable = { error_margin_state_poll_pop = 1 }
 		randomize_temp_variable = {
 			var = error_margin_state_poll_pop
 			distribution = uniform
-			min = 0.9
-			max = 1.1
+			min = @ERROR_MARGIN_MIN
+			max = @ERROR_MARGIN_MAX
 		}
 		multiply_variable = { USA_state_poll_pop_diff = error_margin_state_poll_pop }
 		
 		log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
 	}
-	if = {
+	else_if = {
 		limit = {
 			AND = {
 				has_state_flag = democrat_first_place
@@ -265,15 +249,14 @@ USA_check_election_margin = {
 		randomize_temp_variable = {
 			var = error_margin_state_poll_pop
 			distribution = uniform
-			min = 0.9
-			max = 1.1
+			min = @ERROR_MARGIN_MIN
+			max = @ERROR_MARGIN_MAX
 		}
 		multiply_variable = { USA_state_poll_pop_diff = error_margin_state_poll_pop }
 		
 		log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
 	}
-	
-	if = {
+	else_if = {
 		limit = {
 			AND = {
 				has_state_flag = democrat_first_place
@@ -287,13 +270,59 @@ USA_check_election_margin = {
 		randomize_temp_variable = {
 			var = error_margin_state_poll_pop
 			distribution = uniform
-			min = 0.9
-			max = 1.1
+			min = @ERROR_MARGIN_MIN
+			max = @ERROR_MARGIN_MAX
 		}
 		multiply_variable = { USA_state_poll_pop_diff = error_margin_state_poll_pop }
 		
 		log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
 	}
+	
+	### republicans in first ###
+	if = {
+		limit = {
+			AND = {
+				has_state_flag = republican_first_place
+				has_state_flag = socialist_second_place
+			}
+		}
+		set_variable = { USA_state_poll_pop_diff = republican_election_pop }
+		subtract_from_variable = { USA_state_poll_pop_diff = socialist_election_pop }
+		
+		set_temp_variable = { error_margin_state_poll_pop = 1 }
+		randomize_temp_variable = {
+			var = error_margin_state_poll_pop
+			distribution = uniform
+			min = @ERROR_MARGIN_MIN
+			max = @ERROR_MARGIN_MAX
+		}
+		multiply_variable = { USA_state_poll_pop_diff = error_margin_state_poll_pop }
+		
+		log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
+	}
+	else_if = {
+		limit = {
+			AND = {
+				has_state_flag = republican_first_place
+				has_state_flag = democrat_second_place
+			}
+		}
+		set_variable = { USA_state_poll_pop_diff = republican_election_pop }
+		subtract_from_variable = { USA_state_poll_pop_diff = democrat_election_pop }
+		
+		set_temp_variable = { error_margin_state_poll_pop = 1 }
+		randomize_temp_variable = {
+			var = error_margin_state_poll_pop
+			distribution = uniform
+			min = @ERROR_MARGIN_MIN
+			max = @ERROR_MARGIN_MAX
+		}
+		multiply_variable = { USA_state_poll_pop_diff = error_margin_state_poll_pop }
+		
+		log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
+	}
+	
+	### afp in first ###
 	if = {
 		limit = {
 			AND = {
@@ -308,8 +337,8 @@ USA_check_election_margin = {
 		randomize_temp_variable = {
 			var = error_margin_state_poll_pop
 			distribution = uniform
-			min = 0.9
-			max = 1.1
+			min = @ERROR_MARGIN_MIN
+			max = @ERROR_MARGIN_MAX
 		}
 		multiply_variable = { USA_state_poll_pop_diff = error_margin_state_poll_pop }
 		

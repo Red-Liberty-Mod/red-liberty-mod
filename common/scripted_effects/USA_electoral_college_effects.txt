@@ -283,7 +283,7 @@ USA_start_elections_system = {
 	357 = { # Massachusetts, home of many famous liberals, though old money is still holding strong
 		set_state_flag = US_election_state
 		set_variable = { republican_popularity = 0.5 }
-		set_variable = { democrat_popularity = 0.5 }
+		set_variable = { democrat_popularity = 0.55 }
 		set_variable = { socialist_popularity = 0.3 }
 		set_variable = { afp_popularity = 0.15 }
 		
@@ -1064,6 +1064,19 @@ USA_hold_presidential_election_in_state = {
 		add_to_variable = { ROOT.republican_electoral_votes = electoral_votes }
 	    log = "[This.GetName] : Voted for republicans with [?electoral_votes] electoral votes"
 		set_state_flag = voted_republican
+		
+		if = {
+			limit = {
+				USA = {
+					has_country_flag = USA_democratic_republican_coalition
+				}
+			}
+			subtract_from_variable = { ROOT.republican_electoral_votes = electoral_votes }
+			add_to_variable = { ROOT.democrat_electoral_votes = electoral_votes }
+			log = "[This.GetName] : Vote was changed to democrats with [?electoral_votes] electoral votes"
+			clr_state_flag = voted_republican
+			set_state_flag = voted_democrat
+		}
 	}
 	else_if = {
 		limit = {
