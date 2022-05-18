@@ -122,12 +122,18 @@ country_event = { # spa convention - choosing veep
 		name = united_states.6.a
 		set_country_flag = USA_progressive_veep
 		custom_effect_tooltip = USA_henry_wallace_veep_tt
+		ai_chance = {
+			base = 8
+		}
 	}
 	
 	option = {
 		name = united_states.6.b
 		set_country_flag = USA_radical_veep
 		custom_effect_tooltip = USA_earl_browder_veep_tt
+		ai_chance = {
+			base = 2
+		}
 	}
 }
 
@@ -253,20 +259,33 @@ country_event = { # thomas chooses to run again
 	
 	fire_only_once = yes
 
-	option = { # yes
+	option = { # we want thomas!
 		name = united_states.12.a
 		set_country_flag = USA_thomas_will_run
+		ai_chance = {
+			base = 7
+		}
 	}
 	
-	option = { # no
+	option = { # im too old for this shit
 		name = united_states.12.b
+		ai_chance = {
+			base = 3
+		}
 	}
 }
 
 country_event = { # 1940 spa convention
 	id = united_states.13
 	title = united_states.13.title
-	desc = united_states.13.desc
+	desc = {
+		text = united_states.13.thomas_third_term
+		trigger = { has_country_flag = USA_thomas_will_run }
+	}
+	desc = {
+		text = united_states.13.thomas_retired
+		trigger = { NOT = { has_country_flag = USA_thomas_will_run } }
+	}
 	
 	is_triggered_only = yes
 	
@@ -277,10 +296,83 @@ country_event = { # 1940 spa convention
 		trigger = {
 			has_country_flag = USA_thomas_will_run
 		}
+		country_event = {
+			id = united_states.14
+			days = 2
+		}
 	}
 	
-	option = { # other socialist
+	option = { # daniel hoan
 		name = united_states.13.b
+		trigger = {
+			NOT = {
+				has_country_flag = USA_thomas_will_run
+			}
+			check_variable = { SPA_moderate_pop > SPA_militant_pop }
+		}
+		country_event = {
+			id = united_states.14
+			days = 2
+		}
+	}
+	
+	option = { # maynard krueger
+		name = united_states.13.c
+		trigger = {
+			NOT = {
+				has_country_flag = USA_thomas_will_run
+			}
+			check_variable = { SPA_militant_pop > SPA_moderate_pop }
+		}
+		country_event = {
+			id = united_states.14
+			days = 2
+		}
+	}
+}
+
+country_event = { # 1940 spa convention - veep
+	id = united_states.14
+	title = united_states.14.title
+	desc = united_states.14.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # keep wallace
+		name = united_states.14.a
+		trigger = {
+			has_idea = USA_henry_wallace_hog
+		}
+		ai_chance = {
+			base = 5
+			modifier = {
+				add = 20
+				check_variable = { SPA_moderate_pop > SPA_militant_pop }
+			}
+		}
+	}
+	
+	option = { # keep browder
+		name = united_states.14.b
+		trigger = {
+			has_idea = USA_earl_browder_hog
+		}
+		ai_chance = {
+			base = 5
+			modifier = {
+				add = 20
+				check_variable = { SPA_militant_pop > SPA_moderate_pop }
+			}
+		}
+	}
+	
+	option = { # other
+		name = united_states.14.c
+		ai_chance = {
+			base = 5
+		}
 	}
 }
 

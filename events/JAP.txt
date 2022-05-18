@@ -28,7 +28,6 @@ country_event = { # from japan to china
 	
 	option = {
 		name = japan.2.a
-		ai_chance = { factor = 1 }
 		add_popularity = {
 			ideology = market_libertarianism
 			popularity = 0.02
@@ -72,8 +71,6 @@ country_event = { # inukai dies
 				news_event = { id = japan_news.1 hours = 6 }
 			}
 		}
-		
-		ai_chance = { factor = 1 }
 	}
 }
 
@@ -88,7 +85,6 @@ country_event = { # inukai funeral
 	
 	option = {
 		name = "Meifuku o inoru."
-		ai_chance = { factor = 1 }
 	}
 }
 
@@ -103,7 +99,6 @@ country_event = {
 	
 	option = {
 		name = "A post-Inukai Japan begins to take shape."
-		ai_chance = { factor = 1 }
 	}
 }
 
@@ -126,7 +121,6 @@ country_event = {
 			ideology = social_democracy
 			popularity = -0.03
 		}
-		ai_chance = { factor = 1 }
 	}
 }
 
@@ -145,7 +139,6 @@ country_event = {
 			ideology = market_libertarianism
 			popularity = 0.05
 		}
-		ai_chance = { factor = 1 }
 	}
 }
 
@@ -172,7 +165,6 @@ country_event = {
 			ideology = fascism
 			popularity = -0.01
 		}
-		ai_chance = { factor = 1 }
 	}
 }
 
@@ -224,7 +216,6 @@ country_event = {
 			id = japan.10
 			days = 1
 		}
-		ai_chance = { factor = 1 }
 	}
 }
 
@@ -245,7 +236,9 @@ country_event = {
 		set_country_flag = conservative_coalition
 		custom_effect_tooltip = add_conservative_coalition_tt
 		
-		ai_chance = { factor = 33 }
+		ai_chance = {
+			base = 33
+		}
 	}
 	
 	option = {
@@ -264,13 +257,11 @@ country_event = {
 			popularity = 0.01
 		}
 		
-		set_country_flag = libertarian_socialism_coalition
-		set_country_flag = social_democracy_coalition
-		custom_effect_tooltip = add_libertarian_socialist_coalition_tt
-		custom_effect_tooltip = add_social_democrat_coalition_tt
+		add_demsoc_coalition = yes
+		add_socdem_coalition = yes
 		
 		ai_chance = {
-			factor = 64
+			base = 64
 			modifier = {
 				factor = 0
 				has_game_rule = {
@@ -301,7 +292,7 @@ country_event = {
 			days = 1
 		}
 		ai_chance = {
-			factor = 70
+			base = 70
 			modifier = {
 				factor = 0
 				has_game_rule = {
@@ -321,7 +312,7 @@ country_event = {
 			days = 1
 		}
 		ai_chance = {
-			factor = 30
+			base = 30
 		}
 	}
 }
@@ -339,7 +330,7 @@ country_event = {
 		name = "Approved."
 		set_country_flag = JAP_allowed_amendment
 		ai_chance = {
-			factor = 100
+			base = 100
 			modifier = {
 				factor = 0
 				has_game_rule = {
@@ -357,7 +348,7 @@ country_event = {
 			days = 1
 		}
 		ai_chance = {
-			factor = 0
+			base = 0
 			modifier = {
 				factor = 100
 				has_game_rule = {
@@ -380,7 +371,6 @@ country_event = {
 	
 	option = {
 		name = "Approved."
-		ai_chance = { factor = 100 }
 		set_country_flag = JAP_allowed_konoe
 	}
 }
@@ -416,7 +406,6 @@ country_event = {
 				news_event = { id = japan_news.3 hours = 6 }
 			}
 		}
-		ai_chance = { factor = 100 }
 	}
 }
 
@@ -456,7 +445,6 @@ country_event = {
 		
 		add_political_power = 50
 		add_stability = -0.15
-		ai_chance = { factor = 100 }
 	}
 }
 
@@ -489,7 +477,6 @@ country_event = {
 			}
 		}
 		load_focus_tree = JAP_taisho_democracy_tree
-		ai_chance = { factor = 100 }
 	}
 }
 
