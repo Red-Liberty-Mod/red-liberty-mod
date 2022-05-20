@@ -302,13 +302,13 @@ country_event = { # 1940 spa convention
 		}
 	}
 	
-	option = { # daniel hoan
+	option = { # daniel hoan - progressive
 		name = united_states.13.b
 		trigger = {
 			NOT = {
 				has_country_flag = USA_thomas_will_run
 			}
-			check_variable = { SPA_moderate_pop > SPA_militant_pop }
+			check_variable = { SPA_moderate_pop > 15 }
 		}
 		country_event = {
 			id = united_states.14
@@ -316,13 +316,27 @@ country_event = { # 1940 spa convention
 		}
 	}
 	
-	option = { # maynard krueger
+	option = { # maynard krueger - militant
 		name = united_states.13.c
 		trigger = {
 			NOT = {
 				has_country_flag = USA_thomas_will_run
 			}
-			check_variable = { SPA_militant_pop > SPA_moderate_pop }
+			check_variable = { SPA_militant_pop > 15 }
+		}
+		country_event = {
+			id = united_states.14
+			days = 2
+		}
+	}
+	
+	option = { # leo krzycki - unionist
+		name = united_states.13.d
+		trigger = {
+			NOT = {
+				has_country_flag = USA_thomas_will_run
+			}
+			check_variable = { SPA_unionist_pop > 10 }
 		}
 		country_event = {
 			id = united_states.14
@@ -368,8 +382,11 @@ country_event = { # 1940 spa convention - veep
 		}
 	}
 	
-	option = { # other
+	option = { # asa philip randolph
 		name = united_states.14.c
+		trigger = {
+			has_country_flag = USA_thomas_will_run
+		}
 		ai_chance = {
 			base = 5
 		}
