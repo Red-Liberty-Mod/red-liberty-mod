@@ -6,7 +6,6 @@ ideas = {
 		
 		undisturbed_isolation = {
 			
-			
 			allowed = {
 				always = no
 			}
@@ -67,7 +66,6 @@ ideas = {
 		}
 		
 		civilian_economy = {
-			
 		
 			cost = 150
 			removal_cost = -1
@@ -94,6 +92,14 @@ ideas = {
 			
 			available = {
 				has_war_support > 0.15
+				if = {
+					limit = {
+						original_tag = IRE
+					}
+					NOT = {
+						has_idea = IRE_anglo_irish_trade_war
+					}
+				}
 			}
 			
 			cost = 150
@@ -136,6 +142,14 @@ ideas = {
 			
 			available = {
 				has_war_support > 0.25
+				if = {
+					limit = {
+						original_tag = IRE
+					}
+					NOT = {
+						has_idea = IRE_anglo_irish_trade_war
+					}
+				}
 			}
 
 			cost = 150
@@ -176,14 +190,20 @@ ideas = {
 			
 			
 			available = {
+				has_war = yes
 				has_war_support > 0.5
-				AND = {
-					has_war = yes
-					any_enemy_country = {
-						ic_ratio = { 
-							tag = ROOT 
-							ratio > 0.4
-						}
+				any_enemy_country = {
+					ic_ratio = { 
+						tag = ROOT 
+						ratio > 0.4
+					}
+				}
+				if = {
+					limit = {
+						original_tag = IRE
+					}
+					NOT = {
+						has_idea = IRE_anglo_irish_trade_war
 					}
 				}
 			}
@@ -212,6 +232,7 @@ ideas = {
 					USA_congress_large_opposition = yes
 				}
 			}
+			
 			ai_will_do = {
    				factor = 5
 
@@ -233,7 +254,6 @@ ideas = {
 		
 		tot_economic_mobilisation = {
 			
-			
 			available = {
 				has_war = yes
 				has_war_support > 0.8
@@ -243,7 +263,31 @@ ideas = {
 						ratio > 0.5
 					}
 				}
+				if = {
+					limit = {
+						original_tag = IRE
+					}
+					NOT = {
+						has_idea = IRE_anglo_irish_trade_war
+					}
+				}
 			}
+			
+			cost = 150
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.10
+				production_speed_arms_factory_factor = 0.50
+				production_speed_industrial_complex_factor = -0.50
+				industrial_capacity_factory = 0.20
+				industrial_capacity_dockyard = 0.20
+				production_factory_max_efficiency_factor = 0.10
+				political_power_gain = -0.50
+			}
+			
+			cancel_if_invalid = no
+			
 			ai_will_do = {
    				factor = 1
 
@@ -294,21 +338,6 @@ ideas = {
 					}									
 				}
    			}
-			
-			cost = 150
-			removal_cost = -1
-			
-			modifier = {
-				consumer_goods_factor = 0.10
-				production_speed_arms_factory_factor = 0.50
-				production_speed_industrial_complex_factor = -0.50
-				industrial_capacity_factory = 0.20
-				industrial_capacity_dockyard = 0.20
-				production_factory_max_efficiency_factor = 0.10
-				political_power_gain = -0.50
-			}
-			
-			cancel_if_invalid = no
 		}
 	}
 	
@@ -316,10 +345,45 @@ ideas = {
 		law = yes
 		use_list_view = yes
 		
-		free_trade = {
+		uncontrolled_exports = {
+		
+			allowed = {
+				always = no
+			}
 
 			available = {
 				
+			}
+			
+			removal_cost = -1
+			picture = isolation
+
+			modifier = {
+				min_export = 0.25
+				consumer_goods_factor = 0.05
+				civilian_intel_to_others = 40.0
+				navy_intel_to_others = 40.0
+				agency_upgrade_time = 0.15
+			}
+			
+			allowed_to_remove = {
+				
+			}
+			
+			cancel_if_invalid = no
+		}
+		
+		free_trade = {
+
+			available = {
+				if = {
+					limit = {
+						original_tag = IRE
+					}
+					NOT = {
+						has_idea = IRE_anglo_irish_trade_war
+					}
+				}
 			}
 						
 			cost = 150
@@ -369,7 +433,14 @@ ideas = {
 		export_focus = {
 			
 			available = {
-				
+				if = {
+					limit = {
+						original_tag = IRE
+					}
+					NOT = {
+						has_idea = IRE_anglo_irish_trade_war
+					}
+				}
 			}
 			
 			
