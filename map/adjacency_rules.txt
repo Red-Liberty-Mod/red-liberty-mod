@@ -353,33 +353,28 @@ adjacency_rule =
 }
 
 #Nicaragua Canal
-adjacency_rule = 
-{
+adjacency_rule = {
 	name = "NICARAGUA_CANAL"
 
-	contested =
-	{
+	contested = {
 		army = no
 		navy = no
 		submarine = no
 		trade = no
 	}
-	enemy =
-	{
+	enemy = {
 		army = no
 		navy = no
 		submarine = no
 		trade = no
 	}
-	friend =
-	{
+	friend = {
 		army = yes
 		navy = yes
 		submarine = yes
 		trade = yes
 	}
-	neutral =
-	{
+	neutral = {
 		army = no
 		navy = no
 		submarine = no
@@ -390,4 +385,39 @@ adjacency_rule =
 		
 	icon = 13276
 	offset = { 5 0 -1 }
+}
+
+#Sunda Canal
+adjacency_rule = {
+	name = "SUNDA_STRAIT"
+
+	contested = {
+		army = no
+		navy = no
+		submarine = yes
+		trade = no
+	}
+	enemy = {
+		army = no
+		navy = no
+		submarine = yes
+		trade = no
+	}
+	friend = {
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	neutral = {
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	
+	required_provinces = { 1342 10279 }
+		
+	icon = 1342
+	offset = { 0 0 0 }
 }
