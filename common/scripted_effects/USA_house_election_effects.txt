@@ -13,35 +13,72 @@ USA_recalc_house_state = { # call within state
 	
 	#log = "[This.GetName] : old_state_reps_total - [?old_state_reps_total]"
 	
+	### COMMUNISTS ###
 	set_variable = {
 		state_communist_reps = communist_election_pop
 	}
-	multiply_variable = {
-		state_republican_reps = 0.5
+	if = {
+		limit = {
+			check_variable = { communist_election_pop < 0.15 }
+		}
+		multiply_variable = {
+			state_communist_reps = 0.5
+		}
 	}
 	
+	### SOCIALISTS ###
 	set_variable = {
 		state_socialist_reps = socialist_election_pop
 	}
 	
+	### DEMOCRATS ###
 	set_variable = {
 		state_democrat_reps = democrat_election_pop
 	}
 	
+	### REPUBLICANS ###
 	set_variable = {
 		state_republican_reps = republican_election_pop
 	}
-	multiply_variable = {
-		state_republican_reps = 0.75
+	if = {
+		limit = {
+			check_variable = { republican_election_pop < 0.15 }
+		}
+		multiply_variable = {
+			state_republican_reps = 0.5
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { republican_election_pop < 0.3 }
+		}
+		multiply_variable = {
+			state_republican_reps = 0.75
+		}
 	}
 	
+	### AFP ###
 	set_variable = {
 		state_afp_reps = afp_election_pop
 	}
-	multiply_variable = {
-		state_afp_reps = 0.9
+	if = {
+		limit = {
+			check_variable = { afp_election_pop < 0.15 }
+		}
+		multiply_variable = {
+			state_afp_reps = 0.75
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { afp_election_pop < 0.3 }
+		}
+		multiply_variable = {
+			state_afp_reps = 0.9
+		}
 	}
 	
+	### TOTALING AND ROUNDING ###
 	multiply_variable = {
 		state_communist_reps = old_state_reps_total
 	}
@@ -64,6 +101,31 @@ USA_recalc_house_state = { # call within state
 	round_variable = state_republican_reps
 	round_variable = state_afp_reps
 	
+	### GERRYMANDERING ###
+	if = {
+		limit = {
+			AND = {
+				has_state_flag = USA_gerrymandered_socialist
+				check_variable = { state_democrat_reps > 1 }
+			}
+		}
+		subtract_from_variable = { state_democrat_reps = 1 }
+		add_to_variable = { state_socialist_reps = 1 }
+		log = "[This.GetName] : USA_recalc_house_state is USA_gerrymandered_socialist"
+	}
+	else_if = {
+		limit = {
+			AND = {
+				has_state_flag = USA_gerrymandered_democrat
+				check_variable = { state_socialist_reps > 1 }
+			}
+		}
+		subtract_from_variable = { state_socialist_reps = 1 }
+		add_to_variable = { state_democrat_reps = 1 }
+		log = "[This.GetName] : USA_recalc_house_state is USA_gerrymandered_democrat"
+	}
+	
+	### FINISHING UP ###
 	set_variable = {
 		state_reps_total = 0
 	}
@@ -106,40 +168,40 @@ USA_recalc_house_state = { # call within state
 				check_variable = { socialist_election_pop > republican_election_pop }
 				check_variable = { socialist_election_pop > afp_election_pop }
 			}
-			log = "[This.GetName] : state discrepancy: state_socialist_reps"
+			log = "[This.GetName] : discrepancy awarded to state_socialist_reps"
 			add_to_variable = {
 				state_socialist_reps = old_state_reps_total
 			}
 		}
-		if = {
+		else_if = {
 			limit = {
 				check_variable = { republican_election_pop > socialist_election_pop }
 				check_variable = { republican_election_pop > democrat_election_pop }
 				check_variable = { republican_election_pop > afp_election_pop }
 			}
-			log = "[This.GetName] : state discrepancy: state_republican_reps"
+			log = "[This.GetName] : discrepancy awarded to state_republican_reps"
 			add_to_variable = {
 				state_republican_reps = old_state_reps_total
 			}
 		}
-		if = {
+		else_if = {
 			limit = {
 				check_variable = { democrat_election_pop > socialist_election_pop }
 				check_variable = { democrat_election_pop > republican_election_pop }
 				check_variable = { democrat_election_pop > afp_election_pop }
 			}
-			log = "[This.GetName] : state discrepancy: state_democrat_reps"
+			log = "[This.GetName] : discrepancy awarded to state_democrat_reps"
 			add_to_variable = {
 				state_democrat_reps = old_state_reps_total
 			}
 		}
-		if = {
+		else_if = {
 			limit = {
 				check_variable = { afp_election_pop > socialist_election_pop }
 				check_variable = { afp_election_pop > republican_election_pop }
 				check_variable = { afp_election_pop > democrat_election_pop }
 			}
-			log = "[This.GetName] : state discrepancy: state_afp_reps"
+			log = "[This.GetName] : discrepancy awarded to state_afp_reps"
 			add_to_variable = {
 				state_afp_reps = old_state_reps_total
 			}
@@ -225,6 +287,7 @@ USA_calculate_reps = {
 			add_to_variable = {
 				representatives_socialist = representatives_total_old
 			}
+			log = "[This.GetName] : national discrepancy - awarded to representatives_socialist"
 		}
 	}
 	
