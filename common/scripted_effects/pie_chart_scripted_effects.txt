@@ -21,41 +21,41 @@ create_pie_chart = {
 		size = 100 # 100 pieces, each percent is one piece
 	}
 	
-	set_temp_variable = { libsoc_pop = SPA_unionist_pop }
-	set_temp_variable = { communism_pop = SPA_militant_pop }
+	set_temp_variable = { demsoc_pop = SPA_unionist_pop }
+	set_temp_variable = { revsoc_pop = SPA_militant_pop }
 	set_temp_variable = { socdem_pop = SPA_moderate_pop }
 	
-	set_temp_variable = { spa_total_pop = libsoc_pop }
-	add_to_temp_variable = { spa_total_pop = communism_pop }
+	set_temp_variable = { spa_total_pop = demsoc_pop }
+	add_to_temp_variable = { spa_total_pop = revsoc_pop }
 	add_to_temp_variable = { spa_total_pop = socdem_pop }
 	
 	log = "[This.GetName] spa_total_pop = [?USA.spa_total_pop]"
 	
-	divide_temp_variable = { libsoc_pop = spa_total_pop }
-	divide_temp_variable = { communism_pop = spa_total_pop }
+	divide_temp_variable = { demsoc_pop = spa_total_pop }
+	divide_temp_variable = { revsoc_pop = spa_total_pop }
 	divide_temp_variable = { socdem_pop = spa_total_pop }
 	
 	### LIBSOC ###
-	#set_temp_variable = { libsoc_pop = party_popularity@libertarian_socialism }
-	multiply_temp_variable = { libsoc_pop = 100 }
-	round_temp_variable = libsoc_pop
+	#set_temp_variable = { demsoc_pop = party_popularity@libertarian_socialism }
+	multiply_temp_variable = { demsoc_pop = 100 }
+	round_temp_variable = demsoc_pop
 	
-	log = "[This.GetName] libsoc_pop = [?USA.libsoc_pop]"
+	log = "[This.GetName] demsoc_pop = [?USA.demsoc_pop]"
 
 	### PROLEDICT ###
-	#set_temp_variable = { communism_pop = party_popularity@proletarian_dictatorship }
-	multiply_temp_variable = { communism_pop = 100 }
-	round_temp_variable = communism_pop 
-	set_variable = { ROOT.last_idx = libsoc_pop }
-	add_to_temp_variable = { communism_pop = ROOT.last_idx }
+	#set_temp_variable = { revsoc_pop = party_popularity@proletarian_dictatorship }
+	multiply_temp_variable = { revsoc_pop = 100 }
+	round_temp_variable = revsoc_pop 
+	set_variable = { ROOT.last_idx = demsoc_pop }
+	add_to_temp_variable = { revsoc_pop = ROOT.last_idx }
 	for_loop_effect = {
 		start = ROOT.last_idx
-		end = communism_pop
+		end = revsoc_pop
 		set_variable = { pie_chart^v = 2 }
 		add_to_variable = { ROOT.last_idx = 1 }
 	}
 	
-	log = "[This.GetName] communism_pop = [?USA.communism_pop]"
+	log = "[This.GetName] revsoc_pop = [?USA.revsoc_pop]"
 
 	### SOCDEM ###
 	#set_temp_variable = { socdem_pop = party_popularity@social_democracy }
