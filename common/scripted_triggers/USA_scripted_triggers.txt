@@ -42,20 +42,13 @@ democrats_have_congress_majority = {
 
 bill_will_pass = {
 	OR = {
-		OR = {
-			AND = {
-				has_country_flag = USA_bill_house_phase
-				has_country_flag = filibuster_active
-				check_variable = { representatives_support > rep_quorum_high }
-			}
-			AND = {
-				has_country_flag = USA_bill_house_phase
-				NOT = {
-					has_country_flag = filibuster_active
-				}
-				check_variable = { representatives_support > rep_quorum_medium }
-			}
+		### HOUSE PHASE ###
+		AND = {
+			has_country_flag = USA_bill_house_phase
+			check_variable = { representatives_support > rep_quorum_medium }
 		}
+		
+		### SENATE PHASE ###
 		OR = {
 			AND = {
 				has_country_flag = USA_bill_senate_phase

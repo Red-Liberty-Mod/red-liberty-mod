@@ -856,9 +856,17 @@ USA_congress = {
 			AND = {
 				original_tag = USA
 				check_variable = { bill_id > 0 }
-				OR = {
-					check_variable = { senators_communist > 0 }
+				if = {
+					limit = {
+						has_country_flag = USA_bill_house_phase
+					}
 					check_variable = { representatives_communist > 0 }
+				}
+				else_if = {
+					limit = {
+						has_country_flag = USA_bill_senate_phase
+					}
+					check_variable = { senators_communist > 0 }
 				}
 				NOT = {
 					has_country_flag = USA_special_decisions_enabled
@@ -1192,7 +1200,7 @@ USA_congress = {
 		}
 		available = { #Mission is completed when the player brings the bill to a vote
 			custom_trigger_tooltip = {
-				tooltip = vote_will_pass_tt
+				tooltip = USA_house_phase_trigger_tt
 				bill_will_pass = yes
 			}
 		}
@@ -1236,7 +1244,7 @@ USA_congress = {
 		}
 		available = { #Mission is completed when the player brings the bill to a vote
 			custom_trigger_tooltip = {
-				tooltip = vote_will_pass_tt
+				tooltip = USA_seante_phase_trigger_tt
 				bill_will_pass = yes
 			}
 		}
