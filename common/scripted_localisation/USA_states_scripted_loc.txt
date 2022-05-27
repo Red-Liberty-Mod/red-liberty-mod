@@ -46,18 +46,19 @@ defined_text = {
 	name = Get_USA_vice_president
 	text = {
 		trigger = {
-			has_idea = USA_jack_reed_hog
+			USA = {
+				has_idea = USA_jack_reed_hog
+			}
 		}
 		localization_key = "GFX_portrait_USA_john_reed"
 	}
 	text = {
 		trigger = {
-			has_idea = USA_earl_browder_hog
+			USA = {
+				has_idea = USA_earl_browder_hog
+			}
 		}
 		localization_key = "GFX_portrait_USA_earl_browder"
-	}
-	text = {
-		localization_key = ""
 	}
 }
 
@@ -67,7 +68,19 @@ defined_text = {
 		trigger = {
 			has_idea = USA_jack_reed_hog
 		}
-		localization_key = "USA_jack_reed_hog"
+		localization_key = "USA_jack_reed"
+	}
+	text = {
+		trigger = {
+			has_idea = USA_earl_browder_hog
+		}
+		localization_key = "USA_earl_browder"
+	}
+	text = {
+		trigger = {
+			has_idea = USA_henry_wallace_hog
+		}
+		localization_key = "USA_henry_wallace"
 	}
 	text = {
 		localization_key = ""
@@ -548,6 +561,22 @@ defined_text = {
 		trigger = {
 			OR = {
 				AND = {
+					check_variable = { 361.senator_1 = 1 }
+					check_variable = { 361.senator_2 = 2 }
+				}
+				AND = {
+					check_variable = { 361.senator_1 = 2 }
+					check_variable = { 361.senator_2 = 1 }
+				}
+			}
+		}
+		localization_key = "GFX_USA_states_gui_MD_socialist_republican_split"
+	}
+	
+	text = {
+		trigger = {
+			OR = {
+				AND = {
 					check_variable = { 361.senator_1 = 2 }
 					check_variable = { 361.senator_2 = 3 }
 				}
@@ -806,7 +835,21 @@ defined_text = {
 		}
 		localization_key = "GFX_USA_states_gui_NM_democrat"
 	}
-	
+	text = {
+		trigger = {
+			OR = {
+				AND = {
+					check_variable = { 376.senator_1 = 3 }
+					check_variable = { 376.senator_2 = 1 }
+				}
+				AND = {
+					check_variable = { 376.senator_1 = 1 }
+					check_variable = { 376.senator_2 = 3 }
+				}
+			}
+		}
+		localization_key = "GFX_USA_states_gui_NM_socialist_democrat_split"
+	}
 	text = {
 		trigger = {
 			OR = {

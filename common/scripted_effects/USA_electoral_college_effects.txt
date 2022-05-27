@@ -1052,6 +1052,7 @@ USA_hold_presidential_election_in_state = {
 			check_variable = { socialist_election_pop > afp_election_pop }
 		}
 		add_to_variable = { ROOT.socialist_electoral_votes = electoral_votes }
+		add_to_variable = { ROOT.socialist_states_taken = 1 }
 		log = "[This.GetName] : Voted for socialists with [?electoral_votes] electoral votes"
 		set_state_flag = voted_socialist
 	}
@@ -1062,6 +1063,7 @@ USA_hold_presidential_election_in_state = {
 			check_variable = { republican_election_pop > socialist_election_pop }
 		}
 		add_to_variable = { ROOT.republican_electoral_votes = electoral_votes }
+		add_to_variable = { ROOT.republican_states_taken = 1 }
 	    log = "[This.GetName] : Voted for republicans with [?electoral_votes] electoral votes"
 		set_state_flag = voted_republican
 		
@@ -1073,6 +1075,10 @@ USA_hold_presidential_election_in_state = {
 			}
 			subtract_from_variable = { ROOT.republican_electoral_votes = electoral_votes }
 			add_to_variable = { ROOT.democrat_electoral_votes = electoral_votes }
+			
+			subtract_from_variable = { ROOT.republican_states_taken = 1 }
+			add_to_variable = { ROOT.democrat_states_taken = 1 }
+			
 			log = "[This.GetName] : Vote was changed to democrats with [?electoral_votes] electoral votes"
 			clr_state_flag = voted_republican
 			set_state_flag = voted_democrat
@@ -1085,6 +1091,7 @@ USA_hold_presidential_election_in_state = {
 			check_variable = { democrat_election_pop > socialist_election_pop }
 		}
 		add_to_variable = { ROOT.democrat_electoral_votes = electoral_votes }
+		add_to_variable = { ROOT.democrat_states_taken = 1 }
 		log = "[This.GetName] : Voted for democrats with [?electoral_votes] electoral votes"
 		set_state_flag = voted_democrat
 	}
@@ -1095,6 +1102,7 @@ USA_hold_presidential_election_in_state = {
 			check_variable = { afp_election_pop > socialist_election_pop }
 		}
 		add_to_variable = { ROOT.afp_electoral_votes = electoral_votes }
+		add_to_variable = { ROOT.afp_states_taken = 1 }
 		log = "[This.GetName] : Voted for afp with [?electoral_votes] electoral votes"
 		set_state_flag = voted_afp
 	}
@@ -1138,6 +1146,11 @@ clear_election_results = {
 	set_variable = { republican_electoral_votes = 0 }
 	set_variable = { socialist_electoral_votes = 0 }
 	set_variable = { afp_electoral_votes = 0 }
+	
+	set_variable = { socialist_states_taken = 0 }
+	set_variable = { republican_states_taken = 0 }
+	set_variable = { democrat_states_taken = 0 }
+	set_variable = { afp_states_taken = 0 }
 	
 	log = "[This.GetName] : election results cleared"
 }
