@@ -522,6 +522,14 @@ USA_add_social_security = {
 		add_ideas = {
 			USA_safety_net_acceptable
 		}
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					can_have_elections_in_state = yes
+				}
+				add_to_variable = { socialist_popularity = 0.05 }
+			}
+		}
 	}
 	else_if = {
 		limit = {
@@ -530,10 +538,26 @@ USA_add_social_security = {
 		add_ideas = {
 			USA_safety_net_small
 		}
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					can_have_elections_in_state = yes
+				}
+				add_to_variable = { socialist_popularity = 0.03 }
+			}
+		}
 	}
 	else = {
 		add_ideas = {
 			USA_safety_net_barebones
+		}
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					can_have_elections_in_state = yes
+				}
+				add_to_variable = { socialist_popularity = 0.01 }
+			}
 		}
 	}
 }
