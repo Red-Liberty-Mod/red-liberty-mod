@@ -29,7 +29,7 @@ create_pie_chart = {
 	add_to_temp_variable = { spa_total_pop = revsoc_pop }
 	add_to_temp_variable = { spa_total_pop = socdem_pop }
 	
-	log = "[This.GetName] spa_total_pop = [?USA.spa_total_pop]"
+	#log = "[This.GetName] spa_total_pop = [?USA.spa_total_pop]"
 	
 	divide_temp_variable = { demsoc_pop = spa_total_pop }
 	divide_temp_variable = { revsoc_pop = spa_total_pop }
@@ -40,7 +40,7 @@ create_pie_chart = {
 	multiply_temp_variable = { demsoc_pop = 100 }
 	round_temp_variable = demsoc_pop
 	
-	log = "[This.GetName] demsoc_pop = [?USA.demsoc_pop]"
+	#log = "[This.GetName] demsoc_pop = [?USA.demsoc_pop]"
 
 	### PROLEDICT ###
 	#set_temp_variable = { revsoc_pop = party_popularity@proletarian_dictatorship }
@@ -55,7 +55,7 @@ create_pie_chart = {
 		add_to_variable = { ROOT.last_idx = 1 }
 	}
 	
-	log = "[This.GetName] revsoc_pop = [?USA.revsoc_pop]"
+	#log = "[This.GetName] revsoc_pop = [?USA.revsoc_pop]"
 
 	### SOCDEM ###
 	#set_temp_variable = { socdem_pop = party_popularity@social_democracy }
@@ -69,7 +69,7 @@ create_pie_chart = {
 		add_to_variable = { ROOT.last_idx = 1 }
 	}
 	
-	log = "[This.GetName] socdem_pop = [?USA.socdem_pop]"
+	#log = "[This.GetName] socdem_pop = [?USA.socdem_pop]"
 
 	### END ###
 	clear_variable = ROOT.last_idx

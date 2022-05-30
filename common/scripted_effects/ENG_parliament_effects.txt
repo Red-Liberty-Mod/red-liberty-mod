@@ -130,7 +130,7 @@ ENG_recalc_parliament = { # this will recalculate the number of members of parli
 				}
 			}
 			
-			log = "[THIS.GetName]: positive ENG_partial_discrepency: [?ENG_partial_discrepency]"
+			#log = "[THIS.GetName]: positive ENG_partial_discrepency: [?ENG_partial_discrepency]"
 			
 			subtract_from_variable = {
 				ENG_old_mps_total = ENG_partial_discrepency
@@ -143,7 +143,7 @@ ENG_recalc_parliament = { # this will recalculate the number of members of parli
 			}
 		}
 		else = { # negative discrepency, too many seats
-			log = "[THIS.GetName]: negative ENG_partial_discrepency: [?ENG_partial_discrepency]"
+			#log = "[THIS.GetName]: negative ENG_partial_discrepency: [?ENG_partial_discrepency]"
 		
 			subtract_from_variable = {
 				ENG_old_mps_total = ENG_partial_discrepency #remainder will be taken from tories
