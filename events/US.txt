@@ -227,8 +227,34 @@ news_event = { # recession world event
 
 country_event = { # 1940 dnc
 	id = united_states.11
-	title = united_states.11.title
-	desc = united_states.11.desc
+	title = { # lister is president
+		text = united_states.11.title_lister
+		trigger = {
+			has_government = national_conservatism
+		}
+	}
+	title = { # thomas is president
+		text = united_states.11.title_hull
+		trigger = {
+			NOT = {
+				has_government = national_conservatism
+			}
+		}
+	}
+	desc = {
+		text = united_states.11.desc_lister
+		trigger = {
+			has_government = national_conservatism
+		}
+	}
+	desc = {
+		text = united_states.11.desc_hull
+		trigger = {
+			NOT = {
+				has_government = national_conservatism
+			}
+		}
+	}
 	
 	is_triggered_only = yes
 	
