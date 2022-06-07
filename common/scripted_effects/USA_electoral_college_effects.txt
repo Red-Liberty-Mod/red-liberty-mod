@@ -1,6 +1,9 @@
 ### CONSTANTS ###
 @PRESIDENTIAL_TIEBREAKER = 0.05
 
+@MINIMUM_UNITY = 1
+@MAXIMUM_UNITY = 30
+
 @POPULARITY_CLAMP_MIN = 0 # used to be 0.001
 @POPULARITY_CLAMP_MAX = 1000
 
@@ -1423,33 +1426,46 @@ USA_gerrymandering_bonus = {
 }
 
 USA_party_unity_bonus = {
+	clamp_variable = {
+		var = USA.USA_socialist_unity
+		min = @MINIMUM_UNITY
+		max = @MAXIMUM_UNITY
+	}
+
 	if = {
 		limit = {
-			check_variable = { USA.USA_SPA_unity < 5 }
+			check_variable = { USA.USA_socialist_unity < 5 }
 		}
 		subtract_from_temp_variable = { socialist_temp_pop = 0.1 }
-		log = "[This.GetName] : added USA_party_unity_bonus -0.1"
+		#log = "[This.GetName] : added USA_party_unity_bonus -0.1"
 	}
 	else_if = {
 		limit = {
-			check_variable = { USA.USA_SPA_unity < 10 }
+			check_variable = { USA.USA_socialist_unity < 10 }
 		}
 		subtract_from_temp_variable = { socialist_temp_pop = 0.075 }
-		log = "[This.GetName] : added USA_party_unity_bonus -0.075"
+		#log = "[This.GetName] : added USA_party_unity_bonus -0.075"
 	}
 	else_if = {
 		limit = {
-			check_variable = { USA.USA_SPA_unity < 15 }
+			check_variable = { USA.USA_socialist_unity < 15 }
 		}
 		subtract_from_temp_variable = { socialist_temp_pop = 0.05 }
-		log = "[This.GetName] : added USA_party_unity_bonus -0.05"
+		#log = "[This.GetName] : added USA_party_unity_bonus -0.05"
 	}
 	else_if = {
 		limit = {
-			check_variable = { USA.USA_SPA_unity > 25 }
+			check_variable = { USA.USA_socialist_unity < 20 }
+		}
+		subtract_from_temp_variable = { socialist_temp_pop = 0.025 }
+		#log = "[This.GetName] : added USA_party_unity_bonus -0.025"
+	}
+	else_if = {
+		limit = {
+			check_variable = { USA.USA_socialist_unity > 25 }
 		}
 		add_to_temp_variable = { socialist_temp_pop = 0.05 }
-		log = "[This.GetName] : added USA_party_unity_bonus +0.05"
+		#log = "[This.GetName] : added USA_party_unity_bonus +0.05"
 	}
 }
 
