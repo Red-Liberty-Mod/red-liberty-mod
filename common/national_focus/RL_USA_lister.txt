@@ -15,16 +15,13 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = USA_liberal_cabinet
-	icon = GFX_USA_liberal_cabinet
+    id = USA_an_unexpected_victory
+	icon = GFX_USA_an_unexpected_victory
 	
     x = -1
 	y = 1
 	
 	cost = 2
-	mutually_exclusive = {
-		focus = USA_conservative_cabinet
-	}
 	relative_position_id = USA_the_lister_admin
 	prerequisite = { focus = USA_the_lister_admin }
     completion_reward = {
@@ -37,18 +34,107 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = USA_conservative_cabinet
-	icon = GFX_USA_conservative_cabinet
+    id = USA_clean_house
+	icon = GFX_USA_clean_house
+	
+    x = 1
+	y = 1
+	
+	cost = 2
+	relative_position_id = USA_the_lister_admin
+	prerequisite = { focus = USA_the_lister_admin }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_lister_mixed_cabinet
+	icon = GFX_USA_lister_mixed_cabinet
+	
+    x = -1
+	y = 1
+	
+	cost = 2
+	mutually_exclusive = {
+		focus = USA_lister_conservative_cabinet
+	}
+	relative_position_id = USA_an_unexpected_victory
+	prerequisite = { focus = USA_an_unexpected_victory }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_lister_conservative_cabinet
+	icon = GFX_USA_lister_conservative_cabinet
 	
     x = 1
 	y = 1
 	
 	cost = 2
 	mutually_exclusive = {
-		focus = USA_liberal_cabinet
+		focus = USA_lister_mixed_cabinet
 	}
-	relative_position_id = USA_the_lister_admin
-	prerequisite = { focus = USA_the_lister_admin }
+	relative_position_id = USA_an_unexpected_victory
+	prerequisite = { focus = USA_an_unexpected_victory }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_grumbling_acknowledgment
+	icon = GFX_USA_grumbling_acknowledgment
+	
+    x = -1
+	y = 1
+	
+	cost = 2
+	mutually_exclusive = {
+		focus = USA_repudiate_labor
+	}
+	relative_position_id = USA_lister_conservative_cabinet
+	prerequisite = {
+		focus = USA_lister_mixed_cabinet
+		focus = USA_lister_conservative_cabinet
+	}
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_repudiate_labor
+	icon = GFX_USA_repudiate_labor
+	
+    x = 1
+	y = 1
+	
+	cost = 2
+	mutually_exclusive = {
+		focus = USA_grumbling_acknowledgment
+	}
+	relative_position_id = USA_lister_conservative_cabinet
+	prerequisite = { focus = USA_lister_conservative_cabinet }
+	prerequisite = { focus = USA_clean_house }
     completion_reward = {
         
     }

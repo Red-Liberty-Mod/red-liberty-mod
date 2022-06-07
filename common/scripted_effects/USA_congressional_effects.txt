@@ -804,13 +804,70 @@ USA_abolish_filibuster_setup = { # abolish filibuster
 }
 
 USA_bill_setup = {
+	USA_clamp_support_vars = yes
 	USA_initialize_bill_support = yes
 	set_country_flag = USA_bill_house_phase
+}
+
+USA_clamp_support_vars = {
+	
+	clamp_variable = {
+		var = USA_communist_bill_support
+		min = 0
+		max = 1
+	}
+	clamp_variable = {
+		var = USA_socialist_bill_support
+		min = 0
+		max = 1
+	}
+	clamp_variable = {
+		var = USA_republican_bill_support
+		min = 0
+		max = 1
+	}
+	clamp_variable = {
+		var = USA_democrat_bill_support
+		min = 0
+		max = 1
+	}
+	clamp_variable = {
+		var = USA_fascist_bill_support
+		min = 0
+		max = 1
+	}
+	
+	clamp_variable = {
+		var = average_boost_communist
+		min = 0
+		max = 1
+	}
+	clamp_variable = {
+		var = average_boost_socialist
+		min = 0
+		max = 1
+	}
+	clamp_variable = {
+		var = average_boost_republican
+		min = 0
+		max = 1
+	}
+	clamp_variable = {
+		var = average_boost_democrat
+		min = 0
+		max = 1
+	}
+	clamp_variable = {
+		var = average_boost_fascist
+		min = 0
+		max = 1
+	}
 }
 
 USA_initialize_bill_support = {
 	set_country_flag = USA_discussing_bill
 	set_variable = { senators_support = 0 }
+	set_variable = { representatives_support = 0 }
 	
 	set_variable = { communist_supporting_senators = senators_communist }
 	set_variable = { socialist_supporting_senators = senators_socialist }
