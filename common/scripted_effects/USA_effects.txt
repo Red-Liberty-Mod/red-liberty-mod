@@ -122,6 +122,32 @@ improve_safety_net = {
 improve_great_depression = {
 	if = {
 		limit = {
+			has_idea = USA_the_great_depression_10
+		}
+		remove_ideas = {
+			USA_the_great_depression_10
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = USA_the_great_depression_9
+		}
+		swap_ideas = {
+			remove_idea = USA_the_great_depression_9
+			add_idea = USA_the_great_depression_10
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = USA_the_great_depression_8
+		}
+		swap_ideas = {
+			remove_idea = USA_the_great_depression_8
+			add_idea = USA_the_great_depression_9
+		}
+	}
+	else_if = {
+		limit = {
 			has_idea = USA_the_great_depression_7
 		}
 		swap_ideas = {
@@ -129,7 +155,7 @@ improve_great_depression = {
 			add_idea = USA_the_great_depression_8
 		}
 	}
-	if = {
+	else_if = {
 		limit = {
 			has_idea = USA_the_great_depression_6
 		}
@@ -138,7 +164,7 @@ improve_great_depression = {
 			add_idea = USA_the_great_depression_7
 		}
 	}
-	if = {
+	else_if = {
 		limit = {
 			has_idea = USA_the_great_depression_5
 		}
@@ -147,7 +173,7 @@ improve_great_depression = {
 			add_idea = USA_the_great_depression_6
 		}
 	}
-	if = {
+	else_if = {
 		limit = {
 			has_idea = USA_the_great_depression_4
 		}
@@ -183,6 +209,9 @@ improve_great_depression = {
 			add_idea = USA_the_great_depression_2
 		}
 	}
+	else = {
+		add_political_power = 50
+	}
 }
 
 worsen_great_depression = {
@@ -217,6 +246,15 @@ worsen_great_depression = {
 		swap_ideas = {
 			remove_idea = USA_the_great_depression_4
 			add_idea = USA_the_great_depression_3
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = USA_the_great_depression_5
+		}
+		swap_ideas = {
+			remove_idea = USA_the_great_depression_5
+			add_idea = USA_the_great_depression_4
 		}
 	}
 }
