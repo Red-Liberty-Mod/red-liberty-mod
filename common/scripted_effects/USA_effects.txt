@@ -99,12 +99,18 @@ USA_calc_congress_control = {
 
 improve_safety_net = {
 	if = {
+		swap_ideas = {
+			remove_idea = USA_safety_net_barebones
+			add_idea = USA_safety_net_small
+		}
+	}
+	else_if = {
 		limit = {
-			has_idea = USA_safety_net_large
+			has_idea = USA_safety_net_small
 		}
 		swap_ideas = {
-			remove_idea = USA_safety_net_large
-			add_idea = USA_safety_net_welfare_state
+			remove_idea = USA_safety_net_small
+			add_idea = USA_safety_net_acceptable
 		}
 	}
 	else_if = {
@@ -118,18 +124,15 @@ improve_safety_net = {
 	}
 	else_if = {
 		limit = {
-			has_idea = USA_safety_net_small
+			has_idea = USA_safety_net_large
 		}
 		swap_ideas = {
-			remove_idea = USA_safety_net_small
-			add_idea = USA_safety_net_acceptable
+			remove_idea = USA_safety_net_large
+			add_idea = USA_safety_net_welfare_state
 		}
 	}
 	else = {
-		swap_ideas = {
-			remove_idea = USA_safety_net_barebones
-			add_idea = USA_safety_net_small
-		}
+		add_political_power = 25
 	}
 }
 

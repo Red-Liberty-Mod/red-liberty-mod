@@ -631,6 +631,83 @@ USA_congress = {
 		}
 	}
 	
+	start_USA_nationalize_defense = { # nationalize defense industry
+		icon = ger_mefo_bills
+		available = {
+			NOT = {
+				has_country_flag = USA_discussing_bill
+			}
+			#has_completed_focus = USA_remove_the_profit
+		}
+		
+		visible = {
+			original_tag = USA
+			NOT = {
+				has_country_flag = USA_discussing_bill
+			}
+			#has_completed_focus = USA_remove_the_profit
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			custom_effect_tooltip = USA_bill_pass_req_tt
+			effect_tooltip = {
+				random_owned_state = {
+					limit = {
+						is_urban_state = yes
+					}
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_state = {
+					limit = {
+						is_urban_state = yes
+					}
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_state = {
+					limit = {
+						is_urban_state = yes
+					}
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_state = {
+					limit = {
+						is_urban_state = yes
+					}
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_state = {
+					limit = {
+						is_urban_state = yes
+					}
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			USA_nationalize_defense_act_setup = yes
+		}
+	}
+	
 	### MINOR LEGISLATION ###
 	
 	start_USA_national_cancer_act = {

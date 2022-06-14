@@ -803,6 +803,30 @@ USA_abolish_filibuster_setup = { # abolish filibuster
 	USA_bill_setup = yes # always required
 }
 
+USA_nationalize_defense_act_setup = { # abolish filibuster
+	log = "[GetDateText]: [Root.GetName]: bill setup active"
+	
+	set_variable = { bill_id = 21 } # EACH BILL MUST HAVE A UNIQUE ID
+	
+	set_country_flag = USA_communist_discussing
+	set_country_flag = USA_socialist_discussing
+	set_country_flag = USA_democrat_discussing
+	
+	set_variable = { USA_communist_bill_support = 1 }
+	set_variable = { USA_socialist_bill_support = 1 }
+	set_variable = { USA_republican_bill_support = 0 }
+	set_variable = { USA_democrat_bill_support = 0.05 }
+	set_variable = { USA_fascist_bill_support = 0 }
+	
+	set_variable = { average_boost_democrat = 0.1 }
+	
+	set_variable = { communist_flip_cost = 50 }
+	set_variable = { socialist_flip_cost = 50 }
+	set_variable = { democrat_flip_cost = 125 }
+	
+	USA_bill_setup = yes # always required
+}
+
 USA_bill_setup = {
 	USA_clamp_support_vars = yes
 	USA_initialize_bill_support = yes
