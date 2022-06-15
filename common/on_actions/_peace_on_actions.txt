@@ -4,164 +4,205 @@ on_actions = {
 		
 		effect = {
 		
+			### PEACE POPUP ###
+			set_global_flag = show_peace_popup_alert
+			FROM = {
+				save_global_event_target_as = winning_country
+			}
+			ROOT = {
+				save_global_event_target_as = losing_country
+			}
+			if = {
+				limit = {
+					event_target:losing_country = {
+						any_allied_country = {
+							has_war_together_with = event_target:losing_country
+						}
+					}
+				}
+				set_global_flag = losing_country_multiple
+			}
+			if = {
+				limit = {
+					event_target:winning_country = {
+						any_allied_country = {
+							has_war_together_with = event_target:winning_country
+						}
+					}
+				}
+				set_global_flag = winning_country_multiple
+			}
+			log = "[GetDateText] winner/loser: ROOT: [losing_country.GetName] FROM: [winning_country.GetName] on_capitulation"
+			
 			set_global_flag = skip_default_capitulation
 			
-			### DANUBIAN WARS ###
 			if = {
 				limit = {
-					FROM = {
-						original_tag = HUN
-					}
-					ROOT = {
-						original_tag = ROM
-					}
-				}
-				ROM = {
-					white_peace = {
-						tag = HUN
-						message = "The Kingdom of Romania has triumphed over Hungary in the Transylvanian war."
-					}
-					transfer_state = 885
-				}
-			}
-			
-			
-			### ITALIAN WARS ###
-			
-			if = {
-				limit = {
-					FROM = {
-						original_tag = ITA
-					}
-					ROOT = {
-						original_tag = ETH
-					}
-				}
-				random_other_country = {
-					limit = { is_ai = yes }
-					news_event = { id = demo_ita.3 hours = 6 }
-				}
-			}
-			if = {
-				limit = {
-					FROM = {
-						original_tag = ITA
-					}
-					ROOT = {
-						original_tag = ALB
-					}
-				}
-				ITA_peace_ALB_war = yes
-			}
-			if = {
-				limit = {
-					FROM = {
-						original_tag = ITA
-					}
-					ROOT = {
-						original_tag = GRE
-					}
-				}
-				ITA_peace_GRE_war = yes
-			}
-			
-			### BRAZIL ###
-			if = {
-				limit = {
-					FROM = {
-						original_tag = UOB
-					}
-					ROOT = {
-						original_tag = BRA
-					}
-				}
-				random_list = {
-					25 = {
-						random_other_country = {
-							limit = { is_ai = yes }
-							news_event = { id = demo_uob.1 hours = 6 }
+					NOT = {
+						ROOT = {
+							is_in_faction = yes
+							any_other_country = {
+								is_in_faction_with = PREV
+								has_capitulated = no
+							}
 						}
 					}
-					25 = {
-						random_other_country = {
-							limit = { is_ai = yes }
-							news_event = { id = demo_uob.2 hours = 6 }
+				}
+				set_global_flag = war_won
+			
+				### DANUBIAN WARS ###
+				if = {
+					limit = {
+						FROM = {
+							original_tag = ROM
+						}
+						ROOT = {
+							original_tag = HUN
 						}
 					}
-					25 = {
-						random_other_country = {
-							limit = { is_ai = yes }
-							news_event = { id = demo_uob.3 hours = 6 }
+					ROM = {
+						white_peace = {
+							tag = HUN
 						}
-					}
-					25 = {
-						random_other_country = {
-							limit = { is_ai = yes }
-							news_event = { id = demo_uob.4 hours = 6 }
-						}
+						transfer_state = 885
 					}
 				}
 				
-				country_event = {
-					id = demo_bra.4
-					days = 15
+				### ITALIAN WARS ###
+				if = {
+					limit = {
+						FROM = {
+							original_tag = ITA
+						}
+						ROOT = {
+							original_tag = ETH
+						}
+					}
+					random_other_country = {
+						limit = { is_ai = yes }
+						news_event = { id = demo_ita.3 hours = 6 }
+					}
 				}
-			}
-			if = {
-				limit = {
-					FROM = {
-						original_tag = BRA
+				if = {
+					limit = {
+						FROM = {
+							original_tag = ITA
+						}
+						ROOT = {
+							original_tag = ALB
+						}
 					}
-					ROOT = {
-						original_tag = UOB
+					ITA_peace_ALB_war = yes
+				}
+				if = {
+					limit = {
+						FROM = {
+							original_tag = ITA
+						}
+						ROOT = {
+							original_tag = GRE
+						}
+					}
+					ITA_peace_GRE_war = yes
+				}
+				
+				### BRAZIL ###
+				if = {
+					limit = {
+						FROM = {
+							original_tag = UOB
+						}
+						ROOT = {
+							original_tag = BRA
+						}
+					}
+					random_list = {
+						25 = {
+							random_other_country = {
+								limit = { is_ai = yes }
+								news_event = { id = demo_uob.1 hours = 6 }
+							}
+						}
+						25 = {
+							random_other_country = {
+								limit = { is_ai = yes }
+								news_event = { id = demo_uob.2 hours = 6 }
+							}
+						}
+						25 = {
+							random_other_country = {
+								limit = { is_ai = yes }
+								news_event = { id = demo_uob.3 hours = 6 }
+							}
+						}
+						25 = {
+							random_other_country = {
+								limit = { is_ai = yes }
+								news_event = { id = demo_uob.4 hours = 6 }
+							}
+						}
+					}
+					country_event = {
+						id = demo_uob.5
+						days = 15
 					}
 				}
-				random_list = {
-					34 = {
-						random_other_country = {
-							limit = { is_ai = yes }
-							news_event = { id = demo_bra.1 hours = 6 }
+				if = {
+					limit = {
+						FROM = {
+							original_tag = BRA
+						}
+						ROOT = {
+							original_tag = UOB
 						}
 					}
-					33 = {
-						random_other_country = {
-							limit = { is_ai = yes }
-							news_event = { id = demo_bra.2 hours = 6 }
+					random_list = {
+						34 = {
+							random_other_country = {
+								limit = { is_ai = yes }
+								news_event = { id = demo_bra.1 hours = 6 }
+							}
+						}
+						33 = {
+							random_other_country = {
+								limit = { is_ai = yes }
+								news_event = { id = demo_bra.2 hours = 6 }
+							}
+						}
+						33 = {
+							random_other_country = {
+								limit = { is_ai = yes }
+								news_event = { id = demo_bra.3 hours = 6 }
+							}
 						}
 					}
-					33 = {
-						random_other_country = {
-							limit = { is_ai = yes }
-							news_event = { id = demo_bra.3 hours = 6 }
-						}
+					
+					country_event = {
+						id = demo_bra.4
+						days = 15
 					}
 				}
 				
-				country_event = {
-					id = demo_uob.5
-					days = 15
+				### SIAMESE-BURMESE WAR ###
+				if = {
+					limit = {
+						FROM = {
+							original_tag = SIA
+						}
+						ROOT = {
+							original_tag = BRM
+						}
+					}
+					SIA = {
+						white_peace = {
+							tag = BRM
+							message = "The Kingdom of Siam has triumphed over Burma in the Siamese-Burmese war."
+						}
+						transfer_state = 964
+						transfer_state = 965
+					}
 				}
 			}
-			
-			if = {
-				limit = {
-					FROM = {
-						original_tag = SIA
-					}
-					ROOT = {
-						original_tag = BRM
-					}
-				}
-				SIA = {
-					white_peace = {
-						tag = BRM
-						message = "The Kingdom of Siam has triumphed over Burma in the Siamese-Burmese war."
-					}
-					transfer_state = 964
-					transfer_state = 965
-				}
-			}
-			
 			clr_global_flag = skip_default_capitulation
 		}
 	}
