@@ -13,6 +13,13 @@ has_socialist_govt = {
 	}
 }
 
+has_democratic_socialist_govt = {
+	OR = {
+		has_government = libertarian_socialism
+		has_government = social_democracy
+	}
+}
+
 has_democratic_govt = {
 	OR = {
 		has_government = libertarian_socialism
@@ -23,8 +30,19 @@ has_democratic_govt = {
 	}
 }
 
+has_reactionary_govt = {
+	OR = {
+		has_government = authoritarian_democracy
+		has_government = autocratic_despotism
+		has_government = far_right_authoritarianism
+		has_government = fascism
+	}
+}
+
 has_authoritarian_govt = {
 	OR = {
+		has_government = revolutionary_autocracy
+		has_government = proletarian_dictatorship
 		has_government = authoritarian_democracy
 		has_government = autocratic_despotism
 		has_government = far_right_authoritarianism
