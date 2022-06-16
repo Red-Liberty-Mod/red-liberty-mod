@@ -831,12 +831,22 @@ country_event = { # rom-hun war
 
 	option = {
 		name = demo_ahe.9.a
+		
+		GER = {
+			end_puppet = ROM
+		}
+		
 		ROM = {
 			transfer_state = 76
 			transfer_state = 80
 			transfer_state = 82
 			transfer_state = 83
 			transfer_state = 84
+			
+			remove_ideas = {
+				ROM_german_dominance
+				ROM_treaty_of_bucharest
+			}
 			
 			load_oob = ROM_danubian_war
 			
@@ -862,6 +872,13 @@ country_event = { # bosnians form govt
 	option = {
 		name = demo_ahe.10.a
 		CRO_setup_BOS = yes
+		
+		SER = {
+			declare_war_on = {
+				target = BOS
+				type = annex_everything
+			}
+		}
 	}
 }
 

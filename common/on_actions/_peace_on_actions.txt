@@ -3,7 +3,16 @@ on_actions = {
 	on_capitulation = {
 		
 		effect = {
-		
+			
+			limit = {
+				NOT = {
+					has_game_rule = {
+						rule = SCRIPTED_PEACE
+						option = SCRIPTED_PEACE_DISABLED
+					}
+				}
+			}
+			
 			### PEACE POPUP ###
 			set_global_flag = show_peace_popup_alert
 			FROM = {
@@ -65,6 +74,62 @@ on_actions = {
 							tag = HUN
 						}
 						transfer_state = 885
+					}
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							original_tag = HUN
+						}
+						ROOT = {
+							original_tag = ROM
+						}
+					}
+					HUN = {
+						white_peace = {
+							tag = ROM
+						}
+						transfer_state = 76
+						transfer_state = 82
+						transfer_state = 83
+						transfer_state = 84
+						81 = {
+							set_demilitarized_zone = yes
+						}
+					}
+				}
+				
+				if = {
+					limit = {
+						FROM = {
+							original_tag = BOS
+						}
+						ROOT = {
+							original_tag = SER
+						}
+					}
+					BOS = {
+						white_peace = {
+							tag = SER
+						}
+					}
+				}
+				if = {
+					limit = {
+						FROM = {
+							original_tag = SER
+						}
+						ROOT = {
+							original_tag = BOS
+						}
+					}
+					SER = {
+						white_peace = {
+							tag = BOS
+						}
+						annex_country = {
+							target = BOS
+						}
 					}
 				}
 				
@@ -196,7 +261,6 @@ on_actions = {
 					SIA = {
 						white_peace = {
 							tag = BRM
-							message = "The Kingdom of Siam has triumphed over Burma in the Siamese-Burmese war."
 						}
 						transfer_state = 964
 						transfer_state = 965
