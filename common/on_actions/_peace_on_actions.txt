@@ -41,18 +41,17 @@ on_actions = {
 				}
 				set_global_flag = winning_country_multiple
 			}
-			log = "[GetDateText] winner/loser: ROOT: [losing_country.GetName] FROM: [winning_country.GetName] on_capitulation"
+			log = "[GetDateText] winner/loser: FROM: [winning_country.GetName] ROOT: [losing_country.GetName] on_capitulation"
 			
 			set_global_flag = skip_default_capitulation
 			
 			if = {
 				limit = {
-					NOT = {
+					OR = {
+						ROOT = { is_in_faction = no }
 						ROOT = {
-							is_in_faction = yes
-							any_other_country = {
-								is_in_faction_with = PREV
-								has_capitulated = no
+							all_allied_country = {
+								has_capitulated = yes
 							}
 						}
 					}
@@ -108,10 +107,8 @@ on_actions = {
 							original_tag = SER
 						}
 					}
-					BOS = {
-						white_peace = {
-							tag = SER
-						}
+					FROM = {
+						white_peace = ROOT
 					}
 				}
 				if = {
@@ -123,12 +120,10 @@ on_actions = {
 							original_tag = BOS
 						}
 					}
-					SER = {
-						white_peace = {
-							tag = BOS
-						}
+					FROM = {
+						white_peace = ROOT
 						annex_country = {
-							target = BOS
+							target = ROOT
 						}
 					}
 				}
@@ -141,6 +136,12 @@ on_actions = {
 						}
 						ROOT = {
 							original_tag = ETH
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+						annex_country = {
+							target = ROOT
 						}
 					}
 					random_other_country = {
@@ -179,6 +180,12 @@ on_actions = {
 						}
 						ROOT = {
 							original_tag = BRA
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+						annex_country = {
+							target = ROOT
 						}
 					}
 					random_list = {
@@ -221,6 +228,12 @@ on_actions = {
 							original_tag = UOB
 						}
 					}
+					FROM = {
+						white_peace = ROOT
+						annex_country = {
+							target = ROOT
+						}
+					}
 					random_list = {
 						34 = {
 							random_other_country = {
@@ -259,11 +272,86 @@ on_actions = {
 						}
 					}
 					SIA = {
-						white_peace = {
-							tag = BRM
-						}
+						white_peace = BRM
 						transfer_state = 964
 						transfer_state = 965
+					}
+				}
+				
+				### SECOND GREAT WAR - WESTERN FRONT ###
+				if = {
+					limit = {
+						FROM = {
+							original_tag = FRA
+							is_in_faction_with = FRA
+						}
+						ROOT = {
+							original_tag = GER
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+					}
+					GER = {
+						dismantle_faction = yes
+						end_puppet = POL
+						end_puppet = LIT
+						end_puppet = BAL
+						end_puppet = CRI
+					}
+					#WGR = {
+					#	annex_country = {
+					#		target = GER
+					#	}
+					#	set_cosmetic_tag = WGR_occupied_germany
+					#}
+					FRA = {
+						transfer_state = 28
+						#transfer_state = 58
+						#transfer_state = 797
+						transfer_state = 877
+						
+						#puppet = WGR
+					}
+				}
+				
+				### SECOND GREAT WAR - EASTERN FRONT ###
+				if = {
+					limit = {
+						FROM = {
+							original_tag = SOV
+							is_in_faction_with = SOV
+						}
+						ROOT = {
+							OR = {
+								original_tag = UKR
+								original_tag = BLR
+								original_tag = BAL
+								original_tag = LIT
+								original_tag = CRI
+								original_tag = POL
+							}
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+						annex_country = {
+							target = ROOT
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							original_tag = GER
+							is_in_faction_with = GER
+						}
+						ROOT = {
+							original_tag = SOV
+						}
+					}
+					FROM = {
+						white_peace = ROOT
 					}
 				}
 			}

@@ -1,9 +1,16 @@
-SOV_hate_RUS = {
-	enable = {
-		original_tag = SOV
-		country_exists = RUS
-	}
+SOV_attack_RUS = {
 
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		SOV = {
+			has_war_with = RUS
+		}
+		RUS = {
+			has_capitulated = no
+		}
+	}
 	abort_when_not_enabled = yes
 
 	ai_strategy = {
@@ -17,75 +24,32 @@ SOV_hate_RUS = {
 	ai_strategy = {
 		type = conquer
 		id = RUS
-		value = 1000
+		value = 100
 	}
 }
 
-FER_hate_RUS = {
+SOV_worried_about_RUS = {
+	allowed = {
+		original_tag = SOV
+	}
 	enable = {
-		original_tag = FER
 		country_exists = RUS
 	}
-
 	abort_when_not_enabled = yes
 
 	ai_strategy = {
-		type = front_control
-		tag = RUS
-		execution_type = rush
-		execute_order = yes
-		manual_attack = no
-	}
-	
-	ai_strategy = {
-		type = conquer
+		type = contain
 		id = RUS
-		value = 1000
+		value = 100
 	}
-}
-
-SOV_hate_UKR = {
-	enable = {
-		original_tag = SOV
-		has_war_with = UKR
-	}
-
-	abort_when_not_enabled = yes
-
 	ai_strategy = {
-		type = front_control
-		tag = UKR
-		execution_type = rush
-		execute_order = yes
-		manual_attack = no
+		type = antagonize
+		id = RUS
+		value = 100
 	}
-	
 	ai_strategy = {
-		type = conquer
-		id = UKR
-		value = 1000
-	}
-}
-
-SOV_hate_BLR = {
-	enable = {
-		original_tag = SOV
-		has_war_with = BLR
-	}
-
-	abort_when_not_enabled = yes
-
-	ai_strategy = {
-		type = front_control
-		tag = BLR
-		execution_type = rush
-		execute_order = yes
-		manual_attack = no
-	}
-	
-	ai_strategy = {
-		type = conquer
-		id = BLR
-		value = 1000
+		type = front_unit_request
+		tag = RUS
+		value = 100
 	}
 }

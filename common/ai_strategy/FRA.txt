@@ -1,6 +1,172 @@
-france_worried_about_germany = {
-	enable = {
+FRA_stop_staring_at_germany_and_attack = {
+	allowed = {
 		original_tag = FRA
+	}
+	enable = {
+		FRA = {
+			has_war_with = GER
+		}
+		GER = {
+			has_capitulated = no
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		tag = GER
+		execution_type = rush
+		execute_order = yes
+		manual_attack = no
+	}
+	ai_strategy = {
+		type = conquer
+		id = "GER"
+		value = 100
+	}
+}
+
+FRA_area_priority = {
+	allowed = {
+		original_tag = FRA
+	}
+	
+	enable = {
+		always = yes
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = europe
+		value = 110 #more focus here
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = scandinavia
+		value = 0
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = north_america
+		value = 10
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = south_america
+		value = 10
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = asia
+		value = 75
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = middle_east
+		value = 10
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = africa
+		value = -50
+	}
+	
+	ai_strategy = {
+        type = area_priority
+        id = suez
+        value = -50
+    }
+
+	ai_strategy = {
+		type = area_priority
+		id = pacific
+		value = 10 #less focus here
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = oceania
+		value = 10
+	}
+}
+
+FRA_prepare_for_war = {
+	allowed = { 
+		original_tag = FRA
+	}
+	enable = {
+		AND =  {
+			date > 1937.6.1
+			date < 1939.1.1
+		}
+
+		always = yes
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+        type = force_build_armies
+        value = 25
+    }
+}
+
+FRA_stockpile_less_early_game = {
+	allowed = {
+		original_tag = FRA
+	}
+
+	enable = {
+		date < 1937.1.1
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = equipment_stockpile_surplus_ratio
+		value = -25 # reduce while we build up troops for africa etc
+	}
+}
+
+FRA_wants_civs = {
+	allowed = {
+		original_tag = FRA
+	}
+	enable = {
+		date < 1938.1.1
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = building_target
+		id = industrial_complex
+		value = 35
+	}
+}
+
+FRA_wants_mils = {
+	allowed = {
+		original_tag = FRA
+	}
+	enable = {
+		date > 1938.1.1
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = building_target
+		id = arms_factory
+		value = 40
+	}
+}
+
+FRA_worried_about_GER = {
+	allowed = {
+		original_tag = FRA
+	}
+	enable = {
 		country_exists = GER
 	}
 
@@ -8,17 +174,44 @@ france_worried_about_germany = {
 
 	ai_strategy = {
 		type = contain
-		id = "GER"
+		id = GER
 		value = 100
 	}
 	ai_strategy = {
 		type = antagonize
-		id = "GER"
+		id = GER
 		value = 100
 	}
 	ai_strategy = {
-		type = conquer
-		id = "GER"
+		type = front_unit_request
+		tag = GER
 		value = 100
+	}
+}
+
+FRA_ignore_SWI = {
+	allowed = {
+		original_tag = FRA
+	}
+	enable = {
+		country_exists = SWI
+		ROOT = {
+			NOT = {
+				has_war_with = SWI
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = ignore
+		id = "SWI"
+		value = 200
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		tag = SWI
+		value = -200
 	}
 }
