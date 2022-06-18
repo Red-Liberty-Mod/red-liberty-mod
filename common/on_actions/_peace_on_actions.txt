@@ -103,6 +103,25 @@ on_actions = {
 						news_event = { id = demo_rus.5 hours = 6 }
 					}
 				}
+				
+				if = {
+					limit = {
+						FROM = {
+							original_tag = SOV
+						}
+						ROOT = {
+							original_tag = FIN
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+						annex_country = {
+							target = NRR
+						}
+						transfer_state = 215
+						transfer_state = 216
+					}
+				}
 			
 				### DANUBIAN WARS ###
 				if = {
@@ -328,8 +347,10 @@ on_actions = {
 				if = {
 					limit = {
 						FROM = {
-							original_tag = FRA
-							is_in_faction_with = FRA
+							OR = {
+								original_tag = FRA
+								is_in_faction_with = FRA
+							}
 						}
 						ROOT = {
 							original_tag = GER
