@@ -57,6 +57,52 @@ on_actions = {
 					}
 				}
 				set_global_flag = war_won
+				
+				### RUSSIAN CIVIL WAR ###
+				if = {
+					limit = {
+						FROM = {
+							original_tag = SOV
+						}
+						ROOT = {
+							original_tag = RUS
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+						annex_country = {
+							target = ROOT
+						}
+						country_event = {
+							id = demo_sov.2
+							days = 15
+						}
+					}
+					random_other_country = {
+						limit = { is_ai = yes }
+						news_event = { id = demo_rus.4 hours = 6 }
+					}
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							original_tag = RUS
+						}
+						ROOT = {
+							original_tag = SOV
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+						annex_country = {
+							target = ROOT
+						}
+					}
+					random_other_country = {
+						limit = { is_ai = yes }
+						news_event = { id = demo_rus.5 hours = 6 }
+					}
+				}
 			
 				### DANUBIAN WARS ###
 				if = {
@@ -294,10 +340,31 @@ on_actions = {
 					}
 					GER = {
 						dismantle_faction = yes
-						end_puppet = POL
-						end_puppet = LIT
-						end_puppet = BAL
-						end_puppet = CRI
+						
+						set_autonomy = {
+							target = POL
+							autonomy_state = autonomy_free
+							end_wars = yes
+							end_civil_wars = yes
+						}
+						set_autonomy = {
+							target = LIT
+							autonomy_state = autonomy_free
+							end_wars = yes
+							end_civil_wars = yes
+						}
+						set_autonomy = {
+							target = BAL
+							autonomy_state = autonomy_free
+							end_wars = yes
+							end_civil_wars = yes
+						}
+						set_autonomy = {
+							target = CRI
+							autonomy_state = autonomy_free
+							end_wars = yes
+							end_civil_wars = yes
+						}
 					}
 					#WGR = {
 					#	annex_country = {

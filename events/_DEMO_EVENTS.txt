@@ -14,7 +14,7 @@ add_namespace = demo_jap
 add_namespace = demo_bra
 add_namespace = demo_uob
 add_namespace = demo_ww2
-add_namespace = demo.ita_alb_war
+
 add_namespace = demo_ger_civil_war
 add_namespace = demo.ita_gr_war
 add_namespace = demo.jap_chi_war
@@ -1261,36 +1261,13 @@ country_event = {
 	desc = demo_sov.1.desc
 	
 	trigger = {
-		SOV = {
-			controls_state = 571
-		}
+		
 	}
 	
 	fire_only_once = yes
 
 	option = {
 		name = ""
-		SOV = {
-			annex_country = {
-				target = RUS
-			}
-			annex_country = {
-				target = FER
-			}
-			
-			every_owned_state = {
-				limit = {
-					is_core_of = RUS
-				}
-				add_core_of = SOV
-			}
-		}
-		hidden_effect = {
-			random_other_country = {
-				limit = { is_ai = yes }
-				news_event = { id = demo_rus.4 hours = 6 }
-			}
-		}
 	}
 }
 
@@ -1314,6 +1291,12 @@ country_event = {
 				SOV_tsarist_captives
 			}
 		}
+		USA = {
+			country_event = {
+				id = demo_sov.4
+				days = 35
+			}
+		}
 		ai_chance = {
 			base = 4
 		}
@@ -1333,6 +1316,12 @@ country_event = {
 				SOV_political_turmoil
 				SOV_nep
 				SOV_tsarist_captives
+			}
+		}
+		USA = {
+			country_event = {
+				id = demo_sov.5
+				days = 35
 			}
 		}
 		ai_chance = {
@@ -1356,6 +1345,12 @@ country_event = {
 				SOV_tsarist_captives
 			}
 		}
+		USA = {
+			country_event = {
+				id = demo_sov.6
+				days = 35
+			}
+		}
 		ai_chance = {
 			base = 1
 		}
@@ -1365,7 +1360,7 @@ country_event = {
 country_event = { # 
 	id = demo_sov.3
 	title = demo_sov.3.title
-	desc = demo_sov.3.1.desc
+	desc = demo_sov.3.desc
 	
 	is_triggered_only = yes
 	
@@ -1383,6 +1378,52 @@ country_event = { #
 				type = annex_everything
 			}
 		}
+	}
+}
+
+country_event = { # trotskyists expelled from cpusa
+	id = demo_sov.4
+	title = demo_sov.4.title
+	desc = demo_sov.4.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_sov.4.a
+		USA = {
+			recruit_character = USA_max_shachtman
+			recruit_character = USA_martin_abern
+		}
+	}
+}
+
+country_event = { # technocrat takeover of cpusa
+	id = demo_sov.5
+	title = demo_sov.5.title
+	desc = demo_sov.5.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_sov.5.a
+	}
+}
+
+country_event = { # flynn takes over cpusa
+	id = demo_sov.6
+	title = demo_sov.6.title
+	desc = demo_sov.6.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_sov.6.a
 	}
 }
 
