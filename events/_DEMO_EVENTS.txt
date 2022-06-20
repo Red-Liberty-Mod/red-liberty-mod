@@ -13,6 +13,8 @@ add_namespace = demo_cen
 add_namespace = demo_jap
 add_namespace = demo_bra
 add_namespace = demo_uob
+add_namespace = demo_saf
+
 add_namespace = demo_ww2
 
 add_namespace = demo_ger_civil_war
@@ -1848,6 +1850,82 @@ country_event = { # brazil politics
 		ai_chance = {
 			base = 2
 		}
+	}
+}
+
+country_event = {
+	id = demo_saf.1
+	title = demo_saf.1.title
+	desc = demo_saf.1.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_saf.1.a
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_saf.2 hours = 6 }
+		}
+		ai_chance = {
+			base = 6
+		}
+	}
+	
+	option = {
+		name = demo_saf.1.b
+		SAF = {
+			set_politics = {
+				ruling_party = market_libertarianism
+				elections_allowed = yes
+				last_election = "1938.5.18"
+				election_frequency = 48
+			}
+			add_popularity = {
+				ideology = progressive_liberalism
+				popularity = 0.02
+			}
+			add_popularity = {
+				ideology = market_libertarianism
+				popularity = 0.07
+			}
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_saf.3 hours = 6 }
+		}
+		ai_chance = {
+			base = 4
+		}
+	}
+}
+
+news_event = { # national party victory
+	id = demo_saf.2
+	title = demo_saf.2.title
+	desc = demo_saf.2.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = demo_saf.2.a
+	}
+}
+
+news_event = { # south african party victory
+	id = demo_saf.3
+	title = demo_saf.3.title
+	desc = demo_saf.3.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = demo_saf.3.a
 	}
 }
 
