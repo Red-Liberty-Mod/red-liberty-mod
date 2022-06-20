@@ -14,6 +14,7 @@ add_namespace = demo_jap
 add_namespace = demo_bra
 add_namespace = demo_uob
 add_namespace = demo_saf
+add_namespace = demo_tur
 
 add_namespace = demo_ww2
 
@@ -1262,9 +1263,7 @@ country_event = {
 	title = ""
 	desc = demo_sov.1.desc
 	
-	trigger = {
-		
-	}
+	is_triggered_only = yes
 	
 	fire_only_once = yes
 
@@ -1853,6 +1852,38 @@ country_event = { # brazil politics
 	}
 }
 
+country_event = { # straits crisis start
+	id = demo_tur.1
+	title = demo_tur.1.title
+	desc = demo_tur.1.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_tur.1.a
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_tur.2 hours = 6 }
+		}
+	}
+}
+
+news_event = { # straits crisis start news
+	id = demo_tur.2
+	title = demo_tur.2.title
+	desc = demo_tur.2.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_tur.2.a
+	}
+}
+
 country_event = {
 	id = demo_saf.1
 	title = demo_saf.1.title
@@ -1952,10 +1983,10 @@ country_event = {
 			limit = { is_ai = yes }
 			news_event = { id = demo_ww2.2 hours = 6 }
 		}
-		GER = {
+		SOV = {
 			country_event = {
 				id = demo_ww2.3
-				days = 25
+				days = 150
 			}
 		}
 	}
