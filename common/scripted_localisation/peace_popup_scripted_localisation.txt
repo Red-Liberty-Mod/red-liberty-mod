@@ -92,7 +92,19 @@ defined_text = {
 		}
 		localization_key = PEACE_POPUP_WAR_CONCLUSION_BRA_UOB
 	}
-
+	
+	text = { # ww2
+		trigger = {
+			event_target:winning_country = {
+				original_tag = FRA
+			}
+			event_target:losing_country = {
+				original_tag = GER
+			}
+		}
+		localization_key = PEACE_POPUP_WAR_CONCLUSION_FRA_GER
+	}
+	
 	text = { # Generic
 		localization_key = PEACE_POPUP_WAR_CONCLUSION_DEFAULT
 	}
@@ -137,6 +149,15 @@ defined_text = {
 			}
 		}
 		localization_key = PEACE_POPUP_FLAVOR_UOB
+	}
+	
+	text = {
+		trigger = {
+			event_target:losing_country = {
+				original_tag = GER
+			}
+		}
+		localization_key = PEACE_POPUP_FLAVOR_GER
 	}
 
 	text = {
