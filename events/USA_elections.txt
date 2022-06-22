@@ -52,14 +52,13 @@ country_event = {
 		add_ideas = {
 			USA_election_chaos
 		}
-		
-		#country_event = { # new congress gets sworn in
-		#	id = us_election.3
-		#	days = 50
-		#}
 		country_event = { # house of reps votes
 			id = us_election.4
 			days = 57
+		}
+		news_event = {
+			id = worldnews.3
+			hours = 6
 		}
 		
 		set_country_flag = USA_1936_election_shitshow
@@ -70,17 +69,13 @@ country_event = {
 		trigger = {
 			check_variable = { ROOT.socialist_electoral_votes > 290 }
 		}
-		
-		#country_event = { # new congress gets sworn in
-		#	id = us_election.3
-		#	days = 50
-		#}
 		country_event = { # thomas inaug
 			id = us_election.5
 			days = 116
 		}
-		country_event = {
-			id = us_election.6
+		news_event = {
+			id = worldnews.1
+			hours = 6
 		}
 		
 		if = {
@@ -101,35 +96,18 @@ country_event = {
 		trigger = {
 			check_variable = { ROOT.democrat_electoral_votes > 290 }
 		}
-		
-		#country_event = { # new congress gets sworn in
-		#	id = us_election.3
-		#	days = 50
-		#}
 		country_event = { # lister inaug
 			id = us_election.7
 			days = 116
 		}
-		country_event = {
-			id = us_election.8
+		news_event = {
+			id = worldnews.2
+			hours = 6
 		}
 		
 		load_focus_tree = USA_flame_burnt_out_tree
 		
 		set_country_flag = USA_1936_election_democrat_victory
-	}
-}
-
-country_event = { # new congress gets sworn in
-	id = us_election.3
-	title = "The 75th Congress"
-	desc = us_election.3.desc
-
-	is_triggered_only = yes
-	
-	option = {
-		name = us_election.3.a
-		USA_recalc_house = yes
 	}
 }
 
@@ -146,8 +124,9 @@ country_event = { # house of reps votes
 			id = us_election.5
 			days = 55
 		}
-		country_event = {
-			id = us_election.6
+		news_event = {
+			id = worldnews.4
+			hours = 6
 		}
 		set_country_flag = USA_thomas_elected
 		remove_ideas = {
@@ -161,8 +140,9 @@ country_event = { # house of reps votes
 			id = us_election.7
 			days = 55
 		}
-		country_event = {
-			id = us_election.8
+		news_event = {
+			id = worldnews.5
+			hours = 6
 		}
 		set_country_flag = USA_lister_elected
 		remove_ideas = {
@@ -176,8 +156,9 @@ country_event = { # house of reps votes
 			id = us_election.9
 			days = 55
 		}
-		country_event = {
-			id = us_election.10
+		news_event = {
+			id = worldnews.6
+			hours = 6
 		}
 		set_country_flag = USA_lindy_elected
 		remove_ideas = {
@@ -188,7 +169,7 @@ country_event = { # house of reps votes
 
 country_event = { # thomas inaug day
 	id = us_election.5
-	title = "Inuaguration Day"
+	title = us_election.5.title
 	desc = us_election.5.desc
 	picture = GFX_report_event_norman_thomas_elected
 
@@ -226,55 +207,6 @@ country_event = { # thomas inaug day
 	}
 }
 
-news_event = { # thomas election news event
-	id = us_election.6
-	title = "President Thomas Re-elected!"
-	desc = us_election.6.desc
-	picture = GFX_report_event_usa_election_thomas_victory
-
-	is_triggered_only = yes
-	
-	major = yes
-	
-	option = {
-		name = us_election.6.a
-		trigger = {
-			OR = {
-				has_government = revolutionary_autocracy
-				has_government = proletarian_dictatorship
-				has_government = libertarian_socialism
-			}
-		}
-	}
-	
-	option = {
-		name = us_election.6.b
-		trigger = {
-			OR = {
-				has_government = progressive_liberalism
-				has_government = market_libertarianism
-				has_government = national_conservatism
-				has_government = authoritarian_republicanism
-			}
-		}
-	}
-	
-	option = {
-		name = us_election.6.c
-		trigger = {
-			NOT = {
-				has_government = revolutionary_autocracy
-				has_government = proletarian_dictatorship
-				has_government = libertarian_socialism
-				has_government = progressive_liberalism
-				has_government = market_libertarianism
-				has_government = national_conservatism
-				has_government = authoritarian_republicanism
-			}
-		}
-	}
-}
-
 country_event = { # lister inaug day
 	id = us_election.7
 	title = "Inuaguration Day"
@@ -294,21 +226,6 @@ country_event = { # lister inaug day
 	}
 }
 
-news_event = { # lister election news event
-	id = us_election.8
-	title = "Lister Wins the Presidency!"
-	desc = us_election.8.desc
-	picture = GFX_report_event_usa_election_lister_victory
-
-	is_triggered_only = yes
-	
-	major = yes
-	
-	option = {
-		name = us_election.8.a
-	}
-}
-
 country_event = { # lindy inaug day
 	id = us_election.9
 	title = "Inuaguration Day"
@@ -319,35 +236,6 @@ country_event = { # lindy inaug day
 	option = { # 
 		name = us_election.7.a
 		USA_lindy_pres_setup = yes
-	}
-}
-
-news_event = { # lindy election news event
-	id = us_election.10
-	title = "Lindbergh Wins the Presidency!"
-	desc = us_election.10.desc
-	picture = GFX_report_event_usa_election_lindy_victory
-
-	is_triggered_only = yes
-	
-	major = yes
-	
-	option = {
-		name = us_election.10.a
-	}
-}
-
-news_event = { # deadlocked EC news event
-	id = us_election.9
-	title = "Deadlock in the United States!"
-	desc = us_election.9.desc
-
-	is_triggered_only = yes
-	
-	major = yes
-	
-	option = {
-		name = "Worrisome."
 	}
 }
 

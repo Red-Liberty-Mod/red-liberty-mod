@@ -1,0 +1,135 @@
+add_namespace = worldnews
+
+news_event = { # thomas election news event
+	id = worldnews.1
+	title = worldnews.1.title
+	desc = worldnews.1.desc
+	picture = GFX_report_event_usa_election_thomas_victory
+
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = {
+		name = worldnews.1.a
+		trigger = {
+			OR = {
+				has_government = revolutionary_autocracy
+				has_government = proletarian_dictatorship
+				has_government = libertarian_socialism
+			}
+		}
+	}
+	
+	option = {
+		name = worldnews.1.b
+		trigger = {
+			OR = {
+				has_government = progressive_liberalism
+				has_government = market_libertarianism
+				has_government = national_conservatism
+				has_government = authoritarian_democracy
+			}
+		}
+	}
+	
+	option = {
+		name = worldnews.1.c
+		trigger = {
+			NOT = {
+				has_government = revolutionary_autocracy
+				has_government = proletarian_dictatorship
+				has_government = libertarian_socialism
+				has_government = progressive_liberalism
+				has_government = market_libertarianism
+				has_government = national_conservatism
+				has_government = authoritarian_democracy
+			}
+		}
+	}
+}
+
+news_event = { # lister election news event
+	id = worldnews.2
+	title = worldnews.2.title
+	desc = worldnews.2.desc
+	picture = GFX_report_event_usa_election_lister_victory
+
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = {
+		name = worldnews.2.a
+	}
+}
+
+news_event = { # deadlocked EC news event
+	id = worldnews.3
+	title = worldnews.3.title
+	desc = worldnews.3.desc
+
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = {
+		name = worldnews.3.a
+	}
+}
+
+news_event = { # house elects thomas
+	id = worldnews.4
+	title = worldnews.4.title
+	desc = worldnews.4.desc
+
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = {
+		name = worldnews.4.a
+	}
+}
+
+news_event = { # house elects lister
+	id = worldnews.5
+	title = worldnews.5.title
+	desc = worldnews.5.desc
+
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = {
+		name = worldnews.5.a
+	}
+	
+	option = {
+		name = worldnews.5.b
+		trigger = {
+			NOT = {
+				OR = {
+					has_government = revolutionary_autocracy
+					has_government = proletarian_dictatorship
+					has_government = libertarian_socialism
+				}
+			}
+		}
+	}
+}
+
+news_event = { # lindy election news event
+	id = worldnews.6
+	title = worldnews.6.title
+	desc = worldnews.6.desc
+	picture = GFX_report_event_usa_election_lindy_victory
+
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = {
+		name = worldnews.6.a
+	}
+}
