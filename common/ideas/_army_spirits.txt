@@ -432,6 +432,19 @@ ideas = {
 				factor = 1
 			}
 		}
+		
+		expeditionary_spirit = {
+			ledger = army
+			modifier = {
+				tactic_breakthrough_preferred_weight_factor = 1
+				tactic_blitz_preferred_weight_factor = 1
+				terrain_penalty_reduction = 0.1
+				org_loss_when_moving = -0.05
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
 
 		flexible_organization_spirit = {
 			ledger = army
@@ -442,6 +455,19 @@ ideas = {
 			}
 			ai_will_do = {
 				factor = 1
+			}
+		}
+		
+		constraining_hierarchy_spirit = {
+			ledger = army
+			allowed = {
+				always = no
+			}
+			modifier = {
+				
+			}
+			ai_will_do = {
+				factor = 0
 			}
 		}
 
@@ -469,7 +495,28 @@ ideas = {
 		}
 		
 		upbeat_command_spirit = {
-			
+			available = {
+				
+			}
+			modifier = {
+				army_morale_factor = 0.15
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+		disregard_for_the_common_soldier_spirit = {
+			ledger = army
+			allowed = {
+				always = no
+			}
+			modifier = {
+				
+			}
+			ai_will_do = {
+				factor = 0
+			}
 		}
 
 		victory_or_death_spirit = {
@@ -566,32 +613,6 @@ ideas = {
 			}
 		}
 		
-		disregard_for_the_common_soldier_spirit = {
-			ledger = army
-			allowed = {
-				always = no
-			}
-			modifier = {
-				
-			}
-			ai_will_do = {
-				factor = 0
-			}
-		}
-		
-		constraining_hierarchy_spirit = {
-			ledger = army
-			allowed = {
-				always = no
-			}
-			modifier = {
-				
-			}
-			ai_will_do = {
-				factor = 0
-			}
-		}
-		
 		disdain_for_the_digging_spirit = {
 			ledger = army
 			allowed = {
@@ -619,17 +640,6 @@ ideas = {
 			}
 		}
 		
-		expeditionary_spirit = {
-			ledger = army
-			modifier = {
-				terrain_penalty_reduction = 0.1
-				org_loss_when_moving = -0.05
-			}
-			ai_will_do = {
-				factor = 1
-			}
-		}
-		
 		penny_pinching_spirit = {
 			ledger = army
 			allowed = {
@@ -637,6 +647,7 @@ ideas = {
 			}
 			modifier = {
 				training_time_factor = -0.1
+				army_org_factor = -0.15
 			}
 			ai_will_do = {
 				factor = 1
