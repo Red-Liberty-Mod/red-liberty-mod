@@ -576,7 +576,12 @@ USA_congress = {
 		
 		complete_effect = {
 			custom_effect_tooltip = USA_bill_pass_req_tt
-			
+			effect_tooltip = {
+				add_ideas = {
+					USA_naval_act
+				}
+			}
+			USA_naval_act_setup = yes
 		}
 	}
 	
@@ -637,7 +642,7 @@ USA_congress = {
 			NOT = {
 				has_country_flag = USA_discussing_bill
 			}
-			#has_completed_focus = USA_remove_the_profit
+			has_completed_focus = USA_remove_the_profit
 		}
 		
 		visible = {
@@ -645,7 +650,7 @@ USA_congress = {
 			NOT = {
 				has_country_flag = USA_discussing_bill
 			}
-			#has_completed_focus = USA_remove_the_profit
+			has_completed_focus = USA_remove_the_profit
 		}
 		
 		cost = 0

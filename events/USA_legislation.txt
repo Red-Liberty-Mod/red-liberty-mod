@@ -829,7 +829,7 @@ country_event = { #
 	}
 	
 	immediate = {
-		log = "[GetDateText]: [Root.GetName]: event us_bill.1"
+		log = "[GetDateText]: [Root.GetName]: event us_bill.19"
 	}
 
 	is_triggered_only = yes
@@ -847,6 +847,46 @@ country_event = { #
 		trigger = { NOT = { has_country_flag = bill_passed } }
 		complete_national_focus = USA_peace_in_our_time
 		set_country_flag = USA_war_declaration_failed
+		USA_bill_clear = yes # ALWAYS DO THIS
+	}
+}
+
+country_event = { # abolish filibuster
+	id = us_bill.20
+	
+	# different loc based on if it passes or fails
+	title = {
+		text = us_bill.20.title_passed
+		trigger = { has_country_flag = bill_passed }
+	}
+	title = { 
+		text = us_bill.20.title_failed
+		trigger = { NOT = { has_country_flag = bill_passed } }
+	}
+	desc = {
+		text = us_bill.20.desc_passed
+		trigger = { has_country_flag = bill_passed }
+	}
+	desc = {
+		text = us_bill.20.desc_failed
+		trigger = { NOT = { has_country_flag = bill_passed } }
+	}
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event us_bill.20"
+	}
+
+	is_triggered_only = yes
+
+	option = { # bill passes
+		name = us_bill.20.a
+		trigger = { has_country_flag = bill_passed }
+		USA_bill_clear = yes # ALWAYS DO THIS
+	}
+	
+	option = { # bill fails
+		name = us_bill.20.b
+		trigger = { NOT = { has_country_flag = bill_passed } }
 		USA_bill_clear = yes # ALWAYS DO THIS
 	}
 }
@@ -873,7 +913,7 @@ country_event = { #
 	}
 	
 	immediate = {
-		log = "[GetDateText]: [Root.GetName]: event us_bill.1"
+		log = "[GetDateText]: [Root.GetName]: event us_bill.21"
 	}
 
 	is_triggered_only = yes
@@ -940,6 +980,50 @@ country_event = { #
 		name = us_bill.21.b
 		trigger = { NOT = { has_country_flag = bill_passed } }
 		USA_bill_clear = yes # ALWAYS DO THIS
+	}
+}
+
+country_event = { # naval act
+	id = us_bill.22
+	
+	# different loc based on if it passes or fails
+	title = {
+		text = us_bill.22.t_passed
+		trigger = { has_country_flag = bill_passed }
+	}
+	title = { 
+		text = us_bill.22.t_failed
+		trigger = { NOT = { has_country_flag = bill_passed } }
+	}
+	desc = {
+		text = us_bill.22.d_passed
+		trigger = { has_country_flag = bill_passed }
+	}
+	desc = {
+		text = us_bill.22.d_failed
+		trigger = { NOT = { has_country_flag = bill_passed } }
+	}
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event us_bill.22"
+	}
+
+	is_triggered_only = yes
+
+	option = { # bill passes
+		name = us_bill.22.a
+		trigger = { has_country_flag = bill_passed }
+		
+		add_ideas = {
+			USA_naval_act
+		}
+		USA_bill_clear = yes
+	}
+	
+	option = { # bill fails
+		name = us_bill.22.b
+		trigger = { NOT = { has_country_flag = bill_passed } }
+		USA_bill_clear = yes
 	}
 }
 
