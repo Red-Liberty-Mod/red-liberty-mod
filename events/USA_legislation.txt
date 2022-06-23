@@ -192,6 +192,16 @@ country_event = { # court packing plan
 		name = us_bill.4.a
 		trigger = { has_country_flag = bill_passed }
 		set_country_flag = court_packing_plan_passed
+		
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					can_have_elections_in_state = yes
+				}
+				subtract_from_variable = { socialist_popularity = 0.03 }
+			}
+		}
+		
 		USA_bill_clear = yes # ALWAYS DO THIS
 	}
 	
@@ -368,6 +378,17 @@ country_event = { # housing act
 		trigger = { has_country_flag = bill_passed }
 		improve_great_depression = yes
 		set_country_flag = housing_act_passed
+		
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					can_have_elections_in_state = yes
+					is_urban_state = yes
+				}
+				add_to_variable = { socialist_popularity = 0.03 }
+			}
+		}
+		
 		USA_bill_clear = yes # ALWAYS DO THIS
 		
 		hidden_effect = {
@@ -891,7 +912,7 @@ country_event = { # abolish filibuster
 	}
 }
 
-country_event = { # 
+country_event = { # nationalize defense industry
 	id = us_bill.21
 	
 	# different loc based on if it passes or fails
