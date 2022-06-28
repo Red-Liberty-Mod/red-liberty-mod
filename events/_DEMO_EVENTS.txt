@@ -2705,9 +2705,9 @@ country_event = {
 
 	option = {
 		name = "demo_usa_jap_peace.8.a"
-		USA = {
+		JAP = {
             country_event = {
-              id = demo_usa_jap_peace.13
+              id = demo_usa_jap_peace.10
               days = 10
               random = 1
               random_days = 1
@@ -2716,9 +2716,9 @@ country_event = {
 	}
 	option = {
 		name = "demo_usa_jap_peace.8.b"
-		USA = {
+		JAP = {
             country_event = {
-              id = demo_usa_jap_peace.14
+              id = demo_usa_jap_peace.11
               days = 10
               random = 1
               random_days = 1
@@ -2727,9 +2727,9 @@ country_event = {
     }
 	option = {
 		name = "demo_usa_jap_peace.8.c"
-		USA = {
+		JAP = {
             country_event = {
-              id = demo_usa_jap_peace.15
+              id = demo_usa_jap_peace.12
               days = 10
               random = 1
               random_days = 1
@@ -2756,11 +2756,97 @@ country_event = {
               days = 10
               random = 1
               random_days = 1
-            } 			
+			  transfer_state = 646
+            } 		
 		}
+	    USA = {
+        transfer_state = 646
+        } 		
 	}
 	option = {
 		name = "demo_usa_jap_peace.10.b"
+		USA = {
+            country_event = {
+              id = demo_usa_jap_peace.17
+              days = 10
+              random = 1
+              random_days = 1
+            } 			
+		}
+    }
+}
+country_event = {
+	id = demo_usa_jap_peace.11
+	title = demo_usa_jap_peace.11.title
+	desc = demo_usa_jap_peace.11.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = "demo_usa_jap_peace.11.a"
+		USA = {
+            country_event = {
+              id = demo_usa_jap_peace.16
+              days = 10
+              random = 1
+              random_days = 1
+			  transfer_state = 645
+
+            } 			
+		}
+		USA = {
+		 transfer_state = 645
+        }
+	}
+	option = {
+		name = "demo_usa_jap_peace.11.b"
+		USA = {
+            country_event = {
+              id = demo_usa_jap_peace.17
+              days = 10
+              random = 1
+              random_days = 1
+            } 			
+		}
+    }
+}
+country_event = {
+	id = demo_usa_jap_peace.12
+	title = demo_usa_jap_peace.12.title
+	desc = demo_usa_jap_peace.12.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = "demo_usa_jap_peace.12.a"
+		USA = {
+            country_event = {
+              id = demo_usa_jap_peace.16
+              days = 10
+              random = 1
+              random_days = 1
+			  transfer_state = 646
+			  transfer_state = 645
+            } 			
+		}
+		USA = {
+			transfer_state = 646
+			transfer_state = 645
+      	}
+	    AST = {
+			transfer_state = 684
+		}
+	}
+	option = {
+		name = "demo_usa_jap_peace.12.b"
 		USA = {
             country_event = {
               id = demo_usa_jap_peace.17
@@ -2784,6 +2870,10 @@ country_event = {
 
 	option = {
 		name = "demo_usa_jap_peace.16.a"
+		add_popularity = {
+	        ideology = libertarian_socialism
+	        popularity = 0.05
+        }
 	}
 }
 country_event = {
@@ -2799,6 +2889,13 @@ country_event = {
 
 	option = {
 		name = "demo_usa_jap_peace.17.a"
+		USA = {
+          add_war_support = -0.15
+		  add_popularity = {
+	        ideology = libertarian_socialism
+	        popularity = -0.04
+          }
+		}
 	}
 }
 country_event = {
