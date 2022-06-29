@@ -379,55 +379,10 @@ on_actions = {
 					limit = {
 						FROM = {
 							original_tag = UOB
-						}
-						ROOT = {
-							original_tag = BRA
-						}
-					}
-					FROM = {
-						white_peace = ROOT
-						annex_country = {
-							target = ROOT
-						}
-					}
-					random_list = {
-						25 = {
-							random_other_country = {
-								limit = { is_ai = yes }
-								news_event = { id = demo_uob.1 hours = 6 }
-							}
-						}
-						25 = {
-							random_other_country = {
-								limit = { is_ai = yes }
-								news_event = { id = demo_uob.2 hours = 6 }
-							}
-						}
-						25 = {
-							random_other_country = {
-								limit = { is_ai = yes }
-								news_event = { id = demo_uob.3 hours = 6 }
-							}
-						}
-						25 = {
-							random_other_country = {
-								limit = { is_ai = yes }
-								news_event = { id = demo_uob.4 hours = 6 }
-							}
-						}
-					}
-					country_event = {
-						id = demo_uob.5
-						days = 15
-					}
-					set_global_flag = skip_default_capitulation
-				}
-				else_if = {
-					limit = {
-						FROM = {
 							original_tag = BRA
 						}
 						ROOT = {
+							original_tag = BRA
 							original_tag = UOB
 						}
 					}
@@ -437,29 +392,114 @@ on_actions = {
 							target = ROOT
 						}
 					}
-					random_list = {
-						34 = {
-							random_other_country = {
-								limit = { is_ai = yes }
-								news_event = { id = demo_bra.1 hours = 6 }
+					if = {
+						limit = {
+							FROM = {
+								original_tag = UOB
 							}
 						}
-						33 = {
-							random_other_country = {
-								limit = { is_ai = yes }
-								news_event = { id = demo_bra.2 hours = 6 }
+						UOB = {
+							random_list = {
+								25 = {
+									random_other_country = {
+										limit = { is_ai = yes }
+										news_event = { id = demo_uob.1 hours = 6 }
+									}
+								}
+								25 = {
+									random_other_country = {
+										limit = { is_ai = yes }
+										news_event = { id = demo_uob.2 hours = 6 }
+									}
+								}
+								25 = {
+									random_other_country = {
+										limit = { is_ai = yes }
+										news_event = { id = demo_uob.3 hours = 6 }
+									}
+								}
+								25 = {
+									random_other_country = {
+										limit = { is_ai = yes }
+										news_event = { id = demo_uob.4 hours = 6 }
+									}
+								}
 							}
-						}
-						33 = {
-							random_other_country = {
-								limit = { is_ai = yes }
-								news_event = { id = demo_bra.3 hours = 6 }
+							country_event = {
+								id = demo_uob.5
+								days = 15
 							}
 						}
 					}
-					country_event = {
-						id = demo_bra.4
-						days = 15
+					else_if = {
+						limit = {
+							FROM = {
+								original_tag = BRA
+							}
+						}
+						BRA = {
+							random_list = {
+								34 = {
+									random_other_country = {
+										limit = { is_ai = yes }
+										news_event = { id = demo_bra.1 hours = 6 }
+									}
+								}
+								33 = {
+									random_other_country = {
+										limit = { is_ai = yes }
+										news_event = { id = demo_bra.2 hours = 6 }
+									}
+								}
+								33 = {
+									random_other_country = {
+										limit = { is_ai = yes }
+										news_event = { id = demo_bra.3 hours = 6 }
+									}
+								}
+							}
+							country_event = {
+								id = demo_bra.4
+								days = 15
+							}
+						}
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				
+				### CRISTERO WAR ###
+				if = {
+					limit = {
+						FROM = {
+							original_tag = MEX
+						}
+						ROOT = {
+							original_tag = CRT
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+						annex_country = {
+							target = ROOT
+						}
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							original_tag = CRT
+						}
+						ROOT = {
+							original_tag = MEX
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+						annex_country = {
+							target = ROOT
+						}
+						set_cosmetic_tag = CRT_mexico
 					}
 					set_global_flag = skip_default_capitulation
 				}
