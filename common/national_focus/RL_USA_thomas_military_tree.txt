@@ -335,7 +335,7 @@ shared_focus = {
 	relative_position_id = USA_ending_war_as_business
 	prerequisite = { focus = USA_ending_war_as_business }
     completion_reward = {
-        
+       ECON_poverty_change_small = yes
     }
 	
 	ai_will_do = {
@@ -492,7 +492,12 @@ shared_focus = {
 	prerequisite = { focus = USA_army_of_by_for_the_people }
 	prerequisite = { focus = USA_fight_your_own_wars }
     completion_reward = {
-        
+       custom_effect_tooltip = USA_gun_companies_tt
+       add_stability = 0.1
+        add_popularity = {
+	     ideology = libertarian_socialism
+	     popularity = -0.02
+        }			   
     }
 	
 	ai_will_do = {
@@ -779,6 +784,7 @@ shared_focus = {
 				USA_streamlined_prod_bomber
 			}
 		}
+		production_factory_efficiency_gain_factor = 0.15
     }
 	
 	ai_will_do = {
@@ -1388,7 +1394,36 @@ shared_focus = {
 	relative_position_id = USA_study_super_heavy_designs
 	prerequisite = { focus = USA_study_super_heavy_designs }
     completion_reward = {
-        
+        create_equipment_variant = {
+			name = "Iowa Class"
+			type = ship_hull_cruiser_2
+			name_group = USA_BB_HISTORICAL
+			parent_version = 0
+			modules = {
+				fixed_ship_battery_slot = ship_heavy_battery_2
+				fixed_ship_anti_air_slot = ship_anti_air_1
+				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+				fixed_ship_radar_slot = empty
+				fixed_ship_engine_slot = heavy_ship_engine_1
+				fixed_ship_secondaries_slot = empty
+				fixed_ship_armor_slot = ship_armor_bb_2
+				front_1_custom_slot = ship_heavy_battery_2
+				mid_1_custom_slot = ship_secondaries_2
+				mid_2_custom_slot = ship_secondaries_2
+				rear_1_custom_slot = ship_heavy_battery_2
+			}
+		}
+		add_equipment_production = {
+			equipment = {
+				type = ship_hull_cruiser_2
+				creator = "USA" 
+				version_name = "Iowa Class"
+			}
+			name = "Iowa" 
+			requested_factories = 1
+			progress = 0.55
+			amount = 1
+		}
     }
 	
 	ai_will_do = {
@@ -1433,7 +1468,9 @@ shared_focus = {
 	relative_position_id = USA_naval_air
 	prerequisite = { focus = USA_naval_air }
     completion_reward = {
-        
+        add_ideas = {
+			USA_bureau_of_aeronautics
+		}
     }
 	
 	ai_will_do = {
