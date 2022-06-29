@@ -1,41 +1,8 @@
 USA_congress_quorum = {
-	set_variable = { quorum_low = senators_total }
-	multiply_variable = { quorum_low = 0.4 }
-	round_variable = quorum_low 
+	set_variable = { quorum_medium = 48 }
+	set_variable = { quorum_high = 58 }
 	
-	set_variable = { quorum_medium = senators_total }
-	multiply_variable = { quorum_medium = 0.5 }
-	round_variable = quorum_medium 
-	
-	set_variable = { quorum_high = senators_total }
-	multiply_variable = { quorum_high = 0.6 }
-	round_variable = quorum_high
-	
-	set_variable = { rep_quorum_low = representatives_total }
-	multiply_variable = { rep_quorum_low = 0.4 }
-	round_variable = rep_quorum_low
-	
-	set_variable = { rep_quorum_medium = representatives_total }
-	multiply_variable = { rep_quorum_medium = 0.5 }
-	round_variable = rep_quorum_medium
-	
-	set_variable = { rep_quorum_high = representatives_total }
-	multiply_variable = { rep_quorum_high = 0.6 }
-	round_variable = rep_quorum_high
-}
-
-USA_congress_remove_state = {
-	custom_effect_tooltip = mtg_usa_congress_remove_state_tt
-	subtract_from_variable = { senators_total = 2 }
-	clamp_variable = { var = senators_support max = senators_total min = 0 }
-	USA_congress_get_quorum = yes
-}
-
-USA_congress_add_state = {
-	custom_effect_tooltip = mtg_usa_congress_add_state_tt
-	add_to_variable = { senators_total = 2 }
-	add_to_variable = { senators_support = 2 }
-	USA_congress_get_quorum = yes
+	set_variable = { rep_quorum_medium = 242 }
 }
 
 USA_debug_example_setup = { # example debug act, meant to be screwed with
@@ -53,11 +20,11 @@ USA_debug_example_setup = { # example debug act, meant to be screwed with
 	#set_country_flag = bill_enable_mission # Gives the President penalties if they drag their feet for too long doing this
 	#set_variable = { USA_bill_mission_deadline = 150 }
 	
-	set_variable = { USA_communist_bill_support = 0.3 } # percentage of congresspeople who will initially support the bill
-	set_variable = { USA_socialist_bill_support = 0.8 }
-	set_variable = { USA_farmer_labor_bill_support = 0.8 }
-	set_variable = { USA_republican_bill_support = 0.7 }
-	set_variable = { USA_democrat_bill_support = 0.3 }
+	set_variable = { USA_communist_bill_support = 0.2 } # percentage of congresspeople who will initially support the bill
+	set_variable = { USA_socialist_bill_support = 0.7 }
+	set_variable = { USA_farmer_labor_bill_support = 0.7 }
+	set_variable = { USA_republican_bill_support = 0.6 }
+	set_variable = { USA_democrat_bill_support = 0.2 }
 	set_variable = { USA_fascist_bill_support = 0 }
 	
 	#set_country_flag = USA_special_decisions_enabled # hides generic decisions in favor of special ones
@@ -358,9 +325,6 @@ USA_wealth_tax_act_setup = { # wealth tax act
 	set_country_flag = USA_socialist_discussing
 	set_country_flag = USA_fascist_discussing
 	
-	#set_country_flag = bill_enable_mission
-	#set_variable = { USA_bill_mission_deadline = 75 }
-	
 	set_variable = { USA_communist_bill_support = 1 }
 	set_variable = { USA_socialist_bill_support = 1 }
 	set_variable = { USA_republican_bill_support = 0.05 }
@@ -368,7 +332,7 @@ USA_wealth_tax_act_setup = { # wealth tax act
 	set_variable = { USA_fascist_bill_support = 0.1 } # longists like this idea
 	
 	set_variable = { average_boost_republican = 0.1 }
-	set_variable = { average_boost_democrat = 0.15 }
+	set_variable = { average_boost_democrat = 0.2 }
 	set_variable = { USA_fascist_bill_support = 0.075 }
 	
 	set_variable = { socialist_flip_cost = 20 }
@@ -389,9 +353,6 @@ USA_enforcement_act_setup = { # ban the kkk
 	set_country_flag = USA_communist_discussing
 	set_country_flag = USA_socialist_discussing
 	set_country_flag = USA_fascist_discussing
-	
-	#set_country_flag = bill_enable_mission
-	#set_variable = { USA_bill_mission_deadline = 75 }
 	
 	set_variable = { USA_republican_bill_support = 0.3 }
 	set_variable = { USA_democrat_bill_support = 0.15 }
@@ -420,9 +381,6 @@ USA_voting_rights_act_setup = { # voting rights act
 	set_country_flag = USA_farmer_labor_discussing
 	set_country_flag = USA_republican_discussing
 	set_country_flag = USA_democrat_discussing
-	
-	#set_country_flag = bill_enable_mission
-	#set_variable = { USA_bill_mission_deadline = 150 }
 	
 	set_variable = { USA_communist_bill_support = 1 }
 	set_variable = { USA_socialist_bill_support = 1 }

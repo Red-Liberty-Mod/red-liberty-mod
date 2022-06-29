@@ -45,7 +45,11 @@ bill_will_pass = {
 		### HOUSE PHASE ###
 		AND = {
 			has_country_flag = USA_bill_house_phase
-			check_variable = { representatives_support > rep_quorum_medium }
+			check_variable = {
+				var = representatives_support
+				value = rep_quorum_medium
+				compare = greater_than_or_equals
+			}
 		}
 		
 		### SENATE PHASE ###
@@ -53,14 +57,22 @@ bill_will_pass = {
 			AND = {
 				has_country_flag = USA_bill_senate_phase
 				has_country_flag = filibuster_active
-				check_variable = { senators_support > quorum_high }
+				check_variable = {
+					var = senators_support
+					value = quorum_high
+					compare = greater_than_or_equals
+				}
 			}
 			AND = {
 				has_country_flag = USA_bill_senate_phase
 				NOT = {
 					has_country_flag = filibuster_active
 				}
-				check_variable = { senators_support > quorum_medium }
+				check_variable = {
+					var = senators_support
+					value = quorum_medium
+					compare = greater_than_or_equals
+				}
 			}
 		}
 	}
