@@ -1,0 +1,122 @@
+guiTypes = {
+
+	containerWindowType = {
+		name = "foreign_conflicts_container"
+		position = { x = 18 y = 200 }
+        size = { height = 618 width = 500 }
+
+		containerWindowType = {
+			name = "tabs_container"
+			horizontalScrollbar = "top_horizontal_slider"
+			size = { width = 500 height = 127 }
+			position = { x = 2 y = -12  }
+			margin = { top = 0 left = 0 bottom = 0 right = 0 }
+	
+			gridboxtype = {
+				name = "conflict_tabs"
+				position = { x = 0 y = 15 }
+				size = { width = 480 height = 45 }
+				slotsize = { width = 120 height = 45 }
+				add_horizontal = yes
+			}
+		}
+
+		containerWindowType = {
+			name = "conflict_guis_container"
+			position = { x = 4 y = 112 }
+		}
+		
+        gridboxtype = {
+		    name = "conflict_guis"
+			position = { x = -176 y = 112 }
+			size = { width = 480 height = 45 }
+			slotsize = { width = 120 height = 45 }
+			add_horizontal = yes
+		}
+	}
+    
+    containerWindowType = { # tab style
+		name = "foreign_conflicts_tab"
+		position = { x = -40 y = 0 }
+		
+		buttonType = {
+			name = "tab"
+			spriteType = "GFX_tiled_window_thin_border2"
+			position = { x = -120 y = 0 }
+			size = { width = 110 height = 100 }
+			pdx_tooltip = conflict_tab_name
+		}
+		
+		iconType = {
+			name = "conflict_icon"
+			spriteType = "GFX_conflict_icon"
+			position = { x = -114 y = 0 }
+			alwaystransparent = yes
+			scale = 0.9
+		}
+	}
+    
+    containerWindowType = {
+		name = "foreign_generic_conflict"
+		position = { x = 0 y = 0 }
+		size = { width = 496 height = 506 }
+		
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_tiled_window_thin_border2"
+		}
+
+        instantTextBoxType = {
+            name = "conflict_desc"
+			position = { x = 30 y = 20 }
+            text = conflict_desc_text
+            font = "aldrich_18_outline"
+			maxWidth = 370
+			maxHeight = 500
+        }
+	}
+	
+	extendedScrollbarType = { # horizontal slider, appears if you have more than 4 tabs
+		name = "top_horizontal_slider"
+		position = { x = 0 y = -6 }
+		size = { width = 18 height = 18 }
+		tileSize = { width = 12 height = 12}
+		maxValue = 1
+		minValue = 0
+		stepSize = 0.01
+		startValue = 0
+		horizontal = yes
+		orientation = upper_left
+		origo = upper_left
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_scrollbar_horisontal_bg"
+		}
+
+		slider = {
+			name = "Slider"
+			quadTextureSprite = "GFX_scroll_drager"
+			position = { x = 0 y = -2 }
+		}
+
+		track = {
+			name = "Track"
+			quadTextureSprite = "GFX_scroll_track_horisontal"
+			position = { x = 0 y = 3 }
+			alwaystransparent = yes
+		}
+
+		decreaseButton = {
+			name = "Decrease"
+			quadTextureSprite = "GFX_scroll_left"
+			position = { x = 3 y = 1 }
+		}
+
+		increaseButton = {
+			name = "Increase"
+			quadTextureSprite = "GFX_scroll_right"
+			position = { x = -19 y = -17 }
+		}
+	}
+}

@@ -1,0 +1,34 @@
+scripted_gui = {
+	
+	foreign_conflicts_container = {
+		window_name = "foreign_conflicts_container"
+		context_type = decision_category
+
+		dynamic_lists = {
+			conflict_tabs = {
+				array = active_conflicts
+				value = conflict_id
+				entry_container = foreign_conflicts_tab
+			}
+			conflict_guis = {
+				array = world_conflict_guis
+				value = conflict_id
+				entry_container = [GetConflictGUI]
+			}
+		}
+
+		effects = {
+			tab_click = {
+				set_variable = { selected_conflict_id = conflict_id }
+				clear_array = world_conflict_guis
+				add_to_array = { world_conflict_guis = conflict_id }
+			}
+		}
+		
+		properties = {
+			conflict_icon = {
+				image = "[GetConflictIcon]"
+			}
+		}
+	}
+}
