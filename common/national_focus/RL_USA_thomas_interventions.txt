@@ -660,7 +660,31 @@ shared_focus = {
 	relative_position_id = USA_congress_reigns_supreme
 	prerequisite = { focus = USA_congress_reigns_supreme }
     completion_reward = {
+		if = {
+			limit = {
+				has_country_flag = USA_progressive_veep 
+				
+			}
+			
+			set_politics = {
+	          ruling_party = social_democracy
+	          elections_allowed = yes
+            }
+			
+		}
 		
+		if = {
+			limit = {
+				has_country_flag = USA_radical_veep
+				
+			}
+			
+			set_politics = {
+	          ruling_party = proletarian_dictatorship
+	          elections_allowed = yes
+            }
+			
+		}
     }
 	
 	ai_will_do = {
