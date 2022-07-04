@@ -487,6 +487,12 @@ shared_focus = {
 	    ideology = libertarian_socialism
 	    popularity = -0.07
       }		
+	    JAP = {
+		 transfer_state = 638
+		 transfer_state = 631
+		 transfer_state = 632
+        
+		} 
 		
     }
 	
@@ -654,7 +660,31 @@ shared_focus = {
 	relative_position_id = USA_congress_reigns_supreme
 	prerequisite = { focus = USA_congress_reigns_supreme }
     completion_reward = {
+		if = {
+			limit = {
+				has_country_flag = USA_progressive_veep 
+				
+			}
+			
+			set_politics = {
+	          ruling_party = social_democracy
+	          elections_allowed = yes
+            }
+			
+		}
 		
+		if = {
+			limit = {
+				has_country_flag = USA_radical_veep
+				
+			}
+			
+			set_politics = {
+	          ruling_party = proletarian_dictatorship
+	          elections_allowed = yes
+            }
+			
+		}
     }
 	
 	ai_will_do = {
@@ -673,6 +703,34 @@ shared_focus = {
 	relative_position_id = USA_the_resignation
 	prerequisite = { focus = USA_the_resignation }
     completion_reward = {
+		add_stability = 0.15
+		add_war_support = 0.1
+		add_political_power = 75
+        
+		if = {
+			limit = {
+				has_government = social_democracy
+			}
+			
+			add_popularity = {
+	          ideology = social_democracy
+	          popularity = 0.04
+            }
+			
+		}
+		
+		if = {
+			limit = {
+				has_government = proletarian_dictatorship
+			}
+			
+			add_popularity = {
+	          ideology = proletarian_dictatorship
+	          popularity = 0.04
+            }
+			
+		}
+		
 		
     }
 	
@@ -692,7 +750,9 @@ shared_focus = {
 	relative_position_id = USA_the_resignation
 	prerequisite = { focus = USA_the_resignation }
     completion_reward = {
-		
+		add_ideas = {
+			USA_oss_natspirit
+		}
     }
 	
 	ai_will_do = {
@@ -711,7 +771,9 @@ shared_focus = {
 	relative_position_id = USA_the_resignation
 	prerequisite = { focus = USA_the_resignation }
     completion_reward = {
-		custom_effect_tooltip = USA_share_our_knowledge_tooltip
+		add_ideas = {
+			USA_sharing_our_knowledge
+		}
     }
 	
 	ai_will_do = {
@@ -731,7 +793,9 @@ shared_focus = {
 	prerequisite = { focus = USA_united_front }
 	prerequisite = { focus = USA_oss }
     completion_reward = {
-		
+		add_ideas = {
+			USA_full_ww2_commitment
+		}
     }
 	
 	ai_will_do = {
@@ -750,7 +814,9 @@ shared_focus = {
 	relative_position_id = USA_share_our_knowledge
 	prerequisite = { focus = USA_share_our_knowledge }
     completion_reward = {
-		
+		add_ideas = {
+			USA_bomber_command_natspirit
+		}
     }
 	
 	ai_will_do = {
