@@ -35,60 +35,46 @@ division_template = {
 	}
 }
 
-division_template = {
-	name = "Zhili Juntuan"
-	division_names_group = CHI_INF_01
-	regiments = {
-		infantry = { x = 0 y = 0 }
-		infantry = { x = 0 y = 1 }
-		infantry = { x = 0 y = 2 }
-		infantry = { x = 1 y = 0 }
-		infantry = { x = 1 y = 1 }
-		infantry = { x = 1 y = 2 }
-	}
-	support = {
-		artillery = { x = 0 y = 0 }
-	}
-	is_locked = yes
-}
-division_template = {
-	name = "Anhui Juntuan"
-	division_names_group = CHI_INF_01
-	regiments = {
-		infantry = { x = 0 y = 0 }
-		infantry = { x = 0 y = 1 }
-		infantry = { x = 0 y = 2 }
-		infantry = { x = 1 y = 0 }
-		infantry = { x = 1 y = 1 }
-		infantry = { x = 1 y = 2 }
-	}
-	support = {
-		artillery = { x = 0 y = 0 }
-	}
-	is_locked = yes
-}
-
 units = {
 	division = {
 		location = 7137
 		division_template = "Juntuan"
 		start_experience_factor = 0.3
-		start_equipment_factor = 1.0
+		start_equipment_factor = 0.5
+	}
+	division = {
+		location = 7137
+		division_template = "Qibing Jun"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.5
 	}
 	
 	division = {
 		location = 1018
 		division_template = "Juntuan"
 		start_experience_factor = 0.3
-		start_equipment_factor = 1.0
+		start_equipment_factor = 0.5
 	}
+	
 	division = {
 		location = 10404
 		division_template = "Juntuan"
 		start_experience_factor = 0.3
-		start_equipment_factor = 1.0
+		start_equipment_factor = 0.5
 	}
 	
+	division = {
+		location = 1047
+		division_template = "Juntuan"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.5
+	}
+	division = {
+		location = 1047
+		division_template = "Sanjiao Jun"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.7
+	}
 }
 
 instant_effect = {
@@ -96,7 +82,7 @@ instant_effect = {
 		equipment = {
 			type = infantry_equipment_0
 		}
-		requested_factories = 2
+		requested_factories = 1
 		progress = 0.82
 		efficiency = 100
 	}
