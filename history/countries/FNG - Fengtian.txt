@@ -12,7 +12,7 @@ set_technology = {
 #set_cosmetic_tag = CHI_empire_puppet
 
 set_politics = {
-	ruling_party = authoritarian_democracy
+	ruling_party = autocratic_despotism
 	last_election = "1932.11.8"
 	election_frequency = 48
 	elections_allowed = no
@@ -20,32 +20,23 @@ set_politics = {
 set_popularities = {
 	insurrectionary_anarchism = 0
 	revolutionary_autocracy = 0
-	proletarian_dictatorship = 0
+	proletarian_dictatorship = 8
 	libertarian_socialism = 0
-	social_democracy = 0
+	social_democracy = 2
 	progressive_liberalism = 0
 	market_libertarianism = 14
 	national_conservatism = 16
+	authoritarian_democracy = 28
+	autocratic_despotism = 32
 	far_right_authoritarianism = 0
-	authoritarian_democracy = 30
-	autocratic_despotism = 40
 	fascism = 0
 }
 
-if = {
-	limit = {
-		OR = {
-			has_dlc = "Together for Victory"
-			has_dlc = "Man the Guns"
-		}
-	}
-	set_autonomy = {
-		target = MEN
-		autonomous_state = autonomy_RL_protectorate
-	}
-	else = {
-		puppet = MEN
-	}
+add_ideas = {
+	FNG_rampant_banditry
+	FNG_kwantung_army
+	
+	warlord_conscription
 }
 
 MEN = {
@@ -77,6 +68,17 @@ create_country_leader = {
 	picture = "gfx/leaders/FNG/Portrait_FNG_Zhang_Xueliang.png"
 	expire = "1965.1.1"
 	ideology = authoritarian_democracy_subtype
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "Gou Songling"
+	desc = ""
+	picture = ""
+	expire = "1965.1.1"
+	ideology = warlordism_subtype
 	traits = {
 		#
 	}
