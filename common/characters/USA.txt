@@ -92,7 +92,6 @@ characters = {
 			traits = {
 				vice_president
 				hog_americanist
-				marxist
 			}
 		}
 		
@@ -136,7 +135,6 @@ characters = {
 			traits = {
 				vice_president
 				hog_red_journo
-				syndicalist
 			}
 		}
 	}
@@ -174,7 +172,6 @@ characters = {
 			traits = {
 				vice_president
 				hog_curious_intellectual
-				social_democrat
 			}
 		}
 		
@@ -262,7 +259,7 @@ characters = {
 			cost = 100
 			
 			slot = political_advisor
-			idea_token = USA_max_shachtman_for
+			idea_token = USA_max_shachtman
 			ledger = civilian
 			
 			allowed = {
@@ -280,7 +277,6 @@ characters = {
 			traits = {
 				secretary_of_state
 				for_biased_intellectual
-				trotskyist
 			}
 		}
 	}
@@ -298,7 +294,7 @@ characters = {
 			cost = 100
 			
 			slot = political_advisor
-			idea_token = USA_eugene_dennis_for
+			idea_token = USA_eugene_dennis
 			ledger = civilian
 			
 			allowed = {
@@ -316,7 +312,6 @@ characters = {
 			traits = {
 				secretary_of_state
 				for_biased_intellectual
-				marxist
 			}
 		}
 	}
@@ -334,7 +329,7 @@ characters = {
 			cost = 100
 			
 			slot = political_advisor
-			idea_token = USA_paul_mattick_eco
+			idea_token = USA_paul_mattick
 			ledger = civilian
 			
 			allowed = {
@@ -351,7 +346,6 @@ characters = {
 			
 			traits = {
 				secretary_of_the_treasury
-				council_communist
 			}
 		}
 	}
@@ -369,7 +363,7 @@ characters = {
 			cost = 100
 			
 			slot = political_advisor
-			idea_token = USA_maynard_krueger_eco
+			idea_token = USA_maynard_krueger
 			ledger = civilian
 			
 			allowed = {
@@ -377,16 +371,61 @@ characters = {
 			}
 			
 			visible = {
-				has_socialist_govt = yes
+				OR = {
+					has_government = proletarian_dictatorship
+					has_country_flag = proletarian_coalition
+				}
 			}
 			
 			available = {
-				
+				OR = {
+					has_government = proletarian_dictatorship
+					has_country_flag = proletarian_coalition
+				}
 			}
 			
 			traits = {
 				secretary_of_the_treasury
-				marxist
+			}
+		}
+	}
+	
+	USA_scott_nearing = {
+		name = USA_scott_nearing
+		
+		portraits = {
+			army = {
+				small = "gfx/interface/ministers/USA/USA_Scott_Nearing.png"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			
+			slot = political_advisor
+			idea_token = USA_scott_nearing
+			ledger = civilian
+			
+			allowed = {
+				original_tag = USA
+			}
+			
+			visible = {
+				OR = {
+					has_government = libertarian_socialism
+					has_country_flag = libertarian_socialism_coalition
+				}
+			}
+			
+			available = {
+				OR = {
+					has_government = libertarian_socialism
+					has_country_flag = libertarian_socialism_coalition
+				}
+			}
+			
+			traits = {
+				secretary_of_the_treasury
 			}
 		}
 	}
@@ -404,7 +443,7 @@ characters = {
 			cost = 100
 			
 			slot = political_advisor
-			idea_token = USA_elizabeth_flynn_lab
+			idea_token = USA_elizabeth_flynn
 			ledger = civilian
 			
 			allowed = {
@@ -422,7 +461,6 @@ characters = {
 			traits = {
 				secretary_of_labor
 				lab_red_suffragette
-				libertarian_socialist
 			}
 		}
 	}
@@ -440,7 +478,7 @@ characters = {
 			cost = 100
 			
 			slot = political_advisor
-			idea_token = USA_john_lewis_lab
+			idea_token = USA_john_lewis
 			ledger = civilian
 			
 			allowed = {
@@ -448,17 +486,22 @@ characters = {
 			}
 			
 			visible = {
-				has_socialist_govt = yes
+				OR = {
+					has_government = social_democracy
+					has_country_flag = social_democracy_coalition
+				}
 			}
 			
 			available = {
-				
+				OR = {
+					has_government = social_democracy
+					has_country_flag = social_democracy_coalition
+				}
 			}
 			
 			traits = {
 				secretary_of_labor
 				lab_union_boss
-				social_democrat
 			}
 		}
 	}
@@ -476,7 +519,7 @@ characters = {
 			cost = 100
 			
 			slot = political_advisor
-			idea_token = USA_max_hayes_lab
+			idea_token = USA_max_hayes
 			ledger = civilian
 			
 			allowed = {
@@ -484,17 +527,22 @@ characters = {
 			}
 			
 			visible = {
-				has_socialist_govt = yes
+				OR = {
+					has_government = social_democracy
+					has_country_flag = social_democracy_coalition
+				}
 			}
 			
 			available = {
-				
+				OR = {
+					has_government = social_democracy
+					has_country_flag = social_democracy_coalition
+				}
 			}
 			
 			traits = {
 				secretary_of_labor
 				lab_union_boss
-				social_democrat
 			}
 		}
 	}
@@ -512,21 +560,30 @@ characters = {
 			cost = 100
 			
 			slot = political_advisor
-			idea_token = USA_harry_hopkins_com
+			idea_token = USA_harry_hopkins
 			ledger = civilian
 			
 			allowed = {
 				original_tag = USA
 			}
 			
+			visible = {
+				OR = {
+					has_government = social_democracy
+					has_country_flag = social_democracy_coalition
+				}
+			}
+			
 			available = {
-				
+				OR = {
+					has_government = social_democracy
+					has_country_flag = social_democracy_coalition
+				}
 			}
 			
 			traits = {
 				secretary_of_commerce
 				com_relief_coordinator
-				social_democrat
 			}
 		}
 	}
@@ -544,7 +601,7 @@ characters = {
 			cost = 100
 			
 			slot = political_advisor
-			idea_token = USA_john_abt_sec
+			idea_token = USA_john_abt
 			ledger = civilian
 			
 			allowed = {
@@ -552,17 +609,22 @@ characters = {
 			}
 			
 			visible = {
-				has_socialist_govt = yes
+				OR = {
+					has_government = proletarian_dictatorship
+					has_country_flag = proletarian_coalition
+				}
 			}
 			
 			available = {
-				
+				OR = {
+					has_government = proletarian_dictatorship
+					has_country_flag = proletarian_coalition
+				}
 			}
 			
 			traits = {
 				attorney_general
 				sec_efficient_sociopath
-				marxist
 			}
 		}
 	}
@@ -580,7 +642,7 @@ characters = {
 			cost = 100
 			
 			slot = political_advisor
-			idea_token = USA_lee_pressman_sec
+			idea_token = USA_lee_pressman
 			ledger = civilian
 			
 			allowed = {
@@ -598,7 +660,6 @@ characters = {
 			traits = {
 				attorney_general
 				sec_compassionate_gentleman
-				marxist
 			}
 		}
 	}
@@ -616,7 +677,7 @@ characters = {
 			cost = 100
 			
 			slot = political_advisor
-			idea_token = USA_joseph_arthur_padway_sec
+			idea_token = USA_joseph_arthur_padway
 			ledger = civilian
 			
 			allowed = {
@@ -624,17 +685,22 @@ characters = {
 			}
 			
 			visible = {
-				has_socialist_govt = yes
+				OR = {
+					has_government = social_democracy
+					has_country_flag = social_democracy_coalition
+				}
 			}
 			
 			available = {
-				
+				OR = {
+					has_government = social_democracy
+					has_country_flag = social_democracy_coalition
+				}
 			}
 			
 			traits = {
 				attorney_general
 				sec_silent_lawyer
-				social_democrat
 			}
 		}
 	}
@@ -652,7 +718,7 @@ characters = {
 			cost = 100
 			
 			slot = political_advisor
-			idea_token = USA_martin_abern_war
+			idea_token = USA_martin_abern
 			ledger = civilian
 			
 			allowed = {
@@ -660,16 +726,21 @@ characters = {
 			}
 			
 			visible = {
-				has_socialist_govt = yes
+				OR = {
+					has_government = proletarian_dictatorship
+					has_country_flag = proletarian_coalition
+				}
 			}
 			
 			available = {
-				
+				OR = {
+					has_government = proletarian_dictatorship
+					has_country_flag = proletarian_coalition
+				}
 			}
 			
 			traits = {
 				secretary_of_war
-				trotskyist
 			}
 		}
 	}
@@ -687,7 +758,7 @@ characters = {
 			cost = 100
 			
 			slot = political_advisor
-			idea_token = USA_john_edgar_hoover_fbi
+			idea_token = USA_john_edgar_hoover
 			ledger = civilian
 			
 			allowed = {

@@ -15,11 +15,19 @@ USA_managing_spa = {
 		cost = 75
 		
 		complete_effect = {
-			add_to_variable = { SPA_unionist_pop = 1 }
-			add_to_variable = { USA_SPA_unity = 5 }
-			create_pie_chart = yes
-			
-			custom_effect_tooltip = USA_spa_unity_gain_tt
+			random_list = {
+				65 = {
+					add_to_variable = { USA_socialist_unity = 5 }
+					custom_effect_tooltip = USA_spa_unity_large_gain_tt
+				}
+				25 = {
+					add_to_variable = { USA_socialist_unity = 3 }
+					custom_effect_tooltip = USA_spa_unity_small_gain_tt
+				}
+				10 = {
+					
+				}
+			}
 		}
 	}
 	
@@ -39,12 +47,7 @@ USA_managing_spa = {
 		
 		complete_effect = {
 			add_to_variable = { SPA_militant_pop = 3 }
-			subtract_from_variable = { SPA_moderate_pop = 2 }
-			subtract_from_variable = { SPA_unionist_pop = 1 }
-			subtract_from_variable = { USA_SPA_unity = 3 }
-			create_pie_chart = yes
-			
-			custom_effect_tooltip = USA_spa_unity_lose_tt
+			custom_effect_tooltip = USA_spa_militant_influence_gain_tt
 		}
 	}
 	
@@ -64,12 +67,7 @@ USA_managing_spa = {
 		
 		complete_effect = {
 			add_to_variable = { SPA_moderate_pop = 3 }
-			subtract_from_variable = { SPA_militant_pop = 2 }
-			subtract_from_variable = { SPA_unionist_pop = 1 }
-			subtract_from_variable = { USA_SPA_unity = 3 }
-			create_pie_chart = yes
-			
-			custom_effect_tooltip = USA_spa_unity_lose_tt
+			custom_effect_tooltip = USA_spa_progressive_influence_gain_tt
 		}
 	}
 }
