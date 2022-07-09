@@ -581,6 +581,61 @@ on_actions = {
 					set_global_flag = skip_default_capitulation
 				}
 				
+				### TURKEY WARS ###
+				
+				if = {
+					limit = {
+						FROM = {
+							original_tag = TUR
+						}
+						ROOT = {
+							original_tag = GEO
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+						transfer_state = 890
+						transfer_state = 966
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				
+				if = {
+					limit = {
+						FROM = {
+							original_tag = TUR
+						}
+						ROOT = {
+							original_tag = IRQ
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+						puppet = ROOT
+						transfer_state = 676
+						transfer_state = 901
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				
+				if = {
+					limit = {
+						FROM = {
+							original_tag = TUR
+						}
+						ROOT = {
+							original_tag = SYR
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+						annex_country = {
+							target = ROOT
+						}
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				
 				set_global_flag = war_continuing
 			}
 			clr_global_flag = skip_default_capitulation
