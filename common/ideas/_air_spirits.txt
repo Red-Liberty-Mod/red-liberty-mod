@@ -9,64 +9,6 @@ ideas = {
 				factor = 1
 			}
 		}
-		industrial_destruction_spirit = {
-			ledger = air
-			visible = {
-				
-			}
-			available = {
-				has_tech = air_superiority
-			}
-			research_bonus = {
-				heavy_air = 0.05
-			}
-			modifier = {
-				strat_bomber_equipment_design_cost_factor = -0.75
-				jet_strat_bomber_equipment_design_cost_factor = -0.75
-			}
-			ai_will_do = {
-				factor = 1
-			}
-		}
-		dive_bombing_spirit = {
-			ledger = air
-			visible = {
-				
-			}
-			available = {
-				has_tech = formation_flying
-			}
-			research_bonus = {
-				cas_bomber = 0.05
-			}
-			modifier = {
-				CAS_equipment_design_cost_factor = -0.75
-				cv_CAS_equipment_design_cost_factor = -0.75
-			}
-			ai_will_do = {
-				factor = 1
-			}
-		}
-		
-		material_destruction_spirit = {
-			ledger = air
-			visible = {
-				
-			}
-			available = {
-				has_tech = force_rotation
-			}
-			research_bonus = {
-				tactical_bomber = 0.05
-			}
-			modifier = {
-				tac_bomber_equipment_design_cost_factor = -0.75
-				jet_tac_bomber_equipment_design_cost_factor = -0.75
-			}
-			ai_will_do = {
-				factor = 1
-			}
-		}
 		
 		industry_liasons_spirit = {
 			ledger = air
@@ -113,13 +55,137 @@ ideas = {
 			}
 		}
 		
-		air_theory_spirit = {
+		maritime_patrol_spirit = {
 			ledger = air
-			allowed = {
-				always = no
-			}
 			modifier = {
 				
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+		long_range_patrol_spirit = {
+			ledger = air
+			modifier = {
+				
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+		elite_fighter_pilots_spirit = {
+			ledger = air
+			modifier = {
+				air_wing_xp_loss_when_killed_factor = 0.25
+				air_attack_factor = 0.1
+				air_defence_factor = 0.1
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		
+		long_range_navigation_spirit = {
+			ledger = air
+			modifier = {
+				air_range_factor = 0.1
+				air_superiority_detect_factor = 0.15
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+		dogfighting_training_spirit = {
+			ledger = air
+			modifier = {
+				air_agility_factor = 0.1
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		
+		expert_marksmen_spirit = {
+			ledger = air
+			modifier = {
+				air_bombing_targetting = 0.1
+				air_nav_efficiency = 0.1
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+		#air_theory_spirit = {
+		#	ledger = air
+		#	allowed = {
+		#		always = no
+		#	}
+		#	modifier = {
+		#		
+		#	}
+		#	ai_will_do = {
+		#		factor = 1
+		#	}
+		#}
+		
+		industrial_destruction_spirit = {
+			ledger = air
+			visible = {
+				has_tech = air_superiority
+			}
+			available = {
+				has_tech = air_superiority
+			}
+			research_bonus = {
+				heavy_air = 0.05
+			}
+			modifier = {
+				strat_bomber_equipment_design_cost_factor = -0.75
+				jet_strat_bomber_equipment_design_cost_factor = -0.75
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+		dive_bombing_spirit = {
+			ledger = air
+			visible = {
+				has_tech = formation_flying
+			}
+			available = {
+				has_tech = formation_flying
+			}
+			research_bonus = {
+				cas_bomber = 0.05
+			}
+			modifier = {
+				CAS_equipment_design_cost_factor = -0.75
+				cv_CAS_equipment_design_cost_factor = -0.75
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+		material_destruction_spirit = {
+			ledger = air
+			visible = {
+				has_tech = force_rotation
+			}
+			available = {
+				has_tech = force_rotation
+			}
+			research_bonus = {
+				tactical_bomber = 0.05
+			}
+			modifier = {
+				tac_bomber_equipment_design_cost_factor = -0.75
+				jet_tac_bomber_equipment_design_cost_factor = -0.75
 			}
 			ai_will_do = {
 				factor = 1
@@ -181,50 +247,6 @@ ideas = {
 				always = no
 			}
 		}
-		
-		elite_fighter_pilots_spirit = {
-			ledger = air
-			modifier = {
-				air_wing_xp_loss_when_killed_factor = 0.25
-				air_attack_factor = 0.1
-				air_defence_factor = 0.1
-			}
-			ai_will_do = {
-				factor = 0
-			}
-		}
-		
-		long_range_navigation_spirit = {
-			ledger = air
-			modifier = {
-				air_range_factor = 0.1
-				air_superiority_detect_factor = 0.15
-			}
-			ai_will_do = {
-				factor = 1
-			}
-		}
-		
-		dogfighting_training_spirit = {
-			ledger = air
-			modifier = {
-				air_agility_factor = 0.1
-			}
-			ai_will_do = {
-				factor = 0
-			}
-		}
-		
-		expert_marksmen_spirit = {
-			ledger = air
-			modifier = {
-				air_bombing_targetting = 0.1
-				air_nav_efficiency = 0.1
-			}
-			ai_will_do = {
-				factor = 1
-			}
-		}
 	}
 
 	air_force_command_spirit = {
@@ -270,7 +292,7 @@ ideas = {
 		steel_wings_steel_hearts_spirit = {
 			ledger = air
 			visible = {
-				
+				has_auth_socialist_govt = yes
 			}
 			available = {
 				has_auth_socialist_govt = yes
@@ -303,7 +325,7 @@ ideas = {
 		massed_strike_spirit = {
 			ledger = air
 			visible = {
-				
+				has_tech = force_rotation
 			}
 			available = {
 				has_tech = force_rotation
@@ -318,7 +340,7 @@ ideas = {
 		continuous_strike_spirit = {
 			ledger = air
 			visible = {
-				
+				has_tech = formation_flying
 			}
 			available = {
 				has_tech = formation_flying
@@ -333,7 +355,7 @@ ideas = {
 		strategic_strike_spirit = { 
 			ledger = air
 			visible = {
-				
+				has_tech = air_superiority
 			}
 			available = {
 				has_tech = air_superiority
@@ -349,7 +371,7 @@ ideas = {
 		duelling_obsession_spirit = {
 			ledger = air
 			modifier = {
-				air_intercept_efficiency = 0.1
+				air_intercept_efficiency = 0.15
 				air_escort_efficiency = 0.1
 			}
 			ai_will_do = {
