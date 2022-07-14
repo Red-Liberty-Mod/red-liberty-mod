@@ -118,6 +118,12 @@ ECON_reload_poverty_effects = {
 	divide_temp_variable = { poverty_effect_numerator = poverty_effect_denominator }
 	set_variable = { poverty_effect_multiplier = poverty_effect_numerator }
 	add_to_variable = { poverty_effect_multiplier = 1 }
+	
+	multiply_variable = { poverty_effect_multiplier = modifier@poverty_effect_factor }
+	clamp_variable = {
+		var = poverty_effect_multiplier
+		min = 0
+	}
 
 	set_variable = { poverty_rate_stability_effect = poverty_effect_multiplier }
 	set_variable = { poverty_rate_war_support_effect = poverty_effect_multiplier }

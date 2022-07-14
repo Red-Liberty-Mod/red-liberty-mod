@@ -569,4 +569,77 @@ ideas = {
    			}
 		}
 	}
+	
+	economy_type = {
+		law = yes
+		use_list_view = yes
+		
+		industrial_economy = {
+			
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = economy_type_change_tt
+					always = no
+				}
+			}
+			
+			cost = 0
+			
+			default = yes
+			
+			cancel_if_invalid = no
+			
+			modifier = {
+				poverty_effect_factor = 1
+			}
+			
+			ai_will_do = {
+   				factor = 0
+   			}
+		}
+		
+		semi_industrial_economy = {
+			
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = economy_type_change_tt
+					always = no
+				}
+			}
+			
+			cost = 0
+			
+			cancel_if_invalid = no
+			
+			modifier = {
+				poverty_effect_factor = 0.75
+			}
+			
+			ai_will_do = {
+   				factor = 0
+   			}
+		}
+		
+		agrarian_economy = {
+			
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = economy_type_change_tt
+					always = no
+				}
+			}
+			
+			cost = 0
+			
+			cancel_if_invalid = no
+			
+			modifier = {
+				poverty_effect_factor = 0.5
+			}
+			
+			ai_will_do = {
+   				factor = 0
+   			}
+		}
+	}
 }
