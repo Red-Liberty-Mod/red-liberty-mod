@@ -258,7 +258,7 @@ shared_focus = {
     id = TUR_the_viziers_cabinet
 	icon = GFX_TUR_the_viziers_cabinet
 	
-    x = 19
+    x = 20
 	
 	cost = 5
     completion_reward = {
@@ -274,7 +274,7 @@ shared_focus = {
     id = TUR_issue_of_centralization
 	icon = GFX_TUR_issue_of_centralization
 	
-    x = -9
+    x = -10
 	y = 1
 	
 	cost = 5
@@ -448,7 +448,7 @@ shared_focus = {
     id = TUR_issue_of_health
 	icon = GFX_TUR_issue_of_health
 	
-    x = -5
+    x = -6
 	y = 1
 	
 	cost = 5
@@ -639,69 +639,6 @@ shared_focus = {
     id = TUR_the_question_of_education
 	icon = GFX_TUR_the_question_of_education
 	
-    x = -2
-	y = 1
-	
-	cost = 5
-	relative_position_id = TUR_political_bickering
-	prerequisite = { focus = TUR_political_bickering }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 1
-	}
-}
-
-shared_focus = {
-    id = TUR_appoint_riza_education
-	icon = GFX_TUR_appoint_riza_education
-	
-    x = -1
-	y = 1
-	
-	cost = 5
-	mutually_exclusive = {
-		focus = TUR_appoint_loyal_education
-	}
-	relative_position_id = TUR_the_question_of_education
-	prerequisite = { focus = TUR_the_question_of_education }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 1
-	}
-}
-
-shared_focus = {
-    id = TUR_appoint_loyal_education
-	icon = GFX_TUR_appoint_loyal_education
-	
-    x = 1
-	y = 1
-	
-	cost = 5
-	mutually_exclusive = {
-		focus = TUR_appoint_riza_education
-	}
-	relative_position_id = TUR_the_question_of_education
-	prerequisite = { focus = TUR_the_question_of_education }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 1
-	}
-}
-
-shared_focus = {
-    id = TUR_on_the_matter_of_healthcare
-	icon = GFX_TUR_on_the_matter_of_healthcare
-	
     x = 2
 	y = 1
 	
@@ -718,15 +655,34 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = TUR_appoint_riza_healthcare
-	icon = GFX_TUR_appoint_riza_healthcare
+    id = TUR_on_the_matter_of_healthcare
+	icon = GFX_TUR_on_the_matter_of_healthcare
+	
+    x = -2
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_political_bickering
+	prerequisite = { focus = TUR_political_bickering }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_appoint_riza
+	icon = GFX_TUR_appoint_riza
 	
     x = -1
 	y = 1
 	
 	cost = 5
 	mutually_exclusive = {
-		focus = TUR_appoint_loyal_healthcare
+		focus = TUR_appoint_riya_nur
 	}
 	relative_position_id = TUR_on_the_matter_of_healthcare
 	prerequisite = { focus = TUR_on_the_matter_of_healthcare }
@@ -740,18 +696,82 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = TUR_appoint_loyal_healthcare
-	icon = GFX_TUR_appoint_loyal_healthcare
+    id = TUR_appoint_riya_nur
+	icon = GFX_TUR_appoint_riya_nur
 	
     x = 1
 	y = 1
 	
 	cost = 5
 	mutually_exclusive = {
-		focus = TUR_appoint_riza_healthcare
+		focus = TUR_appoint_riza
 	}
 	relative_position_id = TUR_on_the_matter_of_healthcare
 	prerequisite = { focus = TUR_on_the_matter_of_healthcare }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_appoint_omer_behcet
+	icon = GFX_TUR_appoint_omer_behcet
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_appoint_loyal
+	}
+	relative_position_id = TUR_the_question_of_education
+	prerequisite = { focus = TUR_the_question_of_education }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_ten_year_plan
+	icon = GFX_TUR_ten_year_plan
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_appoint_omer_behcet
+	prerequisite = { focus = TUR_appoint_omer_behcet }
+	prerequisite = { focus = TUR_millet_mektepleri }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_appoint_loyal
+	icon = GFX_TUR_appoint_loyal
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_appoint_omer_behcet
+	}
+	relative_position_id = TUR_the_question_of_education
+	prerequisite = { focus = TUR_the_question_of_education }
     completion_reward = {
         
     }
@@ -765,18 +785,18 @@ shared_focus = {
     id = TUR_gather_the_appointees
 	icon = GFX_TUR_gather_the_appointees
 	
-    x = 1
-	y = 1
+    x = 0
+	y = 3
 	
 	cost = 5
-	relative_position_id = TUR_appoint_loyal_education
+	relative_position_id = TUR_political_bickering
 	prerequisite = { 
-		focus = TUR_appoint_riza_education
-		focus = TUR_appoint_loyal_education
+		focus = TUR_appoint_riza
+		focus = TUR_appoint_riya_nur
 	}
 	prerequisite = { 
-		focus = TUR_appoint_riza_healthcare
-		focus = TUR_appoint_loyal_healthcare
+		focus = TUR_appoint_omer_behcet
+		focus = TUR_appoint_loyal
 	}
     completion_reward = {
         
@@ -810,6 +830,25 @@ shared_focus = {
 }
 
 shared_focus = {
+    id = TUR_increase_bureaucratic_salaries
+	icon = GFX_TUR_increase_bureaucratic_salaries
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_laissez_faire_their_jobs
+	prerequisite = { focus = TUR_laissez_faire_their_jobs }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
     id = TUR_opposition_close_ministers_closer
 	icon = GFX_TUR_opposition_close_ministers_closer
 	
@@ -832,11 +871,30 @@ shared_focus = {
 }
 
 shared_focus = {
+    id = TUR_establish_anti_corruption_bureau
+	icon = GFX_TUR_establish_anti_corruption_bureau
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_opposition_close_ministers_closer
+	prerequisite = { focus = TUR_opposition_close_ministers_closer }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
     id = TUR_the_grand_viziers_grand_plan
 	icon = GFX_TUR_the_grand_viziers_grand_plan
 	
     x = 1
-	y = 1
+	y = 2
 	
 	cost = 5
 	relative_position_id = TUR_laissez_faire_their_jobs
@@ -1025,6 +1083,88 @@ shared_focus = {
 }
 
 shared_focus = {
+    id = TUR_federation_roads
+	icon = GFX_TUR_federation_roads
+	
+    x = 3
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_the_grand_viziers_grand_plan
+	prerequisite = { focus = TUR_the_grand_viziers_grand_plan }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_van_to_aydin_line
+	icon = GFX_TUR_van_to_aydin_line
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_federation_roads
+	prerequisite = { focus = TUR_federation_roads }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_form_the_tcdd
+	icon = GFX_TUR_form_the_tcdd
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_invite_british_railways
+	}
+	relative_position_id = TUR_federation_roads
+	prerequisite = { focus = TUR_federation_roads }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_invite_british_railways
+	icon = GFX_TUR_invite_british_railways
+	
+    x = 3
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_form_the_tcdd
+	}
+	relative_position_id = TUR_federation_roads
+	prerequisite = { focus = TUR_federation_roads }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
     id = TUR_education
 	icon = GFX_TUR_education
 	
@@ -1044,15 +1184,768 @@ shared_focus = {
 }
 
 shared_focus = {
+    id = TUR_language_commission
+	icon = GFX_TUR_language_commission
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_education
+	prerequisite = { focus = TUR_education }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_the_countryside
+	icon = GFX_TUR_the_countryside
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_education
+	prerequisite = { focus = TUR_education }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_millet_mektepleri
+	icon = GFX_TUR_millet_mektepleri
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_language_commission
+	prerequisite = { focus = TUR_language_commission }
+	prerequisite = { focus = TUR_the_countryside }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_village_institutes
+	icon = GFX_TUR_village_institutes
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_the_countryside
+	prerequisite = { focus = TUR_the_countryside }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_pedagogy_of_learning
+	icon = GFX_TUR_pedagogy_of_learning
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_credit_from_hasan
+	}
+	relative_position_id = TUR_village_institutes
+	prerequisite = { focus = TUR_village_institutes }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_credit_from_hasan
+	icon = GFX_TUR_credit_from_hasan
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_pedagogy_of_learning
+	}
+	relative_position_id = TUR_village_institutes
+	prerequisite = { focus = TUR_village_institutes }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
     id = TUR_military_matters
 	icon = GFX_TUR_military_matters
 	
-    x = 11
+    x = 12
 	y = 1
 	
 	cost = 5
 	relative_position_id = TUR_the_viziers_cabinet
 	prerequisite = { focus = TUR_the_viziers_cabinet }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_educate_officers
+	icon = GFX_TUR_educate_officers
+	
+    x = -1
+	y = 2
+	
+	cost = 5
+	relative_position_id = TUR_military_matters
+	prerequisite = { focus = TUR_military_matters }
+	prerequisite = { focus = TUR_the_countryside }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_on_the_land
+	icon = GFX_TUR_on_the_land
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_educate_officers
+	prerequisite = { focus = TUR_educate_officers }
+	prerequisite = { focus = TUR_the_grand_marshals_plan }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_mechanized_battalions
+	icon = GFX_TUR_mechanized_battalions
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_on_the_land
+	prerequisite = { focus = TUR_on_the_land }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_artillery_support
+	icon = GFX_TUR_artillery_support
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_mechanized_battalions
+	prerequisite = { focus = TUR_mechanized_battalions }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_enforce_discipline
+	icon = GFX_TUR_enforce_discipline
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_mechanized_battalions
+	prerequisite = { focus = TUR_mechanized_battalions }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_militarized_education
+	icon = GFX_TUR_militarized_education
+	
+    x = -5
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_on_the_land
+	prerequisite = { focus = TUR_on_the_land }
+	prerequisite = { focus = TUR_millet_mektepleri }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_three_year_training
+	icon = GFX_TUR_three_year_training
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_four_year_training
+	}
+	relative_position_id = TUR_militarized_education
+	prerequisite = { focus = TUR_militarized_education }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_four_year_training
+	icon = GFX_TUR_three_year_training
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_three_year_training
+	}
+	relative_position_id = TUR_militarized_education
+	prerequisite = { focus = TUR_militarized_education }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_logistical_backlines
+	icon = GFX_TUR_logistical_backlines
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_on_the_land
+	prerequisite = { focus = TUR_on_the_land }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_commission_kartalin_gazabi
+	icon = GFX_TUR_commission_kartalin_gazabi
+	
+    x = 0
+	y = 2
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_anadolu_carrier
+	}
+	relative_position_id = TUR_logistical_backlines
+	prerequisite = { focus = TUR_logistical_backlines }
+	prerequisite = { focus = TUR_iterate_on_our_planes }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_entrenched_warfare
+	icon = GFX_TUR_entrenched_warfare
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_mechanization_initiative
+	}
+	relative_position_id = TUR_military_matters
+	prerequisite = { focus = TUR_military_matters }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_mechanization_initiative
+	icon = GFX_TUR_mechanization_initiative
+	
+    x = 2
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_entrenched_warfare
+	}
+	relative_position_id = TUR_military_matters
+	prerequisite = { focus = TUR_military_matters }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_the_grand_marshals_plan
+	icon = GFX_TUR_the_grand_marshals_plan
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_entrenched_warfare
+	prerequisite = {
+		focus = TUR_entrenched_warfare
+		focus = TUR_mechanization_initiative
+	}
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_in_the_air
+	icon = GFX_TUR_in_the_air
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_the_grand_marshals_plan
+	prerequisite = { focus = TUR_the_grand_marshals_plan }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_iterate_on_our_planes
+	icon = GFX_TUR_iterate_on_our_planes
+	
+    x = 0
+	y = 2
+	
+	cost = 5
+	relative_position_id = TUR_in_the_air
+	prerequisite = { focus = TUR_in_the_air }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_on_the_sea
+	icon = GFX_TUR_on_the_sea
+	
+    x = 2
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_the_grand_marshals_plan
+	prerequisite = { focus = TUR_the_grand_marshals_plan }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_reaffirm_position_in_bosphorus
+	icon = GFX_TUR_reaffirm_position_in_bosphorus
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_on_the_sea
+	prerequisite = { focus = TUR_on_the_sea }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_anadolu_carrier
+	icon = GFX_TUR_anadolu_carrier
+	
+    x = 0
+	y = 2
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_commission_kartalin_gazabi
+	}
+	relative_position_id = TUR_reaffirm_position_in_bosphorus
+	prerequisite = { focus = TUR_reaffirm_position_in_bosphorus }
+	prerequisite = { focus = TUR_iterate_on_our_planes }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_martyr_sabiha_gokcen
+	icon = GFX_TUR_martyr_sabiha_gokcen
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_better_at_home
+	}
+	relative_position_id = TUR_commission_kartalin_gazabi
+	prerequisite = {
+		focus = TUR_commission_kartalin_gazabi
+		focus = TUR_anadolu_carrier
+	}
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_better_at_home
+	icon = GFX_TUR_better_at_home
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_martyr_sabiha_gokcen
+	}
+	relative_position_id = TUR_anadolu_carrier
+	prerequisite = {
+		focus = TUR_commission_kartalin_gazabi
+		focus = TUR_anadolu_carrier
+	}
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_supply_ground_troops
+	icon = GFX_TUR_martyr_sabiha_gokcen
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_kommando_tugayi
+	}
+	relative_position_id = TUR_martyr_sabiha_gokcen
+	prerequisite = {
+		focus = TUR_martyr_sabiha_gokcen
+		focus = TUR_better_at_home
+	}
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_kommando_tugayi
+	icon = GFX_TUR_kommando_tugayi
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_supply_ground_troops
+	}
+	relative_position_id = TUR_better_at_home
+	prerequisite = {
+		focus = TUR_martyr_sabiha_gokcen
+		focus = TUR_better_at_home
+	}
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_strong_brave_and_ready
+	icon = GFX_TUR_strong_brave_and_ready
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_supply_ground_troops
+	prerequisite = {
+		focus = TUR_supply_ground_troops
+		focus = TUR_kommando_tugayi
+	}
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_form_amfibi_kommando
+	icon = GFX_TUR_form_amfibi_kommando
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_on_the_sea
+	prerequisite = { focus = TUR_on_the_sea }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_a_new_admiral
+	icon = GFX_TUR_a_new_admiral
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_form_amfibi_kommando
+	prerequisite = { focus = TUR_form_amfibi_kommando }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_domestic_contracts
+	icon = GFX_TUR_domestic_contracts
+	
+    x = 3
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_form_amfibi_kommando
+	prerequisite = { focus = TUR_form_amfibi_kommando }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_renegotiate_the_tonnage_limit
+	icon = GFX_TUR_renegotiate_the_tonnage_limit
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_form_amfibi_kommando
+	prerequisite = { focus = TUR_form_amfibi_kommando }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_hamidye_mark_ii
+	icon = GFX_TUR_hamidye_mark_ii
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_death_from_below
+	}
+	relative_position_id = TUR_renegotiate_the_tonnage_limit
+	prerequisite = { focus = TUR_renegotiate_the_tonnage_limit }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_death_from_below
+	icon = GFX_TUR_death_from_below
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_hamidye_mark_ii
+	}
+	relative_position_id = TUR_renegotiate_the_tonnage_limit
+	prerequisite = { focus = TUR_renegotiate_the_tonnage_limit }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+    id = TUR_a_new_flagship
+	icon = GFX_TUR_a_new_flagship
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_hamidye_mark_ii
+	prerequisite = {
+		focus = TUR_hamidye_mark_ii
+		focus = TUR_death_from_below
+	}
     completion_reward = {
         
     }
