@@ -2,17 +2,21 @@ ENG_recalc_parliament = { # this will recalculate the number of members of parli
 	
 	#Sets variable to check for discrepencies
 	set_variable = {
-		ENG_old_mps_total = mps_total
+		ENG_old_mps_total = ENG_mps_total
 	}
 	
 	set_variable = {
 		communist_mps = party_popularity@revolutionary_autocracy
 	}
-	add_to_variable = {
-		communist_mps = party_popularity@proletarian_dictatorship
-	}
 	multiply_variable = {
 		communist_mps = 0.25
+	}
+	
+	set_variable = {
+		independent_labour_mps = party_popularity@proletarian_dictatorship
+	}
+	multiply_variable = {
+		independent_labour_mps = 0.25
 	}
 	
 	set_variable = {
@@ -59,29 +63,33 @@ ENG_recalc_parliament = { # this will recalculate the number of members of parli
 	
 	#Gets seats
 	multiply_variable = {
-		communist_mps = mps_total
+		communist_mps = ENG_mps_total
 	}
 	multiply_variable = {
-		labour_mps = mps_total
+		independent_labour_mps = ENG_mps_total
 	}
 	multiply_variable = {
-		national_labour_mps = mps_total
+		labour_mps = ENG_mps_total
 	}
 	multiply_variable = {
-		liberal_mps = mps_total
+		national_labour_mps = ENG_mps_total
 	}
 	multiply_variable = {
-		national_liberal_mps = mps_total
+		liberal_mps = ENG_mps_total
 	}
 	multiply_variable = {
-		conservative_mps = mps_total
+		national_liberal_mps = ENG_mps_total
 	}
 	multiply_variable = {
-		fascist_mps = mps_total
+		conservative_mps = ENG_mps_total
+	}
+	multiply_variable = {
+		fascist_mps = ENG_mps_total
 	}
 	
 	#rounds
 	round_variable = communist_mps
+	round_variable = independent_labour_mps
 	round_variable = labour_mps
 	round_variable = national_labour_mps
 	round_variable = liberal_mps
@@ -90,37 +98,14 @@ ENG_recalc_parliament = { # this will recalculate the number of members of parli
 	round_variable = fascist_mps
 	
 	#Gets new total seat value
-	set_variable = {
-		mps_total = 0
-	}
-	add_to_variable = {
-		mps_total = communist_mps
-	}
-	add_to_variable = {
-		mps_total = labour_mps
-	}
-	add_to_variable = {
-		mps_total = national_labour_mps
-	}
-	add_to_variable = {
-		mps_total = liberal_mps
-	}
-	add_to_variable = {
-		mps_total = national_liberal_mps
-	}
-	add_to_variable = {
-		mps_total = conservative_mps
-	}
-	add_to_variable = {
-		mps_total = fascist_mps
-	}
+	ENG_get_total_seats = yes
 	
-	#gets discrepency
+	# gets discrepency
 	subtract_from_variable = {
-		ENG_old_mps_total = mps_total
+		ENG_old_mps_total = ENG_mps_total
 	}
 	
-	#deals with discrepency, if needed
+	# deals with discrepency, if needed
 	if = {
 		limit = {
 			NOT = {
@@ -129,64 +114,88 @@ ENG_recalc_parliament = { # this will recalculate the number of members of parli
 				}
 			}
 		}
-		add_to_variable = {
-			mps_total = ENG_old_mps_total
+		
+		set_variable = {
+			ENG_partial_discrepency = ENG_old_mps_total
 		}
-		if = {
+		multiply_variable = {
+			ENG_partial_discrepency = 0.6
+		}
+		round_variable = ENG_partial_discrepency
+		
+		if = { # positive discrepency, too few seats
 			limit = {
-				has_government = proletarian_dictatorship
+				check_variable = {
+					ENG_partial_discrepency > 0 #positive
+				}
+			}
+			
+			#log = "[THIS.GetName]: positive ENG_partial_discrepency: [?ENG_partial_discrepency]"
+			
+			subtract_from_variable = {
+				ENG_old_mps_total = ENG_partial_discrepency
 			}
 			add_to_variable = {
-				communist_mps = ENG_old_mps_total
-			}
-		}
-		else_if = {
-			limit = {
-				has_government = libertarian_socialism
+				conservative_mps = ENG_partial_discrepency
 			}
 			add_to_variable = {
 				labour_mps = ENG_old_mps_total
 			}
 		}
-		else_if = {
-			limit = {
-				has_government = progressive_liberalism
-			}
-			add_to_variable = {
-				liberal_mps = ENG_old_mps_total
-			}
-		}
-		else_if = {
-			limit = {
-				has_government = market_libertarianism
-			}
-			add_to_variable = {
-				liberal_mps = ENG_old_mps_total
-			}
-		}
-		else_if = {
-			limit = {
-				OR = {
-					has_government = social_democracy
-					has_government = national_conservatism
-				}
+		else = { # negative discrepency, too many seats
+			#log = "[THIS.GetName]: negative ENG_partial_discrepency: [?ENG_partial_discrepency]"
+		
+			subtract_from_variable = {
+				ENG_old_mps_total = ENG_partial_discrepency #remainder will be taken from tories
 			}
 			add_to_variable = {
 				conservative_mps = ENG_old_mps_total
 			}
-		}
-		else_if = {
-			limit = {
-				has_government = ultranational_statism
-			}
 			add_to_variable = {
-				fascist_mps = ENG_old_mps_total
+				labour_mps = ENG_partial_discrepency
 			}
 		}
+	}
+	
+	ENG_get_total_seats = yes
+	ENG_calc_coalition_seats = yes
+}
+
+ENG_get_total_seats = {
+	
+	set_variable = {
+		ENG_mps_total = 0
+	}
+	add_to_variable = {
+		ENG_mps_total = communist_mps
+	}
+	add_to_variable = {
+		ENG_mps_total = independent_labour_mps
+	}
+	add_to_variable = {
+		ENG_mps_total = labour_mps
+	}
+	add_to_variable = {
+		ENG_mps_total = national_labour_mps
+	}
+	add_to_variable = {
+		ENG_mps_total = liberal_mps
+	}
+	add_to_variable = {
+		ENG_mps_total = national_liberal_mps
+	}
+	add_to_variable = {
+		ENG_mps_total = conservative_mps
+	}
+	add_to_variable = {
+		ENG_mps_total = fascist_mps
 	}
 }
 
 ENG_calc_coalition_seats = {
+	
+	set_variable = { coalition_seats = 0 }
+
 	if = {
 		limit = {
 			has_country_flag = libertarian_socialism_coalition

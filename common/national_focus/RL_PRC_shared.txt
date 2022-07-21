@@ -1,0 +1,158 @@
+focus_tree = {
+	id = PRC_shared
+	continuous_focus_position = { x = -40 y = 1050 } 
+	country = {
+		factor = 0
+		modifier = {
+			add = 0
+			tag = PRC
+		}
+	}
+	
+	focus = {
+		id = PRC_prepare_liberation
+		icon = GFX_PRC_prepare_liberation
+		x = 2
+		y = 0
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+	}
+	
+	focus = {
+		id = PRC_denounce_rightists
+		icon = GFX_PRC_denounce_rightists
+		x = 1
+		y = 1
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = PRC_prepare_liberation  }
+	}
+	
+	focus = {
+		id = PRC_ally_leftists
+		icon = GFX_PRC_ally_leftists
+		x = 3
+		y = 1
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = PRC_prepare_liberation  }
+	}
+
+	focus = {
+		id = PRC_send_agitators_to_guangxi
+		icon = GFX_PRC_send_agitators_to_guangxi
+		x = 0
+		y = 2
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = PRC_denounce_rightists  }
+	}
+	
+	focus = {
+		id = PRC_coalition_with_the_peasant_unions
+		icon = GFX_PRC_coalition_with_the_peasant_unions
+		x = 2
+		y = 2
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = PRC_denounce_rightists  }
+		prerequisite = { focus = PRC_ally_leftists  }
+	}
+	
+	focus = {
+		id = PRC_win_over_he_long
+		icon = GFX_PRC_win_over_he_long
+		x = 4
+		y = 2
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = PRC_ally_leftists  }
+	}
+	
+	focus = {
+		id = PRC_crossing_the_yunnan_mountains
+		icon = GFX_PRC_crossing_the_yunnan_mountains
+		x = 0
+		y = 3
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = PRC_send_agitators_to_guangxi  }
+	}
+	
+	focus = {
+		id = PRC_alliance_with_workers_unions
+		icon = GFX_PRC_alliance_with_workers_unions
+		x = 2
+		y = 3
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = PRC_coalition_with_the_peasant_unions  }
+	}
+	
+	focus = {
+		id = PRC_securing_the_central_china_plain
+		icon = GFX_PRC_securing_the_central_china_plain
+		x = 4
+		y = 3
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = PRC_win_over_he_long  }
+	}
+	
+	focus = {
+		id = PRC_workers_peasants_soldiers_unite
+		icon = GFX_PRC_workers_peasants_soldiers_unite
+		x = 1
+		y = 4
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = PRC_crossing_the_yunnan_mountains }
+		prerequisite = { focus = PRC_alliance_with_workers_unions }
+	}
+
+	focus = {
+		id = PRC_the_final_preperations
+		icon = GFX_PRC_the_final_preperations
+		x = 3
+		y = 4
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = PRC_alliance_with_workers_unions }
+		prerequisite = { focus = PRC_securing_the_central_china_plain }
+	}
+
+	focus = {
+		id = PRC_the_southern_uprising
+		icon = GFX_PRC_the_southern_uprising
+		x = 2
+		y = 5
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = PRC_workers_peasants_soldiers_unite }
+		prerequisite = { focus = PRC_the_final_preperations }
+	}
+}

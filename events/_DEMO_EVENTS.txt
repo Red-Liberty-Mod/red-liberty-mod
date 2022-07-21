@@ -1,25 +1,108 @@
+add_namespace = demo_ger
 add_namespace = demo_fra
 add_namespace = demo_mex
 add_namespace = demo_ita
 add_namespace = demo_ahe
 add_namespace = demo_rom
 add_namespace = demo_rus
+add_namespace = demo_sov
 add_namespace = demo_eng
 add_namespace = demo_ire
 add_namespace = demo_bal
 add_namespace = demo_cen
 add_namespace = demo_jap
+add_namespace = demo_bra
+add_namespace = demo_uob
+add_namespace = demo_saf
+add_namespace = demo_tur
+
 add_namespace = demo_ww2
-add_namespace = demo.ita_alb_war
-add_namespace = demo_ger_civil_war
-add_namespace = demo.alb_Victory
-add_namespace = demo.ita_victory
+
 add_namespace = demo.ita_gr_war
 add_namespace = demo.jap_chi_war
 add_namespace = demo.sov_fin_war
 add_namespace = demo_gre_victory
 add_namespace = demo.Rus_Ger_war_declaration
 add_namespace = demo.Ger_Rus_war_declaration
+add_namespace = demo_mex_war
+add_namespace = demo_yuc
+add_namespace = demo_usa_jap_peace
+add_namespace = demo_brm
+add_namespace = demo_jap_usa_war
+add_namespace = demo_bosphorus_uprising
+
+
+country_event = { # vorbeck takes power
+	id = demo_ger.1
+	title = demo_ger.1.title
+	desc = demo_ger.1.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ger.1.a
+		GER = {
+			set_politics = {
+				ruling_party = far_right_authoritarianism
+				last_election = "1936.1.1"
+				election_frequency = 48
+				elections_allowed = no
+			}
+			add_popularity = {
+				ideology = far_right_authoritarianism
+				popularity = 0.05
+			}
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_ger.2 hours = 6 }
+		}
+	}
+}
+
+news_event = { # vorbeck takes power - news
+	id = demo_ger.2
+	title = demo_ger.2.title
+	desc = demo_ger.2.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = demo_ger.2.a
+	}
+}
+
+country_event = {
+	id = demo_ger.3
+	title = demo_ger.3.title
+	desc = demo_ger.3.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ger.3.a
+	}
+}
+
+news_event = { # vorbeck takes power - news
+	id = demo_ger.4
+	title = demo_ger.4.title
+	desc = demo_ger.4.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = demo_ger.4.a
+	}
+}
 
 country_event = { # de la rocque takes power
 	id = demo_fra.1
@@ -49,9 +132,9 @@ country_event = { # de la rocque takes power
 			}
 		}
 		random_other_country = {
-				limit = { is_ai = yes }
-				news_event = { id = demo_fra.2 days = 1 }
-			}
+			limit = { is_ai = yes }
+			news_event = { id = demo_fra.2 hours = 6 }
+		}
 	}
 }
 
@@ -62,14 +145,45 @@ news_event = { # de la rocque takes power - news
 	
 	major = yes
 	
-	show_major = {
-		always = yes
-	}
-	
 	is_triggered_only = yes
 
 	option = {
 		name = demo_fra.2.a
+	}
+}
+
+country_event = { # franco-italian alliance
+	id = demo_fra.3
+	title = ""
+	desc = demo_fra.3.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ""
+		FRA = {
+			add_to_faction = ITA
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_fra.4 hours = 6 }
+		}
+	}
+}
+
+news_event = { # franco-italian alliance - news
+	id = demo_fra.4
+	title = demo_fra.4.title
+	desc = demo_fra.4.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = demo_fra.4.a
 	}
 }
 
@@ -105,63 +219,17 @@ country_event = { # mexico civil war demo event
 	option = {
 		name = ""
 		hidden_effect = {
-			MXR = {
-				set_global_flag = MEX_cristero_war_bad
-				transfer_state = 478
-				478 = {
-					set_demilitarized_zone = no
-				}
-				random_list = {
-					80 = {
-						transfer_state = 905
-					}
-					20 = {
-						
-					}
-				}
-				random_list = {
-					80 = {
-						transfer_state = 481
-					}
-					20 = {
-						
-					}
-				}
-				random_list = {
-					60 = {
-						transfer_state = 485
-					}
-					40 = {
-						
-					}
-				}
-				random_list = {
-					60 = {
-						transfer_state = 899
-					}
-					40 = {
-						
-					}
-				}
-				random_list = {
-					50 = {
-						transfer_state = 906
-					}
-					50 = {
-						
-					}
-				}
-				load_oob = "MXR"
+			set_global_flag = MEX_cristero_war_bad
+			478 = {
+				set_demilitarized_zone = no
 			}
-			YUC = {
-				add_state_core = 474
-				transfer_state = 474
-				
-				load_oob = "YUC"
-			}
+
+			MEX_setup_CRT = yes
+			MEX_setup_YUC = yes
+		
 			MEX = {
 				declare_war_on = {
-					target = MXR
+					target = CRT
 					type = annex_everything
 				}
 				declare_war_on = {
@@ -169,11 +237,16 @@ country_event = { # mexico civil war demo event
 					type = annex_everything
 				}
 			}
+			
+			add_named_threat = { 
+				threat = 10
+				name = MEX_civil_war
+			}
 		}
 		hidden_effect = {
 			random_other_country = {
 				limit = { is_ai = yes }
-				news_event = { id = demo_mex.3 days = 1 }
+				news_event = { id = demo_mex.3 hours = 6 }
 			}
 		}
 	}
@@ -182,73 +255,60 @@ country_event = { # mexico civil war demo event
 news_event = {
 	id = demo_mex.3
 	title = demo_mex.3.title
-	desc = demo_mex.3.d
+	desc = demo_mex.3.desc
 	picture = ""
-
-	is_trigger_only = yes
-	
-	major = yes
-	
-	#show_major = {
-	#	is_north_american_tag = yes
-	#}
 	
 	is_triggered_only = yes
+	
+	major = yes
 
 	option = {
 		name = demo_mex.3.a
 	}
 }
 
-country_event = { # what it says in the title
+country_event = {
 	id = demo_mex.4
-	title = "Yucatan requests protectorate status"
-	desc = demo_mex.4.desc
+	title = demo_mex.4.title
+	desc = demo_mex.4.d
+	picture = ""
 	
 	is_triggered_only = yes
-	
-	trigger = {
-		YUC = {
-			exists = yes
-		}
-	}
 	
 	fire_only_once = yes
 
 	option = {
-		name = ""
-		YUC = {
-			keep_current_politics = yes
-		}
-		USA = {
-			puppet = YUC
-		}
-		YUC = {
-			white_peace = MEX
-		}
-		MEX = {
-			country_event = {
-				id = demo_mex.5
+		name = demo_mex.4.a
+		MEX_setup_ZAP = yes
+		
+		hidden_effect = {
+			MEX = {
+				declare_war_on = {
+					target = ZAP
+					type = annex_everything
+				}
+			}
+		
+			random_other_country = {
+				limit = { is_ai = yes }
+				news_event = { id = demo_mex.5 hours = 6 }
 			}
 		}
 	}
-	
-	option = {
-		name = ""
-	}
 }
 
-country_event = { # notification for mex
+news_event = {
 	id = demo_mex.5
-	title = "The Yanquis occupy the Yucatan!"
+	title = demo_mex.5.title
 	desc = demo_mex.5.desc
+	picture = ""
+	
+	major = yes
 	
 	is_triggered_only = yes
-	
-	fire_only_once = yes
 
 	option = {
-		name = "Damn them!"
+		name = demo_mex.5.a
 	}
 }
 
@@ -320,9 +380,237 @@ news_event = { # war over news
 	}
 }
 
-country_event = { # election event for austria
+news_event = { # improve nat spirits
+	id = demo_ita.4
+	title = demo_ita.4.title
+	desc = demo_ita.4.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ita.4.a
+	}
+}
+
+news_event = { # improve nat spirits again
+	id = demo_ita.5
+	title = demo_ita.5.title
+	desc = demo_ita.5.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ita.5.a
+	}
+}
+
+country_event = { # ita-alb war
+	id = demo_ita.6
+	title = demo_ita.6.title
+	desc = demo_ita.6.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ita.6.a
+		ITA = {
+			declare_war_on = {
+				target = ALB
+				type = annex_everything
+			}
+			country_event = {
+				id = demo_ita.9
+				days = 90
+			}
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_ita.7 hours = 6 }
+		}
+	}
+}
+
+news_event = { # ita-alb war news
+	id = demo_ita.7
+	title = demo_ita.7.title
+	desc = demo_ita.7.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = demo_ita.7.a
+	}
+}
+
+news_event = { # ita victory news
+	id = demo_ita.8
+	title = demo_ita.8.title
+	desc = demo_ita.8.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = demo_ita.8.a
+	}
+}
+
+country_event = { # ita loses, white peace
+	id = demo_ita.9
+	title = demo_ita.9.title
+	desc = demo_ita.9.desc
+	
+	trigger = {
+		NOT = {
+			ALB = {
+				is_puppet_of = ITA
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ita.9.a
+		white_peace = {
+			tag = ALB
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_ita.10 hours = 6 }
+		}
+	}
+}
+
+news_event = { # ita loss news
+	id = demo_ita.10
+	title = demo_ita.10.title
+	desc = demo_ita.10.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = demo_ita.10.a
+	}
+}
+
+country_event = { # ita-gre war
+	id = demo_ita.11
+	title = demo_ita.11.title
+	desc = demo_ita.11.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ita.11.a
+		ITA = {
+			declare_war_on = {
+				target = GRE
+				type = annex_everything
+			}
+			country_event = {
+				id = demo_ita.14
+				days = 120
+			}
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_ita.12 hours = 6 }
+		}
+	}
+}
+
+news_event = { # ita-gre war news
+	id = demo_ita.12
+	title = demo_ita.12.title
+	desc = demo_ita.12.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = demo_ita.12.a
+	}
+}
+
+news_event = { # ita-gre war news, ita victory
+	id = demo_ita.13
+	title = demo_ita.13.title
+	desc = demo_ita.13.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = demo_ita.13.a
+	}
+}
+
+country_event = { # ita-gre war, ita loss
+	id = demo_ita.14
+	title = demo_ita.14.title
+	desc = demo_ita.14.desc
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = {
+			ALB = {
+				is_puppet_of = ITA
+			}
+		}
+	}
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ita.14.a
+		white_peace = {
+			tag = GRE
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_ita.15 hours = 6 }
+		}
+	}
+}
+
+news_event = { # ita-gre war, ita loss
+	id = demo_ita.15
+	title = demo_ita.15.title
+	desc = demo_ita.15.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = demo_ita.15.a
+	}
+}
+
+country_event = { # vienna uprising - september 19, 1936
 	id = demo_ahe.1
-	title = ""
+	title = demo_ahe.1.title
 	desc = demo_ahe.1.desc
 	
 	is_triggered_only = yes
@@ -330,28 +618,424 @@ country_event = { # election event for austria
 	fire_only_once = yes
 
 	option = {
-		name = ""
-		set_politics = {
-			ruling_party = social_democracy
-			elections_allowed = yes
-			last_election = "1936.10.8"
-			election_frequency = 48
+		name = demo_ahe.1.a
+		AHE = {
+			clear_all_coalitions = yes
+		
+			set_politics = {
+				ruling_party = proletarian_dictatorship
+				elections_allowed = no
+				last_election = "1932.10.8"
+				election_frequency = 48
+			}
+			set_country_flag = rev_autocracy_coalition
+			set_country_flag = proletarian_coalition
+			set_country_flag = libertarian_socialism_coalition
+			set_country_flag = social_democracy_coalition
+			
+			country_event = {
+				id = demo_ahe.3
+				days = 7
+			}
+			remove_ideas = {
+				AHE_doomed_empire
+				AHE_german_dependence
+			}
 		}
-		add_popularity = {
-			ideology = social_democracy
-			popularity = 0.02
-		}
-		add_popularity = {
-			ideology = libertarian_socialism
-			popularity = 0.01
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_ahe.2 hours = 6 }
 		}
 	}
+}
+
+news_event = { # vienna uprising - news
+	id = demo_ahe.2
+	title = demo_ahe.2.title
+	desc = demo_ahe.2.desc
 	
+	is_triggered_only = yes
+	
+	major = yes
+
 	option = {
-		name = ""
-		add_popularity = {
-			ideology = national_conservatism
-			popularity = 0.03
+		name = demo_ahe.2.a
+	}
+}
+
+country_event = { # september constitution - september 26, 1936
+	id = demo_ahe.3
+	title = demo_ahe.3.title
+	desc = demo_ahe.3.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ahe.3.a
+		AHE = {
+			set_cosmetic_tag = AHE_peoples_republic
+			
+			AHE_create_demilitarized_zones = yes
+			
+			remove_ideas = {
+				AHE_incompetent_military
+				AHE_inept_legislature
+			}
+			add_ideas = {
+				AHE_beacon_of_hope
+			}
+			
+			set_popularities = {
+				insurrectionary_anarchism = 0
+				revolutionary_autocracy = 12
+				proletarian_dictatorship = 42
+				libertarian_socialism = 19
+				social_democracy = 23
+				progressive_liberalism = 4
+				market_libertarianism = 0
+				national_conservatism = 0
+				authoritarian_democracy = 0
+				autocratic_despotism = 0
+				far_right_authoritarianism = 0
+				fascism = 0
+			}
+
+			country_event = { # september 28
+				id = demo_ahe.5
+				days = 2
+			}
+			country_event = { # september 29 - czechs
+				id = demo_ahe.6
+				days = 3
+			}
+			country_event = { # september 30 - hungarians
+				id = demo_ahe.7
+				days = 4
+			}
+			country_event = { # october 8
+				id = demo_ahe.8
+				days = 12
+			}
+			country_event = { # october 22
+				id = demo_ahe.10
+				days = 26
+			}
+			country_event = { # november 1
+				id = demo_ahe.11
+				days = 35
+			}
+			country_event = { # november 1
+				id = demo_ahe.12
+				days = 45
+			}
+			country_event = { # november 8
+				id = demo_ahe.13
+				days = 52
+			}
+			country_event = { # october 10 - italian occupation
+				id = demo_ahe.14
+				days = 14
+			}
+			country_event = { # october 2 - serb occupation
+				id = demo_ahe.15
+				days = 6
+			}
+			country_event = { # march 12 - aus/ahe war
+				id = demo_ahe.16
+				days = 174
+			}
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_ahe.4 hours = 6 }
+		}
+	}
+}
+
+news_event = { # september constitution - news
+	id = demo_ahe.4
+	title = demo_ahe.4.title
+	desc = demo_ahe.4.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = demo_ahe.4.a
+		hidden_effect = {
+			GER = {
+				set_country_flag = may_send_volunteers_to_AUS
+			}
+			USA = {
+				set_country_flag = may_send_volunteers_to_AHE
+			}
+		}
+	}
+}
+
+country_event = { # royalists form govt
+	id = demo_ahe.5
+	title = demo_ahe.5.title
+	desc = demo_ahe.5.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ahe.5.a
+		AHE_setup_AUS = yes
+	}
+}
+
+country_event = { # czechs form govt
+	id = demo_ahe.6
+	title = demo_ahe.6.title
+	desc = demo_ahe.6.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ahe.6.a
+		AHE_setup_CZE = yes
+	}
+}
+
+country_event = { # hungarians form govt
+	id = demo_ahe.7
+	title = demo_ahe.7.title
+	desc = demo_ahe.7.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ahe.7.a
+		AHE_setup_HUN = yes
+		HUN = {
+			country_event = {
+				id = demo_ahe.9
+				days = 12
+			}
+		}
+	}
+}
+
+country_event = { # croats form govt
+	id = demo_ahe.8
+	title = demo_ahe.8.title
+	desc = demo_ahe.8.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ahe.8.a
+		AHE_setup_CRO = yes
+	}
+}
+
+country_event = { # rom-hun war
+	id = demo_ahe.9
+	title = demo_ahe.9.title
+	desc = demo_ahe.9.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ahe.9.a
+		
+		GER = {
+			end_puppet = ROM
+		}
+		
+		ROM = {
+			transfer_state = 76
+			transfer_state = 80
+			transfer_state = 82
+			transfer_state = 83
+			transfer_state = 84
+			
+			remove_ideas = {
+				ROM_german_dominance
+				ROM_treaty_of_bucharest
+			}
+			
+			load_oob = ROM_danubian_war
+			
+			declare_war_on = {
+				target = HUN
+				type = annex_everything
+			}
+		}
+	}
+}
+
+country_event = { # bosnians form govt
+	id = demo_ahe.10
+	title = demo_ahe.10.title
+	desc = demo_ahe.10.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ahe.10.a
+		CRO_setup_BOS = yes
+		
+		SER = {
+			declare_war_on = {
+				target = BOS
+				type = annex_everything
+			}
+		}
+	}
+}
+
+country_event = { # slovenians form govt
+	id = demo_ahe.11
+	title = demo_ahe.11.title
+	desc = demo_ahe.11.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ahe.11.a
+		AHE_setup_SLV = yes
+	}
+}
+
+country_event = { # slovaks form govt
+	id = demo_ahe.12
+	title = demo_ahe.12.title
+	desc = demo_ahe.12.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ahe.12.a
+		AHE_setup_SLO = yes
+	}
+}
+
+country_event = { # poland and ukraine occupations
+	id = demo_ahe.13
+	title = demo_ahe.13.title
+	desc = demo_ahe.13.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ahe.13.a
+		72 = {
+			set_state_owner_to = POL
+			set_state_controller_to = POL
+			set_demilitarized_zone = no
+		}
+		88 = {
+			set_state_owner_to = POL
+			set_state_controller_to = POL
+			set_demilitarized_zone = no
+		}
+		89 = {
+			set_state_owner_to = UKR
+			set_state_controller_to = UKR
+			set_demilitarized_zone = no
+		}
+		91 = {
+			set_state_owner_to = UKR
+			set_state_controller_to = UKR
+			set_demilitarized_zone = no
+		}
+	}
+}
+
+country_event = { # italy occupation
+	id = demo_ahe.14
+	title = demo_ahe.14.title
+	desc = demo_ahe.14.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ahe.14.a
+		ITA = {
+			transfer_state = 875
+		}
+	}
+}
+
+country_event = { # serbia occupation
+	id = demo_ahe.15
+	title = demo_ahe.15.title
+	desc = demo_ahe.15.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ahe.15.a
+		SER = {
+			transfer_state = 764
+		}
+	}
+}
+
+country_event = { # ahe/aus war
+	id = demo_ahe.16
+	title = demo_ahe.16.title
+	desc = demo_ahe.16.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_ahe.16.a
+		AUS = {
+			declare_war_on = {
+				target = AHE
+				type = annex_everything
+			}
 		}
 	}
 }
@@ -460,6 +1144,10 @@ country_event = { # soviet-state war
 				type = annex_everything
 			}
 		}
+		add_named_threat = { 
+			threat = 25
+			name = SOV_RUS_civil_war
+		}
 		hidden_effect = {
 			random_other_country = {
 				limit = { is_ai = yes }
@@ -506,7 +1194,7 @@ news_event = { # soviet victory
 	id = demo_rus.4
 	title = demo_rus.4.title
 	desc = demo_rus.4.desc
-	picture = #get picture
+	
 	is_triggered_only = yes
 	
 	major = yes
@@ -535,11 +1223,12 @@ news_event = { # soviet victory
 		}
 	}
 }
+
 news_event = { # white victory 
 	id = demo_rus.5
 	title = demo_rus.5.title
 	desc = demo_rus.5.desc
-	picture = #getpicture
+	
 	is_triggered_only = yes
 	
 	major = yes
@@ -569,6 +1258,176 @@ news_event = { # white victory
 	}
 }
 
+country_event = {
+	id = demo_sov.1
+	title = ""
+	desc = demo_sov.1.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ""
+	}
+}
+
+country_event = {
+	id = demo_sov.2
+	title = demo_sov.2.title
+	desc = demo_sov.2.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # industrialists
+		name = ""
+		SOV = {
+			retire_character = SOV_nikolai_bukharin
+			
+			remove_ideas = {
+				SOV_political_turmoil
+				SOV_nep
+				SOV_tsarist_captives
+			}
+		}
+		USA = {
+			country_event = {
+				id = demo_sov.4
+				days = 35
+			}
+		}
+		ai_chance = {
+			base = 4
+		}
+	}
+	
+	option = { # technocrats
+		name = ""
+		SOV = {
+			set_politics = {
+				ruling_party = proletarian_dictatorship
+				elections_allowed = no
+				last_election = "1936.10.8"
+				election_frequency = 48
+			}
+			
+			remove_ideas = {
+				SOV_political_turmoil
+				SOV_nep
+				SOV_tsarist_captives
+			}
+		}
+		USA = {
+			country_event = {
+				id = demo_sov.5
+				days = 35
+			}
+		}
+		ai_chance = {
+			base = 5
+		}
+	}
+	
+	option = { # libertarians
+		name = ""
+		SOV = {
+			set_politics = {
+				ruling_party = libertarian_socialism
+				elections_allowed = no
+				last_election = "1936.10.8"
+				election_frequency = 48
+			}
+			
+			remove_ideas = {
+				SOV_political_turmoil
+				SOV_nep
+				SOV_tsarist_captives
+			}
+		}
+		USA = {
+			country_event = {
+				id = demo_sov.6
+				days = 35
+			}
+		}
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+
+country_event = { # 
+	id = demo_sov.3
+	title = demo_sov.3.title
+	desc = demo_sov.3.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_sov.3.a
+		SOV = {
+			declare_war_on = {
+				target = TMS
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = TKS
+				type = annex_everything
+			}
+		}
+	}
+}
+
+country_event = { # trotskyists expelled from cpusa
+	id = demo_sov.4
+	title = demo_sov.4.title
+	desc = demo_sov.4.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_sov.4.a
+		USA = {
+			recruit_character = USA_max_shachtman
+			recruit_character = USA_martin_abern
+		}
+	}
+}
+
+country_event = { # technocrat takeover of cpusa
+	id = demo_sov.5
+	title = demo_sov.5.title
+	desc = demo_sov.5.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_sov.5.a
+	}
+}
+
+country_event = { # flynn takes over cpusa
+	id = demo_sov.6
+	title = demo_sov.6.title
+	desc = demo_sov.6.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_sov.6.a
+	}
+}
+
 country_event = { # king suspends parliament
 	id = demo_eng.1
 	title = ""
@@ -594,7 +1453,7 @@ country_event = { # king suspends parliament
 country_event = { # civil war
 	id = demo_eng.2
 	title = ""
-	desc = demo_ww2.2.desc
+	desc = demo_eng.2.desc
 	
 	is_triggered_only = yes
 	
@@ -665,17 +1524,23 @@ country_event = { # 1937 election
 
 	option = {
 		name = ""
+		ai_chance = {
+			base = 3
+		}
 	}
 	
 	option = {
 		name = ""
 		ROM = {
 			set_politics = {
-				ruling_party = ultranational_statism
+				ruling_party = fascism
 				elections_allowed = no
-				last_election = "1937.12.8"
+				last_election = "1937.12.20"
 				election_frequency = 48
 			}
+		}
+		ai_chance = {
+			base = 7
 		}
 	}
 }
@@ -721,29 +1586,30 @@ country_event = { # baltic collapse/federation
 
 	option = {
 		name = ""
-		BAL_collapse = yes
-		news_event = {
-			id = demo_bal.2
+		
+		random_list = {
+			20 = {
+				BAL_collapse = yes
+				random_other_country = {
+					limit = { is_ai = yes }
+					news_event = { id = demo_bal.2 hours = 6 }
+				}
+			}
+			30 = {
+				BAL_form_autonomies = yes
+				random_other_country = {
+					limit = { is_ai = yes }
+					news_event = { id = demo_bal.3 hours = 6 }
+				}
+			}
+			50 = {
+				BAL_form_federation = yes
+				random_other_country = {
+					limit = { is_ai = yes }
+					news_event = { id = demo_bal.4 hours = 6 }
+				}
+			}
 		}
-		ai_chance = { factor = 7 }
-	}
-	
-	option = {
-		name = ""
-		BAL_form_autonomies = yes
-		news_event = {
-			id = demo_bal.3
-		}
-		ai_chance = { factor = 2 }
-	}
-	
-	option = {
-		name = ""
-		BAL_form_federation = yes
-		news_event = {
-			id = demo_bal.4
-		}
-		ai_chance = { factor = 1 }
 	}
 }
 
@@ -755,8 +1621,6 @@ news_event = { # baltic collapse
 	is_triggered_only = yes
 	
 	major = yes
-	
-	fire_only_once = yes
 
 	option = {
 		name = "I'm surprised it lasted this long!"
@@ -771,8 +1635,6 @@ news_event = { # baltic compromise
 	is_triggered_only = yes
 	
 	major = yes
-	
-	fire_only_once = yes
 
 	option = {
 		name = "Huh."
@@ -787,11 +1649,314 @@ news_event = { # baltic federation
 	is_triggered_only = yes
 	
 	major = yes
+
+	option = {
+		name = "But can it last?"
+	}
+}
+
+news_event = { # vargas victory 1
+	id = demo_bra.1
+	title = demo_bra.1.title
+	desc = demo_bra.1.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = demo_bra.1.a
+	}
+}
+
+news_event = { # vargas victory 2
+	id = demo_bra.2
+	title = demo_bra.2.title
+	desc = demo_bra.2.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = demo_bra.2.a
+	}
+}
+
+news_event = { # vargas victory 3
+	id = demo_bra.3
+	title = demo_bra.3.title
+	desc = demo_bra.3.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = demo_bra.3.a
+	}
+}
+
+country_event = { # brazil politics
+	id = demo_bra.4
+	title = demo_bra.4.title
+	desc = demo_bra.4.desc
+	
+	is_triggered_only = yes
+
+	option = { # authdem vargas
+		name = demo_bra.4.a
+		ai_chance = {
+			base = 2
+		}
+	}
+	
+	option = { # far right vargas
+		name = demo_bra.4.b
+		BRA = {
+			set_politics = {
+				ruling_party = far_right_authoritarianism
+				elections_allowed = no
+				last_election = "1936.1.1"
+				election_frequency = 48
+			}
+		}
+		ai_chance = {
+			base = 4
+		}
+	}
+	
+	option = { # integralists
+		name = demo_bra.4.c
+		BRA = {
+			set_politics = {
+				ruling_party = fascism
+				elections_allowed = no
+				last_election = "1936.1.1"
+				election_frequency = 48
+			}
+		}
+		ai_chance = {
+			base = 4
+		}
+	}
+}
+
+news_event = { # prestes victory 1
+	id = demo_uob.1
+	title = demo_uob.1.title
+	desc = demo_uob.1.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = demo_uob.1.a
+	}
+}
+
+news_event = { # prestes victory 2
+	id = demo_uob.2
+	title = demo_uob.2.title
+	desc = demo_uob.2.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = demo_uob.2.a
+	}
+}
+
+news_event = { # prestes victory 3
+	id = demo_uob.3
+	title = demo_uob.3.title
+	desc = demo_uob.3.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = demo_uob.3.a
+	}
+}
+
+news_event = { # prestes victory 4
+	id = demo_uob.4
+	title = demo_uob.4.title
+	desc = demo_uob.4.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = demo_uob.4.a
+	}
+}
+
+country_event = { # brazil politics
+	id = demo_uob.5
+	title = demo_uob.5.title
+	desc = demo_uob.5.desc
+	
+	is_triggered_only = yes
+
+	option = { # revsocs
+		name = demo_uob.5.a
+		UOB = {
+			drop_cosmetic_tag = yes
+			set_cosmetic_tag = UOB_federative_republic
+		}
+		ai_chance = {
+			base = 4
+		}
+	}
+	
+	option = { # demsocs
+		name = demo_uob.5.b
+		UOB = {
+			drop_cosmetic_tag = yes
+			set_cosmetic_tag = UOB_federative_republic
+		
+			set_politics = {
+				ruling_party = libertarian_socialism
+				elections_allowed = no
+				last_election = "1936.1.1"
+				election_frequency = 48
+			}
+		}
+		ai_chance = {
+			base = 4
+		}
+	}
+	
+	option = { # authsocs
+		name = demo_uob.5.c
+		UOB = {
+			drop_cosmetic_tag = yes
+		
+			set_politics = {
+				ruling_party = revolutionary_autocracy
+				elections_allowed = no
+				last_election = "1936.1.1"
+				election_frequency = 48
+			}
+		}
+		ai_chance = {
+			base = 2
+		}
+	}
+}
+
+country_event = { # straits crisis start
+	id = demo_tur.1
+	title = demo_tur.1.title
+	desc = demo_tur.1.desc
+	
+	is_triggered_only = yes
 	
 	fire_only_once = yes
 
 	option = {
-		name = "But can it last?"
+		name = demo_tur.1.a
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_tur.2 hours = 6 }
+		}
+	}
+}
+
+news_event = { # straits crisis start news
+	id = demo_tur.2
+	title = demo_tur.2.title
+	desc = demo_tur.2.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_tur.2.a
+	}
+}
+
+country_event = {
+	id = demo_saf.1
+	title = demo_saf.1.title
+	desc = demo_saf.1.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_saf.1.a
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_saf.2 hours = 6 }
+		}
+		ai_chance = {
+			base = 6
+		}
+	}
+	
+	option = {
+		name = demo_saf.1.b
+		SAF = {
+			set_politics = {
+				ruling_party = market_libertarianism
+				elections_allowed = yes
+				last_election = "1938.5.18"
+				election_frequency = 48
+			}
+			add_popularity = {
+				ideology = progressive_liberalism
+				popularity = 0.02
+			}
+			add_popularity = {
+				ideology = market_libertarianism
+				popularity = 0.07
+			}
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_saf.3 hours = 6 }
+		}
+		ai_chance = {
+			base = 4
+		}
+	}
+}
+
+news_event = { # national party victory
+	id = demo_saf.2
+	title = demo_saf.2.title
+	desc = demo_saf.2.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = demo_saf.2.a
+	}
+}
+
+news_event = { # south african party victory
+	id = demo_saf.3
+	title = demo_saf.3.title
+	desc = demo_saf.3.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = demo_saf.3.a
 	}
 }
 
@@ -808,41 +1973,40 @@ country_event = {
 
 	option = {
 		name = ""
-		WGR_start_revolt = yes
-		FRA = {
-			country_event = {
-				id = demo_ww2.2
-				days = 15
-			}
-		}
-	}
-}
-
-country_event = {
-	id = demo_ww2.2
-	title = ""
-	desc = demo_ww2.2.desc
-	
-	is_triggered_only = yes
-	
-	fire_only_once = yes
-
-	option = {
-		name = ""
 		FRA = {
 			declare_war_on = {
 				target = GER
 				type = annex_everything
 			}
-			declare_war_on = {
-				target = WGR
-				type = annex_everything
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_ww2.2 hours = 6 }
+		}
+		SOV = {
+			country_event = {
+				id = demo_ww2.3
+				days = 150
 			}
 		}
 	}
 }
 
 news_event = {
+	id = demo_ww2.2
+	title = ""
+	desc = demo_ww2.2.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = ""
+	}
+}
+
+country_event = {
 	id = demo_ww2.3
 	title = ""
 	desc = demo_ww2.3.desc
@@ -853,6 +2017,16 @@ news_event = {
 
 	option = {
 		name = ""
+		SOV = {
+			declare_war_on = {
+				target = UKR
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = BLR
+				type = annex_everything
+			}
+		}
 	}
 }
 
@@ -863,8 +2037,6 @@ country_event = {
 	
 	is_triggered_only = yes
 	
-	fire_only_once = yes
-
 	option = {
 		name = ""
 		UKR = {
@@ -893,6 +2065,7 @@ country_event = {
 			add_state_core = 316
 			add_state_core = 317
 			add_state_core = 311
+			add_state_core = 950
 			add_state_claim = 314
 			add_state_claim = 475
 			
@@ -909,10 +2082,6 @@ country_event = {
 				target = COS
 			}
 			
-			news_event = {
-				id = demo_cen.2
-				days = 1
-			}
 			country_event = {
 				id = demo_cen.3
 				days = 35
@@ -923,6 +2092,10 @@ country_event = {
 			delete_unit_template_and_units = {
 				division_template = "Brigada de Infanteria 2"
 			}
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_cen.2 hours = 6 }
 		}
 	}
 }
@@ -999,75 +2172,6 @@ news_event = {
 	}
 }
 
-news_event = {
-	id = demo_ger_civil_war.1
-	title = demo_ger_civil_war.1.title
-	desc = demo_ger_civil_war.1.d
-	picture = ## get picture
-
-	major = yes
-
-	is_triggered_only = yes
-
-	fire_only_once = yes
-
-	option = {
-		name = demo_ger_civil_war.1.a
-	}
-}
- 
-news_event = { # Italo Albanian war
-	id = demo_ita_alb_war.1
-	title = demo_ita_alb_war.1.t
-	desc = demo_ita_alb_war.1.d
-	picture = ## get picture
-
-	major = yes
-
-	is_triggered_only = yes
-
-	fire_only_once = yes
-
-	option = {
-		name = demo_ita_alb_war.1.a
-	}
-}
-
-
-news_event = { # Italian Subjugation of Albania 
- 	id = demo.ita_victory.1
-	title = demo.ita_victory.1.t
-	desc = demo.ita_victory.1.d
-	picture = ## get picture
-
-	major = yes
-
-	is_triggered_only = yes
-
-	fire_only_once = yes
-
-	option = {
-		name = demo.ita_victory.1.a
-	}
-}
-
-news_event = { # Albanian Victory against Italy
- 	id = demo.alb_Victory.1
-	title = demo.alb_Victory.1.t
-	desc = demo.alb_Victory.1.d
-	picture = ## get picture
-
-	major = yes
-
-	is_triggered_only = yes
-
-	fire_only_once = yes
-
-	option = {
-		name = demo.alb_Victory.1.a
-	}
-}
-
 country_event = {
 	id = demo_jap.1
 	title = demo_jap.1.title
@@ -1081,6 +2185,26 @@ country_event = {
 
 	option = {
 		name = ""
+	}
+}
+country_event = {
+	id = demo_jap_usa_war.1
+	title = demo_jap_usa_war.1.title
+	desc = demo_jap_usa_war.1.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ""
+		JAP = 
+		declare_war_on = {
+			target = USA
+			type = annex_everything
+		}
 	}
 }
 
@@ -1248,7 +2372,6 @@ news_event = { # Finnish intervention in the second Russian civil war
     id = demo.Finnish_Intervention_In_Russian_Civil_War.1.t
 	title =  demo.Finnish_Intervention_In_Russian_Civil_War.1.d
 	desc =  demo.Finnish_Intervention_In_Russian_Civil_War.1.a
-	picture = #get picture 
 
 	major = yes
 
@@ -1264,7 +2387,6 @@ news_event = { # Bolsheviks impose harse cease fire to finns
     id = demo.Finnish_Intervention_In_Russian_Civil_War.2.t
 	title =  demo.Finnish_Intervention_In_Russian_Civil_War.2.d
 	desc =  demo.Finnish_Intervention_In_Russian_Civil_War.2.a
-	picture = #get picture 
 
 	major = yes
 
@@ -1280,7 +2402,6 @@ news_event = { # Finns beat the Bolshevik Government
     id = demo.Finnish_Intervention_In_Russian_Civil_War.3.t
 	title =  demo.Finnish_Intervention_In_Russian_Civil_War.3.d
 	desc =  demo.Finnish_Intervention_In_Russian_Civil_War.3.a
-	picture = #get picture 
 
 	major = yes
 
@@ -1290,5 +2411,562 @@ news_event = { # Finns beat the Bolshevik Government
 
 	option = {
 		name = demo.Ger_Rus_war_declaration.1.a
+	}
+}
+country_event = {
+	id = demo_yuc.1
+	title = demo_yuc.1.title
+	desc = demo_yuc.1.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_yuc.1.a
+		white_peace = {
+			tag = MEX
+		}
+	}
+}
+
+country_event = {
+	id = demo_brm.1
+	title = demo_brm.1.title
+	desc = demo_brm.1.desc
+	
+	trigger = {
+		original_tag = BRM
+		BRM = {
+			controls_state = 288
+		}
+	}
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_brm.1.a
+		BRM = {
+			white_peace = {
+				tag = RAJ
+			}
+			white_peace = {
+				tag = ENG
+			}
+		
+			transfer_state = 288
+			transfer_state = 965
+			
+			country_event = {
+				id = demo_brm.2
+				days = 30
+			}
+		}
+	}
+}
+
+country_event = {
+	id = demo_brm.2
+	title = demo_brm.2.title
+	desc = demo_brm.2.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_brm.2.a
+		SIA = {
+			declare_war_on = {
+				target = BRM
+				type = take_state_focus
+				generator = { 964 965 } 
+			}
+		}
+	}
+}
+
+country_event = {
+	id = demo_usa_jap_peace.1
+	title = demo_usa_jap_peace.1.title
+	desc = demo_usa_jap_peace.1.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = "demo_usa_jap_peace.1.a"
+	    JAP = {
+            country_event = {
+              id = demo_usa_jap_peace.2
+              days = 10
+              random = 1
+              random_days = 1
+            } 			
+		}
+	}
+}
+country_event = {
+	id = demo_usa_jap_peace.2
+	title = demo_usa_jap_peace.2.title
+	desc = demo_usa_jap_peace.2.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = "demo_usa_jap_peace.2.a"
+	    ai_chance = { factor = 1 }
+		white_peace = {
+			tag = USA
+			tag = ENG
+			tag = RAJ
+			tag = AST
+			tag = NZL
+			tag = SRW
+			tag = MAL
+			tag = OMA 
+			tag = IRQ
+			tag = EGY
+			tag = SAF
+			tag = CAN
+			
+		}
+		USA = {
+            country_event = {
+              id = demo_usa_jap_peace.3
+              days = 10
+              random = 1
+              random_days = 1
+            } 			
+		}
+	}
+	option = {
+		name = "demo_usa_jap_peace.2.b"
+	    ai_chance = { factor = 5 }
+		USA = {
+            country_event = {
+              id = demo_usa_jap_peace.4
+              days = 10
+              random = 1
+              random_days = 1
+            } 			
+		}
+	}
+}
+country_event = {
+	id = demo_usa_jap_peace.4
+	title = demo_usa_jap_peace.4.title
+	desc = demo_usa_jap_peace.4.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = "demo_usa_jap_peace.4.a"
+    }
+}
+country_event = {
+	id = demo_usa_jap_peace.3
+	title = demo_usa_jap_peace.3.title
+	desc = demo_usa_jap_peace.3.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = "demo_usa_jap_peace.3.a"
+	    ai_chance = { factor = 1 }
+		USA = {
+            country_event = {
+              id = demo_usa_jap_peace.5
+              days = 10
+              random = 1
+              random_days = 1
+            } 			
+		}
+	}
+	option = {
+		name = "demo_usa_jap_peace.3.b"
+	    ai_chance = { factor = 2 }
+		USA = {
+            country_event = {
+              id = demo_usa_jap_peace.5
+              days = 10
+              random = 1
+              random_days = 1
+            } 			
+		}
+		
+	}
+    option = {
+		name = "demo_usa_jap_peace.3.c"
+	    ai_chance = { factor = 3 }
+		USA = {
+            country_event = {
+              id = demo_usa_jap_peace.5
+              days = 10
+              random = 1
+              random_days = 1
+            } 			
+		}
+	}
+}
+country_event = {
+	id = demo_usa_jap_peace.5
+	title = demo_usa_jap_peace.5.title
+	desc = demo_usa_jap_peace.5.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = "demo_usa_jap_peace.5.a"
+		USA = {
+            country_event = {
+              id = demo_usa_jap_peace.8
+              days = 10
+              random = 1
+              random_days = 1
+            } 			
+		}
+	}
+	option = {
+		name = "demo_usa_jap_peace.5.b"
+		USA = {
+            country_event = {
+              id = demo_usa_jap_peace.8
+              days = 10
+              random = 1
+              random_days = 1
+            } 			
+		}
+    }
+}
+country_event = {
+	id = demo_usa_jap_peace.9
+	title = demo_usa_jap_peace.9.title
+	desc = demo_usa_jap_peace.9.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = "demo_usa_jap_peace.9.a"
+		JAP = {
+            country_event = {
+              id = demo_usa_jap_peace.10
+              days = 10
+              random = 1
+              random_days = 1
+            } 			
+		}
+	}
+	option = {
+		name = "demo_usa_jap_peace.9.b"
+		JAP = {
+            country_event = {
+              id = demo_usa_jap_peace.11
+              days = 10
+              random = 1
+              random_days = 1
+            } 			
+		} 
+    }
+	option = {
+		name = "demo_usa_jap_peace.9.c"
+		JAP = {
+            country_event = {
+              id = demo_usa_jap_peace.12
+              days = 10
+              random = 1
+              random_days = 1
+            } 			
+		} 
+    }
+}
+country_event = {
+	id = demo_usa_jap_peace.8
+	title = demo_usa_jap_peace.8.title
+	desc = demo_usa_jap_peace.8.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = "demo_usa_jap_peace.8.a"
+		JAP = {
+            country_event = {
+              id = demo_usa_jap_peace.10
+              days = 10
+              random = 1
+              random_days = 1
+            } 			
+		}
+	}
+	option = {
+		name = "demo_usa_jap_peace.8.b"
+		JAP = {
+            country_event = {
+              id = demo_usa_jap_peace.11
+              days = 10
+              random = 1
+              random_days = 1
+            } 			
+		} 
+    }
+	option = {
+		name = "demo_usa_jap_peace.8.c"
+		JAP = {
+            country_event = {
+              id = demo_usa_jap_peace.12
+              days = 10
+              random = 1
+              random_days = 1
+            } 			
+		} 
+    }
+}
+country_event = {
+	id = demo_usa_jap_peace.10
+	title = demo_usa_jap_peace.10.title
+	desc = demo_usa_jap_peace.10.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = "demo_usa_jap_peace.10.a"
+		USA = {
+            country_event = {
+              id = demo_usa_jap_peace.16
+              days = 10
+              random = 1
+              random_days = 1
+			  transfer_state = 646
+            } 		
+		}
+	    USA = {
+        transfer_state = 646
+        } 		
+	}
+	option = {
+		name = "demo_usa_jap_peace.10.b"
+		USA = {
+            country_event = {
+              id = demo_usa_jap_peace.17
+              days = 10
+              random = 1
+              random_days = 1
+            } 			
+		}
+    }
+}
+country_event = {
+	id = demo_usa_jap_peace.11
+	title = demo_usa_jap_peace.11.title
+	desc = demo_usa_jap_peace.11.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = "demo_usa_jap_peace.11.a"
+		USA = {
+            country_event = {
+              id = demo_usa_jap_peace.16
+              days = 10
+              random = 1
+              random_days = 1
+			  transfer_state = 645
+
+            } 			
+		}
+		USA = {
+		 transfer_state = 645
+        }
+	}
+	option = {
+		name = "demo_usa_jap_peace.11.b"
+		USA = {
+            country_event = {
+              id = demo_usa_jap_peace.17
+              days = 10
+              random = 1
+              random_days = 1
+            } 			
+		}
+    }
+}
+country_event = {
+	id = demo_usa_jap_peace.12
+	title = demo_usa_jap_peace.12.title
+	desc = demo_usa_jap_peace.12.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = "demo_usa_jap_peace.12.a"
+		USA = {
+            country_event = {
+              id = demo_usa_jap_peace.16
+              days = 10
+              random = 1
+              random_days = 1
+			  transfer_state = 646
+			  transfer_state = 645
+            } 			
+		}
+		USA = {
+			transfer_state = 646
+			transfer_state = 645
+      	}
+	    AST = {
+			transfer_state = 684
+		}
+	}
+	option = {
+		name = "demo_usa_jap_peace.12.b"
+		USA = {
+            country_event = {
+              id = demo_usa_jap_peace.17
+              days = 10
+              random = 1
+              random_days = 1
+            } 			
+		}
+    }
+}
+country_event = {
+	id = demo_usa_jap_peace.16
+	title = demo_usa_jap_peace.16.title
+	desc = demo_usa_jap_peace.16.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = "demo_usa_jap_peace.16.a"
+		add_popularity = {
+	        ideology = libertarian_socialism
+	        popularity = 0.05
+        }
+	}
+}
+country_event = {
+	id = demo_usa_jap_peace.17
+	title = demo_usa_jap_peace.17.title
+	desc = demo_usa_jap_peace.17.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = "demo_usa_jap_peace.17.a"
+		USA = {
+          add_war_support = -0.15
+		  add_popularity = {
+	        ideology = libertarian_socialism
+	        popularity = -0.04
+          }
+		}
+	}
+}
+country_event = {
+	id = demo_usa_jap_peace.11
+	title = demo_usa_jap_peace.11.title
+	desc = demo_usa_jap_peace.11.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = "demo_usa_jap_peace.11.a"
+		USA = {
+            country_event = {
+              id = demo_usa_jap_peace.18
+              days = 10
+              random = 1
+              random_days = 1
+            } 			
+		}
+	}
+	option = {
+		name = "demo_usa_jap_peace.11.b"
+		USA = {
+            country_event = {
+              id = demo_usa_jap_peace.19
+              days = 10
+              random = 1
+              random_days = 1
+            } 			
+		}
+    }
+}
+
+
+news_event = { # Bosphorus Uprising
+    id = demo_bosphorus_uprising.1
+	title =  demo_bosphorus_uprising.1.title
+	desc =  demo_bosphorus_uprising.1.desc
+	picture = GFX_news_event_bosphorus_uprising_1
+
+	major = yes
+
+	is_triggered_only = yes	
+	
+	fire_only_once = yes
+
+    mean_time_to_happen = {
+		days = 305
+		modifier = {
+		  country_exists = SCM
+		}
+    }
+
+	option = {
+		name = "demo_bosphorus_uprising.1.a"
 	}
 }

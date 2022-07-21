@@ -1,16 +1,18 @@
 ﻿capital = 922
 
 oob = "CHI_1936"
+country_lock_all_division_template = yes
 
 set_country_flag = social_democracy_coalition
 set_country_flag = market_libertarian_coalition
 set_country_flag = authoritarian_coalition
 set_country_flag = despotist_coalition
+set_country_flag = china_nation
 
-event = {
-		id = chinacollapse.1
-		day = 10
-		}
+country_event = {
+	id = chinacollapse.1
+	days = 10
+}
 
 #set_stability = 0.35
 #set_war_support = 0.2
@@ -21,14 +23,32 @@ set_technology = {
 	tech_support = 1
 	tech_recon = 1
 	
-	gwtank = 1
-	
 	gw_artillery = 1
 	
 	early_fighter = 1
 	early_bomber = 1
 
 	basic_train = 1
+}
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		gwtank = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+		engine_tech_1 = 1
+	}
+	add_ideas = {
+		nepotism_academy_spirit
+	}
 }
 if = {
 	limit = { not = { has_dlc = "Man the Guns" } }
@@ -73,25 +93,51 @@ set_popularities = {
 	fascism = 0
 }
 
+if = {
+	limit = {
+		OR = {
+			has_dlc = "Together for Victory"
+			has_dlc = "Man the Guns"
+		}
+	}
+	set_autonomy = {
+		target = SHA
+		autonomous_state = autonomy_RL_nominal_puppet
+	}
+	else = {
+		puppet = SHA
+	}
+}
+
 create_faction = CHI_imperial_govt
 add_to_faction = GUD
 add_to_faction = YUN
 add_to_faction = GUI
 add_to_faction = HNN
-
 add_to_faction = SZC
 add_to_faction = SHA
 add_to_faction = SHD
 add_to_faction = SHX
-
 add_to_faction = XSM
 add_to_faction = SIK
 add_to_faction = KUM
+
+add_to_array = { CHI.CHI_empire_aligned_tags = GUD }
+add_to_array = { CHI.CHI_empire_aligned_tags = HNN }
+add_to_array = { CHI.CHI_empire_aligned_tags = ANH }
+add_to_array = { CHI.CHI_empire_aligned_tags = SZC }
+add_to_array = { CHI.CHI_empire_aligned_tags = FNG }
+add_to_array = { CHI.CHI_empire_aligned_tags = SIK }
+add_to_array = { CHI.CHI_empire_aligned_tags = ZHE }
+
+add_to_array = { CHI.CHI_koumintang_aligned_tags = GNS }
 
 add_ideas = {
 	CHI_beiyang_army
 	CHI_japanese_influence
 	CHI_unpopular_government
+
+	semi_industrial_economy
 }
 
 add_equipment_to_stockpile = {
@@ -158,8 +204,8 @@ create_country_leader = {
 
 create_country_leader = {
 	name = "Rongyao"
-	#desc = ""
-	picture = "Portrait_CHI_Yuan_Keding.tga"
+	#desc = "POLITICS_RONGYAO_DESC"
+	picture = "gfx/leaders/CHI/Portrait_CHI_Yuan_Keding.png"
 	expire = "1965.1.1"
 	ideology = social_democracy_subtype
 	traits = {
@@ -179,8 +225,8 @@ create_country_leader = {
 
 create_country_leader = {
 	name = "Rongyao"
-	#desc = ""
-	picture = "gfx/leaders/CHI/Portrait_CHI_Yuan_Keding.tga"
+	#desc = "POLITICS_RONGYAO_DESC"
+	picture = "gfx/leaders/CHI/Portrait_CHI_Yuan_Keding.png"
 	expire = "1965.1.1"
 	ideology = market_libertarianism_subtype
 	traits = {
@@ -201,7 +247,7 @@ create_country_leader = {
 create_country_leader = {
 	name = "Rongyao"
 	desc = "POLITICS_RONGYAO_DESC"
-	picture = "gfx/leaders/CHI/Portrait_CHI_Yuan_Keding.png"
+	picture = "gfx\leaders\CHI\Portrait_CHI_Yuan_Keding.png"
 	expire = "1965.1.1"
 	ideology = authoritarian_democracy_subtype
 	traits = {

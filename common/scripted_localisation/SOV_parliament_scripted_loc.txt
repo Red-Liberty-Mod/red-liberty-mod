@@ -31,6 +31,18 @@ defined_text = {
 		localization_key = "SOV_liberal_text"
 	}
 	text = {
+		trigger = {
+			check_variable = { SOV_frame_array^seat_idx = 6 }
+		}
+		localization_key = "SOV_agrarian_text"
+	}
+	text = {
+		trigger = {
+			check_variable = { SOV_frame_array^seat_idx = 7 }
+		}
+		localization_key = "SOV_independent_text"
+	}
+	text = {
 		localization_key = "Error"
 	}
 }
@@ -56,5 +68,17 @@ defined_text = {
 			}
 		}
 		localization_key = "SOV_liberal_seats"
+	}
+}
+
+defined_text = {
+	name = SOV_get_agrarian_seats
+	text = {
+		trigger = {
+			OR = {
+				check_variable = { SOV_agrarian_seats > 0 }
+			}
+		}
+		localization_key = "SOV_agrarian_seats"
 	}
 }

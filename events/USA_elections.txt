@@ -1,0 +1,607 @@
+add_namespace = us_election
+add_namespace = us_campaign
+add_namespace = us_election_trigger
+
+country_event = { # 1936 election trigger
+	id = us_election.1
+	title = "Election Day"
+	desc = us_election.1.desc
+
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			US_hold_presidential_election = yes
+			set_country_flag = USA_presidential_conclusion
+		}
+	}
+	
+	option = {
+		name = us_election.1.a
+		country_event = {
+			id = us_election.2
+			days = 2
+		}
+	}
+}
+
+country_event = {
+	id = us_election.2
+	title = "The Results"
+	desc = us_election.2.desc
+
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			country_event = { id = us_election_trigger.12 days = 30 }
+			clr_country_flag = USA_presidential_elections
+		}
+	}
+	
+	option = { # no clear winner
+		name = us_election.2.a
+		trigger = {
+			NOT = {
+				check_variable = { ROOT.socialist_electoral_votes > 290 }
+				check_variable = { ROOT.democrat_electoral_votes > 290 }
+			}
+		}
+		
+		add_stability = -0.1
+		add_ideas = {
+			USA_election_chaos
+		}
+		country_event = { # house of reps votes
+			id = us_election.4
+			days = 57
+		}
+		news_event = {
+			id = worldnews.3
+			hours = 6
+		}
+		
+		set_country_flag = USA_1936_election_shitshow
+	}
+	
+	option = { # socialist victory
+		name = us_election.2.b
+		trigger = {
+			check_variable = { ROOT.socialist_electoral_votes > 290 }
+		}
+		country_event = { # thomas inaug
+			id = us_election.5
+			days = 116
+		}
+		news_event = {
+			id = worldnews.1
+			hours = 6
+		}
+		
+		if = {
+			limit = {
+				has_country_flag = USA_radical_veep
+			}
+			country_event = {
+				id = united_states_thomas.9
+				days = 5
+			}
+		}
+		
+		set_country_flag = USA_1936_election_socialist_victory
+	}
+	
+	option = { # democrat victory
+		name = us_election.2.c
+		trigger = {
+			check_variable = { ROOT.democrat_electoral_votes > 290 }
+		}
+		country_event = { # lister inaug
+			id = us_election.7
+			days = 116
+		}
+		news_event = {
+			id = worldnews.2
+			hours = 6
+		}
+		
+		load_focus_tree = USA_flame_burnt_out_tree
+		
+		set_country_flag = USA_1936_election_democrat_victory
+	}
+}
+
+country_event = { # house of reps votes
+	id = us_election.4
+	title = "House of Representatives votes on the Presidency"
+	desc = us_election.4.desc
+
+	is_triggered_only = yes
+	
+	option = { # socialist majority
+		name = us_election.4.a
+		country_event = {
+			id = us_election.5
+			days = 55
+		}
+		news_event = {
+			id = worldnews.4
+			hours = 6
+		}
+		set_country_flag = USA_thomas_elected
+		remove_ideas = {
+			USA_election_chaos
+		}
+	}
+	
+	option = { # democrat majority
+		name = us_election.4.b
+		country_event = {
+			id = us_election.7
+			days = 55
+		}
+		news_event = {
+			id = worldnews.5
+			hours = 6
+		}
+		set_country_flag = USA_lister_elected
+		remove_ideas = {
+			USA_election_chaos
+		}
+	}
+	
+	option = { # afp majority
+		name = us_election.4.c
+		country_event = {
+			id = us_election.9
+			days = 55
+		}
+		news_event = {
+			id = worldnews.6
+			hours = 6
+		}
+		set_country_flag = USA_lindy_elected
+		remove_ideas = {
+			USA_election_chaos
+		}
+	}
+}
+
+country_event = { # thomas inaug day
+	id = us_election.5
+	title = us_election.5.title
+	desc = us_election.5.desc
+	picture = GFX_report_event_norman_thomas_elected
+
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			scoped_sound_effect = "USA_oath"
+		}
+	}
+	
+	option = { # 
+		name = us_election.5.a
+		remove_ideas = {
+			USA_jack_reed_hog
+		}
+		if = {
+			limit = {
+				has_country_flag = USA_progressive_veep
+			}
+			add_ideas = {
+				USA_henry_wallace_hog
+			}
+		}
+		else_if = {
+			limit = {
+				has_country_flag = USA_radical_veep
+			}
+			add_ideas = {
+				USA_earl_browder_hog
+			}
+		}
+		
+		add_political_power = 100
+	}
+}
+
+country_event = { # lister inaug day
+	id = us_election.7
+	title = "Inuaguration Day"
+	desc = us_election.7.desc
+
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			scoped_sound_effect = "USA_oath"
+		}
+	}
+	
+	option = { # 
+		name = us_election.7.a
+		USA_lister_pres_setup = yes
+	}
+}
+
+country_event = { # lindy inaug day
+	id = us_election.9
+	title = "Inuaguration Day"
+	desc = us_election.9.desc
+
+	is_triggered_only = yes
+	
+	option = { # 
+		name = us_election.7.a
+		USA_lindy_pres_setup = yes
+	}
+}
+
+### 1940 ELECTION ###
+country_event = { # 1940 election trigger
+	id = us_election.20
+	title = us_election.20.title
+	desc = us_election.20.desc
+
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			US_hold_presidential_election = yes
+			set_country_flag = USA_presidential_conclusion
+		}
+	}
+	
+	option = {
+		name = us_election.20.a
+		country_event = {
+			id = us_election.21
+			days = 2
+		}
+	}
+}
+
+country_event = {
+	id = us_election.21
+	title = us_election.21.title
+	desc = us_election.21.desc
+
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			country_event = { id = us_election_trigger.12 days = 30 }
+			clr_country_flag = USA_presidential_elections
+		}
+	}
+	
+	option = { # socialist victory - thomas
+		name = us_election.21.a
+		trigger = {
+			check_variable = { ROOT.socialist_electoral_votes > 290 }
+		}
+	}
+	
+	option = { # democrat victory
+		name = us_election.2.b
+		trigger = {
+			check_variable = { ROOT.democrat_electoral_votes > 290 }
+		}
+	}
+}
+
+### GENERIC CAMPAIGN EVENTS ###
+country_event = { #Great campaign
+	id = us_campaign.1
+	title = us_campaign.1.title
+	desc = us_campaign.1.desc
+
+	is_triggered_only = yes
+
+	option = {
+		name = us_campaign.1.a
+		ai_chance = { factor = 1 }
+	}
+}
+
+country_event = { #Good campaign
+	id = us_campaign.2
+	title = us_campaign.2.title
+	desc = us_campaign.2.desc
+
+	is_triggered_only = yes
+
+	option = {
+		name = us_campaign.2.a
+		ai_chance = { factor = 10 }
+	}
+}
+
+country_event = { #Middling campaign
+	id = us_campaign.3
+	title = us_campaign.3.title
+	desc = us_campaign.3.desc
+
+	is_triggered_only = yes
+
+	option = {
+		name = us_campaign.3.a
+		ai_chance = { factor = 10 }
+	}
+}
+country_event = { #Bad campaign
+	id = us_campaign.4
+	title = us_campaign.4.title
+	desc = us_campaign.4.desc
+
+	is_triggered_only = yes
+
+	option = {
+		name = us_campaign.4.a
+		ai_chance = { factor = 10 }
+	}
+}
+
+country_event = { #mark states for election
+	id = us_election_trigger.1
+ 	title = us_election_trigger.1.title
+ 	desc = us_election_trigger.1.desc
+
+	immediate = {
+ 		hidden_effect = {
+ 			country_event = { id = us_election_trigger.2 days = 280 } # hold the election
+			
+			USA_class_1_senate_prepare = yes
+			USA_recalculate_polls = yes
+ 		}
+	}
+
+	is_triggered_only = yes
+
+ 	option = {
+ 		name = us_election_trigger.1.a
+ 		custom_effect_tooltip = USA_senate_elections_visible_tt
+		if = {
+			limit = {
+				is_presidential_election_year = yes
+			}
+			custom_effect_tooltip = USA_presidential_elections_visible_tt
+			USA_prepare_presidential_election = yes
+		}
+		set_country_flag = USA_campaigning_for_socialists
+		
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 100
+				has_game_rule = {
+					rule = USA_ELECTION_OUTCOME
+					option = USA_ELECTION_OUTCOME_SOCIALIST
+				}
+			}
+		}
+ 	}
+	option = {
+ 		name = us_election_trigger.1.b
+ 		custom_effect_tooltip = USA_senate_elections_visible_tt
+		if = {
+			limit = {
+				is_presidential_election_year = yes
+			}
+			custom_effect_tooltip = USA_presidential_elections_visible_tt
+			USA_prepare_presidential_election = yes
+		}
+		set_country_flag = USA_campaigning_for_democrats
+		
+		custom_effect_tooltip = USA_elections_no_content_tt
+		
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 100
+				has_game_rule = {
+					rule = USA_ELECTION_OUTCOME
+					option = USA_ELECTION_OUTCOME_DEMOCRAT
+				}
+			}
+		}
+ 	}
+}
+
+
+country_event = { #hold the election
+	id = us_election_trigger.2
+ 	title = us_election_trigger.2.title
+ 	desc = us_election_trigger.2.desc
+
+	immediate = {
+ 		hidden_effect = {
+			country_event = { id = us_election_trigger.8 days = 30 }
+			
+			USA_hold_senate_election = yes
+			USA_recalc_house = yes
+		}
+	}
+
+	is_triggered_only = yes
+
+ 	option = {
+ 		name = us_election_trigger.2.a
+ 		custom_effect_tooltip = USA_senate_elections_occur_tt
+ 	}
+}
+
+country_event = { #Prep Class II election
+	id = us_election_trigger.3
+ 	title = us_election_trigger.3.title
+ 	desc = us_election_trigger.3.desc
+
+	immediate = {
+ 		hidden_effect = {
+ 			country_event = { id = us_election_trigger.4 days = 280 }
+			USA_class_2_senate_prepare = yes
+			USA_recalculate_polls = yes
+ 		}
+	}
+
+	is_triggered_only = yes
+
+ 	option = {
+ 		name = us_election_trigger.3.a
+ 		custom_effect_tooltip = USA_senate_elections_visible_tt
+		set_country_flag = USA_campaigning_socialist
+		if = {
+			limit = {
+				is_presidential_election_year = yes
+			}
+			custom_effect_tooltip = USA_presidential_elections_visible_tt
+			USA_prepare_presidential_election = yes
+		}
+ 	}
+	option = {
+ 		name = us_election_trigger.3.b
+ 		custom_effect_tooltip = USA_senate_elections_visible_tt
+		set_country_flag = USA_campaigning_democrat
+		if = {
+			limit = {
+				is_presidential_election_year = yes
+			}
+			custom_effect_tooltip = USA_presidential_elections_visible_tt
+			USA_prepare_presidential_election = yes
+		}
+ 	}
+}
+
+country_event = { #Hold Class II election
+	id = us_election_trigger.4
+ 	title = us_election_trigger.4.title
+ 	desc = us_election_trigger.4.desc
+
+	immediate = {
+ 		hidden_effect = {
+			country_event = { id = us_election_trigger.8 days = 30 }
+			
+			USA_hold_senate_election = yes
+			USA_recalc_house = yes
+		}
+	}
+
+	is_triggered_only = yes
+
+ 	option = {
+ 		name = us_election_trigger.4.a
+ 		custom_effect_tooltip = USA_senate_elections_occur_tt
+ 	}
+}
+
+country_event = { #Prep for Class III election
+	id = us_election_trigger.6
+ 	title = us_election_trigger.6.title
+ 	desc = us_election_trigger.6.desc
+
+	immediate = {
+ 		hidden_effect = {
+ 			country_event = { id = us_election_trigger.7 days = 280 }
+			USA_class_3_senate_prepare = yes
+			USA_recalculate_polls = yes
+ 		}
+	}
+
+	is_triggered_only = yes
+
+ 	option = {
+ 		name = us_election_trigger.6.a
+ 		custom_effect_tooltip = USA_senate_elections_visible_tt
+		set_country_flag = USA_campaigning_socialist
+		if = {
+			limit = {
+				is_presidential_election_year = yes
+			}
+			custom_effect_tooltip = USA_presidential_elections_visible_tt
+			USA_prepare_presidential_election = yes
+		}
+ 	}
+	option = {
+ 		name = us_election_trigger.6.b
+ 		custom_effect_tooltip = USA_senate_elections_visible_tt
+		set_country_flag = USA_campaigning_democrat
+		if = {
+			limit = {
+				is_presidential_election_year = yes
+			}
+			custom_effect_tooltip = USA_presidential_elections_visible_tt
+			USA_prepare_presidential_election = yes
+		}
+ 	}
+}
+
+country_event = { #Hold Class III election
+	id = us_election_trigger.7
+ 	title = us_election_trigger.7.title
+ 	desc = us_election_trigger.7.desc
+
+	immediate = {
+ 		hidden_effect = {
+			country_event = { id = us_election_trigger.8 days = 30 }
+			
+			USA_hold_senate_election = yes
+			USA_recalc_house = yes
+		}
+	}
+
+	is_triggered_only = yes
+
+ 	option = {
+ 		name = us_election_trigger.7.a
+ 		custom_effect_tooltip = USA_senate_elections_occur_tt
+ 	}
+}
+
+country_event = { # clear variables a month after election
+	id = us_election_trigger.8
+ 	title = us_election_trigger.8.title
+ 	desc = us_election_trigger.8.desc
+	immediate = {
+ 		hidden_effect = {
+ 			USA_clear_senate_election_vars = yes
+			clr_country_flag = USA_campaigning_democrat
+			clr_country_flag = USA_campaigning_socialist
+			clr_country_flag = currently_campaigning
+ 		}
+	}
+
+	is_triggered_only = yes
+
+ 	option = {
+ 		name = us_election_trigger.8.a
+ 		custom_effect_tooltip = USA_senate_elections_remove_tt
+		if = {
+			limit = {
+				is_presidential_election_year = yes
+			}
+			custom_effect_tooltip = USA_presidential_elections_remove_tt
+			USA_clear_presidential_election_values = yes
+		}
+ 	}
+}
+
+country_event = { # inform the player about polls being updated
+	id = us_election_trigger.9
+ 	title = us_election_trigger.9.title
+ 	desc = us_election_trigger.9.desc
+
+	is_triggered_only = yes
+
+ 	option = {
+ 		name = us_election_trigger.9.a
+ 	}
+	
+	option = {
+ 		name = us_election_trigger.9.b
+		custom_effect_tooltip = USA_dont_show_polls_tt
+		set_country_flag = USA_block_poll_event
+ 	}
+}
+

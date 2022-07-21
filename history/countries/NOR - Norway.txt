@@ -10,13 +10,10 @@ if = {
 }
 
 set_research_slots = 3
-
-add_ideas = {
-	limited_conscription
-}
-
 set_stability = 0.9
 set_war_support = 0.1
+set_convoys = 200		# biggest merchant marine in the world
+
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
@@ -52,11 +49,14 @@ if = {
 	}
 }
 
-set_convoys = 200		# biggest merchant marine in the world
-set_stability = 0.7
+add_ideas = {
+	NOR_stor_terror
+
+	limited_conscription
+}
 
 set_politics = {
-	ruling_party = autocratic_despotism
+	ruling_party = far_right_authoritarianism
 	last_election = "1932.11.8"
 	election_frequency = 0
 	elections_allowed = no
@@ -65,15 +65,15 @@ set_popularities = {
 	insurrectionary_anarchism = 0
 	revolutionary_autocracy = 10
 	proletarian_dictatorship = 0
-	libertarian_socialism = 0
-	social_democracy = 15
-	progressive_liberalism = 10
-	market_libertarianism = 0
-	national_conservatism = 15
-	far_right_authoritarianism = 0
+	libertarian_socialism = 13
+	social_democracy = 7
+	progressive_liberalism = 9
+	market_libertarianism = 5
+	national_conservatism = 11
 	authoritarian_democracy = 10
-	autocratic_despotism = 40
-	fascism = 0
+	autocratic_despotism = 10
+	far_right_authoritarianism = 23
+	fascism = 2
 }
 
 create_country_leader = {
@@ -81,7 +81,7 @@ create_country_leader = {
 	desc = "POLITICS_OTTO_RUGE_DESC"
 	picture = "gfx/leaders/OttoRuge.png"
 	expire = "1965.1.1"
-	ideology = autocratic_despotism_subtype
+	ideology = far_right_authoritarianism_subtype
 	traits = {
 		#
 	}

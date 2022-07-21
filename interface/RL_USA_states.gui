@@ -1,19 +1,19 @@
 guiTypes = {
 	containerWindowType = {
 		name = "USA_states_button_container"
-		position = { x = 150 y = 410 }
+		position = { x = 120 y = 385 }
 
 		buttonType = {
 			name = "USA_states_button"
 			position = { x = 0 y = 0 }
-			spriteType = "GFX_USA_states_button"
+			spriteType = "GFX_USA_congress_reigns_supreme"
 			pdx_tooltip = "USA_electoral_map_tt"
 		}
 	}
 	
 	containerWindowType = {
 		name = "USA_states_map_window"
-		size = { width = 1000 height = 700 }
+		size = { width = 1200 height = 700 }
 		position = { x=-1100 y=-450 }
 		show_position = { x=-400 y=-450 }
 		
@@ -32,19 +32,89 @@ guiTypes = {
 			quadTextureSprite = "GFX_tiled_window_thin_border2"
 		}
 		
+		#iconType = { # background
+		#	name = "USA_states_gui_capitol"
+		#	position = { x = 70 y = 20 }
+		#	spriteType = "GFX_USA_states_gui_capitol"
+		#}
+		
+		#iconType = {
+		#	name = "USA_states_wood_bg"
+		#	spriteType = "GFX_USA_states_wood_bg"
+		#	#position = { x = 55 y = 95 }
+		#	position = { x = 0 y = 0 }
+		#	scale = 1.2
+		#	alwaystransparent = yes
+		#}
+		
 		instantTextBoxType = {
 			name = "USA_states_gui_name"
 			position = { x = 400 y = 30 }
 			format = center
 			maxHeight = 50
-			font = hoi_24header
+			maxWidth = 300
+			font = hoi_30header
 			text = "The United States"
 		}
 		
-		iconType = { # background
-			name = "USA_states_gui_BG"
-			position = { x = -50 y = -40 }
-			spriteType = "GFX_USA_states_gui_BG"
+		containerWindowType = {
+			name = "USA_states_speaker"
+			size = { width = 0 height = 0 }
+			position = { x = 950 y = 80 }
+			
+			iconType = { # speaker of the house
+				name = "USA_states_gui_speaker"
+				position = { x = 0 y = 0 }
+				quadTextureSprite = "GFX_USA_speaker"
+				pdx_tooltip = "USA_speaker_name"
+				pdx_tooltip_delayed = "USA_speaker_desc"
+			}
+			
+			iconType = {
+				name = "USA_states_gui_speaker_frame"
+				spriteType = "GFX_pol_leader_frame"
+				position = { x = -8 y = -7 }		
+				alwaystransparent = yes
+			}
+			
+			instantTextBoxType = {
+				name = "USA_states_gui_speaker_title"
+				position = { x = -23 y = 217 }
+				format = center
+				maxHeight = 50
+				font = hoi_24header
+				text = "Mr. Speaker"
+			}
+		}
+		
+		containerWindowType = {
+			name = "USA_states_vice_president"
+			size = { width = 0 height = 0 }
+			position = { x = 950 y = 370 }
+			
+			iconType = { # vice president
+				name = "USA_states_gui_vp"
+				position = { x = 0 y = 0 }
+				quadTextureSprite = "GFX_USA_vice_president"
+				pdx_tooltip = "USA_vice_president_name"
+				pdx_tooltip_delayed = "USA_vice_president_desc"
+			}
+			
+			iconType = {
+				name = "USA_states_gui_vp_frame"
+				spriteType = "GFX_pol_leader_frame"
+				position = { x = -8 y = -7 }		
+				alwaystransparent = yes
+			}
+			
+			instantTextBoxType = {
+				name = "USA_states_gui_vp_title"
+				position = { x = -23 y = 217 }
+				format = center
+				maxHeight = 50
+				font = hoi_24header
+				text = "Vice President"
+			}
 		}
 		
 		##################################################
@@ -52,7 +122,13 @@ guiTypes = {
 		containerWindowType = {
 			name = "USA_states_container"
 			size = { width = 0 height = 0 }
-			position = { x = 0 y = 10 }
+			position = { x = -20 y = 0 }
+			
+			iconType = { # background
+				name = "USA_states_gui_BG"
+				position = { x = -50 y = -50 }
+				spriteType = "GFX_USA_states_gui_BG"
+			}
 		
 			buttonType = {
 				name = "USA_states_gui_AL"
@@ -138,7 +214,8 @@ guiTypes = {
 				name = "USA_states_gui_IN"
 				quadTextureSprite = "GFX_USA_states_gui_IN"
 				pdx_tooltip = "GFX_USA_states_gui_IN_tt"
-				position = { x = 0 y = 0 }
+				pdx_tooltip_delayed = "USA_states_gui_IN_selected_info_tt"
+				position = { x = 625 y = 294 }
 			}
 			
 			buttonType = {
@@ -169,7 +246,8 @@ guiTypes = {
 				name = "USA_states_gui_ME"
 				quadTextureSprite = "GFX_USA_states_gui_ME"
 				pdx_tooltip = "GFX_USA_states_gui_ME_tt"
-				position = { x = 0 y = 0 }
+				pdx_tooltip_delayed = "USA_states_gui_ME_selected_info_tt"
+				position = { x = 831 y = 149 }
 			}
 			
 			buttonType = {
@@ -232,28 +310,32 @@ guiTypes = {
 				name = "USA_states_gui_NJ"
 				quadTextureSprite = "GFX_USA_states_gui_NJ"
 				pdx_tooltip = "GFX_USA_states_gui_NJ_tt"
-				position = { x = 0 y = 0 }
+				pdx_tooltip_delayed = "USA_states_gui_NJ_selected_info_tt"
+				position = { x = 796 y = 276 }
 			}
 			
 			buttonType = {
 				name = "USA_states_gui_NY"
 				quadTextureSprite = "GFX_USA_states_gui_NY"
 				pdx_tooltip = "GFX_USA_states_gui_NY_tt"
-				position = { x = 0 y = 0 }
+				pdx_tooltip_delayed = "USA_states_gui_NY_selected_info_tt"
+				position = { x = 730 y = 207 }
 			}
 			
 			buttonType = {
 				name = "USA_states_gui_MA"
 				quadTextureSprite = "GFX_USA_states_gui_MA"
 				pdx_tooltip = "GFX_USA_states_gui_MA_tt"
-				position = { x = 0 y = 0 }
+				pdx_tooltip_delayed = "USA_states_gui_MA_selected_info_tt"
+				position = { x = 813 y = 238 }
 			}
 			
 			buttonType = {
 				name = "USA_states_gui_NH"
 				quadTextureSprite = "GFX_USA_states_gui_NH"
 				pdx_tooltip = "GFX_USA_states_gui_NH_tt"
-				position = { x = 0 y = 0 }
+				pdx_tooltip_delayed = "USA_states_gui_NH_selected_info_tt"
+				position = { x = 822 y = 195 }
 			}
 			
 			buttonType = {
@@ -276,7 +358,8 @@ guiTypes = {
 				name = "USA_states_gui_OH"
 				quadTextureSprite = "GFX_USA_states_gui_OH"
 				pdx_tooltip = "GFX_USA_states_gui_OH_tt"
-				position = { x = 0 y = 0 }
+				pdx_tooltip_delayed = "USA_states_gui_OH_selected_info_tt"
+				position = { x = 664 y = 281 }
 			}
 			
 			buttonType = {
@@ -299,14 +382,16 @@ guiTypes = {
 				name = "USA_states_gui_MD"
 				quadTextureSprite = "GFX_USA_states_gui_MD"
 				pdx_tooltip = "GFX_USA_states_gui_MD_tt"
-				position = { x = 0 y = 0 }
+				pdx_tooltip_delayed = "USA_states_gui_MD_selected_info_tt"
+				position = { x = 742 y = 309 }
 			}
 			
 			buttonType = {
 				name = "USA_states_gui_RI"
 				quadTextureSprite = "GFX_USA_states_gui_RI"
 				pdx_tooltip = "GFX_USA_states_gui_RI_tt"
-				position = { x = 0 y = 0 }
+				pdx_tooltip_delayed = "USA_states_gui_RI_selected_info_tt"
+				position = { x = 836 y = 255 }
 			}
 			
 			buttonType = {
@@ -329,7 +414,8 @@ guiTypes = {
 				name = "USA_states_gui_TN"
 				quadTextureSprite = "GFX_USA_states_gui_TN"
 				pdx_tooltip = "GFX_USA_states_gui_TN_tt"
-				position = { x = 0 y = 0 }
+				pdx_tooltip_delayed = "USA_states_gui_TN_selected_info_tt"
+				position = { x = 598 y = 382 }
 			}
 			
 			buttonType = {
@@ -376,14 +462,16 @@ guiTypes = {
 				name = "USA_states_gui_CT"
 				quadTextureSprite = "GFX_USA_states_gui_CT"
 				pdx_tooltip = "GFX_USA_states_gui_CT_tt"
-				position = { x = 0 y = 0 }
+				pdx_tooltip_delayed = "USA_states_gui_CT_selected_info_tt"
+				position = { x = 814 y = 256 }
 			}
 			
 			buttonType = {
 				name = "USA_states_gui_DE"
 				quadTextureSprite = "GFX_USA_states_gui_DE"
 				pdx_tooltip = "GFX_USA_states_gui_DE_tt"
-				position = { x = 0 y = 0 }
+				pdx_tooltip_delayed = "USA_states_gui_DE_selected_info_tt"
+				position = { x = 794 y = 313 }
 			}
 			
 			buttonType = {
@@ -406,13 +494,15 @@ guiTypes = {
 				name = "USA_states_gui_WV"
 				quadTextureSprite = "GFX_USA_states_gui_WV"
 				pdx_tooltip = "GFX_USA_states_gui_WV_tt"
-				position = { x = 0 y = 0 }
+				pdx_tooltip_delayed = "USA_states_gui_WV_selected_info_tt"
+				position = { x = 701 y = 307 }
 			}
 			
 			buttonType = {
 				name = "USA_states_gui_WI"
 				quadTextureSprite = "GFX_USA_states_gui_WI"
 				pdx_tooltip = "GFX_USA_states_gui_WI_tt"
+				pdx_tooltip_delayed = "USA_states_gui_WI_selected_info_tt"
 				position = { x = 550 y = 205 }
 			}
 			
@@ -425,32 +515,32 @@ guiTypes = {
 			}
 		}
 		
-		buttonType = {
-			name = "button_senate_view"
-			position = { x = 150 y = 70 }
-			spriteType = "GFX_trade_filter_btn_country"
-			clicksound = click_default
-			buttonText = "Senate"
-			buttonFont = hoi_18mbs
-		}
+		#buttonType = {
+		#	name = "button_senate_view"
+		#	position = { x = 150 y = 70 }
+		#	spriteType = "GFX_trade_filter_btn_country"
+		#	clicksound = click_default
+		#	buttonText = "Senate"
+		#	buttonFont = hoi_18mbs
+		#}
 		
-		buttonType = {
-			name = "button_house_view"
-			position = { x = 415 y = 70 }
-			spriteType = "GFX_trade_filter_btn_country"
-			clicksound = click_default
-			buttonText = "House"
-			buttonFont = hoi_18mbs
-		}
+		#buttonType = {
+		#	name = "button_house_view"
+		#	position = { x = 415 y = 70 }
+		#	spriteType = "GFX_trade_filter_btn_country"
+		#	clicksound = click_default
+		#	buttonText = "House"
+		#	buttonFont = hoi_18mbs
+		#}
 		
-		buttonType = {
-			name = "button_election_view"
-			position = { x = 685 y = 70 }
-			spriteType = "GFX_trade_filter_btn_country"
-			clicksound = click_default
-			buttonText = "Election"
-			buttonFont = hoi_18mbs
-		}
+		#buttonType = {
+		#	name = "button_election_view"
+		#	position = { x = 685 y = 70 }
+		#	spriteType = "GFX_trade_filter_btn_country"
+		#	clicksound = click_default
+		#	buttonText = "Election"
+		#	buttonFont = hoi_18mbs
+		#}
 		
 		buttonType = {
 			name = "button_close"

@@ -1,0 +1,129 @@
+guiTypes = {
+
+	containerWindowType = {
+		name = "SWI_parliament_button_container"
+		position = { x = 125 y = 385 }
+
+		buttonType = {
+			name = "SWI_parliament_button"
+			position = { x = 0 y = 0 }
+			spriteType = "GFX_SWI_parliament_button"
+			pdx_tooltip = "SWI_assembly_tt"
+			pdx_tooltip_delayed = "SWI_congress_desc"
+		}
+	}
+	
+	containerWindowType = {
+		name = "SWI_council_seat_container"
+		position = { x = 0 y = 0 }
+
+		iconType = {
+			name = "SWI_council_dot_icon"
+			quadTextureSprite = "SWI_seat_icon"
+			pdx_tooltip = "SWI_council_seat_tt"
+		}
+	}
+	
+	containerWindowType = {
+		name = "SWI_senate_seat_container"
+		position = { x = 0 y = 0 }
+
+		iconType = { 
+			name = "SWI_senate_dot_icon"
+			quadTextureSprite = "SWI_seat_icon"
+			pdx_tooltip = "SWI_senate_seat_tt"
+		}
+	}
+	
+	containerWindowType = {
+		name = "SWI_parliament_council_gui_container"
+		position = { x = -1100 y = -450 }
+		show_position = { x = -400 y =-450 }
+		size = { width = 650 height = 650 }
+		
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
+
+		animation_time = 300
+		moveable = yes
+		show_sound = menu_open_window
+		click_to_front = yes
+		
+		orientation = center
+		
+		background = {
+			name = "background"		
+			quadTextureSprite = "GFX_tiled_window_thin_border2"
+		}
+		
+		instantTextBoxType = {
+			name = "SWI_council_title"
+			position = { x = 218 y = 330 }
+			format = center
+			maxHeight = 50
+			font = hoi_24header
+			text = "The National Council"
+		}
+
+		gridboxtype = {
+			name = "SWI_parliament_council_diagram"
+			position = { x = 95 y = 380 }
+			size = { width = 100%% height = 100%% }
+			slotsize = { width = 100%% height = 0 }
+			max_slots_horizontal = 1
+			add_horizontal = no
+		}
+		
+		instantTextBoxType = {
+			name = "SWI_council_gui_seats_total"
+			position = { x = 300 y = 540 }
+			format = center
+			maxHeight = 25
+			maxWidth = 40
+			font = hoi_24header
+			text = "[?SWI_council_seats]"
+		}
+		
+		instantTextBoxType = {
+			name = "SWI_senate_title"
+			position = { x = 218 y = 150 }
+			format = center
+			maxHeight = 50
+			font = hoi_24header
+			text = "The Council of States"
+		}
+		
+		gridboxtype = {
+			name = "SWI_parliament_senate_diagram"
+			position = { x = 150 y = 200 }
+			size = { width = 100%% height = 100%% }
+			slotsize = { width = 100%% height = 0 }
+			max_slots_horizontal = 1
+			add_horizontal = no
+		}
+		
+		buttonType = {
+			name = "close_button"
+			spriteType = "GFX_closebutton"
+			orientation = right
+			position = { x = 600 y = 16 }
+			pdx_tooltip = "CLOSE"
+			shortcut = "ESCAPE"
+		}
+		buttonType = {
+			name = "refresh_button"
+			spriteType = "GFX_browser_refresh"
+			position = { x = 16 y = 16 }
+		}
+		
+		instantTextBoxType = {
+			name = "SWI_senate_gui_seats_total"
+			position = { x = 305 y = 280 }
+			format = center
+			maxHeight = 25
+			maxWidth = 25
+			font = hoi_24header
+			text = "[?SWI_senate_seats]"
+		}
+	}
+}

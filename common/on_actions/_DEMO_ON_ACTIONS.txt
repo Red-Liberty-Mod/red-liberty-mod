@@ -1,22 +1,50 @@
 on_actions = {
 	on_startup = {
 		effect = {
-		
-			set_global_flag = open_intro_splash_screen
-		
-			every_country = {
-				country_event = opinion_modifier.1
-			}
-			
 			### demo events ###
 			
-			###
+			### WW2 - IMPORTANT ###
 			
+			FRA = {
+				country_event = {
+					id = demo_ww2.1
+					days = 1368
+				}
+			}
+			
+			### france ###			
 			FRA = {
 				country_event = {
 					id = demo_fra.1
 					days = 45
 					days_random = 10
+				}
+				
+				country_event = {
+					id = demo_fra.3
+					days = 930
+					days_random = 30
+				}
+			}
+			
+			### austria ###			
+			AHE = {
+				country_event = {
+					id = demo_ahe.1
+					days = 262
+				}
+			}
+			
+			### germany ###
+			GER = {
+				country_event = {
+					id = demo_ger.1
+					days = 310
+				}
+				country_event = {
+					id = demo_ger.3
+					days = 1000
+					days = 65
 				}
 			}
 			
@@ -36,16 +64,18 @@ on_actions = {
 			### italy ###
 			
 			ITA = {
-				country_event = {
+				country_event = { # puppet aussa
 					id = demo_ita.1
 					days = 35
 				}
-			}
-			
-			ITA = {
-				country_event = {
-					id = demo.ita_gr_war.1
-					days = 745
+				country_event = { # war with alb
+					id = demo_ita.6
+					days = 1186
+					days_random = 35
+				}
+				country_event = { # war with gre
+					id = demo_ita.11
+					days = 1370
 					days_random = 35
 				}
 			}
@@ -60,7 +90,6 @@ on_actions = {
 			}
 			
 			### baltic ###
-			
 			BAL = {
 				country_event = {
 					id = demo_bal.1
@@ -69,13 +98,20 @@ on_actions = {
 				}
 			}
 			
+			### romania ###
+			ROM = {
+				country_event = {
+					id = demo_rom.1
+					days = 719
+				}
+			}
+			
 			### soviets ###
 			
 			SOV = {
 				country_event = {
-					id = demo_sov_fin_war.1
-					days = 1460
-					days_random = 90
+					id = demo.sov_fin_war.1
+					days = 1429
 				}
 			}			
 			
@@ -84,13 +120,21 @@ on_actions = {
 			JAP = {
 				country_event = {
 					id = demo.jap_chi_war.1
-					days = 1095
+					days = 830
+					days_random = 30
+				}
+			}
+			
+			JAP = {
+				country_event = {
+					id = demo.jap_usa_war.1
+					days = 1826
 					days_random = 35
 				}
-			}			
+			}
+			
 			
 			### central america ###
-			
 			NIC = {
 				country_event = {
 					id = demo_cen.1
@@ -98,29 +142,38 @@ on_actions = {
 					days_random = 35
 				}
 			}
-		}
-	}
-	on_weekly = {
-		every_country = {
-			country_event = {
-				id = opinion_modifier.2
-			}
-		}
-	}
-	on_capitulation = {
-		effect = {
-			if = {
-				limit = {
-					FROM = {
-						original_tag = ITA
-					}
-					ROOT = {
-						original_tag = ETH
-					}
+		    
+			### USA (mexico intervention) ###
+			USA = {
+				country_event = {
+					id = demo_mex_war.1
+					days = 385
+					days_random = 25
 				}
-				random_other_country = {
-					limit = { is_ai = yes }
-					news_event = { id = demo_ita.3 hours = 6 }
+			}
+			
+		    ### yucatan ###
+			YUC = {
+				country_event = {
+					id = demo_yuc.1
+					days = 205
+				}
+			}
+			
+			### burma ###
+			BRM = {
+				country_event = {
+					id = demo_raj_brm.1
+					days = 540
+					days_random = 25
+				}
+			}
+			
+			### south africa ###
+			SAF = {
+				country_event = {
+					id = demo_saf.1
+					days = 868
 				}
 			}
 		}

@@ -1,0 +1,591 @@
+add_namespace = georgia
+
+country_event = {
+	id = georgia.1
+	title = georgia.1.title
+	desc = georgia.1.desc
+	picture = GFX_report_event_revolutions
+	
+	#is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = GEO
+		date < 1936.1.8
+	}
+
+	option = { # The People's Concerns are Real
+		name = georgia.1.a
+		ai_chance = { factor = 70 }
+		hidden_effect = {
+			country_event = {
+				id = georgia.2
+				days = 70
+			}
+		}
+	}
+	
+	
+	option = { # Declare The FGL To Be Illegal
+		name = georgia.1.b
+		ai_chance = { factor = 70 }
+		hidden_effect = {
+			country_event = {
+				id = georgia.5
+				days = 70
+			}
+		}
+	}
+}
+
+
+
+country_event = {
+	id = georgia.2 # The Free Georgian League Demands Referendum
+	title = georgia.2.title
+	desc = georgia.2.desc
+	picture = GFX_report_event_generic_rally2
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # The People's Voices Must Be Heard!"
+		name = georgia.2.a
+		ai_chance = { factor = 70 }
+		hidden_effect = {
+			country_event = {
+				id = georgia.3
+				days = 365
+			}
+		}
+	}
+}
+
+
+
+country_event = {
+	id = georgia.3 # Referendum For Leaving Warschaur Pakt
+	title = georgia.3.title
+	desc = georgia.3.desc
+	picture = GFX_report_event_canada_treaty
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # The Referndum Passes!"
+		name = georgia.3.a
+		ai_chance = { factor = 70 }
+		hidden_effect = {
+			country_event = {
+				id = georgia.4
+				days = 10
+			}
+		}
+	}
+	
+	
+	option = { # The Referendum Fails!"
+		name = georgia.3.b
+		ai_chance = { factor = 30 }
+		hidden_effect = {
+			country_event = {
+				id = georgia.
+				days = 365
+			}
+		}
+	}
+}
+
+
+country_event = {
+	id = georgia.4 # A New Dawn for Georgia
+	title = georgia.4.title
+	desc = georgia.4.desc
+	picture = GFX_report_event_generic_parliament
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # Long Live The Free Republic of Georgia
+		name = georgia.4.a
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+			set_politics = {
+			ruling_party = progressive_liberalism
+			elections_allowed = yes
+						}
+			GER = { remove_from_faction = GEO }
+			add_opinion_modifier = { target = GER modifier = large_decrease }
+			remove_ideas = GEO_anti_german_unrest
+			create_country_leader = {
+			name = "Noe Ramishvili"
+			desc = ""
+			picture = ""
+			expire = "1965.1.1"
+			ideology = progressive_liberalism_subtype
+			}
+		}
+	}
+}
+
+
+country_event = {
+	id = georgia.5 # The Free Georgian League Demands Referendum #ANTI REFERNDUM#
+	title = georgia.5.title
+	desc = georgia.5.desc
+	picture = GFX_report_event_generic_rally2
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # The Terrorists Will Pay"
+		name = georgia.5.a
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+			country_event = {
+				id = georgia.6
+				days = 72
+			}
+		}
+	}
+}
+
+
+country_event = {
+	id = georgia.6 # Free Georgian League Marches on Tbilisi
+	title = georgia.6.title
+	desc = georgia.6.desc
+	picture = GFX_report_event_gathering_protest
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # Mobilize The Military"
+		name = georgia.6.a
+		ai_chance = { factor = 70 }
+		hidden_effect = {
+			country_event = {
+				id = georgia.7
+				days = 6
+			}
+		}
+	}
+	
+	option = { # We Can't Stop The People"
+		name = georgia.6.b
+		ai_chance = { factor = 30 }
+		hidden_effect = {
+			country_event = {
+				id = georgia.18
+				days = 15
+			}
+		}
+	}
+}
+
+
+country_event = {
+	id = georgia.7 # Crisis In Georgia
+	title = georgia.7.title
+	desc = georgia.7.desc
+	picture = GFX_report_event_ger_civil_war
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # Ask The Germans For Help
+		name = georgia.7.a
+		ai_chance = { factor = 35 }
+		hidden_effect = {
+			GER = { country_event = {
+				id = georgia.8
+				days = 1 }
+			}
+		}
+	}
+	
+	
+	option = { # This is A Civil War and Must Be Treated as One
+		name = georgia.7.b
+		ai_chance = { factor = 35 }
+		hidden_effect = {
+			country_event = {
+				id = georgia.12
+				days = 7
+			}
+		}
+	}
+}
+
+country_event = {
+	id = georgia.8 # (GER) Georgia Asks For Aid
+	title = georgia.8.title
+	desc = georgia.8.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # We Will Defend Out Ally
+		name = georgia.8.a
+		ai_chance = { factor = 95 }
+		hidden_effect = {
+			GEO = { country_event = {
+				id = georgia.9
+				days = 2
+			}
+		}
+	}
+}
+	
+	option = { # It Is Not Worth The Effort
+		name = georgia.8.b
+		ai_chance = { factor = 5 }
+		hidden_effect = {
+			GEO = {country_event = {
+				id = georgia.10
+				days = 2
+			}
+		}
+		}
+	}
+}
+
+
+country_event = {
+	id = georgia.9 # Germany Anwsers Our Call
+	title = georgia.9.title
+	desc = georgia.9.desc
+	picture = GFX_report_event_hitler_parade
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # The Rebels Stand No Chance
+		name = georgia.9.a
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+			country_event = {
+				id = georgia.19
+				days = 2
+			}
+		}
+	}
+}
+
+
+country_event = {
+	id = georgia.10 # Germany Refuses To Help
+	title = georgia.10.title
+	desc = georgia.10.desc
+	picture = GFX_report_event_french_resistance_02
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # Well Now What
+		name = georgia.10.a
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+			country_event = {
+				id = georgia.11
+				days = 9
+			}
+		}
+	}
+}
+
+
+country_event = {
+	id = georgia.11 # (Germany Refuses) A Comprimise?
+	title = georgia.11.title
+	desc = georgia.11.desc
+	picture = GFX_report_event_tur_menderes_opposition
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # Our Only Option
+		name = georgia.11.a
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+			GER = { remove_from_faction = GEO }
+			add_opinion_modifier = { target = GER modifier = large_decrease }
+			remove_ideas = GEO_anti_german_unrest
+		}
+	}
+}
+
+
+
+country_event = {
+	id = georgia.12 # The Army Mobilizes
+	title = georgia.12.title
+	desc = georgia.12.desc
+	picture = GFX_report_event_canadian_soldiers
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # Strike The Rebels Head On
+		name = georgia.12.a
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+			country_event = {
+				id = georgia.13
+				days = 13
+			}
+		}
+	}
+	
+	
+	option = { # Wait For The Rebels To Strike First
+		name = georgia.12.b
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+			country_event = {
+				id = georgia.15
+				days = 13
+			}
+		}
+	}
+}
+
+country_event = {
+	id = georgia.13 # A Lucky Gambit
+	title = georgia.13.title
+	desc = georgia.13.desc
+	picture = GFX_report_event_canadian_tank
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # The Insurgancy Ended
+		name = georgia.13.a
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+			country_event = {
+				id = georgia.14
+				days = 8
+			}
+		}
+	}
+}
+
+country_event = {
+	id = georgia.14 # The Free Georgian League Defeated
+	title = georgia.14.title
+	desc = georgia.14.desc
+	picture = GFX_report_event_chamberlain_announce
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # Long Live The Democratic Republic
+		name = georgia.14.a
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+			remove_ideas = GEO_anti_german_unrest
+		}
+	}
+}
+
+
+country_event = {
+	id = georgia.15 # An Unlucky Gambit
+	title = georgia.15.title
+	desc = georgia.15.desc
+	picture = GFX_report_event_china_infiltration
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # Terror Is The Answer
+		name = georgia.15.a
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+			country_event = {
+				id = georgia.16
+				days = 5
+			}
+		}
+	}
+	
+	
+	option = { # We Must Concede Defeat
+		name = georgia.15.b
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+			country_event = {
+				id = georgia.17
+				days = 5
+			}
+		}
+	}
+}
+
+
+country_event = {
+	id = georgia.16 # The Georgian Terror
+	title = georgia.16.title
+	desc = georgia.16.desc
+	picture = GFX_report_event_hitler_parade
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # So Long Democracy
+		name = georgia.16.a
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+			add_ideas = GEO_georgian_terror
+			set_politics = {
+			ruling_party = far_right_authoritarianism
+			elections_allowed = no
+						}
+		remove_ideas = GEO_anti_german_unrest
+		create_country_leader = {
+			name = "Georgian Military Government"
+			desc = ""
+			picture = ""
+			expire = "1965.1.1"
+			ideology = far_right_authoritarianism_subtype
+			}
+		}
+	}
+}
+
+
+country_event = {
+	id = georgia.17 # The Free Republic Stands Strong
+	title = georgia.17.title
+	desc = georgia.17.desc
+	picture = GFX_report_event_generic_parliament
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # Long Live The Free Republic
+		name = georgia.17.a
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+			set_politics = {
+			ruling_party = progressive_liberalism
+			elections_allowed = yes
+						}
+			GER = { remove_from_faction = GEO }
+			add_opinion_modifier = { target = GER modifier = large_decrease }
+			remove_ideas = GEO_anti_german_unrest
+			create_country_leader = {
+			name = "Noe Ramishvili"
+			desc = ""
+			picture = ""
+			expire = "1965.1.1"
+			ideology = progressive_liberalism_subtype
+			}
+		}
+	}
+}
+
+country_event = {
+	id = georgia.18 # The Free Georgian League Stands Victorious
+	title = georgia.18.title
+	desc = georgia.18.desc
+	picture = GFX_report_event_generic_parliament
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # Long Live The Free Republic
+		name = georgia.18.a
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+			set_politics = {
+			ruling_party = progressive_liberalism
+			elections_allowed = yes
+						}
+			GER = { remove_from_faction = GEO }
+			add_opinion_modifier = { target = GER modifier = large_decrease }
+			remove_ideas = GEO_anti_german_unrest
+			create_country_leader = {
+			name = "Noe Ramishvili"
+			desc = ""
+			picture = ""
+			expire = "1965.1.1"
+			ideology = progressive_liberalism_subtype
+			}
+		}
+	}
+}
+
+country_event = {
+	id = georgia.19 # We've Won... At What Cost 
+	title = georgia.19.title
+	desc = georgia.19.desc
+	picture = GFX_report_event_latvian_legion
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # Just Another New German Puppet
+		name = georgia.19.a
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+			GER = { puppet = GEO }
+		}
+	}
+}
+
+
+country_event = {
+	id = georgia.20 # Ramishvili Dead!
+	title = georgia.20.title
+	desc = georgia.20.desc
+	picture = GFX_report_event_europe_funeral
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = GEO
+		has_government = progressive_liberalism
+		has_stability < 0.70
+		date > 1940.6.1
+	}
+
+	option = { # May Zhordania Honor You
+		name = georgia.20.a
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+			retire_country_leader = yes
+			create_country_leader = {
+			name = "Noe Zhordania"
+			desc = ""
+			picture = "gfx/leaders/GEO/Portrait_GEO_Noe_Zhordania.png"
+			expire = "1965.1.1"
+			ideology = progressive_liberalism_subtype
+			}
+			
+		}
+	}
+}

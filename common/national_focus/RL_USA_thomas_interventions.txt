@@ -6,7 +6,7 @@ shared_focus = {
 	icon = GFX_USA_down_mexico_way
 	
     x = 20
-	y = 10
+	y = 0
 	
 	available = {
 		has_global_flag = MEX_cristero_war_bad
@@ -14,7 +14,11 @@ shared_focus = {
 	
 	cost = 3
     completion_reward = {
-		# add event giving player choice of path
+		custom_effect_tooltip = USA_down_mexico_tooltip
+		country_event = {
+			id = united_states_intervention.1
+			hours = 6
+		}
     }
 	
 	ai_will_do = {
@@ -42,6 +46,37 @@ shared_focus = {
     completion_reward = {
 		add_stability = -0.15
 		add_war_support = 0.05
+		set_country_flag = may_send_volunteers_to_MEX
+		
+		country_event = {
+			id = united_states_intervention.2
+			hours = 6
+		}
+		
+		hidden_effect = {
+			if = {
+				limit = {
+					has_government = libertarian_socialism
+				}
+				every_owned_state = {
+					limit = {
+						can_have_elections_in_state = yes
+					}
+					subtract_from_variable = { socialist_popularity = 0.03 }
+				}
+			}
+			else_if = {
+				limit = {
+					has_government = national_conservatism
+				}
+				every_owned_state = {
+					limit = {
+						can_have_elections_in_state = yes
+					}
+					subtract_from_variable = { democrat_popularity = 0.03 }
+				}
+			}
+		}
     }
 	
 	ai_will_do = {
@@ -71,7 +106,10 @@ shared_focus = {
 		add_ideas = {
 			USA_mexican_volunteers
 		}
-		# add event about volunteers going off to fight?
+		country_event = {
+			id = united_states_intervention.3
+			hours = 6
+		}
     }
 	
 	ai_will_do = {
@@ -130,12 +168,6 @@ shared_focus = {
 				equipment = infantry_equipment
 				amount = 1500
 				target = YUC
-			}
-		}
-		hidden_effect = {
-			country_event = {
-				id = demo_mex.4
-				days = 25
 			}
 		}
     }
@@ -204,8 +236,8 @@ shared_focus = {
     id = USA_day_of_infamy
 	icon = GFX_USA_day_of_infamy
 	
-    x = 25
-	y = 10
+    x = 26
+	y = 0
 	
 	available = {
 		USA = {
@@ -215,29 +247,7 @@ shared_focus = {
 	
 	cost = 3
     completion_reward = {
-		# add event giving player choice of path
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_cave
-	icon = GFX_USA_cave
-	
-    x = -1
-	y = 1
-	
-	cost = 5
-	mutually_exclusive = {
-		focus = USA_pacific_war
-	}
-	relative_position_id = USA_day_of_infamy
-	prerequisite = { focus = USA_day_of_infamy }
-    completion_reward = {
-		
+	   
     }
 	
 	ai_will_do = {
@@ -249,17 +259,17 @@ shared_focus = {
     id = USA_pacific_war
 	icon = GFX_USA_pacific_war
 	
-    x = 1
+    x = 0
 	y = 1
 	
 	cost = 5
-	mutually_exclusive = {
-		focus = USA_cave
-	}
 	relative_position_id = USA_day_of_infamy
 	prerequisite = { focus = USA_day_of_infamy }
     completion_reward = {
-		
+		add_ideas = {
+			USA_the_pacific_war
+		}
+		custom_effect_tooltip = USA_pacific_war_tooltip
     }
 	
 	ai_will_do = {
@@ -278,7 +288,13 @@ shared_focus = {
 	relative_position_id = USA_pacific_war
 	prerequisite = { focus = USA_pacific_war }
     completion_reward = {
-		
+		USA = {
+			send_equipment = {
+				equipment = infantry_equipment
+				amount = 4200
+				target = CHI
+			}
+		}
     }
 	
 	ai_will_do = {
@@ -297,7 +313,22 @@ shared_focus = {
 	relative_position_id = USA_assist_china
 	prerequisite = { focus = USA_assist_china }
     completion_reward = {
-		
+		RAJ = {
+			declare_war_on = { type = annex_everything  target = JAP }
+		}
+		RAJ = {
+			give_military_access = USA
+		}
+		CHI = {
+			give_military_access = USA
+		}
+		CHI = {
+			diplomatic_relation = {
+                country = USA
+                relation = docking_rights
+                active = yes
+            }
+		}
     }
 	
 	ai_will_do = {
@@ -316,8 +347,9 @@ shared_focus = {
 	relative_position_id = USA_pacific_war
 	prerequisite = { focus = USA_pacific_war }
     completion_reward = {
-		
-    }
+		add_war_support = 0.05
+		add_command_power = 30
+	}
 	
 	ai_will_do = {
 		factor = 10
@@ -335,7 +367,9 @@ shared_focus = {
 	relative_position_id = USA_wartime_measures
 	prerequisite = { focus = USA_wartime_measures }
     completion_reward = {
-		
+		add_ideas = {
+			USA_code_talkers
+		}
     }
 	
 	ai_will_do = {
@@ -355,8 +389,22 @@ shared_focus = {
 	prerequisite = { focus = USA_assist_china }
 	prerequisite = { focus = USA_wartime_measures }
     completion_reward = {
-		
-    }
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 1
+			category = marine_tech
+		}
+		364 = {
+			create_unit = {
+				division = "name = \"Marine Brigade\" division_template = \"Marine Brigade\" start_experience_factor = 0.5" 
+				owner = ROOT
+			}
+			create_unit = {
+				division = "name = \"Marine Brigade\" division_template = \"Marine Brigade\" start_experience_factor = 0.5" 
+				owner = ROOT
+			}
+		}
+	}
 	
 	ai_will_do = {
 		factor = 10
@@ -374,7 +422,18 @@ shared_focus = {
 	relative_position_id = USA_expand_marines
 	prerequisite = { focus = USA_expand_marines }
     completion_reward = {
-		
+	  	AST = {
+			declare_war_on = { type = annex_everything  target = JAP }
+		}
+		NZL = {
+			declare_war_on = { type = annex_everything  target = JAP }
+		}
+		NZL = {
+			give_military_access = USA
+		}
+		AST = {
+			give_military_access = USA
+		}
     }
 	
 	ai_will_do = {
@@ -396,7 +455,10 @@ shared_focus = {
 	relative_position_id = USA_pacific_allies
 	prerequisite = { focus = USA_pacific_allies }
     completion_reward = {
-		
+        country_event = {
+           id = demo_usa_jap_peace.1
+           days = 1
+        }		
     }
 	
 	ai_will_do = {
@@ -418,6 +480,19 @@ shared_focus = {
 	relative_position_id = USA_pacific_allies
 	prerequisite = { focus = USA_pacific_allies }
     completion_reward = {
+		white_peace = JAP
+		custom_effect_tooltip = USA_jap_surrender_tooltip
+		add_war_support = -0.35
+      add_popularity = {
+	    ideology = libertarian_socialism
+	    popularity = -0.07
+      }		
+	    JAP = {
+		 transfer_state = 638
+		 transfer_state = 631
+		 transfer_state = 632
+        
+		} 
 		
     }
 	
@@ -433,15 +508,16 @@ shared_focus = {
 	icon = GFX_USA_europe_aflame
 	
     x = 33
-	y = 10
+	y = 0
 	
 	available = {
-		has_country_flag = USA_europe_war
+		has_country_flag = USA_europe_aflame_flag
 	}
 	
 	cost = 5
     completion_reward = {
-		
+	   custom_effect_tooltip = USA_europe_aflame_tooltip
+	   unlock_decision_tooltip = start_USA_war_declaration
     }
 	
 	ai_will_do = {
@@ -456,6 +532,10 @@ shared_focus = {
     x = -2
 	y = 1
 	
+	available = {
+		has_country_flag = USA_war_declaration_failed
+	}
+	
 	cost = 5
 	mutually_exclusive = {
 		focus = USA_congress_reigns_supreme
@@ -463,7 +543,7 @@ shared_focus = {
 	relative_position_id = USA_europe_aflame
 	prerequisite = { focus = USA_europe_aflame }
     completion_reward = {
-		
+	    custom_effect_tooltip = USA_peace_in_our_time_tt
     }
 	
 	ai_will_do = {
@@ -482,7 +562,8 @@ shared_focus = {
 	relative_position_id = USA_peace_in_our_time
 	prerequisite = { focus = USA_peace_in_our_time }
     completion_reward = {
-		
+		add_war_support = 0.15
+		add_manpower = 95000
     }
 	
 	ai_will_do = {
@@ -501,7 +582,21 @@ shared_focus = {
 	relative_position_id = USA_aef
 	prerequisite = { focus = USA_aef }
     completion_reward = {
-		
+		send_equipment = {
+          equipment = infantry_equipment
+          amount = 6500
+          target = ENG
+        }
+	    send_equipment = {
+          equipment = support_equipment
+          amount = 850
+          target = ENG
+        }
+		send_equipment = {
+          equipment = light_tank_equipment
+          amount = 250
+          target = ENG
+        }
     }
 	
 	ai_will_do = {
@@ -511,7 +606,7 @@ shared_focus = {
 
 shared_focus = {
     id = USA_offer_arbitration
-	icon = GFX_USA_send_supplies
+	icon = GFX_USA_offer_arbitration
 	
     x = 0
 	y = 1
@@ -520,7 +615,7 @@ shared_focus = {
 	relative_position_id = USA_send_supplies
 	prerequisite = { focus = USA_send_supplies }
     completion_reward = {
-		
+	   custom_effect_tooltip = USA_arbitration_tooltip
     }
 	
 	ai_will_do = {
@@ -532,8 +627,12 @@ shared_focus = {
     id = USA_congress_reigns_supreme
 	icon = GFX_USA_congress_reigns_supreme
 	
-    x = 1
+    x = 2
 	y = 1
+	
+	available = {
+		has_country_flag = USA_war_declaration_passed
+	}
 	
 	cost = 5
 	mutually_exclusive = {
@@ -542,7 +641,7 @@ shared_focus = {
 	relative_position_id = USA_europe_aflame
 	prerequisite = { focus = USA_europe_aflame }
     completion_reward = {
-		
+		custom_effect_tooltip = USA_congress_reigns_supreme_tt
     }
 	
 	ai_will_do = {
@@ -561,7 +660,31 @@ shared_focus = {
 	relative_position_id = USA_congress_reigns_supreme
 	prerequisite = { focus = USA_congress_reigns_supreme }
     completion_reward = {
+		if = {
+			limit = {
+				has_country_flag = USA_progressive_veep 
+				
+			}
+			
+			set_politics = {
+	          ruling_party = social_democracy
+	          elections_allowed = yes
+            }
+			
+		}
 		
+		if = {
+			limit = {
+				has_country_flag = USA_radical_veep
+				
+			}
+			
+			set_politics = {
+	          ruling_party = proletarian_dictatorship
+	          elections_allowed = yes
+            }
+			
+		}
     }
 	
 	ai_will_do = {
@@ -580,6 +703,34 @@ shared_focus = {
 	relative_position_id = USA_the_resignation
 	prerequisite = { focus = USA_the_resignation }
     completion_reward = {
+		add_stability = 0.15
+		add_war_support = 0.1
+		add_political_power = 75
+        
+		if = {
+			limit = {
+				has_government = social_democracy
+			}
+			
+			add_popularity = {
+	          ideology = social_democracy
+	          popularity = 0.04
+            }
+			
+		}
+		
+		if = {
+			limit = {
+				has_government = proletarian_dictatorship
+			}
+			
+			add_popularity = {
+	          ideology = proletarian_dictatorship
+	          popularity = 0.04
+            }
+			
+		}
+		
 		
     }
 	
@@ -599,7 +750,9 @@ shared_focus = {
 	relative_position_id = USA_the_resignation
 	prerequisite = { focus = USA_the_resignation }
     completion_reward = {
-		
+		add_ideas = {
+			USA_oss_natspirit
+		}
     }
 	
 	ai_will_do = {
@@ -618,7 +771,9 @@ shared_focus = {
 	relative_position_id = USA_the_resignation
 	prerequisite = { focus = USA_the_resignation }
     completion_reward = {
-		
+		add_ideas = {
+			USA_sharing_our_knowledge
+		}
     }
 	
 	ai_will_do = {
@@ -638,7 +793,9 @@ shared_focus = {
 	prerequisite = { focus = USA_united_front }
 	prerequisite = { focus = USA_oss }
     completion_reward = {
-		
+		add_ideas = {
+			USA_full_ww2_commitment
+		}
     }
 	
 	ai_will_do = {
@@ -657,117 +814,9 @@ shared_focus = {
 	relative_position_id = USA_share_our_knowledge
 	prerequisite = { focus = USA_share_our_knowledge }
     completion_reward = {
-		
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_a_second_versailles
-	icon = GFX_USA_a_second_versailles
-	
-    x = -1
-	y = 1
-	
-	cost = 5
-	mutually_exclusive = {
-		focus = USA_europe_dictates_peace
-		focus = USA_ideological_hegemony
-	}
-	relative_position_id = USA_offer_arbitration
-	prerequisite = { focus = USA_offer_arbitration }
-    completion_reward = {
-		
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_europe_dictates_peace
-	icon = GFX_USA_europe_dictates_peace
-	
-    x = 1
-	y = 1
-	
-	cost = 5
-	mutually_exclusive = {
-		focus = USA_a_second_versailles
-		focus = USA_ideological_hegemony
-	}
-	relative_position_id = USA_offer_arbitration
-	prerequisite = {
-		focus = USA_offer_arbitration
-		focus = USA_full_commitment
-	}
-    completion_reward = {
-		
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_business_as_usual
-	icon = GFX_USA_business_as_usual
-	
-    x = 0
-	y = 1
-	
-	cost = 5
-	relative_position_id = USA_europe_dictates_peace
-	prerequisite = { focus = USA_europe_dictates_peace }
-    completion_reward = {
-		
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_ideological_hegemony
-	icon = GFX_USA_ideological_hegemony
-	
-    x = 1
-	y = 1
-	
-	cost = 5
-	mutually_exclusive = {
-		focus = USA_a_second_versailles
-		focus = USA_europe_dictates_peace
-	}
-	relative_position_id = USA_full_commitment
-	prerequisite = { focus = USA_full_commitment }
-    completion_reward = {
-		
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_new_world_order
-	icon = GFX_USA_new_world_order
-	
-    x = 0
-	y = 1
-	
-	cost = 5
-	relative_position_id = USA_ideological_hegemony
-	prerequisite = { focus = USA_ideological_hegemony }
-    completion_reward = {
-		
+		add_ideas = {
+			USA_bomber_command_natspirit
+		}
     }
 	
 	ai_will_do = {

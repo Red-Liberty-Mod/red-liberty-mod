@@ -7,7 +7,6 @@ focus_tree = {
 			tag = ITA
 		}
 	}
-	default = no
 	#focus = {
 	#	id = name
 	#	icon = name
@@ -255,10 +254,7 @@ focus_tree = {
 					factor = 1
 				}
 			completion_reward = {
-					add_timed_idea = {
-							idea = ITA_new_black_shirt_conscription
-							days = 110
-						}
+				add_timed_idea = { idea = ITA_new_black_shirt_conscription  days = 110 }
 				}
 
 	}
@@ -928,7 +924,7 @@ focus_tree = {
 				}
 		completion_reward = {
 			add_political_power = 50
-			add_war_support = 0.13
+			add_war_support = 0.1
 		}
 
 	}
@@ -1069,8 +1065,8 @@ focus_tree = {
 		completion_reward = {
 			GER = {
 				add_popularity = {
-					ideology = martial_despotism
-					popularity = 0.10
+					ideology = fascism
+					popularity = 0.075
 				}
 			}
 		}
@@ -1220,9 +1216,8 @@ focus_tree = {
 					factor = 1
 				}
 		completion_reward = {
-			add_ideas = {
-				ITA_rally_call
-			}
+			add_political_power = 50
+			add_timed_idea = { idea = ITA_rally_call_people  days = 110 }
 		}
 
 	}
@@ -2315,7 +2310,7 @@ focus_tree = {
 	}
 	focus = {
 		id = ITA_buget_managment 
-		icon = GFX_goal_unknown
+		icon = ITA_buget_managment
 		cost = 5
 		prerequisite = {
 		}
@@ -2330,7 +2325,7 @@ focus_tree = {
 	}
 	focus = {
 		id = ITA_industrial_works
-		icon = GFX_goal_unknown
+		icon = ITA_industrial_works
 		cost = 5
 		prerequisite = {
 			focus = ITA_buget_managment
@@ -3209,7 +3204,7 @@ focus_tree = {
 	}
 	focus = {
 		id = ITA_managment_of_taxation
-		icon = GFX_goal_unknown
+		icon = ITA_managment_of_taxation
 		cost = 5
 		prerequisite = {
 			focus = ITA_buget_managment
@@ -3222,5 +3217,6 @@ focus_tree = {
 				days = 1
 			}
 		}
+	}
 	}
 }

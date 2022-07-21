@@ -1,0 +1,320 @@
+add_namespace = guangxicivilwar
+add_namespace = guangxianarchist
+add_namespace = guangxifederalist
+
+country_event = { # intro event
+	id = guangxicivilwar.1
+	title = "Guomindang Soldiers Revolt in Guangdong!"
+	desc = "The GMD is a party derviing from Dr. Sun Yat Sen and his ideas of a republican China. Now his followers seek to keep his legacy alive ftaer he lost power to Rongyao's father."
+	
+	picture = "GFX_report_event_student_protest_CHI"
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		KMT_uprising_start = yes
+	}
+
+	option = {
+		name = "For China! (Play As KMT)"
+		
+		add_political_power = 10
+		add_stability = -0.1
+		add_command_power = 5
+		
+		KMT = { change_tag_from = GUD }
+	}
+	
+	option = {
+		name = "For Rongyao!"
+		
+		add_political_power = -100
+		add_stability = -0.10
+		add_command_power = 5
+	}
+}
+
+
+country_event = { # intro event
+	id = guangxicivilwar.2
+	title = "Issue of Alliance"
+	desc = "After the success of the Guangdong Uprising the question arises with to support the federalists more, or the anarchists more."
+	
+	picture = "GFX_report_event_student_protest_CHI"
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	
+
+	option = {
+		name = "Support Our Anarchist Brothers"
+		custom_effect_tooltip = FED_GUD_tt
+		hidden_effect = {
+		add_ideas = KMT_federalist_unrest
+		}
+		country_event = {
+		id = guangxifederalist.1
+		days = 1
+		}
+	}
+	
+	option = {
+		name = "Secure A Federalist Alliance"
+		custom_effect_tooltip = ANA_GUD_tt
+		hidden_effect = {
+		add_ideas = KMT_anarchist_unrest
+		}
+		country_event = {
+		id = guangxianarchist.1
+		days = 1
+		}
+		
+	}
+}
+
+
+country_event = { # intro event
+	id = guangxianarchist.1
+	title = "Anarchist Riots"
+	desc = "Frustrated with the KMT congress federalist alignment, riots from the anarchist society launches a series of strikes on Guangdong."
+	
+	picture = "GFX_report_event_student_protest_CHI"
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	
+
+	
+	
+	option = {
+		name = "Send in the Police"
+		custom_effect_tooltip = ANA_GUD_tt
+		hidden_effect = {
+		add_stability = -0.1
+		country_event = {
+		id = guangxianarchist.2
+		days = 1
+		}
+		}
+		
+	}
+}
+
+
+country_event = { # intro event
+	id = guangxianarchist.2
+	title = "Anarchist Riots Expand"
+	desc = "After further agitation from the anarchist movement we now suffer them taking a province for themselves."
+	
+	picture = "GFX_report_event_student_protest_CHI"
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	
+
+	
+	
+	option = {
+		name = "Prepare for Battle"
+		hidden_effect = {
+		865 = {
+                set_demilitarized_zone = yes
+            }
+			country_event = {
+		id = guangxianarchist.3
+		days = 1
+		}
+		}
+		
+		
+	}
+}
+
+country_event = { # intro event
+	id = guangxianarchist.3
+	title = "Anarchist Riots Expand"
+	desc = "After further agitation from the anarchist movement we now suffer them taking a province for themselves."
+	
+	picture = "GFX_report_event_student_protest_CHI"
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	
+
+	
+	
+	option = {
+		name = "Prepare for Battle"
+		hidden_effect = {
+		865 = {
+                set_demilitarized_zone = yes
+            }
+			country_event = {
+		id = guangxianarchist.4
+		days = 1
+		}
+		}
+		
+		
+	}
+}
+
+country_event = { # intro event
+	id = guangxianarchist.4
+	title = "Anarchists Advance"
+	desc = "Due to the continued anarchist unrest they have decided to advance on us."
+	
+	picture = "GFX_report_event_student_protest_CHI"
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	
+
+	
+	
+	option = {
+		name = "Send Force's to Guangdong"
+		hidden_effect = {
+		593 = {
+                set_demilitarized_zone = yes
+            }
+			country_event = {
+		id = guangxianarchist.6
+		days = 1
+		}
+		}
+		
+		
+	}
+	
+	
+	option = {
+		name = "Li Zongren Secures Front"
+		hidden_effect = {
+		
+			country_event = {
+		id = guangxianarchist.5
+		days = 1
+		}
+		}
+		
+		
+	}
+}
+
+country_event = { # intro event
+	id = guangxianarchist.6
+	title = "Anarchists Crushed"
+	desc = "After a tense few days we finally crushed the anarhist traitors."
+	
+	picture = "GFX_report_event_student_protest_CHI"
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	
+
+	
+	
+	option = {
+		name = "Prepare for Battle"
+		hidden_effect = {
+		865 = {
+                set_demilitarized_zone = no
+            }
+			
+			593 = {
+                set_demilitarized_zone = no
+            }
+			
+		}
+		
+		
+	}
+}
+
+country_event = { # intro event
+	id = guangxianarchist.5
+	title = "Anarchist Push For Guangdong"
+	desc = "The anarhcists after a successful advance push for out capital."
+	
+	picture = "GFX_report_event_student_protest_CHI"
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	
+
+	
+	
+	option = {
+		name = "Crush the Traitors!"
+		hidden_effect = {
+		GUD = {
+		set_state_owner = 865
+		set_state_owner = 593
+		set_state_owner = 592
+		set_politics = { ruling_party = insurrectionary_anarchism 
+		}
+		load_oob = "KMT"
+		}
+		}
+		
+		
+	}
+	
+	option = {
+		name = "For Yuanpai!(Play as Anarchists)"
+		hidden_effect = {
+		GUD = {
+		set_state_owner = 865
+		set_state_owner = 593
+		set_state_owner = 592
+		set_politics = { ruling_party = insurrectionary_anarchism 
+		}
+		}
+		GUD = { change_tag_from = KMT }
+		
+		
+	}
+}
+
+
+country_event = { # intro event
+	id = guangxifederalist.1
+	title = "Federalist Riots"
+	desc = "Frustrated with the KMT with anarchist alignment, strikes  from the Federalist Party occur in Guangdong."
+	
+	picture = "GFX_report_event_student_protest_CHI"
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	
+
+	
+	
+	option = {
+		name = "Send in the Police"
+		custom_effect_tooltip = FED_GUD_tt
+		hidden_effect = {
+		add_stability = -0.1
+		}
+		
+	}
+}

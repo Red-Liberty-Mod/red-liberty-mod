@@ -1,6 +1,6 @@
 ﻿capital = 3
 
-oob = "SWI_1936"
+oob = "SWI"
 
 set_research_slots = 3
 
@@ -8,18 +8,28 @@ set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
 	tech_mountaineers = 1
+	
 	tech_support = 1		
 	tech_engineers = 1
 	tech_recon = 1
+	
 	early_fighter = 1
 	CAS1 = 1
+	
 	fuel_silos = 1
 }
-
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	add_ideas = {
+		landlocked_spirit
+	}
+}
 
 set_politics = {
 	ruling_party = market_libertarianism
-	last_election = "1932.11.8"
+	last_election = "1935.10.27"
 	election_frequency = 48
 	elections_allowed = yes
 }
@@ -38,20 +48,136 @@ set_popularities = {
 	fascism = 1
 }
 
+set_variable = { SWI_council_seats = 187 }
+set_variable = { SWI_communist_council_seats = 2 }
+set_variable = { SWI_socialist_council_seats = 52 }
+set_variable = { SWI_independent_council_seats = 7 }
+set_variable = { SWI_free_democrat_council_seats = 48 }
+set_variable = { SWI_farmer_trader_council_seats = 19 }
+set_variable = { SWI_conservative_council_seats = 42 }
+set_variable = { SWI_national_union_council_seats = 3 }
+set_variable = { SWI_minor_council_seats = 14 }
+SWI_init_parliament_council = yes
+
+
+set_variable = { SWI_senate_seats = 44 }
+set_variable = { SWI_socialist_senate_seats = 4 }
+set_variable = { SWI_free_democrat_senate_seats = 15 }
+set_variable = { SWI_conservative_senate_seats = 19 }
+set_variable = { SWI_farmer_trader_senate_seats = 3 }
+set_variable = { SWI_minor_senate_seats = 3 }
+SWI_init_parliament_senate = yes
+
+set_country_flag = libertarian_socialism_coalition
+set_country_flag = social_democracy_coalition
+set_country_flag = market_libertarian_coalition
+set_country_flag = conservative_coalition
+
 add_ideas = {
-	neutrality_idea	
+	SWI_carousel
+	SWI_intricate_system
+	SWI_disorganized_defense
+	
 	limited_conscription
 }
 
 set_stability = 0.85
 
 create_country_leader = {
-	name = "Federal Council"
-	desc = "POLITICS_FEDERAL_COUNCIL_DESC"
-	picture = "Portrait_Switzerland_Federal_council.dds"
+	name = "Fritz Platten"
+	desc = "POLITICS_FRITZ_PLATTEN_DESC"
+	picture = ""
+	expire = "1965.1.1"
+	ideology = proletarian_dictatorship_subtype
+	traits = {
+		
+	}
+}
+
+create_country_leader = {
+	name = "Ernst Nobs"
+	desc = "POLITICS_ERNST_NOBS_DESC"
+	picture = "gfx/leaders/SWI/Portrait_SWI_Ernst_Nobs.png"
+	expire = "1965.1.1"
+	ideology = democratic_socialism_subtype
+	traits = {
+		
+	}
+}
+
+create_country_leader = {
+	name = "Ernst Nobs"
+	desc = "POLITICS_ERNST_NOBS_DESC"
+	picture = "gfx/leaders/SWI/Portrait_SWI_Ernst_Nobs.png"
+	expire = "1965.1.1"
+	ideology = social_democracy_subtype
+	traits = {
+		
+	}
+}
+
+create_country_leader = {
+	name = "Gottlieb Duttweiler"
+	desc = "POLITICS_GOTTLIEB_DUTTWEILER_DESC"
+	picture = ""
+	expire = "1965.1.1"
+	ideology = progressive_liberalism_subtype
+	traits = {
+		
+	}
+}
+
+create_country_leader = {
+	name = "Marcel Pilet-Golaz"
+	desc = "POLITICS_MARCEL_PILET_GOLAZ_DESC"
+	picture = "gfx/leaders/SWI/Portrait_SWI_Marcel_Golaz.png"
 	expire = "1965.1.1"
 	ideology = market_libertarianism_subtype
 	traits = {
-		#
+		
+	}
+}
+
+create_country_leader = {
+	name = "Philipp Etter"
+	desc = "POLITICS_PHILIPP_ETTER_DESC"
+	picture = "gfx/leaders/SWI/Portrait_SWI_Philipp_Etter.png"
+	expire = "1965.1.1"
+	ideology = christian_democracy_subtype
+	traits = {
+		
+	}
+}
+
+create_country_leader = {
+	name = "Rudolf Minger"
+	desc = "POLITICS_RUDOLF_MINGER_DESC"
+	picture = ""
+	expire = "1965.1.1"
+	ideology = authoritarian_democracy_subtype
+	traits = {
+		
+	}
+}
+
+create_country_leader = {
+	name = "Georges Oltramare"
+	desc = "POLITICS_GEORGES_OLTRAMARE_DESC"
+	picture = ""
+	expire = "1965.1.1"
+	ideology = far_right_authoritarianism_subtype
+	traits = {
+		
+	}
+}
+
+create_country_leader = {
+	name = "Robert Tobler"
+	desc = "POLITICS_ROBERT_TOBLER_DESC"
+	picture = ""
+	expire = "1965.1.1"
+	ideology = fascism_subtype
+	traits = {
+		
 	}
 }

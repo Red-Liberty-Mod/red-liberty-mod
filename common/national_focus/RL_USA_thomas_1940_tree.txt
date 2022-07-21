@@ -8,12 +8,18 @@ shared_focus = {
 	cost = 5
 	relative_position_id = USA_of_poverty
 	prerequisite = { focus = USA_of_poverty }
-	prerequisite = {
-		focus = USA_itll_never_happen_here
-		focus = USA_spqa
-	}
+	prerequisite = { focus = USA_itll_never_happen_here }
+	prerequisite = { focus = USA_spqa }
     completion_reward = {
-        
+       unlock_decision_tooltip = start_USA_second_bill_of_rights
+	   hidden_effect = {
+			every_owned_state = {
+				limit = {
+					can_have_elections_in_state = yes
+				}
+				add_to_variable = { socialist_popularity = 0.01 }
+			}
+		}
     }
 	
 	ai_will_do = {
@@ -54,7 +60,8 @@ shared_focus = {
 	relative_position_id = USA_right_to_learn
 	prerequisite = { focus = USA_right_to_learn }
     completion_reward = {
-        
+        add_political_power = 25
+		add_stability = 0.02
     }
 	
 	ai_will_do = {
@@ -93,6 +100,7 @@ shared_focus = {
 	prerequisite = { focus = USA_assess_school_resources }
     completion_reward = {
         add_political_power = 25
+		add_stability = 0.045
     }
 	
 	ai_will_do = {
@@ -111,7 +119,8 @@ shared_focus = {
 	relative_position_id = USA_right_to_learn
 	prerequisite = { focus = USA_right_to_learn }
     completion_reward = {
-        
+        add_political_power = 50
+		add_stability = 0.03
     }
 	
 	ai_will_do = {
@@ -130,7 +139,7 @@ shared_focus = {
 	relative_position_id = USA_invest_in_higher_education
 	prerequisite = { focus = USA_invest_in_higher_education }
     completion_reward = {
-        
+        ECON_poverty_change_small = yes
     }
 	
 	ai_will_do = {
@@ -150,7 +159,16 @@ shared_focus = {
 	prerequisite = { focus = USA_invest_in_higher_education }
 	prerequisite = { focus = USA_compulsory_education }
     completion_reward = {
-        
+        ECON_poverty_change_small = yes 
+		add_stability = 0.03
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					can_have_elections_in_state = yes
+				}
+				add_to_variable = { socialist_popularity = 0.01 }
+			}
+		}
     }
 	
 	ai_will_do = {
@@ -169,7 +187,7 @@ shared_focus = {
 	relative_position_id = USA_work_with_teachers_unions
 	prerequisite = { focus = USA_work_with_teachers_unions }
     completion_reward = {
-        
+        ECON_poverty_change_small = yes 
     }
 	
 	ai_will_do = {
@@ -189,7 +207,7 @@ shared_focus = {
 	prerequisite = { focus = USA_fund_public_libraries }
 	prerequisite = { focus = USA_federal_education_grants }
     completion_reward = {
-        
+        unlock_decision_tooltip = start_USA_equal_education_act
     }
 	
 	ai_will_do = {
@@ -231,6 +249,14 @@ shared_focus = {
 	prerequisite = { focus = USA_right_to_work }
     completion_reward = {
         improve_great_depression = yes
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					can_have_elections_in_state = yes
+				}
+				add_to_variable = { socialist_popularity = 0.01 }
+			}
+		}
     }
 	
 	ai_will_do = {
@@ -292,7 +318,8 @@ shared_focus = {
 	relative_position_id = USA_right_to_work
 	prerequisite = { focus = USA_right_to_work }
     completion_reward = {
-        
+      add_stability = 0.07
+	  custom_effect_tooltip = USA_fair_comp_tooltip
     }
 	
 	ai_will_do = {
@@ -313,6 +340,14 @@ shared_focus = {
 	prerequisite = { focus = USA_unemployment_compensation }
     completion_reward = {
         add_stability = 0.03
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					can_have_elections_in_state = yes
+				}
+				add_to_variable = { socialist_popularity = 0.01 }
+			}
+		}
     }
 	
 	ai_will_do = {
@@ -332,12 +367,8 @@ shared_focus = {
 	prerequisite = { focus = USA_end_child_labor }
 	prerequisite = { focus = USA_end_wage_discrimination }
     completion_reward = {
-        custom_effect_tooltip = USA_bill_pass_req_tt
-		effect_tooltip = {
-			add_ideas = {
-				USA_economic_equality_act
-			}
-		}
+		unlock_decision_tooltip = start_USA_economic_equality_act
+		
     }
 	
 	ai_will_do = {
@@ -383,6 +414,14 @@ shared_focus = {
 	prerequisite = { focus = USA_right_to_life }
     completion_reward = {
 		improve_great_depression = yes
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					can_have_elections_in_state = yes
+				}
+				add_to_variable = { socialist_popularity = 0.01 }
+			}
+		}
     }
 	
 	ai_will_do = {
@@ -421,7 +460,8 @@ shared_focus = {
 	relative_position_id = USA_right_to_life
 	prerequisite = { focus = USA_right_to_life }
     completion_reward = {
-        
+	   ECON_poverty_change_small = yes
+	   improve_great_depression = yes
     }
 	
 	ai_will_do = {
@@ -460,10 +500,7 @@ shared_focus = {
 	prerequisite = { focus = USA_maternity_insurance }
 	prerequisite = { focus = USA_look_at_causes }
     completion_reward = {
-		custom_effect_tooltip = USA_bill_pass_req_tt
-        effect_tooltip = {
-			improve_safety_net = yes
-		}
+        unlock_decision_tooltip = start_USA_national_healthcare_act
     }
 	
 	ai_will_do = {
@@ -504,7 +541,8 @@ shared_focus = {
 	relative_position_id = USA_war_on_poverty
 	prerequisite = { focus = USA_war_on_poverty }
     completion_reward = {
-        
+       add_political_power = 25
+	   add_stability = 0.02
     }
 	
 	ai_will_do = {
@@ -564,7 +602,8 @@ shared_focus = {
 	relative_position_id = USA_more_perfect_union
 	prerequisite = { focus = USA_more_perfect_union }
     completion_reward = {
-        
+        custom_effect_tooltip = USA_first_amendment_tooltip
+		add_stability = 0.05
     }
 	
 	ai_will_do = {
@@ -583,7 +622,12 @@ shared_focus = {
 	relative_position_id = USA_protect_the_first
 	prerequisite = { focus = USA_protect_the_first }
     completion_reward = {
-        
+      unlock_decision_tooltip = start_USA_voting_rights_act
+	  custom_effect_tooltip = USA_bill_pass_req_tt
+		effect_tooltip = {
+			add_stability = 0.05
+			custom_effect_tooltip = USA_SPA_better_south
+		}
     }
 	
 	ai_will_do = {
@@ -711,6 +755,7 @@ shared_focus = {
 	prerequisite = { focus = USA_politicians_should_be_popular }
     completion_reward = {
         # add blessed event
+		custom_effect_tooltip = USA_america_reborn_tooltip
     }
 	
 	ai_will_do = {

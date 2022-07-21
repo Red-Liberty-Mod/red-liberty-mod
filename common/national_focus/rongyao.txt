@@ -1,0 +1,913 @@
+focus_tree = {
+	id = rongyao
+	continuous_focus_position = { x = 0 y = 1000 } 
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = CHI
+		}
+	}
+	#An Empire Reborn
+	focus = {
+		id = CHI_an_empire_reborn
+		icon = GFX_goal_unknown
+		x = 10
+		y = 15
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_subjugate_minorities  }
+	}
+
+	#Crush Republicanism
+	focus = {
+		id = CHI_crush_republicanism
+		icon = GFX_goal_unknown
+		x = 16
+		y = 10
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = CHI_a_new_despot  }
+	}
+
+	#The Rongyao Fleet
+	focus = {
+		id = CHI_the_rongyao_fleet
+		icon = GFX_goal_unknown
+		x = 28
+		y = 6
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = { focus = CHI_stars_on_the_water  }
+		mutually_exclusive = { focus = CHI_introducing_the_beiyang_fleet  }
+	}
+
+	#Collapse
+	focus = {
+		id = CHI_collapse
+		icon = GFX_goal_unknown
+		x = 15
+		y = 1
+		cost = 1
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+	}
+
+	#Small Recovery
+	focus = {
+		id = CHI_small_recovery
+		icon = GFX_goal_unknown
+		x = 14
+		y = 2
+		cost = 2
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_collapse  }
+	}
+
+	#Call in Foreign Aid
+	focus = {
+		id = CHI_call_in_foreign_aid
+		icon = GFX_goal_unknown
+		x = 16
+		y = 2
+		cost = 2
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_collapse  }
+	}
+
+	#The National Question
+	focus = {
+		id = CHI_the_national_question
+		icon = GFX_goal_unknown
+		x = 15
+		y = 3
+		cost = 1
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_small_recovery  } prerequisite = { focus = CHI_call_in_foreign_aid  }
+	}
+
+	#A New Cabinet
+	focus = {
+		id = CHI_a_new_cabinet
+		icon = GFX_goal_unknown
+		x = 13
+		y = 4
+		cost = 1
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_the_national_question  }
+	}
+
+	#Stick With the NCERA
+	focus = {
+		id = CHI_stick_with_the_ncera
+		icon = GFX_goal_unknown
+		x = 11
+		y = 5
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_a_new_cabinet  }
+	}
+
+	#Beiyang Coup
+	focus = {
+		id = CHI_beiyang_coup
+		icon = GFX_goal_unknown
+		x = 15
+		y = 5
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_a_new_cabinet  }
+		mutually_exclusive = { focus = CHI_stick_with_the_ncera  }
+	}
+
+	#Opening Up
+	focus = {
+		id = CHI_opening_up
+		icon = GFX_goal_unknown
+		x = 11
+		y = 6
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_stick_with_the_ncera  }
+	}
+
+	#Hold a National Census
+	focus = {
+		id = CHI_hold_a_national_census
+		icon = GFX_goal_unknown
+		x = 7
+		y = 6
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_stick_with_the_ncera  }
+	}
+
+	#The Junta
+	focus = {
+		id = CHI_the_junta
+		icon = GFX_goal_unknown
+		x = 15
+		y = 6
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_beiyang_coup  }
+	}
+
+	#Following Hu Shih
+	focus = {
+		id = CHI_following_hu_shih
+		icon = GFX_goal_unknown
+		x = 19
+		y = 6
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_beiyang_coup  }
+	}
+
+	#Upgrade Beijing University
+	focus = {
+		id = CHI_upgrade_beijing_university
+		icon = GFX_goal_unknown
+		x = 8
+		y = 8
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = { focus = CHI_banning_opium  }
+	}
+
+	#Moderate Reforms
+	focus = {
+		id = CHI_moderate_reforms
+		icon = GFX_goal_unknown
+		x = 6
+		y = 7
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_hold_a_national_census  }
+	}
+
+	#Banning Opium
+	focus = {
+		id = CHI_banning_opium
+		icon = GFX_goal_unknown
+		x = 8
+		y = 7
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = { focus = CHI_hold_a_national_census  }
+	}
+
+	#New Traders
+	focus = {
+		id = CHI_new_traders
+		icon = GFX_goal_unknown
+		x = 6
+		y = 8
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_moderate_reforms  }
+	}
+
+	#Legalize Revolutionary Parties
+	focus = {
+		id = CHI_legalize_revolutionary_parties
+		icon = GFX_goal_unknown
+		x = 10
+		y = 7
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_opening_up  }
+	}
+
+	#Build Up Capitalism
+	focus = {
+		id = CHI_build_up_capitalism
+		icon = GFX_goal_unknown
+		x = 18
+		y = 8
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = CHI_empower_the_landlords  }
+	}
+
+	#The Merchant Fleet
+	focus = {
+		id = CHI_the_merchant_fleet
+		icon = GFX_goal_unknown
+		x = 20
+		y = 8
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = CHI_the_opium_question  }
+	}
+
+	#Re-organsing the Army
+	focus = {
+		id = CHI_reorgansing_the_army
+		icon = GFX_goal_unknown
+		x = 25
+		y = 4
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_the_national_question  }
+	}
+
+	#Scavenge for Old Weapons
+	focus = {
+		id = CHI_scavenge_for_old_weapons
+		icon = GFX_goal_unknown
+		x = 23
+		y = 5
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_FRA_OCCUPATION_COST
+		}
+		prerequisite = { focus = CHI_reorgansing_the_army  }
+	}
+
+	#The Army of the Star
+	focus = {
+		id = CHI_the_army_of_the_star
+		icon = GFX_goal_unknown
+		x = 25
+		y = 5
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = { focus = CHI_reorgansing_the_army  }
+	}
+
+	#Stars On the Water
+	focus = {
+		id = CHI_stars_on_the_water
+		icon = GFX_goal_unknown
+		x = 27
+		y = 5
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = { focus = CHI_reorgansing_the_army  }
+	}
+
+	#Build the Yellow River Line
+	focus = {
+		id = CHI_build_the_yellow_river_line
+		icon = GFX_goal_unknown
+		x = 22
+		y = 6
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = CHI_scavenge_for_old_weapons  }
+		mutually_exclusive = { focus = CHI_build_the_yangtze_line  }
+	}
+
+	#Build the Yangtze Line
+	focus = {
+		id = CHI_build_the_yangtze_line
+		icon = GFX_goal_unknown
+		x = 24
+		y = 6
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = CHI_scavenge_for_old_weapons  }
+		mutually_exclusive = { focus = CHI_build_the_yellow_river_line  }
+	}
+
+	#Introducing the Beiyang Fleet
+	focus = {
+		id = CHI_introducing_the_beiyang_fleet
+		icon = GFX_goal_unknown
+		x = 26
+		y = 6
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = { focus = CHI_stars_on_the_water  }
+		mutually_exclusive = { focus = CHI_the_rongyao_fleet  }
+	}
+
+	#Uphold Confucian Values
+	focus = {
+		id = CHI_uphold_confucian_values
+		icon = GFX_goal_unknown
+		x = 16
+		y = 8
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_era_of_conservatism  }
+	}
+
+	#Empower the Landlords
+	focus = {
+		id = CHI_empower_the_landlords
+		icon = GFX_goal_unknown
+		x = 18
+		y = 7
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = { focus = CHI_following_hu_shih  }
+	}
+
+	#The Opium Question
+	focus = {
+		id = CHI_the_opium_question
+		icon = GFX_goal_unknown
+		x = 20
+		y = 7
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = { focus = CHI_following_hu_shih  }
+	}
+
+	#Allow Unionisation
+	focus = {
+		id = CHI_allow_unionisation
+		icon = GFX_goal_unknown
+		x = 12
+		y = 8
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = { focus = CHI_national_health_care  }
+	}
+
+	#Controlled Democracy
+	focus = {
+		id = CHI_controlled_democracy
+		icon = GFX_goal_unknown
+		x = 14
+		y = 7
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_the_junta  }
+	}
+
+	#Era of Conservatism
+	focus = {
+		id = CHI_era_of_conservatism
+		icon = GFX_goal_unknown
+		x = 16
+		y = 7
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_the_junta  }
+	}
+
+	#Anti-Unionism
+	focus = {
+		id = CHI_antiunionism
+		icon = GFX_goal_unknown
+		x = 14
+		y = 8
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = { focus = CHI_controlled_democracy  }
+	}
+
+	#The British Model
+	focus = {
+		id = CHI_the_british_model
+		icon = GFX_goal_unknown
+		x = 10
+		y = 8
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_legalize_revolutionary_parties  }
+	}
+
+	#National Health Care
+	focus = {
+		id = CHI_national_health_care
+		icon = GFX_goal_unknown
+		x = 12
+		y = 7
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_opening_up  }
+	}
+
+	#Jungle Tactics
+	focus = {
+		id = CHI_jungle_tactics
+		icon = GFX_goal_unknown
+		x = 22
+		y = 7
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = { focus = CHI_build_the_yellow_river_line  }
+	}
+
+	#Shells Everywhere
+	focus = {
+		id = CHI_shells_everywhere
+		icon = GFX_goal_unknown
+		x = 24
+		y = 7
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = { focus = CHI_build_the_yangtze_line  }
+	}
+
+	#The Silent Dragon
+	focus = {
+		id = CHI_the_silent_dragon
+		icon = GFX_goal_unknown
+		x = 26
+		y = 7
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = { focus = CHI_introducing_the_beiyang_fleet  }
+	}
+
+	#The Roaring Tiger
+	focus = {
+		id = CHI_the_roaring_tiger
+		icon = GFX_goal_unknown
+		x = 28
+		y = 7
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = { focus = CHI_the_rongyao_fleet  }
+	}
+
+	#Beyond the Mountains
+	focus = {
+		id = CHI_beyond_the_mountains
+		icon = GFX_goal_unknown
+		x = 23
+		y = 8
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = { focus = CHI_jungle_tactics  } prerequisite = { focus = CHI_shells_everywhere  }
+	}
+
+	#Army Modernization
+	focus = {
+		id = CHI_army_modernization
+		icon = GFX_goal_unknown
+		x = 25
+		y = 8
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = { focus = CHI_the_army_of_the_star  }
+	}
+
+	#The Crowned Fleet
+	focus = {
+		id = CHI_the_crowned_fleet
+		icon = GFX_goal_unknown
+		x = 27
+		y = 8
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = { focus = CHI_the_silent_dragon  } prerequisite = { focus = CHI_the_roaring_tiger  }
+	}
+
+	#Raining Gunpowder
+	focus = {
+		id = CHI_raining_gunpowder
+		icon = GFX_goal_unknown
+		x = 24
+		y = 9
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = { focus = CHI_army_modernization  } prerequisite = { focus = CHI_beyond_the_mountains  }
+	}
+
+	#A Sky On Fire
+	focus = {
+		id = CHI_a_sky_on_fire
+		icon = GFX_goal_unknown
+		x = 26
+		y = 9
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = { focus = CHI_the_crowned_fleet  } prerequisite = { focus = CHI_army_modernization  }
+	}
+
+	#Tougher Than Jade
+	focus = {
+		id = CHI_tougher_than_jade
+		icon = GFX_goal_unknown
+		x = 25
+		y = 10
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = CHI_raining_gunpowder  } prerequisite = { focus = CHI_a_sky_on_fire  }
+	}
+
+	#Question of the Monarchy
+	focus = {
+		id = CHI_question_of_the_monarchy
+		icon = GFX_goal_unknown
+		x = 9
+		y = 9
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_upgrade_beijing_university  } prerequisite = { focus = CHI_new_traders  } prerequisite = { focus = CHI_allow_unionisation  } prerequisite = { focus = CHI_the_british_model  }
+	}
+
+	#A New Despot
+	focus = {
+		id = CHI_a_new_despot
+		icon = GFX_goal_unknown
+		x = 17
+		y = 9
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_the_merchant_fleet  } prerequisite = { focus = CHI_build_up_capitalism  } prerequisite = { focus = CHI_antiunionism  } prerequisite = { focus = CHI_uphold_confucian_values  }
+	}
+
+	#For the Republic
+	focus = {
+		id = CHI_for_the_republic
+		icon = GFX_goal_unknown
+		x = 8
+		y = 10
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_question_of_the_monarchy  }
+	}
+
+	#An Emperor With Limits
+	focus = {
+		id = CHI_an_emperor_with_limits
+		icon = GFX_goal_unknown
+		x = 10
+		y = 10
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_question_of_the_monarchy  }
+		mutually_exclusive = { focus = CHI_for_the_republic  }
+	}
+
+	#Our Nationalist Allies
+	focus = {
+		id = CHI_our_nationalist_allies
+		icon = GFX_goal_unknown
+		x = 7
+		y = 11
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_for_the_republic  }
+	}
+
+	#Start the North East Expedition
+	focus = {
+		id = CHI_start_the_north_east_expedition
+		icon = GFX_goal_unknown
+		x = 9
+		y = 11
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = CHI_an_emperor_with_limits  focus = CHI_for_the_republic  }
+	}
+
+	#Crush The Traitors
+	focus = {
+		id = CHI_crush_the_traitors
+		icon = GFX_goal_unknown
+		x = 11
+		y = 11
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = CHI_an_emperor_with_limits  }
+	}
+
+	#Pivot Towards Washington
+	focus = {
+		id = CHI_pivot_towards_washington
+		icon = GFX_goal_unknown
+		x = 7
+		y = 12
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_our_nationalist_allies  }
+	}
+
+	#Expel  the International Treaties.
+	focus = {
+		id = CHI_expeltheinternationaltreaties
+		icon = GFX_goal_unknown
+		x = 9
+		y = 12
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = CHI_start_the_north_east_expedition  }
+	}
+
+	#Alliance With Britian
+	focus = {
+		id = CHI_alliance_with_britian
+		icon = GFX_goal_unknown
+		x = 11
+		y = 12
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_crush_the_traitors  }
+	}
+
+	#Warlord Negotiations
+	focus = {
+		id = CHI_warlord_negotiations
+		icon = GFX_goal_unknown
+		x = 7
+		y = 13
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = CHI_pivot_towards_washington  }
+	}
+
+	#Liberate Taiwan
+	focus = {
+		id = CHI_liberate_taiwan
+		icon = GFX_goal_unknown
+		x = 9
+		y = 13
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = CHI_expeltheinternationaltreaties  }
+	}
+
+	#Secure the Warlords
+	focus = {
+		id = CHI_secure_the_warlords
+		icon = GFX_goal_unknown
+		x = 11
+		y = 13
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = CHI_alliance_with_britian  }
+	}
+
+	#Question of Minorities
+	focus = {
+		id = CHI_question_of_minorities
+		icon = GFX_goal_unknown
+		x = 8
+		y = 14
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_liberate_taiwan  } prerequisite = { focus = CHI_warlord_negotiations  }
+	}
+
+	#Subjugate Minorities
+	focus = {
+		id = CHI_subjugate_minorities
+		icon = GFX_goal_unknown
+		x = 10
+		y = 14
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_liberate_taiwan  } prerequisite = { focus = CHI_secure_the_warlords  }
+	}
+
+	#For the New Republic
+	focus = {
+		id = CHI_for_the_new_republic
+		icon = GFX_goal_unknown
+		x = 8
+		y = 15
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_question_of_minorities  }
+	}
+
+	#Align With the 21 Articles
+	focus = {
+		id = CHI_align_with_the_21_articles
+		icon = GFX_goal_unknown
+		x = 18
+		y = 10
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = { focus = CHI_a_new_despot  }
+	}
+
+	#Unify the Warlords
+	focus = {
+		id = CHI_unify_the_warlords
+		icon = GFX_goal_unknown
+		x = 16
+		y = 11
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = CHI_crush_republicanism  }
+	}
+
+	#Question of Minorities
+	focus = {
+		id = CHI_question_of_minorities
+		icon = GFX_goal_unknown
+		x = 17
+		y = 12
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = CHI_unify_the_warlords  } prerequisite = { focus = CHI_our_japanese_allies  }
+	}
+
+	#Crush European Influence
+	focus = {
+		id = CHI_crush_european_influence
+		icon = GFX_goal_unknown
+		x = 17
+		y = 13
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = CHI_question_of_minorities  }
+	}
+
+	#Our Japanese Allies
+	focus = {
+		id = CHI_our_japanese_allies
+		icon = GFX_focus_chi_collaboration_with_the_japanese
+		x = 18
+		y = 11
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = { focus = CHI_align_with_the_21_articles  }
+	}
+
+	#The State of China
+	focus = {
+		id = CHI_the_state_of_china
+		icon = GFX_goal_unknown
+		x = 17
+		y = 14
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CHI_crush_european_influence  }
+	}
+
+}

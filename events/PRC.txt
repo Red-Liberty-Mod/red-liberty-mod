@@ -1,0 +1,223 @@
+add_namespace = prcrevolution
+
+
+country_event = { # thomas inaug day
+	id = prcrevolution.1
+	title = "The Great Southern Revolution!"
+	desc = prcrevolution.1.desc
+	picture = "GFX_report_event_southern_uprising_PRC"
+
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			scoped_sound_effect = "PRC_Revolution"
+		}
+	}
+	
+	option = { # 
+		name = prcrevolution.1.a
+		
+		if = {
+			limit = {
+				HNN = {
+					NOT = {
+					has_country_flag = left_kmt_aligned
+					
+					}
+				
+				}
+			}
+			HNN = {
+			country_event = {
+			id = prcrevolution.2
+			days = 0
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				GUI = {
+					NOT = {
+					has_country_flag = left_kmt_aligned
+					
+					}
+				
+				}
+			}
+			GUI = {
+			country_event = {
+			id = prcrevolution.3
+			days = 0
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				SZC = {
+					NOT = {
+					has_country_flag = left_kmt_aligned
+					
+					}
+				
+				}
+			}
+			SZC = {
+			country_event = {
+			id = prcrevolution.4
+			days = 0
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				YUN = {
+					NOT = {
+					has_country_flag = left_kmt_aligned
+					
+					}
+				
+				}
+			}
+			YUN = {
+			country_event = {
+			id = prcrevolution.5
+			days = 0
+				}
+			}
+		}
+		
+
+		
+		if = {
+		
+			limit = {
+				GUD = { exists = yes
+				
+				}
+			
+			}
+			set_state_controller = 939
+			set_state_controller = 594
+			declare_war_on = {
+					target = GUD
+					type = annex_everything
+				}
+			load_oob = "PRC_GUD"
+			
+			
+		
+		
+		}
+		
+		else_if = {
+				limit = {
+						KMT = {
+						
+							has_government = national_conservatism
+							has_government = authoritarian_democracy
+							has_government = autocratic_despotism
+							has_government = far_right_authoritarianism
+							has_government = fascism	
+						}
+				}
+			
+		
+		
+		}
+	}
+}
+
+country_event = {
+    id = prcrevolution.2
+    title = "He Long Launches an Uprising"
+    desc = "After the Guangdong uprising started we hear that He Long has started his own revolt."
+    picture = "-" 
+    fire_only_once = yes
+    is_triggered_only  = yes
+
+    option = {
+          name = "The Red Fire in Hunan"
+		  PRC = {
+		  declare_war_on = {
+					target = HNN
+					type = annex_everything
+				}
+		  
+		  load_oob = "PRC_HNN"
+		  }
+
+     }
+
+}
+country_event = {
+    id = prcrevolution.3
+    title = "Communist Uprising"
+    desc = "After the Guangdong uprising started we hear that a communist revolt has started his own revolt."
+    picture = "-" 
+    fire_only_once = yes
+    is_triggered_only  = yes
+
+    option = {
+          name = "The Red Fire in the State"
+		  PRC = {
+		  declare_war_on = {
+					target = GUI
+					type = annex_everything
+				}
+		  
+		  load_oob = "PRC_GUI"
+		  }
+
+     }
+
+}
+
+country_event = {
+    id = prcrevolution.4
+    title = "Communist Uprising"
+    desc = "After the Guangdong uprising started we hear that a communist revolt has started his own revolt."
+    picture = "-" 
+    fire_only_once = yes
+    is_triggered_only  = yes
+
+    option = {
+          name = "The Red Fire in the state"
+		  PRC = {
+		  declare_war_on = {
+					target = SZC
+					type = annex_everything
+				}
+		  
+		  load_oob = "PRC_SZC"
+		  }
+
+     }
+
+}
+
+country_event = {
+    id = prcrevolution.5
+    title = "Communist Uprising"
+    desc = "After the Guangdong uprising started we hear that a communist revolt has started his own revolt."
+    picture = "-" 
+    fire_only_once = yes
+    is_triggered_only  = yes
+
+    option = {
+          name = "The Red Fire in the state"
+		  PRC = {
+		  declare_war_on = {
+					target = YUN
+					type = annex_everything
+				}
+		  
+		  load_oob = "PRC_YUN"
+		  }
+
+     }
+
+}

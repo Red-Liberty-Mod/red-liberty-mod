@@ -1,0 +1,999 @@
+add_namespace = united_states
+add_namespace = united_states_insurgency
+add_namespace = united_states_intervention
+add_namespace = united_states_flavor
+add_namespace = united_states_designer
+add_namespace = united_states_mproject
+
+country_event = { # intro event
+	id = united_states.1
+	title = "Long May She Wave"
+	desc = united_states.1.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = "Let's go!"
+	}
+}
+
+country_event = { # rnc
+	id = united_states.2
+	title = united_states.2.title
+	desc = united_states.2.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	option = {
+		name = united_states.2.a
+		set_country_flag = USA_democratic_republican_coalition
+	}
+}
+
+country_event = { # dnc
+	id = united_states.3
+	title = united_states.3.title
+	desc = united_states.3.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states.3.a
+		#country_event = {
+		#	id = united_states.5
+		#	days = 3
+		#}
+		set_country_flag = USA_lister_candidate
+	}
+	
+	#option = {
+	#	name = "Burton K. Wheeler!"
+	#	country_event = {
+	#		id = united_states.4
+	#		days = 3
+	#	}
+	#	set_country_flag = USA_wheeler_candidate
+	#}
+}
+
+country_event = { # conservatives abandon democratic party
+	id = united_states.4
+	title = "A House Divided"
+	desc = united_states.4.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = "Conservatives always abandon democracy."
+		add_popularity = {
+			ideology = national_conservatism
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = authoritarian_democracy
+			popularity = 0.05
+		}
+	}
+}
+
+country_event = { # liberals abandon democratic party
+	id = united_states.5
+	title = "A House Divided"
+	desc = united_states.5.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = "Liberals and their pipe dreams."
+		add_popularity = {
+			ideology = progressive_liberalism
+			popularity = -0.1
+		}
+		add_popularity = {
+			ideology = social_democracy
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = market_libertarianism
+			popularity = 0.05
+		}
+	}
+}
+
+country_event = { # spa convention - choosing veep
+	id = united_states.6
+	title = united_states.6.title
+	desc = united_states.6.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	option = {
+		name = united_states.6.a
+		set_country_flag = USA_progressive_veep
+		custom_effect_tooltip = USA_henry_wallace_veep_tt
+		ai_chance = {
+			base = 8
+		}
+	}
+	
+	option = {
+		name = united_states.6.b
+		set_country_flag = USA_radical_veep
+		custom_effect_tooltip = USA_earl_browder_veep_tt
+		
+		add_to_variable = { SPA_militant_influence = 10 }
+		add_to_variable = { SPA_moderate_influence = -5 }
+		
+		ai_chance = {
+			base = 2
+		}
+	}
+}
+
+country_event = {
+	id = united_states.7
+	title = "A Jump in Unemployment!"
+	desc = united_states.7.desc
+	picture = GFX_report_event_unemployment
+	
+	trigger = {
+		NOT = {
+			has_government = libertarian_socialism
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = "Damn."
+		country_event = {
+			id = united_states.8
+			days = 15
+		}
+	}
+}
+
+country_event = {
+	id = united_states.8
+	title = "Reduction in Manufacturing Output!"
+	desc = united_states.8.desc
+	picture = GFX_report_event_unemployment_2
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = "Damn."
+		country_event = {
+			id = united_states.9
+			days = 15
+		}
+	}
+}
+
+country_event = {
+	id = united_states.9
+	title = "Recession!"
+	desc = united_states.9.desc
+	picture = GFX_report_event_usa_election_generic
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = "We were doing so well..."
+		set_country_flag = USA_1937_recession
+		worsen_great_depression = yes
+		
+		#mark_focus_tree_layout_dirty = yes
+		
+		add_stability = -0.05
+		
+		hidden_effect = {
+			country_event = {
+				id = united_states.10
+			}
+		}
+	}
+}
+
+news_event = { # recession world event
+	id = united_states.10
+	title = "United States Enters Recession!"
+	desc = united_states.10.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	major = yes
+
+	option = {
+		name = "All that hard work..."
+	}
+}
+
+country_event = { # 1940 dnc
+	id = united_states.11
+	title = { # lister is president
+		text = united_states.11.title_lister
+		trigger = {
+			has_government = national_conservatism
+		}
+	}
+	title = { # thomas is president
+		text = united_states.11.title_hull
+		trigger = {
+			NOT = {
+				has_government = national_conservatism
+			}
+		}
+	}
+	desc = {
+		text = united_states.11.desc_lister
+		trigger = {
+			has_government = national_conservatism
+		}
+	}
+	desc = {
+		text = united_states.11.desc_hull
+		trigger = {
+			NOT = {
+				has_government = national_conservatism
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # lister second term
+		name = united_states.11.a
+		trigger = {
+			has_government = national_conservatism
+		}
+	}
+	
+	option = {
+		name = united_states.11.b
+		trigger = {
+			NOT = {
+				has_government = national_conservatism
+			}
+		}
+	}
+}
+
+country_event = { # thomas chooses to run again
+	id = united_states.12
+	title = united_states.12.title
+	desc = united_states.12.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # we want thomas!
+		name = united_states.12.a
+		set_country_flag = USA_thomas_will_run
+		ai_chance = {
+			base = 7
+		}
+	}
+	
+	option = { # im too old for this shit
+		name = united_states.12.b
+		ai_chance = {
+			base = 3
+		}
+	}
+}
+
+country_event = { # 1940 spa convention
+	id = united_states.13
+	title = united_states.13.title
+	desc = {
+		text = united_states.13.thomas_third_term
+		trigger = { has_country_flag = USA_thomas_will_run }
+	}
+	desc = {
+		text = united_states.13.thomas_retired
+		trigger = { NOT = { has_country_flag = USA_thomas_will_run } }
+	}
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # thomas third term
+		name = united_states.13.a
+		trigger = {
+			has_country_flag = USA_thomas_will_run
+		}
+		country_event = {
+			id = united_states.14
+			days = 2
+		}
+	}
+	
+	option = { # daniel hoan - progressive
+		name = united_states.13.b
+		trigger = {
+			NOT = {
+				has_country_flag = USA_thomas_will_run
+			}
+			check_variable = { SPA_moderate_pop > 15 }
+		}
+		country_event = {
+			id = united_states.14
+			days = 2
+		}
+	}
+	
+	option = { # maynard krueger - militant
+		name = united_states.13.c
+		trigger = {
+			NOT = {
+				has_country_flag = USA_thomas_will_run
+			}
+			check_variable = { SPA_militant_pop > 15 }
+		}
+		country_event = {
+			id = united_states.14
+			days = 2
+		}
+	}
+	
+	option = { # leo krzycki - unionist
+		name = united_states.13.d
+		trigger = {
+			NOT = {
+				has_country_flag = USA_thomas_will_run
+			}
+			check_variable = { SPA_unionist_pop > 10 }
+		}
+		country_event = {
+			id = united_states.14
+			days = 2
+		}
+	}
+}
+
+country_event = { # 1940 spa convention - veep
+	id = united_states.14
+	title = united_states.14.title
+	desc = united_states.14.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # keep wallace
+		name = united_states.14.a
+		trigger = {
+			has_idea = USA_henry_wallace_hog
+		}
+		ai_chance = {
+			base = 5
+			modifier = {
+				add = 20
+				check_variable = { SPA_moderate_pop > SPA_militant_pop }
+			}
+		}
+	}
+	
+	option = { # keep browder
+		name = united_states.14.b
+		trigger = {
+			has_idea = USA_earl_browder_hog
+		}
+		ai_chance = {
+			base = 5
+			modifier = {
+				add = 20
+				check_variable = { SPA_militant_pop > SPA_moderate_pop }
+			}
+		}
+	}
+	
+	option = { # asa philip randolph
+		name = united_states.14.c
+		trigger = {
+			has_country_flag = USA_thomas_will_run
+		}
+		ai_chance = {
+			base = 5
+		}
+	}
+}
+
+country_event = { # appalachian insurgency start
+	id = united_states_insurgency.1
+	title = united_states_insurgency.1.title
+	desc = united_states_insurgency.1.desc
+	picture = GFX_report_event_usa_pelley
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_insurgency.1.a
+		country_event = {
+			id = united_states_insurgency.2
+			days = 17
+		}
+		add_stability = -0.01
+	}
+}
+
+country_event = { # boi report on kkk
+	id = united_states_insurgency.2
+	title = united_states_insurgency.2.title
+	desc = united_states_insurgency.2.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_insurgency.2.a
+		country_event = {
+			id = united_states_insurgency.3
+			days = 12
+		}
+		add_stability = -0.01
+	}
+}
+
+country_event = { # shit explodes
+	id = united_states_insurgency.3
+	title = united_states_insurgency.3.title
+	desc = united_states_insurgency.3.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_insurgency.3.a
+		set_country_flag = USA_insurgency_start
+		unlock_decision_category_tooltip = USA_appalachian_insurgency_category
+		
+		set_variable = { USA_insurgency_strength = 76 }
+		
+		add_stability = -0.03
+		853 = {
+			set_demilitarized_zone = yes
+		}
+		
+		add_ideas = {
+			USA_insurgency_idea
+		}
+		
+		add_command_power = 50
+		
+		hidden_effect = {
+			random_other_country = {
+				limit = { is_ai = yes }
+				news_event = { id = united_states_insurgency.6 hours = 6 }
+			}
+			USA = {
+				country_event = {
+					id = united_states_insurgency.5
+					days = 6
+				}
+			}
+		}
+	}
+}
+
+country_event = { # insurrection act
+	id = united_states_insurgency.4
+	title = united_states_insurgency.4.title
+	desc = united_states_insurgency.4.desc
+	
+	is_triggered_only = yes
+
+	option = {
+		name = united_states_insurgency.4.a
+	}
+}
+
+country_event = { # dont tell mom im in detroit
+	id = united_states_insurgency.5
+	title = united_states_insurgency.5.title
+	desc = united_states_insurgency.5.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_insurgency.5.a
+		add_to_variable = { USA_insurgency_strength = 5 }
+		add_stability = -0.03
+	}
+}
+
+news_event = { # insurgency world news event
+	id = united_states_insurgency.6
+	title = united_states_insurgency.6.title
+	desc = united_states_insurgency.6.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = united_states_insurgency.6.a
+	}
+}
+
+country_event = { # pelly captured
+	id = united_states_insurgency.7
+	title = united_states_insurgency.7.title
+	desc = united_states_insurgency.7.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_insurgency.7.a
+		clr_country_flag = USA_insurgency_start
+		set_country_flag = USA_insurgency_end
+	}
+}
+
+country_event = { # meeting with southern governors
+	id = united_states_insurgency.8
+	title = united_states_insurgency.8.title
+	desc = united_states_insurgency.8.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_insurgency.8.a
+	}
+}
+
+country_event = { # boulder dam
+	id = united_states_flavor.1
+	title = united_states_flavor.1.title
+	desc = united_states_flavor.1.desc
+	picture = GFX_report_event_usa_boulder_dam
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_flavor.1.a
+		379 = {
+			add_extra_state_shared_building_slots = 1
+			add_to_variable = { socialist_popularity = 0.05 }
+		}
+	}
+}
+
+country_event = { # may day
+	id = united_states_flavor.2
+	title = "A Day For Labor"
+	desc = united_states_flavor.2.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = "Arise ye wretched of the earth!"
+		add_political_power = 5
+	}
+}
+
+country_event = { # aw yea its cthulhu ftaghn time
+	id = united_states_flavor.3
+	title = united_states_flavor.3.title
+	desc = united_states_flavor.3.desc
+	picture = GFX_report_event_lovecraft
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = "-Howard Philips Lovecraft"
+		if = {
+			limit = {
+				has_country_flag = USA_campaigning_socialist
+			}
+			add_political_power = 10
+		}
+		831 = {
+			add_to_variable = { socialist_popularity = 0.05 }
+		}
+	}
+}
+
+country_event = { # USA, USA, USA!
+	id = united_states_flavor.4
+	title = "The Fourth of July"
+	desc = united_states_flavor.4.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_flavor.4.a
+		custom_effect_tooltip = usa_usa_usa_tt
+	}
+}
+
+country_event = { # pittsburgh flood
+	id = united_states_flavor.5
+	title = "The Great Pittsburgh Flood"
+	desc = united_states_flavor.5.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_flavor.5.a
+		add_manpower = -69
+		862 = {
+			damage_building = {
+				type = infrastructure
+				damage = 2
+			}
+			damage_building = {
+				type = industrial_complex
+				damage = 3
+			}
+		}
+	}
+}
+
+country_event = { # new england hurricane
+	id = united_states_flavor.6
+	title = "The Great New England Hurricane"
+	desc = united_states_flavor.6.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_flavor.5.a
+		add_manpower = -728
+		357 = {
+			damage_building = {
+				type = infrastructure
+				damage = 2
+			}
+			damage_building = {
+				type = industrial_complex
+				damage = 1
+			}
+		}
+		358 = {
+			damage_building = {
+				type = infrastructure
+				damage = 2
+			}
+			damage_building = {
+				type = industrial_complex
+				damage = 1
+			}
+		}
+		816 = {
+			damage_building = {
+				type = infrastructure
+				damage = 2
+			}
+			damage_building = {
+				type = industrial_complex
+				damage = 1
+			}
+			damage_building = {
+				type = dockyard
+				damage = 2
+			}
+		}
+		827 = {
+			damage_building = {
+				type = infrastructure
+				damage = 1
+			}
+		}
+		828 = {
+			damage_building = {
+				type = infrastructure
+				damage = 2
+			}
+		}
+		829 = {
+			damage_building = {
+				type = infrastructure
+				damage = 1
+			}
+		}
+		830 = {
+			damage_building = {
+				type = infrastructure
+				damage = 2
+			}
+			damage_building = {
+				type = industrial_complex
+				damage = 1
+			}
+		}
+		831 = {
+			damage_building = {
+				type = infrastructure
+				damage = 2
+			}
+		}
+	}
+}
+
+country_event = { # 
+	id = united_states_flavor.7
+	title = "Remembering Blair Mountain"
+	desc = united_states_flavor.7.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_flavor.7.a
+		add_war_support = 0.05
+	}
+	
+	option = {
+		name = united_states_flavor.7.b
+		add_stability = 0.05
+	}
+}
+
+country_event = { # 
+	id = united_states_flavor.8
+	title = united_states_flavor.8.title
+	desc = united_states_flavor.8.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_flavor.8.a
+	}
+	
+	option = {
+		name = united_states_flavor.8.b
+		add_political_power = 15
+		trigger = {
+			has_government = libertarian_socialism
+		}
+	}
+}
+
+country_event = { # death of john clem
+	id = united_states_flavor.9
+	title = united_states_flavor.9.title
+	desc = united_states_flavor.9.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_flavor.9.a
+	}
+}
+
+country_event = { # death of john reed
+	id = united_states_flavor.10
+	title = united_states_flavor.10.title
+	desc = united_states_flavor.10.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_flavor.10.a
+		retire_character = USA_jack_reed
+	}
+}
+
+country_event = { # mexico ablaze
+	id = united_states_intervention.1
+	title = united_states_intervention.1.title
+	desc = united_states_intervention.1.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_intervention.1.a
+		add_war_support = 0.05
+	}
+	
+	option = {
+		name = united_states_intervention.1.b
+		add_stability = 0.05
+	}
+}
+
+country_event = { # intel division report
+	id = united_states_intervention.2
+	title = united_states_intervention.2.title
+	desc = united_states_intervention.2.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_intervention.2.a
+		add_political_power = -50
+	}
+}
+
+country_event = { # setting off
+	id = united_states_intervention.3
+	title = united_states_intervention.3.title
+	desc = united_states_intervention.3.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_intervention.3.a
+	}
+}
+
+country_event = { # 
+	id = united_states_intervention.4
+	title = united_states_intervention.4.title
+	desc = united_states_intervention.4.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_intervention.4.a
+	}
+}
+
+country_event = { # extend/end contract
+	id = united_states_designer.1
+	title = united_states_designer.1.title
+	desc = united_states_designer.1.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_designer.1.a
+	}
+	
+	option = {
+		name = united_states_designer.1.b
+	}
+}
+
+country_event = { # discovery of plutonium
+	id = united_states_mproject.1
+	title = united_states_mproject.1.title
+	desc = united_states_mproject.1.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_mproject.1.a
+		set_country_flag = USA_mproject_start
+		mark_focus_tree_layout_dirty = yes
+		unlock_national_focus = USA_nuclear_rumors
+	}
+}
+
+country_event = { # start of the manhattan project
+	id = united_states_mproject.2
+	title = united_states_mproject.2.title
+	desc = united_states_mproject.2.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_mproject.2.a
+		set_variable = { USA_mproject_phase = 1 }
+	}
+}
+
+country_event = { # the utmost secrecy
+	id = united_states_mproject.3
+	title = united_states_mproject.3.title
+	desc = united_states_mproject.3.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_mproject.3.a
+	}
+}
+
+country_event = { # 
+	id = united_states_mproject.4
+	title = united_states_mproject.4.title
+	desc = united_states_mproject.4.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_mproject.4.a
+	}
+}
+
+country_event = { # 
+	id = united_states_mproject.5
+	title = united_states_mproject.5.title
+	desc = united_states_mproject.5.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_mproject.5.a
+	}
+}
+
+country_event = { # 
+	id = united_states_mproject.6
+	title = united_states_mproject.6.title
+	desc = united_states_mproject.6.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_mproject.6.a
+	}
+}

@@ -15,10 +15,19 @@ on_actions = {
 					}
 				}
 			}
-		
+			
+			ARG = {
+				set_variable = { poverty_rate = 40.4 }
+				set_variable = { poverty_monthly_change = 0.09 }
+			}
+			
 			BRA = {
 				set_variable = { poverty_rate = 83.5 }
 				set_variable = { poverty_monthly_change = 0.09 }
+			}
+			
+			CAN = {
+				set_variable = { poverty_rate = 33.52 }
 			}
 			
 			CHI = {
@@ -31,9 +40,34 @@ on_actions = {
 				set_variable = { poverty_monthly_change = 0.12 }
 			}
 			
+			FCA = {
+				set_variable = { poverty_rate = 62.3 }
+				set_variable = { poverty_monthly_change = 0.09 }
+			}
+			
+			FRA = {
+				set_variable = { poverty_rate = 22.3 }
+				set_variable = { poverty_monthly_change = 0.09 }
+			}
+			
+			FWA = {
+				set_variable = { poverty_rate = 62.3 }
+				set_variable = { poverty_monthly_change = 0.09 }
+			}
+			
 			IRE = {
 				set_variable = { poverty_rate = 78.3 }
 				set_variable = { poverty_monthly_change = 0.2 }
+			}
+			
+			ITA = {
+				set_variable = { poverty_rate = 47.3 }
+				set_variable = { poverty_monthly_change = 0.16 }
+			}
+
+			PHI = {
+				set_variable = { poverty_rate = 65.4 }
+				set_variable = { poverty_monthly_change = 0.09 }
 			}
 			
 			RAJ = {
@@ -46,6 +80,14 @@ on_actions = {
 				set_variable = { poverty_monthly_change = 0.06 }
 			}
 			
+			SAF = {
+				set_variable = { poverty_rate = 65.34 }
+			}
+			
+			SIA = {
+				set_variable = { poverty_rate = 67.87 }
+			}
+			
 			SOV = {
 				set_variable = { poverty_rate = 58.3 }
 				set_variable = { poverty_monthly_change = 0.09 }
@@ -54,6 +96,11 @@ on_actions = {
 			UOB = {
 				set_variable = { poverty_rate = 81.2 }
 				set_variable = { poverty_monthly_change = 0.09 }
+			}
+			
+			UKR = {
+				set_variable = { poverty_rate = 66.4 }
+				set_variable = { poverty_monthly_change = 0.11 }
 			}
 			
 			USA = {
@@ -66,7 +113,7 @@ on_actions = {
 					limit = {
 						check_variable = { poverty_rate = 0 }
 					}
-					set_variable = { poverty_rate = 35 }
+					set_variable = { poverty_rate = 45 }
 				}
 				if = {
 					limit = {
@@ -78,6 +125,7 @@ on_actions = {
 			
 			every_country = {
 				ECON_reload_poverty_effects = yes
+				ECON_calculate_poverty_dampener_effect = yes
 			}
 		}
 	}

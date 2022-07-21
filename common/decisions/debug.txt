@@ -23,6 +23,65 @@ debug_category = {
 		}
 	}
 	
+	
+	debug_cristiada = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			
+		}
+		
+		visible = {
+			is_debug = yes
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			country_event = {
+				id = demo_mex.2
+			}
+		}
+	}
+	
+	debug_test_exile = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			
+		}
+		
+		visible = {
+			is_debug = yes
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			GER = {
+				annex_country = {
+					target = HOL
+				}
+			}
+			HOL = {
+				become_exiled_in = {
+					target = USA
+					legitimacy = 25
+				}
+			}
+		}
+	}
+	
 	debug_kill_republicans = {
 	
 		icon = generic_political_discourse
@@ -68,7 +127,11 @@ debug_category = {
 		
 		complete_effect = {
 			USA = {
-				add_to_variable = { representatives_farmer_labor = 5 }
+				subtract_from_variable = { representatives_socialist = 15 }
+				add_to_variable = { representatives_farmer_labor = 15 }
+				
+				subtract_from_variable = { senators_socialist = 4 }
+				add_to_variable = { senators_farmer_labor = 4 }
 			}
 		}
 	}
@@ -238,6 +301,58 @@ debug_category = {
 		}
 	}
 	
+	debug_add_equipment = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			
+		}
+		
+		visible = {
+			is_debug = yes
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 50000
+				producer = ROOT
+			}
+		}
+	}
+	
+	debug_kickstart_ww2 = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			
+		}
+		
+		visible = {
+			is_debug = yes
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			country_event = {
+				id = demo_ww2.1
+			}
+		}
+	}
+	
 	debug_load_FRA_far_left_tree = {
 	
 		icon = generic_political_discourse
@@ -376,6 +491,67 @@ debug_category = {
 				declare_war_on = {
 					target = RGR
 					type = annex_everything
+				}
+			}
+		}
+	}
+	
+	debug_annex_all_china_tags = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			tag = CHI
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = CHI
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			CHI = {
+				annex_country = {
+					target = SHX
+				}
+				annex_country = {
+					target = SHD
+				}
+				annex_country = {
+					target = FNG
+				}
+				annex_country = {
+					target = ANH
+				}
+				annex_country = {
+					target = ZHE
+				}
+				annex_country = {
+					target = HNN
+				}
+				annex_country = {
+					target = GUD
+				}
+				annex_country = {
+					target = YUN
+				}
+				annex_country = {
+					target = SZC
+				}
+				annex_country = {
+					target = XSM
+				}
+				annex_country = {
+					target = GNS
+				}
+				annex_country = {
+					target = SIK
 				}
 			}
 		}

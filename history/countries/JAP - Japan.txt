@@ -12,11 +12,6 @@ set_country_flag = progressive_coalition
 set_country_flag = market_libertarian_coalition
 set_country_flag = conservative_coalition
 
-set_country_flag = rev_autocracy_opposition
-set_country_flag = proletarian_opposition
-set_country_flag = libertarian_socialism_opposition
-set_country_flag = social_democracy_opposition
-
 set_research_slots = 4
 set_fuel_ratio = 1.0
 
@@ -114,6 +109,16 @@ if = {
 	}
 }
 
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	add_ideas = {
+		intercommand_rivalries_spirit
+		conflicting_branches_spirit
+	}
+}
+
 create_import = {
 	resource = oil
 	factories = 2
@@ -137,11 +142,18 @@ set_popularities = {
 	progressive_liberalism = 11
 	market_libertarianism = 18
 	national_conservatism = 34
-	far_right_authoritarianism = 0
 	authoritarian_democracy = 9
 	autocratic_despotism = 1
+	far_right_authoritarianism = 0
 	fascism = 4
 }
+
+set_variable = { JAP_mps_total = 466 }
+JAP_calc_house = yes
+
+### LEADERS ###
+recruit_character = JAP_inukai_tsuyoshi
+recruit_character = JAP_konoe_fumimaro
 
 create_country_leader = {
 	name = "Iwasa Sakutaro"
@@ -172,17 +184,8 @@ create_country_leader = {
 }
 create_country_leader = {
 	name = "Kato Shidzue"
-	desc = ""
+	desc = "POLITICS_KATO_SHIDZUE_DESC"
 	picture = ""
-	expire = "1989.1.1"
-	ideology = libertarian_socialism_subtype
-	traits = {
-	}
-}
-create_country_leader = {
-	name = "Abe Isoo"
-	desc = ""
-	picture = "gfx/leaders/JAP/Portrait_JAP_Abe_Isoo.png"
 	expire = "1989.1.1"
 	ideology = libertarian_socialism_subtype
 	traits = {
@@ -199,7 +202,7 @@ create_country_leader = {
 }
 create_country_leader = {
 	name = "Saito Takao"
-	desc = ""
+	desc = "POLITICS_SAITO_TAKAO_DESC"
 	picture = "gfx/leaders/JAP/Portrait_JAP_Saito_Takao.png"
 	expire = "1989.1.1"
 	ideology = progressive_liberalism_subtype
@@ -208,28 +211,10 @@ create_country_leader = {
 }
 create_country_leader = {
 	name = "Saito Takao"
-	desc = ""
+	desc = "POLITICS_SAITO_TAKAO_DESC"
 	picture = "gfx/leaders/JAP/Portrait_JAP_Saito_Takao.png"
 	expire = "1989.1.1"
 	ideology = market_libertarianism_subtype
-	traits = {
-	}
-}
-create_country_leader = {
-	name = "Ichiro Hatoyama"
-	desc = "POLITICS_ICHIRO_HATOYAMA_DESC"
-	picture = "gfx/leaders/JAP/Portait_JAP_Ichiro_Hatoyama.png"
-	expire = "1989.1.1"
-	ideology = national_conservatism_subtype
-	traits = {
-	}
-}
-create_country_leader = {
-	name = "Inukai Tsuyoshi"
-	desc = "POLITICS_INUKAI_TSUYOSHI_DESC"
-	picture = "gfx/leaders/JAP/Portrait_JAP_Inukai_Tsuyoshi.tga"
-	expire = "1989.1.1"
-	ideology = national_conservatism_subtype
 	traits = {
 	}
 }
@@ -243,16 +228,6 @@ create_country_leader = {
 	}
 }
 create_country_leader = {
-	name = "Konoe Fumimaro"
-	desc = ""
-	picture = "gfx/leaders/JAP/Portrait_JAP_Konoe_Fumimaro.png"
-	expire = "1989.1.1"
-	ideology = authoritarian_democracy_subtype
-	traits = {
-		
-	}
-}
-create_country_leader = {
 	name = "Ikki Kita"
 	desc = ""
 	picture = ""
@@ -263,9 +238,9 @@ create_country_leader = {
 	}
 }
 create_country_leader = {
-	name = "Konoe Fumimaro"
+	name = "Seigō Nakano"
 	desc = ""
-	picture = "Portrait_JAP_Konoe_Fumimaro.png"
+	picture = ""
 	expire = "1989.1.1"
 	ideology = fascism_subtype
 	traits = {

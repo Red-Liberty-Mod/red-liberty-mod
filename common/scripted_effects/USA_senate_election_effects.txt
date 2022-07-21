@@ -10,6 +10,17 @@ USA_recalculate_polls = {
 		USA_clamp_state_popularities = yes
 		USA_check_election_vs = yes
 	}
+	if = {
+		limit = {
+			has_country_flag = USA_senate_elections
+			NOT = {
+				has_country_flag = USA_block_poll_event
+			}
+		}
+		#country_event = {
+		#	id = us_election_trigger.9
+		#}
+	}
 }
 
 USA_class_1_senate_prepare = {
@@ -108,6 +119,16 @@ USA_class_1_senate_prepare = {
 	}
 	394 = { #Wisconsin
 		set_state_flag = elections_senator_1
+	}
+	if = {
+		limit = {
+			686 = {
+				can_have_elections_in_state = yes
+			}
+		}
+		686 = { #Puerto Rico
+			set_state_flag = elections_senator_1
+		}
 	}
 	
 	USA_calculate_senators = yes
@@ -387,6 +408,16 @@ USA_class_3_senate_prepare = {
 	381 = {
 		set_state_flag = elections_senator_2
 	}
+	if = {
+		limit = {
+			686 = {
+				can_have_elections_in_state = yes
+			}
+		}
+		686 = { #Puerto Rico
+			set_state_flag = elections_senator_2
+		}
+	}
 	
 	USA_calculate_senators = yes
 }
@@ -404,8 +435,6 @@ USA_hold_senate_election = {
 		}
 		set_variable = { prev_senator_1 = senator_1 }
 		
-		USA_gerrymandering_bonus = yes
-		
 		USA_clamp_state_popularities = yes
 		
 		log = "pick senate 1 race"
@@ -416,8 +445,6 @@ USA_hold_senate_election = {
 			has_state_flag = elections_senator_2
 		}
 		set_variable = { prev_senator_2 = senator_2 }
-		
-		USA_gerrymandering_bonus = yes
 		
 		USA_clamp_state_popularities = yes
 		

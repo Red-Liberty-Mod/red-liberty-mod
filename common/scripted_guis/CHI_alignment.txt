@@ -1,0 +1,71 @@
+scripted_gui = {
+
+	CHI_alignment_scripted_gui = {
+		window_name = "CHI_alignment_container"
+		context_type = player_context
+
+		visible = {
+			has_country_flag = CHI_alignment_scripted_gui_visible
+		}
+		
+		triggers = {
+			
+		}
+
+		dynamic_lists = {
+			imperial_tabs_grid = {
+				array = imperial_alignment_list_array
+				change_scope = yes
+
+				entry_container = CHI_alignment_tab_entry
+			}
+			koumintang_tabs_grid = {
+				array = koumintang_alignment_list_array
+				change_scope = yes
+
+				entry_container = CHI_alignment_tab_entry
+			}
+		}
+
+		properties = {
+			country_flag = {
+				image = "[This.GetFlag]"
+			}
+		}
+
+		effects = {
+			button_refresh_click = {
+				clear_array = imperial_alignment_list_array
+				add_to_array = { ROOT.imperial_alignment_list_array = CHI }
+				for_each_loop = {
+					array = CHI.CHI_empire_aligned_tags
+					if = {
+						limit = {
+							NOT = { is_in_array = { ROOT.imperial_alignment_list_array = v } }
+						}
+						add_to_array = { ROOT.imperial_alignment_list_array = v }
+					}
+				}
+				
+				clear_array = koumintang_alignment_list_array
+				add_to_array = { ROOT.koumintang_alignment_list_array = YUN }
+				for_each_loop = {
+					array = CHI.CHI_koumintang_aligned_tags
+					if = {
+						limit = {
+							NOT = { is_in_array = { ROOT.koumintang_alignment_list_array = v } }
+						}
+						add_to_array = { ROOT.koumintang_alignment_list_array = v }
+					}
+				}
+			}
+			
+			button_close_click = {
+				clear_array = ROOT.imperial_alignment_list_array
+				clear_array = ROOT.koumintang_alignment_list_array
+				
+				clr_country_flag = CHI_alignment_scripted_gui_visible
+			}
+		}
+	}
+}

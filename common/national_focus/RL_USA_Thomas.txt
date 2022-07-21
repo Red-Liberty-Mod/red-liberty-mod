@@ -12,7 +12,7 @@ shared_focus = {
 				USA_max_shachtman_for
 				USA_elizabeth_flynn_lab
 				USA_harry_hopkins_com
-				USA_john_abt_sec
+				USA_joseph_arthur_padway_sec
 			}
 		}
     }
@@ -215,7 +215,7 @@ shared_focus = {
 	relative_position_id = USA_take_on_the_klan
 	prerequisite = { focus = USA_take_on_the_klan }
     completion_reward = {
-        
+        custom_effect_tooltip = USA_exposing_kkk
     }
 	
 	ai_will_do = {
@@ -366,7 +366,7 @@ shared_focus = {
 		focus = USA_preparing_our_agenda
 	}
     completion_reward = {
-        
+        add_political_power = 25
     }
 	
 	ai_will_do = {
@@ -386,6 +386,15 @@ shared_focus = {
 	prerequisite = { focus = USA_the_american_crisis }
     completion_reward = {
         custom_effect_tooltip = USA_SPA_better_midwest
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					can_have_elections_in_state = yes
+					is_great_lakes_state = yes
+				}
+				add_to_variable = { socialist_popularity = 0.01 }
+			}
+		}
     }
 	
 	ai_will_do = {
@@ -405,6 +414,9 @@ shared_focus = {
 	prerequisite = { focus = USA_of_agriculture }
     completion_reward = {
         unlock_decision_category_tooltip = USA_distribute_produce
+		effect_tooltip = {
+			improve_great_depression = yes
+		}
     }
 	
 	ai_will_do = {
@@ -424,7 +436,7 @@ shared_focus = {
 	prerequisite = { focus = USA_of_agriculture }
     completion_reward = {
         effect_tooltip = {
-			improve_dust_bowl = yes
+			improve_great_depression = yes
 		}
     }
 	
@@ -445,7 +457,9 @@ shared_focus = {
 	prerequisite = { focus = USA_buy_up_produce }
 	prerequisite = { focus = USA_federal_relief_programs }
     completion_reward = {
-		
+		effect_tooltip = {
+			improve_great_depression = yes
+		}
     }
 	
 	ai_will_do = {
@@ -465,7 +479,7 @@ shared_focus = {
 	prerequisite = { focus = USA_dealing_with_the_dustbowl }
     completion_reward = {
 		effect_tooltip = {
-			improve_dust_bowl = yes
+			improve_great_depression = yes
 		}
     }
 	
@@ -486,6 +500,18 @@ shared_focus = {
 	prerequisite = { focus = USA_the_american_crisis }
     completion_reward = {
 		custom_effect_tooltip = USA_SPA_better_north
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					can_have_elections_in_state = yes
+					NOT = {
+						is_upper_south_state = yes
+						is_deep_south_state = yes
+					}
+				}
+				add_to_variable = { socialist_popularity = 0.01 }
+			}
+		}
     }
 	
 	ai_will_do = {
@@ -525,7 +551,9 @@ shared_focus = {
 	relative_position_id = USA_of_industry
 	prerequisite = { focus = USA_of_industry }
     completion_reward = {
-        
+        effect_tooltip = {
+			improve_great_depression = yes
+		}
     }
 	
 	ai_will_do = {
@@ -545,7 +573,9 @@ shared_focus = {
 	prerequisite = { focus = USA_create_the_fprc }
 	prerequisite = { focus = USA_bank_regulation }
     completion_reward = {
-        
+        effect_tooltip = {
+			improve_great_depression = yes
+		}
     }
 	
 	ai_will_do = {
@@ -560,7 +590,7 @@ shared_focus = {
     x = 1
 	y = 1
 	
-	cost = 8
+	cost = 5
 	relative_position_id = USA_federal_relief_programs
 	prerequisite = { focus = USA_federal_relief_programs }
 	prerequisite = { focus = USA_create_the_fprc }
@@ -584,11 +614,20 @@ shared_focus = {
     x = -1
 	y = 1
 	
-	cost = 6
+	cost = 4
 	relative_position_id = USA_paying_for_it_all
 	prerequisite = { focus = USA_paying_for_it_all }
     completion_reward = {
         # add event about local 829
+		ECON_poverty_change_small = yes
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					can_have_elections_in_state = yes
+				}
+				add_to_variable = { socialist_popularity = 0.01 }
+			}
+		}
     }
 	
 	ai_will_do = {
@@ -603,11 +642,12 @@ shared_focus = {
     x = 1
 	y = 1
 	
-	cost = 6
+	cost = 4
 	relative_position_id = USA_paying_for_it_all
 	prerequisite = { focus = USA_paying_for_it_all }
     completion_reward = {
         # add event?
+		add_war_support = -0.02
     }
 	
 	ai_will_do = {
@@ -622,7 +662,7 @@ shared_focus = {
     x = 1
 	y = 1
 	
-	cost = 8
+	cost = 5
 	relative_position_id = USA_federal_project_one
 	prerequisite = { focus = USA_federal_project_one }
 	prerequisite = { focus = USA_cut_the_military }
@@ -724,7 +764,7 @@ shared_focus = {
 	prerequisite = { focus = USA_the_american_crisis }
 	prerequisite = { focus = USA_our_mandate }
     completion_reward = {
-        
+        custom_effect_tooltip = USA_SPA_better_east
     }
 	
 	ai_will_do = {
@@ -828,15 +868,7 @@ shared_focus = {
 	relative_position_id = USA_reorganization
 	prerequisite = { focus = USA_reorganization }
     completion_reward = {
-		if = {
-			limit = {
-				date < 1937.4.4
-			}
-			custom_effect_tooltip = USA_are_you_sure
-		}
-		#custom_effect_tooltip = USA_bill_over_time_tt
-		#unlock_decision_tooltip = start_USA_court_packing_act
-		#unlock_decision_tooltip = start_USA_union_rep_act
+		custom_effect_tooltip = USA_strengthen_executive_branch_tt
     }
 	
 	ai_will_do = {
@@ -862,7 +894,7 @@ shared_focus = {
 		focus = USA_accept_the_rulings
 	}
     completion_reward = {
-		custom_effect_tooltip = court_packed_effect_tt
+		custom_effect_tooltip = USA_pack_the_court_tt
         add_stability = -0.05
     }
 	

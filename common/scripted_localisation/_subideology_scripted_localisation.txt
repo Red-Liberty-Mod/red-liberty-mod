@@ -60,12 +60,30 @@ defined_text = {
 defined_text = {
 	name = GetSubIdeologyAuthSoc
 	text = {
+		trigger = {
+			FROM = { has_country_leader_ideology = leninism_subtype }
+		}
+		localization_key = leninism_subtype
+	}
+	text = {
+		trigger = {
+			FROM = { has_country_leader_ideology = revolutionary_autocracy_subtype }
+		}
+		localization_key = revolutionary_autocracy_subtype
+	}
+	text = {
 		localization_key = revolutionary_autocracy
 	}
 }
 
 defined_text = {
 	name = GetSubIdeologyRevSoc
+	text = {
+		trigger = {
+			FROM = { has_country_leader_ideology = de_leonism_subtype }
+		}
+		localization_key = de_leonism_subtype
+	}
 	text = {
 		localization_key = proletarian_dictatorship
 	}
@@ -74,8 +92,16 @@ defined_text = {
 defined_text = {
 	name = GetSubIdeologyLibSoc
 	text = {
-		trigger = { hasChristianSocialismLeader = yes }
+		trigger = {
+			FROM = { has_country_leader_ideology = christian_socialism_subtype }
+		}
 		localization_key = christian_socialism_subtype
+	}
+	text = {
+		trigger = {
+			FROM = { has_country_leader_ideology = popular_front_subtype }
+		}
+		localization_key = popular_front_subtype
 	}
 	text = {
 		localization_key = libertarian_socialism
@@ -85,12 +111,36 @@ defined_text = {
 defined_text = {
 	name = GetSubIdeologySocDem
 	text = {
+		trigger = {
+			FROM = { has_country_leader_ideology = sewer_socialism_subtype }
+		}
+		localization_key = sewer_socialism_subtype
+	}
+	text = {
+		trigger = {
+			FROM = { has_country_leader_ideology = social_corporatism_subtype }
+		}
+		localization_key = social_corporatism_subtype
+	}
+	text = {
 		localization_key = social_democracy
 	}
 }
 
 defined_text = {
 	name = GetSubIdeologyProgLib
+	text = {
+		trigger = {
+			FROM = { has_country_leader_ideology = jadidism_subtype }
+		}
+		localization_key = jadidism_subtype
+	}
+	text = {
+		trigger = {
+			FROM = { has_country_leader_ideology = liberal_corporatism_subtype }
+		}
+		localization_key = liberal_corporatism_subtype
+	}
 	text = {
 		localization_key = progressive_liberalism
 	}
@@ -99,7 +149,9 @@ defined_text = {
 defined_text = {
 	name = GetSubIdeologyLibCon
 	text = {
-		trigger = { hasNationalLiberalLeader = yes }
+		trigger = {
+			FROM = { has_country_leader_ideology = national_liberalism_subtype }
+		}
 		localization_key = national_liberalism_subtype
 	}
 	text = {
@@ -110,12 +162,22 @@ defined_text = {
 defined_text = {
 	name = GetSubIdeologyNatCon
 	text = {
-		trigger = { hasChristianDemocratLeader = yes }
+		trigger = {
+			FROM = { has_country_leader_ideology = christian_democracy_subtype }
+		}
 		localization_key = christian_democracy_subtype
 	}
 	text = {
-		trigger = { hasRightPopulistLeader = yes }
-		localization_key = right_wing_populist_subtype
+		trigger = {
+			FROM = { has_country_leader_ideology = conservative_populism_subtype }
+		}
+		localization_key = conservative_populism_subtype
+	}
+	text = {
+		trigger = {
+			FROM = { has_country_leader_ideology = paternalistic_conservatism_subtype }
+		}
+		localization_key = paternalistic_conservatism_subtype
 	}
 	text = {
 		localization_key = national_conservatism
@@ -125,16 +187,34 @@ defined_text = {
 defined_text = {
 	name = GetSubIdeologyAuthDem
 	text = {
-		trigger = { hasRightNationalistLeader = yes }
+		trigger = {
+			FROM = { has_country_leader_ideology = right_wing_nationalism_subtype }
+		}
 		localization_key = right_wing_nationalism_subtype
 	}
 	text = {
-		trigger = { hasInterimGovtLeader = yes }
+		trigger = {
+			FROM = { has_country_leader_ideology = interim_government_subtype }
+		}
 		localization_key = interim_government_subtype
 	}
 	text = {
-		trigger = { hasColonialGovtLeader = yes }
+		trigger = {
+			FROM = { has_country_leader_ideology = colonial_government_subtype }
+		}
 		localization_key = colonial_government_subtype
+	}
+	text = {
+		trigger = {
+			FROM = { has_country_leader_ideology = muslim_democracy_subtype }
+		}
+		localization_key = muslim_democracy_subtype
+	}
+	text = {
+		trigger = {
+			FROM = { has_country_leader_ideology = semi_constitutional_monarchy_subtype }
+		}
+		localization_key = semi_constitutional_monarchy_subtype
 	}
 	text = {
 		localization_key = authoritarian_democracy
@@ -144,20 +224,34 @@ defined_text = {
 defined_text = {
 	name = GetSubIdeologyAutDes
 	text = {
-		trigger = { hasFundamentalistLeader = yes }
+		trigger = {
+			FROM = { has_country_leader_ideology = fundamentalist_theocracy_subtype }
+		}
 		localization_key = fundamentalist_theocracy_subtype
 	}
 	text = {
-		trigger = { hasWarlordLeader = yes }
+		trigger = {
+			FROM = { has_country_leader_ideology = warlordism_subtype }
+		}
 		localization_key = warlordism_subtype
 	}
 	text = {
-		trigger = { hasMilitaryGovtLeader = yes }
+		trigger = {
+			FROM = { has_country_leader_ideology = military_government_subtype }
+		}
 		localization_key = military_government_subtype
 	}
 	text = {
-		trigger = { hasAbsolutismLeader = yes }
+		trigger = {
+			FROM = { has_country_leader_ideology = absolute_monarchy_subtype }
+		}
 		localization_key = absolute_monarchy_subtype
+	}
+	text = {
+		trigger = {
+			FROM = { has_country_leader_ideology = colonial_regime_subtype }
+		}
+		localization_key = colonial_regime_subtype
 	}
 	text = {
 		localization_key = autocratic_despotism
@@ -173,6 +267,12 @@ defined_text = {
 
 defined_text = {
 	name = GetSubIdeologyFascism
+	text = {
+		trigger = {
+			FROM = { has_country_leader_ideology = clerical_fascism_subtype }
+		}
+		localization_key = clerical_fascism_subtype
+	}
 	text = {
 		localization_key = fascism
 	}

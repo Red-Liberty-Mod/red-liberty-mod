@@ -1,4 +1,24 @@
 defined_text = {
+	name = get_senate_quorum
+	
+	text = {
+		trigger = {
+			has_country_flag = filibuster_active
+		}
+		localization_key = "USA_senate_quorum_high"
+	}
+	
+	text = {
+		trigger = {
+			NOT = {
+				has_country_flag = filibuster_active
+			}
+		}
+		localization_key = "USA_senate_quorum_med"
+    }
+}
+
+defined_text = {
 	name = get_bill_house_status
 	
 	text = { 
@@ -26,8 +46,19 @@ defined_text = {
 	text = { 
         trigger = {
 			has_country_flag = USA_bill_senate_phase
+			NOT = {
+				has_country_flag = filibuster_active
+			}
         }
         localization_key = "USA_bill_being_considered"
+    }
+	
+	text = { 
+        trigger = {
+			has_country_flag = USA_bill_senate_phase
+			has_country_flag = filibuster_active
+        }
+        localization_key = "USA_bill_being_filibustered"
     }
 	
 	text = {
@@ -81,6 +112,21 @@ defined_text = {
 }
 
 defined_text = {
+	name = get_us_communist_senator_support
+	
+	text = { 
+        trigger = {
+			check_variable = { senators_communist > 0 }
+        }
+        localization_key = "USA_congress_communist_senator_support"
+    }
+	
+	text = {
+		localization_key = ""
+    }
+}
+
+defined_text = {
 	name = get_us_socialist_rep_count
 	
 	text = { 
@@ -118,6 +164,21 @@ defined_text = {
 			check_variable = { senators_socialist > 0 }
         }
         localization_key = "USA_congress_socialist_senator_count"
+    }
+	
+	text = {
+		localization_key = ""
+    }
+}
+
+defined_text = {
+	name = get_us_socialist_senator_support
+	
+	text = { 
+        trigger = {
+			check_variable = { senators_socialist > 0 }
+        }
+        localization_key = "USA_congress_socialist_senator_support"
     }
 	
 	text = {
@@ -261,6 +322,21 @@ defined_text = {
 }
 
 defined_text = {
+	name = get_us_republican_senator_support
+	
+	text = {
+        trigger = {
+			check_variable = { senators_republican > 0 }
+        }
+        localization_key = "USA_congress_republican_senator_support"
+    }
+	
+	text = {
+		localization_key = ""
+    }
+}
+
+defined_text = {
 	name = get_us_democrat_rep_count
 	
 	text = { 
@@ -306,6 +382,21 @@ defined_text = {
 }
 
 defined_text = {
+	name = get_us_democrat_senator_support
+	
+	text = { 
+        trigger = {
+			check_variable = { senators_democrat > 0 }
+        }
+        localization_key = "USA_congress_democrat_senator_support"
+    }
+	
+	text = {
+		localization_key = ""
+    }
+}
+
+defined_text = {
 	name = get_us_fascist_rep_count
 	
 	text = { 
@@ -336,13 +427,28 @@ defined_text = {
 }
 
 defined_text = {
-	name = get_us_fascist_senator_count
+	name = get_us_afp_senator_count
 	
 	text = { 
         trigger = {
 			check_variable = { senators_fascist > 0 }
         }
         localization_key = "USA_congress_fascist_senator_count"
+    }
+	
+	text = {
+		localization_key = ""
+    }
+}
+
+defined_text = {
+	name = get_us_afp_senator_support
+	
+	text = { 
+        trigger = {
+			check_variable = { senators_fascist > 0 }
+        }
+        localization_key = "USA_congress_afp_senator_support"
     }
 	
 	text = {
@@ -442,6 +548,70 @@ defined_text = {
     }
 	
 	text = { 
+        trigger = {
+			check_variable = { bill_id = 11 }
+			has_country_flag = USA_discussing_bill
+        }
+        localization_key = "start_USA_voting_rights_act"
+    }
+	
+	text = { 
+        trigger = {
+			check_variable = { bill_id = 14 }
+			has_country_flag = USA_discussing_bill
+        }
+        localization_key = "start_USA_equal_education_act"
+    }
+	
+	text = { 
+        trigger = {
+			check_variable = { bill_id = 15 }
+			has_country_flag = USA_discussing_bill
+        }
+        localization_key = "start_USA_economic_equality_act"
+    }
+	
+	text = { 
+        trigger = {
+			check_variable = { bill_id = 16 }
+			has_country_flag = USA_discussing_bill
+        }
+        localization_key = "start_USA_national_healthcare_act"
+    }
+	
+	text = { 
+        trigger = {
+			check_variable = { bill_id = 17 }
+			has_country_flag = USA_discussing_bill
+        }
+        localization_key = "start_USA_second_bill_of_rights"
+    }
+	
+	text = { 
+        trigger = {
+			check_variable = { bill_id = 18 }
+			has_country_flag = USA_discussing_bill
+        }
+        localization_key = "start_USA_puerto_rico_statehood"
+    }
+	
+	text = { 
+        trigger = {
+			check_variable = { bill_id = 19 }
+			has_country_flag = USA_discussing_bill
+        }
+        localization_key = "start_USA_war_declaration"
+    }
+	
+	text = { 
+        trigger = {
+			check_variable = { bill_id = 21 }
+			has_country_flag = USA_discussing_bill
+        }
+        localization_key = "start_USA_nationalize_defense"
+    }
+	
+	text = { 
         localization_key = "major_legislation"
     }
 }
@@ -477,6 +647,9 @@ defined_text = {
 	text = { 
         trigger = {
 			check_variable = { senators_support > quorum_medium }
+			NOT = {
+				has_country_flag = filibuster_active
+			}
         }
         localization_key = "senator_support_green"
     }
@@ -484,6 +657,9 @@ defined_text = {
 	text = { 
         trigger = {
 			check_variable = { senators_support = quorum_medium }
+			NOT = {
+				has_country_flag = filibuster_active
+			}
         }
         localization_key = "senator_support_yellow"
     }
@@ -491,6 +667,33 @@ defined_text = {
 	text = { 
         trigger = {
 			check_variable = { senators_support < quorum_medium }
+			NOT = {
+				has_country_flag = filibuster_active
+			}
+        }
+        localization_key = "senator_support_red"
+    }
+	
+	text = { 
+        trigger = {
+			check_variable = { senators_support > quorum_high }
+			has_country_flag = filibuster_active
+        }
+        localization_key = "senator_support_green"
+    }
+	
+	text = { 
+        trigger = {
+			check_variable = { senators_support = quorum_high }
+			has_country_flag = filibuster_active
+        }
+        localization_key = "senator_support_yellow"
+    }
+	
+	text = { 
+        trigger = {
+			check_variable = { senators_support < quorum_high }
+			has_country_flag = filibuster_active
         }
         localization_key = "senator_support_red"
     }

@@ -4,10 +4,6 @@ oob = "LIT"
 
 set_research_slots = 2
 
-add_ideas = {
-	limited_conscription
-}
-
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
@@ -37,14 +33,21 @@ set_popularities = {
 	fascism = 10
 }
 
-#set_cosmetic_tag = LIT_GER_puppet
+set_cosmetic_tag = LIT_GER_occupied
+
+add_ideas = {
+	LIT_becks_personal_reich
+	LIT_shackled_to_berlin
+	
+	limited_conscription
+}
 
 create_country_leader = {
 	name = "Ludwig Beck"
 	desc = "POLITICS_LUDWIG_BECK_DESC"
 	picture = "gfx/leaders/LIT/Portrait_LIT_Ludwig_Beck.tga"
 	expire = "1965.1.1"
-	ideology = autocratic_despotism_subtype
+	ideology = military_government_subtype
 	traits = {
 		#
 	}

@@ -1,0 +1,60 @@
+RUS_hidden_ai_stuff = {
+	
+	RUS_sue_for_peace = {
+
+		allowed = {
+			original_tag = RUS
+			RUS = {
+				is_ai = yes
+			}
+		}
+
+		available = {
+			SOV = {
+				controls_state = 571
+			}
+		}
+
+		visible = {
+			has_war = yes
+		}
+
+		cost = 0
+
+		days_remove = -1
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				NOT = {
+					controls_state = 571
+				}
+				factor = 10
+			}
+		}
+
+		modifier = {
+			forced_surrender_limit = -1.0
+		}
+
+		remove_effect = {
+
+		}
+
+		remove_trigger = {
+			has_war = no
+		}
+		
+		complete_effect = {
+			every_state = {
+				limit = {
+					OR = {
+						is_core_of = RUS
+						is_core_of = FER
+					}
+				}
+				add_core_of = SOV
+				remove_core_of = RUS
+			}
+		}
+	}
+}

@@ -29,62 +29,59 @@ on_actions = {
 				#set_variable = { var = representatives_fascist value = 14 }
 				
 				# adds up to 483
-				set_variable = { var = representatives_communist value = 11 }
-				set_variable = { var = representatives_socialist value = 190 }
-				set_variable = { var = representatives_republican value = 85 }
-				set_variable = { var = representatives_democrat value = 179 }
-				set_variable = { var = representatives_fascist value = 18 }
+				#set_variable = { var = representatives_communist value = 11 }
+				#set_variable = { var = representatives_socialist value = 190 }
+				#set_variable = { var = representatives_republican value = 85 }
+				#set_variable = { var = representatives_democrat value = 179 }
+				#set_variable = { var = representatives_fascist value = 18 }
 				
-				USA_calc_congress_control = yes
 				
 				add_dynamic_modifier = {
 					modifier = USA_senate_control_modifier
 				}
-				
 				add_dynamic_modifier = {
 					modifier = USA_house_control_modifier
 				}
+				USA_calc_congress_control = yes
 			}
 			
 			#USA = {
 			#	USA_calc_poverty_goal = yes
 			#}
 			
-			### ELECTION EVENTS ###
 			USA = {
+				##### ELECTION EVENTS #####
 				### INTRO EVENT ###
 				country_event = { id = united_states.1 hours = 1 }
 			
-				### 1936 ELECTIONS PREP ###
-				country_event = { id = us_election_trigger.1 days = 30 } # SENATE
-				#country_event = { id = us_election_trigger.11 days = 30 } # PRESIDENTIAL
-				
-				### 1936 PRIMARIES ###
+				### 1936 ELECTIONS ###
+				country_event = { id = us_election_trigger.1 days = 30 } # SENATE setup
 				country_event = { id = united_states.6 days = 150 } # SPNC
 				country_event = { id = united_states.2 days = 163 } # RNC
 				country_event = { id = united_states.3 days = 176 } # DNC
+				country_event = { id = us_election.1 days = 309 } # ELECTION
 				
-				### 1936 ELECTION ###
-				country_event = { id = us_election.1 days = 309 }
+				### 1938 MIDTERM ELECTIONS ###
+				country_event = { id = us_election_trigger.3 days = 760 } # SENATE setup
 				
-				### 1938 ELECTIONS PREP ###
-				country_event = { id = us_election_trigger.3 days = 760 } # SENATE
+				### 1940 ELECTIONS ###
+				country_event = { id = us_election_trigger.6 days = 1491 } # SENATE setup
+				country_event = { id = united_states.12 days = 1600 } # thomas choice
+				country_event = { id = united_states.13 days = 1612 } # SPNC
+				country_event = { id = united_states.11 days = 1627 } # DNC
+				country_event = { id = us_election.20 days = 1771 } # ELECTION
 				
-				### 1940 ELECTIONS PREP ###
-				country_event = { id = us_election_trigger.6 days = 1491 } # SENATE
-				#country_event = { id = us_election_trigger.11 days = 1491 } # PRESIDENTIAL
+				### 1942 MIDTERM ELECTIONS ###
+				country_event = { id = us_election_trigger.1 days = 2221 } # SENATE setup
 				
-				### 1940 PRIMARIES ###
-				#country_event = { id = united_states.10 days = 1363 } # RNC
-				#country_event = { id = united_states.11 days = 1376 } # DNC
-				#country_event = { id = united_states.12 days = 1385 } # SPNC
+				### 1944 ELECTIONS ###
+				country_event = { id = us_election_trigger.3 days = 2952 } # SENATE setup
 				
-				### 1942 ELECTIONS PREP ###
-				country_event = { id = us_election_trigger.1 days = 2221 } # SENATE
+				### 1946 MIDTERM ELECTIONS ###
+				country_event = { id = us_election_trigger.6 days = 3682 } # SENATE setup
 				
-				### 1944 ELECTIONS PREP ###
-				country_event = { id = us_election_trigger.3 days = 2952 } # SENATE
-				#country_event = { id = us_election_trigger.11 days = 2952 } # PRESIDENTIAL
+				### 1948 ELECTIONS ###
+				country_event = { id = us_election_trigger.1 days = 4412 } # SENATE setup
 			}
 			
 			USA = {
@@ -92,32 +89,35 @@ on_actions = {
 				country_event = {
 					id = united_states_thomas.1
 					days = 38
-					#days_random = 10
 				}
 				country_event = {
 					id = united_states_thomas.2
 					days = 72
-					#days_random = 10
 				}
 				country_event = {
 					id = united_states_thomas.3
 					days = 108
-					#days_random = 10
 				}
-				country_event = {
-					id = united_states_thomas.6
-					days = 158
-					#days_random = 10
+				#country_event = {
+				#	id = united_states_thomas.6
+				#	days = 158
+				#}
+				country_event = { # madison square garden rally
+					id = united_states_thomas.7
+					days = 305
 				}
 				country_event = { # reed announces retirement
 					id = united_states_thomas.23
 					days = 135 # just before primaries
-					#days_random = 10
 				}
 				country_event = { # I HATE THE ANTICHRIST
-					id = united_states.13
+					id = united_states_insurgency.1
 					days = 510 # around the middle of may 1937
 					days_random = 15
+				}
+				country_event = { # manhattan project start
+					id = united_states_mproject.1
+					days = 1809 # december 14, 1940
 				}
 			}
 			
@@ -147,6 +147,18 @@ on_actions = {
 				country_event = { # new england hurricane
 					id = united_states_flavor.6
 					days = 994
+				}
+				country_event = { # golden gate bridge complete
+					id = united_states_flavor.8
+					days = 512
+				}
+				country_event = { # john clem passes away
+					id = united_states_flavor.9
+					days = 498 # may 13, 1937
+				}
+				country_event = { # john reed passes away
+					id = united_states_flavor.10
+					days = 851 # may 1, 1938
 				}
 			}
 			
@@ -194,14 +206,8 @@ on_actions = {
 						has_country_flag = bill_passed
 					}
 				}
+				check_if_bill_passed = yes
 			}
-			check_if_bill_passed = yes
-		}
-	}
-	
-	on_weekly_USA = {
-		effect = {
-			USA_calc_congress_control = yes
 		}
 	}
 	
@@ -214,10 +220,11 @@ on_actions = {
 	#	}
 	#}
 	
-	on_monthly_USA { # update
+	on_monthly_USA { # update - kwik mafs
 		effect = {
 			USA_recalculate_polls = yes
 			USA_calculate_senators = yes
+			USA_calc_congress_control = yes
 		}
 	}
 	

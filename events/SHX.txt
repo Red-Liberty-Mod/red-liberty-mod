@@ -1,0 +1,243 @@
+add_namespace = shanxicivilstrife
+
+
+country_event = { # intro event
+	id = shanxicivilstrife.1
+	title = "Aftermath of Collapse"
+	desc = "After the collapes of Ringayo's nation, Shanxi becomes a place of power struggle. Yan Xishan wanting to maintain provinical control starts eyeing the manuvers of Feng Yuxiang's Guominjun. Its a power stuggle that starts now..."
+	
+	picture = "GFX_report_event_student_protest_CHI"
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	
+
+	option = {
+		name = "The Struggle of Yan'an"
+		
+		custom_effect_tooltip = YAN_SHX_tt
+		set_variable = { SHX_YAN = 0 }
+		custom_effect_tooltip = FEN_SHX_tt
+		set_variable = { SHX_FEN = 0 }
+		country_event = {
+		id = shanxicivilstrife.2
+		days = 2
+		}
+		
+	}
+	
+	
+}
+
+
+
+
+
+country_event = { # intro event
+	id = shanxicivilstrife.2
+	title = "Battle of Yulin"
+	desc = "Reports Circulate of Feng's troops marching towards Ordos. The decision is given to Yan in which how to stop their advance."
+	
+	picture = "GFX_report_event_student_protest_CHI"
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	
+
+	option = {
+		name = "Xishan Cuts off Feng in the Yulin Mountains"
+		
+		custom_effect_tooltip = YAN_SHX_tt
+		add_variable = { SHX_YAN = 1 }
+		country_event = {
+		id = shanxicivilstrife.3
+		days = 2
+		}
+		
+	}
+	
+	option = {
+		name = "Defend the City; Don't move forward"
+		
+		custom_effect_tooltip = FEN_SHX_tt
+		add_variable = { FEN_YAN = 1 }
+		country_event = {
+		id = shanxicivilstrife.3
+		days = 2
+		}
+	}
+	
+	
+}
+
+country_event = { # intro event
+	id = shanxicivilstrife.3
+	title = "Battle of Yan'an"
+	desc = "After yulin, Feng's force's head south. To the city of Yan'an. Xishan is yet again met with a tactical descision."
+	
+	picture = "GFX_report_event_student_protest_CHI"
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	
+
+	option = {
+		name = "Cut them off."
+		
+		custom_effect_tooltip = YAN_SHX_tt
+		add_variable = { SHX_YAN = 1 }
+		country_event = {
+		id = shanxicivilstrife.4
+		days = 2
+		}
+		
+	}
+	
+	option = {
+		name = "Create A Fall Back Line"
+		
+		custom_effect_tooltip = FEN_SHX_tt
+		add_variable = { FEN_YAN = 1 }
+		country_event = {
+		id = shanxicivilstrife.4
+		days = 2
+		}
+	}
+	
+	}
+	
+	
+	country_event = { # intro event
+	id = shanxicivilstrife.4
+	title = "The Taiyuan Offensive"
+	desc = "Now that yan'an is over Feng turns to the final battle, our capital Taiyuan. The fate of the clique rests in this battle."
+	
+	picture = "GFX_report_event_student_protest_CHI"
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	
+
+	option = {
+		name = "Strenghten Defences"
+		
+		custom_effect_tooltip = YAN_SHX_tt
+		add_variable = { SHX_YAN = 1 }
+		country_event = {
+		id = shanxicivilstrife.400
+		days = 2
+		}
+		
+	}
+	
+	option = {
+		name = "Make One Last Push"
+		
+		custom_effect_tooltip = FEN_SHX_tt
+		add_variable = { FEN_YAN = 1 }
+		country_event = {
+		id = shanxicivilstrife.400
+		days = 2
+		}
+	}
+	
+	}
+
+
+country_event = {
+	id = shanxicivilstrife.400
+	
+	title = "The War is Won"
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "May the best man win!"
+		
+		
+		
+		if = {
+			limit = {
+				
+					check_variable = { FEN_YAN > 2 }
+					
+				
+			}
+			country_event = {
+				id = shanxicivilstrife.5
+				days = 1
+			}
+			
+			
+		}
+		if = {
+			limit = {
+				check_variable = { SHX_YAN > 2 }
+			}
+			country_event = {
+				id = shanxicivilstrife.6
+				days = 1
+			}
+			
+		}
+		
+	
+	}
+}
+
+
+country_event = { # intro event
+	id = shanxicivilstrife.5
+	title = "Guominjun Victory"
+	desc = "We have now defeated Yan Xishan, we shall now fight for Christian Socialism! "
+	
+	picture = "GFX_report_event_student_protest_CHI"
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	
+
+	option = {
+		name = "Guominjun Wansui!"
+		set_cosmetic_tag = SHX_GUO
+		set_politics = { ruling_party = libertarian_socialism }
+		
+		
+	}
+	
+	
+}
+
+country_event = { # intro event
+	id = shanxicivilstrife.6
+	title = "Xishan Victorious!"
+	desc = "Huzzah! We have finished off our rivials fo Feng Yuxiang and his thugs."
+	
+	picture = "GFX_report_event_student_protest_CHI"
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	
+
+	option = {
+		name = "The Warlord Remains"
+		
+		
+		
+		
+	}
+	
+	
+}

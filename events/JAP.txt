@@ -1,5 +1,6 @@
 add_namespace = japan
 add_namespace = japan_flavor
+add_namespace = japan_news
 add_namespace = japan_konoe
 
 country_event = { # intro event
@@ -18,7 +19,7 @@ country_event = { # intro event
 
 country_event = { # from japan to china
 	id = japan.2
-	title = "Our Relationship With Japan"
+	title = japan.2.title
 	desc = japan.2.desc
 	
 	is_triggered_only = yes
@@ -26,8 +27,7 @@ country_event = { # from japan to china
 	fire_only_once = yes
 	
 	option = {
-		name = "What do you think about the Treaty?"
-		ai_chance = { factor = 1 }
+		name = japan.2.a
 		add_popularity = {
 			ideology = market_libertarianism
 			popularity = 0.02
@@ -41,7 +41,7 @@ country_event = { # from japan to china
 
 country_event = { # inukai dies
 	id = japan.3
-	title = "Overslept"
+	title = japan.3.title
 	desc = japan.3.desc
 	
 	is_triggered_only = yes
@@ -57,14 +57,20 @@ country_event = { # inukai dies
 		create_country_leader = {
 			name = "Showa"
 			desc = "POLITICS_SHOWA_EMPEROR_DESC"
-			picture = "Portrait_JAP_Showa.tga"
+			picture = "gfx/leaders/JAP/Portrait_JAP_Hirohito.png"
 			expire = "1989.1.1"
 			ideology = national_conservatism_subtype
 			traits = {
+				
 			}
 		}
 		
-		ai_chance = { factor = 1 }
+		hidden_effect = {
+			random_other_country = {
+				limit = { is_ai = yes }
+				news_event = { id = japan_news.1 hours = 6 }
+			}
+		}
 	}
 }
 
@@ -79,7 +85,6 @@ country_event = { # inukai funeral
 	
 	option = {
 		name = "Meifuku o inoru."
-		ai_chance = { factor = 1 }
 	}
 }
 
@@ -94,7 +99,6 @@ country_event = {
 	
 	option = {
 		name = "A post-Inukai Japan begins to take shape."
-		ai_chance = { factor = 1 }
 	}
 }
 
@@ -117,7 +121,6 @@ country_event = {
 			ideology = social_democracy
 			popularity = -0.03
 		}
-		ai_chance = { factor = 1 }
 	}
 }
 
@@ -136,7 +139,6 @@ country_event = {
 			ideology = market_libertarianism
 			popularity = 0.05
 		}
-		ai_chance = { factor = 1 }
 	}
 }
 
@@ -163,7 +165,6 @@ country_event = {
 			ideology = fascism
 			popularity = -0.01
 		}
-		ai_chance = { factor = 1 }
 	}
 }
 
@@ -203,7 +204,7 @@ country_event = {
 			create_country_leader = {
 				name = "Ichiro Hatoyama"
 				desc = ""
-				picture = ""
+				picture = "gfx/leaders/JAP/Portait_JAP_Ichiro_Hatoyama.png"
 				expire = "1989.1.1"
 				ideology = national_conservatism_subtype
 				traits = {
@@ -215,7 +216,6 @@ country_event = {
 			id = japan.10
 			days = 1
 		}
-		ai_chance = { factor = 1 }
 	}
 }
 
@@ -236,7 +236,13 @@ country_event = {
 		set_country_flag = conservative_coalition
 		custom_effect_tooltip = add_conservative_coalition_tt
 		
-		ai_chance = { factor = 33 }
+		ai_chance = {
+			base = 33
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
 	}
 	
 	option = {
@@ -255,13 +261,11 @@ country_event = {
 			popularity = 0.01
 		}
 		
-		set_country_flag = libertarian_socialism_coalition
-		set_country_flag = social_democracy_coalition
-		custom_effect_tooltip = add_libertarian_socialist_coalition_tt
-		custom_effect_tooltip = add_social_democrat_coalition_tt
+		add_demsoc_coalition = yes
+		add_socdem_coalition = yes
 		
 		ai_chance = {
-			factor = 64
+			base = 67
 			modifier = {
 				factor = 0
 				has_game_rule = {
@@ -292,7 +296,7 @@ country_event = {
 			days = 1
 		}
 		ai_chance = {
-			factor = 70
+			base = 70
 			modifier = {
 				factor = 0
 				has_game_rule = {
@@ -312,7 +316,11 @@ country_event = {
 			days = 1
 		}
 		ai_chance = {
-			factor = 30
+			base = 30
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
 		}
 	}
 }
@@ -330,7 +338,7 @@ country_event = {
 		name = "Approved."
 		set_country_flag = JAP_allowed_amendment
 		ai_chance = {
-			factor = 100
+			base = 100
 			modifier = {
 				factor = 0
 				has_game_rule = {
@@ -348,7 +356,7 @@ country_event = {
 			days = 1
 		}
 		ai_chance = {
-			factor = 0
+			base = 0
 			modifier = {
 				factor = 100
 				has_game_rule = {
@@ -371,7 +379,6 @@ country_event = {
 	
 	option = {
 		name = "Approved."
-		ai_chance = { factor = 100 }
 		set_country_flag = JAP_allowed_konoe
 	}
 }
@@ -387,7 +394,9 @@ country_event = {
 	
 	option = {
 		name = "That was my idea, Saito-sama."
-		load_focus_tree = JAP_showa_democracy_tree
+		
+		#load_focus_tree = JAP_showa_democracy_tree
+		
 		add_political_power = 25
 		add_popularity = {
 			ideology = progressive_liberalism
@@ -402,11 +411,11 @@ country_event = {
 			popularity = 0.01
 		}
 		hidden_effect = {
-			news_event = {
-				id = japan.18
+			random_other_country = {
+				limit = { is_ai = yes }
+				news_event = { id = japan_news.3 hours = 6 }
 			}
 		}
-		ai_chance = { factor = 100 }
 	}
 }
 
@@ -431,25 +440,21 @@ country_event = {
 		clear_all_coalitions = yes
 		add_natcon_coalition = yes
 		add_authdem_coalition = yes
-		set_country_flag = despotist_coalition
-		set_country_flag = far_right_coalition
-		set_country_flag = ultranationalist_coalition
+		add_autdes_coalition = yes
+		add_farauth_coalition = yes
+		add_fash_coalition = yes
 		
-		custom_effect_tooltip = add_despotist_coalition_tt
-		custom_effect_tooltip = add_far_right_coalition_tt
-		custom_effect_tooltip = add_ultranat_coalition_tt
-		
-		load_focus_tree = JAP_nationalist_tree
+		#load_focus_tree = JAP_nationalist_tree
 		
 		hidden_effect = {
-			news_event = {
-				id = japan.19
+			random_other_country = {
+				limit = { is_ai = yes }
+				news_event = { id = japan_news.4 hours = 6 }
 			}
 		}
 		
 		add_political_power = 50
 		add_stability = -0.15
-		ai_chance = { factor = 100 }
 	}
 }
 
@@ -476,60 +481,69 @@ country_event = {
 			elections_allowed = yes
 		}
 		hidden_effect = {
-			news_event = {
-				id = japan.17
+			random_other_country = {
+				limit = { is_ai = yes }
+				news_event = { id = japan_news.2 hours = 6 }
 			}
 		}
-		load_focus_tree = JAP_taisho_democracy_tree
-		ai_chance = { factor = 100 }
+		
+		#load_focus_tree = JAP_taisho_democracy_tree
+	}
+}
+
+news_event = { # inukai dies world event
+	id = japan_news.1
+	title = japan_news.1.title
+	desc = japan_news.1.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = {
+		name = japan_news.1.a
 	}
 }
 
 news_event = { # status quo news event
-	id = japan.17
-	title = "Japan's Status Quo"
-	desc = japan.17.desc
+	id = japan_news.2
+	title = japan_news.2.title
+	desc = japan_news.2.desc
 	
 	is_triggered_only = yes
 	
 	major = yes
 	
-	fire_only_once = yes
-	
 	option = {
-		name = "This is news?"
+		name = japan_news.2.a
 	}
 }
 
 news_event = { # constitutional amendment news event
-	id = japan.18
-	title = ""
-	desc = japan.18.desc
+	id = japan_news.3.title
+	title = japan_news.3.desc
+	desc = japan_news.3.desc
 	
 	is_triggered_only = yes
 	
 	major = yes
 	
-	fire_only_once = yes
-	
 	option = {
-		name = "A victory for democracy!"
+		name = japan_news.3.a
 	}
 }
 
 news_event = { # konoe news event
-	id = japan.19
-	title = ""
-	desc = japan.19.desc
+	id = japan_news.4
+	title = japan_news.4.title
+	desc = japan_news.4.desc
 	
 	is_triggered_only = yes
 	
 	major = yes
 	
-	fire_only_once = yes
-	
 	option = {
-		name = "Shocking."
+		name = japan_news.4.a
 	}
 }
 

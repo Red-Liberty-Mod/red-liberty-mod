@@ -20,53 +20,18 @@ USA_appalachian_insurgency_category = {
 		
 		fire_only_once = yes
 		
-		days_remove = 15
-		
-		cost = 10
+		days_remove = 7
 		
 		remove_effect = {
-			
+			country_event = {
+				id = united_states_insurgency.7
+				hours = 6
+			}
 		}
 	}
 	
-	USA_send_in_the_army = {
-	
-		icon = GFX_decision_oppression
+	USA_invoke_insurrection_act = {
 		
-		visible = {
-			has_country_flag = USA_insurgency_start
-			NOT = {
-				has_country_flag = USA_insurgency_end
-			}
-		}
-		
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = USA_insurgency_25_end_tt
-				check_variable = { USA_insurgency_strength < 25 }
-			}
-		}
-		
-		fire_only_once = yes
-		
-		days_remove = 15
-		
-		cost = 10
-		
-		remove_effect = {
-			random_list = {
-				75 = {
-				
-				}
-				25 = {
-					custom_effect_tooltip = USA_insurgency_operation_fail
-				}
-			}
-		}
-	}
-
-	USA_mobilize_national_guard = {
-	
 		icon = generic_army_support
 		
 		visible = {
@@ -82,14 +47,101 @@ USA_appalachian_insurgency_category = {
 		
 		fire_only_once = yes
 		
-		days_remove = 10
+		complete_effect = {
+			country_event = {
+				id = united_states_insurgency.4
+				hours = 6
+			}
+			set_country_flag = USA_insurrection_act_active
+			subtract_from_variable = { USA_insurgency_strength = 7 }
+			custom_effect_tooltip = USA_weaken_insurgency_large_tt
+		}
+	}
+	
+	USA_ban_christian_party = {
 		
-		cost = 25
+		icon = GFX_decision_generic_break_treaty
+		
+		visible = {
+			has_country_flag = USA_insurgency_start
+			NOT = {
+				has_country_flag = USA_insurgency_end
+			}
+		}
+		
+		available = {
+			has_country_flag = USA_insurrection_act_active
+		}
+		
+		fire_only_once = yes
+		
+		complete_effect = {
+			set_party_name = { 
+				ideology = fascism
+				long_name = "--"
+				name =  "--"
+			}
+			subtract_from_variable = { USA_insurgency_strength = 3 }
+			custom_effect_tooltip = USA_weaken_insurgency_small_tt
+		}
+	}
+	
+	USA_meet_with_state_governors = {
+		
+		icon = GFX_decision_generic_political_discourse
+		
+		visible = {
+			has_country_flag = USA_insurgency_start
+			NOT = {
+				has_country_flag = USA_insurgency_end
+			}
+		}
+		
+		available = {
+			has_country_flag = USA_insurrection_act_active
+		}
+		
+		fire_only_once = yes
+		
+		complete_effect = {
+			country_event = {
+				id = united_states_insurgency.8
+				hours = 6
+			}
+			subtract_from_variable = { USA_insurgency_strength = 3 }
+			custom_effect_tooltip = USA_weaken_insurgency_small_tt
+		}
+	}
+	
+	USA_mobilize_national_guard = {
+	
+		icon = generic_army_support
+		
+		visible = {
+			has_country_flag = USA_insurgency_start
+			NOT = {
+				has_country_flag = USA_insurgency_end
+			}
+		}
+		
+		available = {
+			has_country_flag = USA_insurrection_act_active
+		}
+		
+		fire_only_once = yes
+		
+		days_remove = 5
+		
+		custom_cost_trigger = {
+			command_power > 24
+		}
+
+		custom_cost_text = decision_cost_CP_25
 		
 		remove_effect = {
-			add_manpower = 10000
+			hidden_effect = { add_command_power = -25 }
 			subtract_from_variable = { USA_insurgency_strength = 7 }
-			custom_effect_tooltip = USA_weaken_insurgency_tt
+			custom_effect_tooltip = USA_weaken_insurgency_large_tt
 		}
 	}
 	
@@ -105,16 +157,21 @@ USA_appalachian_insurgency_category = {
 		}
 		
 		available = {
-			
+			has_country_flag = USA_insurrection_act_active
 		}
 		
-		days_remove = 10
+		days_remove = 5
 		
-		cost = 25
+		custom_cost_trigger = {
+			command_power > 14
+		}
+
+		custom_cost_text = decision_cost_CP_15
 		
 		remove_effect = {
+			hidden_effect = { add_command_power = -15 }
 			subtract_from_variable = { USA_insurgency_strength = 3 }
-			custom_effect_tooltip = USA_weaken_insurgency_tt
+			custom_effect_tooltip = USA_weaken_insurgency_small_tt
 		}
 	}
 	
@@ -130,16 +187,77 @@ USA_appalachian_insurgency_category = {
 		}
 		
 		available = {
-			
+			has_country_flag = USA_insurrection_act_active
 		}
 		
-		days_remove = 10
+		modifier = {
+			consumer_goods_factor = 0.05
+		}
+		
+		days_remove = 5
+		
+		custom_cost_trigger = {
+			command_power > 14
+		}
+
+		custom_cost_text = decision_cost_CP_15
+		
+		remove_effect = {
+			hidden_effect = { add_command_power = -15 }
+			subtract_from_variable = { USA_insurgency_strength = 3 }
+			custom_effect_tooltip = USA_weaken_insurgency_small_tt
+		}
+	}
+	
+	USA_advanced_interrogation = {
+	
+		icon = GFX_decision_generic_political_discourse
+		
+		visible = {
+			has_country_flag = USA_insurgency_start
+			NOT = {
+				has_country_flag = USA_insurgency_end
+			}
+		}
+		
+		available = {
+			has_country_flag = USA_insurrection_act_active
+		}
+		
+		days_remove = 5
 		
 		cost = 25
 		
 		remove_effect = {
 			subtract_from_variable = { USA_insurgency_strength = 3 }
-			custom_effect_tooltip = USA_weaken_insurgency_tt
+			custom_effect_tooltip = USA_weaken_insurgency_small_tt
+		}
+	}
+	
+	USA_declare_curfew = {
+	
+		icon = GFX_decision_generic_political_discourse
+		
+		visible = {
+			has_country_flag = USA_insurgency_start
+			NOT = {
+				has_country_flag = USA_insurgency_end
+			}
+		}
+		
+		available = {
+			has_country_flag = USA_insurrection_act_active
+		}
+		
+		fire_only_once = yes
+		
+		days_remove = 5
+		
+		cost = 25
+		
+		remove_effect = {
+			subtract_from_variable = { USA_insurgency_strength = 5 }
+			custom_effect_tooltip = USA_weaken_insurgency_medium_tt
 		}
 	}
 }

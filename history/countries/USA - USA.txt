@@ -42,41 +42,32 @@ unlock_national_focus = USA_the_air_corps
 unlock_national_focus = USA_the_navy
 unlock_national_focus = USA_the_naval_act
 
-#set_country_flag = USA_recovery_enabled
-#set_variable = { USA_recovery_length = 250 }
+unlock_national_focus = USA_the_philippine_question
+unlock_national_focus = USA_indep_mission
+unlock_national_focus = USA_nation_building
+unlock_national_focus = USA_philippines_indep_act
 
-#create_pie_chart = yes
-#set_variable = { USA_SPA_unity = 78 }
 
-#set_variable = { USA_thomas_rich_opinion = 21 }
-#set_variable = { USA_thomas_middle_opinion = 51 }
-#set_variable = { USA_thomas_poor_opinion = 78 }
-#set_variable = { USA_thomas_rural_opinion = 63 }
+
+USA_setup_party_faction_vars = yes
 
 set_research_slots = 4
 set_stability = 0.75
 set_war_support = 0
 
-add_political_power = 50
+set_convoys = 500
+starting_train_buffer = 2
+add_equipment_to_stockpile = {
+    type = motorized_equipment
+    amount = 200
+    producer = USA
+}
+
+add_political_power = 125
 
 set_country_flag = proletarian_coalition
 set_country_flag = libertarian_socialism_coalition
 set_country_flag = social_democracy_coalition
-
-set_country_flag = progressive_opposition
-set_country_flag = market_libertarian_opposition
-set_country_flag = conservative_opposition
-set_country_flag = authoritarian_opposition
-set_country_flag = far_right_opposition
-set_country_flag = ultranationalist_opposition
-
-#set_variable = { USA_poverty = 54 }
-#set_variable = { USA_poverty_change = 0 }
-#set_variable = { USA_poverty_goal = 0 }
-#set_variable = { USA_unemployment = 13.7 }
-#set_variable = { USA_unemployment_change = -0.32 }
-#set_variable = { USA_inflation = 2 }
-#set_variable = { USA_inflation_change = -0.45 }
 
 # Starting tech
 set_technology = {
@@ -87,7 +78,6 @@ set_technology = {
 	tech_engineers = 1
 	gw_artillery = 1
 	interwar_antiair = 1
-	gwtank = 1
 	early_fighter = 1
 	cv_early_fighter = 1
 	cv_naval_bomber1 = 1
@@ -103,7 +93,28 @@ set_technology = {
 	marines = 1
 	basic_train = 1
 }
-
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		gwtank = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+		engine_tech_1 = 1
+	}
+	add_ideas = {
+		bureau_of_ordnance_spirit
+		subservience_to_army_spirit
+	}
+}
 if = {
 	limit = { not = { has_dlc = "Man the Guns" } }
 	set_technology = {
@@ -151,19 +162,6 @@ if = {
 	}
 }
 
-set_convoys = 500
-
-add_equipment_to_stockpile = {
-    type = motorized_equipment
-    amount = 200
-    producer = USA
-}
-
-#country_event = { # curtis dies
-#    id = redliberty.7
-#   days = 38
-#}
-
 set_politics = {
 	ruling_party = libertarian_socialism
 	last_election = "1932.11.8"
@@ -192,56 +190,58 @@ set_autonomy = {
 }
 
 ### LEADERS ###
+recruit_character = USA_jay_lovestone
 recruit_character = USA_william_foster
-recruit_character = USA_earl_browder
+recruit_character = USA_earl_russell_browder
 recruit_character = USA_norman_thomas
+recruit_character = USA_joseph_lister_hill
 recruit_character = USA_charles_lindbergh
 recruit_character = USA_william_dudley_pelley
 
 ### ADVISORS ###
 recruit_character = USA_jack_reed
 recruit_character = USA_henry_wallace
-recruit_character = USA_max_shachtman
-recruit_character = USA_eugene_dennis
-recruit_character = USA_paul_mattick
 recruit_character = USA_maynard_krueger
-recruit_character = USA_elizabeth_flynn
+recruit_character = USA_scott_nearing
 recruit_character = USA_john_lewis
 recruit_character = USA_max_hayes
 recruit_character = USA_harry_hopkins
 recruit_character = USA_john_abt
 recruit_character = USA_lee_pressman
 recruit_character = USA_joseph_arthur_padway
-recruit_character = USA_martin_abern
 recruit_character = USA_john_edgar_hoover
 
 ### GENERALS ###
 recruit_character = USA_douglas_macarthur
 recruit_character = USA_malin_craig
 recruit_character = USA_smedley_butler
-recruit_character = USA_henry_arnold
+recruit_character = USA_henry_harley_arnold
 recruit_character = USA_walter_krueger
 recruit_character = USA_george_van_horn_moseley
 recruit_character = USA_john_dewitt
 recruit_character = USA_william_cole
 recruit_character = USA_hugh_drum
-recruit_character = USA_leslie_mcnair
-recruit_character = USA_edward_brooks
+recruit_character = USA_stanley_embick
+recruit_character = USA_stanley_ford
+recruit_character = USA_fox_conner
+recruit_character = USA_frank_maxwell_andrews
+recruit_character = USA_oscar_westover
+recruit_character = USA_albert_jesse_bowley_sr
 
 ### ADMIRALS ###
 recruit_character = USA_ernest_king
 recruit_character = USA_william_leahy
 recruit_character = USA_harold_stark
+recruit_character = USA_frank_jack_fletcher
 
 add_ideas = {
 	USA_city_on_a_hill
 	USA_the_great_depression_1
 	
 	USA_jack_reed_hog
-	USA_max_shachtman_for
-	USA_elizabeth_flynn_lab
-	USA_harry_hopkins_com
-	USA_john_abt_sec
+	USA_scott_nearing
+	USA_harry_hopkins
+	USA_joseph_arthur_padway
 	
 	undisturbed_isolation
 	great_depression
@@ -275,17 +275,6 @@ create_country_leader = {
 	picture = ""
 	expire = "1965.1.1"
 	ideology = liberal_conservatism_subtype
-	traits = {
-		
-	}
-}
-
-create_country_leader = {
-	name = "J. Lister Hill"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = right_wing_populism_subtype
 	traits = {
 		
 	}
@@ -339,6 +328,66 @@ if = {
 	}
 }
 
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	create_equipment_variant = {
+		name = "Light Tank, M1"
+		type = light_tank_chassis_1
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_heavy_machine_gun
+			turret_type_slot = tank_light_two_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 2
+			tank_nsb_engine_upgrade = 5
+		}
+		icon = "gfx/interface/technologies/USA_basic_light_tank.dds"
+	}
+	create_equipment_variant = {
+		name = "Light Tank, M2A1"
+		type = light_tank_chassis_1
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_heavy_machine_gun
+			turret_type_slot = tank_light_one_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 2
+			tank_nsb_engine_upgrade = 5
+		}
+		icon = "gfx/interface/technologies/USA_basic_light_tank.dds"
+	}
+	create_equipment_variant = {
+		name = "Light Tank, M2A2"
+		type = light_tank_chassis_1
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_heavy_machine_gun
+			turret_type_slot = tank_light_one_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = secondary_turret_hmg
+			special_type_slot_2 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 2
+			tank_nsb_engine_upgrade = 5
+		}
+		icon = "gfx/interface/technologies/USA_basic_light_tank.dds"
+	}
+}
 
 ### VARIANTS ###
 # 1936 Start #

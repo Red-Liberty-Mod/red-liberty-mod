@@ -9,8 +9,6 @@ set_technology = {
 	infantry_weapons = 1
 }
 
-set_cosmetic_tag = CHI_empire_puppet
-
 set_politics = {
 	ruling_party = autocratic_despotism
 	last_election = "1932.11.8"
@@ -32,13 +30,33 @@ set_popularities = {
 	fascism = 0
 }
 
+add_ideas = {
+	SHX_yan_xishan_thought
+	SHX_popular_land_reform
+	
+	warlord_conscription
+}
+
+set_cosmetic_tag = CHI_empire_puppet
+
 create_country_leader = {
-	name = "Yan Xishan"
-	desc = ""
-	picture = ""
+	name = "Feng Yuxiang"
+	desc = "POLITICS_FENG_YUXIANG_DESC"
+	picture = "gfx/leaders/SHX/Portrait_SHX_Feng_Yuxiang.png"
 	expire = "1965.1.1"
-	ideology = autocratic_despotism_subtype
+	ideology = christian_socialism_subtype
 	traits = {
 		#
+	}
+}
+
+create_country_leader = {
+	name = "Yan Xishan"
+	desc = "POLITICS_YAN_XISHAN_DESC"
+	picture = "gfx/leaders/SHX/Portrait_CHI_Yan_Xishan.png"
+	expire = "1965.1.1"
+	ideology = warlordism_subtype
+	traits = {
+		model_governor
 	}
 }

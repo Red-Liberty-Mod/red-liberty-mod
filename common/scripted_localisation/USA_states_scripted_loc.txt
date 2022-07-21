@@ -17,6 +17,115 @@ defined_text = {
 }
 
 defined_text = {
+	name = Get_USA_speaker
+	text = {
+		trigger = {
+			check_variable = { representatives_socialist > representatives_democrat  }
+		}
+		localization_key = "GFX_portrait_USA_james_maurer"
+	}
+	text = {
+		localization_key = ""
+	}
+}
+
+defined_text = {
+	name = Get_USA_speaker_name
+	text = {
+		trigger = {
+			check_variable = { representatives_socialist > representatives_democrat  }
+		}
+		localization_key = "USA_james_maurer"
+	}
+	text = {
+		localization_key = ""
+	}
+}
+
+defined_text = {
+	name = Get_USA_speaker_desc
+	text = {
+		trigger = {
+			check_variable = { representatives_socialist > representatives_democrat  }
+		}
+		localization_key = "POLITICS_JAMES_MAURER_DESC"
+	}
+	text = {
+		localization_key = ""
+	}
+}
+
+defined_text = {
+	name = Get_USA_vice_president
+	text = {
+		trigger = {
+			USA = {
+				has_idea = USA_jack_reed_hog
+			}
+		}
+		localization_key = "GFX_portrait_USA_john_reed"
+	}
+	text = {
+		trigger = {
+			USA = {
+				has_idea = USA_earl_browder_hog
+			}
+		}
+		localization_key = "GFX_portrait_USA_earl_browder"
+	}
+}
+
+defined_text = {
+	name = Get_USA_vp_name
+	text = {
+		trigger = {
+			has_idea = USA_jack_reed_hog
+		}
+		localization_key = "USA_jack_reed"
+	}
+	text = {
+		trigger = {
+			has_idea = USA_earl_browder_hog
+		}
+		localization_key = "USA_earl_browder"
+	}
+	text = {
+		trigger = {
+			has_idea = USA_henry_wallace_hog
+		}
+		localization_key = "USA_henry_wallace"
+	}
+	text = {
+		localization_key = ""
+	}
+}
+
+defined_text = {
+	name = Get_USA_vp_desc
+	text = {
+		trigger = {
+			has_idea = USA_jack_reed_hog
+		}
+		localization_key = "POLITICS_JACK_REED_DESC"
+	}
+	text = {
+		trigger = {
+			has_idea = USA_earl_browder_hog
+		}
+		localization_key = "POLITICS_EARL_BROWDER_DESC"
+	}
+	text = {
+		trigger = {
+			has_idea = USA_henry_wallace_hog
+		}
+		localization_key = "POLITICS_HENRY_WALLACE_DESC"
+	}
+	text = {
+		localization_key = ""
+	}
+}
+
+defined_text = {
 	name = GetSenator_1
 	text = {
 		trigger = {
@@ -132,9 +241,8 @@ defined_text = {
 	name = Get_USA_states_gui_AZ
 	text = {
 		trigger = {
-			check_variable = { 377.democrat_popularity > 377.socialist_popularity }
-			check_variable = { 377.democrat_popularity > 377.republican_popularity }
-			check_variable = { 377.democrat_popularity > 377.afp_popularity }
+			check_variable = { 377.senator_1 = 3 }
+			check_variable = { 377.senator_2 = 3 }
 		}
 		localization_key = "GFX_USA_states_gui_AZ_democrat"
 	}
@@ -197,6 +305,30 @@ defined_text = {
 	
 	text = {
 		trigger = {
+			check_variable = { 830.senator_1 = 3 }
+			check_variable = { 830.senator_2 = 3 }
+		}
+		localization_key = "GFX_USA_states_gui_CT_democrat"
+	}
+	
+	text = {
+		trigger = {
+			OR = {
+				AND = {
+					check_variable = { 830.senator_1 = 1 }
+					check_variable = { 830.senator_2 = 3 }
+				}
+				AND = {
+					check_variable = { 830.senator_1 = 3 }
+					check_variable = { 830.senator_2 = 1 }
+				}
+			}
+		}
+		localization_key = "GFX_USA_states_gui_CT_socialist_democrat_split"
+	}
+	
+	text = {
+		trigger = {
 			OR = {
 				AND = {
 					check_variable = { 830.senator_1 = 2 }
@@ -220,6 +352,14 @@ defined_text = {
 			check_variable = { 833.senator_2 = 2 }
 		}
 		localization_key = "GFX_USA_states_gui_DE_republican"
+	}
+	
+	text = {
+		trigger = {
+			check_variable = { 833.senator_1 = 3 }
+			check_variable = { 833.senator_2 = 3 }
+		}
+		localization_key = "GFX_USA_states_gui_DE_democrat"
 	}
 	
 	text = {
@@ -475,6 +615,22 @@ defined_text = {
 		trigger = {
 			OR = {
 				AND = {
+					check_variable = { 361.senator_1 = 1 }
+					check_variable = { 361.senator_2 = 2 }
+				}
+				AND = {
+					check_variable = { 361.senator_1 = 2 }
+					check_variable = { 361.senator_2 = 1 }
+				}
+			}
+		}
+		localization_key = "GFX_USA_states_gui_MD_socialist_republican_split"
+	}
+	
+	text = {
+		trigger = {
+			OR = {
+				AND = {
 					check_variable = { 361.senator_1 = 2 }
 					check_variable = { 361.senator_2 = 3 }
 				}
@@ -713,7 +869,7 @@ defined_text = {
 				}
 			}
 		}
-		localization_key = "GFX_USA_states_gui_NJ_republican_socialist_split"
+		localization_key = "GFX_USA_states_gui_NJ_socialist_republican_split"
 	}
 }
 
@@ -733,7 +889,21 @@ defined_text = {
 		}
 		localization_key = "GFX_USA_states_gui_NM_democrat"
 	}
-	
+	text = {
+		trigger = {
+			OR = {
+				AND = {
+					check_variable = { 376.senator_1 = 3 }
+					check_variable = { 376.senator_2 = 1 }
+				}
+				AND = {
+					check_variable = { 376.senator_1 = 1 }
+					check_variable = { 376.senator_2 = 3 }
+				}
+			}
+		}
+		localization_key = "GFX_USA_states_gui_NM_socialist_democrat_split"
+	}
 	text = {
 		trigger = {
 			OR = {
@@ -857,7 +1027,7 @@ defined_text = {
 				}
 			}
 		}
-		localization_key = "GFX_USA_states_gui_OH_republican_socialist_split"
+		localization_key = "GFX_USA_states_gui_OH_socialist_republican_split"
 	}
 }
 
@@ -921,6 +1091,14 @@ defined_text = {
 			check_variable = { 831.senator_2 = 2 }
 		}
 		localization_key = "GFX_USA_states_gui_RI_republican"
+	}
+	
+	text = {
+		trigger = {
+			check_variable = { 831.senator_1 = 3 }
+			check_variable = { 831.senator_2 = 3 }
+		}
+		localization_key = "GFX_USA_states_gui_RI_democrat"
 	}
 	
 	text = {
@@ -1359,7 +1537,7 @@ defined_text = {
 		trigger = {
 			check_variable = {
 				var = afp_popularity
-				value = -10
+				value = 0
 				compare = greater_than
 			}
 			check_variable = {
@@ -1440,3 +1618,98 @@ defined_text = {
 	}
 }
 
+defined_text = {
+	name = Get_USA_communist_rep_count
+	text = {
+		trigger = {
+			check_variable = {
+				var = state_communist_reps
+				value = 0
+				compare = greater_than
+			}
+			set_temp_variable = { state_communist_reps_temp = THIS.state_communist_reps }
+		}
+		localization_key = "USA_communist_rep_count"
+	}
+	
+	text = {
+		localization_key = ""
+	}
+}
+
+defined_text = {
+	name = Get_USA_socialist_rep_count
+	text = {
+		trigger = {
+			check_variable = {
+				var = state_socialist_reps
+				value = 0
+				compare = greater_than
+			}
+			set_temp_variable = { state_socialist_reps_temp = THIS.state_socialist_reps }
+		}
+		localization_key = "USA_socialist_rep_count"
+	}
+	
+	text = {
+		localization_key = ""
+	}
+}
+
+defined_text = {
+	name = Get_USA_republican_rep_count
+	text = {
+		trigger = {
+			check_variable = {
+				var = state_republican_reps
+				value = 0
+				compare = greater_than
+			}
+			set_temp_variable = { state_republican_reps_temp = THIS.state_republican_reps }
+		}
+		localization_key = "USA_republican_rep_count"
+	}
+	
+	text = {
+		localization_key = ""
+	}
+}
+
+defined_text = {
+	name = Get_USA_democrat_rep_count
+	text = {
+		trigger = {
+			check_variable = {
+				var = state_democrat_reps
+				value = 0
+				compare = greater_than
+			}
+			
+			set_temp_variable = { state_democrat_reps_temp = THIS.state_democrat_reps }
+		}
+		localization_key = "USA_democrat_rep_count"
+	}
+	
+	text = {
+		localization_key = ""
+	}
+}
+
+defined_text = {
+	name = Get_USA_afp_rep_count
+	text = {
+		trigger = {
+			check_variable = {
+				var = state_afp_reps
+				value = 0
+				compare = greater_than
+			}
+			set_temp_variable = { state_afp_reps_temp = THIS.state_afp_reps }
+		}
+		localization_key = "USA_afp_rep_count"
+	}
+	
+	text = {
+		localization_key = ""
+	}
+}

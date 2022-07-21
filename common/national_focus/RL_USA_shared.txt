@@ -1,0 +1,467 @@
+### this file includes trees that are shared between multiple presidents ###
+
+### philippines tree ###
+
+shared_focus = {
+    id = USA_the_philippine_question
+	icon = GFX_USA_the_philippine_question
+	
+    x = 15
+	y = 0
+	
+	cost = 4
+    completion_reward = {
+        custom_effect_tooltip = USA_the_philippine_question_tt
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_indep_mission
+	icon = GFX_USA_indep_mission
+	
+    x = -1
+	y = 1
+	
+	cost = 4
+	relative_position_id = USA_the_philippine_question
+	prerequisite = { focus = USA_the_philippine_question }
+    completion_reward = {
+        PHI = {
+			autonomy_gain = 0.5
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_nation_building
+	icon = GFX_USA_nation_building
+	
+    x = 1
+	y = 1
+	
+	cost = 4
+	relative_position_id = USA_the_philippine_question
+	prerequisite = { focus = USA_the_philippine_question }
+    completion_reward = {
+        327 = {
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 2
+		}
+		327 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		628 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		623 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_philippines_indep_act
+	icon = GFX_USA_philippines_indep_act
+	
+    x = 1
+	y = 1
+	
+	cost = 4
+	relative_position_id = USA_indep_mission
+	prerequisite = { focus = USA_indep_mission }
+	prerequisite = { focus = USA_nation_building }
+    completion_reward = {
+        custom_effect_tooltip = USA_philippines_indep_act_tt
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_phi_army_development
+	icon = GFX_USA_phi_army_development
+	
+    x = -2
+	y = 1
+	
+	available = {
+		PHI = {
+			is_puppet_of = USA
+		}
+	}
+	
+	cost = 5
+	relative_position_id = USA_philippines_indep_act
+	prerequisite = { focus = USA_philippines_indep_act }
+    completion_reward = {
+        PHI = {
+			army_experience = 25
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 1500
+				producer = USA
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_phi_air_development
+	icon = GFX_USA_phi_air_development
+	
+    x = -1
+	y = 2
+	
+	available = {
+		PHI = {
+			is_puppet_of = USA
+		}
+	}
+	
+	cost = 5
+	relative_position_id = USA_philippines_indep_act
+	prerequisite = { focus = USA_philippines_indep_act }
+    completion_reward = {
+        PHI = {
+			air_experience = 25
+			add_equipment_to_stockpile = {
+				type = fighter_equipment_0
+				amount = 15
+				producer = USA
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_phi_navy_development
+	icon = GFX_USA_phi_navy_development
+	
+    x = 0
+	y = 1
+	
+	available = {
+		PHI = {
+			is_puppet_of = USA
+		}
+	}
+	
+	cost = 5
+	relative_position_id = USA_philippines_indep_act
+	prerequisite = { focus = USA_philippines_indep_act }
+    completion_reward = {
+        PHI = {
+			navy_experience = 25
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_phi_economy_development
+	icon = GFX_USA_phi_economy_development
+	
+    x = 1
+	y = 2
+	
+	available = {
+		PHI = {
+			is_puppet_of = USA
+		}
+	}
+	
+	cost = 5
+	relative_position_id = USA_philippines_indep_act
+	prerequisite = { focus = USA_philippines_indep_act }
+    completion_reward = {
+        327 = {
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+### manhattan project tree ###
+shared_focus = {
+    id = USA_nuclear_rumors
+	icon = GFX_USA_nuclear_rumors
+	
+    x = 20
+	y = 6
+	
+	available = {
+		has_country_flag = USA_mproject_start
+	}
+	
+	allow_branch = {
+		has_country_flag = USA_mproject_start
+	}
+	
+	cost = 0
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_the_manhattan_project
+	icon = GFX_USA_the_manhattan_project
+	
+    x = 0
+	y = 1
+	
+	cost = 4
+	relative_position_id = USA_nuclear_rumors
+	prerequisite = { focus = USA_nuclear_rumors }
+    completion_reward = {
+		set_technology = {
+			atomic_research = 1
+		}
+		custom_effect_tooltip = USA_manhattan_tooltip
+		country_event = {
+			id = united_states_mproject.2
+			hours = 6
+		}
+	}
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_theoretical_development
+	icon = GFX_USA_theoretical_development
+	
+    x = -1
+	y = 1
+	
+	cost = 4
+	relative_position_id = USA_the_manhattan_project
+	prerequisite = { focus = USA_the_manhattan_project }
+    completion_reward = {
+       custom_effect_tooltip = USA_theoretic_dev_tooltip 
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_physical_development
+	icon = GFX_USA_physical_development
+	
+    x = 2
+	y = 1
+	
+	cost = 4
+	relative_position_id = USA_the_manhattan_project
+	prerequisite = { focus = USA_the_manhattan_project }
+    completion_reward = {
+       custom_effect_tooltip = USA_physical_dev_tooltip
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_the_best_and_brightest
+	icon = GFX_USA_the_best_and_brightest
+	
+    x = -1
+	y = 1
+	
+	cost = 4
+	relative_position_id = USA_theoretical_development
+	prerequisite = { focus = USA_theoretical_development }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_the_utmost_secrecy
+	icon = GFX_USA_the_utmost_secrecy
+	
+    x = 1
+	y = 1
+	
+	cost = 4
+	relative_position_id = USA_theoretical_development
+	prerequisite = {
+		focus = USA_theoretical_development
+		focus = USA_physical_development
+	}
+    completion_reward = {
+        country_event = {
+			id = united_states_mproject.3
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_closed_facilities
+	icon = GFX_USA_closed_facilities
+	
+    x = 1
+	y = 1
+	
+	cost = 4
+	relative_position_id = USA_the_best_and_brightest
+	prerequisite = { focus = USA_the_best_and_brightest }
+	prerequisite = { focus = USA_the_utmost_secrecy }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_uranium_fever
+	icon = GFX_USA_uranium_fever
+	
+    x = 0
+	y = 1
+	
+	cost = 4
+	relative_position_id = USA_physical_development
+	prerequisite = { focus = USA_physical_development }
+    completion_reward = {
+       custom_effect_tooltip = USA_uranium_tooltip
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_going_critical
+	icon = GFX_USA_going_critical
+	
+    x = 0
+	y = 1
+	
+	cost = 4
+	relative_position_id = USA_uranium_fever
+	prerequisite = { focus = USA_uranium_fever }
+    completion_reward = {
+      set_technology = {
+      nuclear_reactor = 1
+     }
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_begin_assembly
+	icon = GFX_USA_begin_assembly
+	
+    x = 1
+	y = 1
+	
+	cost = 4
+	relative_position_id = USA_closed_facilities
+	prerequisite = { focus = USA_closed_facilities }
+	prerequisite = { focus = USA_going_critical }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_the_power_of_god
+	icon = GFX_USA_the_power_of_god
+	
+    x = 0
+	y = 1
+	
+	cost = 4
+	relative_position_id = USA_begin_assembly
+	prerequisite = { focus = USA_begin_assembly }
+    completion_reward = {
+       set_technology = {
+       nukes = 1
+     }
+     custom_effect_tooltip = USA_power_god_tooltip
+	}
+	
+	ai_will_do = {
+		factor = 10
+	}
+}

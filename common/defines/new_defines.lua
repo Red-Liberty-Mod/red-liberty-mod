@@ -1,13 +1,17 @@
 
 -- Game
 NDefines.NGame.START_DATE = "1936.1.1.12"
-NDefines.NPolitics.BASE_POLITICAL_POWER_INCREASE = 2.00						-- Vanilla is 2
 
+-- Politics
+NDefines.NPolitics.BASE_POLITICAL_POWER_INCREASE = 1.25						-- Vanilla is 2
+
+-- Military
 NDefines.NMilitary.MAX_DIVISION_BRIGADE_WIDTH = 5		-- Max width of regiments in division designer.
 NDefines.NMilitary.MAX_DIVISION_BRIGADE_HEIGHT = 5		-- Max height of regiments in division designer.
 NDefines.NMilitary.MAX_DIVISION_SUPPORT_WIDTH = 2		-- Max width of support in division designer.
 NDefines.NMilitary.MAX_DIVISION_SUPPORT_HEIGHT = 5		-- Max height of support in division designer.
 
+-- Buildings
 NDefines.NBuildings.MAX_SHARED_SLOTS = 56				-- Max slots shared by factories
 
 -- Combat
@@ -16,7 +20,6 @@ NDefines.NBuildings.MAX_SHARED_SLOTS = 56				-- Max slots shared by factories
 -- NDefines.NMilitary.BASE_COMBAT_WIDTH = 96
 -- NDefines.NMilitary.ADDITIONAL_COMBAT_WIDTH = 48
 
-
 -- Country
 NDefines.NCountry.MIN_STABILITY = -0.5
 NDefines.NCountry.MIN_WAR_SUPPORT = 0
@@ -24,9 +27,13 @@ NDefines.NCountry.MIN_WAR_SUPPORT = 0
 -- Buildings
 NDefines.NBuildings.INFRASTRUCTURE_RESOURCE_BONUS = 0.1						-- multiplicative resource bonus for each level of (non damaged) infrastructure, vanilla is 0.2
 
+-- Production
+NDefines.NProduction.MAX_CIV_FACTORIES_PER_LINE = 12						-- Vanilla is 15
+NDefines.NProduction.CAPITAL_SHIP_MAX_NAV_FACTORIES_PER_LINE = 10			-- Vanilla is 5
+
 -- Supply
-NDefines.NSupply.INFRA_TO_SUPPLY = 0.15									-- each level of infra gives this many supply, vanilla is 0.3
-NDefines.NSupply.SUPPLY_FROM_DAMAGED_INFRA = 0.075        		        -- damaged infrastructure counts as this in supply calcs, vanilla is 0.15
+NDefines.NSupply.INFRA_TO_SUPPLY = 0.15										-- each level of infra gives this many supply, vanilla is 0.3
+NDefines.NSupply.SUPPLY_FROM_DAMAGED_INFRA = 0.075        		    	    -- damaged infrastructure counts as this in supply calcs, vanilla is 0.15
 
 -- Diplomacy
 NDefines.NDiplomacy.MAX_TRUST_VALUE = 200									-- Vanilla is 100

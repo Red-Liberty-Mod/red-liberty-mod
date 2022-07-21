@@ -1,0 +1,650 @@
+on_actions = {
+	on_capitulation = {
+		effect = {
+			log = "[GetDateText]: FROM: [From.GetName] ROOT: [Root.GetName] on_capitulation"
+			
+			### PEACE POPUP ###
+			set_global_flag = show_peace_popup_alert
+			FROM = {
+				save_global_event_target_as = winning_country
+			}
+			ROOT = {
+				save_global_event_target_as = losing_country
+			}
+			
+			log = "[GetDateText]: winner/loser: FROM: [winning_country.GetName] ROOT: [losing_country.GetName] on_capitulation"
+			
+			if = {
+				limit = {
+					event_target:losing_country = {
+						any_allied_country = {
+							has_war_together_with = event_target:losing_country
+						}
+					}
+				}
+				set_global_flag = losing_country_multiple
+			}
+			if = {
+				limit = {
+					event_target:winning_country = {
+						any_allied_country = {
+							has_war_together_with = event_target:winning_country
+						}
+					}
+				}
+				set_global_flag = winning_country_multiple
+			}
+			
+			if = {
+				limit = {
+					#OR = {
+					#	ROOT = { is_in_faction = no }
+					#	ROOT = {
+					#		all_allied_country = {
+					#			has_capitulated = yes
+					#		}
+					#	}
+					#}
+					NOT = {
+						has_game_rule = {
+							rule = SCRIPTED_PEACE
+							option = SCRIPTED_PEACE_DISABLED
+						}
+					}
+				}
+				set_global_flag = war_won
+				
+				log = "[GetDateText] winner/loser: FROM: [winning_country.GetName] ROOT: [losing_country.GetName] war_won"
+				
+				### WW2 - WESTERN FRONT ###
+				if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = FRA
+								is_in_faction_with = FRA
+							}
+						}
+						ROOT = {
+							original_tag = GER
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+					}
+					every_country = {
+						limit = {
+							is_in_faction_with = GER
+							has_war_with = FRA
+						}
+						white_peace = FRA
+					}
+					GER = {
+						dismantle_faction = yes
+						
+						transfer_units_fraction= {
+							target = LIT
+							size = 0.5
+							stockpile_ratio = 0.15
+							army_ratio = 0.75
+							navy_ratio = 0.05
+							air_ratio = 0.5
+							keep_unit_leaders_trigger = {
+								
+							}
+						}
+					}
+					CRI = {
+						transfer_state = 898
+					}
+					LIT = {
+						create_faction = "Deutschen Streitkräfte im Osten"
+						add_to_faction = POL
+						add_to_faction = UKR
+						add_to_faction = BLR
+						add_to_faction = CRI
+						if = {
+							limit = {
+								BAL = {
+									exists = yes
+								}
+							}
+							add_to_faction = BAL
+						}
+					}
+					WGR = {
+						annex_country = {
+							target = GER
+						}
+						set_cosmetic_tag = WGR_occupied_germany
+						
+						set_politics = {
+							ruling_party = autocratic_despotism 
+							last_election = "1936.1.1"
+							election_frequency = 48
+							elections_allowed = no
+						}
+						set_popularities = {
+							autocratic_despotism = 100
+						}
+					}
+					FRA = {
+						puppet = WGR
+						
+						transfer_state = 28
+						transfer_state = 877
+					}
+					
+					set_global_flag = skip_default_capitulation
+				}
+				
+				### RUSSIAN CIVIL WAR ###
+				if = {
+					limit = {
+						FROM = {
+							original_tag = SOV
+						}
+						ROOT = {
+							original_tag = RUS
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+						annex_country = {
+							target = ROOT
+						}
+						annex_country = {
+							target = FER
+						}
+						country_event = {
+							id = demo_sov.2
+							days = 15
+						}
+					}
+					random_other_country = {
+						limit = { is_ai = yes }
+						news_event = { id = demo_rus.4 hours = 6 }
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							original_tag = RUS
+						}
+						ROOT = {
+							original_tag = SOV
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+						annex_country = {
+							target = ROOT
+						}
+					}
+					random_other_country = {
+						limit = { is_ai = yes }
+						news_event = { id = demo_rus.5 hours = 6 }
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				
+				if = {
+					limit = {
+						FROM = {
+							original_tag = SOV
+						}
+						ROOT = {
+							original_tag = FIN
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+						annex_country = {
+							target = NRR
+						}
+						transfer_state = 215
+						transfer_state = 216
+					}
+					set_global_flag = skip_default_capitulation
+				}
+			
+				### DANUBIAN WARS ###
+				if = {
+					limit = {
+						FROM = {
+							original_tag = AUS
+						}
+						ROOT = {
+							original_tag = AHE
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+						annex_country = {
+							target = ROOT
+						}
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							original_tag = AHE
+						}
+						ROOT = {
+							original_tag = AUS
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+						annex_country = {
+							target = ROOT
+						}
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				
+				if = {
+					limit = {
+						FROM = {
+							original_tag = ROM
+						}
+						ROOT = {
+							original_tag = HUN
+						}
+					}
+					ROM = {
+						white_peace = {
+							tag = HUN
+						}
+						transfer_state = 885
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							original_tag = HUN
+						}
+						ROOT = {
+							original_tag = ROM
+						}
+					}
+					HUN = {
+						white_peace = {
+							tag = ROM
+						}
+						transfer_state = 76
+						transfer_state = 82
+						transfer_state = 83
+						transfer_state = 84
+						81 = {
+							set_demilitarized_zone = yes
+						}
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				
+				if = {
+					limit = {
+						FROM = {
+							original_tag = BOS
+						}
+						ROOT = {
+							original_tag = SER
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							original_tag = SER
+						}
+						ROOT = {
+							original_tag = BOS
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+						annex_country = {
+							target = ROOT
+						}
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				
+				### ITALIAN WARS ###
+				if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = ITA
+								is_in_faction_with = ITA
+							}
+						}
+						ROOT = {
+							original_tag = ETH
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+						annex_country = {
+							target = ROOT
+						}
+					}
+					random_other_country = {
+						limit = { is_ai = yes }
+						news_event = { id = demo_ita.3 hours = 6 }
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = ITA
+								is_in_faction_with = ITA
+							}
+						}
+						ROOT = {
+							original_tag = ALB
+						}
+					}
+					ITA_peace_ALB_war = yes
+					set_global_flag = skip_default_capitulation
+				}
+				if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = ITA
+								is_in_faction_with = ITA
+							}
+						}
+						ROOT = {
+							original_tag = GRE
+						}
+					}
+					ITA_peace_GRE_war = yes
+					set_global_flag = skip_default_capitulation
+				}
+				
+				### BRAZIL ###
+				if = {
+					limit = {
+						FROM = {
+							original_tag = UOB
+							original_tag = BRA
+						}
+						ROOT = {
+							original_tag = BRA
+							original_tag = UOB
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+						annex_country = {
+							target = ROOT
+						}
+					}
+					if = {
+						limit = {
+							FROM = {
+								original_tag = UOB
+							}
+						}
+						UOB = {
+							random_list = {
+								25 = {
+									random_other_country = {
+										limit = { is_ai = yes }
+										news_event = { id = demo_uob.1 hours = 6 }
+									}
+								}
+								25 = {
+									random_other_country = {
+										limit = { is_ai = yes }
+										news_event = { id = demo_uob.2 hours = 6 }
+									}
+								}
+								25 = {
+									random_other_country = {
+										limit = { is_ai = yes }
+										news_event = { id = demo_uob.3 hours = 6 }
+									}
+								}
+								25 = {
+									random_other_country = {
+										limit = { is_ai = yes }
+										news_event = { id = demo_uob.4 hours = 6 }
+									}
+								}
+							}
+							country_event = {
+								id = demo_uob.5
+								days = 15
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							FROM = {
+								original_tag = BRA
+							}
+						}
+						BRA = {
+							random_list = {
+								34 = {
+									random_other_country = {
+										limit = { is_ai = yes }
+										news_event = { id = demo_bra.1 hours = 6 }
+									}
+								}
+								33 = {
+									random_other_country = {
+										limit = { is_ai = yes }
+										news_event = { id = demo_bra.2 hours = 6 }
+									}
+								}
+								33 = {
+									random_other_country = {
+										limit = { is_ai = yes }
+										news_event = { id = demo_bra.3 hours = 6 }
+									}
+								}
+							}
+							country_event = {
+								id = demo_bra.4
+								days = 15
+							}
+						}
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				
+				### CRISTERO WAR ###
+				if = {
+					limit = {
+						FROM = {
+							original_tag = MEX
+						}
+						ROOT = {
+							original_tag = CRT
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+						annex_country = {
+							target = ROOT
+						}
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							original_tag = CRT
+						}
+						ROOT = {
+							original_tag = MEX
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+						annex_country = {
+							target = ROOT
+						}
+						set_cosmetic_tag = CRT_mexico
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				
+				### SIAMESE-BURMESE WAR ###
+				if = {
+					limit = {
+						FROM = {
+							original_tag = SIA
+						}
+						ROOT = {
+							original_tag = BRM
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+						transfer_state = 964
+						transfer_state = 965
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				
+				### CENTRAL AMERICA ###
+				if = {
+					limit = {
+						FROM = {
+							original_tag = CEN
+						}
+						ROOT = {
+							original_tag = ELS
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+						annex_country = {
+							target = ROOT
+						}
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				
+				### WW2 - EASTERN FRONT ###
+				if = {
+					limit = {
+						FROM = {
+							original_tag = SOV
+						}
+						ROOT = {
+							OR = {
+								original_tag = BLR
+								original_tag = UKR
+								original_tag = LIT
+							}
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+						annex_country = {
+							target = ROOT
+						}
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = GER
+								is_in_faction_with = GER
+							}
+						}
+						ROOT = {
+							original_tag = SOV
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				
+				### TURKEY WARS ###
+				
+				if = {
+					limit = {
+						FROM = {
+							original_tag = TUR
+						}
+						ROOT = {
+							original_tag = GEO
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+						transfer_state = 890
+						transfer_state = 966
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				
+				if = {
+					limit = {
+						FROM = {
+							original_tag = TUR
+						}
+						ROOT = {
+							original_tag = IRQ
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+						puppet = ROOT
+						transfer_state = 676
+						transfer_state = 901
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				
+				if = {
+					limit = {
+						FROM = {
+							original_tag = TUR
+						}
+						ROOT = {
+							original_tag = SYR
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+						annex_country = {
+							target = ROOT
+						}
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				
+				set_global_flag = war_continuing
+			}
+			clr_global_flag = skip_default_capitulation
+		}
+	}
+
+	on_declare_war = {
+		effect = {
+			log = "[GetDateText]: [Root.GetName] declared war on [From.GetName]"
+		}
+	}
+}

@@ -28,11 +28,6 @@ set_technology = {
 	motorised_infantry = 1
 	gw_artillery = 1
 	interwar_antiair = 1
-	gwtank = 1
-	basic_light_tank = 1
-	#improved_light_tank = 1  # PLACEHOLDER
-	#basic_heavy_tank = 1  # PLACEHOLDER
-	#basic_medium_tank = 1 # PLACEHOLDER
 	early_fighter = 1
 	cv_early_fighter = 1
 	cv_naval_bomber1 = 1
@@ -51,6 +46,30 @@ set_technology = {
 	fuel_refining = 1
 
 	basic_train = 1
+}
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		gwtank = 1
+		basic_light_tank = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "Battle for the Bosporus"
+	}
+	set_technology = { camelry = 1 }
 }
 if = {
 	limit = {
@@ -187,12 +206,6 @@ set_country_flag = conservative_coalition
 set_country_flag = authoritarian_coalition
 set_country_flag = despotist_coalition
 
-set_country_flag = rev_autocracy_opposition
-set_country_flag = proletarian_opposition
-set_country_flag = libertarian_socialism_opposition
-set_country_flag = progressive_opposition
-set_country_flag = ultranationalist_opposition
-
 create_faction = Commonwealth
 add_to_faction = ENG
 add_to_faction = CAN
@@ -206,9 +219,42 @@ add_to_faction = MAL
 give_guarantee = BEL
 
 create_country_leader = {
+	name = "Frank Leech"
+	desc = ""
+	picture = ""
+	expire = "1965.1.1"
+	ideology = insurrectionary_anarchism_subtype
+	traits = {
+		
+	}
+}
+
+create_country_leader = {
+	name = "Harry Pollitt"
+	desc = ""
+	picture = ""
+	expire = "1965.1.1"
+	ideology = authoritarian_socialism_subtype
+	traits = {
+		
+	}
+}
+
+create_country_leader = {
+	name = "James Maxton"
+	desc = ""
+	picture = ""
+	expire = "1965.1.1"
+	ideology = revolutionary_socialism_subtype
+	traits = {
+		
+	}
+}
+
+create_country_leader = {
 	name = "Clement Attlee"
 	desc = "POLITICS_CLEMENT_ATTLEE_DESC"
-	picture = "Portrait_ENG_Clement_Attlee.tga"
+	picture = "gfx/leaders/ENG/Portrait_ENG_Clement_Attlee.tga"
 	expire = "1965.1.1"
 	ideology = democratic_socialism_subtype
 	traits = {
@@ -228,9 +274,20 @@ create_country_leader = {
 }
 
 create_country_leader = {
+	name = "John Allsebrook Simon"
+	desc = ""
+	picture = ""
+	expire = "1965.1.1"
+	ideology = national_liberalism_subtype
+	traits = {
+		
+	}
+}
+
+create_country_leader = {
 	name = "Winston Churchill"
-	desc = "POLITICS_WINSTON_CHURCHILL_DESC"
-	picture = "Portrait_Britain_Winston_Churchill.dds"
+	desc = ""
+	picture = ""
 	expire = "1965.1.1"
 	ideology = national_conservatism_subtype
 	traits = {
@@ -695,6 +752,106 @@ if = {
 	}
 }
 
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	create_equipment_variant = {
+		name = "Light Tank Mk. IV"
+		type = light_tank_chassis_1
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_heavy_machine_gun
+			turret_type_slot = tank_light_one_man_tank_turret
+			suspension_type_slot = tank_christie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 2
+			tank_nsb_armor_upgrade = 1
+		}
+		icon = "gfx/interface/technologies/ENG_basic_light_tank.dds"
+		obsolete = yes #used for oob
+	}
+	create_equipment_variant = {
+		name = "Light Tank Mk. VI"
+		type = light_tank_chassis_1
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_heavy_machine_gun
+			turret_type_slot = tank_light_two_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = smoke_launchers
+		}
+		icon = "gfx/interface/technologies/ENG_basic_light_tank.dds"
+		upgrades = {
+			tank_nsb_engine_upgrade = 2
+			tank_nsb_armor_upgrade = 2
+		}
+	}
+
+	create_equipment_variant = {
+		name = "Medium Mk. II"
+		type = medium_tank_chassis_0
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_small_cannon
+			turret_type_slot = tank_medium_three_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 1
+			tank_nsb_engine_upgrade = 2
+		}
+		icon = "gfx/interface/technologies/ENG_basic_light_tank.dds"
+	}
+
+	create_equipment_variant = {
+		name = "Vickers 6 ton A"
+		type = light_tank_chassis_0
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_heavy_machine_gun
+			turret_type_slot = tank_light_one_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = secondary_turret_hmg
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 3
+			tank_nsb_engine_upgrade = 2
+		}
+		icon = "gfx/interface/equipmentdesigner/tanks/designer/ENG/ENG_light_BAB_camo.dds"
+		obsolete = yes #export only
+	}
+
+	create_equipment_variant = {
+		name = "Vickers 6 ton B"
+		type = light_tank_chassis_0
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_small_cannon
+			turret_type_slot = tank_light_two_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 3
+			tank_nsb_engine_upgrade = 2
+		}
+		icon = "gfx/interface/equipmentdesigner/tanks/designer/ENG/ENG_light_BAB_camo.dds"
+		obsolete = yes #export only
+	}
+}
 
 ### Ship Variants ###
 

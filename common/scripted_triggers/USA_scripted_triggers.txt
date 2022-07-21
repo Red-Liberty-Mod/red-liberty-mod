@@ -24,8 +24,8 @@ socialists_have_congress_majority = {
 	custom_trigger_tooltip = {
 		tooltip = socialist_majority_tt
 		AND = {
-			check_variable = { senators_socialist > 48 }
-			check_variable = { representatives_socialist > 242 }
+			check_variable = { senators_socialist > quorum_medium }
+			check_variable = { representatives_socialist > rep_quorum_medium }
 		}
 	}
 }
@@ -34,40 +34,45 @@ democrats_have_congress_majority = {
 	custom_trigger_tooltip = {
 		tooltip = democrat_majority_tt
 		AND = {
-			check_variable = { senators_democrat > 48 }
-			check_variable = { representatives_democrat > 242 }
+			check_variable = { senators_democrat > quorum_medium }
+			check_variable = { representatives_democrat > rep_quorum_medium }
 		}
 	}
 }
 
 bill_will_pass = {
 	OR = {
-		OR = {
-			AND = {
-				has_country_flag = USA_bill_house_phase
-				has_country_flag = filibuster_active
-				check_variable = { representatives_support > rep_quorum_high }
-			}
-			AND = {
-				has_country_flag = USA_bill_house_phase
-				NOT = {
-					has_country_flag = filibuster_active
-				}
-				check_variable = { representatives_support > rep_quorum_medium }
+		### HOUSE PHASE ###
+		AND = {
+			has_country_flag = USA_bill_house_phase
+			check_variable = {
+				var = representatives_support
+				value = rep_quorum_medium
+				compare = greater_than_or_equals
 			}
 		}
+		
+		### SENATE PHASE ###
 		OR = {
 			AND = {
 				has_country_flag = USA_bill_senate_phase
 				has_country_flag = filibuster_active
-				check_variable = { senators_support > quorum_high }
+				check_variable = {
+					var = senators_support
+					value = quorum_high
+					compare = greater_than_or_equals
+				}
 			}
 			AND = {
 				has_country_flag = USA_bill_senate_phase
 				NOT = {
 					has_country_flag = filibuster_active
 				}
-				check_variable = { senators_support > quorum_medium }
+				check_variable = {
+					var = senators_support
+					value = quorum_medium
+					compare = greater_than_or_equals
+				}
 			}
 		}
 	}
@@ -163,5 +168,24 @@ is_rocky_mountains_state = {
 		state = 387
 		state = 388
 		state = 381
+	}
+}
+
+is_urban_state = {
+	OR = {
+		has_state_category = large_town
+		has_state_category = city
+		has_state_category = large_city
+		has_state_category = metropolis
+		has_state_category = megalopolis
+	}
+}
+
+is_rural_state = {
+	OR = {
+		has_state_category = pastoral
+		has_state_category = rural
+		has_state_category = developing_rural
+		has_state_category = town
 	}
 }

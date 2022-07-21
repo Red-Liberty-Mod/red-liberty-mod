@@ -28,12 +28,11 @@ USA_congress = {
 		}
 		
 		visible = {
-			#original_tag = USA
-			#NOT = {
-			#	has_country_flag = USA_discussing_bill
-			#}
-			#is_debug = yes
-			always = no
+			original_tag = USA
+			NOT = {
+				has_country_flag = USA_discussing_bill
+			}
+			is_debug = yes
 		}
 		
 		cost = 0
@@ -67,9 +66,7 @@ USA_congress = {
 		complete_effect = {
 			custom_effect_tooltip = USA_bill_pass_req_tt
 			effect_tooltip = {
-				add_ideas = {
-					USA_safety_net_barebones
-				}
+				USA_add_social_security = yes
 			}
 			USA_social_security_act_setup = yes
 		}
@@ -106,6 +103,37 @@ USA_congress = {
 				}
 			}
 			USA_enforcement_act_setup = yes
+		}
+	}
+	
+	start_USA_voting_rights_act = { # voting rights act
+		icon = ger_mefo_bills
+		available = {
+			NOT = {
+				has_country_flag = voting_rights_act_passed
+			}
+			has_completed_focus = USA_voting_rights_act
+			
+		}
+		
+		visible = {
+			original_tag = USA
+			NOT = {
+				has_country_flag = USA_discussing_bill
+			}
+		    has_completed_focus = USA_voting_rights_act
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			custom_effect_tooltip = USA_bill_pass_req_tt
+			effect_tooltip = {
+				add_ideas = {
+					USA_voting_rights_act
+				}
+			}
+			USA_voting_rights_act_setup = yes
 		}
 	}
 	
@@ -322,6 +350,190 @@ USA_congress = {
 		}
 	}
 	
+	start_USA_public_contracts_act = {
+		icon = ger_mefo_bills
+		available = {
+			NOT = {
+				has_country_flag = public_contracts_act_passed
+			}
+			has_completed_focus = USA_public_contracts_act
+		}
+		
+		visible = {
+			original_tag = USA
+			NOT = {
+				has_country_flag = public_contracts_act_passed
+				has_country_flag = USA_discussing_bill
+			}
+			always = no
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			custom_effect_tooltip = USA_bill_pass_req_tt
+			USA_public_contracts_act_setup = yes
+		}
+	}
+	
+	start_USA_equal_education_act = { # equal education act
+		icon = ger_mefo_bills
+		available = {
+			NOT = {
+				has_country_flag = equal_education_passed
+			}
+			has_completed_focus = USA_attempt_standardization
+		}
+		
+		visible = {
+			original_tag = USA
+			NOT = {
+				has_country_flag = USA_discussing_bill
+				has_country_flag = equal_education_passed
+			}
+			has_completed_focus = USA_attempt_standardization
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			custom_effect_tooltip = USA_bill_pass_req_tt
+			effect_tooltip = {
+				USA_add_equal_education = yes
+				add_ideas = {
+					USA_equal_education_act
+				}
+			}
+			USA_equal_education_act_setup = yes
+		}
+	}
+	
+	start_USA_economic_equality_act = { # economic equality act
+		icon = ger_mefo_bills
+		available = {
+			NOT = {
+				has_country_flag = economic_equality_passed
+			}
+			has_completed_focus = USA_economic_equality_act
+		}
+		
+		visible = {
+			original_tag = USA
+			NOT = {
+				has_country_flag = USA_discussing_bill
+				has_country_flag = economic_equality_passed
+			}
+			has_completed_focus = USA_economic_equality_act
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			custom_effect_tooltip = USA_bill_pass_req_tt
+			effect_tooltip = {
+				USA_add_economic_equality = yes
+				add_ideas = {
+					USA_economic_equality_act
+				}
+			}
+			USA_economic_equality_act_setup = yes
+		}
+	}
+	
+	start_USA_national_healthcare_act = { # national healthcare act
+		icon = ger_mefo_bills
+		available = {
+			NOT = {
+				has_country_flag = national_healthcare_passed
+			}
+			has_completed_focus = USA_national_healthcare_act
+		}
+		
+		visible = {
+			original_tag = USA
+			NOT = {
+				has_country_flag = USA_discussing_bill
+				has_country_flag = national_healthcare_passed
+			}
+			has_completed_focus = USA_national_healthcare_act
+			always = yes
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			custom_effect_tooltip = USA_bill_pass_req_tt
+			effect_tooltip = {
+				USA_add_national_healthcare = yes
+				add_ideas = {
+					USA_national_healthcare_act
+				}
+			}
+			USA_national_healthcare_act_setup = yes
+		}
+	}
+	
+	start_USA_second_bill_of_rights = { # second bill of rights
+		icon = ger_mefo_bills
+		available = {
+			NOT = {
+				has_country_flag = second_bill_of_rights_passed
+			}
+			has_completed_focus = USA_second_bill_of_rights
+		}
+		
+		visible = {
+			original_tag = USA
+			NOT = {
+				has_country_flag = USA_discussing_bill
+				has_country_flag = second_bill_of_rights_passed
+			}
+			has_completed_focus = USA_second_bill_of_rights
+			always = yes
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			custom_effect_tooltip = USA_bill_pass_req_tt
+			effect_tooltip = {
+				USA_add_second_bill_of_rights = yes
+				add_ideas = {
+					USA_second_bill_of_rights
+				}
+			}
+			USA_second_bill_of_rights_setup = yes
+		}
+	}
+	
+	start_USA_puerto_rico_statehood = { # pr statehood
+		icon = ger_mefo_bills
+		available = {
+			NOT = {
+				686 = {
+					is_core_of = USA
+				}
+			}
+			has_country_flag = USA_pr_state_available
+		}
+		
+		visible = {
+			original_tag = USA
+			NOT = {
+				has_country_flag = USA_discussing_bill
+				#686 = {
+				#	is_core_of = USA
+				#}
+			}
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			USA_puerto_rico_statehood_setup = yes
+		}
+	}
+	
 	start_USA_naval_act_fake = {
 		
 		icon = ger_mefo_bills
@@ -363,7 +575,12 @@ USA_congress = {
 		
 		complete_effect = {
 			custom_effect_tooltip = USA_bill_pass_req_tt
-			
+			effect_tooltip = {
+				add_ideas = {
+					USA_naval_act
+				}
+			}
+			USA_naval_act_setup = yes
 		}
 	}
 	
@@ -390,6 +607,108 @@ USA_congress = {
 		complete_effect = {
 			custom_effect_tooltip = USA_bill_pass_req_tt
 			
+		}
+	}
+	
+	start_USA_war_declaration = { # ww2 war declaration
+		icon = ger_mefo_bills
+		available = {
+			NOT = {
+				has_country_flag = USA_discussing_bill
+			}
+			has_completed_focus = USA_europe_aflame
+		}
+		
+		visible = {
+			original_tag = USA
+			NOT = {
+				has_country_flag = USA_discussing_bill
+			}
+			has_completed_focus = USA_europe_aflame
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			custom_effect_tooltip = USA_worldwar_tooltip
+			USA_war_declaration_setup = yes 
+		}
+	}
+	
+	start_USA_nationalize_defense = { # nationalize defense industry
+		icon = ger_mefo_bills
+		available = {
+			NOT = {
+				has_country_flag = USA_discussing_bill
+			}
+			has_completed_focus = USA_remove_the_profit
+		}
+		
+		visible = {
+			original_tag = USA
+			NOT = {
+				has_country_flag = USA_discussing_bill
+			}
+			has_completed_focus = USA_remove_the_profit
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			custom_effect_tooltip = USA_bill_pass_req_tt
+			effect_tooltip = {
+				random_owned_state = {
+					limit = {
+						is_urban_state = yes
+					}
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_state = {
+					limit = {
+						is_urban_state = yes
+					}
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_state = {
+					limit = {
+						is_urban_state = yes
+					}
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_state = {
+					limit = {
+						is_urban_state = yes
+					}
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_state = {
+					limit = {
+						is_urban_state = yes
+					}
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			USA_nationalize_defense_act_setup = yes
 		}
 	}
 	
@@ -618,9 +937,17 @@ USA_congress = {
 			AND = {
 				original_tag = USA
 				check_variable = { bill_id > 0 }
-				OR = {
-					check_variable = { senators_communist > 0 }
+				if = {
+					limit = {
+						has_country_flag = USA_bill_house_phase
+					}
 					check_variable = { representatives_communist > 0 }
+				}
+				else_if = {
+					limit = {
+						has_country_flag = USA_bill_senate_phase
+					}
+					check_variable = { senators_communist > 0 }
 				}
 				NOT = {
 					has_country_flag = USA_special_decisions_enabled
@@ -693,6 +1020,7 @@ USA_congress = {
 					has_country_flag = USA_bill_senate_phase
 				}
 				USA_socialist_support_senate_eventless = yes
+				check_if_bill_passed = yes
 			}
 		}
 	}
@@ -778,6 +1106,7 @@ USA_congress = {
 					has_country_flag = USA_bill_senate_phase
 				}
 				USA_republican_support_senate_eventless = yes
+				check_if_bill_passed = yes
 			}
 		}
 	}
@@ -826,6 +1155,7 @@ USA_congress = {
 					has_country_flag = USA_bill_senate_phase
 				}
 				USA_democrat_support_senate_eventless = yes
+				check_if_bill_passed = yes
 			}
 		}
 	}
@@ -874,6 +1204,7 @@ USA_congress = {
 					has_country_flag = USA_bill_senate_phase
 				}
 				USA_fascist_support_senate_eventless = yes
+				check_if_bill_passed = yes
 			}
 		}
 	}
@@ -905,12 +1236,54 @@ USA_congress = {
 		}
 	}
 	
+	USA_extend_session = {
+		visible = {
+			AND = {
+				original_tag = USA
+				check_variable = { bill_id > 0 }
+			}
+        }
+		
+		cost = 0
+		
+		available  = {
+			
+   		}
+		
+		days_re_enable = 14
+		
+		complete_effect = {
+			add_stability = -0.005
+			if = {
+				limit = { 
+					has_country_flag = USA_bill_house_phase
+				}
+				add_days_mission_timeout = {
+					mission = USA_house_phase
+					days = 15
+				}
+			}
+			else_if = {
+				limit = { 
+					has_country_flag = USA_bill_senate_phase
+				}
+				add_days_mission_timeout = {
+					mission = USA_senate_phase
+					days = 15
+				}
+			}
+		}
+	}
+	
 	USA_house_phase = {
 		visible = {
 			original_tag = USA
 		}
 		available = { #Mission is completed when the player brings the bill to a vote
-			always = no
+			custom_trigger_tooltip = {
+				tooltip = USA_house_phase_trigger_tt
+				bill_will_pass = yes
+			}
 		}
 		activation = {
 			has_country_flag = USA_bill_house_phase
@@ -919,12 +1292,23 @@ USA_congress = {
 		
 		days_mission_timeout = 30
 		
+		selectable_mission = yes
+		
+		complete_effect = {
+			if = {
+				limit = {
+					bill_will_pass = yes
+				}
+				USA_senate_phase = yes
+				add_political_power = 10
+			}
+		}
+		
 		timeout_effect = {
 			if = {
 				limit = {
 					bill_will_pass = yes
 				}
-				custom_effect_tooltip = vote_will_pass_tt
 				USA_senate_phase = yes
 			}
 			else = {
@@ -939,7 +1323,10 @@ USA_congress = {
 			original_tag = USA
 		}
 		available = { #Mission is completed when the player brings the bill to a vote
-			always = no
+			custom_trigger_tooltip = {
+				tooltip = USA_seante_phase_trigger_tt
+				bill_will_pass = yes
+			}
 		}
 		activation = {
 			has_country_flag = USA_bill_senate_phase
@@ -948,12 +1335,22 @@ USA_congress = {
 		
 		days_mission_timeout = 30
 		
+		selectable_mission = yes
+		
+		complete_effect = {
+			if = {
+				limit = {
+					bill_will_pass = yes
+				}
+				USA_bill_vote = yes
+			}
+		}
+		
 		timeout_effect = {
 			if = {
 				limit = {
 					bill_will_pass = yes
 				}
-				custom_effect_tooltip = vote_will_pass_tt
 				USA_bill_vote = yes
 			}
 			else = {

@@ -1,3 +1,17 @@
+USA_setup_party_faction_vars = {
+	
+	set_variable = { SPA_militant_influence = 10 }
+	set_variable = { SPA_militant_approval = 17 }
+	
+	set_variable = { SPA_unionist_influence = 27 }
+	set_variable = { SPA_unionist_approval = 27 }
+	
+	set_variable = { SPA_moderate_influence = 19 }
+	set_variable = { SPA_moderate_approval = 23 }
+	
+	set_variable = { USA_socialist_unity = 17 }
+}
+
 USA_lister_pres_setup = {
 	USA = {
 		set_politics = {
@@ -6,6 +20,11 @@ USA_lister_pres_setup = {
 			election_frequency = 48
 			elections_allowed = yes
 		}
+		
+		clear_all_coalitions = yes
+		clear_all_opposition = yes
+		add_proglib_coalition = yes
+		add_natcon_coalition = yes
 		
 		load_focus_tree = USA_lister_tree
 	}
@@ -80,12 +99,9 @@ USA_calc_congress_control = {
 
 improve_safety_net = {
 	if = {
-		limit = {
-			has_idea = USA_safety_net_acceptable
-		}
 		swap_ideas = {
-			remove_idea = USA_safety_net_acceptable
-			add_idea = USA_safety_net_large
+			remove_idea = USA_safety_net_barebones
+			add_idea = USA_safety_net_small
 		}
 	}
 	else_if = {
@@ -97,16 +113,57 @@ improve_safety_net = {
 			add_idea = USA_safety_net_acceptable
 		}
 	}
-	else = {
-		swap_ideas = {
-			remove_idea = USA_safety_net_barebones
-			add_idea = USA_safety_net_small
+	else_if = {
+		limit = {
+			has_idea = USA_safety_net_acceptable
 		}
+		swap_ideas = {
+			remove_idea = USA_safety_net_acceptable
+			add_idea = USA_safety_net_large
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = USA_safety_net_large
+		}
+		swap_ideas = {
+			remove_idea = USA_safety_net_large
+			add_idea = USA_safety_net_welfare_state
+		}
+	}
+	else = {
+		add_political_power = 25
 	}
 }
 
 improve_great_depression = {
 	if = {
+		limit = {
+			has_idea = USA_the_great_depression_10
+		}
+		remove_ideas = {
+			USA_the_great_depression_10
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = USA_the_great_depression_9
+		}
+		swap_ideas = {
+			remove_idea = USA_the_great_depression_9
+			add_idea = USA_the_great_depression_10
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = USA_the_great_depression_8
+		}
+		swap_ideas = {
+			remove_idea = USA_the_great_depression_8
+			add_idea = USA_the_great_depression_9
+		}
+	}
+	else_if = {
 		limit = {
 			has_idea = USA_the_great_depression_7
 		}
@@ -115,7 +172,7 @@ improve_great_depression = {
 			add_idea = USA_the_great_depression_8
 		}
 	}
-	if = {
+	else_if = {
 		limit = {
 			has_idea = USA_the_great_depression_6
 		}
@@ -124,7 +181,7 @@ improve_great_depression = {
 			add_idea = USA_the_great_depression_7
 		}
 	}
-	if = {
+	else_if = {
 		limit = {
 			has_idea = USA_the_great_depression_5
 		}
@@ -133,7 +190,7 @@ improve_great_depression = {
 			add_idea = USA_the_great_depression_6
 		}
 	}
-	if = {
+	else_if = {
 		limit = {
 			has_idea = USA_the_great_depression_4
 		}
@@ -169,6 +226,9 @@ improve_great_depression = {
 			add_idea = USA_the_great_depression_2
 		}
 	}
+	else = {
+		add_political_power = 50
+	}
 }
 
 worsen_great_depression = {
@@ -203,6 +263,15 @@ worsen_great_depression = {
 		swap_ideas = {
 			remove_idea = USA_the_great_depression_4
 			add_idea = USA_the_great_depression_3
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = USA_the_great_depression_5
+		}
+		swap_ideas = {
+			remove_idea = USA_the_great_depression_5
+			add_idea = USA_the_great_depression_4
 		}
 	}
 }
@@ -497,5 +566,62 @@ USA_calc_poverty_goal = {
 		var = USA_unemployment
 		min = 0
 		max = 95
+	}
+}
+
+USA_add_social_security = {
+	if = {
+		limit = {
+			check_variable = { USA_bill_strength > 20 }
+		}
+		add_ideas = {
+			USA_safety_net_acceptable
+		}
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					can_have_elections_in_state = yes
+				}
+				add_to_variable = { socialist_popularity = 0.05 }
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { USA_bill_strength > 10 }
+		}
+		add_ideas = {
+			USA_safety_net_small
+		}
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					can_have_elections_in_state = yes
+				}
+				add_to_variable = { socialist_popularity = 0.03 }
+			}
+		}
+	}
+	else = {
+		add_ideas = {
+			USA_safety_net_barebones
+		}
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					can_have_elections_in_state = yes
+				}
+				add_to_variable = { socialist_popularity = 0.01 }
+			}
+		}
+	}
+}
+
+USA_contract_three_months = {
+	hidden_effect = {
+		country_event = {
+			id = united_states_designer.1
+			days = 180
+		}
 	}
 }

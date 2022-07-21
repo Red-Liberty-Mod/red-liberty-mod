@@ -1,44 +1,107 @@
-AHE_setup_WUK = {
+AHE_remove_templates = {
+	if = {
+		limit = { has_template = "Infanteriedivision" }
+		delete_unit_template_and_units = { division_template = "Infanteriedivision" }
+	}
+	if = {
+		limit = { has_template = "Schützendivision" }
+		delete_unit_template_and_units = { division_template = "Schützendivision" }
+	}
+	if = {
+		limit = { has_template = "Landsturminfanteriedivision" }
+		delete_unit_template_and_units = { division_template = "Landsturminfanteriedivision" }
+	}
+	if = {
+		limit = { has_template = "Alpenjägerdivision" }
+		delete_unit_template_and_units = { division_template = "Alpenjägerdivision" }
+	}
+	if = {
+		limit = { has_template = "Kavalleriedivision" }
+		delete_unit_template_and_units = { division_template = "Kavalleriedivision" }
+	}
+}
+
+AHE_create_demilitarized_zones = {
 	hidden_effect = {
-		WUK = {
-			add_state_core = 89
-			add_state_core = 91
-			
-			AHE = {
-				every_owned_state = {
-					limit = { is_core_of = WUK }
-					
-					remove_core_of = AHE
-					
-					WUK = { transfer_state = PREV }
-					teleport_armies = {
-						limit = { tag = AHE }
-						to_state_array = owned_controlled_states
+		AHE = {
+			every_owned_state = {
+				limit = {
+					NOT = {
+						state = 4
+						state = 39
+						state = 152
+						state = 153
+						state = 963
 					}
+				}
+				set_demilitarized_zone = yes
+			}
+		}
+	}
+}
+
+AHE_setup_AUS = {
+	hidden_effect = {
+		AUS = {
+			add_state_core = 39
+			add_state_core = 153
+			add_state_core = 875
+			add_state_core = 963
+			
+			add_ideas = {
+				AUS_last_chance
+			}
+		}
+		
+		AHE = {
+			every_owned_state = {
+				limit = { is_core_of = AUS }
+				
+				set_demilitarized_zone = no
+				AUS = { transfer_state = PREV }
+				
+				teleport_armies = {
+					limit = { tag = AHE }
+					to_state_array = owned_controlled_states
 				}
 			}
 			
-			load_oob = WUK_danubian_war
+			transfer_units_fraction = {
+				target = AUS
+				size = 0.6
+				stockpile_ratio = 0.5
+				army_ratio = 0.5
+				navy_ratio = 0
+				air_ratio = 0.5
+				keep_unit_leaders_trigger = {
+					
+				}
+			}
+		}
+		
+		AUS = {
+			AHE_remove_templates = yes
 		}
 	}
 }
 
 AHE_setup_CZE = {
-	hidden_effect = {
+	hidden_effect {
 		CZE = {
 			add_state_core = 9
-			add_state_core = 70
-			add_state_core = 71
+			add_state_core = 69
+			add_state_core = 74
 			add_state_core = 75
-			add_state_core = 664
+			add_state_core = 815
 			
 			AHE = {
 				every_owned_state = {
 					limit = { is_core_of = CZE }
 					
+					set_demilitarized_zone = no
 					remove_core_of = AHE
-					
 					CZE = { transfer_state = PREV }
+					
 					teleport_armies = {
 						limit = { tag = AHE }
 						to_state_array = owned_controlled_states
@@ -47,87 +110,35 @@ AHE_setup_CZE = {
 			}
 			
 			load_oob = CZE_danubian_war
-		}
-	}
-}
-
-AHE_setup_CRO = {
-	hidden_effect = {
-		CRO = {
-			add_state_core = 103
-			add_state_core = 109
-			add_state_core = 163
-			add_state_core = 798
-			add_state_core = 102
-			add_state_core = 887
-			
-			add_state_core = 104
-			add_state_core = 886
-			
-			AHE = {
-				every_owned_state = {
-					limit = { is_core_of = CRO }
-					
-					remove_core_of = AHE
-					
-					CRO = { transfer_state = PREV }
-					teleport_armies = {
-						limit = { tag = AHE }
-						to_state_array = owned_controlled_states
-					}
-				}
-			}
-			
-			load_oob = CRO_danubian_war
-		}
-	}
-}
-
-AHE_setup_BNT = {
-	hidden_effect = {
-		BNT = {
-			add_state_core = 82
-			add_state_core = 764
-			
-			AHE = {
-				every_owned_state = {
-					limit = { is_core_of = BNT }
-					
-					remove_core_of = AHE
-					
-					BNT = { transfer_state = PREV }
-					teleport_armies = {
-						limit = { tag = AHE }
-						to_state_array = owned_controlled_states
-					}
-				}
-			}
-			
-			load_oob = BNT_danubian_war
+			AHE_remove_templates = yes
 		}
 	}
 }
 
 AHE_setup_HUN = {
-	hidden_effect = {
+	hidden_effect {
 		HUN = {
 			add_state_core = 43
 			add_state_core = 45
 			add_state_core = 73
 			add_state_core = 76
+			add_state_core = 82
 			add_state_core = 83
 			add_state_core = 84
 			add_state_core = 154
 			add_state_core = 155
+			add_state_core = 664
+			add_state_core = 764
 			add_state_core = 885
 			
 			AHE = {
 				every_owned_state = {
 					limit = { is_core_of = HUN }
 					
+					set_demilitarized_zone = no
 					remove_core_of = AHE
-					
 					HUN = { transfer_state = PREV }
+					
 					teleport_armies = {
 						limit = { tag = AHE }
 						to_state_array = owned_controlled_states
@@ -136,22 +147,29 @@ AHE_setup_HUN = {
 			}
 			
 			load_oob = HUN_danubian_war
+			AHE_remove_templates = yes
 		}
 	}
 }
 
-AHE_setup_MNT = {
-	hidden_effect = {
-		MNT = {
-			add_state_core = 105
+AHE_setup_CRO = {
+	hidden_effect {
+		CRO = {
+			add_state_core = 103
+			add_state_core = 104
+			add_state_core = 109
+			add_state_core = 798
+			add_state_core = 886
+			add_state_core = 887
 			
 			AHE = {
 				every_owned_state = {
-					limit = { is_core_of = MNT }
+					limit = { is_core_of = CRO }
 					
+					set_demilitarized_zone = no
 					remove_core_of = AHE
+					CRO = { transfer_state = PREV }
 					
-					MNT = { transfer_state = PREV }
 					teleport_armies = {
 						limit = { tag = AHE }
 						to_state_array = owned_controlled_states
@@ -159,11 +177,97 @@ AHE_setup_MNT = {
 				}
 			}
 			
-			load_oob = MNT_danubian_war
+			load_oob = CRO_danubian_war
+			AHE_remove_templates = yes
 		}
-		
-		SER = {
-			puppet = MNT
+	}
+}
+
+CRO_setup_BOS = {
+	hidden_effect {
+		BOS = {
+			add_state_core = 104
+			add_state_core = 886
+			
+			CRO = {
+				every_owned_state = {
+					limit = { is_core_of = BOS }
+					
+					remove_core_of = CRO
+					BOS = { transfer_state = PREV }
+					
+					teleport_armies = {
+						limit = { tag = CRO }
+						to_state_array = owned_controlled_states
+					}
+				}
+			}
+			
+			load_oob = BOS_danubian_war
+			if = {
+				limit = { has_template = "Pješačka Divizija" }
+				delete_unit_template_and_units = { division_template = "Pješačka Divizija" }
+			}
+			if = {
+				limit = { has_template = "Divizije Milicije" }
+				delete_unit_template_and_units = { division_template = "Divizije Milicije" }
+			}
+		}
+	}	
+}
+
+AHE_setup_SLV = {
+	hidden_effect {
+		SLV = {
+			add_state_core = 102
+			add_state_core = 736
+			add_state_core = 882
+			
+			AHE = {
+				every_owned_state = {
+					limit = { is_core_of = SLV }
+					
+					set_demilitarized_zone = no
+					remove_core_of = AHE
+					SLV = { transfer_state = PREV }
+					
+					teleport_armies = {
+						limit = { tag = AHE }
+						to_state_array = owned_controlled_states
+					}
+				}
+			}
+			
+			load_oob = SLV_danubian_war
+			AHE_remove_templates = yes
+		}
+	}
+}
+
+AHE_setup_SLO = {
+	hidden_effect {
+		SLO = {
+			add_state_core = 70
+			add_state_core = 71
+			add_state_core = 664
+			
+			AHE = {
+				every_owned_state = {
+					limit = { is_core_of = SLO }
+					
+					set_demilitarized_zone = no
+					remove_core_of = AHE
+					SLO = { transfer_state = PREV }
+					
+					teleport_armies = {
+						limit = { tag = AHE }
+						to_state_array = owned_controlled_states
+					}
+				}
+			}
+			
+			load_oob = SLO_danubian_war
+			AHE_remove_templates = yes
 		}
 	}
 }

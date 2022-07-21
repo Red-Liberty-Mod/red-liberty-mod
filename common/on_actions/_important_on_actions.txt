@@ -1,0 +1,38 @@
+on_actions = {
+	
+	on_startup = {
+		effect = {
+			set_global_flag = open_intro_splash_screen
+		
+			every_country = {
+				country_event = opinion_modifier.1
+			}
+		}
+	}
+	
+	on_state_control_changed = {
+		effect = {
+			#log = "[GetDateText] - [ROOT.GetName]: on_state_control_changed OLD CONTROLLER: [FROM.GetName] STATE: [FROM.FROM.GetName]"
+		
+			### Adding opinion modifiers to newly-spawned countries
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = opinion_modifiers_set_up
+					}
+				}
+				set_country_flag = opinion_modifiers_set_up
+				country_event = { id = opinion_modifier.2 }
+			}
+		}
+	}
+	
+	on_government_change = {
+		effect = {
+			#log = "[GetDateText] - [ROOT.GetName]: on_government_change"
+			
+			### Updating opinion modifiers upon change in govt
+			country_event = { id = opinion_modifier.2 }
+		}
+	}
+}

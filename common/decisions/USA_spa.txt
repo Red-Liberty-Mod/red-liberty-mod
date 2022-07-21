@@ -1,24 +1,4 @@
 USA_managing_spa = {
-
-	USA_reset_pie_chart = {
-	
-		icon = generic_decision
-		
-		visible = {
-			is_debug = yes
-		}
-		
-		available = {
-			tag = USA
-			is_debug = yes
-		}
-		
-		cost = 0
-		
-		complete_effect = {
-			create_pie_chart = yes
-		}
-	}
 	
 	USA_increase_unity = {
 	
@@ -35,7 +15,59 @@ USA_managing_spa = {
 		cost = 75
 		
 		complete_effect = {
-			add_to_variable = { USA_SPA_unity = 5 }
+			random_list = {
+				65 = {
+					add_to_variable = { USA_socialist_unity = 5 }
+					custom_effect_tooltip = USA_spa_unity_large_gain_tt
+				}
+				25 = {
+					add_to_variable = { USA_socialist_unity = 3 }
+					custom_effect_tooltip = USA_spa_unity_small_gain_tt
+				}
+				10 = {
+					
+				}
+			}
+		}
+	}
+	
+	USA_increase_militant_influence = {
+	
+		icon = generic_political_discourse
+		
+		visible = {
+			
+		}
+		
+		available = {
+			tag = USA
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+			add_to_variable = { SPA_militant_pop = 3 }
+			custom_effect_tooltip = USA_spa_militant_influence_gain_tt
+		}
+	}
+	
+	USA_increase_moderate_influence = {
+	
+		icon = generic_political_discourse
+		
+		visible = {
+			
+		}
+		
+		available = {
+			tag = USA
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+			add_to_variable = { SPA_moderate_pop = 3 }
+			custom_effect_tooltip = USA_spa_progressive_influence_gain_tt
 		}
 	}
 }
