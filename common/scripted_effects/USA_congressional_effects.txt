@@ -818,12 +818,35 @@ USA_naval_act_setup = { # naval act
 }
 
 USA_bill_setup = {
+	USA_calc_unity_bonus = yes
+
 	USA_clamp_support_vars = yes
 	USA_initialize_bill_support = yes
 	set_country_flag = USA_bill_house_phase
 }
 
 USA_clamp_support_vars = {
+
+	clamp_variable = {
+		var = communist_flip_cost
+		min = 10
+	}
+	clamp_variable = {
+		var = socialist_flip_cost
+		min = 10
+	}
+	clamp_variable = {
+		var = republican_flip_cost
+		min = 10
+	}
+	clamp_variable = {
+		var = democrat_flip_cost
+		min = 10
+	}
+	clamp_variable = {
+		var = fascist_flip_cost
+		min = 10
+	}
 	
 	clamp_variable = {
 		var = USA_communist_bill_support
@@ -1266,7 +1289,7 @@ USA_fascist_support_house_eventless = {
 		}
 	}
 	
-	set_country_flag = fascist_negotiated
+	set_country_flag = fascists_negotiated
 }
 
 USA_fascist_support_senate_eventless = {
@@ -1302,210 +1325,21 @@ USA_fascist_support_senate_eventless = {
 		}
 	}
 	
-	set_country_flag = fascist_negotiated
+	set_country_flag = fascists_negotiated
 }
 
-USA_recalc_house_old = { # this will recalculate the number of representatives based on party popularity, in an unbiased manner which does not favor any parties
-	
-	#Sets variable to check for discrepencies
-	set_variable = {
-		USA_old_representatives_total = representatives_total
-	}
-	
-	set_variable = {
-		representatives_communist = party_popularity@revolutionary_autocacy
-	}
+USA_calc_unity_bonus = {
 	if = {
 		limit = {
-			revolutionary_autocacy < 0.15
-		}
-		multiply_variable = {
-			representatives_communist = 0.75
-		}
-	}
-	
-	set_variable = {
-		representatives_socialist = party_popularity@libertarian_socialism
-	}
-	add_to_variable = {
-		representatives_socialist = party_popularity@proletarian_dictatorship
-	}
-	
-	if = {
-		limit = {
-			NOT = {
-				has_country_flag = USA_farmer_labor_exists
+			OR = {
+				has_government = proletarian_dictatorship
+				has_government = libertarian_socialism
+				has_government = social_democracy
 			}
 		}
-		add_to_variable = {
-			representatives_socialist = party_popularity@social_democracy
-		}
-	}
-	else_if = {
-		limit = {
-			has_country_flag = USA_farmer_labor_exists
-		}
-		add_to_variable = {
-			representatives_farmer_labor = party_popularity@social_democracy
-		}
-	}
-	
-	set_variable = {
-		representatives_republican = party_popularity@market_libertarianism
-	}
-	if = {
-		limit = {
-			market_libertarianism < 0.15
-		}
-		multiply_variable = {
-			representatives_republican = 0.75
-		}
-	}
-	
-	set_variable = {
-		representatives_democrat = party_popularity@national_conservatism
-	}
-	
-	if = {
-		limit = {
-			NOT = {
-				has_country_flag = USA_liberal_exists
-			}
-		}
-		add_to_variable = {
-			representatives_democrat = party_popularity@progressive_liberalism
-		}
-	}
-	else_if = {
-		limit = {
-			has_country_flag = USA_liberal_exists
-		}
-		add_to_variable = {
-			representatives_liberal = party_popularity@social_democracy
-		}
-	}
-	
-	set_variable = {
-		representatives_fascist = party_popularity@authoritarian_democracy
-	}
-	add_to_variable = {
-		representatives_fascist = party_popularity@far_right_authoritarianism
-	}
-	multiply_variable = {
-		representatives_fascist = 0.85
-	}
-	
-	#Gets seats
-	multiply_variable = {
-		representatives_communist = representatives_total
-	}
-	multiply_variable = {
-		representatives_socialist = representatives_total
-	}
-	multiply_variable = {
-		representatives_farmer_labor = representatives_total
-	}
-	multiply_variable = {
-		representatives_liberal = representatives_total
-	}
-	multiply_variable = {
-		representatives_republican = representatives_total
-	}
-	multiply_variable = {
-		representatives_democrat = representatives_total
-	}
-	multiply_variable = {
-		representatives_fascist = representatives_total
-	}
-	
-	#rounds
-	round_variable = representatives_communist
-	round_variable = representatives_socialist
-	round_variable = representatives_farmer_labor
-	round_variable = representatives_liberal
-	round_variable = representatives_republican
-	round_variable = representatives_democrat
-	round_variable = representatives_fascist
-	
-	#Gets new total seat value
-	set_variable = {
-		representatives_total = 0
-	}
-	add_to_variable = {
-		representatives_total = representatives_communist
-	}
-	add_to_variable = {
-		representatives_total = representatives_socialist
-	}
-	add_to_variable = {
-		representatives_total = representatives_farmer_labor
-	}
-	add_to_variable = {
-		representatives_total = representatives_liberal
-	}
-	add_to_variable = {
-		representatives_total = representatives_republican
-	}
-	add_to_variable = {
-		representatives_total = representatives_democrat
-	}
-	add_to_variable = {
-		representatives_total = representatives_fascist
-	}
-	
-	#gets discrepency
-	subtract_from_variable = {
-		USA_old_representatives_total = representatives_total
-	}
-	
-	#deals with discrepency, if needed
-	if = {
-		limit = {
-			NOT = {
-				check_variable = {
-					USA_old_representatives_total = 0
-				}
-			}
-		}
-		add_to_variable = {
-			representatives_total = USA_old_representatives_total
-		}
-		else_if = {
-			limit = {
-				OR = {
-					has_government = proletarian_dictatorship
-					has_government = libertarian_socialism
-					has_government = social_democracy
-				}
-			}
-			add_to_variable = {
-				representatives_socialist = USA_old_representatives_total
-			}
-		}
-		else_if = {
-			limit = {
-				has_government = market_libertarianism
-			}
-			add_to_variable = {
-				representatives_republican = USA_old_representatives_total
-			}
-		}
-		else_if = {
-			limit = {
-				has_government = national_conservatism
-			}
-			add_to_variable = {
-				representatives_democrat = USA_old_representatives_total
-			}
-		}
-		else_if = {
-			limit = {
-				has_government = authoritarian_democracy
-			}
-			add_to_variable = {
-				representatives_fascist = USA_old_representatives_total
-			}
-		}
+		set_temp_variable = { temp_unity_bonus = USA_socialist_unity }
+		multiply_temp_variable = { temp_unity_bonus = 2 }
+		subtract_from_variable = { socialist_flip_cost = temp_unity_bonus }
 	}
 }
 
