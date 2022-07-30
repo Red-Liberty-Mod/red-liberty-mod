@@ -19,7 +19,7 @@ country_event = { # intro event
 	}
 }
 
-country_event = { # rnc
+country_event = { # 1936 rnc
 	id = united_states.2
 	title = united_states.2.title
 	desc = united_states.2.desc
@@ -34,7 +34,7 @@ country_event = { # rnc
 	}
 }
 
-country_event = { # dnc
+country_event = { # 1936 dnc
 	id = united_states.3
 	title = united_states.3.title
 	desc = united_states.3.desc
@@ -45,82 +45,21 @@ country_event = { # dnc
 
 	option = {
 		name = united_states.3.a
-		#country_event = {
-		#	id = united_states.5
-		#	days = 3
-		#}
 		set_country_flag = USA_lister_candidate
 	}
-	
-	#option = {
-	#	name = "Burton K. Wheeler!"
-	#	country_event = {
-	#		id = united_states.4
-	#		days = 3
-	#	}
-	#	set_country_flag = USA_wheeler_candidate
-	#}
 }
 
-country_event = { # conservatives abandon democratic party
+country_event = { # 1936 spa convention - choosing veep
 	id = united_states.4
-	title = "A House Divided"
+	title = united_states.4.title
 	desc = united_states.4.desc
 	
 	is_triggered_only = yes
 	
 	fire_only_once = yes
-
-	option = {
-		name = "Conservatives always abandon democracy."
-		add_popularity = {
-			ideology = national_conservatism
-			popularity = -0.05
-		}
-		add_popularity = {
-			ideology = authoritarian_democracy
-			popularity = 0.05
-		}
-	}
-}
-
-country_event = { # liberals abandon democratic party
-	id = united_states.5
-	title = "A House Divided"
-	desc = united_states.5.desc
-	
-	is_triggered_only = yes
-	
-	fire_only_once = yes
-
-	option = {
-		name = "Liberals and their pipe dreams."
-		add_popularity = {
-			ideology = progressive_liberalism
-			popularity = -0.1
-		}
-		add_popularity = {
-			ideology = social_democracy
-			popularity = 0.05
-		}
-		add_popularity = {
-			ideology = market_libertarianism
-			popularity = 0.05
-		}
-	}
-}
-
-country_event = { # spa convention - choosing veep
-	id = united_states.6
-	title = united_states.6.title
-	desc = united_states.6.desc
-	
-	is_triggered_only = yes
-	
-	fire_only_once = yes
 	
 	option = {
-		name = united_states.6.a
+		name = united_states.4.a
 		set_country_flag = USA_progressive_veep
 		custom_effect_tooltip = USA_henry_wallace_veep_tt
 		ai_chance = {
@@ -129,7 +68,7 @@ country_event = { # spa convention - choosing veep
 	}
 	
 	option = {
-		name = united_states.6.b
+		name = united_states.4.b
 		set_country_flag = USA_radical_veep
 		custom_effect_tooltip = USA_earl_browder_veep_tt
 		

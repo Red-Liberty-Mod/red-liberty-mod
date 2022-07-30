@@ -50,3 +50,15 @@ setup_silver_legion_conflict = {
 	set_temp_variable = { conflict_id = 3 }
 	add_conflict_effect = yes
 }
+end_silver_legion_conflict = {
+	set_temp_variable = { conflict_id = 3 }
+	remove_conflict_effect = yes
+	
+	clr_variable = USA_insurgency_strength
+	remove_ideas = {
+		USA_insurgency_idea
+	}
+	853 = {
+		set_demilitarized_zone = no
+	}
+}
