@@ -10,24 +10,19 @@ USA_managing_spa = {
 		
 		available = {
 			tag = USA
+			custom_trigger_tooltip = {
+				check_variable = { USA_socialist_unity < 30 }
+				tooltip = USA_socialists_fully_united
+			}
 		}
+		
+		days_re_enable = 360
 		
 		cost = 75
 		
 		complete_effect = {
-			random_list = {
-				65 = {
-					add_to_variable = { USA_socialist_unity = 5 }
-					custom_effect_tooltip = USA_spa_unity_large_gain_tt
-				}
-				25 = {
-					add_to_variable = { USA_socialist_unity = 3 }
-					custom_effect_tooltip = USA_spa_unity_small_gain_tt
-				}
-				10 = {
-					
-				}
-			}
+			add_to_variable = { USA_socialist_unity = 3 }
+			custom_effect_tooltip = USA_spa_unity_small_gain_tt
 		}
 	}
 	
@@ -36,17 +31,23 @@ USA_managing_spa = {
 		icon = generic_political_discourse
 		
 		visible = {
-			
+			always = no
 		}
 		
 		available = {
 			tag = USA
 		}
 		
+		days_re_enable = 30
+		
 		cost = 25
 		
 		complete_effect = {
-			USA_marxist_caucus_influence_gain_small = yes
+			custom_effect_tooltip = USA_spa_militant_influence_gain_tt
+			custom_effect_tooltip = USA_spa_militant_approval_gain_tt
+			
+			add_to_variable = { SPA_militant_influence = 1.5 }
+			add_to_variable = { SPA_militant_approval = 1.5 }
 		}
 	}
 	
@@ -55,17 +56,20 @@ USA_managing_spa = {
 		icon = generic_political_discourse
 		
 		visible = {
-			
+			always = no
 		}
 		
 		available = {
 			tag = USA
 		}
 		
+		days_re_enable = 30
+		
 		cost = 25
 		
 		complete_effect = {
-			
+			USA_milwaukee_caucus_influence_gain_small = yes
+			add_to_variable = { USA_socialist_unity = 0.5 }
 		}
 	}
 }
