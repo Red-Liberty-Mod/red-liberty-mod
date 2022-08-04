@@ -16,8 +16,8 @@
 # 2 = republican
 # 3 = democrat
 # 4 = afp
-# 5 = communist # unelectable
-# 6 = farmer-labor # unused
+# 5 = communist # currently unelectable
+# 6 = farmer-labor # currently unused
 
 USA_start_elections_system = {
 	set_variable = { USA_campaigning_multiplier = 1 }
@@ -1020,7 +1020,7 @@ USA_calculate_reps = {
 	log = "[This.GetName] : representatives_total - [?representatives_total]"
 }
 
-US_hold_presidential_election = {
+USA_hold_presidential_election = {
 	set_variable = { democrat_electoral_votes = 0 }
 	set_variable = { republican_electoral_votes = 0 }
 	set_variable = { socialist_electoral_votes = 0 }
@@ -1176,9 +1176,11 @@ USA_convert_party_pop_percentage = {
 	add_to_temp_variable = { democrat_temp_pop = democrat_popularity_special }
 	add_to_temp_variable = { afp_temp_pop = afp_popularity_special }
 	
+	### various bonuses/maluses
 	USA_gerrymandering_bonus = yes
 	USA_party_unity_bonus = yes
 	
+	### final calculations
 	set_temp_variable = { total_party_pop = communist_temp_pop }
 	add_to_temp_variable = { total_party_pop = socialist_temp_pop }
 	add_to_temp_variable = { total_party_pop = republican_temp_pop }
@@ -1191,7 +1193,7 @@ USA_convert_party_pop_percentage = {
 	divide_temp_variable = { democrat_temp_pop = total_party_pop }
 	divide_temp_variable = { afp_temp_pop = total_party_pop }
 
-	#convert to non-temp variables
+	### convert to non-temp variables
 	set_variable = { communist_election_pop = communist_temp_pop }
 	set_variable = { socialist_election_pop = socialist_temp_pop }
 	set_variable = { republican_election_pop = republican_temp_pop }
@@ -1212,6 +1214,7 @@ USA_convert_party_pop_percentage = {
 	
 	add_to_variable = { total_election_pop = -1 }
 	
+	### discrepancy check
 	if = {
 		limit = {
 			NOT = {
@@ -1450,35 +1453,9 @@ USA_party_unity_bonus = {
 	}
 	else_if = {
 		limit = {
-			check_variable = { USA.USA_socialist_unity < 20 }
-		}
-		subtract_from_temp_variable = { socialist_temp_pop = 0.025 }
-		#log = "[This.GetName] : added USA_party_unity_bonus -0.025"
-	}
-	else_if = {
-		limit = {
 			check_variable = { USA.USA_socialist_unity > 25 }
 		}
 		add_to_temp_variable = { socialist_temp_pop = 0.05 }
 		#log = "[This.GetName] : added USA_party_unity_bonus +0.05"
-	}
-}
-
-USA_add_up_EC_votes = {
-	set_variable = { total_EC_votes = 0 }
-	set_variable = { EC_votes = 0 }
-	
-	every_owned_state = {
-		limit = {
-			can_have_elections_in_state = yes
-		}
-		add_to_variable = { USA.total_EC_votes = electoral_votes }
-	}
-	
-	USA = {
-		set_variable = { EC_votes = socialist_electoral_votes }
-		add_to_variable = { EC_votes = republican_electoral_votes }
-		add_to_variable = { EC_votes = democrat_electoral_votes }
-		add_to_variable = { EC_votes = afp_electoral_votes }
 	}
 }
