@@ -1,11 +1,11 @@
 ﻿capital = 276
 
-oob = "CAN_1936"
+oob = "CAN"
 if = {
 	limit = { has_dlc = "Man the Guns" }
-	set_naval_oob = "CAN_1936_naval_mtg"
+	set_naval_oob = "CAN_naval_mtg"
 	else = {
-		set_naval_oob = "CAN_1936_naval_legacy"
+		set_naval_oob = "CAN_naval_legacy"
 	}
 }
 
@@ -22,14 +22,34 @@ set_technology = {
 	tech_engineers = 1
 	tech_recon = 1
 	gw_artillery = 1
-	gwtank = 1
-	basic_light_tank = 1
 	early_fighter = 1
 	naval_bomber1 = 1
 	early_bomber = 1
 	trench_warfare = 1
 	fleet_in_being = 1
 }
+
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+	}
+}
+else_if = {
+	limit = {
+		NOT = {
+			has_dlc = "No Step Back"
+		}
+	}
+	set_technology = {
+		gwtank = 1
+		basic_light_tank = 1
+	}
+}
+
 if = {
 	limit = { not = { has_dlc = "Man the Guns" } }
 	set_technology = {
@@ -38,7 +58,7 @@ if = {
 		transport = 1
 	}
 }
-if = {
+else_if = {
 	limit = { has_dlc = "Man the Guns" }
 	set_technology = {
 		basic_naval_mines = 1
@@ -74,6 +94,9 @@ set_popularities = {
 	fascism = 0
 }
 
+set_country_flag = progressive_coalition
+set_country_flag = market_libertarian_coalition
+
 add_ideas = {
 	CAN_favoured_son
 	CAN_booming_economy
@@ -95,7 +118,7 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "J. S. Woodsworth"
+	name = "James Shaver Woodsworth"
 	desc = ""
 	picture = ""
 	expire = "1947.1.1"
@@ -106,7 +129,7 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "Mackenzie King"
+	name = "William Lyon Mackenzie King"
 	desc = "POLITICS_MACKENZIE_KING_DESC"
 	picture = "gfx/leaders/CAN/Portrait_CAN_Mackenzie_King.png"
 	expire = "1947.1.1"
@@ -117,7 +140,7 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "R. B. Bennett"
+	name = "Richard Bedford Bennett"
 	desc = ""
 	picture = ""
 	expire = "1947.1.1"
@@ -128,11 +151,33 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "J. H. Blackmore"
+	name = "John Horne Blackmore"
 	desc = ""
 	picture = ""
 	expire = "1947.1.1"
 	ideology = social_credit_subtype
+	traits = {
+		
+	}
+}
+
+create_country_leader = {
+	name = "Charles Brandle Crate"
+	desc = ""
+	picture = ""
+	expire = "1947.1.1"
+	ideology = far_right_authoritarianism_subtype
+	traits = {
+		
+	}
+}
+
+create_country_leader = {
+	name = "Adrien Arcand"
+	desc = ""
+	picture = ""
+	expire = "1947.1.1"
+	ideology = fascism_subtype
 	traits = {
 		
 	}
