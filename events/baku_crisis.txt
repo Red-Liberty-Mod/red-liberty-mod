@@ -88,7 +88,6 @@ news_event = { # Soviets Intervene in Azerbaijan
 					on_lose = baku.4
 					on_cancel = baku.6
 				}
-				
 				defender = {
 					state = 229
 					num_provinces = 3
@@ -96,13 +95,12 @@ news_event = { # Soviets Intervene in Azerbaijan
 					on_lose = baku.5
 					on_cancel = baku.6
 				}
-		
-				set_border_war_data = {
-					attacker = 232
-					defender = 229
-					defender_modifier = 0.15
-					combat_width = 20
-				}
+			}
+			set_border_war_data = {
+				attacker = 232
+				defender = 229
+				defender_modifier = 0.15
+				combat_width = 20
 			}
 		}
 	}
@@ -119,14 +117,15 @@ news_event = { # Azerbaijan Resists Red Army Attack
 	desc = baku.4.desc
 	picture = GFX_news_event_spr_spanish_civil_war
 	
+	major = yes
+	
 	is_triggered_only = yes
 	
-	
 	immediate = {
-		hidden_effect = { 	
-				}
-			}	
-	major = yes
+		hidden_effect = {
+			
+		}
+	}	
 	
 	option = {
 		name = baku.4.a
