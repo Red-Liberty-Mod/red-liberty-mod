@@ -87,6 +87,12 @@ USA_mproject_monthly_pulse = {
 		set_country_flag = USA_mproject_phase_3_complete
 		
 		set_variable = { USA_mproject_monthly_progress = 2 }
+		if = {
+			limit = {
+				has_completed_focus = USA_uranium_fever
+			}
+			add_to_variable = { USA_mproject_monthly_progress = 3 }
+		}
 	}
 	else_if = {
 		limit = {
@@ -96,13 +102,15 @@ USA_mproject_monthly_pulse = {
 		set_variable = { USA_mproject_phase = 5 }
 		set_country_flag = USA_mproject_phase_4_complete
 		
-		set_variable = { USA_mproject_monthly_progress = 2 }
+		set_variable = { USA_mproject_monthly_progress = 8 }
 	}
 	else_if = {
 		limit = {
 			check_variable = { USA_mproject_phase = 5 }
-			check_variable = { USA_mproject_phase_4_progress = 100 }
+			check_variable = { USA_mproject_phase_5_progress = 100 }
 		}
 		set_country_flag = USA_mproject_phase_5_complete
+		
+		set_variable = { USA_mproject_monthly_progress = 0 }
 	}
 }
