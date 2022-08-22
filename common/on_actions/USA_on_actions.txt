@@ -225,6 +225,13 @@ on_actions = {
 			USA_recalculate_polls = yes
 			USA_calculate_senators = yes
 			USA_calc_congress_control = yes
+			
+			if = {
+				limit = {
+					check_variable = { USA_mproject_phase > 0 }
+				}
+				USA_mproject_monthly_pulse = yes
+			}
 		}
 	}
 	

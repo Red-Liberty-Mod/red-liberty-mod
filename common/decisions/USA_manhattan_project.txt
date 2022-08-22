@@ -1,36 +1,38 @@
 USA_manhattan_project_category = {
-
-	USA_advance_next_phase = {
-	
-		icon = ger_mefo_bills
-		
-		available = {
-			
-		}
-		
-		visible = {
-			always = yes
-		}
-		
-		cost = 0
-		
-		complete_effect = {
-			
-		}
-	}
 	
 	USA_refuge_for_scientists = {
 	
 		icon = ger_mefo_bills
 		
 		visible = {
-			check_variable = { USA_mproject_phase = 1 }
+			check_variable = { USA_mproject_phase > 0 }
 		}
 		
 		cost = 15
 		
+		fire_only_once = yes
+		
 		complete_effect = {
-			
+			custom_effect_tooltip = USA_mproject_boost_current_stage
+			add_to_variable = { USA_mproject_monthly_progress = 3 }
+		}
+	}
+	
+	USA_additional_funding = {
+	
+		icon = ger_mefo_bills
+		
+		visible = {
+			check_variable = { USA_mproject_phase > 0 }
+		}
+		
+		cost = 15
+		
+		days_re_enable = 60
+		
+		complete_effect = {
+			custom_effect_tooltip = USA_mproject_boost_current_stage
+			add_to_variable = { USA_mproject_monthly_progress = 1 }
 		}
 	}
 }
