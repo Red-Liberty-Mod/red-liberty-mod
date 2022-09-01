@@ -256,7 +256,7 @@ news_event = {
 	id = demo_mex.3
 	title = demo_mex.3.title
 	desc = demo_mex.3.desc
-	picture = ""
+	picture = GFX_report_event_cristeros
 	
 	is_triggered_only = yes
 	
@@ -869,21 +869,31 @@ country_event = { # rom-hun war
 		GER = {
 			end_puppet = ROM
 		}
-		
+		HUN = {
+			HUN_setup_TRS = yes
+			transfer_state = 885
+		}
+		TRS = {
+			keep_current_politics = yes
+		}
 		ROM = {
-			transfer_state = 76
-			transfer_state = 80
-			transfer_state = 82
-			transfer_state = 83
-			transfer_state = 84
+			set_autonomy = {
+				target = TRS
+				autonomous_state = autonomy_RL_protectorate
+			}
 			
 			remove_ideas = {
 				ROM_german_dominance
 				ROM_treaty_of_bucharest
 			}
 			
-			load_oob = ROM_danubian_war
-			
+			#load_oob = ROM_danubian_war
+		}
+		HUN = {
+			declare_war_on = {
+				target = TRS
+				type = annex_everything
+			}
 			declare_war_on = {
 				target = HUN
 				type = annex_everything
@@ -1994,7 +2004,7 @@ country_event = {
 
 news_event = {
 	id = demo_ww2.2
-	title = ""
+	title = demo_ww2.2.title
 	desc = demo_ww2.2.desc
 	
 	is_triggered_only = yes
@@ -2002,7 +2012,7 @@ news_event = {
 	major = yes
 
 	option = {
-		name = ""
+		name = demo_ww2.2.a
 	}
 }
 
@@ -2030,21 +2040,15 @@ country_event = {
 	}
 }
 
-country_event = {
+news_event = {
 	id = demo_ww2.4
-	title = ""
+	title = demo_ww2.4.title
 	desc = demo_ww2.4.desc
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = ""
-		UKR = {
-			declare_war_on = {
-				target = CRI
-				type = annex_everything
-			}
-		}
+		name = demo_ww2.4.a
 	}
 }
 
@@ -2108,8 +2112,6 @@ news_event = {
 	is_triggered_only = yes
 	
 	major = yes
-	
-	fire_only_once = yes
 
 	option = {
 		name = "Will they succeed where their forebears failed?"
@@ -2133,9 +2135,9 @@ country_event = {
 				type = annex_everything
 			}
 		}
-		news_event = {
-			id = demo_cen.4
-			days = 1
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_cen.4 hours = 6 }
 		}
 	}
 }
@@ -2148,8 +2150,6 @@ news_event = {
 	major = yes
 	
 	is_triggered_only = yes
-	
-	fire_only_once = yes
 
 	option = {
 		name = "The first test of unity."
