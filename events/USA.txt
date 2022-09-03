@@ -420,17 +420,31 @@ country_event = { # shit explodes
 		set_variable = { USA_insurgency_strength = 76 }
 		
 		add_stability = -0.03
-		853 = {
-			set_demilitarized_zone = yes
-		}
-		
-		add_ideas = {
-			USA_insurgency_idea
-		}
-		
-		add_command_power = 50
 		
 		hidden_effect = {
+			853 = {
+				force_enable_resistance = USA
+				start_resistance = yes
+				add_resistance_target = 10
+				add_resistance = 20
+			}
+			362 = {
+				force_enable_resistance = USA
+				start_resistance = yes
+				add_resistance = 5
+			}
+			363 = {
+				force_enable_resistance = USA
+				start_resistance = yes
+				add_resistance = 7
+			}
+		
+			add_ideas = {
+				USA_insurgency_idea
+			}
+			
+			add_command_power = 50
+			
 			random_other_country = {
 				limit = { is_ai = yes }
 				news_event = { id = united_states_insurgency.6 hours = 6 }
@@ -469,6 +483,12 @@ country_event = { # dont tell mom im in detroit
 	option = {
 		name = united_states_insurgency.5.a
 		add_to_variable = { USA_insurgency_strength = 5 }
+		393 = {
+			force_enable_resistance = USA
+			start_resistance = yes
+			add_resistance_target = 10
+			add_resistance = 10
+		}
 		add_stability = -0.03
 	}
 }
