@@ -1877,6 +1877,18 @@ country_event = { # straits crisis start
 			limit = { is_ai = yes }
 			news_event = { id = demo_tur.2 hours = 6 }
 		}
+		TUR = {
+			country_event = {
+				id = demo_tur.3
+				days = 30
+				days_random = 5
+			}
+			
+			add_named_threat = {
+				threat = 5
+				name = TUR_straits_crisis
+			}
+		}
 	}
 }
 
@@ -1891,6 +1903,51 @@ news_event = { # straits crisis start news
 
 	option = {
 		name = demo_tur.2.a
+	}
+}
+
+country_event = {
+	id = demo_tur.3
+	title = demo_tur.3.title
+	desc = demo_tur.3.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_tur.3.a
+		
+		TUR = {
+			annex_country = {
+				target = SCM
+			}
+			add_state_core = 341
+			add_state_core = 345
+		}
+		SCM = {
+			remove_state_core = 341
+			remove_state_core = 345
+		}
+		
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_tur.4 hours = 6 }
+		}
+	}
+}
+
+news_event = { # straits crisis resolved
+	id = demo_tur.4
+	title = demo_tur.4.title
+	desc = demo_tur.4.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_tur.4.a
 	}
 }
 
