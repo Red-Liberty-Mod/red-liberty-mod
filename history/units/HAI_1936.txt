@@ -1,0 +1,82 @@
+﻿division_template = {
+	name = "Brigade de Infanterie"		# Garde d'Haiti was a limited reserve force created in 1934
+	division_names_group = FREN_INFB_01
+	# Note: militia level training and equipment
+	regiments = {
+   		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+}
+division_template = {
+	name = "Cacos"
+
+	division_names_group = FREN_INFB_01
+
+	regiments = {
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 }
+		light_infantry = { x = 0 y = 2 }
+	}
+	priority = 0
+	is_locked = yes
+}
+
+units = {
+	##### Garde d'Haiti #####
+	division= {	
+		name = "Forces Armées d'Haïti"
+		location = 4641 # Port au Prince
+		division_template = "Brigade de Infanterie"
+		start_equipment_factor = 0.3
+
+	}
+	division= {	
+		name = "Forces Armées d'Haïti"
+		location = 1635 # Port au Prince
+		division_template = "Brigade de Infanterie"
+		start_equipment_factor = 0.3
+
+	}
+	division= {	
+		name = "Cacos"
+		location = 13382 # Port au Prince
+		division_template = "Cacos"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+
+	}
+	division= {	
+		name = "Cacos"
+		location = 13381 # Port au Prince
+		division_template = "Cacos"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+
+	}
+	division= {	
+		name = "Cacos"
+		location = 13380 # Port au Prince
+		division_template = "Cacos"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+
+	}
+
+	##### No Notable Naval Forces #####
+}
+
+##### No notable air force #####
+
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_0
+			creator = "HAI"
+		}
+		requested_factories = 1
+		progress = 0.27
+		efficiency = 100
+	}
+}
