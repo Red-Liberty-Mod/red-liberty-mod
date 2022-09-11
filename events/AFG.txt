@@ -1,0 +1,41 @@
+add_namespace = afghan
+
+# Afghan Civil War
+country_event = {
+	id = afghan.1
+	title = afghan.1.t
+	desc = afghan.1.d
+	picture = GFX_report_afghan_stuff
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AFG
+		has_defensive_war = no
+	}
+
+	mean_time_to_happen = {
+		days = 100	# Historical outbreak time after elections
+	}
+
+	option = { # Support Habibullah
+		name = afghan.1.a
+        trigger = { is_ai = no }
+		hidden_effect = {
+			start_civil_war = {
+				ruling_party = authoritarian_democracy
+				ideology = autocratic_despotism
+				size = 0.5
+		}
+	}
+    }
+	option = { # Support Amanullah
+		name = afghan.1.b
+		hidden_effect = {
+			start_civil_war = {
+				ideology = authoritarian_democracy
+				size = 0.5
+			}
+	}
+}
+    }
