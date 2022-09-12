@@ -21,8 +21,15 @@ USA_managing_spa = {
 		cost = 75
 		
 		complete_effect = {
-			add_to_variable = { USA_socialist_unity = 3 }
-			custom_effect_tooltip = USA_spa_unity_small_gain_tt
+			add_to_variable = {
+				USA_socialist_unity = 3
+				tooltip = USA_spa_unity_small_gain_tt
+			}
+			clamp_variable = {
+				var = USA_socialist_unity
+				min = 0
+				max = 30
+			}
 		}
 	}
 	
