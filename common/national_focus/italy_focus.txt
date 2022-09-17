@@ -7,20 +7,7 @@ focus_tree = {
 			tag = ITA
 		}
 	}
-	#focus = {
-	#	id = name
-	#	icon = name
-	#	cost = 5.00
-	#	x = 35
-	#	y = 2
-	#		available_if_capitulated = yes
-	#		search_filters = { FOCUS_FILTER_POLITICAL }
-	#		ai_will_do = {
-	#				factor = 10
-	#			}
-	#	completion_reward = {
-	#	}
-	#}
+	
 	focus = {
 		id = ITA_begin_to_weaken_fascism
 		icon = GFX_ITA_begin_to_weaken_fascism
@@ -37,7 +24,7 @@ focus_tree = {
 				}
 		completion_reward = {
 			add_popularity = {
-				ideology = martial_despotism
+				ideology = auticratic_despotism
 				popularity = -0.07
 			}
 		}
@@ -333,7 +320,7 @@ focus_tree = {
 					factor = 1
 				}
 			completion_reward = {
-					add_idea = {
+					add_ideas = {
 							ITA_a_council_of_yes_men
 						}
 				}
@@ -1016,7 +1003,7 @@ focus_tree = {
 					IF = {
 						limit = {
 							NOT = {
-								has_government = martial_despotism
+								has_government = autocratic_despotism
 
 							}
 												
@@ -1088,7 +1075,7 @@ focus_tree = {
 		completion_reward = {
 			FRA = {
 				add_popularity = {
-					ideology = martial_despotism
+					ideology = autocratic_despotism
 					popularity = 0.1
 				}
 			}
@@ -1197,7 +1184,7 @@ focus_tree = {
 		completion_reward = {
 			FRA = {
 				add_opinion_modifier = { target = ITA modifier = embargo }
-				add_opinion_modifier = { target = ITA modifier = sanctions_relations } 
+				add_opinion_modifier = { target = ITA modifier = sanctions } 
 			}
 		}
 	}
@@ -1286,9 +1273,8 @@ focus_tree = {
 				}
 		completion_reward ={
 			create_wargoal = {
-				type = annex_everything 
+				type = annex_everything
 				target = FRA
-				days = 0
 			}
 		}
 
@@ -1432,10 +1418,9 @@ focus_tree = {
 		}
 		completion_reward = {
 		create_wargoal = {
-			type = puppet 
-			target = SOV
-			days = 0
-		}			
+			type = annex_everything
+				target = SOV
+			}
 		}
 	}
 	focus = {
@@ -2135,7 +2120,7 @@ focus_tree = {
 			}
 			if = {
 				limit = {
-					country_exsits = BUL
+					country_exists = BUL
 					BUL = {
 						revolutionary_autocracy > 0.5
 					}
@@ -2149,7 +2134,7 @@ focus_tree = {
 			}
 			if = {
 				limit = {
-					country_exsits = GRE
+					country_exists = GRE
 					GRE = {
 						revolutionary_autocracy > 0.5
 					}
@@ -2163,7 +2148,7 @@ focus_tree = {
 			}
 			if = {
 				limit = {
-					country_exsits = SER
+					country_exists = SER
 					SER = {
 						revolutionary_autocracy > 0.5
 					}
