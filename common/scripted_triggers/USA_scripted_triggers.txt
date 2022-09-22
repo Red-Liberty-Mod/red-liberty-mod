@@ -68,8 +68,9 @@ bill_will_pass = {
 		### SENATE PHASE ###
 		OR = {
 			AND = { # for filibuster or amendments
+				has_country_flag = USA_bill_senate_phase
 				OR = {
-					has_country_flag = USA_bill_senate_phase
+					has_country_flag = USA_bill_is_amendment
 					has_country_flag = filibuster_active
 				}
 				check_variable = {
@@ -82,7 +83,7 @@ bill_will_pass = {
 				has_country_flag = USA_bill_senate_phase
 				NOT = {
 					OR = {
-						has_country_flag = USA_bill_senate_phase
+						has_country_flag = USA_bill_is_amendment
 						has_country_flag = filibuster_active
 					}
 				}
