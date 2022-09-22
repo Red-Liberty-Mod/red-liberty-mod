@@ -2066,9 +2066,15 @@ country_event = {
 			limit = { is_ai = yes }
 			news_event = { id = demo_ww2.2 hours = 6 }
 		}
-		SOV = {
+		FRA = {
 			country_event = {
 				id = demo_ww2.3
+				days = 25
+			}
+		}
+		SOV = {
+			country_event = {
+				id = demo_ww2.5
 				days = 150
 			}
 		}
@@ -2091,7 +2097,7 @@ news_event = {
 
 country_event = {
 	id = demo_ww2.3
-	title = ""
+	title = demo_ww2.3.title
 	desc = demo_ww2.3.desc
 	
 	is_triggered_only = yes
@@ -2100,15 +2106,15 @@ country_event = {
 
 	option = {
 		name = ""
-		SOV = {
+		FRA = {
 			declare_war_on = {
-				target = UKR
+				target = BEL
 				type = annex_everything
 			}
-			declare_war_on = {
-				target = BLR
-				type = annex_everything
-			}
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_ww2.4 hours = 6 }
 		}
 	}
 }
@@ -2122,6 +2128,28 @@ news_event = {
 	
 	option = {
 		name = demo_ww2.4.a
+	}
+}
+
+country_event = {
+	id = demo_ww2.5
+	title = demo_ww2.5.title
+	desc = demo_ww2.5.desc
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = demo_ww2.5.a
+		SOV = {
+			declare_war_on = {
+				target = UKR
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = BLR
+				type = annex_everything
+			}
+		}
 	}
 }
 
