@@ -43,20 +43,38 @@ democrats_have_congress_majority = {
 bill_will_pass = {
 	OR = {
 		### HOUSE PHASE ###
-		AND = {
-			has_country_flag = USA_bill_house_phase
-			check_variable = {
-				var = representatives_support
-				value = rep_quorum_medium
-				compare = greater_than_or_equals
+		OR = {
+			AND = {
+				has_country_flag = USA_bill_house_phase
+				check_variable = {
+					var = representatives_support
+					value = rep_quorum_medium
+					compare = greater_than_or_equals
+				}
+			}
+			AND = { # for amendments
+				has_country_flag = USA_bill_is_amendment
+				check_variable = {
+					var = representatives_support
+					value = rep_quorum_high
+					compare = greater_than_or_equals
+				}
 			}
 		}
 		
 		### SENATE PHASE ###
 		OR = {
-			AND = {
+			AND = { # for the filibuster
 				has_country_flag = USA_bill_senate_phase
 				has_country_flag = filibuster_active
+				check_variable = {
+					var = senators_support
+					value = quorum_high
+					compare = greater_than_or_equals
+				}
+			}
+			AND = { # for amendments
+				has_country_flag = USA_bill_is_amendment
 				check_variable = {
 					var = senators_support
 					value = quorum_high

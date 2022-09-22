@@ -3,7 +3,10 @@ defined_text = {
 	
 	text = {
 		trigger = {
-			has_country_flag = filibuster_active
+			OR = {
+				has_country_flag = filibuster_active
+				has_country_flag = USA_bill_is_amendment
+			}
 		}
 		localization_key = "USA_senate_quorum_high"
 	}
@@ -15,6 +18,26 @@ defined_text = {
 			}
 		}
 		localization_key = "USA_senate_quorum_med"
+    }
+}
+
+defined_text = {
+	name = get_house_quorum
+	
+	text = {
+		trigger = {
+			has_country_flag = USA_bill_is_amendment
+		}
+		localization_key = "USA_house_quorum_high"
+	}
+	
+	text = {
+		trigger = {
+			NOT = {
+				has_country_flag = filibuster_active
+			}
+		}
+		localization_key = "USA_house_quorum_med"
     }
 }
 
@@ -609,6 +632,14 @@ defined_text = {
 			has_country_flag = USA_discussing_bill
         }
         localization_key = "start_USA_nationalize_defense"
+    }
+	
+	text = { 
+        trigger = {
+			check_variable = { bill_id = 23 }
+			has_country_flag = USA_discussing_bill
+        }
+        localization_key = "start_USA_ludlow_amendment"
     }
 	
 	text = { 

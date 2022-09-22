@@ -3,6 +3,7 @@ USA_congress_quorum = {
 	set_variable = { quorum_high = 58 }
 	
 	set_variable = { rep_quorum_medium = 242 }
+	set_variable = { rep_quorum_high = 322 }
 }
 
 USA_debug_example_setup = { # example debug act, meant to be screwed with
@@ -43,6 +44,7 @@ USA_debug_example_setup = { # example debug act, meant to be screwed with
 	set_variable = { democrat_flip_cost = 40 }
 	set_variable = { fascist_flip_cost = 70 }
 	
+	set_country_flag = USA_bill_is_amendment # if the bill is an amendment, will increase required votes
 	USA_bill_setup = yes # always required
 }
 
@@ -817,6 +819,39 @@ USA_naval_act_setup = { # naval act
 	USA_bill_setup = yes # always required
 }
 
+USA_ludlow_amendment_setup = { # ludlow amendment
+	log = "[GetDateText]: [Root.GetName]: bill setup active"
+	
+	set_variable = { bill_id = 23 } # EACH BILL MUST HAVE A UNIQUE ID
+	
+	set_country_flag = USA_communist_discussing
+	set_country_flag = USA_socialist_discussing
+	set_country_flag = USA_republican_discussing
+	set_country_flag = USA_democrat_discussing
+	set_country_flag = USA_fascist_discussing
+	
+	set_variable = { USA_communist_bill_support = 0.8 }
+	set_variable = { USA_socialist_bill_support = 0.55 }
+	set_variable = { USA_republican_bill_support = 0.3 }
+	set_variable = { USA_democrat_bill_support = 0.35 }
+	set_variable = { USA_fascist_bill_support = 0.05 }
+	
+	set_variable = { average_boost_communist = 1 }
+	set_variable = { average_boost_socialist = 0.25 }
+	set_variable = { average_boost_democrat = 0.45 }
+	set_variable = { average_boost_republican = 0.3 }
+	set_variable = { average_boost_fascist = 0.1 }
+	
+	set_variable = { communist_flip_cost = 50 }
+	set_variable = { socialist_flip_cost = 50 }
+	set_variable = { democrat_flip_cost = 50 }
+	set_variable = { republican_flip_cost = 70 }
+	set_variable = { fascist_flip_cost = 70 }
+	
+	set_country_flag = USA_bill_is_amendment
+	USA_bill_setup = yes # always required
+}
+
 USA_bill_setup = {
 	USA_calc_unity_bonus = yes
 
@@ -1064,6 +1099,7 @@ USA_bill_clear = {
 	clr_country_flag = bill_enable_mission
 	
 	clr_country_flag = filibuster_active
+	clr_country_flag = USA_bill_is_amendment
 	
 	clear_variable = USA_bill_strength
 }

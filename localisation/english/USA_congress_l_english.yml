@@ -31,46 +31,26 @@
  democrat_majority_tt:0 "The §CDemocratic Party§! has a majority in both houses of §YCongress§!."
  
  USA_congress_voting_none:0 "Congress is currently in session, but there is no important legislation being considered."
- USA_congress_voting_bill:0 "\n\n§YCongress§! is currently considering §Y[get_bill_name]§!, which currently expects the support of [get_rep_color]/§Y[?USA.rep_quorum_medium]§! Representatives and [get_senator_color]/[get_senate_quorum] Senators.\n\nStatus in the §LHouse§!: [get_bill_house_status][get_us_communist_rep_support][get_us_socialist_rep_support][get_us_farmer_labor_rep_support][get_us_liberal_rep_support][get_us_republican_rep_support][get_us_democrat_rep_support][get_us_afp_rep_support]\n\nStatus in the §gSenate§!: [get_bill_senate_status][get_us_communist_senator_support][get_us_socialist_senator_support][get_us_republican_senator_support][get_us_democrat_senator_support][get_us_afp_senator_support]"
+ USA_congress_voting_bill:0 "\n\n§YCongress§! is currently considering §Y[get_bill_name]§!, which currently expects the support of [get_rep_color]/§Y[get_house_quorum]§! Representatives and [get_senator_color]/[get_senate_quorum] Senators.\n\nStatus in the §LHouse§!: [get_bill_house_status][get_us_communist_rep_support][get_us_socialist_rep_support][get_us_farmer_labor_rep_support][get_us_liberal_rep_support][get_us_republican_rep_support][get_us_democrat_rep_support][get_us_afp_rep_support]\n\nStatus in the §gSenate§!: [get_bill_senate_status][get_us_communist_senator_support][get_us_socialist_senator_support][get_us_republican_senator_support][get_us_democrat_senator_support][get_us_afp_senator_support]"
  
+ ### Voting decisions
  USA_house_phase:0 "House Discussions"
  USA_house_phase_desc:0 "As per the process laid out in the constitution, our bill is currently being debated in the House of Representatives. If we have enough support, we can cut the discussions short with a vote and move onto the Senate."
  USA_senate_phase:0 "Senate Discussions"
  USA_senate_phase_desc:0 "After being approved by the House, a bill must also make it through the Senate. Here, the real challenge lies in avoiding the eternal filibuster, which has claimed the lives of countless pieces of legislation."
  
+ ### Voting decision triggers
+ USA_house_phase_trigger_tt:0 "The bill has the necessary number of votes to pass through the House"
+ USA_senate_phase_trigger_tt:0 "The bill has the necessary number of votes to pass through the Senate"
+ 
+ ### Bill status
  USA_bill_go_to_senate:0 "§GThe bill will move on to the Senate.§!\n"
  USA_bill_being_considered:0 "§YThe bill is being debated.§!"
  USA_bill_house_passed:0 "§GThe bill has passed!§!"
  USA_bill_status_awaiting_house:0 "§YThe bill is awaiting passage by the House.§!"
  USA_bill_being_filibustered:0 "§RThe bill is being filibustered!§!"
  
- USA_house_phase_trigger_tt:0 "The bill has the necessary number of votes to pass through the House"
- USA_seante_phase_trigger_tt:0 "The bill has the necessary number of votes to pass through the Senate"
- 
- USA_senate_quorum_med:0 "§Y[?USA.quorum_medium]§!"
- USA_senate_quorum_high:0 "§Y[?USA.quorum_high]§!"
- 
- USA_congress_communist_rep_support:0 "\n§G[?communist_supporting_reps]§! Communist Representative(s) support the bill."
- USA_congress_communist_senator_support:0 "\n§G[?communist_supporting_senators]§! Communist Senator(s) support the bill."
- 
- USA_congress_socialist_rep_support:0 "\n§G[?socialist_supporting_reps]§! Socialist Representative(s) support the bill."
- USA_congress_socialist_senator_support:0 "\n§G[?socialist_supporting_senators]§! Socialist Senator(s) support the bill."
- 
- USA_congress_farmer_labor_rep_support:0 "\n§G[?farmer_labor_supporting_reps]§! Farmer-Labor Representative(s) support the bill."
- 
- USA_congress_liberal_rep_support:0 "\n§G[?liberal_supporting_reps]§! Liberal Representative(s) support the bill."
- 
- USA_congress_republican_rep_support:0 "\n§G[?republican_supporting_reps]§! Republican Representative(s) support the bill."
- USA_congress_republican_senator_support:0 "\n§G[?republican_supporting_senators]§! Republican Senator(s) support the bill."
- 
- USA_congress_democrat_rep_support:0 "\n§G[?democrat_supporting_reps]§! Democratic Representative(s) support the bill."
- USA_congress_democrat_senator_support:0 "\n§G[?democrat_supporting_senators]§! Democratic Senator(s) support the bill."
- 
- USA_congress_afp_rep_support:0 "\n§G[?fascist_supporting_reps]§! America First Representative(s) support the bill."
- USA_congress_afp_senator_support:0 "\n§G[?fascist_supporting_senators]§! America First Senator(s) support the bill."
- 
- not_working:0 "\n§RIF YOU SEE THIS, SOMETHING HAS BROKEN§!"
- 
+ ### Quorum loc
  reps_support_green:0 "§G[?USA.representatives_support]§!"
  reps_support_yellow:0 "§Y[?USA.representatives_support]§!"
  reps_support_red:0 "§R[?USA.representatives_support]§!"
@@ -78,6 +58,27 @@
  senator_support_green:0 "§G[?USA.senators_support]§!"
  senator_support_yellow:0 "§Y[?USA.senators_support]§!"
  senator_support_red:0 "§R[?USA.senators_support]§!"
+ 
+ USA_house_quorum_med:0 "§Y[?USA.rep_quorum_medium]§!"
+ USA_house_quorum_high:0 "§Y[?USA.rep_quorum_high]§!"
+ USA_senate_quorum_med:0 "§Y[?USA.quorum_medium]§!"
+ USA_senate_quorum_high:0 "§Y[?USA.quorum_high]§!"
+ 
+ ### support loc
+ USA_congress_communist_rep_support:0 "\n§G[?communist_supporting_reps]§! Communist Representative(s) support the bill."
+ USA_congress_communist_senator_support:0 "\n§G[?communist_supporting_senators]§! Communist Senator(s) support the bill."
+ USA_congress_socialist_rep_support:0 "\n§G[?socialist_supporting_reps]§! Socialist Representative(s) support the bill."
+ USA_congress_socialist_senator_support:0 "\n§G[?socialist_supporting_senators]§! Socialist Senator(s) support the bill."
+ USA_congress_farmer_labor_rep_support:0 "\n§G[?farmer_labor_supporting_reps]§! Farmer-Labor Representative(s) support the bill."
+ USA_congress_liberal_rep_support:0 "\n§G[?liberal_supporting_reps]§! Liberal Representative(s) support the bill."
+ USA_congress_republican_rep_support:0 "\n§G[?republican_supporting_reps]§! Republican Representative(s) support the bill."
+ USA_congress_republican_senator_support:0 "\n§G[?republican_supporting_senators]§! Republican Senator(s) support the bill."
+ USA_congress_democrat_rep_support:0 "\n§G[?democrat_supporting_reps]§! Democratic Representative(s) support the bill."
+ USA_congress_democrat_senator_support:0 "\n§G[?democrat_supporting_senators]§! Democratic Senator(s) support the bill."
+ USA_congress_afp_rep_support:0 "\n§G[?fascist_supporting_reps]§! America First Representative(s) support the bill."
+ USA_congress_afp_senator_support:0 "\n§G[?fascist_supporting_senators]§! America First Senator(s) support the bill."
+ 
+ not_working:0 "\n§RIF YOU SEE THIS, SOMETHING HAS BROKEN§!"
  
  USA_discussing_bill:0 "Congress is currently dicussing legislation."
  
@@ -91,6 +92,7 @@
  unavaliable_already_negotiated:0 "We've haven't already struck a deal."
  mut_exclude:0 "Negotiating with some factions is not mutually exclusive."
  
+ ### Negotiation decisions
  USA_talk_with_communists:0 "Negotiate with the £GFX_cpusa_texticon §rCommunists§!"
  USA_talk_with_socialists:0 "Negotiate with the £GFX_spa_texticon §RSocialists§!"
  negotiate_some_socialist_support:0 "We will negotiate the support of some §RSocialist§! members of Congress."
@@ -123,6 +125,7 @@
  
  major_legislation:0 "Major Legislation"
  
+ ### everything related to bills
  start_test_bill_debug:0 "The Debug Act"
  debug_bill_passed:0 "We have passed the Debug Act."
  us_bill.1.t_passed:0 "The Debug Act - Passed"
@@ -216,8 +219,10 @@
  start_USA_war_declaration:0 "Debating Joining The War In Congress"
  USA_war_declaration_passed:0 "We will join the war"
  
- start_USA_nationalize_defense:0 "National Defense Industry Act"
+ start_USA_nationalize_defense:0 "The National Defense Industry Act"
  nationalized_defense_industry:0 "We have nationalized the defense industry"
+ 
+ start_USA_ludlow_amendment:0 "The Ludlow Amendment"
  
  us_bill.1000.title:0 "get filibustered lmao"
  us_bill.1000.a:0 "activate filibuster"

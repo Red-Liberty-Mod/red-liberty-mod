@@ -126,70 +126,100 @@ defined_text = {
 }
 
 defined_text = {
-	name = GetSenator_1
-	text = {
-		trigger = {
-			check_variable = { senator_1 = prev_senator_1 }
-		}
-		localization_key = USA_nothing
-	}
+	name = GetSenator1
 	text = {
 		trigger = {
 			check_variable = { senator_1 = 1 }
+			NOT = {
+				has_state_flag = socialist_farmer_labor
+			}
 		}
-		localization_key = SOCIALIST_SENATOR_ELECTION
+		localization_key = SOCIALIST_SINGULAR
+	}
+	text = {
+		trigger = {
+			AND = {
+				check_variable = { senator_1 = 1 }
+				has_state_flag = socialist_farmer_labor
+			}
+		}
+		localization_key = SOCIALIST_FARMER_LABOR_SINGULAR
 	}
 	text = {
 		trigger = {
 			check_variable = { senator_1 = 2 }
 		}
-		localization_key = REPUBLICAN_SENATOR_ELECTION
+		localization_key = REPUBLICAN_SINGULAR
 	}
 	text = {
 		trigger = {
 			check_variable = { senator_1 = 3 }
 		}
-		localization_key = DEMOCRAT_SENATOR_ELECTION
+		localization_key = DEMOCRAT_SINGULAR
 	}
 	text = {
 		trigger = {
 			check_variable = { senator_1 = 4 }
 		}
-		localization_key = AFP_SENATOR_ELECTION
+		localization_key = AFP_SINGULAR
+	}
+	text = {
+		trigger = {
+			check_variable = { senator_1 = 5 }
+		}
+		localization_key = COMMUNIST_SINGULAR
+	}
+	text = {
+		localization_key = USA_empty_seat
 	}
 }
 
 defined_text = {
-	name = GetSenator_2
-	text = {
-		trigger = {
-			check_variable = { senator_2 = prev_senator_2 }
-		}
-		localization_key = USA_nothing
-	}
+	name = GetSenator2
 	text = {
 		trigger = {
 			check_variable = { senator_2 = 1 }
+			NOT = {
+				has_state_flag = socialist_farmer_labor
+			}
 		}
-		localization_key = SOCIALIST_SENATOR_ELECTION
+		localization_key = SOCIALIST_SINGULAR
+	}
+	text = {
+		trigger = {
+			AND = {
+				check_variable = { senator_2 = 1 }
+				has_state_flag = socialist_farmer_labor
+			}
+		}
+		localization_key = SOCIALIST_FARMER_LABOR_SINGULAR
 	}
 	text = {
 		trigger = {
 			check_variable = { senator_2 = 2 }
 		}
-		localization_key = REPUBLICAN_SENATOR_ELECTION
+		localization_key = REPUBLICAN_SINGULAR
 	}
 	text = {
 		trigger = {
 			check_variable = { senator_2 = 3 }
 		}
-		localization_key = DEMOCRAT_SENATOR_ELECTION
+		localization_key = DEMOCRAT_SINGULAR
 	}
 	text = {
 		trigger = {
 			check_variable = { senator_2 = 4 }
 		}
-		localization_key = AFP_SENATOR_ELECTION
+		localization_key = AFP_SINGULAR
+	}
+	text = {
+		trigger = {
+			check_variable = { senator_2 = 5 }
+		}
+		localization_key = COMMUNIST_SINGULAR
+	}
+	text = {
+		localization_key = USA_empty_seat
 	}
 }
 
