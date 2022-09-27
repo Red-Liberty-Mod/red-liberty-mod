@@ -138,6 +138,15 @@ units = {
 			is_name_ordered = yes
 			name_order = 1
 		}
+		unique={
+			"Charles DuVal Roberts"
+		}
+		#portraits = {
+		#	army = {
+		#		large = GFX_portrait_GER_erwin_rommel
+		#		small = "GFX_idea_erwin_rommel"
+		#	}
+		#}
 		location = 3878 # Fort Hamilton, NYC, NY
 		division_template = "Infantry Division"
 		start_experience_factor = 0.2
@@ -147,6 +156,9 @@ units = {
 		division_name = {
 			is_name_ordered = yes
 			name_order = 2
+		}
+		unique={
+			"Alexander Thompson Ovenshine"
 		}
 		location = 12782 # Fort Sam Houston, San Antonio, TX
 		division_template = "Infantry Division"
@@ -158,6 +170,10 @@ units = {
 			is_name_ordered = yes
 			name_order = 3
 		}
+		unique={
+			"Casper H. Conrad Jr."
+			"David L. Stone"
+		}
 		location = 7386 # Fort Lewis, WA
 		division_template = "Infantry Division"
 		start_experience_factor = 0.2
@@ -167,6 +183,9 @@ units = {
 		division_name = {
 			is_name_ordered = yes
 			name_order = 26
+		}
+		unique={
+			"Daniel Needham"
 		}
 		location = 6732 # Boston, MA
 		division_template = "National Guard"
@@ -178,6 +197,9 @@ units = {
 			is_name_ordered = yes
 			name_order = 27
 		}
+		unique = {
+			"William Nafew Haskell Jr."
+		}
 		location = 3878 # Manhattan, NYC, NY
 		division_template = "National Guard"
 		start_experience_factor = 0.2
@@ -187,6 +209,9 @@ units = {
 		division_name = {
 			is_name_ordered = yes
 			name_order = 28
+		}
+		unique = {
+			"Edward C. Shannon"
 		}
 		location = 6845 # Philadelphia, PA
 		division_template = "National Guard"
@@ -459,124 +484,6 @@ units = {
 		start_equipment_factor = 0.9
 	}
 }
-	
-	
-air_wings = {
-	### 1 USAAF Wing -- Los Angeles
-	378 = {
-		# 7th Bombardment Group 
-		# 19th Bombardment Group 
-		tac_bomber_equipment_0 = {
-			owner = "USA" 
-			amount = 60
-		}
-		# 17th Attack Group 
-		CAS_equipment_1 = {
-			owner = "USA" 
-			amount = 48
-		}
-	}
-
-	### 2 USAAF Wing -- Norfolk
-	362 = { 
-		# 1st Pursuit Group 
-		# 8th Pursuit Group 
-		fighter_equipment_0 =  {
-			owner = "USA" 
-			amount = 144
-		}
-		# 2nd Bombardment Group 
-		# 9th Bombardment Group 
-		tac_bomber_equipment_0 = {
-			owner = "USA" 
-			amount = 96
-		}
-	}
-
-	### 3 USAAF Wing -- Louisiana
-	371 = { 
-		# 20th Pursuit Group 
-		fighter_equipment_0 =  {
-			owner = "USA" 
-			amount = 96
-		}
-		# 3rd Attack Group 
-		CAS_equipment_1 = {
-			owner = "USA" 
-			amount = 48
-		}
-	}
-
-	### 18th Composite Wing -- Hawaii
-	629 = { 
-		# 18th Pursuit Group 
-		fighter_equipment_0 =  {
-			owner = "USA" 
-			amount = 48
-		}
-		# 5th Composite Group 
-		tac_bomber_equipment_0 = {
-			owner = "USA" 
-			amount = 36
-		}
-	}
-
-	### 19th Composite Wing -- Panama Canal
-	#685 = { 
-	#	# 16th Pursuit Group 
-	#	fighter_equipment_0 =  {
-	#		owner = "USA" 
-	#		amount = 96
-	#	}
-	#	# 6th Composite Group 
-	#	tac_bomber_equipment_0 = {
-	#		owner = "USA" 
-	#		amount = 12
-	#	}
-	#}
-	
-	### 19th Composite Wing -- Nicaragua Canal
-	950 = { 
-		# 16th Pursuit Group 
-		fighter_equipment_0 =  {
-			owner = "USA" 
-			amount = 96
-		}
-		# 6th Composite Group 
-		tac_bomber_equipment_0 = {
-			owner = "USA" 
-			amount = 12
-		}
-	}
-
-	### Philippines Composite Group -- Manilla
-#	327 = { 
-#		# 4th Composite Group 
-#		fighter_equipment_0 =  {
-#			owner = "USA" 
-#			amount = 36
-#		}
-#	}
-
-	### USN Atlantic Naval Patrol Division -- Norfolk
-	362 = { 
-		# Naval Patrol Wing 3 
-		nav_bomber_equipment_1 =  {
-			owner = "USA" 
-			amount = 36
-		}
-	}
-	### USN Pacific Naval Patrol Division -- San Diego
-	378 = { 
-		# Naval Patrol Wing 1 
-		# Naval Patrol Wing 2 
-		nav_bomber_equipment_1 =  {
-			owner = "USA" 
-			amount = 72
-		}
-	}
-}
-
 
 #########################
 ## STARTING PRODUCTION ##
@@ -610,16 +517,6 @@ instant_effect = {
 		}
 		requested_factories = 1
 		progress = 0.3
-		efficiency = 50
-	}
-
-	add_equipment_production = {
-		equipment = {
-			type = cv_fighter_equipment_0
-			creator = "USA" 
-		}
-		requested_factories = 1
-		progress = 0.15
 		efficiency = 50
 	}
 }
