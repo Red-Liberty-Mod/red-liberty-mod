@@ -1,0 +1,454 @@
+focus_tree = {
+	id = georgia_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = GEO
+		}
+	}
+	default = no
+	continuous_focus_position = {
+		x = -2500
+		y = 125
+	}
+	
+	
+	focus = {
+		id = GEO_georgian_industrial_revolution
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = }
+		mutually_exclusive = { focus =  }
+		cost = 10
+		x = 6
+		y = 0
+		relative_position_id = 
+
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+		add_ideas = GEO_georgian_industrial_revolution
+		}
+	}
+	
+	
+	focus = {
+		id = GEO_the_first_steps
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = GEO_georgian_industrial_revolution }
+		mutually_exclusive = { focus =  }
+		cost = 5
+		x = 0
+		y = 1
+		relative_position_id = GEO_georgian_industrial_revolution
+
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+		add_timed_idea = { idea = GEO_starting_industrialization days = 180 }
+		}
+	}
+	
+	
+	focus = {
+		id = GEO_support_urbanization
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = GEO_the_first_steps }
+		mutually_exclusive = { focus =  }
+		cost = 5
+		x = -1
+		y = 1
+		relative_position_id = GEO_the_first_steps
+
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+		add_ideas = GEO_urbanization_effort
+		}
+	}
+	
+	
+	focus = {
+		id = GEO_improve_georgian_infastructure
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = GEO_the_first_steps }
+		mutually_exclusive = { focus =  }
+		cost = 5
+		x = 1
+		y = 1
+		relative_position_id = GEO_the_first_steps
+
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			231 = {
+			add_building_construction = {
+			type = infrastructure
+			level = 2
+			instant_build = yes
+				}
+			}
+			890 = {
+			add_building_construction = {
+			type = infrastructure
+			level = 2
+			instant_build = yes
+				}
+			}
+		}
+	}
+	
+	
+	
+	focus = {
+		id = GEO_expand_the_tbilisi_factory_district
+		icon = GFX_GER_fixing_the_economy
+		prerequisite = { focus = GEO_the_first_steps }
+		mutually_exclusive = { focus =  }
+		cost = 5
+		x = 0
+		y = 2
+		relative_position_id = GEO_the_first_steps
+
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+		231 = {
+		add_building_construction = {
+			type = 	industrial_complex
+			level = 3
+			instant_build = yes
+				}
+		}
+		}
+	}
+	
+	
+	focus = {
+		id = GEO_improve_working_conditions
+		icon = GFX_USA_6_hour_day
+		prerequisite = { focus = GEO_the_first_steps }
+		mutually_exclusive = { focus =  }
+		cost = 5
+		x = 3
+		y = 1
+		relative_position_id = GEO_the_first_steps
+
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+		add_ideas = GEO_improved_working_conditions
+		}
+	}
+	
+	
+	focus = {
+		id = GEO_build_black_sea_dockyards
+		icon = GFX_focus_POL_develop_polish_shipbuilding
+		prerequisite = { focus = GEO_the_first_steps }
+		mutually_exclusive = { focus =  }
+		cost = 5
+		x = -3
+		y = 1
+		relative_position_id = GEO_the_first_steps
+
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+		231 = {  
+		add_building_construction = {
+		type = dockyard
+		level = 2
+		instant_build = yes
+		}
+		890 = { 
+		add_building_construction = {
+		type = dockyard
+		level = 1
+		instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = GEO_military_industrilization
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = GEO_the_first_steps }
+		mutually_exclusive = { focus =  }
+		cost = 5
+		x = -2
+		y = 2
+		relative_position_id = GEO_the_first_steps
+
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+		231 = { add_building_construction = {
+			type = 	arms_factory
+			level = 2
+			instant_build = yes
+				} 
+				}
+				
+		890 = { add_building_construction = {
+			type = 	arms_factory
+			level = 1
+			instant_build = yes
+				}
+				}
+		}
+	}
+	
+	
+	focus = {
+		id = GEO_expand_georgian_airports
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = { focus = GEO_the_first_steps }
+		mutually_exclusive = { focus =  }
+		cost = 5
+		x = 2
+		y = 2
+		relative_position_id = GEO_the_first_steps
+
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+		231 = { add_building_construction = {
+			type = 	air_base
+			level = 2
+			instant_build = yes
+				}  }
+		}
+	}
+	
+	
+	focus = {
+		id = GEO_the_final_steps
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = GEO_expand_the_tbilisi_factory_district }
+		prerequisite = { focus = GEO_expand_georgian_airports }
+		prerequisite = { focus = GEO_military_industrilization }
+		prerequisite = { focus = GEO_build_black_sea_dockyards }
+		prerequisite = { focus = GEO_improve_working_conditions }
+		prerequisite = { focus = GEO_improve_georgian_infastructure }
+		prerequisite = { focus = GEO_support_urbanization }
+	
+		
+		mutually_exclusive = { focus =  }
+		cost = 10
+		x = 0
+		y = 1
+		relative_position_id = GEO_expand_the_tbilisi_factory_district
+
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+		add_ideas = GEO_continued_industrialization
+					}
+		}
+	}
+	
+}
+
