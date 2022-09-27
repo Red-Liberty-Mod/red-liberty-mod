@@ -596,3 +596,84 @@ country_event = {
 		}
 	}
 }
+
+
+country_event = {
+	id = georgia.21 # A Deal With The Trade Unions
+	title = georgia.21.title
+	desc = georgia.21.desc
+	picture = GFX_report_event_usa_lore
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # Only The 8 Hour Day
+		name = georgia.21.a
+		ai_chance = { factor = 34 }
+		hidden_effect = {
+			add_stability = 0.05
+			add_popularity = {
+			ideology = libertarian_socialism
+			popularity = 0.04
+			}
+			add_ideas = GEO_limited_trade_union_concessions
+		}
+	}
+	
+	option = { # Protect Working Conditions and The 8 Hour Day
+		name = georgia.21.b
+		ai_chance = { factor = 33 }
+		hidden_effect = {
+			add_stability = 0.1
+			add_popularity = {
+			ideology = libertarian_socialism
+			popularity = 0.07
+			}
+			add_ideas = GEO_partial_trade_union_concessions
+		}
+	}
+	
+	option = { # Full Concesions to The Trade Unions
+		name = georgia.21.c
+		ai_chance = { factor = 33 }
+		hidden_effect = {
+			add_stability = 0.2
+			add_popularity = {
+			ideology = libertarian_socialism
+			popularity = 0.15
+			}
+			add_ideas = GEO_significant_trade_union_concessions
+		}
+	}
+}
+
+country_event = {
+	id = georgia.22 # The Tbilisi Adress
+	title = georgia.22.title
+	desc = georgia.22.desc
+	picture = GFX_report_event_tbilisi_adress
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # The Constitution Will Continue As Orginally Planned
+		name = georgia.22.a
+		ai_chance = { factor = 50 }
+		hidden_effect = {
+		add_stability = -0.2
+		}
+	}
+	
+	option = { # Establish Union Concessions
+		name = georgia.22.b
+		ai_chance = { factor = 50 }
+		hidden_effect = {
+		add_popularity = {
+			ideology = libertarian_socialism
+			popularity = 0.07
+			}
+		}
+	}
+}
