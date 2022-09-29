@@ -88,16 +88,16 @@ set_technology = {
 	basic_train = 1
 }
 
+oob = "USA_army"
+
 if = {
 	limit = {
-		has_dlc = "By Blood Alone"
+		has_dlc = "La Resistance"
 	}
-	load_oob = USA_army_bba
-	else = {
-		load_oob = USA_army
+	set_technology = {
+		armored_car1 = 1
 	}
 }
-
 if = {
 	limit = {
 		NOT = { has_dlc = "No Step Back" }
@@ -173,21 +173,22 @@ if = {
 }
 
 if = {
-	limit = { has_dlc = "By Blood Alone" }
-		set_air_oob = "USA_1936_air_bba"
-		set_technology = {
-			iw_small_airframe = 1
-			basic_small_airframe = 1
-			iw_medium_airframe = 1
-			basic_medium_airframe = 1
-			engines_1 = 1
-			engines_2 = 1
-			aa_lmg = 1
-			early_bombs = 1
-			aircraft_construction = 1
 		}
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+	set_technology = {
+		iw_small_airframe = 1
+		basic_small_airframe = 1
+		iw_medium_airframe = 1
+		basic_medium_airframe = 1
+		engines_1 = 1
+		engines_2 = 1
+		aa_lmg = 1
+		early_bombs = 1
+		aircraft_construction = 1
+	}
 	else = {
-		set_air_oob = "USA_1936_air_legacy"
 		set_technology = {
 			early_fighter = 1
 			cv_early_fighter = 1
@@ -219,6 +220,11 @@ set_popularities = {
 	autocratic_despotism = 0
 	far_right_authoritarianism = 4
 	fascism = 1
+}
+
+set_power_balance = {
+	id = USA_labor_capital_balance
+	set_default = yes
 }
 
 # DIPLOMACY
@@ -275,6 +281,7 @@ recruit_character = USA_frank_jack_fletcher
 add_ideas = {
 	USA_city_on_a_hill
 	USA_the_great_depression_1
+	USA_ghost_of_monroe
 	
 	USA_jack_reed_hog
 	USA_malin_craig_army_chief
@@ -998,5 +1005,57 @@ if = {
 			special_type_slot_1 = empty
 		}
 		icon = "GFX_USA_cv_fighter1_medium"
+	}
+	
+	### Land Planes ###
+	add_equipment_to_stockpile = {
+		type = small_plane_cas_airframe_0
+		amount = 96
+		variant_name = "A-12"
+		producer = USA
+	}
+	add_equipment_to_stockpile = {
+		type = small_plane_airframe_0
+		amount = 384
+		variant_name = "P-26A"
+		producer = USA
+	}
+	add_equipment_to_stockpile = {
+		type = medium_plane_airframe_0
+		amount = 96
+		variant_name = "B-6A"
+		producer = USA
+	}
+	add_equipment_to_stockpile = {
+		type = medium_plane_airframe_0
+		amount = 144
+		variant_name = "P2Y"
+		producer = USA
+	}
+	add_equipment_to_stockpile = {
+		type = medium_plane_airframe_1
+		amount = 108
+		variant_name = "B-10"
+		producer = USA
+	}
+	
+	### Carrier Planes ###
+	add_equipment_to_stockpile = {
+		type = cv_small_plane_airframe_0
+		amount = 24
+		variant_name = "F4B"
+		producer = USA
+	}
+	add_equipment_to_stockpile = {
+		type = cv_small_plane_cas_airframe_0
+		amount = 36
+		variant_name = "SBU Corsair"
+		producer = USA
+	}
+	add_equipment_to_stockpile = {
+		type = cv_small_plane_naval_bomber_airframe_0
+		amount = 24
+		variant_name = "BM-2"
+		producer = USA
 	}
 }
