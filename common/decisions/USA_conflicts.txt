@@ -405,7 +405,12 @@ USA_foreign_policy_category = {
 		}
 	}
 	
+	###############
+	### austria ###
+	###############
+	
 	USA_austria_support_self_determination = {
+		icon = GFX_decision_generic_civil_support
 	
 		visible = {
 			check_variable = { selected_conflict_id = 4 }
@@ -420,17 +425,49 @@ USA_foreign_policy_category = {
 		fire_only_once = yes
 
 		complete_effect = {
-			CRO = {
-				add_stability = 0.05
+			add_to_variable = {
+				global.austria_escalation = 3
+				tooltip = austria_escalation_increase
 			}
-			BOS = {
-				add_stability = 0.05
+			set_country_flag = USA_proclaimed_self_determination
+		}
+	}
+	
+	USA_austria_arm_freedom_fighters = {
+		icon = GFX_decision_generic_civil_support
+		
+		targets = { CRO BOS SLV CZE SLO }
+	
+		visible = {
+			check_variable = { selected_conflict_id = 4 }
+		}
+		
+		available = {
+			check_variable = { selected_conflict_id = 4 }
+			has_country_flag = USA_proclaimed_self_determination
+		}
+		
+		cost = 25
+		
+		days_re_enable = 25
+
+		complete_effect = {
+			FROM = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 500
+					producer = USA
+				}
 			}
-			CZE = {
-				add_stability = 0.05
+			add_to_variable = {
+				global.austria_escalation = 1
+				tooltip = austria_escalation_increase
 			}
-			SLV = {
-				add_stability = 0.05
+		}
+		
+		cancel_trigger = {
+			FROM = {
+				exists = no
 			}
 		}
 	}
