@@ -398,38 +398,7 @@ on_actions = {
 								original_tag = UOB
 							}
 						}
-						UOB = {
-							random_list = {
-								25 = {
-									random_other_country = {
-										limit = { is_ai = yes }
-										news_event = { id = demo_uob.1 hours = 6 }
-									}
-								}
-								25 = {
-									random_other_country = {
-										limit = { is_ai = yes }
-										news_event = { id = demo_uob.2 hours = 6 }
-									}
-								}
-								25 = {
-									random_other_country = {
-										limit = { is_ai = yes }
-										news_event = { id = demo_uob.3 hours = 6 }
-									}
-								}
-								25 = {
-									random_other_country = {
-										limit = { is_ai = yes }
-										news_event = { id = demo_uob.4 hours = 6 }
-									}
-								}
-							}
-							country_event = {
-								id = demo_uob.5
-								days = 15
-							}
-						}
+						UOB_peace_BRA_war = yes
 					}
 					else_if = {
 						limit = {
@@ -500,6 +469,25 @@ on_actions = {
 							target = ROOT
 						}
 						set_cosmetic_tag = CRT_mexico
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				
+				### INDIAN-BURMESE WAR ###
+				if = {
+					limit = {
+						FROM = {
+							original_tag = RAJ
+						}
+						ROOT = {
+							original_tag = BRM
+						}
+					}
+					FROM = {
+						white_peace = ROOT
+						annex_country = {
+							target = ROOT
+						}
 					}
 					set_global_flag = skip_default_capitulation
 				}
