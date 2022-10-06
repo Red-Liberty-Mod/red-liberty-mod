@@ -141,6 +141,7 @@ news_event = { # de la rocque takes power - news
 	id = demo_fra.2
 	title = demo_fra.2.title
 	desc = demo_fra.2.desc
+	picture = GFX_report_event_la_rocque
 	
 	major = yes
 	
@@ -271,6 +272,7 @@ news_event = {
 
 	option = {
 		name = demo_mex.3.a
+		setup_mexico_conflict = yes
 	}
 }
 
@@ -1697,6 +1699,7 @@ news_event = { # vargas victory 1
 
 	option = {
 		name = demo_bra.1.a
+		end_brazil_conflict = yes
 	}
 }
 
@@ -1711,6 +1714,7 @@ news_event = { # vargas victory 2
 
 	option = {
 		name = demo_bra.2.a
+		end_brazil_conflict = yes
 	}
 }
 
@@ -1725,6 +1729,7 @@ news_event = { # vargas victory 3
 
 	option = {
 		name = demo_bra.3.a
+		end_brazil_conflict = yes
 	}
 }
 
@@ -1784,6 +1789,7 @@ news_event = { # prestes victory 1
 
 	option = {
 		name = demo_uob.1.a
+		end_brazil_conflict = yes
 	}
 }
 
@@ -1798,6 +1804,7 @@ news_event = { # prestes victory 2
 
 	option = {
 		name = demo_uob.2.a
+		end_brazil_conflict = yes
 	}
 }
 
@@ -1812,6 +1819,7 @@ news_event = { # prestes victory 3
 
 	option = {
 		name = demo_uob.3.a
+		end_brazil_conflict = yes
 	}
 }
 
@@ -1826,6 +1834,7 @@ news_event = { # prestes victory 4
 
 	option = {
 		name = demo_uob.4.a
+		end_brazil_conflict = yes
 	}
 }
 
@@ -1880,6 +1889,38 @@ country_event = { # brazil politics
 		ai_chance = {
 			base = 2
 		}
+	}
+}
+
+country_event = { # 
+	id = demo_uob.6
+	title = demo_uob.6.title
+	desc = demo_uob.6.desc
+	
+	is_triggered_only = yes
+
+	option = { # 
+		name = demo_uob.6.a
+		UOB = {
+			create_faction = "South American Treaty Organization"
+			add_to_faction = CHL
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_uob.7 hours = 6 }
+		}
+	}
+}
+
+news_event = { # 
+	id = demo_uob.7
+	title = demo_uob.7.title
+	desc = demo_uob.7.desc
+	
+	is_triggered_only = yes
+
+	option = { # 
+		name = demo_uob.7.a
 	}
 }
 
@@ -2176,6 +2217,7 @@ country_event = {
 			add_state_core = 317
 			add_state_core = 311
 			add_state_core = 950
+			add_state_core = 951
 			add_state_claim = 314
 			add_state_claim = 475
 			
@@ -2195,6 +2237,10 @@ country_event = {
 			country_event = {
 				id = demo_cen.3
 				days = 35
+			}
+			country_event = {
+				id = demo_cen.5
+				days = 180
 			}
 			
 			load_oob = CEN
@@ -2220,7 +2266,7 @@ news_event = {
 	major = yes
 
 	option = {
-		name = "Will they succeed where their forebears failed?"
+		name = demo_cen.2.a
 	}
 }
 
@@ -2234,16 +2280,34 @@ country_event = {
 	fire_only_once = yes
 
 	option = {
-		name = ""
+		name = demo_cen.3.a
 		CEN = {
-			declare_war_on = {
-				target = ELS
-				type = annex_everything
+			set_politics = {
+				ruling_party = proletarian_dictatorship
+				elections_allowed = yes
+				last_election = "1938.5.1"
+				election_frequency = 48
 			}
 		}
 		random_other_country = {
 			limit = { is_ai = yes }
 			news_event = { id = demo_cen.4 hours = 6 }
+		}
+	}
+	
+	option = {
+		name = demo_cen.3.b
+		CEN = {
+			set_politics = {
+				ruling_party = social_democracy
+				elections_allowed = yes
+				last_election = "1938.5.1"
+				election_frequency = 48
+			}
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_cen.5 hours = 6 }
 		}
 	}
 }
@@ -2258,7 +2322,7 @@ news_event = {
 	is_triggered_only = yes
 
 	option = {
-		name = "The first test of unity."
+		name = demo_cen.4.a
 	}
 }
 
@@ -2270,11 +2334,47 @@ news_event = {
 	major = yes
 	
 	is_triggered_only = yes
+
+	option = {
+		name = demo_cen.5.a
+	}
+}
+
+country_event = {
+	id = demo_cen.6
+	title = demo_cen.6.title
+	desc = demo_cen.6.desc
+	
+	is_triggered_only = yes
 	
 	fire_only_once = yes
 
 	option = {
-		name = ""
+		name = demo_cen.6.a
+		CEN = {
+			declare_war_on = {
+				target = ELS
+				type = annex_everything
+			}
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_cen.7 hours = 6 }
+		}
+	}
+}
+
+news_event = {
+	id = demo_cen.7
+	title = demo_cen.7.title
+	desc = demo_cen.7.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = demo_cen.7.a
 	}
 }
 
