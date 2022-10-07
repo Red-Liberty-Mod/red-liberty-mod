@@ -550,7 +550,10 @@ technologies = {
 			leads_to_tech = improved_ship_hull_cruiser
 			research_cost_coeff = 1
 		}
-
+		
+		sub_technologies = {
+			coastal_defense_ships
+		}
 
 		research_cost = 1.5
 
@@ -593,7 +596,10 @@ technologies = {
 			leads_to_tech = advanced_ship_hull_cruiser
 			research_cost_coeff = 1
 		}
-
+		sub_technologies = {
+			torpedo_cruiser_mtg
+		}
+		
 		research_cost = 1.5
 
 		start_year = 1936
@@ -1144,7 +1150,7 @@ early_ship_hull_carrier = {
 
 		research_cost = 1.5
 
-		start_year = 1936
+		start_year = 1930
 
 		folder = {
 			name = mtgnavalfolder
@@ -1185,7 +1191,7 @@ early_ship_hull_carrier = {
 
 		research_cost = 1.5
 
-		start_year = 1940
+		start_year = 1936
 
 		folder = {
 			name = mtgnavalfolder
@@ -1221,7 +1227,7 @@ early_ship_hull_carrier = {
 		}
 		research_cost = 1.5
 
-		start_year = 1944
+		start_year = 1942
 
 		folder = {
 			name = mtgnavalfolder
@@ -1359,11 +1365,11 @@ early_ship_hull_carrier = {
 
 		research_cost = 2.0
 
-		start_year = 1940
+		start_year = 1939
 
 		folder = {
 			name = mtgnavalfolder
-			position = {  x = -2 y = 14 }
+			position = {  x = -2 y = 17 }
 		}
 
 		ai_will_do = {
@@ -1396,11 +1402,11 @@ early_ship_hull_carrier = {
 
 		research_cost = 2.0
 
-		start_year = 1944
+		start_year = 1943
 
 		folder = {
 			name = mtgnavalfolder
-			position = {  x = -2 y = 20 }
+			position = {  x = -2 y = 22 }
 		}
 
 		ai_will_do = {
@@ -1439,7 +1445,7 @@ early_ship_hull_carrier = {
 
 		folder = {
 			name = mtgnavalfolder
-			position = {  x = -1 y = 13 }
+			position = {  x = -1 y = 17 }
 		}
 
 		ai_will_do = {
@@ -1491,7 +1497,7 @@ early_ship_hull_carrier = {
 
 		folder = {
 			name = mtgnavalfolder
-			position = {  x = -1 y = 19 }
+			position = {  x = -1 y = 22 }
 		}
 
 		ai_will_do = {
@@ -1527,20 +1533,22 @@ early_ship_hull_carrier = {
 			always = no
 		}
 	}
+	
 	torpedo_cruiser_mtg = {
 
 		enable_equipments = {
 			ship_hull_torpedo_cruiser
 		}
 
-		research_cost = 1
+		research_cost = 1.5
 		start_year = 1936
-
-		#set at gamestart
-		allow = {
-			always = no
+		
+		categories = {
+			naval_equipment
+			ca_tech
 		}
 	}
+	
 	pre_dreadnoughts = {
 
 		enable_equipments = {
@@ -1555,20 +1563,22 @@ early_ship_hull_carrier = {
 			always = no
 		}
 	}
+	
 	coastal_defense_ships = {
 
 		enable_equipments = {
 			ship_hull_cruiser_coastal_defense_ship
 		}
 
-		research_cost = 1
-		start_year = 1936
-
-		#set at gamestart
-		allow = {
-			always = no
+		research_cost = 1.5
+		start_year = 1930
+		
+		categories = {
+			naval_equipment
+			ca_tech
 		}
 	}
+	
 	cruiser_submarines = {
 
 		enable_equipments = {
@@ -1585,6 +1595,7 @@ early_ship_hull_carrier = {
 			always = no
 		}
 	}
+	
 	midget_submarines = {
 
 		enable_equipments = {
