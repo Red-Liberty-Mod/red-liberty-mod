@@ -213,16 +213,19 @@ on_actions = {
 				if = {
 					limit = {
 						FROM = {
-							original_tag = AUS
+							OR = {
+								original_tag = AUS
+								original_tag = GER
+							}
 						}
 						ROOT = {
 							original_tag = AHE
 						}
 					}
-					FROM = {
-						white_peace = ROOT
+					AUS = {
+						white_peace = AHE
 						annex_country = {
-							target = ROOT
+							target = AHE
 						}
 					}
 					set_global_flag = skip_default_capitulation
