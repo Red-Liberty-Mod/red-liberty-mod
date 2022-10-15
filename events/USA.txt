@@ -24,6 +24,7 @@ country_event = { # 1936 rnc
 	id = united_states.2
 	title = united_states.2.title
 	desc = united_states.2.desc
+	picture = GFX_report_event_republicans
 	
 	is_triggered_only = yes
 	
@@ -39,6 +40,7 @@ country_event = { # 1936 dnc
 	id = united_states.3
 	title = united_states.3.title
 	desc = united_states.3.desc
+	picture = GFX_report_event_lister_hill
 	
 	is_triggered_only = yes
 	
@@ -54,6 +56,7 @@ country_event = { # 1936 spa convention - choosing veep
 	id = united_states.4
 	title = united_states.4.title
 	desc = united_states.4.desc
+	picture = GFX_report_event_wallace_browder
 	
 	is_triggered_only = yes
 	
@@ -592,7 +595,10 @@ country_event = { # aw yea its cthulhu ftaghn time
 			add_political_power = 10
 		}
 		831 = {
-			add_to_variable = { socialist_popularity = 0.05 }
+			add_to_variable = {
+				socialist_popularity = 0.05
+				tooltip = USA_increase_SPA_popularity_low
+			}
 		}
 	}
 }
@@ -601,6 +607,7 @@ country_event = { # USA, USA, USA!
 	id = united_states_flavor.4
 	title = "The Fourth of July"
 	desc = united_states_flavor.4.desc
+	picture = GFX_report_event_america_day
 	
 	is_triggered_only = yes
 	
@@ -823,7 +830,6 @@ country_event = { # intel division report
 
 	option = {
 		name = united_states_intervention.2.a
-		add_political_power = -50
 	}
 }
 
