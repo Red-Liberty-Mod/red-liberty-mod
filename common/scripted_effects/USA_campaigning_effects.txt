@@ -146,7 +146,12 @@ USA_campaigning_state_boost = {
 USA_opposition_campaign = {
 	set_temp_variable = { USA_pop_factor_opposition = 1 }
 	if = {
-		limit = { has_country_flag = USA_campaigning_for_socialists }
+		limit = {
+			OR = {
+				has_country_flag = USA_campaigning_for_socialists
+				has_country_flag = USA_campaigning_for_democrats
+			}
+		}
 		random_list = {
 			15 = {
 				add_to_temp_variable = { USA_pop_factor_opposition = @CAMPAIGNING_GREAT_BOOST }
