@@ -141,6 +141,44 @@ defined_text = {
 }
 
 defined_text = {
+	name = GetSPAMilitantApproval
+	
+	text = { 
+        trigger = {
+			check_variable = { SPA_militant_approval > 24 }
+        }
+        localization_key = "USA_party_approval_very_high"
+    }
+	text = { 
+        trigger = {
+			check_variable = { SPA_militant_approval > 14 }
+			check_variable = { SPA_militant_approval < 25 }
+        }
+        localization_key = "USA_party_approval_high"
+    }
+	text = {
+		trigger = {
+			check_variable = { SPA_militant_approval > 10 }
+			check_variable = { SPA_militant_approval < 15 }
+        }
+        localization_key = "USA_party_approval_moderate"
+    }
+	text = {
+		trigger = {
+			check_variable = { SPA_militant_approval > 5 }
+			check_variable = { SPA_militant_approval < 11 }
+        }
+        localization_key = "USA_party_approval_low"
+    }
+	text = {
+		trigger = {
+			check_variable = { SPA_militant_approval < 6 }
+        }
+        localization_key = "USA_party_approval_very_low"
+    }
+}
+
+defined_text = {
 	name = GetSPAModerateInfluence
 	
 	text = { 
@@ -172,169 +210,39 @@ defined_text = {
 }
 
 defined_text = {
-	name = GetThomasOpinionRich
+	name = GetSPAModerateApproval
 	
 	text = { 
         trigger = {
-			check_variable = { USA_thomas_rich_opinion > 70 }
+			check_variable = { SPA_moderate_approval > 24 }
         }
-        localization_key = "USA_thomas_opinion_very_high"
+        localization_key = "USA_party_approval_very_high"
     }
-	
 	text = { 
         trigger = {
-			check_variable = { USA_thomas_rich_opinion > 55 }
-			check_variable = { USA_thomas_rich_opinion < 71 }
+			check_variable = { SPA_moderate_approval > 14 }
+			check_variable = { SPA_moderate_approval < 25 }
         }
-        localization_key = "USA_thomas_opinion_high"
+        localization_key = "USA_party_approval_high"
     }
-	
-	text = { 
-        trigger = {
-			check_variable = { USA_thomas_rich_opinion > 44 }
-			check_variable = { USA_thomas_rich_opinion < 56 }
+	text = {
+		trigger = {
+			check_variable = { SPA_moderate_approval > 10 }
+			check_variable = { SPA_moderate_approval < 15 }
         }
-        localization_key = "USA_thomas_opinion_middling"
+        localization_key = "USA_party_approval_moderate"
     }
-	
-	text = { 
-        trigger = {
-			check_variable = { USA_thomas_rich_opinion > 24 }
-			check_variable = { USA_thomas_rich_opinion < 45 }
+	text = {
+		trigger = {
+			check_variable = { SPA_moderate_approval > 5 }
+			check_variable = { SPA_moderate_approval < 11 }
         }
-        localization_key = "USA_thomas_opinion_low"
+        localization_key = "USA_party_approval_low"
     }
-	
-	text = { 
-        trigger = {
-			check_variable = { USA_thomas_rich_opinion < 25 }
+	text = {
+		trigger = {
+			check_variable = { SPA_moderate_approval < 6 }
         }
-        localization_key = "USA_thomas_opinion_very_low"
-    }
-}
-
-defined_text = {
-	name = GetThomasOpinionMiddle
-	
-	text = { 
-        trigger = {
-			check_variable = { USA_thomas_middle_opinion > 70 }
-        }
-        localization_key = "USA_thomas_opinion_very_high"
-    }
-	
-	text = { 
-        trigger = {
-			check_variable = { USA_thomas_middle_opinion > 55 }
-			check_variable = { USA_thomas_middle_opinion < 71 }
-        }
-        localization_key = "USA_thomas_opinion_high"
-    }
-	
-	text = { 
-        trigger = {
-			check_variable = { USA_thomas_middle_opinion > 44 }
-			check_variable = { USA_thomas_middle_opinion < 56 }
-        }
-        localization_key = "USA_thomas_opinion_middling"
-    }
-	
-	text = { 
-        trigger = {
-			check_variable = { USA_thomas_middle_opinion > 24 }
-			check_variable = { USA_thomas_middle_opinion < 45 }
-        }
-        localization_key = "USA_thomas_opinion_low"
-    }
-	
-	text = { 
-        trigger = {
-			check_variable = { USA_thomas_middle_opinion < 25 }
-        }
-        localization_key = "USA_thomas_opinion_very_low"
-    }
-}
-
-defined_text = {
-	name = GetThomasOpinionPoor
-	
-	text = { 
-        trigger = {
-			check_variable = { USA_thomas_poor_opinion > 70 }
-        }
-        localization_key = "USA_thomas_opinion_very_high"
-    }
-	
-	text = { 
-        trigger = {
-			check_variable = { USA_thomas_poor_opinion > 55 }
-			check_variable = { USA_thomas_poor_opinion < 71 }
-        }
-        localization_key = "USA_thomas_opinion_high"
-    }
-	
-	text = { 
-        trigger = {
-			check_variable = { USA_thomas_poor_opinion > 44 }
-			check_variable = { USA_thomas_poor_opinion < 56 }
-        }
-        localization_key = "USA_thomas_opinion_middling"
-    }
-	
-	text = { 
-        trigger = {
-			check_variable = { USA_thomas_poor_opinion > 24 }
-			check_variable = { USA_thomas_poor_opinion < 45 }
-        }
-        localization_key = "USA_thomas_opinion_low"
-    }
-	
-	text = { 
-        trigger = {
-			check_variable = { USA_thomas_poor_opinion < 25 }
-        }
-        localization_key = "USA_thomas_opinion_very_low"
-    }
-}
-
-defined_text = {
-	name = GetThomasOpinionRural
-	
-	text = { 
-        trigger = {
-			check_variable = { USA_thomas_rural_opinion > 70 }
-        }
-        localization_key = "USA_thomas_opinion_very_high"
-    }
-	
-	text = { 
-        trigger = {
-			check_variable = { USA_thomas_rural_opinion > 55 }
-			check_variable = { USA_thomas_rural_opinion < 71 }
-        }
-        localization_key = "USA_thomas_opinion_high"
-    }
-	
-	text = { 
-        trigger = {
-			check_variable = { USA_thomas_rural_opinion > 44 }
-			check_variable = { USA_thomas_rural_opinion < 56 }
-        }
-        localization_key = "USA_thomas_opinion_middling"
-    }
-	
-	text = { 
-        trigger = {
-			check_variable = { USA_thomas_rural_opinion > 24 }
-			check_variable = { USA_thomas_rural_opinion < 45 }
-        }
-        localization_key = "USA_thomas_opinion_low"
-    }
-	
-	text = { 
-        trigger = {
-			check_variable = { USA_thomas_rural_opinion < 25 }
-        }
-        localization_key = "USA_thomas_opinion_very_low"
+        localization_key = "USA_party_approval_very_low"
     }
 }

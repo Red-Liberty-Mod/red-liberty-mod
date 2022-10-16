@@ -18,6 +18,72 @@ RAJ_crush_burma = {
 	}
 }
 
+TAG_support_CRT = {
+	allowed = {
+		OR = {
+			original_tag = ITA
+			original_tag = FRA
+		}
+	}
+	enable = {
+		CRT = {
+			has_war_with = MEX
+		}
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = CRT
+		value = 150
+	}
+}
+
+TAG_support_UOB = {
+	allowed = {
+		OR = {
+			original_tag = CHL
+			original_tag = SOV
+		}
+	}
+	enable = {
+		UOB = {
+			has_war_with = BRA
+		}
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = UOB
+		value = 150
+	}
+}
+
+TAG_support_BRA = {
+	allowed = {
+		OR = {
+			original_tag = GER
+			original_tag = FRA
+		}
+	}
+	enable = {
+		BRA = {
+			has_war_with = UOB
+		}
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = BRA
+		value = 150
+	}
+}
+
 FRA_crush_germany = {
 	allowed = {
 		original_tag = FRA

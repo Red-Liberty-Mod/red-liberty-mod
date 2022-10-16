@@ -1,0 +1,146 @@
+FRA_industrialization_category = {
+
+	FRA_industrialize_state = {
+	
+		targets = { 22 23 25 26 30 33 }
+		
+		target_trigger = {
+			FROM = {
+				is_owned_by = ROOT
+			}
+		}
+		
+		available = {
+			FROM = {
+				industrial_complex > 3
+			}
+		}
+		
+		state_target = yes
+		
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+		
+		custom_cost_trigger = {
+			check_variable = { FRA_industry_points > 4 }
+		}
+		custom_cost_text = decision_cost_5_industry_point
+		
+		days_remove = 30
+		
+		remove_effect = {
+			FROM = {
+				improve_state_category = yes
+			}
+		}
+	}
+	
+	FRA_take_out_foreign_loan = {
+	
+		icon = ger_mefo_bills
+		
+		visible = {
+			
+		}
+		
+		cost = 25
+		
+		days_remove = 30
+		
+		complete_effect = {
+			
+		}
+		
+		remove_effect = {
+			add_to_variable = {
+				FRA_industry_points = 1
+				tooltip = FRA_gain_industry_points
+			}
+		}
+	}
+	
+	FRA_sell_ammunition = {
+	
+		icon = ger_mefo_bills
+		
+		visible = {
+			
+		}
+		
+		cost = 25
+		
+		days_remove = 30
+		
+		complete_effect = {
+			
+		}
+		
+		remove_effect = {
+			add_to_variable = {
+				FRA_industry_points = 2
+				tooltip = FRA_gain_industry_points
+			}
+		}
+	}
+	
+	FRA_invest_in_construction = {
+	
+		icon = ger_mefo_bills
+		
+		visible = {
+			
+		}
+		
+		custom_cost_trigger = {
+			check_variable = { FRA_industry_points > 0 }
+		}
+		custom_cost_text = decision_cost_1_industry_point
+		
+		days_remove = 30
+		
+		days_re_enable = 30
+		
+		complete_effect = {
+			subract_from_variable = { FRA_industry_points = 1 }
+		}
+		
+		modifier = {
+			production_speed_buildings_factor = 0.075
+		}
+		
+		remove_effect = {
+			
+		}
+	}
+	
+	FRA_invest_in_production = {
+	
+		icon = ger_mefo_bills
+		
+		visible = {
+			
+		}
+		
+		custom_cost_trigger = {
+			check_variable = { FRA_industry_points > 0 }
+		}
+		custom_cost_text = decision_cost_1_industry_point
+		
+		days_remove = 30
+		
+		days_re_enable = 30
+		
+		complete_effect = {
+			subract_from_variable = { FRA_industry_points = 1 }
+		}
+		
+		modifier = {
+			industrial_capacity_factory = 0.075
+		}
+		
+		remove_effect = {
+			
+		}
+	}
+}

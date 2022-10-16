@@ -23,14 +23,32 @@ set_technology = {
 	tech_support = 1
 	tech_recon = 1
 	
-	gwtank = 1
-	
 	gw_artillery = 1
 	
 	early_fighter = 1
 	early_bomber = 1
 
 	basic_train = 1
+}
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		gwtank = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+		engine_tech_1 = 1
+	}
+	add_ideas = {
+		nepotism_academy_spirit
+	}
 }
 if = {
 	limit = { not = { has_dlc = "Man the Guns" } }
@@ -96,21 +114,30 @@ add_to_faction = GUD
 add_to_faction = YUN
 add_to_faction = GUI
 add_to_faction = HNN
-
 add_to_faction = SZC
 add_to_faction = SHA
 add_to_faction = SHD
 add_to_faction = SHX
-
 add_to_faction = XSM
 add_to_faction = SIK
 add_to_faction = KUM
+
+add_to_array = { CHI.CHI_empire_aligned_tags = GUD }
+add_to_array = { CHI.CHI_empire_aligned_tags = HNN }
+add_to_array = { CHI.CHI_empire_aligned_tags = ANH }
+add_to_array = { CHI.CHI_empire_aligned_tags = SZC }
+add_to_array = { CHI.CHI_empire_aligned_tags = FNG }
+add_to_array = { CHI.CHI_empire_aligned_tags = SIK }
+add_to_array = { CHI.CHI_empire_aligned_tags = ZHE }
+
+add_to_array = { CHI.CHI_koumintang_aligned_tags = GNS }
 
 add_ideas = {
 	CHI_beiyang_army
 	CHI_japanese_influence
 	CHI_unpopular_government
-	CHI_an_empire_shattered
+
+	semi_industrial_economy
 }
 
 add_equipment_to_stockpile = {
@@ -218,7 +245,7 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "Rongyao"
+	name = "Róngyào"
 	desc = "POLITICS_RONGYAO_DESC"
 	picture = "gfx\leaders\CHI\Portrait_CHI_Yuan_Keding.png"
 	expire = "1965.1.1"
@@ -305,4 +332,15 @@ create_corps_commander = {
 	defense_skill = 3
 	planning_skill = 3
 	logistics_skill = 2	
+}
+
+create_navy_leader = {
+	name = "Tang Xiangming"
+	picture = ""
+	traits = { navy_career_officer }
+	skill = 2
+	attack_skill = 2
+	defense_skill = 2
+	maneuvering_skill = 1
+	coordination_skill = 1
 }

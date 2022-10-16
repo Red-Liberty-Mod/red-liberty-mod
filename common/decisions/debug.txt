@@ -158,7 +158,7 @@ debug_category = {
 		complete_effect = {
 			every_owned_state = {
 				limit = { can_have_elections_in_state = yes }
-				add_to_variable = { communist_popularity = 0.05 }
+				add_to_variable = { communist_popularity = 0.6 }
 			}
 		}
 	}
@@ -266,7 +266,7 @@ debug_category = {
 			
 			USA_prepare_presidential_election = yes
 			
-			US_hold_presidential_election = yes
+			USA_hold_presidential_election = yes
 			set_country_flag = USA_presidential_conclusion
 		}
 	}
@@ -491,6 +491,67 @@ debug_category = {
 				declare_war_on = {
 					target = RGR
 					type = annex_everything
+				}
+			}
+		}
+	}
+	
+	debug_annex_all_china_tags = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			tag = CHI
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = CHI
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			CHI = {
+				annex_country = {
+					target = SHX
+				}
+				annex_country = {
+					target = SHD
+				}
+				annex_country = {
+					target = FNG
+				}
+				annex_country = {
+					target = ANH
+				}
+				annex_country = {
+					target = ZHE
+				}
+				annex_country = {
+					target = HNN
+				}
+				annex_country = {
+					target = GUD
+				}
+				annex_country = {
+					target = YUN
+				}
+				annex_country = {
+					target = SZC
+				}
+				annex_country = {
+					target = XSM
+				}
+				annex_country = {
+					target = GNS
+				}
+				annex_country = {
+					target = SIK
 				}
 			}
 		}

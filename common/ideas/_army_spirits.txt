@@ -3,6 +3,9 @@ ideas = {
 		
 		bold_attack_spirit = {
 			ledger = army
+			available = {
+				has_bad_academy_spirit_army = no
+			}
 			modifier = {
 				custom_modifier_tooltip = bold_attack_spirit_tt
 			}
@@ -12,6 +15,9 @@ ideas = {
 		}
 		tenacious_defense_spirit = {
 			ledger = army
+			available = {
+				has_bad_academy_spirit_army = no
+			}
 			modifier = {
 				custom_modifier_tooltip = tenacious_defense_spirit_tt
 			}
@@ -21,6 +27,9 @@ ideas = {
 		}
 		meticulous_preparation_spirit = {
 			ledger = army
+			available = {
+				has_bad_academy_spirit_army = no
+			}
 			modifier = {
 				custom_modifier_tooltip = meticulous_preparation_spirit_tt
 			}
@@ -30,11 +39,8 @@ ideas = {
 		}
 		best_of_the_best_spirit = {
 			ledger = army
-			visible = { 
-				
-			}
 			available = {
-				has_democratic_govt = yes
+				has_bad_academy_spirit_army = no
 			}
 			modifier = {
 				army_leader_start_level = 2
@@ -48,8 +54,11 @@ ideas = {
 		}
 		academy_scholarships_spirit = {
 			ledger = army
+			available = {
+				has_bad_academy_spirit_army = no
+			}
 			visible = { 
-				
+				has_socialist_govt = yes
 			}
 			available = {
 				has_socialist_govt = yes
@@ -66,8 +75,11 @@ ideas = {
 		}
 		political_loyalty_spirit = {
 			ledger = army
+			available = {
+				has_bad_academy_spirit_army = no
+			}
 			visible = { 
-				
+				has_reactionary_govt = yes
 			}
 			available = {
 				has_reactionary_govt = yes
@@ -83,6 +95,9 @@ ideas = {
 		}
 		inventive_leadership_spirit = {
 			ledger = army
+			available = {
+				has_bad_academy_spirit_army = no
+			}
 			modifier = {
 				custom_modifier_tooltip = inventive_leadership_spirit_tt
 				trait_naval_invader_xp_gain_factor = 0.2
@@ -96,7 +111,7 @@ ideas = {
 		mobile_warfare_academy_spirit = {
 			ledger = army
 			visible = {
-				
+				has_tech = mobile_warfare
 			}
 			available = {
 				has_tech = mobile_warfare
@@ -111,7 +126,9 @@ ideas = {
 		}
 		superior_firepower_academy_spirit = {
 			ledger = army
-			visible = {}
+			visible = {
+				has_tech = superior_firepower
+			}
 			available = {
 				has_tech = superior_firepower
 			}
@@ -128,7 +145,7 @@ ideas = {
 		theatre_training_spirit = {
 			ledger = army
 			visible = {
-				
+				has_tech = trench_warfare
 			}
 			available = {
 				has_tech = trench_warfare
@@ -144,7 +161,7 @@ ideas = {
 		mass_assault_academy_spirit = {
 			ledger = army
 			visible = {
-				
+				has_tech = mass_assault
 			}
 			available = {
 				has_tech = mass_assault
@@ -164,7 +181,8 @@ ideas = {
 				always = no
 			}
 			modifier = {
-				
+				experience_gain_army_factor = -0.15
+				land_doctrine_cost_factor = 0.1
 			}
 			ai_will_do = {
 				factor = 0
@@ -180,7 +198,20 @@ ideas = {
 				custom_modifier_tooltip = nepotism_academy_spirit_tt
 			}
 			ai_will_do = {
-				factor = 1
+				factor = 0
+			}
+		}
+		
+		rigid_bureaucracy_spirit = {
+			ledger = army
+			allowed = {
+				always = no
+			}
+			modifier = {
+				
+			}
+			ai_will_do = {
+				factor = 0
 			}
 		}
 	}
@@ -188,6 +219,9 @@ ideas = {
 	army_spirit = {
 		professional_officer_corps_spirit = {
 			ledger = army
+			available = {
+				has_bad_army_spirit_army = no
+			}
 			modifier = {
 				experience_gain_army_factor = 0.05
 				land_doctrine_cost_factor = -0.05
@@ -200,6 +234,9 @@ ideas = {
 
 		elevated_engineering_corps_spirit = {
 			ledger = army
+			available = {
+				has_bad_army_spirit_army = no
+			}
 			modifier = {
 				trait_engineer_xp_gain_factor = 0.25
 				unit_engineer_design_cost_factor = -1
@@ -213,6 +250,9 @@ ideas = {
 
 		proper_heritage_spirit = {
 			ledger = army
+			available = {
+				has_bad_army_spirit_army = no
+			}
 			modifier = {
 				unit_cavalry_design_cost_factor = -1
 				cavalry_attack_factor = 0.05
@@ -225,6 +265,9 @@ ideas = {
 
 		quick_improvisation_spirit = {
 			ledger = army
+			available = {
+				has_bad_army_spirit_army = no
+			}
 			modifier = {
 				command_abilities_cost_factor = -0.20
 				command_power_gain = 0.2
@@ -238,7 +281,7 @@ ideas = {
 		relief_of_command_spirit = {
 			ledger = army
 			visible = {
-				
+				has_democratic_govt = yes
 			}
 			available = {
 				has_democratic_govt = yes
@@ -255,7 +298,7 @@ ideas = {
 		ideological_loyalty_spirit = {
 			ledger = army
 			visible = {
-				
+				has_auth_socialist_govt = yes
 			}
 			available = {
 				has_auth_socialist_govt = yes
@@ -272,7 +315,7 @@ ideas = {
 		state_serves_the_military_spirit = {
 			ledger = army
 			visible = {
-				
+				has_reactionary_govt = yes
 			}
 			available = {
 				has_reactionary_govt = yes
@@ -288,7 +331,7 @@ ideas = {
 
 		mobile_warfare_army_spirit = {
 			visible = {
-				
+				has_tech = mobile_warfare
 			}
 			available = {
 				has_tech = mobile_warfare
@@ -316,7 +359,7 @@ ideas = {
 
 		superior_firepower_army_spirit = {
 			visible = {
-				
+				has_tech = superior_firepower
 			}
 			available = {
 				has_tech = superior_firepower
@@ -340,7 +383,7 @@ ideas = {
 
 		grand_battleplan_army_spirit = {
 			visible = {
-				
+				has_tech = trench_warfare
 			}
 			available = {
 				has_tech = trench_warfare
@@ -363,7 +406,7 @@ ideas = {
 		mass_assault_army_spirit = {
 			ledger = army
 			visible = {
-				
+				has_tech = mass_assault
 			}
 			available = {
 				has_tech = mass_assault
@@ -376,6 +419,19 @@ ideas = {
 			}
 			ai_will_do = {
 				factor = 1
+			}
+		}
+		
+		heritage_of_accomplishment = {
+			ledger = army
+			available = { has_dlc = "By Blood Alone" }
+			visible = { has_dlc = "By Blood Alone" }
+			modifier = {
+				grant_medal_cost_factor = -0.5
+				field_officer_promotion_penalty = -1.0
+			}
+			ai_will_do = {
+				factor = 0
 			}
 		}
 		
@@ -399,6 +455,7 @@ ideas = {
 			}
 			modifier = {
 				land_doctrine_cost_factor = 0.05
+				planning_speed = -0.15
 			}
 			ai_will_do = {
 				factor = 0
@@ -532,7 +589,7 @@ ideas = {
 
 		maneuver_warfare_spirit = {
 			visible = {
-				
+				has_tech = mobile_warfare
 			}
 			available = {
 				has_tech = mobile_warfare
@@ -550,7 +607,7 @@ ideas = {
 		smoke_and_fire_spirit = {
 			ledger = army
 			visible = {
-				
+				has_tech = superior_firepower
 			}
 			available = {
 				has_tech = superior_firepower
@@ -567,7 +624,7 @@ ideas = {
 		logistical_focus_spirit = {
 			ledger = army
 			visible = {
-				
+				has_tech = trench_warfare
 			}
 			available = {
 				has_tech = trench_warfare
@@ -586,7 +643,7 @@ ideas = {
 		operational_reserve_spirit = {
 			ledger = army
 			visible = {
-				
+				has_tech = mass_assault
 			}
 			available = {
 				has_tech = mass_assault
@@ -606,7 +663,7 @@ ideas = {
 				always = no
 			}
 			modifier = {
-				
+				coordination_bonus = -0.03
 			}
 			ai_will_do = {
 				factor = 0

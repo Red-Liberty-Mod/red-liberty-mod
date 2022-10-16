@@ -29,7 +29,6 @@ add_namespace = demo_yuc
 add_namespace = demo_usa_jap_peace
 add_namespace = demo_brm
 add_namespace = demo_jap_usa_war
-add_namespace = demo_bosphorus_uprising
 
 
 country_event = { # vorbeck takes power
@@ -142,6 +141,7 @@ news_event = { # de la rocque takes power - news
 	id = demo_fra.2
 	title = demo_fra.2.title
 	desc = demo_fra.2.desc
+	picture = GFX_report_event_la_rocque
 	
 	major = yes
 	
@@ -198,10 +198,18 @@ country_event = { # election event
 
 	option = {
 		name = ""
-	}
-	
-	option = {
-		name = ""
+		MEX = {
+			set_politics = {
+				ruling_party = authoritarian_democracy
+				last_election = "1936.7.1"
+				election_frequency = 72
+				elections_allowed = yes
+			}
+			add_popularity = {
+				ideology = authoritarian_democracy
+				popularity = 0.15
+			}
+		}
 	}
 }
 
@@ -256,7 +264,7 @@ news_event = {
 	id = demo_mex.3
 	title = demo_mex.3.title
 	desc = demo_mex.3.desc
-	picture = ""
+	picture = GFX_report_event_cristeros
 	
 	is_triggered_only = yes
 	
@@ -264,6 +272,7 @@ news_event = {
 
 	option = {
 		name = demo_mex.3.a
+		setup_mexico_conflict = yes
 	}
 }
 
@@ -769,9 +778,11 @@ news_event = { # september constitution - news
 		name = demo_ahe.4.a
 		hidden_effect = {
 			GER = {
+				setup_austrian_collapse_conflict = yes
 				set_country_flag = may_send_volunteers_to_AUS
 			}
 			USA = {
+				setup_austrian_collapse_conflict = yes
 				set_country_flag = may_send_volunteers_to_AHE
 			}
 		}
@@ -869,21 +880,44 @@ country_event = { # rom-hun war
 		GER = {
 			end_puppet = ROM
 		}
-		
+		HUN = {
+			HUN_setup_TRS = yes
+			transfer_state = 885
+		}
+		TRS = {
+			keep_current_politics = yes
+		}
 		ROM = {
-			transfer_state = 76
-			transfer_state = 80
-			transfer_state = 82
-			transfer_state = 83
-			transfer_state = 84
+			set_autonomy = {
+				target = TRS
+				autonomous_state = autonomy_RL_protectorate
+			}
 			
 			remove_ideas = {
 				ROM_german_dominance
 				ROM_treaty_of_bucharest
 			}
 			
-			load_oob = ROM_danubian_war
-			
+			#load_oob = ROM_danubian_war
+		}
+		80 = {
+			set_state_owner_to = ROM
+			set_state_controller_to = ROM
+			set_demilitarized_zone = no
+		}
+		TRS = {
+			set_politics = {
+				ruling_party = national_conservatism
+				last_election = "1936.1.1"
+				election_frequency = 48
+				elections_allowed = no
+			}
+		}
+		HUN = {
+			declare_war_on = {
+				target = TRS
+				type = annex_everything
+			}
 			declare_war_on = {
 				target = HUN
 				type = annex_everything
@@ -1036,6 +1070,7 @@ country_event = { # ahe/aus war
 				target = AHE
 				type = annex_everything
 			}
+			add_civil_war_target = AHE
 		}
 	}
 }
@@ -1161,6 +1196,7 @@ news_event = { # soviet-state war news
 	id = demo_rus.3
 	title = demo_rus.3.title
 	desc = demo_rus.3.desc
+	picture = GFX_report_event_russian_civil_war
 	
 	is_triggered_only = yes
 	
@@ -1666,6 +1702,7 @@ news_event = { # vargas victory 1
 
 	option = {
 		name = demo_bra.1.a
+		end_brazil_conflict = yes
 	}
 }
 
@@ -1680,6 +1717,7 @@ news_event = { # vargas victory 2
 
 	option = {
 		name = demo_bra.2.a
+		end_brazil_conflict = yes
 	}
 }
 
@@ -1694,6 +1732,7 @@ news_event = { # vargas victory 3
 
 	option = {
 		name = demo_bra.3.a
+		end_brazil_conflict = yes
 	}
 }
 
@@ -1753,6 +1792,7 @@ news_event = { # prestes victory 1
 
 	option = {
 		name = demo_uob.1.a
+		end_brazil_conflict = yes
 	}
 }
 
@@ -1767,6 +1807,7 @@ news_event = { # prestes victory 2
 
 	option = {
 		name = demo_uob.2.a
+		end_brazil_conflict = yes
 	}
 }
 
@@ -1781,6 +1822,7 @@ news_event = { # prestes victory 3
 
 	option = {
 		name = demo_uob.3.a
+		end_brazil_conflict = yes
 	}
 }
 
@@ -1795,6 +1837,7 @@ news_event = { # prestes victory 4
 
 	option = {
 		name = demo_uob.4.a
+		end_brazil_conflict = yes
 	}
 }
 
@@ -1852,6 +1895,38 @@ country_event = { # brazil politics
 	}
 }
 
+country_event = { # 
+	id = demo_uob.6
+	title = demo_uob.6.title
+	desc = demo_uob.6.desc
+	
+	is_triggered_only = yes
+
+	option = { # 
+		name = demo_uob.6.a
+		UOB = {
+			create_faction = "South American Treaty Organization"
+			add_to_faction = CHL
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_uob.7 hours = 6 }
+		}
+	}
+}
+
+news_event = { # 
+	id = demo_uob.7
+	title = demo_uob.7.title
+	desc = demo_uob.7.desc
+	
+	is_triggered_only = yes
+
+	option = { # 
+		name = demo_uob.7.a
+	}
+}
+
 country_event = { # straits crisis start
 	id = demo_tur.1
 	title = demo_tur.1.title
@@ -1867,6 +1942,18 @@ country_event = { # straits crisis start
 			limit = { is_ai = yes }
 			news_event = { id = demo_tur.2 hours = 6 }
 		}
+		TUR = {
+			country_event = {
+				id = demo_tur.3
+				days = 30
+				days_random = 5
+			}
+			
+			add_named_threat = {
+				threat = 5
+				name = TUR_straits_crisis
+			}
+		}
 	}
 }
 
@@ -1877,10 +1964,55 @@ news_event = { # straits crisis start news
 	
 	is_triggered_only = yes
 	
+	major = yes
+	
+	option = {
+		name = demo_tur.2.a
+	}
+}
+
+country_event = {
+	id = demo_tur.3
+	title = demo_tur.3.title
+	desc = demo_tur.3.desc
+	
+	is_triggered_only = yes
+	
 	fire_only_once = yes
 
 	option = {
-		name = demo_tur.2.a
+		name = demo_tur.3.a
+		
+		TUR = {
+			annex_country = {
+				target = SCM
+			}
+			add_state_core = 341
+			add_state_core = 345
+		}
+		SCM = {
+			remove_state_core = 341
+			remove_state_core = 345
+		}
+		
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_tur.4 hours = 6 }
+		}
+	}
+}
+
+news_event = { # straits crisis resolved
+	id = demo_tur.4
+	title = demo_tur.4.title
+	desc = demo_tur.4.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = demo_tur.4.a
 	}
 }
 
@@ -1983,9 +2115,15 @@ country_event = {
 			limit = { is_ai = yes }
 			news_event = { id = demo_ww2.2 hours = 6 }
 		}
-		SOV = {
+		FRA = {
 			country_event = {
 				id = demo_ww2.3
+				days = 25
+			}
+		}
+		SOV = {
+			country_event = {
+				id = demo_ww2.5
 				days = 150
 			}
 		}
@@ -1994,7 +2132,7 @@ country_event = {
 
 news_event = {
 	id = demo_ww2.2
-	title = ""
+	title = demo_ww2.2.title
 	desc = demo_ww2.2.desc
 	
 	is_triggered_only = yes
@@ -2002,13 +2140,13 @@ news_event = {
 	major = yes
 
 	option = {
-		name = ""
+		name = demo_ww2.2.a
 	}
 }
 
 country_event = {
 	id = demo_ww2.3
-	title = ""
+	title = demo_ww2.3.title
 	desc = demo_ww2.3.desc
 	
 	is_triggered_only = yes
@@ -2017,6 +2155,40 @@ country_event = {
 
 	option = {
 		name = ""
+		FRA = {
+			declare_war_on = {
+				target = BEL
+				type = annex_everything
+			}
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_ww2.4 hours = 6 }
+		}
+	}
+}
+
+news_event = {
+	id = demo_ww2.4
+	title = demo_ww2.4.title
+	desc = demo_ww2.4.desc
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = demo_ww2.4.a
+	}
+}
+
+country_event = {
+	id = demo_ww2.5
+	title = demo_ww2.5.title
+	desc = demo_ww2.5.desc
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = demo_ww2.5.a
 		SOV = {
 			declare_war_on = {
 				target = UKR
@@ -2024,24 +2196,6 @@ country_event = {
 			}
 			declare_war_on = {
 				target = BLR
-				type = annex_everything
-			}
-		}
-	}
-}
-
-country_event = {
-	id = demo_ww2.4
-	title = ""
-	desc = demo_ww2.4.desc
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = ""
-		UKR = {
-			declare_war_on = {
-				target = CRI
 				type = annex_everything
 			}
 		}
@@ -2066,6 +2220,7 @@ country_event = {
 			add_state_core = 317
 			add_state_core = 311
 			add_state_core = 950
+			add_state_core = 951
 			add_state_claim = 314
 			add_state_claim = 475
 			
@@ -2085,6 +2240,10 @@ country_event = {
 			country_event = {
 				id = demo_cen.3
 				days = 35
+			}
+			country_event = {
+				id = demo_cen.5
+				days = 180
 			}
 			
 			load_oob = CEN
@@ -2108,11 +2267,9 @@ news_event = {
 	is_triggered_only = yes
 	
 	major = yes
-	
-	fire_only_once = yes
 
 	option = {
-		name = "Will they succeed where their forebears failed?"
+		name = demo_cen.2.a
 	}
 }
 
@@ -2126,16 +2283,34 @@ country_event = {
 	fire_only_once = yes
 
 	option = {
-		name = ""
+		name = demo_cen.3.a
 		CEN = {
-			declare_war_on = {
-				target = ELS
-				type = annex_everything
+			set_politics = {
+				ruling_party = proletarian_dictatorship
+				elections_allowed = yes
+				last_election = "1938.5.1"
+				election_frequency = 48
 			}
 		}
-		news_event = {
-			id = demo_cen.4
-			days = 1
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_cen.4 hours = 6 }
+		}
+	}
+	
+	option = {
+		name = demo_cen.3.b
+		CEN = {
+			set_politics = {
+				ruling_party = social_democracy
+				elections_allowed = yes
+				last_election = "1938.5.1"
+				election_frequency = 48
+			}
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_cen.5 hours = 6 }
 		}
 	}
 }
@@ -2148,11 +2323,9 @@ news_event = {
 	major = yes
 	
 	is_triggered_only = yes
-	
-	fire_only_once = yes
 
 	option = {
-		name = "The first test of unity."
+		name = demo_cen.4.a
 	}
 }
 
@@ -2164,11 +2337,47 @@ news_event = {
 	major = yes
 	
 	is_triggered_only = yes
+
+	option = {
+		name = demo_cen.5.a
+	}
+}
+
+country_event = {
+	id = demo_cen.6
+	title = demo_cen.6.title
+	desc = demo_cen.6.desc
+	
+	is_triggered_only = yes
 	
 	fire_only_once = yes
 
 	option = {
-		name = ""
+		name = demo_cen.6.a
+		CEN = {
+			declare_war_on = {
+				target = ELS
+				type = annex_everything
+			}
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_cen.7 hours = 6 }
+		}
+	}
+}
+
+news_event = {
+	id = demo_cen.7
+	title = demo_cen.7.title
+	desc = demo_cen.7.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = demo_cen.7.a
 	}
 }
 
@@ -2451,9 +2660,6 @@ country_event = {
 		BRM = {
 			white_peace = {
 				tag = RAJ
-			}
-			white_peace = {
-				tag = ENG
 			}
 		
 			transfer_state = 288
@@ -2944,43 +3150,4 @@ country_event = {
             } 			
 		}
     }
-}
-<<<<<<< HEAD
-news_event = {
-	id = demo_bosphorus_uprising.1
-	title = demo_bosphorus_uprising.1.title
-	desc = demo_bosphorus_uprising.1.desc
-	picture = GFX_news_event_bosphorus_uprising
-=======
-news_event = { # Bosphorus Uprising
-    id = demo_bosphorus_uprising.1
-	title =  demo_bosphorus_uprising.1.title
-	desc =  demo_bosphorus_uprising.1.desc
-	picture = GFX_news_event_bosphorus_uprising_1
-
-	major = yes
-
-	is_triggered_only = yes
-
-	mean_time_to_happen = {
-        days = 305
-    }
->>>>>>> 4fc47a99a15a9719a1634d13ba8c43e434c2aab4
-	
-	major = yes
-	
-	is_triggered_only = yes
-	
-	fire_only_once = yes
-
-    mean_time_to_happen = {
-		days = 305
-		modifier = {
-		  country_exists = SCM
-		}
-    }
-
-	option = {
-		name = "demo_bosphorus_uprising.1.a"
-	}
 }

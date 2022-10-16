@@ -421,16 +421,25 @@ USA_election_season_category = {
 		}
 	}
 	
-	USA_opposition_campaign = {
+	USA_opposition_campaign_democrat = {
 		
 		icon = ger_mefo_bills
 		
+		allowed = {
+			original_tag = USA
+		}
+		
 		available = {
-			always = no
+			hidden_trigger = {
+				always = no
+			}
 		}
 		
 		activation = {
-			always = no
+			has_country_flag = USA_senate_elections
+			NOT = {
+				has_country_flag = USA_campaigning_socialist
+			}
 		}
 		
 		visible = {
@@ -443,18 +452,27 @@ USA_election_season_category = {
 			}
 		}
 		
-		is_good = no
+		is_good = yes
 		
+		fixed_random_seed = no
 		cancel_if_not_visible = yes
 		
 		days_mission_timeout = 30
+		days_remove = 5
+		days_re_enable = 5
 		
 		timeout_effect = {
-			
+			USA_opposition_campaign = yes
+		}
+		
+		remove_effect = {
+			hidden_effect = {
+				USA_set_opposition_campaign_area = yes
+			}
 		}
 		
 		ai_will_do = {
-			factor = 0
+			factor = 10
 		}
 	}
 }

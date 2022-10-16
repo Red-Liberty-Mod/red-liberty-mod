@@ -51,7 +51,7 @@ if = {
 
 set_politics = {
 	ruling_party = social_democracy
-	last_election = "1932.11.8"
+	last_election = "1934.7.24"
 	election_frequency = 48
 	elections_allowed = no
 }
@@ -79,6 +79,22 @@ add_ideas = {
 }
 
 set_convoys = 40
+
+if = {
+	limit = {
+		OR = {
+			has_dlc = "Together for Victory"
+			has_dlc = "Man the Guns"
+		}
+	}
+	set_autonomy = {
+		target = ICE
+		autonomous_state = autonomy_RL_nominal_puppet
+	}
+	else = {
+		puppet = ICE
+	}
+}
 
 create_country_leader = {
 	name = "Christian X"

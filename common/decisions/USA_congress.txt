@@ -521,9 +521,9 @@ USA_congress = {
 			original_tag = USA
 			NOT = {
 				has_country_flag = USA_discussing_bill
-				#686 = {
-				#	is_core_of = USA
-				#}
+				686 = {
+					is_core_of = USA
+				}
 			}
 		}
 		
@@ -955,7 +955,7 @@ USA_congress = {
 			}
         }
 			
-		cost = communist_flip_cost
+		cost = communist_flip_cost?50
        		
 		available = {
 			custom_trigger_tooltip = {
@@ -991,9 +991,9 @@ USA_congress = {
 				}
 			}
         }
-			
-		cost = socialist_flip_cost
-       		
+		
+		cost = socialist_flip_cost?50
+       	
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = socialist_talking
@@ -1040,9 +1040,9 @@ USA_congress = {
 				}
 			}
         }
-			
-		cost = farmer_labor_flip_cost
-       		
+		
+		cost = farmer_labor_flip_cost?50
+       	
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = farmer_labor_talking
@@ -1078,7 +1078,7 @@ USA_congress = {
 			}
         }
 			
-		cost = republican_flip_cost
+		cost = republican_flip_cost?50
        		
 		available = {
 			custom_trigger_tooltip = {
@@ -1127,7 +1127,7 @@ USA_congress = {
 			}
         }
 			
-		cost = democrat_flip_cost
+		cost = democrat_flip_cost?50
        		
 		available = {
 			custom_trigger_tooltip = {
@@ -1176,7 +1176,7 @@ USA_congress = {
 			}
         }
 		
-		cost = fascist_flip_cost
+		cost = fascist_flip_cost?50
        		
 		available = {
 			custom_trigger_tooltip = {
@@ -1185,7 +1185,7 @@ USA_congress = {
 			}
 			custom_trigger_tooltip = {
 				tooltip = unavaliable_already_negotiated
-				NOT = { has_country_flag = fascist_negotiated }
+				NOT = { has_country_flag = fascists_negotiated }
 			}
 			custom_trigger_tooltip = {
 				tooltip = fascists_fully_support
@@ -1290,6 +1290,10 @@ USA_congress = {
 		}
 		is_good = yes
 		
+		cancel_trigger = {
+			check_variable = { bill_id = 0 }
+		}
+		
 		days_mission_timeout = 30
 		
 		selectable_mission = yes
@@ -1324,7 +1328,7 @@ USA_congress = {
 		}
 		available = { #Mission is completed when the player brings the bill to a vote
 			custom_trigger_tooltip = {
-				tooltip = USA_seante_phase_trigger_tt
+				tooltip = USA_senate_phase_trigger_tt
 				bill_will_pass = yes
 			}
 		}
@@ -1332,6 +1336,10 @@ USA_congress = {
 			has_country_flag = USA_bill_senate_phase
 		}
 		is_good = yes
+		
+		cancel_trigger = {
+			check_variable = { bill_id = 0 }
+		}
 		
 		days_mission_timeout = 30
 		

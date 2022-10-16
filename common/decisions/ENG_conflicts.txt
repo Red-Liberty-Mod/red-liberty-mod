@@ -1,0 +1,474 @@
+ENG_foreign_policy_category = {
+
+	ENG_mexico_send_volunteers = {
+
+		visible = {
+			check_variable = { selected_conflict_id = 1 }
+		}
+
+		available = {
+			check_variable = { selected_conflict_id = 1 }
+		}
+
+		cost = 25
+
+		complete_effect = {
+			add_manpower = -500
+		}
+
+		days_remove = 7
+
+		remove_effect = {
+			MEX = {
+				add_manpower = 500
+			}
+		}
+	}
+
+	ENG_mexico_send_light_equipment = {
+
+		visible = {
+			check_variable = { selected_conflict_id = 1 }
+		}
+
+		available = {
+			check_variable = { selected_conflict_id = 1 }
+		}
+
+		cost = 25
+
+		days_re_enable = 25
+
+		complete_effect = {
+			send_equipment = {
+				equipment = infantry_equipment
+				amount = 1000
+				target = MEX
+			}
+		}
+
+		cancel_trigger = {
+			OR = {
+				MEX = {
+					exists = no
+				}
+				CRT = {
+					exists = no
+				}
+			}
+		}
+	}
+
+	ENG_mexico_send_heavy_equipment = {
+
+		visible = {
+			check_variable = { selected_conflict_id = 1 }
+		}
+
+		available = {
+			check_variable = { selected_conflict_id = 1 }
+			has_completed_focus = USA_get_involved
+		}
+
+		cost = 50
+
+		days_re_enable = 25
+
+		complete_effect = {
+			send_equipment = {
+				equipment = artillery_equipment
+				amount = 50
+				target = MEX
+			}
+		}
+
+		cancel_trigger = {
+			OR = {
+				MEX = {
+					exists = no
+				}
+				CRT = {
+					exists = no
+				}
+			}
+		}
+	}
+
+	ENG_mexico_send_trucks = {
+
+		visible = {
+			check_variable = { selected_conflict_id = 1 }
+		}
+
+		available = {
+			check_variable = { selected_conflict_id = 1 }
+			has_completed_focus = USA_get_involved
+		}
+
+		cost = 50
+
+		days_re_enable = 25
+
+		complete_effect = {
+			send_equipment = {
+				equipment = motorized_equipment
+				amount = 50
+				target = MEX
+			}
+		}
+
+		cancel_trigger = {
+			OR = {
+				MEX = {
+					exists = no
+				}
+				CRT = {
+					exists = no
+				}
+			}
+		}
+	}
+
+	ENG_mexico_send_military_observers = {
+
+		visible = {
+			check_variable = { selected_conflict_id = 1 }
+		}
+
+		available = {
+			check_variable = { selected_conflict_id = 1 }
+			has_completed_focus = USA_get_involved
+			NOT = {
+				MEX = {
+					has_idea = USA_military_observers
+				}
+			}
+		}
+
+		cost = 75
+
+		complete_effect = {
+			MEX = {
+				add_timed_idea = {
+					idea = USA_military_observers
+					days = 75
+				}
+			}
+		}
+
+		cancel_trigger = {
+			OR = {
+				MEX = {
+					exists = no
+				}
+				CRT = {
+					exists = no
+				}
+			}
+		}
+	}
+
+	ENG_brazil_blockade_ports = {
+
+		visible = {
+			check_variable = { selected_conflict_id = 2 }
+		}
+
+		available = {
+			check_variable = { selected_conflict_id = 2 }
+			ships_in_area = { area = 66 size > 25 }
+		}
+
+		cost = 25
+
+		fire_only_once = yes
+
+		days_remove = 14
+
+		remove_effect = {
+			set_global_flag = USA_blockading_brazil
+			custom_effect_tooltip = USA_brazil_blockade_ports_tt
+		}
+
+		cancel_trigger = {
+			OR = {
+				UOB = {
+					exists = no
+				}
+				BRA = {
+					exists = no
+				}
+			}
+		}
+	}
+
+	ENG_brazil_send_volunteers = {
+
+		visible = {
+			check_variable = { selected_conflict_id = 2 }
+		}
+
+		available = {
+			check_variable = { selected_conflict_id = 2 }
+		}
+
+		cost = 25
+
+		days_re_enable = 25
+
+		complete_effect = {
+			add_manpower = -500
+			UOB = {
+				add_manpower = 500
+			}
+		}
+
+		cancel_trigger = {
+			OR = {
+				UOB = {
+					exists = no
+				}
+				BRA = {
+					exists = no
+				}
+			}
+		}
+	}
+
+	ENG_brazil_send_light_equipment = {
+
+		visible = {
+			check_variable = { selected_conflict_id = 2 }
+		}
+
+		available = {
+			check_variable = { selected_conflict_id = 2 }
+		}
+
+		cost = 25
+
+		days_re_enable = 25
+
+		complete_effect = {
+			send_equipment = {
+				equipment = infantry_equipment
+				amount = 1000
+				target = UOB
+			}
+		}
+
+		cancel_trigger = {
+			OR = {
+				UOB = {
+					exists = no
+				}
+				BRA = {
+					exists = no
+				}
+			}
+		}
+	}
+
+	ENG_brazil_send_heavy_equipment = {
+
+		visible = {
+			check_variable = { selected_conflict_id = 2 }
+		}
+
+		available = {
+			check_variable = { selected_conflict_id = 2 }
+		}
+
+		cost = 50
+
+		days_re_enable = 25
+
+		complete_effect = {
+			send_equipment = {
+				equipment = artillery_equipment
+				amount = 50
+				target = UOB
+			}
+		}
+
+		cancel_trigger = {
+			OR = {
+				UOB = {
+					exists = no
+				}
+				BRA = {
+					exists = no
+				}
+			}
+		}
+	}
+
+	ENG_brazil_send_trucks = {
+
+		visible = {
+			check_variable = { selected_conflict_id = 2 }
+		}
+
+		available = {
+			check_variable = { selected_conflict_id = 2 }
+		}
+
+		cost = 50
+
+		days_re_enable = 25
+
+		complete_effect = {
+			send_equipment = {
+				equipment = motorized_equipment
+				amount = 50
+				target = UOB
+			}
+		}
+
+		cancel_trigger = {
+			OR = {
+				UOB = {
+					exists = no
+				}
+				BRA = {
+					exists = no
+				}
+			}
+		}
+	}
+
+	ENG_send_military_observers = {
+
+		visible = {
+			check_variable = { selected_conflict_id = 2 }
+		}
+
+		available = {
+			check_variable = { selected_conflict_id = 2 }
+			NOT = {
+				UOB = {
+					has_idea = USA_military_observers
+				}
+			}
+		}
+
+		cost = 75
+
+		complete_effect = {
+			UOB = {
+				add_timed_idea = {
+					idea = USA_military_observers
+					days = 75
+				}
+			}
+		}
+
+		cancel_trigger = {
+			OR = {
+				UOB = {
+					exists = no
+				}
+				BRA = {
+					exists = no
+				}
+			}
+		}
+	}
+
+	ENG_brazil_send_military_formations = {
+
+		visible = {
+			check_variable = { selected_conflict_id = 2 }
+		}
+
+		available = {
+			check_variable = { selected_conflict_id = 2 }
+		}
+
+		cost = 100
+
+		fire_only_once = yes
+
+		complete_effect = {
+			set_country_flag = may_send_volunteers_to_UOB
+		}
+
+		cancel_trigger = {
+			OR = {
+				UOB = {
+					exists = no
+				}
+				BRA = {
+					exists = no
+				}
+			}
+		}
+	}
+
+	###############
+	### austria ###
+	###############
+
+	ENG_austria_support_self_determination = {
+		icon = GFX_decision_generic_civil_support
+
+		visible = {
+			check_variable = { selected_conflict_id = 4 }
+		}
+
+		available = {
+			check_variable = { selected_conflict_id = 4 }
+		}
+
+		cost = 100
+
+		fire_only_once = yes
+
+		complete_effect = {
+			add_to_variable = {
+				global.austria_escalation = 3
+				tooltip = austria_escalation_increase
+			}
+			set_country_flag = USA_proclaimed_self_determination
+		}
+	}
+
+	ENG_austria_arm_freedom_fighters = {
+		icon = GFX_decision_generic_civil_support
+
+		targets = { CRO BOS SLV CZE SLO }
+
+		visible = {
+			check_variable = { selected_conflict_id = 4 }
+		}
+
+		available = {
+			check_variable = { selected_conflict_id = 4 }
+			has_country_flag = USA_proclaimed_self_determination
+		}
+
+		cost = 25
+
+		days_re_enable = 25
+
+		complete_effect = {
+			FROM = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 500
+					producer = ENG
+				}
+			}
+			add_to_variable = {
+				global.austria_escalation = 1
+				tooltip = austria_escalation_increase
+			}
+		}
+
+		cancel_trigger = {
+			FROM = {
+				exists = no
+			}
+		}
+	}
+}

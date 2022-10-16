@@ -2,7 +2,10 @@ on_actions = {
 	
 	on_startup = {
 		effect = {
-			set_global_flag = open_intro_splash_screen
+			for_each_scope_loop = {
+				array = global.players
+				set_country_flag = open_intro_splash_screen
+			}
 		
 			every_country = {
 				country_event = opinion_modifier.1
@@ -15,15 +18,15 @@ on_actions = {
 			#log = "[GetDateText] - [ROOT.GetName]: on_state_control_changed OLD CONTROLLER: [FROM.GetName] STATE: [FROM.FROM.GetName]"
 		
 			### Adding opinion modifiers to newly-spawned countries
-			if = {
-				limit = {
-					NOT = {
-						has_country_flag = opinion_modifiers_set_up
-					}
-				}
-				set_country_flag = opinion_modifiers_set_up
-				country_event = { id = opinion_modifier.2 }
-			}
+			#if = {
+			#	limit = {
+			#		NOT = {
+			#			has_country_flag = opinion_modifiers_set_up
+			#		}
+			#	}
+			#	set_country_flag = opinion_modifiers_set_up
+			#	country_event = { id = opinion_modifier.2 }
+			#}
 		}
 	}
 	
@@ -32,7 +35,16 @@ on_actions = {
 			#log = "[GetDateText] - [ROOT.GetName]: on_government_change"
 			
 			### Updating opinion modifiers upon change in govt
-			country_event = { id = opinion_modifier.2 }
+			#country_event = { id = opinion_modifier.2 }
 		}
+	}
+
+	on_ruling_party_change = {
+		effect = {
+			every_other_country = {
+				clr_opinion_modifiers = yes
+				setup_opinion_modifiers = yes
+			}
+		}		
 	}
 }

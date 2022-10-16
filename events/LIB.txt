@@ -1,0 +1,45 @@
+add_namespace = liberia
+
+country_event = {
+	id = liberia.1
+	title = libiera.1.t	# Freedom for COG
+	desc = liberia.1.d	#
+	picture = GFX_report_event_african_soldiers
+	
+	trigger = {
+		tag = LIB
+		LIB = { 
+			controls_state = 779 
+			} 
+	}
+
+	fire_only_once = yes
+	
+	option = { #puppet new state
+		name = liberia.1.a
+		ai_chance = {
+			base = 100
+		}
+			IVO = { 
+				if = {
+					limit = { 
+						LIB = { 
+							controls_state = 779 
+							} 
+
+						}
+							transfer_state = 779
+					}
+					load_oob = "IVO_War"
+				}
+			LIB = { puppet = IVO }
+			set_country_flag = LIB_released_IVO
+	}
+
+	option = { #full freedom
+		name = liberia.1.b
+		ai_chance = {
+			base = 0
+		}
+	}		
+}

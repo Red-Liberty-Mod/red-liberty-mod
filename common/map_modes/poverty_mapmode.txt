@@ -1,0 +1,31 @@
+scripted_map_modes = {
+
+	poverty_map_mode = {
+	
+		top = {
+			type = state_controller
+			
+			color = {
+				set_temp_variable = { poverty_factor?0 = FROM.owner:poverty_rate }
+				divide_temp_variable = { poverty_factor = 100 }
+				
+				set_temp_variable = { red = poverty_factor }
+				set_temp_variable = { green = 1 }
+				subtract_from_temp_variable = { green = poverty_factor }
+				set_temp_variable = { blue = 0 }
+				set_temp_variable = { alpha = 1 }
+				
+				# only needed if thickness = yes on parent
+				# specify layer thickness
+				set_temp_variable = { thickness = 10.0 }
+				
+				# if set border will pulsate
+				set_temp_variable = { highlighted = 0 }
+				
+				#always = yes
+			}
+		}
+		
+		update_daily = no
+	}
+}

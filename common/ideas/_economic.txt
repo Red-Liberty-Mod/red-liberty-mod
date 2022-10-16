@@ -406,13 +406,6 @@ ideas = {
 					tag = BRA
 					date > 1943.1.1 # at this point we can probably cash in on rubber lack in the world
 				}
-
-				# Oil for hitlers oil throne!
-				modifier = {
-					factor = 600
-					tag = ROM
-					is_in_faction_with = GER
-				}
    			}
 		}
 		
@@ -531,7 +524,8 @@ ideas = {
 			
 			modifier = {
 				min_export = 0
-				#civilian_intel_to_others = 0.0
+				drift_defence_factor = 0.1
+				consumer_goods_factor = -0.05
 			}
 			
 			on_add = {
@@ -566,6 +560,83 @@ ideas = {
 					# since they will require our trades
 					has_large_ally_not_pick_closed_economy = yes
 				}
+   			}
+		}
+	}
+	
+	economy_type = {
+		law = yes
+		use_list_view = yes
+		
+		industrial_economy = {
+			
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = economy_type_change_tt
+					always = no
+				}
+			}
+			
+			cost = 0
+			
+			default = yes
+			
+			cancel_if_invalid = no
+			
+			modifier = {
+				poverty_effect_factor = 1
+			}
+			
+			ai_will_do = {
+   				factor = 0
+   			}
+		}
+		
+		semi_industrial_economy = {
+			
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = economy_type_change_tt
+					always = no
+				}
+			}
+			
+			cost = 0
+			
+			cancel_if_invalid = no
+			
+			modifier = {
+				consumer_goods_factor = -0.05
+				poverty_effect_factor = 0.75
+				production_speed_buildings_factor = -0.15
+			}
+			
+			ai_will_do = {
+   				factor = 0
+   			}
+		}
+		
+		agrarian_economy = {
+			
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = economy_type_change_tt
+					always = no
+				}
+			}
+			
+			cost = 0
+			
+			cancel_if_invalid = no
+			
+			modifier = {
+				consumer_goods_factor = -0.1
+				poverty_effect_factor = 0.5
+				production_speed_buildings_factor = -0.3
+			}
+			
+			ai_will_do = {
+   				factor = 0
    			}
 		}
 	}

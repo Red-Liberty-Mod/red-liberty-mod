@@ -26,6 +26,10 @@ if = {
 		autonomous_state = autonomy_RL_protectorate
 	}
 	set_autonomy = {
+		target = SYR
+		autonomous_state = autonomy_RL_protectorate
+	}
+	set_autonomy = {
 		target = TUN
 		autonomous_state = autonomy_RL_protectorate
 	}
@@ -42,6 +46,8 @@ if = {
 		puppet = TUN
 		puppet = FWA
 		puppet = FCA
+		puppet = SYR
+
 	}
 }
 
@@ -157,31 +163,48 @@ set_politics = {
 }
 set_popularities = {
 	insurrectionary_anarchism = 0
-	revolutionary_autocracy = 3
-	proletarian_dictatorship = 5
-	libertarian_socialism = 20
-	social_democracy = 7
+	revolutionary_autocracy = 7
+	proletarian_dictatorship = 1
+	libertarian_socialism = 23
+	social_democracy = 4
 	progressive_liberalism = 9
-	market_libertarianism = 7
-	national_conservatism = 14
-	authoritarian_democracy = 23
-	autocratic_despotism = 4
-	far_right_authoritarianism = 6
-	fascism = 2
+	market_libertarianism = 14
+	national_conservatism = 7
+	authoritarian_democracy = 26
+	autocratic_despotism = 5
+	far_right_authoritarianism = 3
+	fascism = 1
 }
 
 add_ideas = {
 	FRA_fallen_govt
 	FRA_rising_right
+	
+	semi_industrial_economy
 }
 
 create_faction = FRA_continental_entente
 add_to_faction = FRA
+add_to_faction = MOR
+add_to_faction = TUN
+add_to_faction = FCA
+add_to_faction = FWA
 
 ### LEADERS ###
 recruit_character = FRA_maurice_thorez
+recruit_character = FRA_louis_sellier
 recruit_character = FRA_andre_leon_blum
 recruit_character = FRA_marcel_deat
+
+create_country_leader = {
+	name = "Sébastien Faure"
+	desc = ""
+	picture = ""
+	expire = "1965.1.1"
+	ideology = anarcho_socialism_subtype
+	traits = {
+	}
+}
 
 create_country_leader = {
 	name = "French Government"
@@ -218,7 +241,7 @@ create_country_leader = {
 	desc = ""
 	picture = "gfx/leaders/FRA/Portrait_FRA_François_de_la_Rocque.png"
 	expire = "1965.1.1"
-	ideology = authoritarian_democracy_subtype
+	ideology = right_wing_populism_subtype
 	traits = {
 	}
 }
@@ -239,6 +262,16 @@ create_country_leader = {
 	picture = ""
 	expire = "1965.1.1"
 	ideology = far_right_authoritarianism_subtype
+	traits = {
+	}
+}
+
+create_country_leader = {
+	name = "Marcel Bucard"
+	desc = ""
+	picture = ""
+	expire = "1965.1.1"
+	ideology = fascism_subtype
 	traits = {
 	}
 }

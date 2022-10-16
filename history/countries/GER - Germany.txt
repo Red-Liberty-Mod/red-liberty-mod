@@ -50,29 +50,34 @@ if = {
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
+	motorised_infantry = 1
+
 	tech_recon = 1
 	tech_support = 1		
 	tech_engineers = 1
 	tech_mountaineers = 1
-	motorised_infantry = 1
+	
 	gw_artillery = 1
 	interwar_antiair = 1
-	early_fighter = 1
-	fighter1 = 1
-	early_bomber = 1
-	tactical_bomber1 = 1
-	strategic_bomber1 = 1
-	CAS1 = 1
-	naval_bomber1 = 1
 	
 	mobile_warfare = 1
 	fleet_in_being = 1
 	formation_flying = 1
+
 	synth_oil_experiments = 1
 	fuel_silos = 1
 	fuel_refining = 1
 
 	basic_train = 1
+}
+
+if = {
+	limit = {
+		has_dlc = "La Resistance"
+	}
+	set_technology = {
+		armored_car1 = 1
+	}
 }
 if = {
 	limit = {
@@ -150,11 +155,30 @@ if = {
 	set_naval_oob = "GER_naval_mtg"
 }
 if = {
-	limit = {
-		has_dlc = "La Resistance"
-	}
-	set_technology = {
-		armored_car1 = 1
+	limit = { has_dlc = "By Blood Alone" }
+		set_technology = {
+			aa_lmg = 1
+			aa_cannon_1 = 1
+			engines_1 = 1
+			engines_2 = 1
+			early_bombs = 1
+			aircraft_construction = 1
+			iw_small_airframe = 1
+			basic_small_airframe = 1
+			iw_medium_airframe = 1
+			basic_medium_airframe = 1
+			iw_large_airframe = 1
+		}
+	else = {
+		set_technology = {
+			early_fighter = 1
+			fighter1 = 1
+			early_bomber = 1
+			tactical_bomber1 = 1
+			strategic_bomber1 = 1
+			CAS1 = 1
+			naval_bomber1 = 1
+		}
 	}
 }
 
@@ -233,7 +257,7 @@ create_country_leader = {
 
 create_country_leader = {
 	name = "Kuno von Westarp"
-	desc = ""
+	desc = "POLITICS_KUNO_VON_WESTARP_DESC"
 	picture = "gfx/leaders/GER/Portrait_GER_Kuno_von_Westarp.png"
 	expire = "1965.1.1"
 	ideology = authoritarian_democracy_subtype

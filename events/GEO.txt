@@ -77,7 +77,7 @@ country_event = {
 
 	option = { # The Referndum Passes!"
 		name = georgia.3.a
-		ai_chance = { factor = 70 }
+		ai_chance = { factor = 100 }
 		hidden_effect = {
 			country_event = {
 				id = georgia.4
@@ -89,11 +89,11 @@ country_event = {
 	
 	option = { # The Referendum Fails!"
 		name = georgia.3.b
-		ai_chance = { factor = 30 }
+		ai_chance = { factor = 0 }
 		hidden_effect = {
 			country_event = {
 				id = georgia.
-				days = 365
+				days = 
 			}
 		}
 	}
@@ -172,7 +172,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = georgia.7
-				days = 6
+				days = 20
 			}
 		}
 	}
@@ -183,7 +183,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = georgia.18
-				days = 15
+				days = 20
 			}
 		}
 	}
@@ -218,7 +218,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = georgia.12
-				days = 7
+				days = 12
 			}
 		}
 	}
@@ -240,7 +240,7 @@ country_event = {
 		hidden_effect = {
 			GEO = { country_event = {
 				id = georgia.9
-				days = 2
+				days = 5
 			}
 		}
 	}
@@ -252,7 +252,7 @@ country_event = {
 		hidden_effect = {
 			GEO = {country_event = {
 				id = georgia.10
-				days = 2
+				days = 5
 			}
 		}
 		}
@@ -276,7 +276,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = georgia.19
-				days = 2
+				days = 30
 			}
 		}
 	}
@@ -320,12 +320,12 @@ country_event = {
 		name = georgia.11.a
 		ai_chance = { factor = 100 }
 		hidden_effect = {
-			GER = { remove_from_faction = GEO }
+				GER = { remove_from_faction = GEO }
 			add_opinion_modifier = { target = GER modifier = large_decrease }
 			remove_ideas = GEO_anti_german_unrest
+			}
 		}
 	}
-}
 
 
 
@@ -345,7 +345,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = georgia.13
-				days = 13
+				days = 16
 			}
 		}
 	}
@@ -357,7 +357,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = georgia.15
-				days = 13
+				days = 16
 			}
 		}
 	}
@@ -551,6 +551,13 @@ country_event = {
 		ai_chance = { factor = 100 }
 		hidden_effect = {
 			GER = { puppet = GEO }
+			create_country_leader = {
+			name = "German Occupation Government"
+			desc = ""
+			picture = "gfx/leaders/GEO/Portrait_GEO_German_Occupation_Government.png"
+			expire = "1965.1.1"
+			ideology = authoritarian_democracy_subtype
+			}
 		}
 	}
 }
@@ -570,7 +577,7 @@ country_event = {
 		tag = GEO
 		has_government = progressive_liberalism
 		has_stability < 0.70
-		date > 1940.6.1
+		date < 1938.6.1
 	}
 
 	option = { # May Zhordania Honor You
@@ -586,6 +593,87 @@ country_event = {
 			ideology = progressive_liberalism_subtype
 			}
 			
+		}
+	}
+}
+
+
+country_event = {
+	id = georgia.21 # A Deal With The Trade Unions
+	title = georgia.21.title
+	desc = georgia.21.desc
+	picture = GFX_report_event_usa_lore
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # Only The 8 Hour Day
+		name = georgia.21.a
+		ai_chance = { factor = 34 }
+		hidden_effect = {
+			add_stability = 0.05
+			add_popularity = {
+			ideology = libertarian_socialism
+			popularity = 0.04
+			}
+			add_ideas = GEO_limited_trade_union_concessions
+		}
+	}
+	
+	option = { # Protect Working Conditions and The 8 Hour Day
+		name = georgia.21.b
+		ai_chance = { factor = 33 }
+		hidden_effect = {
+			add_stability = 0.1
+			add_popularity = {
+			ideology = libertarian_socialism
+			popularity = 0.07
+			}
+			add_ideas = GEO_partial_trade_union_concessions
+		}
+	}
+	
+	option = { # Full Concesions to The Trade Unions
+		name = georgia.21.c
+		ai_chance = { factor = 33 }
+		hidden_effect = {
+			add_stability = 0.2
+			add_popularity = {
+			ideology = libertarian_socialism
+			popularity = 0.15
+			}
+			add_ideas = GEO_significant_trade_union_concessions
+		}
+	}
+}
+
+country_event = {
+	id = georgia.22 # The Tbilisi Adress
+	title = georgia.22.title
+	desc = georgia.22.desc
+	picture = GFX_report_event_tbilisi_adress
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # The Constitution Will Continue As Orginally Planned
+		name = georgia.22.a
+		ai_chance = { factor = 50 }
+		hidden_effect = {
+		add_stability = -0.2
+		}
+	}
+	
+	option = { # Establish Union Concessions
+		name = georgia.22.b
+		ai_chance = { factor = 50 }
+		hidden_effect = {
+		add_popularity = {
+			ideology = libertarian_socialism
+			popularity = 0.07
+			}
 		}
 	}
 }

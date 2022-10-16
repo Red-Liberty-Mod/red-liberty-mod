@@ -111,19 +111,17 @@ country_event = { # intro event
 		name = chinacollapse.5.a
 		add_political_power = -100
 		add_war_support = -0.5
+		
 		dismantle_faction = yes
 		
-		end_puppet = GUD
-		end_puppet = YUN
-		end_puppet = GUI
-		end_puppet = HNN
-		end_puppet = SZC
-		end_puppet = SHA 
-		end_puppet = SHD
-		end_puppet = SHX
-		end_puppet = XSM
-		end_puppet = KUM
-		end_puppet = SIK
+		#every_country = {
+		#	if = {
+		#		limit = {
+		#			is_chinese_tag = yes
+		#		}
+		#		drop_cosmetic_tag = yes
+		#	}
+		#}
 		
 		hidden_effect = {
 			GUD = { 
@@ -132,52 +130,12 @@ country_event = { # intro event
 					days = 3
 				}
 			}
-			drop_cosmetic_tag = yes
-		}
-		YUN = {
-			drop_cosmetic_tag = yes
-			leave_faction = yes
-		}
-		GUI = {
-			drop_cosmetic_tag = yes
-			leave_faction = yes
-		}
-		
-		HNN = {
-			drop_cosmetic_tag = yes
-			leave_faction = yes
-		}
-		SZC = {
-			drop_cosmetic_tag = yes
-			leave_faction = yes
-		}
-		SHA = {
-			drop_cosmetic_tag = yes
-			leave_faction = yes
-		}
-		SHD = {
-			drop_cosmetic_tag = yes
-			leave_faction = yes
-		}
-		SHX = {
-			drop_cosmetic_tag = yes
-			leave_faction = yes
-			country_event = {
+			SHX = {
+				country_event = {
 					id = shanxicivilstrife.1
 					days = 3
 				}
-		}
-		XSM = {
-			drop_cosmetic_tag = yes
-			leave_faction = yes
-		}
-		KUM = {
-			drop_cosmetic_tag = yes
-			leave_faction = yes
-		}
-		SIK = {
-			drop_cosmetic_tag = yes
-			leave_faction = yes
+			}
 		}
 	}
 }

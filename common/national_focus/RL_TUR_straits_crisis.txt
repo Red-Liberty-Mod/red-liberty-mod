@@ -1,0 +1,473 @@
+shared_focus = {
+    id = TUR_the_grand_viziers_vision
+	icon = GFX_TUR_the_grand_viziers_vision
+	
+    x = 8
+	
+	cost = 5
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_work_with_allies
+	icon = GFX_TUR_work_with_allies
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_the_grand_viziers_vision
+	prerequisite = { focus = TUR_the_grand_viziers_vision }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_dealing_with_the_caliph
+	icon = GFX_TUR_dealing_with_the_caliph
+	
+    x = -4
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_work_with_allies
+	prerequisite = { focus = TUR_work_with_allies }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_who_holds_the_gauntlet
+	icon = GFX_TUR_who_holds_the_gauntlet
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_man_to_man
+	}
+	relative_position_id = TUR_dealing_with_the_caliph
+	prerequisite = { focus = TUR_dealing_with_the_caliph }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_a_strong_will
+	icon = GFX_TUR_a_strong_will
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_token_praise
+	}
+	relative_position_id = TUR_who_holds_the_gauntlet
+	prerequisite = { focus = TUR_who_holds_the_gauntlet }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_token_praise
+	icon = GFX_TUR_token_praise
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_a_strong_will
+	}
+	relative_position_id = TUR_who_holds_the_gauntlet
+	prerequisite = { focus = TUR_who_holds_the_gauntlet }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_man_to_man
+	icon = GFX_TUR_man_to_man
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_who_holds_the_gauntlet
+	}
+	relative_position_id = TUR_dealing_with_the_caliph
+	prerequisite = { focus = TUR_dealing_with_the_caliph }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_respect_autonomy
+	icon = GFX_TUR_respect_autonomy
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_man_to_man
+	prerequisite = { focus = TUR_man_to_man }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_caving_to_demands
+	icon = GFX_TUR_caving_to_demands
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_token_praise
+	prerequisite = {
+		focus = TUR_token_praise
+		focus = TUR_respect_autonomy
+	}
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_in_the_chambers
+	icon = GFX_TUR_in_the_chambers
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_work_with_allies
+	prerequisite = { focus = TUR_work_with_allies }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_and_abroad
+	icon = GFX_TUR_and_abroad
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_work_with_allies
+	prerequisite = { focus = TUR_work_with_allies }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_draft_reintegration_act
+	icon = GFX_TUR_draft_reintegration_act
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_in_the_chambers
+	prerequisite = { focus = TUR_in_the_chambers }
+	prerequisite = { focus = TUR_and_abroad }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_the_twos_approval
+	icon = GFX_TUR_the_twos_approval
+	
+    x = 0
+	y = 3
+	
+	cost = 5
+	relative_position_id = TUR_in_the_chambers
+	prerequisite = { focus = TUR_in_the_chambers }
+	prerequisite = { focus = TUR_respect_autonomy }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_the_english_are_welcome
+	icon = GFX_TUR_the_english_are_welcome
+	
+    x = 0
+	y = 2
+	
+	cost = 5
+	relative_position_id = TUR_and_abroad
+	prerequisite = { focus = TUR_and_abroad }
+	prerequisite = { focus = TUR_keep_things_cordial }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_and_the_french
+	icon = GFX_TUR_and_the_french
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_the_english_are_welcome
+	prerequisite = { focus = TUR_the_english_are_welcome }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_meeting_foreign_powers
+	icon = GFX_TUR_meeting_foreign_powers
+	
+    x = 4
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_work_with_allies
+	prerequisite = { focus = TUR_work_with_allies }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_keep_things_cordial
+	icon = GFX_TUR_keep_things_cordial
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_diplomatic_hardball
+	}
+	relative_position_id = TUR_meeting_foreign_powers
+	prerequisite = { focus = TUR_meeting_foreign_powers }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_diplomatic_hardball
+	icon = GFX_TUR_diplomatic_hardball
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_keep_things_cordial
+	}
+	relative_position_id = TUR_meeting_foreign_powers
+	prerequisite = { focus = TUR_meeting_foreign_powers }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_london_calling
+	icon = GFX_TUR_london_calling
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_the_nuclear_option
+	}
+	relative_position_id = TUR_diplomatic_hardball
+	prerequisite = {
+		focus = TUR_diplomatic_hardball
+	}
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_meet_with_admiralty
+	icon = GFX_TUR_meet_with_admiralty
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_london_calling
+	prerequisite = { focus = TUR_london_calling }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_the_nuclear_option
+	icon = GFX_TUR_the_nuclear_option
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_london_calling
+	}
+	relative_position_id = TUR_diplomatic_hardball
+	prerequisite = { focus = TUR_diplomatic_hardball }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_put_it_to_vote
+	icon = GFX_TUR_put_it_to_vote
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_the_twos_approval
+	prerequisite = { focus = TUR_draft_reintegration_act }
+	prerequisite = {
+		focus = TUR_the_twos_approval
+		focus = TUR_caving_to_demands
+	}
+	prerequisite = {
+		focus = TUR_and_the_french
+		focus = TUR_meet_with_admiralty
+	}
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_back_into_the_fold
+	icon = GFX_TUR_back_into_the_fold
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_put_it_to_vote
+	prerequisite = { focus = TUR_put_it_to_vote }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}

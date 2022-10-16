@@ -14,50 +14,16 @@ shared_focus = {
 	}
 }
 
-#shared_focus = {
-#	id = USA_the_army
-#	icon = GFX_USA_the_army
-#	
-#	x = -8
-#	y = 1
-#	
-#	cost = 2
-#	relative_position_id = USA_reforming_the_military
-#	prerequisite = { focus = USA_reforming_the_military }
-#	completion_reward = {
-#		army_experience = 25
-#	}
-#	
-#	ai_will_do = {
-#		factor = 10
-#	}
-#}
-
-#shared_focus = {
-#	id = USA_war_is_a_racket
-#	icon = GFX_USA_war_is_a_racket
-#	
-#    	x = 0
-#	y = 1
-#	
-#	cost = 5
-#	relative_position_id = USA_the_army
-#	prerequisite = { focus = USA_the_army }
-#    completion_reward = {
-#     
-#	}
-#	
-#	ai_will_do = {
-#		factor = 10
-#	}
-#}
-
 shared_focus = {
     id = USA_butler_reform_plan
 	icon = GFX_USA_butler_reform_plan
 	
     x = -8
 	y = 1
+	
+	available = {
+		has_character = USA_smedley_butler
+	}
 	
 	cost = 4
 	relative_position_id = USA_reforming_the_military
@@ -78,6 +44,10 @@ shared_focus = {
     x = -2
 	y = 1
 	
+	available = {
+		has_character = USA_smedley_butler
+	}
+	
 	cost = 4
 	relative_position_id = USA_butler_reform_plan
 	prerequisite = { focus = USA_butler_reform_plan }
@@ -97,10 +67,17 @@ shared_focus = {
     x = -1
 	y = 1
 	
+	available = {
+		has_character = USA_smedley_butler
+	}
+	
 	cost = 4
 	relative_position_id = USA_20_division_plan
 	prerequisite = { focus = USA_20_division_plan }
     completion_reward = {
+		add_ideas = {
+			USA_coastal_defense
+		}
 		357 = {
 			add_building_construction = {
 				type = coastal_bunker
@@ -155,6 +132,10 @@ shared_focus = {
     x = 1
 	y = 1
 	
+	available = {
+		has_character = USA_smedley_butler
+	}
+	
 	cost = 4
 	relative_position_id = USA_20_division_plan
 	prerequisite = { focus = USA_20_division_plan }
@@ -181,6 +162,10 @@ shared_focus = {
 	
     x = 1
 	y = 1
+	
+	available = {
+		has_character = USA_smedley_butler
+	}
 	
 	cost = 4
 	relative_position_id = USA_adequate_defense
@@ -214,6 +199,10 @@ shared_focus = {
 	
     x = 0
 	y = 2
+	
+	available = {
+		has_character = USA_smedley_butler
+	}
 	
 	cost = 4
 	relative_position_id = USA_scrap_reserves
@@ -256,6 +245,10 @@ shared_focus = {
     x = 0
 	y = 2
 	
+	available = {
+		has_character = USA_smedley_butler
+	}
+	
 	cost = 4
 	relative_position_id = USA_adequate_defense
 	prerequisite = { focus = USA_decentralize_national_guard }
@@ -289,11 +282,15 @@ shared_focus = {
     x = 2
 	y = 1
 	
+	available = {
+		has_character = USA_smedley_butler
+	}
+	
 	cost = 4
 	relative_position_id = USA_butler_reform_plan
 	prerequisite = { focus = USA_butler_reform_plan }
     completion_reward = {
-       add_war_support = -0.1
+		add_war_support = -0.05
 	    378 = { 
 	       remove_building = { type = arms_factory  level = 1 } 
         }
@@ -311,11 +308,15 @@ shared_focus = {
     x = -1
 	y = 1
 	
+	available = {
+		has_character = USA_smedley_butler
+	}
+	
 	cost = 4
 	relative_position_id = USA_ending_war_as_business
 	prerequisite = { focus = USA_ending_war_as_business }
     completion_reward = {
-        add_war_support = -0.10
+        add_war_support = -0.1
 		add_stability = 0.05
     }
 	
@@ -330,6 +331,10 @@ shared_focus = {
 	
     x = 1
 	y = 1
+	
+	available = {
+		has_character = USA_smedley_butler
+	}
 	
 	cost = 4
 	relative_position_id = USA_ending_war_as_business
@@ -350,6 +355,10 @@ shared_focus = {
     x = -1
 	y = 1
 	
+	available = {
+		has_character = USA_smedley_butler
+	}
+	
 	cost = 4
 	relative_position_id = USA_reveal_the_horrors
 	prerequisite = { focus = USA_reveal_the_horrors }
@@ -369,6 +378,10 @@ shared_focus = {
 	
     x = 1
 	y = 1
+	
+	available = {
+		has_character = USA_smedley_butler
+	}
 	
 	cost = 4
 	relative_position_id = USA_reveal_the_horrors
@@ -392,10 +405,10 @@ shared_focus = {
 				limit = {
 					is_urban_state = yes
 				}
-			add_building_construction = {
+				add_building_construction = {
 					type = arms_factory
 					level = 1
-						instant_build = yes
+					instant_build = yes
 				}
 			}
 			random_owned_state = {
@@ -443,13 +456,16 @@ shared_focus = {
     x = 1
 	y = 1
 	
+	available = {
+		has_character = USA_smedley_butler
+	}
+	
 	cost = 4
 	relative_position_id = USA_dollars_and_cents
 	prerequisite = { focus = USA_dollars_and_cents }
     completion_reward = {
         add_political_power = 75
-		add_stability = 0.05 
-		
+		add_stability = 0.05
     }
 	
 	ai_will_do = {
@@ -464,14 +480,17 @@ shared_focus = {
     x = 0
 	y = 1
 	
+	available = {
+		has_character = USA_smedley_butler
+	}
+	
 	cost = 4
 	relative_position_id = USA_remove_the_profit
 	prerequisite = { focus = USA_collective_conciousness }
 	prerequisite = { focus = USA_remove_the_profit }
 	prerequisite = { focus = USA_the_men_who_sold_the_world }
     completion_reward = {
-        add_manpower = 2000
-	add_political_power = 100
+		add_political_power = 100
     }
 	
 	ai_will_do = {
@@ -486,18 +505,19 @@ shared_focus = {
     x = 0
 	y = 1
 	
+	available = {
+		has_character = USA_smedley_butler
+		has_country_flag = nationalized_defense_industry
+	}
+	
 	cost = 4
 	relative_position_id = USA_army_of_by_for_the_people
 	prerequisite = { focus = USA_and_nothing_more }
 	prerequisite = { focus = USA_army_of_by_for_the_people }
 	prerequisite = { focus = USA_fight_your_own_wars }
     completion_reward = {
-       custom_effect_tooltip = USA_gun_companies_tt
-       add_stability = 0.1
-        add_popularity = {
-	     ideology = libertarian_socialism
-	     popularity = -0.02
-        }			   
+		custom_effect_tooltip = USA_gun_companies_tt
+		add_stability = 0.1
     }
 	
 	ai_will_do = {

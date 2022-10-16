@@ -143,20 +143,280 @@ USA_campaigning_state_boost = {
 	}
 }
 
-USA_opposition_campaign_democrat = {
+USA_opposition_campaign = {
+	set_temp_variable = { USA_pop_factor_opposition = 1 }
+	if = {
+		limit = { has_country_flag = USA_campaigning_for_socialists }
+		random_list = {
+			15 = {
+				add_to_temp_variable = { USA_pop_factor_opposition = @CAMPAIGNING_GREAT_BOOST }
+				country_event = { id = us_campaign.5 }
+			}
+			50 = {
+				add_to_temp_variable = { USA_pop_factor_opposition = @CAMPAIGNING_GOOD_BOOST }
+				country_event = { id = us_campaign.6 }
+			}
+			20 = {
+				add_to_temp_variable = { USA_pop_factor_opposition = @CAMPAIGNING_NEUTRAL_BOOST }
+				country_event = { id = us_campaign.7 }
+			}
+			15 = {
+				add_to_temp_variable = { USA_pop_factor_opposition = @CAMPAIGNING_BAD_BOOST }
+				country_event = { id = us_campaign.8 }
+			}
+		}
+	}
+	for_each_scope_loop = {
+		array = USA_campaign_states_opposition
+		USA_campaigning_state_boost_opposition = yes
+	}
+	clear_array = USA_campaign_states_opposition
+}
+
+USA_campaigning_state_boost_opposition = {
+	if = {
+		limit = {
+			USA = {
+				has_country_flag = USA_campaigning_for_socialists
+			}
+		}
+		multiply_variable = { democrat_popularity = USA.USA_pop_factor_opposition }
+	}
+	else = {
+		multiply_variable = { socialist_popularity = USA.USA_pop_factor_opposition }
+	}
+}
+
+USA_set_opposition_campaign_area = {
 	
 	random_list = {
-		15 = {
-			multiply_variable = { democrat_popularity = 0.15 }
+		47 = {
+			modifier = {
+				factor = 0.83
+				has_country_flag = USA_class_1_elections
+			}
+			modifier = {
+				factor = 0.66
+				has_country_flag = USA_class_2_elections
+			}
+			modifier = {
+				factor = 0.5
+				has_country_flag = USA_class_3_elections
+			}
+			modifier = { # democrats are opposing
+				factor = 2
+				has_country_flag = USA_campaigning_for_socialists
+			}
+			add_to_array = { USA_campaign_states_opposition = 830 } #Connecticut
+			add_to_array = { USA_campaign_states_opposition = 827 } #Maine
+			add_to_array = { USA_campaign_states_opposition = 357 } #Massachusetts
+			add_to_array = { USA_campaign_states_opposition = 828 } #New Hampshire
+			add_to_array = { USA_campaign_states_opposition = 831 } #Rhode Island
+			add_to_array = { USA_campaign_states_opposition = 829 } #Vermont
+			
+			set_variable = { USA_opposition_campaign_area = 1 }
 		}
-		50 = {
-			multiply_variable = { democrat_popularity = 0.1 }
+		
+		119 = {
+			modifier = {
+				factor = 1
+				has_country_flag = USA_class_1_elections
+			}
+			modifier = {
+				factor = 0.5
+				has_country_flag = USA_class_2_elections
+			}
+			modifier = {
+				factor = 0.5
+				has_country_flag = USA_class_3_elections
+			}
+			add_to_array = { USA_campaign_states_opposition = 833 } #Delaware
+			add_to_array = { USA_campaign_states_opposition = 361 } #Maryland
+			add_to_array = { USA_campaign_states_opposition = 360 } #Pennsylvania
+			add_to_array = { USA_campaign_states_opposition = 358 } #New York
+			add_to_array = { USA_campaign_states_opposition = 359 } #New Jersey
+			
+			set_variable = { USA_opposition_campaign_area = 2 }
 		}
-		25 = {
-			multiply_variable = { democrat_popularity = 0.05 }
+		
+		72 = {
+			modifier = {
+				factor = 0.29
+				has_country_flag = USA_class_1_elections
+			}
+			modifier = {
+				factor = 0.86
+				has_country_flag = USA_class_2_elections
+			}
+			modifier = {
+				factor = 0.86
+				has_country_flag = USA_class_3_elections
+			}
+			modifier = { # democrats are opposing
+				factor = 2
+				has_country_flag = USA_campaigning_for_socialists
+			}
+			add_to_array = { USA_campaign_states_opposition = 367 } #Alabama
+			add_to_array = { USA_campaign_states_opposition = 366 } #Florida
+			add_to_array = { USA_campaign_states_opposition = 365 } #Georgia
+			add_to_array = { USA_campaign_states_opposition = 370 } #Mississippi
+			add_to_array = { USA_campaign_states_opposition = 364 } #South Carolina
+			add_to_array = { USA_campaign_states_opposition = 372 } #Arkansas
+			add_to_array = { USA_campaign_states_opposition = 371 } #Louisiana
+			if = {
+				limit = {
+					686 = {
+						can_have_elections_in_state = yes
+					}
+				}
+				add_to_array = { USA_campaign_states_opposition = 686 } #Puerto Rico
+			}
+			
+			set_variable = { USA_opposition_campaign_area = 3 }
 		}
-		10 = {
-			multiply_variable = { democrat_popularity = 0.025 }
+		
+		59 = {
+			modifier = {
+				factor = 0.5
+				has_country_flag = USA_class_1_elections
+			}
+			modifier = {
+				factor = 1
+				has_country_flag = USA_class_2_elections
+			}
+			modifier = {
+				factor = 0.5
+				has_country_flag = USA_class_3_elections
+			}
+			modifier = { # democrats are opposing
+				factor = 2
+				has_country_flag = USA_campaigning_for_socialists
+			}
+			add_to_array = { USA_campaign_states_opposition = 369 } #Kentucky
+			add_to_array = { USA_campaign_states_opposition = 363 } #North Carolina
+			add_to_array = { USA_campaign_states_opposition = 368 } #Tennessee
+			add_to_array = { USA_campaign_states_opposition = 362 } #Virginia
+			add_to_array = { USA_campaign_states_opposition = 832 } #West Virginia
+			
+			set_variable = { USA_opposition_campaign_area = 4 }
+		}
+		
+		44 = {
+			modifier = {
+				factor = 0.75
+				has_country_flag = USA_class_1_elections
+			}
+			modifier = {
+				factor = 0.75
+				has_country_flag = USA_class_2_elections
+			}
+			modifier = {
+				factor = 0.5
+				has_country_flag = USA_class_3_elections
+			}
+			add_to_array = { USA_campaign_states_opposition = 376 } #New Mexico
+			add_to_array = { USA_campaign_states_opposition = 375 } #Texas
+			add_to_array = { USA_campaign_states_opposition = 374 } #Oklahoma
+			add_to_array = { USA_campaign_states_opposition = 377 } #Arizona
+			
+			set_variable = { USA_opposition_campaign_area = 5 }
+		}
+		
+		103 = {
+			modifier = {
+				factor = 0.8
+				has_country_flag = USA_class_1_elections
+			}
+			modifier = {
+				factor = 0.4
+				has_country_flag = USA_class_2_elections
+			}
+			modifier = {
+				factor = 0.8
+				has_country_flag = USA_class_3_elections
+			}
+			add_to_array = { USA_campaign_states_opposition = 395 } #Illinois
+			add_to_array = { USA_campaign_states_opposition = 396 } #Indiana
+			add_to_array = { USA_campaign_states_opposition = 393 } #Michigan
+			add_to_array = { USA_campaign_states_opposition = 261 } #Ohio
+			add_to_array = { USA_campaign_states_opposition = 394 } #Wisconsin
+			
+			set_variable = { USA_opposition_campaign_area = 6 }
+		}
+		
+		68 = {
+			modifier = {
+				factor = 0.57
+				has_country_flag = USA_class_1_elections
+			}
+			modifier = {
+				factor = 0.71
+				has_country_flag = USA_class_2_elections
+			}
+			modifier = {
+				factor = 0.71
+				has_country_flag = USA_class_3_elections
+			}
+			modifier = { # democrats are opposing
+				factor = 1.25
+				has_country_flag = USA_campaigning_for_socialists
+			}
+			add_to_array = { USA_campaign_states_opposition = 391 } #Minnesota
+			add_to_array = { USA_campaign_states_opposition = 392 } #Iowa
+			add_to_array = { USA_campaign_states_opposition = 383 } #Kansas
+			add_to_array = { USA_campaign_states_opposition = 373 } #Missouri
+			add_to_array = { USA_campaign_states_opposition = 384 } #Nebraska
+			add_to_array = { USA_campaign_states_opposition = 389 } #North Dakota
+			add_to_array = { USA_campaign_states_opposition = 390 } #South Dakota
+			
+			set_variable = { USA_opposition_campaign_area = 7 }
+		}
+		
+		30 = {
+			modifier = {
+				factor = 0.66
+				has_country_flag = USA_class_1_elections
+			}
+			modifier = {
+				factor = 0.66
+				has_country_flag = USA_class_2_elections
+			}
+			modifier = {
+				factor = 0.66
+				has_country_flag = USA_class_3_elections
+			}
+			modifier = { # democrats are opposing
+				factor = 1.5
+				has_country_flag = USA_campaigning_for_socialists
+			}
+			add_to_array = { USA_campaign_states_opposition = 382 } #Colorado
+			add_to_array = { USA_campaign_states_opposition = 388 } #Montana
+			add_to_array = { USA_campaign_states_opposition = 380 } #Utah
+			add_to_array = { USA_campaign_states_opposition = 381 } #Wyoming
+			add_to_array = { USA_campaign_states_opposition = 387 } #Idaho
+			add_to_array = { USA_campaign_states_opposition = 379 } #Nevada
+			
+			set_variable = { USA_opposition_campaign_area = 8 }
+		}
+		
+		37 = {
+			modifier = {
+				factor = 0.5
+				has_country_flag = USA_class_1_elections
+			}
+			modifier = {
+				factor = 0.5
+				has_country_flag = USA_class_2_elections
+			}
+			modifier = {
+				factor = 1
+				has_country_flag = USA_class_3_elections
+			}
+			add_to_array = { USA_campaign_states_opposition = 378 } #California
+			add_to_array = { USA_campaign_states_opposition = 385 } #Oregon
+			add_to_array = { USA_campaign_states_opposition = 386 } #Washington
+			
+			set_variable = { USA_opposition_campaign_area = 9 }
 		}
 	}
 }

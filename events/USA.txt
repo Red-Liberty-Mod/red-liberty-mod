@@ -9,6 +9,7 @@ country_event = { # intro event
 	id = united_states.1
 	title = "Long May She Wave"
 	desc = united_states.1.desc
+	picture = GFX_report_event_white_house
 	
 	is_triggered_only = yes
 	
@@ -19,10 +20,11 @@ country_event = { # intro event
 	}
 }
 
-country_event = { # rnc
+country_event = { # 1936 rnc
 	id = united_states.2
 	title = united_states.2.title
 	desc = united_states.2.desc
+	picture = GFX_report_event_republicans
 	
 	is_triggered_only = yes
 	
@@ -34,10 +36,11 @@ country_event = { # rnc
 	}
 }
 
-country_event = { # dnc
+country_event = { # 1936 dnc
 	id = united_states.3
 	title = united_states.3.title
 	desc = united_states.3.desc
+	picture = GFX_report_event_lister_hill
 	
 	is_triggered_only = yes
 	
@@ -45,93 +48,38 @@ country_event = { # dnc
 
 	option = {
 		name = united_states.3.a
-		#country_event = {
-		#	id = united_states.5
-		#	days = 3
-		#}
 		set_country_flag = USA_lister_candidate
 	}
-	
-	#option = {
-	#	name = "Burton K. Wheeler!"
-	#	country_event = {
-	#		id = united_states.4
-	#		days = 3
-	#	}
-	#	set_country_flag = USA_wheeler_candidate
-	#}
 }
 
-country_event = { # conservatives abandon democratic party
+country_event = { # 1936 spa convention - choosing veep
 	id = united_states.4
-	title = "A House Divided"
+	title = united_states.4.title
 	desc = united_states.4.desc
-	
-	is_triggered_only = yes
-	
-	fire_only_once = yes
-
-	option = {
-		name = "Conservatives always abandon democracy."
-		add_popularity = {
-			ideology = national_conservatism
-			popularity = -0.05
-		}
-		add_popularity = {
-			ideology = authoritarian_democracy
-			popularity = 0.05
-		}
-	}
-}
-
-country_event = { # liberals abandon democratic party
-	id = united_states.5
-	title = "A House Divided"
-	desc = united_states.5.desc
-	
-	is_triggered_only = yes
-	
-	fire_only_once = yes
-
-	option = {
-		name = "Liberals and their pipe dreams."
-		add_popularity = {
-			ideology = progressive_liberalism
-			popularity = -0.1
-		}
-		add_popularity = {
-			ideology = social_democracy
-			popularity = 0.05
-		}
-		add_popularity = {
-			ideology = market_libertarianism
-			popularity = 0.05
-		}
-	}
-}
-
-country_event = { # spa convention - choosing veep
-	id = united_states.6
-	title = united_states.6.title
-	desc = united_states.6.desc
+	picture = GFX_report_event_wallace_browder
 	
 	is_triggered_only = yes
 	
 	fire_only_once = yes
 	
 	option = {
-		name = united_states.6.a
+		name = united_states.4.a
 		set_country_flag = USA_progressive_veep
 		custom_effect_tooltip = USA_henry_wallace_veep_tt
+		
 		ai_chance = {
 			base = 8
 		}
 	}
 	
 	option = {
-		name = united_states.6.b
+		name = united_states.4.b
 		set_country_flag = USA_radical_veep
 		custom_effect_tooltip = USA_earl_browder_veep_tt
+		
+		add_to_variable = { SPA_militant_influence = 10 }
+		add_to_variable = { SPA_moderate_influence = -5 }
+		
 		ai_chance = {
 			base = 2
 		}
@@ -476,17 +424,31 @@ country_event = { # shit explodes
 		set_variable = { USA_insurgency_strength = 76 }
 		
 		add_stability = -0.03
-		853 = {
-			set_demilitarized_zone = yes
-		}
-		
-		add_ideas = {
-			USA_insurgency_idea
-		}
-		
-		add_command_power = 50
 		
 		hidden_effect = {
+			853 = {
+				force_enable_resistance = USA
+				start_resistance = yes
+				add_resistance_target = 10
+				add_resistance = 20
+			}
+			362 = {
+				force_enable_resistance = USA
+				start_resistance = yes
+				add_resistance = 5
+			}
+			363 = {
+				force_enable_resistance = USA
+				start_resistance = yes
+				add_resistance = 7
+			}
+		
+			add_ideas = {
+				USA_insurgency_idea
+			}
+			
+			add_command_power = 50
+			
 			random_other_country = {
 				limit = { is_ai = yes }
 				news_event = { id = united_states_insurgency.6 hours = 6 }
@@ -525,6 +487,12 @@ country_event = { # dont tell mom im in detroit
 	option = {
 		name = united_states_insurgency.5.a
 		add_to_variable = { USA_insurgency_strength = 5 }
+		393 = {
+			force_enable_resistance = USA
+			start_resistance = yes
+			add_resistance_target = 10
+			add_resistance = 10
+		}
 		add_stability = -0.03
 	}
 }
@@ -596,6 +564,7 @@ country_event = { # may day
 	id = united_states_flavor.2
 	title = "A Day For Labor"
 	desc = united_states_flavor.2.desc
+	picture = GFX_report_event_may_day_parade
 	
 	is_triggered_only = yes
 	
@@ -626,7 +595,10 @@ country_event = { # aw yea its cthulhu ftaghn time
 			add_political_power = 10
 		}
 		831 = {
-			add_to_variable = { socialist_popularity = 0.05 }
+			add_to_variable = {
+				socialist_popularity = 0.05
+				tooltip = USA_increase_SPA_popularity_low
+			}
 		}
 	}
 }
@@ -635,6 +607,7 @@ country_event = { # USA, USA, USA!
 	id = united_states_flavor.4
 	title = "The Fourth of July"
 	desc = united_states_flavor.4.desc
+	picture = GFX_report_event_america_day
 	
 	is_triggered_only = yes
 	
@@ -650,6 +623,7 @@ country_event = { # pittsburgh flood
 	id = united_states_flavor.5
 	title = "The Great Pittsburgh Flood"
 	desc = united_states_flavor.5.desc
+	picture = GFX_report_event_pittsburgh
 	
 	is_triggered_only = yes
 	
@@ -856,7 +830,6 @@ country_event = { # intel division report
 
 	option = {
 		name = united_states_intervention.2.a
-		add_political_power = -50
 	}
 }
 
@@ -918,8 +891,8 @@ country_event = { # discovery of plutonium
 	option = {
 		name = united_states_mproject.1.a
 		set_country_flag = USA_mproject_start
-		unlock_national_focus = USA_nuclear_rumors
 		mark_focus_tree_layout_dirty = yes
+		unlock_national_focus = USA_nuclear_rumors
 	}
 }
 
@@ -935,6 +908,10 @@ country_event = { # start of the manhattan project
 	option = {
 		name = united_states_mproject.2.a
 		set_variable = { USA_mproject_phase = 1 }
+		set_variable = { USA_mproject_monthly_progress = 2 }
+		set_technology = {
+			atomic_research = 1
+		}
 	}
 }
 

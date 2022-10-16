@@ -5,9 +5,9 @@ shared_focus = {
     x = 8
 	y = 0
 	
-	cost = 2
+	cost = 3
     completion_reward = {
-        
+        # intro event
     }
 	
 	ai_will_do = {
@@ -22,11 +22,11 @@ shared_focus = {
     x = -1
 	y = 1
 	
-	cost = 2
+	cost = 3
 	relative_position_id = IRE_state_of_the_nation
 	prerequisite = { focus = IRE_state_of_the_nation }
     completion_reward = {
-        
+        # event
     }
 	
 	ai_will_do = {
@@ -42,7 +42,7 @@ shared_focus = {
     x = 1
 	y = 1
 	
-	cost = 2
+	cost = 3
 	relative_position_id = IRE_state_of_the_nation
 	prerequisite = { focus = IRE_state_of_the_nation }
     completion_reward = {
@@ -61,12 +61,12 @@ shared_focus = {
     x = 1
 	y = 1
 	
-	cost = 2
+	cost = 3
 	relative_position_id = IRE_alone_in_the_atlantic
 	prerequisite = { focus = IRE_alone_in_the_atlantic }
 	prerequisite = { focus = IRE_poor_and_prideful }
     completion_reward = {
-        
+        add_political_power = 25
     }
 	
 	ai_will_do = {
@@ -81,11 +81,11 @@ shared_focus = {
     x = -2
 	y = 1
 	
-	cost = 2
+	cost = 3
 	relative_position_id = IRE_concrete_republic
 	prerequisite = { focus = IRE_concrete_republic }
     completion_reward = {
-        
+        army_experience = 15
     }
 	
 	ai_will_do = {
@@ -100,11 +100,11 @@ shared_focus = {
     x = 0
 	y = 1
 	
-	cost = 2
+	cost = 3
 	relative_position_id = IRE_concrete_republic
 	prerequisite = { focus = IRE_concrete_republic }
     completion_reward = {
-        
+        add_stability = 0.05
     }
 	
 	ai_will_do = {
@@ -119,11 +119,11 @@ shared_focus = {
     x = 2
 	y = 1
 	
-	cost = 2
+	cost = 3
 	relative_position_id = IRE_concrete_republic
 	prerequisite = { focus = IRE_concrete_republic }
     completion_reward = {
-        
+        ECON_poverty_change_small = yes
     }
 	
 	ai_will_do = {
@@ -138,13 +138,624 @@ shared_focus = {
     x = 0
 	y = 1
 	
-	cost = 2
+	cost = 3
 	relative_position_id = IRE_rifle_and_ballotbox
 	prerequisite = { focus = IRE_military_reform }
 	prerequisite = { focus = IRE_rifle_and_ballotbox }
 	prerequisite = { focus = IRE_industry_and_economy }
     completion_reward = {
         
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_ourselves
+	icon = GFX_IRE_ourselves
+	
+    x = -3
+	y = 1
+	
+	cost = 2
+	mutually_exclusive = {
+		focus = IRE_stand_by_collins
+		focus = IRE_preserve_the_republic
+		focus = IRE_embrace_the_working_class
+	}
+	relative_position_id = IRE_campaign_season
+	prerequisite = { focus = IRE_campaign_season }
+    completion_reward = {
+        custom_effect_tooltip = IRE_ourselves_tt
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_appeal_to_history
+	icon = GFX_IRE_appeal_to_history
+	
+    x = 3
+	y = 1
+	
+	allow_branch = {
+		has_completed_focus = IRE_ourselves
+	}
+	
+	cost = 2
+	relative_position_id = IRE_ourselves
+	prerequisite = { focus = IRE_ourselves }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_the_flag_of_sinn_fein
+	icon = GFX_IRE_the_flag_of_sinn_fein
+	
+    x = -1
+	y = 1
+	
+	cost = 2
+	relative_position_id = IRE_appeal_to_history
+	prerequisite = { focus = IRE_appeal_to_history }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_right_of_eire
+	icon = GFX_IRE_right_of_eirex
+	
+    x = 1
+	y = 1
+	
+	cost = 2
+	relative_position_id = IRE_appeal_to_history
+	prerequisite = { focus = IRE_appeal_to_history }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_the_split
+	icon = GFX_IRE_the_split
+	
+    x = 1
+	y = 1
+	
+	cost = 2
+	relative_position_id = IRE_the_flag_of_sinn_fein
+	prerequisite = { focus = IRE_the_flag_of_sinn_fein }
+	prerequisite = { focus = IRE_right_of_eire }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_stuarts_coup
+	icon = GFX_IRE_stuarts_coup
+	
+    x = -2
+	y = 1
+	
+	cost = 2
+	mutually_exclusive = {
+		focus = IRE_griffiths_eloquence
+	}
+	relative_position_id = IRE_the_split
+	prerequisite = { focus = IRE_the_split }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_foster_the_ira
+	icon = GFX_IRE_foster_the_ira
+	
+    x = -2
+	y = 1
+	
+	cost = 2
+	relative_position_id = IRE_stuarts_coup
+	prerequisite = { focus = IRE_stuarts_coup }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_old_contacts
+	icon = GFX_IRE_old_contacts
+	
+    x = -1
+	y = 1
+	
+	cost = 2
+	relative_position_id = IRE_foster_the_ira
+	prerequisite = { focus = IRE_foster_the_ira }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_for_the_good_of_ireland
+	icon = GFX_IRE_for_the_good_of_ireland
+	
+    x = 1
+	y = 1
+	
+	cost = 2
+	relative_position_id = IRE_foster_the_ira
+	prerequisite = { focus = IRE_foster_the_ira }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_consolidation
+	icon = GFX_IRE_consolidation
+	
+    x = 1
+	y = 1
+	
+	cost = 2
+	relative_position_id = IRE_old_contacts
+	prerequisite = { focus = IRE_old_contacts }
+	prerequisite = { focus = IRE_for_the_good_of_ireland }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_rifles_from_abroad
+	icon = GFX_IRE_rifles_from_abroad
+	
+    x = 1
+	y = 1
+	
+	cost = 2
+	relative_position_id = IRE_stuarts_coup
+	prerequisite = { focus = IRE_stuarts_coup }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_soldiers_of_the_king
+	icon = GFX_IRE_soldiers_of_the_king
+	
+    x = 0
+	y = 1
+	
+	cost = 2
+	relative_position_id = IRE_rifles_from_abroad
+	prerequisite = { focus = IRE_rifles_from_abroad }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_drilling_in_the_valleys
+	icon = GFX_IRE_drilling_in_the_valleys
+	
+    x = 0
+	y = 1
+	
+	cost = 2
+	relative_position_id = IRE_soldiers_of_the_king
+	prerequisite = { focus = IRE_soldiers_of_the_king }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_griffiths_eloquence
+	icon = GFX_IRE_griffiths_eloquence
+	
+    x = 2
+	y = 1
+	
+	cost = 2
+	mutually_exclusive = {
+		focus = IRE_stuarts_coup
+	}
+	relative_position_id = IRE_the_split
+	prerequisite = { focus = IRE_the_split }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_speeches_in_the_dail
+	icon = GFX_IRE_speeches_in_the_dail
+	
+    x = 0
+	y = 1
+	
+	cost = 4
+	relative_position_id = IRE_griffiths_eloquence
+	prerequisite = { focus = IRE_griffiths_eloquence }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_expand_popular_support
+	icon = GFX_IRE_expand_popular_support
+	
+    x = 0
+	y = 1
+	
+	cost = 4
+	relative_position_id = IRE_speeches_in_the_dail
+	prerequisite = { focus = IRE_speeches_in_the_dail }
+    completion_reward = {
+        add_popularity = {
+			ideology = authoritarian_democracy
+			popularity = 0.005
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_stoke_the_flames
+	icon = GFX_IRE_stoke_the_flames
+	
+    x = -1
+	y = 1
+	
+	cost = 4
+	relative_position_id = IRE_expand_popular_support
+	prerequisite = { focus = IRE_expand_popular_support }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_stand_by_collins
+	icon = GFX_IRE_stand_by_collins
+	
+    x = -1
+	y = 1
+	
+	cost = 2
+	mutually_exclusive = {
+		focus = IRE_ourselves
+		focus = IRE_preserve_the_republic
+		focus = IRE_embrace_the_working_class
+	}
+	relative_position_id = IRE_campaign_season
+	prerequisite = { focus = IRE_campaign_season }
+    completion_reward = {
+        custom_effect_tooltip = IRE_stand_by_collins_tt
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_reelect_the_big_fella
+	icon = GFX_IRE_reelect_the_big_fella
+	
+    x = 1
+	y = 1
+	
+	allow_branch = {
+		has_completed_focus = IRE_stand_by_collins
+	}
+	
+	cost = 2
+	relative_position_id = IRE_stand_by_collins
+	prerequisite = { focus = IRE_stand_by_collins }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_who_else_but_mick
+	icon = GFX_IRE_who_else_but_mick
+	
+    x = 0
+	y = 1
+	
+	cost = 2
+	relative_position_id = IRE_reelect_the_big_fella
+	prerequisite = { focus = IRE_reelect_the_big_fella }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_love_of_ireland
+	icon = GFX_IRE_love_of_ireland
+	
+    x = -1
+	y = 1
+	
+	cost = 2
+	relative_position_id = IRE_who_else_but_mick
+	prerequisite = { focus = IRE_who_else_but_mick }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_consolidate_the_party
+	icon = GFX_IRE_consolidate_the_party
+	
+    x = 1
+	y = 1
+	
+	cost = 2
+	relative_position_id = IRE_who_else_but_mick
+	prerequisite = { focus = IRE_who_else_but_mick }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_precaution_against_rebels
+	icon = GFX_IRE_precaution_against_rebels
+	
+    x = 1
+	y = 1
+	
+	cost = 2
+	relative_position_id = IRE_love_of_ireland
+	prerequisite = { focus = IRE_love_of_ireland }
+	prerequisite = { focus = IRE_consolidate_the_party }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_listen_closely
+	icon = GFX_IRE_listen_closely
+	
+    x = -1
+	y = 1
+	
+	cost = 2
+	relative_position_id = IRE_precaution_against_rebels
+	prerequisite = { focus = IRE_precaution_against_rebels }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_vigilant_gardai
+	icon = GFX_IRE_vigilant_gardai
+	
+    x = 1
+	y = 1
+	
+	cost = 2
+	relative_position_id = IRE_precaution_against_rebels
+	prerequisite = { focus = IRE_precaution_against_rebels }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_provide_against_everything
+	icon = GFX_IRE_provide_against_everything
+	
+    x = 0
+	y = 1
+	
+	cost = 2
+	relative_position_id = IRE_listen_closely
+	prerequisite = { focus = IRE_listen_closely }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_foresee_everything
+	icon = GFX_IRE_foresee_everything
+	
+    x = 0
+	y = 1
+	
+	cost = 2
+	relative_position_id = IRE_vigilant_gardai
+	prerequisite = { focus = IRE_vigilant_gardai }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_hyde_the_martyr
+	icon = GFX_IRE_hyde_the_martyr
+	
+    x = 1
+	y = 1
+	
+	cost = 2
+	relative_position_id = IRE_provide_against_everything
+	prerequisite = { focus = IRE_provide_against_everything }
+	prerequisite = { focus = IRE_foresee_everything }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_preserve_the_republic
+	icon = GFX_IRE_preserve_the_republic
+	
+    x = 1
+	y = 1
+	
+	cost = 2
+	mutually_exclusive = {
+		focus = IRE_ourselves
+		focus = IRE_stand_by_collins
+		focus = IRE_embrace_the_working_class
+	}
+	relative_position_id = IRE_campaign_season
+	prerequisite = { focus = IRE_campaign_season }
+    completion_reward = {
+        custom_effect_tooltip = IRE_preserve_the_republic_tt
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_embrace_the_working_class
+	icon = GFX_IRE_embrace_the_working_class
+	
+    x = 3
+	y = 1
+	
+	cost = 2
+	mutually_exclusive = {
+		focus = IRE_ourselves
+		focus = IRE_stand_by_collins
+		focus = IRE_preserve_the_republic
+	}
+	relative_position_id = IRE_campaign_season
+	prerequisite = { focus = IRE_campaign_season }
+    completion_reward = {
+        custom_effect_tooltip = IRE_embrace_the_working_class_tt
     }
 	
 	ai_will_do = {

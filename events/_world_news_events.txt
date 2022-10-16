@@ -1,4 +1,5 @@
 add_namespace = worldnews
+add_namespace = worldnews_southamerica
 
 news_event = { # thomas election news event
 	id = worldnews.1
@@ -18,6 +19,9 @@ news_event = { # thomas election news event
 				has_government = proletarian_dictatorship
 				has_government = libertarian_socialism
 			}
+			NOT = {
+				original_tag = USA
+			}
 		}
 	}
 	
@@ -29,6 +33,9 @@ news_event = { # thomas election news event
 				has_government = market_libertarianism
 				has_government = national_conservatism
 				has_government = authoritarian_democracy
+			}
+			NOT = {
+				original_tag = USA
 			}
 		}
 	}
@@ -45,6 +52,16 @@ news_event = { # thomas election news event
 				has_government = national_conservatism
 				has_government = authoritarian_democracy
 			}
+			NOT = {
+				original_tag = USA
+			}
+		}
+	}
+	
+	option = {
+		name = worldnews.1.d
+		trigger = {
+			original_tag = USA
 		}
 	}
 }
@@ -131,5 +148,37 @@ news_event = { # lindy election news event
 	
 	option = {
 		name = worldnews.6.a
+	}
+}
+
+news_event = { # insurgency world news event
+	id = worldnews.7
+	title = worldnews.7.title
+	desc = worldnews.7.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = worldnews.7.a
+	}
+}
+
+news_event = { # brazilian civil war
+	id = worldnews_southamerica.1
+	title = worldnews_southamerica.1.title
+	desc = worldnews_southamerica.1.desc
+	picture = GFX_report_event_intentona_comunista
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = worldnews_southamerica.1.a
+		USA = {
+			setup_brazil_conflict = yes
+		}
 	}
 }

@@ -1,0 +1,295 @@
+add_namespace = baku
+
+news_event = { # Oil Workers of Strike
+	id = baku.1
+	title = baku.1.title
+	desc = baku.1.desc
+	picture = GFX_report_event_baku_oil_strikes
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	trigger = { 
+		date < 1938.6.1
+	}
+	
+	mean_time_to_happen = {
+		days = 20
+		modifier = {
+			factor = 1.0
+			date > 1939.6.1
+		}
+	}
+	
+	immediate = {
+		hidden_effect = { 	
+			set_capital = { state = 814 }
+			SOV = {
+				country_event = {  
+					id = baku.2
+					days = 8
+				}
+			}
+		}	
+	}
+	
+	option = {
+		name = baku.1.a
+	}
+}
+
+country_event = {
+	id = baku.2 # An Oppertunity Has Come
+	title = baku.2.title
+	desc = baku.2.desc
+	picture = GFX_report_event_bul_troops_dobrudja
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # The Red Army Shall Aid The People of Baku
+		name = baku.2.a
+		ai_chance = { factor = 70 }
+		hidden_effect = {
+			news_event = {
+				id = baku.3
+				days = 1
+			}
+		}
+	}
+	
+	option = { # It is a Risk Not Worth Taking
+		name = baku.2.b
+		ai_chance = { factor = 30 }
+		hidden_effect = {
+		}
+	}
+}
+
+
+news_event = { # Soviets Intervene in Azerbaijan
+	id = baku.3
+	title = baku.3.title
+	desc = baku.3.desc
+	picture = GFX_news_event_001
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = { 	
+			start_border_war = {
+				change_state_after_war = no
+				attacker = {
+					state = 232
+					num_provinces = 2
+					on_win = baku.5
+					on_lose = baku.4
+					on_cancel = baku.6
+				}
+				defender = {
+					state = 229
+					num_provinces = 3
+					on_win = baku.4
+					on_lose = baku.5
+					on_cancel = baku.6
+				}
+			}
+			set_border_war_data = {
+				attacker = 232
+				defender = 229
+				defender_modifier = 0.15
+				combat_width = 20
+			}
+		}
+	}
+	
+	option = {
+		name = baku.3.a
+	}
+}
+ 
+ 
+news_event = { # Azerbaijan Resists Red Army Attack
+	id = baku.4
+	title = baku.4.title
+	desc = baku.4.desc
+	picture = GFX_news_event_spr_spanish_civil_war
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			
+		}
+	}	
+	
+	option = {
+		name = baku.4.a
+	}
+}
+ 
+ 
+news_event = { # Red Army Occupies Baku
+	id = baku.5
+	title = baku.5.title
+	desc = baku.5.desc
+	picture = GFX_news_event_006
+	
+	major = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			SOV = {
+				transfer_state = 229
+			}
+		}
+	}
+	
+	option = {
+		name = baku.5.a
+	}
+}
+ 
+ 
+news_event = { # Invasion of Azerbaiajan at a Standstill
+	id = baku.6
+	title = baku.6.title
+	desc = baku.6.desc
+	picture = GFX_news_event_spr_spanish_civil_war3
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+		
+		}
+	}	
+	
+	option = {
+		name = baku.6.a
+	}
+}
+ 
+ 
+ 
+country_event = {
+	id = baku.7 # The Perfect Time To Expand Our Borders
+	title = baku.7.title
+	desc = baku.7.desc
+	picture = GFX_report_event_expand_iranian_borders
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # Mughan? Azerbaiajani? Not Sure What Your Talking About?
+		name = baku.7.a
+		ai_chance = { factor = 90 }
+		hidden_effect = {
+			AZR = {
+				country_event = {
+					id = baku.8
+					days = 1
+				}
+			}
+		}
+	}
+	
+	option = { # An Oppertunity We Shouldn't Exploit
+		name = baku.7.b
+		ai_chance = { factor = 10 }
+		hidden_effect = {
+			
+		}
+	}
+}
+
+
+country_event = {
+	id = baku.8 # Iran Demands Mughan
+	title = baku.8.title
+	desc = baku.8.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # What Choice Do We Have
+		name = baku.8.a
+		ai_chance = { factor = 90 }
+		hidden_effect = {
+			news_event = {
+				id = baku.9
+				days = 1
+			}
+		}
+	}
+	
+	option = { # Not One Inch of Azerbaijani Land Will Be Lost
+		name = baku.8.b
+		ai_chance = { factor = 10 }
+		hidden_effect = {
+			news_event = {
+				id = baku.10
+				days = 4
+			}
+		}
+	}
+}
+
+
+news_event = { # Iran Occupies Mughan
+	id = baku.9
+	title = baku.9.title
+	desc = baku.9.desc
+	picture = GFX_news_event_038
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = { 	
+		
+		}
+	}
+	
+	option = {
+		name = baku.9.a
+	}
+ }
+ 
+ 
+ news_event = { # Iran Intervenes in Azerbaijan
+	id = baku.10
+	title = baku.10.title
+	desc = baku.10.desc
+	picture = GFX_news_event_056
+	
+	major = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			declare_war_on = {
+				target = AZR
+				type = annex_everything
+			}
+		}
+	}
+	
+	option = {
+		name = baku.10.a
+	}
+}
+
+

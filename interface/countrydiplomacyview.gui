@@ -723,7 +723,7 @@ guiTypes = {
 			
 			buttonType = {
 				name = "back_button"
-				position = { x = 165 y = -48 }
+				position = { x = 24 y = -48 }
 				clicksound = click_close
 				quadTextureSprite ="GFX_button_221x34"
 				buttonFont = "hoi_16mbs"
@@ -731,6 +731,17 @@ guiTypes = {
 				buttonText = "OPEN_COUNTRY_LIST"
 				clicksound = click_close
 			}
+			
+			buttonType = {
+				name = "logistics_button"
+				position = { x = 296 y = -48 }
+				quadTextureSprite ="GFX_button_221x34"
+				buttonFont = "hoi_16mbs"
+				Orientation = "LOWER_LEFT"
+				buttonText = "OPEN_COUNTRY_LOGISTICS"
+				clicksound = click_close
+			}
+			
 		}
 
 		iconType ={
@@ -1019,7 +1030,7 @@ guiTypes = {
 		iconType = {
 			name = "relation_icon"
 			spriteType = "GFX_relation_truce"
-			position = { x = -3 y = 8 }
+			position = { x = 3 y = 8 }
 		}
 		
 		OverlappingElementsBoxType = {
@@ -3730,7 +3741,7 @@ guiTypes = {
 		iconType = {
 			name = "diplolist_country_flag"
 			quadTextureSprite ="GFX_flag_small2"
-			position = { x= 9 y = 10 }
+			position = { x= 10 y = 10 }
 			Orientation = "UPPER_LEFT"
 			alwaystransparent = yes
 		}			
@@ -3835,6 +3846,12 @@ guiTypes = {
 			maxWidth = 200
 			maxHeight = 20
 			format = center
+		}
+		
+		iconType = {
+			name = "recipient_flag"
+			quadTextureSprite ="GFX_flag_small"
+			position = { x= 160 y = 4 }
 		}
 	}
 
@@ -4069,7 +4086,7 @@ guiTypes = {
 		
 		buttonType = {
 			name = "number_button"
-			position = { x = 180 y = 7 }
+			position = { x = 211 y = 7 }
 			quadTextureSprite ="GFX_small_button_71x26"
 			buttonFont = "hoi_16mbs"
 			buttonText = "DIPLOMACY_LEND_LEASE_NUMBER"
@@ -4078,7 +4095,7 @@ guiTypes = {
 		
 		buttonType = {
 			name = "percentage_button"
-			position = { x = 257 y = 7 }
+			position = { x = 279 y = 7 }
 			quadTextureSprite ="GFX_small_button_71x26"
 			buttonFont = "hoi_16mbs"
 			buttonText = "DIPLOMACY_LEND_LEASE_PERCENT"
@@ -4094,7 +4111,7 @@ guiTypes = {
 
 		buttonType = {
 			name = "once_button"
-			position = { x = 334 y = 7 }
+			position = { x = 380 y = 7 }
 			quadTextureSprite ="GFX_small_button_71x26"
 			buttonFont = "hoi_16mbs"
 			buttonText = "DIPLOMACY_LEND_LEASE_ONCE"
@@ -4842,7 +4859,7 @@ guiTypes = {
 
 		iconType = {
 			name ="sub_tech"
-			spriteType = "GFX_sub_tech_strip_w_bg"
+			spriteType = "GFX_land_equipment_role_icons"
 			position = { x=220 y=40 }
 			frame = 1
 			alwaystransparent = yes
@@ -4860,7 +4877,7 @@ guiTypes = {
 			position = { x = 20 y = 6 }
 			font = "hoi_18mbs"
 			text = "Maus"
-			maxWidth = 200
+			maxWidth = 290
 			maxHeight = 20
 			fixedsize = yes
 			format = left

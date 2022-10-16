@@ -2,17 +2,19 @@
 @ERROR_MARGIN_MAX = 1.1
 
 USA_check_election_vs = {
-	log = "[This.GetName] USA_check_election_vs = yes"
+	#log = "[This.GetName] USA_check_election_vs = yes"
 	
 	clr_state_flag = socialist_first_place
 	clr_state_flag = republican_first_place
 	clr_state_flag = democrat_first_place
 	clr_state_flag = afp_first_place
+	clr_state_flag = communist_first_place
 	
 	clr_state_flag = socialist_second_place
 	clr_state_flag = republican_second_place
 	clr_state_flag = democrat_second_place
 	clr_state_flag = afp_second_place
+	clr_state_flag = communist_second_place
 	
 	### check first place
 	if = {
@@ -20,6 +22,7 @@ USA_check_election_vs = {
 			check_variable = { socialist_election_pop > republican_election_pop }
 			check_variable = { socialist_election_pop > democrat_election_pop }
 			check_variable = { socialist_election_pop > afp_election_pop }
+			check_variable = { socialist_election_pop > communist_election_pop }
 		}
 		set_state_flag = socialist_first_place
 	}
@@ -28,6 +31,7 @@ USA_check_election_vs = {
 			check_variable = { republican_election_pop > socialist_election_pop }
 			check_variable = { republican_election_pop > democrat_election_pop }
 			check_variable = { republican_election_pop > afp_election_pop }
+			check_variable = { republican_election_pop > communist_election_pop }
 		}
 		set_state_flag = republican_first_place
 	}
@@ -36,6 +40,7 @@ USA_check_election_vs = {
 			check_variable = { democrat_election_pop > socialist_election_pop }
 			check_variable = { democrat_election_pop > republican_election_pop }
 			check_variable = { democrat_election_pop > afp_election_pop }
+			check_variable = { democrat_election_pop > communist_election_pop }
 		}
 		set_state_flag = democrat_first_place
 	}
@@ -44,8 +49,18 @@ USA_check_election_vs = {
 			check_variable = { afp_election_pop > socialist_election_pop }
 			check_variable = { afp_election_pop > republican_election_pop }
 			check_variable = { afp_election_pop > democrat_election_pop }
+			check_variable = { afp_election_pop > communist_election_pop }
 		}
 		set_state_flag = afp_first_place
+	}
+	else_if = {
+		limit = {
+			check_variable = { communist_election_pop > socialist_election_pop }
+			check_variable = { communist_election_pop > republican_election_pop }
+			check_variable = { communist_election_pop > democrat_election_pop }
+			check_variable = { communist_election_pop > afp_election_pop }
+		}
+		set_state_flag = communist_first_place
 	}
 	
 	### check second place
@@ -141,6 +156,38 @@ USA_check_election_vs = {
 		set_state_flag = afp_second_place
 	}
 	
+	if = {
+		limit = { # communists in second
+			OR = {
+				AND = {
+					check_variable = { communist_election_pop < democrat_election_pop }
+					check_variable = { communist_election_pop > socialist_election_pop }
+					check_variable = { communist_election_pop > republican_election_pop }
+					check_variable = { communist_election_pop > afp_election_pop }
+				}
+				AND = {
+					check_variable = { communist_election_pop > democrat_election_pop }
+					check_variable = { communist_election_pop < socialist_election_pop }
+					check_variable = { communist_election_pop > republican_election_pop }
+					check_variable = { communist_election_pop > afp_election_pop }
+				}
+				AND = {
+					check_variable = { communist_election_pop > democrat_election_pop }
+					check_variable = { communist_election_pop > socialist_election_pop }
+					check_variable = { communist_election_pop < republican_election_pop }
+					check_variable = { communist_election_pop > afp_election_pop }
+				}
+				AND = {
+					check_variable = { communist_election_pop > democrat_election_pop }
+					check_variable = { communist_election_pop > socialist_election_pop }
+					check_variable = { communist_election_pop > republican_election_pop }
+					check_variable = { communist_election_pop < afp_election_pop }
+				}
+			}
+		}
+		set_state_flag = afp_second_place
+	}
+	
 	USA_check_election_margin = yes
 }
 
@@ -168,7 +215,7 @@ USA_check_election_margin = {
 		}
 		multiply_variable = { USA_state_poll_pop_diff = error_margin_state_poll_pop }
 		
-		log = "[This.GetName] USA_state_poll_pop_diff randomized = [?THIS.USA_state_poll_pop_diff]"
+		#log = "[This.GetName] USA_state_poll_pop_diff randomized = [?THIS.USA_state_poll_pop_diff]"
 	}
 	else_if = {
 		limit = {
@@ -189,7 +236,7 @@ USA_check_election_margin = {
 		}
 		multiply_variable = { USA_state_poll_pop_diff = error_margin_state_poll_pop }
 		
-		log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
+		#log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
 	}
 	else_if = {
 		limit = {
@@ -210,7 +257,7 @@ USA_check_election_margin = {
 		}
 		multiply_variable = { USA_state_poll_pop_diff = error_margin_state_poll_pop }
 		
-		log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
+		#log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
 	}
 	
 	### democrats in first ###
@@ -233,7 +280,7 @@ USA_check_election_margin = {
 		}
 		multiply_variable = { USA_state_poll_pop_diff = error_margin_state_poll_pop }
 		
-		log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
+		#log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
 	}
 	else_if = {
 		limit = {
@@ -254,7 +301,7 @@ USA_check_election_margin = {
 		}
 		multiply_variable = { USA_state_poll_pop_diff = error_margin_state_poll_pop }
 		
-		log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
+		#log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
 	}
 	else_if = {
 		limit = {
@@ -275,7 +322,7 @@ USA_check_election_margin = {
 		}
 		multiply_variable = { USA_state_poll_pop_diff = error_margin_state_poll_pop }
 		
-		log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
+		#log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
 	}
 	
 	### republicans in first ###
@@ -298,7 +345,7 @@ USA_check_election_margin = {
 		}
 		multiply_variable = { USA_state_poll_pop_diff = error_margin_state_poll_pop }
 		
-		log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
+		#log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
 	}
 	else_if = {
 		limit = {
@@ -319,7 +366,7 @@ USA_check_election_margin = {
 		}
 		multiply_variable = { USA_state_poll_pop_diff = error_margin_state_poll_pop }
 		
-		log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
+		#log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
 	}
 	
 	### afp in first ###
@@ -342,6 +389,6 @@ USA_check_election_margin = {
 		}
 		multiply_variable = { USA_state_poll_pop_diff = error_margin_state_poll_pop }
 		
-		log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
+		#log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
 	}
 }

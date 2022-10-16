@@ -437,7 +437,7 @@ USA_hold_senate_election = {
 		
 		USA_clamp_state_popularities = yes
 		
-		log = "pick senate 1 race"
+		#log = "pick senate 1 race"
 		USA_pick_senator_1_in_state = yes
 	}
 	every_owned_state = {
@@ -448,7 +448,7 @@ USA_hold_senate_election = {
 		
 		USA_clamp_state_popularities = yes
 		
-		log = "pick senate 1 race"
+		#log = "pick senate 1 race"
 		USA_pick_senator_2_in_state = yes
 	}
 	
@@ -475,12 +475,17 @@ USA_pick_senator_1_in_state = {
 		limit = { check_variable = { senator_1 = 4 } }
 		ROOT = { add_to_variable = { afp_change = -1 } }
 	}
+	else_if = {
+		limit = { check_variable = { senator_1 = 5 } }
+		ROOT = { add_to_variable = { communist_change = -1 } }
+	}
 	
 	if = {
 		limit = {
 			check_variable = { THIS.socialist_election_pop > THIS.democrat_election_pop }
 			check_variable = { THIS.socialist_election_pop > THIS.republican_election_pop }
 			check_variable = { THIS.socialist_election_pop > THIS.afp_election_pop }
+			check_variable = { THIS.socialist_election_pop > THIS.communist_election_pop }
 		}
 		set_variable = { senator_1 = 1 }
 		log = "[This.GetName] elected [?senator_1]"
@@ -490,6 +495,7 @@ USA_pick_senator_1_in_state = {
 			check_variable = { THIS.republican_election_pop > THIS.democrat_election_pop }
 			check_variable = { THIS.republican_election_pop > THIS.socialist_election_pop }
 			check_variable = { THIS.republican_election_pop > THIS.afp_election_pop }
+			check_variable = { THIS.republican_election_pop > THIS.communist_election_pop }
 		}
 		set_variable = { senator_1 = 2 }
 		log = "[This.GetName] elected [?senator_1]"
@@ -499,6 +505,7 @@ USA_pick_senator_1_in_state = {
 			check_variable = { THIS.democrat_election_pop > THIS.republican_election_pop }
 			check_variable = { THIS.democrat_election_pop > THIS.socialist_election_pop }
 			check_variable = { THIS.democrat_election_pop > THIS.afp_election_pop }
+			check_variable = { THIS.democrat_election_pop > THIS.communist_election_pop }
 		}
 		set_variable = { senator_1 = 3 }
 		log = "[This.GetName] elected [?senator_1]"
@@ -508,8 +515,19 @@ USA_pick_senator_1_in_state = {
 			check_variable = { THIS.afp_election_pop > THIS.republican_election_pop }
 			check_variable = { THIS.afp_election_pop > THIS.socialist_election_pop }
 			check_variable = { THIS.afp_election_pop > THIS.democrat_election_pop }
+			check_variable = { THIS.afp_election_pop > THIS.communist_election_pop }
 		}
 		set_variable = { senator_1 = 4 }
+		log = "[This.GetName] elected [?senator_1]"
+	}
+	else_if = {
+		limit = {
+			check_variable = { THIS.communist_election_pop > THIS.republican_election_pop }
+			check_variable = { THIS.communist_election_pop > THIS.socialist_election_pop }
+			check_variable = { THIS.communist_election_pop > THIS.democrat_election_pop }
+			check_variable = { THIS.communist_election_pop > THIS.afp_election_pop }
+		}
+		set_variable = { senator_1 = 5 }
 		log = "[This.GetName] elected [?senator_1]"
 	}
 	else = { #ties
@@ -532,6 +550,10 @@ USA_pick_senator_1_in_state = {
 		limit = { check_variable = { senator_1 = 4 } }
 		ROOT = { add_to_variable = { afp_change = 1 } }
 	}
+	else_if = {
+		limit = { check_variable = { senator_1 = 5 } }
+		ROOT = { add_to_variable = { communist_change = 1 } }
+	}
 }
 
 USA_pick_senator_2_in_state = {
@@ -552,12 +574,17 @@ USA_pick_senator_2_in_state = {
 		limit = { check_variable = { senator_2 = 4 } }
 		ROOT = { add_to_variable = { afp_change = -1 } }
 	}
+	else_if = {
+		limit = { check_variable = { senator_2 = 5 } }
+		ROOT = { add_to_variable = { communist_change = -1 } }
+	}
 	
 	if = {
 		limit = {
 			check_variable = { THIS.socialist_election_pop > THIS.democrat_election_pop }
 			check_variable = { THIS.socialist_election_pop > THIS.republican_election_pop }
 			check_variable = { THIS.socialist_election_pop > THIS.afp_election_pop }
+			check_variable = { THIS.socialist_election_pop > THIS.communist_election_pop }
 		}
 		set_variable = { senator_2 = 1 }
 		log = "[This.GetName] elected [?senator_2]"
@@ -567,6 +594,7 @@ USA_pick_senator_2_in_state = {
 			check_variable = { THIS.republican_election_pop > THIS.democrat_election_pop }
 			check_variable = { THIS.republican_election_pop > THIS.socialist_election_pop }
 			check_variable = { THIS.republican_election_pop > THIS.afp_election_pop }
+			check_variable = { THIS.republican_election_pop > THIS.communist_election_pop }
 		}
 		set_variable = { senator_2 = 2 }
 		log = "[This.GetName] elected [?senator_2]"
@@ -576,6 +604,7 @@ USA_pick_senator_2_in_state = {
 			check_variable = { THIS.democrat_election_pop > THIS.republican_election_pop }
 			check_variable = { THIS.democrat_election_pop > THIS.socialist_election_pop }
 			check_variable = { THIS.democrat_election_pop > THIS.afp_election_pop }
+			check_variable = { THIS.democrat_election_pop > THIS.communist_election_pop }
 		}
 		set_variable = { senator_2 = 3 }
 		log = "[This.GetName] elected [?senator_2]"
@@ -585,8 +614,19 @@ USA_pick_senator_2_in_state = {
 			check_variable = { THIS.afp_election_pop > THIS.republican_election_pop }
 			check_variable = { THIS.afp_election_pop > THIS.socialist_election_pop }
 			check_variable = { THIS.afp_election_pop > THIS.democrat_election_pop }
+			check_variable = { THIS.afp_election_pop > THIS.communist_election_pop }
 		}
 		set_variable = { senator_2 = 4 }
+		log = "[This.GetName] elected [?senator_2]"
+	}
+	else_if = {
+		limit = {
+			check_variable = { THIS.communist_election_pop > THIS.republican_election_pop }
+			check_variable = { THIS.communist_election_pop > THIS.socialist_election_pop }
+			check_variable = { THIS.communist_election_pop > THIS.democrat_election_pop }
+			check_variable = { THIS.communist_election_pop > THIS.afp_election_pop }
+		}
+		set_variable = { senator_2 = 5 }
 		log = "[This.GetName] elected [?senator_2]"
 	}
 	else = { #ties
@@ -609,6 +649,10 @@ USA_pick_senator_2_in_state = {
 		limit = { check_variable = { senator_2 = 4 } }
 		ROOT = { add_to_variable = { afp_change = 1 } }
 	}
+	else_if = {
+		limit = { check_variable = { senator_2 = 5 } }
+		ROOT = { add_to_variable = { communist_change = 1 } }
+	}
 }
 
 USA_clear_senate_election_vars = {
@@ -625,7 +669,8 @@ USA_clear_senate_election_vars = {
 		clear_variable = prev_senator_1
 		clear_variable = prev_senator_2
 	}
-
+	
+	clear_variable = communist_change
 	clear_variable = socialist_change
 	clear_variable = republican_change
 	clear_variable = democrat_change
