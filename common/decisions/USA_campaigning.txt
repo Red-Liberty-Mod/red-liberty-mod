@@ -44,7 +44,7 @@ USA_election_season_category = {
 			
 			modifier = {
 				add = 100
-				has_country_flag = USA_campaigning_socialist
+				has_country_flag = USA_campaigning_for_socialists
 			}
 		}
 	}
@@ -93,7 +93,7 @@ USA_election_season_category = {
 			
 			modifier = {
 				add = 100
-				has_country_flag = USA_campaigning_socialist
+				has_country_flag = USA_campaigning_for_socialists
 			}
 		}
 	}
@@ -230,7 +230,7 @@ USA_election_season_category = {
 			
 			modifier = {
 				add = 150
-				has_country_flag = USA_campaigning_socialist
+				has_country_flag = USA_campaigning_for_socialists
 			}
 		}
 	}
@@ -323,7 +323,7 @@ USA_election_season_category = {
 			
 			modifier = {
 				add = 150
-				has_country_flag = USA_campaigning_socialist
+				has_country_flag = USA_campaigning_for_socialists
 			}
 		}
 	}
@@ -416,7 +416,7 @@ USA_election_season_category = {
 			
 			modifier = {
 				add = 100
-				has_country_flag = USA_campaigning_socialist
+				has_country_flag = USA_campaigning_for_socialists
 			}
 		}
 	}
@@ -438,7 +438,62 @@ USA_election_season_category = {
 		activation = {
 			has_country_flag = USA_senate_elections
 			NOT = {
-				has_country_flag = USA_campaigning_socialist
+				has_country_flag = USA_campaigning_for_democrats
+			}
+		}
+		
+		visible = {
+			has_country_flag = USA_senate_elections
+			NOT = {
+				OR = {
+					has_country_flag = USA_senate_conclusion
+					has_country_flag = USA_presidential_conclusion
+				}
+			}
+		}
+		
+		is_good = yes
+		
+		fixed_random_seed = no
+		cancel_if_not_visible = yes
+		
+		days_mission_timeout = 30
+		days_remove = 5
+		days_re_enable = 5
+		
+		timeout_effect = {
+			USA_opposition_campaign = yes
+		}
+		
+		remove_effect = {
+			hidden_effect = {
+				USA_set_opposition_campaign_area = yes
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	USA_opposition_campaign_socialist = {
+		
+		icon = ger_mefo_bills
+		
+		allowed = {
+			original_tag = USA
+		}
+		
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		
+		activation = {
+			has_country_flag = USA_senate_elections
+			NOT = {
+				has_country_flag = USA_campaigning_for_socialists
 			}
 		}
 		
