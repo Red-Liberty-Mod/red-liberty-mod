@@ -753,10 +753,6 @@ country_event = { # september constitution - september 26, 1936
 				id = demo_ahe.15
 				days = 6
 			}
-			country_event = { # march 12 - aus/ahe war
-				id = demo_ahe.16
-				days = 174
-			}
 		}
 		random_other_country = {
 			limit = { is_ai = yes }
@@ -803,6 +799,25 @@ country_event = { # royalists form govt
 	option = {
 		name = demo_ahe.5.a
 		AHE_setup_AUS = yes
+		AUS = {
+			declare_war_on = {
+				target = AHE
+				type = annex_everything
+			}
+			add_civil_war_target = AHE
+		}
+		AHE = {
+			add_timed_idea = {
+				idea = AHE_winter
+				days = 90
+			}
+		}
+		AUS = {
+			add_timed_idea = {
+				idea = AHE_winter
+				days = 90
+			}
+		}
 	}
 }
 
@@ -898,7 +913,7 @@ country_event = { # rom-hun war
 				ROM_treaty_of_bucharest
 			}
 			
-			#load_oob = ROM_danubian_war
+			load_oob = ROM_danubian_war
 		}
 		80 = {
 			set_state_owner_to = ROM
@@ -981,6 +996,12 @@ country_event = { # slovaks form govt
 	option = {
 		name = demo_ahe.12.a
 		AHE_setup_SLO = yes
+		SLO = {
+			country_event = { # slovak invasion
+				id = demo_ahe.16
+				days = 15
+			}
+		}
 	}
 }
 
@@ -1054,7 +1075,7 @@ country_event = { # serbia occupation
 	}
 }
 
-country_event = { # ahe/aus war
+country_event = { # slovak-hungarian war
 	id = demo_ahe.16
 	title = demo_ahe.16.title
 	desc = demo_ahe.16.desc
@@ -1065,12 +1086,12 @@ country_event = { # ahe/aus war
 
 	option = {
 		name = demo_ahe.16.a
-		AUS = {
+		SLO = {
 			declare_war_on = {
-				target = AHE
-				type = annex_everything
+				target = HUN
+				type = take_state
+				generator = { 664 }
 			}
-			add_civil_war_target = AHE
 		}
 	}
 }

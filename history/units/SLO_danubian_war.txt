@@ -1,6 +1,6 @@
 ﻿##### Division Templates #####
 division_template = {
-	name = "Infantry Division"
+	name = "Divízia Pechoty"
 
 	division_names_group = SLO_INF_01
 
@@ -14,17 +14,50 @@ division_template = {
 	}
 }
 
+division_template = {
+	name = "Divízia Milícií"
+
+	division_names_group = SLO_INF_01
+
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 0 y = 2 }
+		militia = { x = 1 y = 0 }
+		militia = { x = 1 y = 1 }
+		militia = { x = 1 y = 2 }
+	}
+}
+
 ###### OOB ######
 units = {
 	division= {
 		location = 9692
-		division_template = "Infantry Division"
+		division_template = "Divízia Pechoty"
+		start_experience_factor = 0.85
+		start_equipment_factor = 0.8
+	}
+	division= {
+		location = 3581
+		division_template = "Divízia Pechoty"
 		start_experience_factor = 0.85
 		start_equipment_factor = 0.8
 	}
 	division= {
 		location = 9692
-		division_template = "Infantry Division"
+		division_template = "Divízia Milícií"
+		start_experience_factor = 0.85
+		start_equipment_factor = 0.8
+	}
+	division= {
+		location = 11539
+		division_template = "Divízia Milícií"
+		start_experience_factor = 0.85
+		start_equipment_factor = 0.8
+	}
+	division= {
+		location = 3581
+		division_template = "Divízia Milícií"
 		start_experience_factor = 0.85
 		start_equipment_factor = 0.8
 	}

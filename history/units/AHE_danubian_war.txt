@@ -80,6 +80,18 @@ division_template = {
 		cavalry = { x = 1 y = 2 }
 	}
 }
+### Militia
+division_template = {
+	name = "Rote Garde"
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 0 y = 2 }
+		militia = { x = 1 y = 0 }
+		militia = { x = 1 y = 1 }
+		militia = { x = 1 y = 2 }
+	}
+}
 
 ########
 # Land Units
@@ -107,6 +119,24 @@ units = {
 		}
 		location = 11666
 		division_template = "Infanteriedivision"
+		start_experience_factor = 0.2
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 11666
+		division_template = "Rote Garde"
+		start_experience_factor = 0.2
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 11666
+		division_template = "Rote Garde"
 		start_experience_factor = 0.2
 	}
 ### Landwehr
@@ -139,6 +169,15 @@ units = {
 		division_template = "Schützendivision"
 		start_experience_factor = 0.1
 	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 13575
+		division_template = "Rote Garde"
+		start_experience_factor = 0.2
+	}
 ### Linz
 	division = {
 		division_name = {
@@ -148,6 +187,15 @@ units = {
 		location = 732
 		division_template = "Schützendivision"
 		start_experience_factor = 0.1
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 732
+		division_template = "Rote Garde"
+		start_experience_factor = 0.2
 	}
 }
 
