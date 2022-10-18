@@ -9,7 +9,6 @@ USA_managing_spa = {
 		}
 		
 		available = {
-			tag = USA
 			custom_trigger_tooltip = {
 				check_variable = { USA_socialist_unity < 30 }
 				tooltip = USA_socialists_fully_united
@@ -33,50 +32,171 @@ USA_managing_spa = {
 		}
 	}
 	
-	USA_increase_militant_influence = {
-	
-		icon = generic_political_discourse
+	USA_expand_party_newspaper = {
+		icon = GFX_decision_ger_mefo_bills
 		
 		visible = {
-			always = no
+			
 		}
 		
 		available = {
 			tag = USA
 		}
 		
-		days_re_enable = 30
-		
-		cost = 25
+		days_re_enable = 90
+		cost = 45
 		
 		complete_effect = {
-			custom_effect_tooltip = USA_spa_militant_influence_gain_tt
-			custom_effect_tooltip = USA_spa_militant_approval_gain_tt
-			
-			add_to_variable = { SPA_militant_influence = 1.5 }
-			add_to_variable = { SPA_militant_approval = 1.5 }
+			add_to_variable = {
+				SPA_militant_influence = 1
+				tooltip = USA_spa_militant_influence_gain_tt
+			}
+			clamp_variable = {
+				var = SPA_militant_influence
+				min = 0
+				max = 30
+			}
+			USA_party_faction_percent = yes
 		}
 	}
 	
-	USA_increase_moderate_influence = {
-	
-		icon = generic_political_discourse
+	USA_stand_against_imperialism = {
+		icon = GFX_decision_generic_nationalism
 		
 		visible = {
-			always = no
+			
 		}
 		
 		available = {
 			tag = USA
 		}
 		
-		days_re_enable = 30
-		
-		cost = 25
+		days_re_enable = 90
+		cost = 45
 		
 		complete_effect = {
-			USA_milwaukee_caucus_influence_gain_small = yes
-			add_to_variable = { USA_socialist_unity = 0.5 }
+			add_to_variable = {
+				SPA_militant_approval = 1
+				tooltip = USA_spa_militant_approval_gain_tt
+			}
+			clamp_variable = {
+				var = SPA_militant_approval
+				min = 0
+				max = 30
+			}
+			USA_party_faction_percent = yes
+		}
+	}
+	
+	USA_meet_with_nec = {
+		icon = generic_political_discourse
+		
+		visible = {
+			
+		}
+		
+		available = {
+			tag = USA
+		}
+		
+		days_re_enable = 90
+		cost = 45
+		
+		complete_effect = {
+			add_to_variable = {
+				SPA_unionist_influence = 1
+				tooltip = USA_spa_unionist_influence_gain_tt
+			}
+			clamp_variable = {
+				var = SPA_unionist_influence
+				min = 0
+				max = 30
+			}
+			USA_party_faction_percent = yes
+		}
+	}
+	
+	USA_promote_law_and_order = {
+		icon = GFX_decision_generic_police_action
+		
+		visible = {
+			
+		}
+		
+		available = {
+			tag = USA
+		}
+		
+		days_re_enable = 90
+		cost = 45
+		
+		complete_effect = {
+			add_to_variable = {
+				SPA_unionist_approval = 1
+				tooltip = USA_spa_unionist_approval_gain_tt
+			}
+			clamp_variable = {
+				var = SPA_unionist_approval
+				min = 0
+				max = 30
+			}
+			USA_party_faction_percent = yes
+		}
+	}
+	
+	USA_increase_progressive_influence = {
+		icon = generic_political_discourse
+		
+		visible = {
+			
+		}
+		
+		available = {
+			tag = USA
+		}
+		
+		days_re_enable = 90
+		cost = 45
+		
+		complete_effect = {
+			add_to_variable = {
+				SPA_progressive_influence = 1
+				tooltip = USA_spa_progressive_influence_gain_tt
+			}
+			clamp_variable = {
+				var = SPA_progressive_influence
+				min = 0
+				max = 30
+			}
+			USA_party_faction_percent = yes
+		}
+	}
+	
+	USA_maintain_social_spending = {
+		icon = GFX_decision_eng_trade_unions_support
+		
+		visible = {
+			
+		}
+		
+		available = {
+			tag = USA
+		}
+		
+		days_re_enable = 90
+		cost = 45
+		
+		complete_effect = {
+			add_to_variable = {
+				SPA_progressive_approval = 1
+				tooltip = USA_spa_progressive_approval_gain_tt
+			}
+			clamp_variable = {
+				var = SPA_progressive_approval
+				min = 0
+				max = 30
+			}
+			USA_party_faction_percent = yes
 		}
 	}
 }
