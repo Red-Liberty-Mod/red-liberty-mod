@@ -1,0 +1,280 @@
+demo_decisions_category = {
+
+	AHE_rote_front = {
+		
+		allowed = {
+			original_tag = AHE
+		}
+
+		cost = 0
+		
+		fire_only_once = yes
+
+		complete_effect = {
+			create_faction = "Red Front"
+			add_to_faction = HUN
+		}
+		
+		ai_will_do = {
+			factor = 0
+			
+			modifier = {
+				add = 1000
+				date > 1936.11.1
+			}
+		}
+	}
+	
+	AUS_weiss_front = {
+		
+		allowed = {
+			original_tag = AUS
+		}
+
+		cost = 0
+		
+		fire_only_once = yes
+
+		complete_effect = {
+			create_faction = "White Front"
+		}
+		
+		ai_will_do = {
+			factor = 0
+			
+			modifier = {
+				add = 1000
+				date > 1936.11.1
+			}
+		}
+	}
+	
+	CZE_elections = {
+		
+		allowed = {
+			original_tag = CZE
+		}
+
+		cost = 0
+		
+		fire_only_once = yes
+
+		complete_effect = {
+			random_list = {
+				10 = {
+					set_politics = {
+						ruling_party = libertarian_socialism
+						last_election = "1937.1.13"
+						election_frequency = 48
+						elections_allowed = yes
+					}
+				}
+				20 = {
+					set_politics = {
+						ruling_party = progressive_liberalism
+						last_election = "1937.1.13"
+						election_frequency = 48
+						elections_allowed = yes
+					}
+				}
+				30 = {
+					set_politics = {
+						ruling_party = market_libertarianism
+						last_election = "1937.1.13"
+						election_frequency = 48
+						elections_allowed = yes
+					}
+				}
+				30 = {
+					set_politics = {
+						ruling_party = authoritarian_democracy
+						last_election = "1937.1.13"
+						election_frequency = 48
+						elections_allowed = yes
+					}
+				}
+				10 = {
+					set_politics = {
+						ruling_party = far_right_authoritarianism
+						last_election = "1937.1.13"
+						election_frequency = 48
+						elections_allowed = no
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+			
+			modifier = {
+				add = 1000
+				date > 1937.3.13
+			}
+		}
+	}
+	
+	CZE_join_faction = {
+		
+		allowed = {
+			original_tag = CZE
+		}
+
+		cost = 0
+		
+		fire_only_once = yes
+
+		complete_effect = {
+			if = {
+				limit = {
+					OR = {
+						has_government = libertarian_socialism
+						has_government = progressive_liberalism
+					}
+				}
+				AHE = {
+					add_to_faction = CZE
+				}
+				add_to_war = {
+					targeted_alliance = AHE
+					enemy = AUS
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_government = market_libertarianism
+						has_government = authoritarian_democracy
+						has_government = far_right_authoritarianism
+					}
+				}
+				AUS = {
+					add_to_faction = CZE
+				}
+				add_to_war = {
+					targeted_alliance = AUS
+					enemy = AHE
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+			
+			modifier = {
+				add = 1000
+				date > 1937.3.17
+			}
+		}
+	}
+	
+	SLV_elections = {
+		
+		allowed = {
+			original_tag = SLV
+		}
+
+		cost = 0
+		
+		fire_only_once = yes
+
+		complete_effect = {
+			random_list = {
+				10 = {
+					set_politics = {
+						ruling_party = libertarian_socialism
+						last_election = "1937.2.18"
+						election_frequency = 48
+						elections_allowed = yes
+					}
+				}
+				50 = {
+					set_politics = {
+						ruling_party = progressive_liberalism
+						last_election = "1937.2.18"
+						election_frequency = 48
+						elections_allowed = yes
+					}
+				}
+				25 = {
+					set_politics = {
+						ruling_party = market_libertarianism
+						last_election = "1937.2.18"
+						election_frequency = 48
+						elections_allowed = yes
+					}
+				}
+				15 = {
+					set_politics = {
+						ruling_party = national_conservatism
+						last_election = "1937.2.18"
+						election_frequency = 48
+						elections_allowed = yes
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+			
+			modifier = {
+				add = 1000
+				date > 1937.3.13
+			}
+		}
+	}
+	
+	SLV_join_faction = {
+		
+		allowed = {
+			original_tag = SLV
+		}
+
+		cost = 0
+		
+		fire_only_once = yes
+
+		complete_effect = {
+			if = {
+				limit = {
+					OR = {
+						has_government = libertarian_socialism
+						has_government = progressive_liberalism
+					}
+				}
+				AHE = {
+					add_to_faction = SLV
+				}
+				add_to_war = {
+					targeted_alliance = AHE
+					enemy = AUS
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_government = market_libertarianism
+						has_government = national_conservatism
+					}
+				}
+				AUS = {
+					add_to_faction = SLV
+				}
+				add_to_war = {
+					targeted_alliance = AUS
+					enemy = AHE
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+			
+			modifier = {
+				add = 1000
+				date > 1937.3.17
+			}
+		}
+	}
+}
