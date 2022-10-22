@@ -222,6 +222,9 @@ on_actions = {
 							original_tag = AHE
 						}
 					}
+					ROOT = {
+						dismantle_faction = yes
+					}
 					AUS = {
 						white_peace = AHE
 						annex_country = {
@@ -239,6 +242,9 @@ on_actions = {
 							original_tag = AUS
 						}
 					}
+					ROOT = {
+						dismantle_faction = yes
+					}
 					FROM = {
 						white_peace = ROOT
 						annex_country = {
@@ -248,6 +254,9 @@ on_actions = {
 					set_global_flag = skip_default_capitulation
 				}
 				
+				### Hungarian-Romanian War ###
+				
+				# Romania beats Hungary
 				if = {
 					limit = {
 						FROM = {
@@ -262,10 +271,34 @@ on_actions = {
 							tag = HUN
 						}
 						transfer_state = 885
+						annex_country = {
+							target = TRS
+						}
 					}
 					set_global_flag = skip_default_capitulation
 				}
-				else_if = {
+				
+				# Slovakia beats Hungary
+				if = {
+					limit = {
+						FROM = {
+							original_tag = SLO
+						}
+						ROOT = {
+							original_tag = HUN
+						}
+					}
+					SLO = {
+						white_peace = {
+							tag = HUN
+						}
+						transfer_state = 73
+						transfer_state = 664
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				
+				if = {
 					limit = {
 						FROM = {
 							original_tag = HUN
@@ -288,7 +321,25 @@ on_actions = {
 					}
 					set_global_flag = skip_default_capitulation
 				}
+				else_if = {
+					limit = {
+						FROM = {
+							original_tag = HUN
+						}
+						ROOT = {
+							original_tag = SLO
+						}
+					}
+					HUN = {
+						white_peace = {
+							tag = SLO
+						}
+						puppet = SLO
+					}
+					set_global_flag = skip_default_capitulation
+				}
 				
+				### Serbian-Bosnian War ###
 				if = {
 					limit = {
 						FROM = {

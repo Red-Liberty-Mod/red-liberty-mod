@@ -71,6 +71,10 @@ AHE_setup_AUS = {
 		}
 		
 		AUS = {
+			add_state_core = 4
+			add_state_core = 69
+			add_state_core = 152
+			add_state_core = 815
 			AHE_remove_templates = yes
 			load_oob = AUS_danubian_war
 		}
@@ -103,6 +107,18 @@ AHE_setup_CZE = {
 			
 			load_oob = CZE_danubian_war
 			AHE_remove_templates = yes
+		}
+		
+		69 = {
+			set_demilitarized_zone = no
+		}
+		815 = {
+			set_demilitarized_zone = no
+		}
+		
+		add_to_array = {
+			array = austrian_breakaways
+			value = CZE
 		}
 	}
 }
@@ -144,6 +160,36 @@ AHE_setup_HUN = {
 	}
 }
 
+HUN_setup_TRS = {
+	hidden_effect = {
+		TRS = {	
+			add_state_core = 76
+			add_state_core = 80
+			add_state_core = 82
+			add_state_core = 83
+			add_state_core = 84
+		}
+		
+		HUN = {
+			every_owned_state = {
+				limit = { is_core_of = TRS }
+				
+				set_demilitarized_zone = no
+				TRS = { transfer_state = PREV }
+				
+				teleport_armies = {
+					limit = { tag = HUN }
+					to_state_array = owned_controlled_states
+				}
+			}
+		}
+		
+		TRS = {
+			load_oob = TRS_danubian_war
+		}
+	}
+}
+
 AHE_setup_CRO = {
 	hidden_effect {
 		CRO = {
@@ -171,6 +217,11 @@ AHE_setup_CRO = {
 			
 			load_oob = CRO_danubian_war
 			AHE_remove_templates = yes
+		}
+		
+		add_to_array = {
+			array = austrian_breakaways
+			value = CRO
 		}
 	}
 }
@@ -233,8 +284,44 @@ AHE_setup_SLV = {
 			load_oob = SLV_danubian_war
 			AHE_remove_templates = yes
 		}
+		
+		add_to_array = {
+			array = austrian_breakaways
+			value = SLV
+		}
 	}
 }
+
+AHE_setup_PNB = {
+	hidden_effect {
+		PNB = {
+			add_state_core = 882
+			
+			AHE = {
+				every_owned_state = {
+					limit = { is_core_of = PNB }
+					
+					set_demilitarized_zone = no
+					remove_core_of = AHE
+					PNB = { transfer_state = PREV }
+					
+					teleport_armies = {
+						limit = { tag = AHE }
+						to_state_array = owned_controlled_states
+					}
+				}
+				
+				transfer_navy = {
+					target = PNB
+				}
+			}
+			
+			load_oob = PNB_danubian_war
+			AHE_remove_templates = yes
+		}
+	}
+}
+
 
 AHE_setup_SLO = {
 	hidden_effect {
