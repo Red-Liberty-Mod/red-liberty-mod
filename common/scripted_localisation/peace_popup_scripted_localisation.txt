@@ -133,6 +133,28 @@ defined_text = {
 defined_text = {
 	name = GetWarContinuationLoc
 	
+	text = { # austrian civil war
+		trigger = {
+			event_target:winning_country = {
+				OR = {
+					original_tag = AHE
+					original_tag = AUS
+					original_tag = CZE
+					original_tag = SLV
+				}
+			}
+			event_target:losing_country = {
+				OR = {
+					original_tag = AHE
+					original_tag = AUS
+					original_tag = CZE
+					original_tag = SLV
+				}
+			}
+		}
+		localization_key = PEACE_POPUP_WAR_CONTINUING_DANUBIAN_WALTZ
+	}
+	
 	text = {
 		localization_key = PEACE_POPUP_WAR_CONTINUING_DEFAULT
 	}
