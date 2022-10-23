@@ -105,6 +105,24 @@ defined_text = {
 		localization_key = PEACE_POPUP_WAR_CONCLUSION_FRA_GER
 	}
 	
+	text = { # austrian civil war
+		trigger = {
+			event_target:winning_country = {
+				OR = {
+					original_tag = AHE
+					original_tag = AUS
+				}
+			}
+			event_target:losing_country = {
+				OR = {
+					original_tag = AHE
+					original_tag = AUS
+				}
+			}
+		}
+		localization_key = PEACE_POPUP_WAR_CONCLUSION_AHE_AUS
+	}
+	
 	text = { # Generic
 		localization_key = PEACE_POPUP_WAR_CONCLUSION_DEFAULT
 	}
@@ -158,6 +176,15 @@ defined_text = {
 			}
 		}
 		localization_key = PEACE_POPUP_FLAVOR_GER
+	}
+	
+	text = {
+		trigger = {
+			event_target:losing_country = {
+				original_tag = AHE
+			}
+		}
+		localization_key = PEACE_POPUP_FLAVOR_AHE
 	}
 
 	text = {
