@@ -5,7 +5,7 @@ if = {
 	limit = {
 		has_dlc = "Man the Guns"
 	}
-	set_naval_oob = "IRE_naval"
+	set_naval_oob = "IRE_naval_mtg"
 	else = {
 		set_naval_oob = "IRE_naval_legacy"
 	}
@@ -23,10 +23,6 @@ set_technology = {
 	tech_military_police = 1
 	
 	gw_artillery = 1
-	
-	gwtank = 1
-	
-	early_fighter = 1
 	
 	fuel_silos = 1
 }
@@ -67,7 +63,20 @@ set_variable = { conservative_tds = 81 }
 set_variable = { authoritarian_tds = 14 }
 IRE_init_parliament = yes
 
+### Leaders ###
+recruit_character = IRE_jack_white
+recruit_character = IRE_roddy_connelly
+recruit_character = IRE_charles_donnelly
+recruit_character = IRE_james_larkin
+recruit_character = IRE_william_obrien
+recruit_character = IRE_sean_lemass
+recruit_character = IRE_eoin_oduffy
+
+### Ministers ###
 recruit_character = IRE_douglas_hyde
+
+### Admirals ###
+recruit_character = IRE_seamus_omuiris
 
 add_ideas = {
 	IRE_douglas_hyde_hog
@@ -79,72 +88,6 @@ add_ideas = {
 	limited_conscription
 	limited_exports
 	semi_industrial_economy
-}
-
-create_country_leader = {
-	name = "Jack White"
-	desc = ""
-	picture = "gfx/leaders/IRE/Portrait_IRE_Jack_White.png"
-	expire = "1965.1.1"
-	ideology = anarcho_socialism_subtype
-	traits = {
-		#
-	}
-}
-
-create_country_leader = {
-	name = "Roddy Connelly"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = revolutionary_autocracy_subtype
-	traits = {
-		#
-	}
-}
-
-create_country_leader = {
-	name = "Charles Donnelly"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = left_nationalism_subtype
-	traits = {
-		#
-	}
-}
-
-create_country_leader = {
-	name = "James Larkin"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = democratic_socialism_subtype
-	traits = {
-		#
-	}
-}
-
-create_country_leader = {
-	name = "William O’Brien"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = social_democracy_subtype
-	traits = {
-		#
-	}
-}
-
-create_country_leader = {
-	name = "Seán Lemass"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = progressive_liberalism_subtype
-	traits = {
-		#
-	}
 }
 
 create_country_leader = {
@@ -181,33 +124,11 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "Eoin O'Duffy"
-	desc = ""
-	picture = "gfx/leaders/IRE/Portrait_IRE_Eoin_O_Duffy.png"
-	expire = "1965.1.1"
-	ideology = autocratic_despotism_subtype
-	traits = {
-		#
-	}
-}
-
-create_country_leader = {
-	name = "Eoin O'Duffy"
-	desc = ""
-	picture = "gfx/leaders/IRE/Portrait_IRE_Eoin_O_Duffy.png"
-	expire = "1965.1.1"
-	ideology = far_right_authoritarianism_subtype
-	traits = {
-		#
-	}
-}
-
-create_country_leader = {
 	name = "Gearóid Ó Cuinneagáin"
 	desc = ""
 	picture = ""
 	expire = "1965.1.1"
-	ideology =fascism_subtype
+	ideology = fascism_subtype
 	traits = {
 		#
 	}
@@ -242,21 +163,6 @@ create_corps_commander = {
 	attack_skill = 4
 	defense_skill = 2
 	planning_skill = 2
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Eoin O'Duffy"
-	picture = "gfx/leaders/IRE/Portrait_IRE_Eoin_O_Duffy.png"
-	traits = {
-		war_hero
-		trait_reckless
-		organizer
-	}
-	skill = 2
-	attack_skill = 3
-	defense_skill = 1
-	planning_skill = 1
 	logistics_skill = 2
 }
 
