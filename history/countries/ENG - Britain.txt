@@ -945,7 +945,8 @@ if = {
 if = {
 	limit = { has_dlc = "Man the Guns" }
 	### Variants ###
-	# Submarines #
+	
+	### Submarines ###
 	create_equipment_variant = {
 		name = "O/P/R Class"
 		type = ship_hull_submarine_1
@@ -968,7 +969,8 @@ if = {
 			rear_1_custom_slot = ship_torpedo_sub_1
 		}
 	}
-	# Destroyers #
+	
+	### Destroyers ###
 	create_equipment_variant = {
 		name = "A/B/C/D Class"
 		type = ship_hull_light_1
@@ -1036,7 +1038,8 @@ if = {
 		}
 		obsolete = yes
 	}
-	# Light Cruisers #
+	
+	### Light Cruisers ###
 	create_equipment_variant = {
 		name = "C-Class"
 		type = ship_hull_cruiser_1
@@ -1127,24 +1130,25 @@ if = {
 		}
 	}
 	create_equipment_variant = {
-			name = "Town Class"
-			type = ship_hull_cruiser_2
-			name_group = ENG_CL_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_battery_slot = ship_light_medium_battery_2
-				fixed_ship_anti_air_slot = ship_anti_air_2
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-				fixed_ship_radar_slot = empty
-				fixed_ship_engine_slot = cruiser_ship_engine_2
-				fixed_ship_armor_slot = ship_armor_cruiser_2
-				front_1_custom_slot = ship_anti_air_2
-				mid_1_custom_slot = ship_torpedo_1
-				mid_2_custom_slot = ship_secondaries_2
-				rear_1_custom_slot = ship_light_medium_battery_2
-			}
+		name = "Town Class"
+		type = ship_hull_cruiser_2
+		name_group = ENG_CL_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_2
+			fixed_ship_armor_slot = ship_armor_cruiser_2
+			front_1_custom_slot = ship_anti_air_2
+			mid_1_custom_slot = ship_torpedo_1
+			mid_2_custom_slot = ship_secondaries_2
+			rear_1_custom_slot = ship_light_medium_battery_2
 		}
-	# Heavy Cruisers #
+	}
+	
+	### Heavy Cruisers ###
 	create_equipment_variant = {
 		name = "County Class"
 		type = ship_hull_cruiser_1
@@ -1198,7 +1202,8 @@ if = {
 		}
 		obsolete = yes
 	}
-	# Battlecruisers #
+	
+	### Battlecruisers ###
 	create_equipment_variant = {
 		name = "Renown Class"
 		type = ship_hull_heavy_1
@@ -1219,7 +1224,6 @@ if = {
 		}
 		obsolete = yes
 	}
-	# Battlecruisers #
 	create_equipment_variant = {
 		name = "Admiral Class"
 		type = ship_hull_heavy_1
@@ -1238,10 +1242,10 @@ if = {
 			mid_2_custom_slot = ship_secondaries_1
 			rear_1_custom_slot = ship_heavy_battery_1
 		}
+		obsolete = yes
 	}
-
 	create_equipment_variant = {
-		name = "G3 Design"
+		name = "Nelson Class" # the G3 class OTL was never named, becomes the Nelson class ITL
 		type = ship_hull_heavy_1
 		name_group = ENG_BC_HISTORICAL
 		parent_version = 0
@@ -1259,26 +1263,8 @@ if = {
 			rear_1_custom_slot = empty
 		}
 	}
-	# Battleships #
-	create_equipment_variant = {
-		name = "Nelson Class"
-		type = ship_hull_heavy_1
-		name_group = ENG_BB_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_heavy_battery_2
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = heavy_ship_engine_2
-			fixed_ship_secondaries_slot = ship_secondaries_2
-			fixed_ship_armor_slot = ship_armor_bb_2
-			front_1_custom_slot = ship_heavy_battery_2
-			mid_1_custom_slot = empty
-			mid_2_custom_slot = empty
-			rear_1_custom_slot = empty
-		}
-	}
+	
+	### Battleships ###
 	create_equipment_variant = {
 		name = "Queen Elizabeth Class"
 		type = ship_hull_heavy_1
@@ -1360,7 +1346,6 @@ if = {
 		}
 		obsolete = yes
 	}
-	
 	create_equipment_variant = {
 		name = "Hermes Class"
 		type = ship_hull_carrier_conversion_ca
