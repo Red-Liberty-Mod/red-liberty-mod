@@ -5,7 +5,7 @@ if = {
 	limit = {
 		has_dlc = "Man the Guns"
 	}
-	set_naval_oob = "ENG_1936_Naval"
+	set_naval_oob = "ENG_naval"
 	else = {
 		set_naval_oob = "ENG_1936_Naval_Legacy"
 	}
@@ -28,15 +28,8 @@ set_technology = {
 	motorised_infantry = 1
 	gw_artillery = 1
 	interwar_antiair = 1
-	early_fighter = 1
-	cv_early_fighter = 1
-	cv_naval_bomber1 = 1
-	naval_bomber1 = 1
-	early_bomber = 1
-	CAS1 = 1
 	
 	trench_warfare = 1
-
 	
 	fleet_in_being = 1
 	electronic_mechanical_engineering = 1
@@ -46,6 +39,14 @@ set_technology = {
 	fuel_refining = 1
 
 	basic_train = 1
+}
+if = {
+	limit = {
+		has_dlc = "La Resistance"
+	}
+	set_technology = {
+		armored_car1 = 1
+	}
 }
 if = {
 	limit = {
@@ -100,6 +101,8 @@ if = {
 		early_ship_hull_cruiser = 1
 		basic_ship_hull_cruiser = 1
 		early_ship_hull_heavy = 1
+		basic_ship_hull_heavy = 1
+		ship_hull_super_heavy = 1
 		early_ship_hull_carrier = 1
 		basic_ship_hull_carrier = 1
 		basic_battery = 1
@@ -110,24 +113,41 @@ if = {
 		sonar = 1
 		smoke_generator = 1
 		basic_depth_charges = 1
-		basic_secondary_battery = 1
 		basic_cruiser_armor_scheme = 1
 		basic_heavy_armor_scheme = 1
 		mtg_transport = 1
-		improved_secondary_battery = 1
 		basic_fire_control_system = 1
+		basic_dp_light_battery = 1
 	}
 	add_ideas = MTG_naval_treaty_adherent
 	set_global_flag = MTG_second_london_conference
 	set_global_flag = { flag = MTG_naval_treaty_signatories value = 5 }
 }
-
 if = {
-	limit = {
-		has_dlc = "La Resistance"
-	}
-	set_technology = {
-		armored_car1 = 1
+	limit = { has_dlc = "By Blood Alone" }
+		set_air_oob = "ENG_1936_air_bba"
+		set_technology = {
+			aa_lmg = 1
+			engines_1 = 1
+			engines_2 = 1
+			early_bombs = 1
+			aircraft_construction = 1
+			iw_small_airframe = 1
+			iw_medium_airframe = 1
+			iw_large_airframe = 1
+			basic_medium_airframe = 1
+			basic_small_airframe = 1
+		}
+	else = {
+		set_air_oob = "ENG_1936_air_legacy"
+		set_technology = {
+			early_fighter = 1
+			cv_early_fighter = 1
+			cv_naval_bomber1 = 1
+			naval_bomber1 = 1
+			early_bomber = 1
+			CAS1 = 1
+		}
 	}
 }
 
@@ -223,60 +243,12 @@ add_to_faction = MAL
 
 give_guarantee = BEL
 
-create_country_leader = {
-	name = "Frank Leech"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = insurrectionary_anarchism_subtype
-	traits = {
-		
-	}
-}
-
-create_country_leader = {
-	name = "Harry Pollitt"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = authoritarian_socialism_subtype
-	traits = {
-		
-	}
-}
-
-create_country_leader = {
-	name = "James Maxton"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = revolutionary_socialism_subtype
-	traits = {
-		
-	}
-}
-
-create_country_leader = {
-	name = "Clement Attlee"
-	desc = "POLITICS_CLEMENT_ATTLEE_DESC"
-	picture = "gfx/leaders/ENG/Portrait_ENG_Clement_Attlee.tga"
-	expire = "1965.1.1"
-	ideology = democratic_socialism_subtype
-	traits = {
-		
-	}
-}
-
-create_country_leader = {
-	name = "Ramsay MacDonald"
-	desc = "POLITICS_RAMSAY_MACDONALD_DESC"
-	picture = "gfx/leaders/ENG/Portrait_ENG_Ramsay_MacDonald.png"
-	expire = "1965.1.1"
-	ideology = social_democracy_subtype
-	traits = {
-		ramshackle_mac
-	}
-}
+recruit_character = ENG_frank_leech
+recruit_character = ENG_harry_pollitt
+recruit_character = ENG_james_maxton
+recruit_character = ENG_clement_attlee
+recruit_character = ENG_ramsay_macdonald
+recruit_character = ENG_archibald_sinclair
 
 create_country_leader = {
 	name = "John Allsebrook Simon"
@@ -1347,6 +1319,31 @@ if = {
 		}
 		obsolete = yes
 	}
+	
+	### Superheavy ###
+	create_equipment_variant = {
+		name = "St. George Class" # N3 battleship, never built in OTL
+		type = ship_hull_super_heavy_1
+		name_group = ENG_BB_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_super_heavy_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = heavy_ship_engine_2
+			fixed_ship_secondaries_slot = ship_secondaries_2
+			fixed_ship_armor_slot = ship_armor_shbb
+			front_1_custom_slot = ship_super_heavy_battery_1
+			mid_1_custom_slot = ship_anti_air_1
+			mid_2_custom_slot = ship_secondaries_2
+			mid_3_custom_slot = empty
+			rear_1_custom_slot = ship_super_heavy_battery_1
+			rear_2_custom_slot = ship_airplane_launcher_1
+		}
+	}
+	
+	### Carriers ###
 	create_equipment_variant = {
 		name = "Eagle Class"
 		type = ship_hull_carrier_conversion_bb
@@ -1396,210 +1393,140 @@ if = {
 		obsolete = yes
 	}
 	create_equipment_variant = {
-			name = "Ark Royal Class"
-			type = ship_hull_carrier_1
-			name_group = ENG_CV_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_deck_slot_1 = ship_deck_space
-				fixed_ship_deck_slot_2 = ship_deck_space
-				fixed_ship_anti_air_slot = ship_anti_air_1
-				fixed_ship_radar_slot = empty
-				fixed_ship_engine_slot = carrier_ship_engine_2
-				fixed_ship_secondaries_slot = ship_secondaries_2
-				front_1_custom_slot = ship_deck_space
-			}
+		name = "Ark Royal Class"
+		type = ship_hull_carrier_1
+		name_group = ENG_CV_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_deck_slot_1 = ship_deck_space
+			fixed_ship_deck_slot_2 = ship_deck_space
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = carrier_ship_engine_2
+			fixed_ship_secondaries_slot = ship_secondaries_2
+			front_1_custom_slot = ship_deck_space
 		}
+	}
+}
+
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+	create_equipment_variant = {
+		name = "Hawker Fury"
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Gloster Gauntlet"
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Hawker Demon"
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+		obsolete = yes
+		icon = "GFX_ENG_light_plane_5_medium"
+	}
 	
-}
-1939.1.1 = {
-	if = {
-		limit = {
-			not = { has_dlc = "Man the Guns" }
+	create_equipment_variant = {
+		name = "Hawker Nimrod" 
+		type = cv_small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
 		}
-		create_equipment_variant = {
-			name = "Tribal Class"
-			type = destroyer_2
-			upgrades = {
-				ship_torpedo_upgrade = 2
-				destroyer_engine_upgrade = 2
-				ship_ASW_upgrade = 2
-				ship_anti_air_upgrade = 2
-			}
-		}
-		create_equipment_variant = {
-			name = "Edinburgh Class"
-			type = light_cruiser_2
-			upgrades = {
-				ship_reliability_upgrade = 3
-				ship_engine_upgrade = 3
-				ship_gun_upgrade = 3
-				ship_anti_air_upgrade = 3
-			}
+		obsolete = yes
+	}
+
+	create_equipment_variant = {
+		name = "Gloster Gladiator" 
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = light_mg_4x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
 		}
 	}
-	if = {
-		limit = {
-			has_dlc = "Man the Guns"
-		}
-		
-		create_equipment_variant = {
-			name = "Illustrious Class"
-			type = ship_hull_carrier_2
-			name_group = ENG_CV_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_deck_slot_1 = ship_deck_space
-				fixed_ship_deck_slot_2 = ship_deck_space
-				fixed_ship_anti_air_slot = ship_anti_air_1
-				fixed_ship_radar_slot = empty
-				fixed_ship_engine_slot = carrier_ship_engine_2
-				fixed_ship_secondaries_slot = dp_ship_secondaries
-				front_1_custom_slot = ship_deck_space
-				mid_1_custom_slot = ship_armor_carrier_deck
-			}
-		}
-		create_equipment_variant = {
-			name = "Dido Class"
-			type = ship_hull_cruiser_2
-			name_group = ENG_CLAA_HISTORICAL
-			parent_version = 1
-			modules = {
-				fixed_ship_battery_slot = dp_light_battery
-				fixed_ship_anti_air_slot = ship_anti_air_1
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_1
-				fixed_ship_radar_slot = empty
-				fixed_ship_engine_slot = cruiser_ship_engine_2
-				fixed_ship_armor_slot = ship_armor_cruiser_1
-				front_1_custom_slot = empty
-				mid_1_custom_slot = ship_anti_air_1
-				mid_2_custom_slot = ship_torpedo_1
-				rear_1_custom_slot = dp_light_battery
-			}
-		}
-		create_equipment_variant = {
-			name = "Crown Colony Class"
-			type = ship_hull_cruiser_3
-			name_group = ENG_CL_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_battery_slot = ship_light_medium_battery_2
-				fixed_ship_anti_air_slot = ship_anti_air_1
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_1
-				fixed_ship_radar_slot = empty
-				fixed_ship_engine_slot = cruiser_ship_engine_2
-				fixed_ship_armor_slot = ship_armor_cruiser_2
-				front_1_custom_slot = ship_anti_air_1
-				mid_1_custom_slot = ship_torpedo_1
-				mid_2_custom_slot = dp_ship_secondaries
-				rear_1_custom_slot = ship_light_medium_battery_2
-				rear_2_custom_slot = ship_anti_air_1
-			}
-		}
-		create_equipment_variant = {
-			name = "Tribal Class"
-			type = ship_hull_light_2
-			name_group = ENG_DD_HISTORICAL
-			modules = {
-				fixed_ship_battery_slot = ship_light_battery_2
-				fixed_ship_anti_air_slot = ship_anti_air_1
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-				fixed_ship_radar_slot = ship_sonar_2
-				fixed_ship_engine_slot = light_ship_engine_2
-				fixed_ship_torpedo_slot = ship_torpedo_1
-				mid_1_custom_slot = ship_light_battery_2
-				rear_1_custom_slot = ship_depth_charge_2
-			}
-		}
-		create_equipment_variant = {
-			name = "J/K/N Class"
-			type = ship_hull_light_3
-			name_group = ENG_DD_HISTORICAL
-			modules = {
-				fixed_ship_battery_slot = ship_light_battery_2
-				fixed_ship_anti_air_slot = ship_anti_air_1
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-				fixed_ship_radar_slot = ship_sonar_2
-				fixed_ship_engine_slot = light_ship_engine_2
-				fixed_ship_torpedo_slot = ship_torpedo_1
-				front_1_custom_slot = empty
-				mid_1_custom_slot = ship_torpedo_2
-				rear_1_custom_slot = ship_depth_charge_2
-			}
-		}
-		create_equipment_variant = {
-			name = "King George V Class"
-			type = ship_hull_heavy_2
-			name_group = ENG_BB_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_battery_slot = ship_heavy_battery_2
-				fixed_ship_anti_air_slot = ship_anti_air_1
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_2
-				fixed_ship_radar_slot = empty
-				fixed_ship_engine_slot = heavy_ship_engine_2
-				fixed_ship_secondaries_slot = dp_ship_secondaries
-				fixed_ship_armor_slot = ship_armor_bb_2
-				front_1_custom_slot = ship_anti_air_1
-				mid_1_custom_slot = ship_airplane_launcher_1
-				mid_2_custom_slot = dp_ship_secondaries
-				rear_1_custom_slot = ship_heavy_battery_2
-			}
-		}
-		create_equipment_variant = {
-			name = "Lion Class" # 1938 variant
-			type = ship_hull_heavy_2
-			name_group = ENG_BB_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_battery_slot = ship_heavy_battery_3
-				fixed_ship_anti_air_slot = ship_anti_air_1
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_2
-				fixed_ship_radar_slot = empty
-				fixed_ship_engine_slot = heavy_ship_engine_2
-				fixed_ship_secondaries_slot = dp_ship_secondaries
-				fixed_ship_armor_slot = ship_armor_bb_2
-				front_1_custom_slot = ship_anti_air_1
-				mid_1_custom_slot = ship_airplane_launcher_1
-				mid_2_custom_slot = dp_ship_secondaries
-				rear_1_custom_slot = ship_heavy_battery_3
-			}
-		}
-		create_equipment_variant = {
-			name = "T Class"
-			type = ship_hull_submarine_2
-			name_group = ENG_SS_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_torpedo_slot = ship_torpedo_sub_2
-				fixed_ship_engine_slot = sub_ship_engine_2
-				rear_1_custom_slot = empty
-			}
-		}
-		create_equipment_variant = {
-			name = "Grampus Class"
-			type = ship_hull_submarine_2
-			name_group = ENG_SS_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_torpedo_slot = ship_torpedo_sub_2
-				fixed_ship_engine_slot = sub_ship_engine_2
-				rear_1_custom_slot = ship_mine_layer_sub
-			}
-		}
-		create_equipment_variant = {
-			name = "U Class"
-			type = ship_hull_submarine_1
-			name_group = ENG_SS_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_torpedo_slot = ship_torpedo_sub_2
-				fixed_ship_engine_slot = sub_ship_engine_2
-				rear_1_custom_slot = empty
-			}
+	create_equipment_variant = {
+		name = "Hawker Hurricane"
+		type = small_plane_airframe_1
+		modules = {
+			fixed_main_weapon_slot = light_mg_4x
+			engine_type_slot = engine_2_1x
+			special_type_slot_1 = empty
 		}
 	}
-}
+
+	create_equipment_variant = {
+		name = "Fairey Gordon" 
+		type = small_plane_cas_airframe_0
+		modules = {
+			fixed_main_weapon_slot = bomb_locks
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+		obsolete = yes
+		icon = "GFX_ENG_CAS1_medium"
+	}
+		create_equipment_variant = {
+			name = "Vickers Vildebeest" 
+			type = small_plane_naval_bomber_airframe_0
+			modules = {
+				fixed_main_weapon_slot = torpedo_mounting
+				engine_type_slot = engine_1_1x
+				special_type_slot_1 = empty
+			}
+			icon = "GFX_ENG_naval_bomber1_medium" #TODO GABRIEL: change if art in before release
+		}
+		create_equipment_variant = {
+			name = "Blackburn Shark" 
+			type = cv_small_plane_naval_bomber_airframe_0
+			modules = {
+				fixed_main_weapon_slot = torpedo_mounting
+				engine_type_slot = engine_1_1x
+				special_type_slot_1 = empty
+			}
+			icon = "GFX_ENG_naval_bomber1_medium"
+		}
+		create_equipment_variant = {
+			name = "Handley Page Heyford" 
+			type = medium_plane_airframe_0
+			modules = {
+				fixed_main_weapon_slot = medium_bomb_bay
+				engine_type_slot = engine_1_2x
+				special_type_slot_1 = empty
+			}
+			obsolete = yes
+		}
+		create_equipment_variant = {
+			name = "Bristol Blenheim" 
+			type = medium_plane_airframe_1
+			modules = {
+				fixed_main_weapon_slot = medium_bomb_bay
+				engine_type_slot = engine_2_2x
+				special_type_slot_1 = lmg_defense_turret
+			}
+			icon = "GFX_ENG_heavy_fighter1_medium"
+		}
+	}
 
 SAF = { # sadly necessary, make sure this matches SAF history file
 	set_politics = {
