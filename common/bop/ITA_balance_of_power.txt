@@ -1,0 +1,113 @@
+
+ITA_italo_ethiopian_war_balance = {
+	initial_value = 0.05
+	left_side = ITA_victory_side
+	right_side = ITA_defeat_side
+	decision_category = ITA_balance_of_power_category
+	
+	side = {
+		id = ITA_victory_side
+		icon = GFX_idea_USA_union_representation_act
+		
+		range = {
+			id = ITA_normal_war
+			min = -1
+			max = 0
+			
+			modifier = {
+				
+			}
+			
+			on_activate = {
+				set_country_flag = ITA_normal_war_flag
+			}
+		}
+	}
+	
+	side = {
+		id = ITA_defeat_side
+		icon = GFX_idea_USA_economic_equality_act
+		
+		range = {
+			id = ITA_struggle
+			min = 0
+			max = 0.3
+			
+			modifier = {
+				
+			}
+		}
+		
+		range = {
+			id = ITA_crumble
+			min = 0.3
+			max = 0.7
+			
+			modifier = {
+				army_morale_factor = -0.1
+				army_org_factor = -0.05
+				custom_modifier_tooltip = ITA_crumble_tt
+			}
+			
+			on_activate = {
+				add_popularity = {
+					ideology = fascism
+					popularity = -0.0025
+				}
+				set_country_flag = ITA_crumble_flag
+			}
+			
+			on_deactivate = {
+				clr_country_flag = ITA_crumble_flag
+			}
+		}
+		
+		range = {
+			id = ITA_collapse
+			min = 0.7
+			max = 0.9
+			
+			modifier = {
+				army_morale_factor = -0.15
+				army_org_factor = -0.1
+				custom_modifier_tooltip = ITA_collapse_tt
+			}
+			
+			on_activate = {
+				add_popularity = {
+					ideology = fascism
+					popularity = -0.05
+				}
+				set_country_flag = ITA_collapse_flag
+			}
+			
+			on_deactivate = {
+				clr_country_flag = ITA_collapse_flag
+			}
+		}
+		
+		range = {
+			id = ITA_failure
+			min = 0.9
+			max = 1
+			
+			modifier = {
+				army_morale_factor = -0.2
+				army_org_factor = -0.15
+				custom_modifier_tooltip = ITA_failure_tt
+			}
+			
+			on_activate = {
+				add_popularity = {
+					ideology = fascism
+					popularity = -0.05
+				}
+				set_country_flag = ITA_failure_flag
+			}
+			
+			on_deactivate = {
+				clr_country_flag = ITA_failure_flag
+			}
+		}
+	}
+}

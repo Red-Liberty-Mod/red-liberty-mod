@@ -1,3 +1,129 @@
+ITA_balance_of_power_category = {
+	
+	ITA_deploy_gas = {
+		icon = generic_political_discourse
+		
+		visible = {
+			
+		}
+		
+		cost = ITA_deploy_gas_cost?10
+		days_remove = 14
+		days_re_enable = 7
+		
+		modifier = {
+			
+		}
+		
+		targeted_modifier = {
+			tag = ETH
+			attack_bonus_against = 0.075
+		}
+		
+		complete_effect = { 
+			add_to_variable = { ITA_deploy_gas_cost = 10 }
+			add_war_support = -0.005
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+	}
+	
+	ITA_subjugate_aussa = {
+		icon = generic_political_discourse
+		
+		available = {
+			ASA = {
+				exists = yes
+			}
+		}
+		
+		visible = {
+			ASA = {
+				exists = yes
+			}
+		}
+		
+		cost = 25
+		days_remove = 7
+		
+		remove_effect = { 
+			hidden_effect = {
+				ASA = {
+					keep_current_politics = yes
+				}
+			}
+			ITA = {
+				set_autonomy = {
+					target = ASA
+					autonomous_state = autonomy_RL_protectorate
+				}
+			}
+			hidden_effect = {
+				ASA = {
+					set_politics = {
+						ruling_party = autocratic_despotism
+						last_election = "1936.1.1"
+						election_frequency = 48
+						elections_allowed = no
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+	}
+	
+	ITA_capture_addis_ababa_mission = {
+	
+		allowed = {
+			
+		}
+		
+		available = {
+			ITA = {
+				controls_province = 5010
+			}
+		}
+		
+		activation = {
+			ITA = {
+				has_war_with = ETH
+			}
+		}
+		
+		visible = {
+			
+		}
+		
+		is_good = no
+		days_mission_timeout = 180
+		fire_only_once = yes
+		
+		complete_effect = {
+			country_event = {
+				id = italy_ethiopia_war.5
+				days = 1
+			}
+		}
+		
+		timeout_effect = {
+			add_power_balance_value = {
+				id = ITA_italo_ethiopian_war_balance
+				value = 0.15
+				tooltip_side = ITA_defeat_side
+			}
+		}
+		
+		remove_effect = {
+			
+		}
+	}
+}
+
 ITA_orders_of_the_black_shirts = {
 	
 	ITA_attack_anti_fascist_meetings = {

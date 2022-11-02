@@ -1,0 +1,33 @@
+on_actions = {
+	
+	# ROOT is new controller
+	# FROM is old controller
+	# FROM.FROM is state ID
+	
+	on_state_control_changed = {
+		effect = {
+			if = { # capture of gondar
+				limit = {
+					AND = {
+						ROOT = { tag = ITA }
+						FROM = { tag = ETH }
+						FROM.FROM = { state = 976 }
+						ITA = { controls_province = 1984 }
+					}
+				}
+				ITA = { country_event =  { id = italy_ethiopia_war.3 days = 1 } }
+			}
+			
+			if = { # capture of dire dawa
+				limit = {
+					AND = {
+						ROOT = { tag = ITA }
+						FROM = { tag = ETH }
+						FROM.FROM = { state = XXX }
+					}
+				}
+				ITA = { country_event =  { id = italy_ethiopia_war.4 days = 1 } }
+			}
+		}
+	}
+}
