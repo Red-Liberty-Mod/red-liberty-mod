@@ -288,21 +288,6 @@ country_event = {
 
 	option = {
 		name = demo_mex.4.a
-		MEX_setup_ZAP = yes
-		
-		hidden_effect = {
-			MEX = {
-				declare_war_on = {
-					target = ZAP
-					type = annex_everything
-				}
-			}
-		
-			random_other_country = {
-				limit = { is_ai = yes }
-				news_event = { id = demo_mex.5 hours = 6 }
-			}
-		}
 	}
 }
 
@@ -2236,6 +2221,10 @@ country_event = {
 				target = BLR
 				type = annex_everything
 			}
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_ww2.6 hours = 6 }
 		}
 	}
 }
