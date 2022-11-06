@@ -36,27 +36,22 @@ has_unsupported_manpower_law = {
 		limit = {
 			has_idea = limited_conscription
 		}
-			has_idea = limited_conscription
-			has_war_support < 0.1
-			hidden_trigger = { NOT = { tag = TUR } }
+		has_idea = limited_conscription
+		has_war_support < 0.1
 	}
 	else_if = {
 		limit = {
 			has_idea = extensive_conscription
 		}
-			has_idea = extensive_conscription
-			has_war_support < 0.2
-			NOT = { has_government = communism }
-			NOT = { has_government = fascism }
+		has_idea = extensive_conscription
+		has_war_support < 0.2
 	}
 	else_if = {
 		limit = {
 			has_idea = service_by_requirement
 		}
-			has_idea = service_by_requirement
-			has_war_support < 0.6
-			NOT = { has_government = communism }
-			NOT = { has_government = fascism }
+		has_idea = service_by_requirement
+		has_war_support < 0.6
 	}
 	else_if = {
 		limit = {
@@ -86,9 +81,6 @@ has_excessive_army_size = { #not currently used due to AI concerns
 			NOT = {
 				TAG = CHI
 			}
-			NOT = {
-				has_government = communism
-			}
 		}
 		AND = {
 			num_of_factories < 50
@@ -99,9 +91,6 @@ has_excessive_army_size = { #not currently used due to AI concerns
 			}
 			NOT = {
 				TAG = CHI
-			}
-			NOT = {
-				has_government = communism
 			}
 		}
 		AND = {
@@ -114,9 +103,6 @@ has_excessive_army_size = { #not currently used due to AI concerns
 			NOT = {
 				TAG = CHI
 			}
-			NOT = {
-				has_government = communism
-			}
 		}
 		AND = {
 			num_of_factories < 100 
@@ -128,19 +114,14 @@ has_excessive_army_size = { #not currently used due to AI concerns
 			NOT = {
 				TAG = CHI
 			}
-			NOT = {
-				has_government = communism
-			}
 		}
 		AND = {
 			has_army_manpower = { size = 2500000 }
 			has_manpower < 1
-			has_government = democratic
 		}
 		AND = {
 			has_army_manpower = { size = 3000000 }
 			has_manpower < 1
-			has_government = fascism
 		}
 	}
 }
