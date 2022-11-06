@@ -119,17 +119,19 @@ ECON_reload_poverty_effects = {
 	set_variable = { poverty_effect_multiplier = poverty_effect_numerator }
 	add_to_variable = { poverty_effect_multiplier = 1 }
 	
-	multiply_variable = { poverty_effect_multiplier = modifier@poverty_effect_factor }
-	clamp_variable = {
-		var = poverty_effect_multiplier
-		min = 0
-	}
+	#multiply_variable = { poverty_effect_multiplier = modifier@poverty_effect_factor }
+	#clamp_variable = {
+	#	var = poverty_effect_multiplier
+	#	min = 0
+	#}
 
 	set_variable = { poverty_rate_stability_effect = poverty_effect_multiplier }
 	set_variable = { poverty_rate_war_support_effect = poverty_effect_multiplier }
 	set_variable = { poverty_rate_conscription_effect = poverty_effect_multiplier }
 	set_variable = { poverty_rate_monthly_pop_effect = poverty_effect_multiplier }
 	set_variable = { poverty_rate_research_effect = poverty_effect_multiplier }
+	
+	set_variable = { poverty_rate_consumer_goods_effect = poverty_effect_multiplier }
 	
 	set_variable = { poverty_rate_factory_prod_effect = poverty_effect_multiplier }
 	set_variable = { poverty_rate_dockyard_prod_effect = poverty_effect_multiplier }
@@ -140,6 +142,8 @@ ECON_reload_poverty_effects = {
 	multiply_variable = { poverty_rate_conscription_effect = 0.2 }
 	multiply_variable = { poverty_rate_monthly_pop_effect = 0.8 }
 	multiply_variable = { poverty_rate_research_effect = -0.2 }
+	
+	multiply_variable = { poverty_rate_consumer_goods_effect = -0.2 }
 	
 	multiply_variable = { poverty_rate_factory_prod_effect = -0.25 }
 	multiply_variable = { poverty_rate_dockyard_prod_effect = -0.15 }

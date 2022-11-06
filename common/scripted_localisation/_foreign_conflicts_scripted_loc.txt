@@ -23,6 +23,8 @@ defined_text = { # doesnt change based on tag
 
 defined_text = {
 	name = GetConflictDesc
+	
+	### Cristiada ###
 	text = {
 		trigger = {
 			check_variable = { selected_conflict_id = 1 }
@@ -58,6 +60,8 @@ defined_text = {
 		}
 		localization_key = ENG_cristiada_desc
 	}
+	
+	### Intentona ###
 	text = {
 		trigger = {
 			check_variable = { selected_conflict_id = 2 }
@@ -93,6 +97,8 @@ defined_text = {
 		}
 		localization_key = ENG_intentona_desc
 	}
+	
+	### Silver Legion ###
 	text = {
 		trigger = {
 			check_variable = { selected_conflict_id = 3 }
@@ -128,6 +134,8 @@ defined_text = {
 		}
 		localization_key = ENG_silver_legion_desc
 	}
+	
+	### Austria ###
 	text = {
 		trigger = {
 			check_variable = { selected_conflict_id = 4 }
@@ -163,8 +171,9 @@ defined_text = {
 		}
 		localization_key = ENG_austrian_collapse_desc
 	}
+	
 	text = {
-		localization_key = "generic description"
+		localization_key = "missing description"
 	}
 }
 
@@ -201,14 +210,16 @@ defined_text = { # dont need to change based on tag
 
 defined_text = {
 	name = GetConflictGUI
-	#text = {
-	#	trigger = {
-	#		check_variable = { selected_conflict_id = 1 }
-	#		tag = USA
-	#	}
-	#	localization_key = "foreign_generic_conflict_topbar"
-	#}
+	
 	text = {
-		localization_key = "foreign_generic_conflict"
+		trigger = {
+			check_variable = { selected_conflict_id = 3 }
+			tag = USA
+		}
+		localization_key = "foreign_conflict_silver_legion"
+	}
+	
+	text = {
+		localization_key = "foreign_conflict_generic"
 	}
 }

@@ -4,6 +4,11 @@ guiTypes = {
 		name = "foreign_conflicts_container"
 		position = { x = 18 y = 200 }
         size = { height = 618 width = 500 }
+		
+		#background = {
+		#	name = "Background"
+		#	quadTextureSprite = "GFX_tiled_window_thin_border2"
+		#}
 
 		containerWindowType = {
 			name = "tabs_container"
@@ -38,12 +43,16 @@ guiTypes = {
     containerWindowType = { # tab style
 		name = "foreign_conflicts_tab"
 		position = { x = -40 y = 0 }
+		size = { width = 110 height = 100 }
+		
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_tiled_window_thin_border2"
+		}
 		
 		buttonType = {
 			name = "tab"
-			spriteType = "GFX_tiled_window_thin_border2"
 			position = { x = -120 y = 0 }
-			size = { width = 110 height = 100 }
 			pdx_tooltip = conflict_tab_name
 		}
 		
@@ -56,7 +65,7 @@ guiTypes = {
 	}
     
     containerWindowType = {
-		name = "foreign_generic_conflict"
+		name = "foreign_conflict_generic"
 		position = { x = 0 y = 0 }
 		size = { width = 496 height = 506 }
 		
@@ -67,10 +76,59 @@ guiTypes = {
 
         instantTextBoxType = {
             name = "conflict_desc"
-			position = { x = 30 y = 20 }
+			position = { x = 20 y = 20 }
             text = conflict_desc_text
             font = "aldrich_18_outline"
 			maxWidth = 370
+			maxHeight = 500
+        }
+	}
+	
+	containerWindowType = {
+		name = "foreign_conflict_silver_legion"
+		position = { x = 0 y = 0 }
+		size = { width = 496 height = 506 }
+		
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_tiled_window_thin_border2"
+		}
+		
+		containerWindowType = {
+			name = "USA_pelley"
+			size = { width = 0 height = 0 }
+			position = { x = 20 y = 20 }
+			
+			iconType = {
+				name = "pelley_portrait"
+				spriteType = "GFX_portrait_USA_norman_thomas"
+				position = { x = 0 y = 0 }
+				alwaystransparent = yes
+			}
+			
+			iconType = {
+				name = "pelley_frame"
+				spriteType = "GFX_pol_leader_frame"
+				position = { x = -8 y = -7 }		
+				alwaystransparent = yes
+			}
+			
+			instantTextBoxType = {
+				name = "pelley_name"
+				position = { x = -21 y = 221 }
+				format = center
+				maxHeight = 50
+				font = aldrich_18_outline
+				text = "USA_william_dudley_pelley"
+			}
+		}
+
+        instantTextBoxType = {
+            name = "conflict_desc"
+			position = { x = 190 y = 20 }
+            text = conflict_desc_text
+            font = "aldrich_18_outline"
+			maxWidth = 290
 			maxHeight = 500
         }
 	}
