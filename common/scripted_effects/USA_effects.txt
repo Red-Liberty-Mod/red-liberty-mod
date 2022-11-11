@@ -611,3 +611,75 @@ USA_contract_three_months = {
 		}
 	}
 }
+
+USA_extremism_rise_small = {
+	log = "[THIS.GetName] - ran effect USA_extremism_rise_small"
+	if = {
+		limit = {
+			OR = {
+				has_government = proletarian_dictatorship
+				has_government = libertarian_socialism
+				has_government = social_democracy
+			}
+		}
+		every_owned_state = {
+			limit = {
+				can_have_elections_in_state = yes
+				check_variable = { socialist_popularity > 0 }
+			}
+			add_to_variable = { socialist_popularity = -0.01 }
+			add_to_variable = { democrat_popularity = 0.01 }
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_government = national_conservatism
+			}
+		}
+		every_owned_state = {
+			limit = {
+				can_have_elections_in_state = yes
+			}
+			add_to_variable = { socialist_popularity = 0.01 }
+			add_to_variable = { democrat_popularity = -0.01 }
+		}
+	}
+}
+
+USA_extremism_rise_large = {
+	log = "[THIS.GetName] - ran effect USA_extremism_rise_large"
+	if = {
+		limit = {
+			OR = {
+				has_government = proletarian_dictatorship
+				has_government = libertarian_socialism
+				has_government = social_democracy
+			}
+		}
+		every_owned_state = {
+			limit = {
+				can_have_elections_in_state = yes
+				check_variable = { socialist_popularity > 0 }
+			}
+			add_to_variable = { socialist_popularity = -0.03 }
+			add_to_variable = { democrat_popularity = 0.02 }
+			add_to_variable = { communist_popularity = 0.01 }
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_government = national_conservatism
+			}
+		}
+		every_owned_state = {
+			limit = {
+				can_have_elections_in_state = yes
+			}
+			add_to_variable = { socialist_popularity = 0.02 }
+			add_to_variable = { democrat_popularity = -0.03 }
+			add_to_variable = { afp_popularity = 0.01 }
+		}
+	}
+}

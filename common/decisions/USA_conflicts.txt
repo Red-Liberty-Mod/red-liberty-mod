@@ -40,10 +40,12 @@ USA_foreign_policy_category = {
 		days_re_enable = 25
 
 		complete_effect = {
-			send_equipment = {
-				equipment = infantry_equipment
-				amount = 1000
-				target = MEX
+			MEX = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 1000
+					producer = USA
+				}
 			}
 		}
 		
@@ -75,10 +77,12 @@ USA_foreign_policy_category = {
 		days_re_enable = 25
 
 		complete_effect = {
-			send_equipment = {
-				equipment = artillery_equipment
-				amount = 50
-				target = MEX
+			MEX = {
+				add_equipment_to_stockpile = {
+					type = artillery_equipment
+					amount = 50
+					producer = USA
+				}
 			}
 		}
 		
@@ -110,10 +114,12 @@ USA_foreign_policy_category = {
 		days_re_enable = 25
 
 		complete_effect = {
-			send_equipment = {
-				equipment = motorized_equipment
-				amount = 50
-				target = MEX
+			MEX = {
+				add_equipment_to_stockpile = {
+					type = motorized_equipment
+					amount = 50
+					producer = USA
+				}
 			}
 		}
 		
@@ -145,9 +151,18 @@ USA_foreign_policy_category = {
 			}
 		}
 		
-		cost = 75
+		ai_hint_pp_cost = 25
+		custom_cost_trigger = {
+			command_power > 24
+			has_political_power > 24
+		}
+		custom_cost_text = decision_cost_CP_25_pp_75
 
 		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+				add_political_power = -25
+			}
 			MEX = {
 				add_timed_idea = {
 					idea = USA_military_observers
@@ -391,6 +406,7 @@ USA_foreign_policy_category = {
 
 		complete_effect = {
 			set_country_flag = may_send_volunteers_to_UOB
+			custom_effect_tooltip = unlock_volunteers
 		}
 		
 		cancel_trigger = {

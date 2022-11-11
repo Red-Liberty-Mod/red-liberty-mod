@@ -223,6 +223,19 @@ on_actions = {
 	
 	on_monthly_USA { # update - kwik mafs
 		effect = {
+			if = {
+				limit = {
+					has_stability < 0.3
+				}
+				USA_extremism_rise_large = yes
+			}
+			else_if = {
+				limit = {
+					has_stability < 0.5
+				}
+				USA_extremism_rise_small = yes
+			}
+		
 			USA_recalculate_polls = yes
 			USA_calculate_senators = yes
 			USA_calc_congress_control = yes

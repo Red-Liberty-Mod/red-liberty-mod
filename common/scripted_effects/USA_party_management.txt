@@ -10,4 +10,22 @@ USA_setup_party_faction_vars = {
 	set_variable = { SPA_moderate_approval = 23 }
 	
 	set_variable = { USA_socialist_unity = 17 }
+	
+	USA_party_faction_percent = yes
+}
+
+USA_party_faction_percent = {
+	
+	set_variable = { SPA_influence_total = SPA_militant_influence }
+	add_to_variable = { SPA_influence_total = SPA_unionist_influence }
+	add_to_variable = { SPA_influence_total = SPA_moderate_influence }
+	
+	set_variable = { SPA_militant_influence_percent = SPA_militant_influence }
+	divide_variable = { SPA_militant_influence_percent = SPA_influence_total }
+	
+	set_variable = { SPA_unionist_influence_percent = SPA_unionist_influence }
+	divide_variable = { SPA_unionist_influence_percent = SPA_influence_total }
+	
+	set_variable = { SPA_moderate_influence_percent = SPA_moderate_influence }
+	divide_variable = { SPA_moderate_influence_percent = SPA_influence_total }
 }

@@ -387,8 +387,8 @@ USA_voting_rights_act_setup = { # voting rights act
 	set_variable = { USA_communist_bill_support = 1 }
 	set_variable = { USA_socialist_bill_support = 1 }
 	set_variable = { USA_farmer_labor_bill_support = 1 }
-	set_variable = { USA_republican_bill_support = 0.4 }
-	set_variable = { USA_democrat_bill_support = 0.15 }
+	set_variable = { USA_republican_bill_support = 0.2 }
+	set_variable = { USA_democrat_bill_support = 0.1 }
 	set_variable = { USA_fascist_bill_support = 0 }
 	
 	#set_country_flag = USA_special_decisions_enabled # hides generic decisions in favor of special ones
@@ -422,14 +422,14 @@ USA_public_contracts_act_setup = { # public contracts act
 	
 	set_variable = { USA_communist_bill_support = 1 }
 	set_variable = { USA_socialist_bill_support = 1 }
-	set_variable = { USA_republican_bill_support = 0.2 }
-	set_variable = { USA_democrat_bill_support = 0.45 }
+	set_variable = { USA_republican_bill_support = 0.1 }
+	set_variable = { USA_democrat_bill_support = 0.35 }
 	set_variable = { USA_fascist_bill_support = 0.05 }
 	
 	set_variable = { average_boost_communist = 0.4 }
 	set_variable = { average_boost_socialist = 0.5 }
-	set_variable = { average_boost_republican = 0.3 }
-	set_variable = { average_boost_democrat = 0.1 }
+	set_variable = { average_boost_republican = 0.1 }
+	set_variable = { average_boost_democrat = 0.2 }
 	set_variable = { average_boost_fascist = 0 }
 	
 	set_variable = { communist_flip_cost = 20 }
@@ -1562,7 +1562,7 @@ USA_bill_vote = {
 	}
 	else_if = {
 		limit = {
-			check_variable = { bill_id = 21 }
+			check_variable = { bill_id = 21 } # nationalize defense industry
 		}
 		country_event = {
 			id = us_bill.21
