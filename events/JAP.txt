@@ -49,19 +49,24 @@ country_event = { # inukai dies
 	fire_only_once = yes
 	
 	option = {
-		name = "He isn’t breathing."
+		name = japan.3.a
 		add_stability = -0.15
 		set_country_flag = inukai_ded
 		kill_country_leader = yes
 		
-		create_country_leader = {
-			name = "Showa"
-			desc = "POLITICS_SHOWA_EMPEROR_DESC"
-			picture = "gfx/leaders/JAP/Portrait_JAP_Hirohito.png"
-			expire = "1989.1.1"
-			ideology = national_conservatism_subtype
-			traits = {
-				
+		hidden_effect = {
+			JAP_inukai_tsuyoshi = {
+				retire = yes
+			}
+		}
+		
+		add_country_leader_role = {
+			character = JAP_hirohito_showa
+			promote_leader = yes
+			country_leader = {
+				desc = "POLITICS_SHOWA_DESC"
+				ideology = national_conservatism_subtype
+				traits = {  }
 			}
 		}
 		
@@ -76,7 +81,7 @@ country_event = { # inukai dies
 
 country_event = { # inukai funeral
 	id = japan.4
-	title = "An Overdue Farewell"
+	title = japan.4.title
 	desc = japan.4.desc
 	
 	is_triggered_only = yes
@@ -84,13 +89,13 @@ country_event = { # inukai funeral
 	fire_only_once = yes
 	
 	option = {
-		name = "Meifuku o inoru."
+		name = japan.4.a
 	}
 }
 
 country_event = {
 	id = japan.5
-	title = "Into the Unknown"
+	title = japan.5.title
 	desc = japan.5.desc
 	
 	is_triggered_only = yes
@@ -98,7 +103,7 @@ country_event = {
 	fire_only_once = yes
 	
 	option = {
-		name = "A post-Inukai Japan begins to take shape."
+		name = japan.5.a
 	}
 }
 
@@ -201,14 +206,13 @@ country_event = {
 		set_country_flag = market_libertarian_coalition
 		
 		hidden_effect = {
-			create_country_leader = {
-				name = "Ichiro Hatoyama"
-				desc = ""
-				picture = "gfx/leaders/JAP/Portait_JAP_Ichiro_Hatoyama.png"
-				expire = "1989.1.1"
-				ideology = national_conservatism_subtype
-				traits = {
+			JAP_hirohito_showa = {
+				remove_country_leader_role = {
+					ideology = national_conservatism_subtype
 				}
+			}
+			JAP_ichiro_hatoyama = {
+				promote_character = yes
 			}
 		}
 		

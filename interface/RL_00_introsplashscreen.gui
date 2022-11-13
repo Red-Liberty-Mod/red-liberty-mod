@@ -1,22 +1,35 @@
 guiTypes = {
 	containerWindowType = {
         name = "intro_splash_screen_gui"
-        position = { x = 550 y = 400 }
-		size = { width = 1000 height = 500 }
-		
+        position = { x = 500 y = 300 }
+		size = { width = 945 height = 440 }
+		click_to_front = yes
+		clipping = no
 		moveable = yes
 		
-		background = { # background
-			name = "intro_splash_screen_bg"
+		background = {
+			name = "bg"
+			quadtexturesprite = "GFX_tiled_window_transparent"
+		}
+		
+		iconType = {
+			name = "poster"
+			position = { x = 749 y = 9 }
+			alwaystransparent = yes
+		}
+		
+		iconType = { # background
+			name = "background"
 			position = { x = 0 y = 0 }
 			spriteType = "GFX_intro_splash_screen_bg"
+			alwaystransparent = yes
 		}
 
 		instantTextBoxType = {
 			name = "intro_splash_screen_title"
-			position = { x = 190 y = 30 }
-			font = "hoi_24header"
-			text = "Welcome to Red Liberty!"
+			position = { x = 265 y = 20 }
+			font = "hoi_36header"
+			text = [GetCountryInfoTitle]
 			maxWidth = 400
 			maxHeight = 24
 			format = center
@@ -24,18 +37,31 @@ guiTypes = {
 		
 		instantTextBoxType = {
 			name = "intro_splash_screen_desc"
-			position = { x = 60 y = 100 }
+			position = { x = 210 y = 65 }
 			font = "hoi_20bs"
-			text = "red_liberty_intro_desc"
-			maxWidth = 650
-			maxHeight = 160
+			text = [GetCountryInfoDesc]
+			maxWidth = 520
+			maxHeight = 650
 			format = left
-			scrollbarType = standardtext_slider
+		}
+		
+		containerWindowType = {
+			name = "options_gridbox_container"
+			size = { width = 177 height = 379 }
+			position = { x = 14 y = 49 }
+			clipping = yes
+			
+			gridboxtype = {
+				name = "entry_gridbox"
+				slotsize = { width = 0 height = 36 }
+				add_horizontal = no
+				max_slots_horizontal = 1
+			}
 		}
 		
 		buttonType = {
 			name = "button_close"
-			position = { x = 710 y = 43 }
+			position = { x = 710 y = 23 }
 			spriteType = "GFX_NV_btn_close"
 			clicksound = click_close
 			pdx_tooltip = "CLOSE"
@@ -43,14 +69,38 @@ guiTypes = {
 			orientation = UPPER_LEFT
 		}
 		
-		#buttonType = {
-		#	name = "intro_splash_screen_cont_buttom"
-		#	position = { x = 400 y = 230 }
-		#	quadTextureSprite ="GFX_main_lobby_button"	
-		#	buttonText = "Continue"
-		#	buttonFont = "hoi_24header"
-		#	clicksound = click_default
-		#	oversound = ui_menu_over
-		#}
+		buttonType = {
+			name = "button_credits"
+			position = { x = 11 y = 397 }
+			spriteType = "GFX_trade_filter_btn_country"
+			clicksound = click_close
+			buttonText = "country_intro_label_credits"
+			buttonFont = hoi_20bs
+			orientation = UPPER_LEFT
+		}
     }
+	
+	containerWindowType = {
+		name = "country_info_entry"
+		size = { width = 150 height = 36 }
+		
+		buttonType = {
+			name = "folder_button"
+			spriteType = "GFX_trade_filter_btn_country"
+			clicksound = "decisions_ui_tab"
+			pdx_tooltip = "country_intro_label_tt"
+		}
+		
+		instantTextBoxType = {
+			name = "folder_text"
+			position = { x = 5 y = 0 }
+			text = [GetCountryInfoEntryTitle]
+			font = "aldrich_18_outline"
+			maxwidth = 150
+			maxheight = 30
+			vertical_alignment = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+	}
 }
