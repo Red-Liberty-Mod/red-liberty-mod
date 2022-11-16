@@ -95,6 +95,8 @@ ideas = {
 
 			modifier = {
 				conscription = 0.025
+				political_power_gain = -0.05
+				war_support_factor = -0.05
 			}
 
 			ai_will_do = {
@@ -130,6 +132,9 @@ ideas = {
 						#}
 					}					
 				}
+				NOT = {
+					has_country_flag = conscription_banned
+				}
 				has_war_support > 0.2
 				#Special rules AST in TFV
 			}
@@ -163,16 +168,16 @@ ideas = {
 			
 			modifier = {
 				conscription = 0.05
-				#industrial_capacity_factory = -0.1
-				#production_speed_buildings_factor = -0.1
-				training_time_factor = 0.1
+				political_power_gain = -0.1
+				war_support_factor = -0.1
+				industrial_capacity_dockyard = -0.1
+				industrial_capacity_factory = -0.1
 			}
 			
 			cancel_if_invalid = no
 		}
 		
 		service_by_requirement = {
-			
 			
 			available = {
 				#has_manpower_for_recruit_change_to =  { value = 0.1 group = mobilization_laws }
@@ -187,6 +192,9 @@ ideas = {
 						#	}
 						#}
 					}
+				}
+				NOT = {
+					has_country_flag = conscription_banned
 				}
 				OR = {
 					has_war_support > 0.6
@@ -247,17 +255,20 @@ ideas = {
 
 			modifier = {
 				conscription = 0.1
-				industrial_capacity_factory = -0.1
-				industrial_capacity_dockyard = -0.1
-				production_speed_buildings_factor = -0.1
-				training_time_factor = 0.2
+				army_morale_factor = -0.15
+				army_org_factor = -0.15
+				industrial_capacity_dockyard = -0.2
+				industrial_capacity_factory = -0.2
+				political_power_gain = -0.5
+				production_speed_buildings_factor = -0.2
+				research_speed_factor = -0.05
+				war_support_factor = -0.2
 			}
 			
 			cancel_if_invalid = no
 		}
 		
 		all_adults_serve = {
-			
 			
 			available = {
 				#has_manpower_for_recruit_change_to =  { value = 0.2 group = mobilization_laws }
@@ -273,6 +284,9 @@ ideas = {
 				#		ratio > 0.75
 				#	}
 				#}
+				NOT = {
+					has_country_flag = conscription_banned
+				}
 			}
 			
 			visible = {
@@ -320,18 +334,20 @@ ideas = {
 			
 			modifier = {
 				conscription = 0.2
-				industrial_capacity_factory = -0.3
+				army_morale_factor = -0.25
+				army_org_factor = -0.25
 				industrial_capacity_dockyard = -0.3
+				industrial_capacity_factory = -0.3
+				political_power_gain = -1
 				production_speed_buildings_factor = -0.3
-				#XP from reinforcement penalty (small)
-				training_time_factor = 0.3
+				research_speed_factor = -0.075
+				war_support_factor = -0.25
 			}
 			
 			cancel_if_invalid = no
 		}
 		
 		scraping_the_barrel = {
-			
 			
 			available = {
 				#has_manpower_for_recruit_change_to =  { value = 0.25 group = mobilization_laws }
@@ -347,6 +363,9 @@ ideas = {
 				#		ratio > 1
 				#	}
 				#}
+				NOT = {
+					has_country_flag = conscription_banned
+				}
 			}
 			
 			visible = {
@@ -380,10 +399,14 @@ ideas = {
 
 			modifier = {
 				conscription = 0.25
-				industrial_capacity_factory = -0.4
-				industrial_capacity_dockyard = -0.4
-				production_speed_buildings_factor = -0.4
-				training_time_factor = 0.5
+				army_morale_factor = -0.4
+				army_org_factor = -0.4
+				industrial_capacity_dockyard = -0.45
+				industrial_capacity_factory = -0.45
+				political_power_gain = -1.5
+				production_speed_buildings_factor = -0.45
+				research_speed_factor = -0.1
+				war_support_factor = -0.3
 			}
 			
 			cancel_if_invalid = no
@@ -414,8 +437,6 @@ ideas = {
 				production_speed_buildings_factor = -0.05
 			}
 
-			default = yes
-
 			cancel_if_invalid = no
 		}
 		
@@ -444,8 +465,6 @@ ideas = {
 				industrial_capacity_dockyard = 0.05
 				production_speed_buildings_factor = 0.05
 			}
-
-			default = yes
 
 			cancel_if_invalid = no
 		}
