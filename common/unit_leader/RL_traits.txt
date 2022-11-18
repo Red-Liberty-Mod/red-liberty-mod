@@ -3,9 +3,37 @@ leader_traits = {
 	artillery_officer = {
 		type = corps_commander
 		trait_type = personality_trait
-
+		
 		trait_xp_factor = {
 			artillery_specialist = 1
+		}
+		
+		unit_trigger = {
+			OR = {
+				division_has_battalion_in_template = artillery_brigade
+				division_has_battalion_in_template = artillery
+			}
+			owner = {
+				NOT = {
+					OR = {
+						has_idea = best_of_the_best_spirit
+						has_idea = academy_scholarships_spirit
+					}
+				}
+			}
+		}
+		
+		new_commander_weight = {
+			factor = 1
+
+			modifier = {
+				FROM = { has_idea = best_of_the_best_spirit }
+				factor = 0
+			}
+			modifier = {
+				FROM = { has_idea = academy_scholarships_spirit }
+				factor = 0
+			}
 		}
 	}
 
