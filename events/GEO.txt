@@ -677,3 +677,130 @@ country_event = {
 		}
 	}
 }
+
+country_event = {
+	id = georgia.23 # The Stability Act
+	title = georgia.23.title
+	desc = georgia.23.desc
+	picture = GFX_report_event_generic_conference
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # Limited Power of The Military 
+		name = georgia.23.a
+		ai_chance = { factor = 25 }
+		hidden_effect = {
+			add_ideas = GEO_ultra_beta_mindset_stability_act
+		}
+	}
+	
+	option = { # Partial Power to the Military
+		name = georgia.23.b
+		ai_chance = { factor = 50 }
+		hidden_effect = {
+			add_ideas = GEO_beta_mindset_stability_act
+		}
+	}
+	
+	option = { # Unlimited Power to the Military
+		name = georgia.23.c
+		ai_chance = { factor = 25 }
+		hidden_effect = {
+			add_ideas = GEO_sigma_mindset_stability_act
+		}
+	}
+}
+
+country_event = {
+	id = georgia.24 # The Articles of Loyalty
+	title = georgia.24.title
+	desc = georgia.24.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # A Repayment to our Saviors
+		name = georgia.24.a
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+			add_ideas = GEO_articles_of_loyalty
+		}
+	}
+}
+
+country_event = {
+	id = georgia.25 # Elections Suspended
+	title = georgia.25.title
+	desc = georgia.25.desc
+	picture = GFX_
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # We Can Take No Chances
+		name = georgia.25.a
+		ai_chance = { factor = 33 }
+		hidden_effect = {
+			add_ideas = GEO_elections_suspended_fully
+		}
+	}
+	
+	option = { # Keep Local Elections
+		name = georgia.25.b
+		ai_chance = { factor = 33 }
+		hidden_effect = {
+			add_ideas = GEO_elections_suspended_sorta
+		}
+	}
+	
+	option = { # Only Suspend National Elections
+		name = georgia.25.c
+		ai_chance = { factor = 33 }
+		hidden_effect = {
+			add_ideas = GEO_elections_suspended_not_really
+		}
+	}
+}
+
+country_event = {
+	id = georgia.26 # The FGL Traitors Fate
+	title = georgia.26.title
+	desc = georgia.26.desc
+	picture = GFX_
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # To The Firing Squad
+		name = georgia.26.a
+		ai_chance = { factor = 33 }
+		hidden_effect = {
+			add_stability = -0.13
+			add_war_support = 0.06
+		}
+	}
+	
+	option = { # A Life in Prison
+		name = georgia.26.b
+		ai_chance = { factor = 33 }
+		hidden_effect = {
+			add_stability = -0.7
+			add_war_support = 0.03
+		}
+	}
+	
+	option = { # Banishment
+		name = georgia.26.c
+		ai_chance = { factor = 33 }
+		hidden_effect = {
+			add_stability = -0.2
+			add_war_support = 0.01
+		}
+	}
+}
