@@ -1,8 +1,237 @@
 USA_appalachian_insurgency_category = {
 
-	USA_strike_the_final_blow = {
+	USA_invoke_insurrection_act = {
+		
+		icon = ger_mefo_bills
+		
+		visible = {
+			has_country_flag = USA_insurgency_start
+			NOT = {
+				has_country_flag = USA_insurgency_end
+			}
+		}
+		
+		available = {
+			
+		}
+		
+		cost = 15
+		
+		fire_only_once = yes
+		
+		complete_effect = {
+			country_event = {
+				id = united_states_insurgency.4
+				hours = 6
+			}
+			set_country_flag = USA_martial_law_enabled
+			subtract_from_variable = {
+				USA_insurgency_strength = 10
+				tooltip = USA_insurgency_strength_loss
+			}
+		}
+	}
 	
+	USA_call_in_hoover = {
+		
+		icon = ger_mefo_bills
+		
+		visible = {
+			has_country_flag = USA_insurgency_start
+			NOT = {
+				has_country_flag = USA_insurgency_end
+			}
+		}
+		
+		available = {
+			
+		}
+		
+		cost = 25
+		
+		fire_only_once = yes
+		
+		complete_effect = {
+			subtract_from_variable = {
+				USA_insurgency_strength = 7
+				tooltip = USA_insurgency_strength_loss
+			}
+		}
+	}
+	
+	USA_silence_the_pillar = {
+		icon = ger_mefo_bills
+		
+		highlight_states = {
+			highlight_state_targets = { state = 382 }
+		}
+		
+		visible = {
+			has_country_flag = USA_insurgency_start
+			NOT = {
+				has_country_flag = USA_insurgency_end
+			}
+		}
+		
+		available = {
+			
+		}
+		
+		cost = 25
+		
+		fire_only_once = yes
+		
+		complete_effect = {
+			subtract_from_variable = {
+				USA_insurgency_strength = 5
+				tooltip = USA_insurgency_strength_loss
+			}
+			subtract_from_variable = {
+				USA_insurgency_public_opinion = 5
+				tooltip = USA_insurgency_opinion_loss
+			}
+		}
+	}
+	
+	USA_finish_michigan = {
 		icon = GFX_decision_infiltrate_state
+		
+		highlight_states = {
+			highlight_state_targets = { state = 393 }
+		}
+		
+		visible = {
+			has_country_flag = USA_insurgency_start
+			NOT = {
+				has_country_flag = USA_insurgency_end
+			}
+		}
+		
+		available = {
+			divisions_in_state = {
+				type = infantry
+				size > 4
+				state = 393
+			}
+		}
+		
+		cancel_trigger = {
+			divisions_in_state = {
+				type = infantry
+				size < 5
+				state = 393
+			}
+		}
+		
+		fire_only_once = yes
+		
+		days_remove = 14
+		
+		remove_effect = {
+			country_event = {
+				id = united_states_insurgency.9
+				hours = 6
+			}
+			subtract_from_variable = {
+				USA_insurgency_strength = 5
+				tooltip = USA_insurgency_strength_loss
+			}
+			set_country_flag = USA_michigan_clear
+		}
+	}
+	
+	USA_finish_virginia = {
+		icon = GFX_decision_infiltrate_state
+		
+		highlight_states = {
+			highlight_state_targets = { state = 362 }
+		}
+		
+		visible = {
+			has_country_flag = USA_insurgency_start
+			NOT = {
+				has_country_flag = USA_insurgency_end
+			}
+		}
+		
+		available = {
+			divisions_in_state = {
+				type = infantry
+				size > 4
+				state = 362
+			}
+		}
+		
+		cancel_trigger = {
+			divisions_in_state = {
+				type = infantry
+				size < 5
+				state = 362
+			}
+		}
+		
+		fire_only_once = yes
+		
+		days_remove = 14
+		
+		remove_effect = {
+			subtract_from_variable = {
+				USA_insurgency_strength = 5
+				tooltip = USA_insurgency_strength_loss
+			}
+			set_country_flag = USA_virginia_clear
+		}
+	}
+	
+	USA_finish_north_carolina = {
+		icon = GFX_decision_infiltrate_state
+		
+		highlight_states = {
+			highlight_state_targets = { state = 363 }
+		}
+		
+		visible = {
+			has_country_flag = USA_insurgency_start
+			NOT = {
+				has_country_flag = USA_insurgency_end
+			}
+		}
+		
+		available = {
+			divisions_in_state = {
+				type = infantry
+				size > 4
+				state = 363
+			}
+		}
+		
+		cancel_trigger = {
+			divisions_in_state = {
+				type = infantry
+				size < 5
+				state = 363
+			}
+		}
+		
+		fire_only_once = yes
+		
+		days_remove = 14
+		
+		remove_effect = {
+			subtract_from_variable = {
+				USA_insurgency_strength = 5
+				tooltip = USA_insurgency_strength_loss
+			}
+			set_country_flag = USA_north_carolina_clear
+		}
+	}
+
+	USA_strike_the_final_blow = {
+		icon = GFX_decision_infiltrate_state
+		
+		highlight_states = {
+			highlight_state_targets = { state = 853 }
+		}
 		
 		visible = {
 			has_country_flag = USA_insurgency_start
@@ -13,8 +242,8 @@ USA_appalachian_insurgency_category = {
 		
 		available = {
 			custom_trigger_tooltip = {
-				tooltip = USA_insurgency_15_end_tt
-				check_variable = { USA_insurgency_strength < 15 }
+				tooltip = USA_insurgency_end_req
+				check_variable = { USA_insurgency_strength < 16 }
 			}
 		}
 		
@@ -30,234 +259,39 @@ USA_appalachian_insurgency_category = {
 		}
 	}
 	
-	USA_invoke_insurrection_act = {
-		
-		icon = generic_army_support
-		
-		visible = {
-			has_country_flag = USA_insurgency_start
-			NOT = {
-				has_country_flag = USA_insurgency_end
-			}
-		}
-		
+	USA_things_get_worse = {
+		icon = GFX_decision_revolt
+
 		available = {
-			
+			has_country_flag = USA_pelley_captured
 		}
 		
-		fire_only_once = yes
+		activation = {
+			has_country_flag = USA_insurgency_start
+		}
+		
+		is_good = no
+		
+		days_mission_timeout = 180
 		
 		complete_effect = {
-			country_event = {
-				id = united_states_insurgency.4
-				hours = 6
+			add_political_power = 200
+			add_stability = 0.05
+		}
+		
+		timeout_effect = {
+			add_stability = -0.1
+			add_political_power = -200
+			every_owned_state = {
+				limit = {
+					can_have_elections_in_state = yes
+					NOT = {
+						is_deep_south_state = yes
+					}
+				}
+				custom_effect_tooltip = USA_decrease_SPA_popularity_low
+				add_to_variable = { socialist_popularity = -0.03 }
 			}
-			set_country_flag = USA_insurrection_act_active
-			subtract_from_variable = { USA_insurgency_strength = 7 }
-			custom_effect_tooltip = USA_weaken_insurgency_large_tt
-		}
-	}
-	
-	USA_ban_christian_party = {
-		
-		icon = GFX_decision_generic_break_treaty
-		
-		visible = {
-			has_country_flag = USA_insurgency_start
-			NOT = {
-				has_country_flag = USA_insurgency_end
-			}
-		}
-		
-		available = {
-			has_country_flag = USA_insurrection_act_active
-		}
-		
-		fire_only_once = yes
-		
-		complete_effect = {
-			set_party_name = { 
-				ideology = fascism
-				long_name = "--"
-				name =  "--"
-			}
-			subtract_from_variable = { USA_insurgency_strength = 3 }
-			custom_effect_tooltip = USA_weaken_insurgency_small_tt
-		}
-	}
-	
-	USA_meet_with_state_governors = {
-		
-		icon = GFX_decision_generic_political_discourse
-		
-		visible = {
-			has_country_flag = USA_insurgency_start
-			NOT = {
-				has_country_flag = USA_insurgency_end
-			}
-		}
-		
-		available = {
-			has_country_flag = USA_insurrection_act_active
-		}
-		
-		fire_only_once = yes
-		
-		complete_effect = {
-			country_event = {
-				id = united_states_insurgency.8
-				hours = 6
-			}
-			subtract_from_variable = { USA_insurgency_strength = 3 }
-			custom_effect_tooltip = USA_weaken_insurgency_small_tt
-		}
-	}
-	
-	USA_mobilize_national_guard = {
-	
-		icon = generic_army_support
-		
-		visible = {
-			has_country_flag = USA_insurgency_start
-			NOT = {
-				has_country_flag = USA_insurgency_end
-			}
-		}
-		
-		available = {
-			has_country_flag = USA_insurrection_act_active
-		}
-		
-		fire_only_once = yes
-		
-		days_remove = 5
-		
-		custom_cost_trigger = {
-			command_power > 24
-		}
-
-		custom_cost_text = decision_cost_CP_25
-		
-		remove_effect = {
-			hidden_effect = { add_command_power = -25 }
-			subtract_from_variable = { USA_insurgency_strength = 7 }
-			custom_effect_tooltip = USA_weaken_insurgency_large_tt
-		}
-	}
-	
-	USA_airdrop_leaflets = {
-	
-		icon = GFX_decision_generic_air
-		
-		visible = {
-			has_country_flag = USA_insurgency_start
-			NOT = {
-				has_country_flag = USA_insurgency_end
-			}
-		}
-		
-		available = {
-			has_country_flag = USA_insurrection_act_active
-		}
-		
-		days_remove = 5
-		
-		custom_cost_trigger = {
-			command_power > 14
-		}
-
-		custom_cost_text = decision_cost_CP_15
-		
-		remove_effect = {
-			hidden_effect = { add_command_power = -15 }
-			subtract_from_variable = { USA_insurgency_strength = 3 }
-			custom_effect_tooltip = USA_weaken_insurgency_small_tt
-		}
-	}
-	
-	USA_construct_additional_barricades = {
-	
-		icon = GFX_decision_border_war
-		
-		visible = {
-			has_country_flag = USA_insurgency_start
-			NOT = {
-				has_country_flag = USA_insurgency_end
-			}
-		}
-		
-		available = {
-			has_country_flag = USA_insurrection_act_active
-		}
-		
-		modifier = {
-			consumer_goods_factor = 0.05
-		}
-		
-		days_remove = 5
-		
-		custom_cost_trigger = {
-			command_power > 14
-		}
-
-		custom_cost_text = decision_cost_CP_15
-		
-		remove_effect = {
-			hidden_effect = { add_command_power = -15 }
-			subtract_from_variable = { USA_insurgency_strength = 3 }
-			custom_effect_tooltip = USA_weaken_insurgency_small_tt
-		}
-	}
-	
-	USA_advanced_interrogation = {
-	
-		icon = GFX_decision_generic_political_discourse
-		
-		visible = {
-			has_country_flag = USA_insurgency_start
-			NOT = {
-				has_country_flag = USA_insurgency_end
-			}
-		}
-		
-		available = {
-			has_country_flag = USA_insurrection_act_active
-		}
-		
-		days_remove = 5
-		
-		cost = 25
-		
-		remove_effect = {
-			subtract_from_variable = { USA_insurgency_strength = 3 }
-			custom_effect_tooltip = USA_weaken_insurgency_small_tt
-		}
-	}
-	
-	USA_declare_curfew = {
-	
-		icon = GFX_decision_generic_political_discourse
-		
-		visible = {
-			has_country_flag = USA_insurgency_start
-			NOT = {
-				has_country_flag = USA_insurgency_end
-			}
-		}
-		
-		available = {
-			has_country_flag = USA_insurrection_act_active
-		}
-		
-		fire_only_once = yes
-		
-		days_remove = 5
-		
-		cost = 25
-		
-		remove_effect = {
-			subtract_from_variable = { USA_insurgency_strength = 5 }
-			custom_effect_tooltip = USA_weaken_insurgency_medium_tt
 		}
 	}
 }

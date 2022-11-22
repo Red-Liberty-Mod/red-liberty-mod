@@ -420,44 +420,14 @@ country_event = { # shit explodes
 		name = united_states_insurgency.3.a
 		set_country_flag = USA_insurgency_start
 		unlock_decision_category_tooltip = USA_appalachian_insurgency_category
-		
-		set_variable = { USA_insurgency_strength = 76 }
-		
 		add_stability = -0.03
 		
 		hidden_effect = {
-			853 = {
-				force_enable_resistance = USA
-				start_resistance = yes
-				add_resistance_target = 10
-				add_resistance = 20
-			}
-			362 = {
-				force_enable_resistance = USA
-				start_resistance = yes
-				add_resistance = 5
-			}
-			363 = {
-				force_enable_resistance = USA
-				start_resistance = yes
-				add_resistance = 7
-			}
-		
-			add_ideas = {
-				USA_insurgency_idea
-			}
-			
-			add_command_power = 50
-			
+			set_variable = { USA_insurgency_public_opinion = 78 }
+			set_variable = { USA_insurgency_strength = 47 }
 			random_other_country = {
 				limit = { is_ai = yes }
-				news_event = { id = united_states_insurgency.6 hours = 6 }
-			}
-			USA = {
-				country_event = {
-					id = united_states_insurgency.5
-					days = 6
-				}
+				news_event = { id = worldnews.7 hours = 6 }
 			}
 		}
 	}
@@ -472,6 +442,7 @@ country_event = { # insurrection act
 
 	option = {
 		name = united_states_insurgency.4.a
+		add_stability = 0.01
 	}
 }
 
@@ -486,28 +457,20 @@ country_event = { # dont tell mom im in detroit
 
 	option = {
 		name = united_states_insurgency.5.a
-		add_to_variable = { USA_insurgency_strength = 5 }
-		393 = {
-			force_enable_resistance = USA
-			start_resistance = yes
-			add_resistance_target = 10
-			add_resistance = 10
-		}
 		add_stability = -0.03
 	}
 }
 
-news_event = { # insurgency world news event
+country_event = { # violence spreads to virginia and north carolina
 	id = united_states_insurgency.6
 	title = united_states_insurgency.6.title
 	desc = united_states_insurgency.6.desc
 	
 	is_triggered_only = yes
-	
-	major = yes
 
 	option = {
 		name = united_states_insurgency.6.a
+		add_stability = 0.01
 	}
 }
 
@@ -515,6 +478,7 @@ country_event = { # pelly captured
 	id = united_states_insurgency.7
 	title = united_states_insurgency.7.title
 	desc = united_states_insurgency.7.desc
+	picture = GFX_report_event_pelley_captured
 	
 	is_triggered_only = yes
 	
@@ -524,6 +488,15 @@ country_event = { # pelly captured
 		name = united_states_insurgency.7.a
 		clr_country_flag = USA_insurgency_start
 		set_country_flag = USA_insurgency_end
+		set_country_flag = USA_pelley_captured
+		hidden_effect = {
+			set_party_name = { 
+				ideology = fascism
+				long_name = "--"
+				name =  "--"
+			}
+			retire_character = USA_william_dudley_pelley
+		}
 	}
 }
 
@@ -531,6 +504,7 @@ country_event = { # meeting with southern governors
 	id = united_states_insurgency.8
 	title = united_states_insurgency.8.title
 	desc = united_states_insurgency.8.desc
+	picture = GFX_report_event_thomas_with_flag
 	
 	is_triggered_only = yes
 	
@@ -538,6 +512,48 @@ country_event = { # meeting with southern governors
 
 	option = {
 		name = united_states_insurgency.8.a
+	}
+}
+
+country_event = { # alex
+	id = united_states_insurgency.9
+	title = united_states_insurgency.9.title
+	desc = united_states_insurgency.9.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_insurgency.9.a
+	}
+}
+
+country_event = { # 
+	id = united_states_insurgency.10
+	title = united_states_insurgency.10.title
+	desc = united_states_insurgency.10.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_insurgency.10.a
+	}
+}
+
+country_event = { # 
+	id = united_states_insurgency.11
+	title = united_states_insurgency.11.title
+	desc = united_states_insurgency.11.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_insurgency.11.a
 	}
 }
 
@@ -739,19 +755,20 @@ country_event = { #
 
 	option = {
 		name = united_states_flavor.7.a
-		add_war_support = 0.05
+		add_war_support = 0.025
 	}
 	
 	option = {
 		name = united_states_flavor.7.b
-		add_stability = 0.05
+		add_stability = 0.025
 	}
 }
 
-country_event = { # 
+country_event = { # opening of the golden gate bridge
 	id = united_states_flavor.8
 	title = united_states_flavor.8.title
 	desc = united_states_flavor.8.desc
+	picture = GFX_report_event_golden_gate_bridge
 	
 	is_triggered_only = yes
 	
@@ -774,6 +791,7 @@ country_event = { # death of john clem
 	id = united_states_flavor.9
 	title = united_states_flavor.9.title
 	desc = united_states_flavor.9.desc
+	picture = GFX_report_event_john_clem
 	
 	is_triggered_only = yes
 	
