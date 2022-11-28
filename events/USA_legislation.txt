@@ -220,6 +220,10 @@ country_event = { # court packing plan
 		trigger = { has_country_flag = bill_passed }
 		set_country_flag = court_packing_plan_passed
 		
+		add_ideas = {
+			USA_stacked_supreme_court
+		}
+		
 		hidden_effect = {
 			every_owned_state = {
 				limit = {
@@ -1061,7 +1065,7 @@ country_event = { # naval act
 	option = { # bill passes
 		name = us_bill.22.a
 		trigger = { has_country_flag = bill_passed }
-		
+		set_country_flag = naval_act_passed
 		add_ideas = {
 			USA_naval_act
 		}

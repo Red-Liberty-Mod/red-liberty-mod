@@ -201,7 +201,7 @@ USA_congress = {
 		icon = ger_mefo_bills
 		available = {
 			NOT = {
-				has_country_flag = court_packing_act_passed
+				has_country_flag = court_packing_plan_passed
 			}
 			has_completed_focus = USA_strengthen_executive_branch
 			NOT = {
@@ -212,7 +212,7 @@ USA_congress = {
 		visible = {
 			original_tag = USA
 			NOT = {
-				has_country_flag = court_packing_act_passed
+				has_country_flag = court_packing_plan_passed
 				has_country_flag = USA_discussing_bill
 			}
 			has_completed_focus = USA_the_thomas_admin
@@ -226,7 +226,9 @@ USA_congress = {
 		complete_effect = {
 			custom_effect_tooltip = USA_bill_pass_req_tt
 			effect_tooltip = {
-				
+				add_ideas = {
+					USA_stacked_supreme_court
+				}
 			}
 			USA_judicial_reform_act_setup = yes
 		}
@@ -534,24 +536,6 @@ USA_congress = {
 		}
 	}
 	
-	start_USA_naval_act_fake = {
-		
-		icon = ger_mefo_bills
-		available = {
-			always = no
-		}
-		
-		visible = {
-			always = no
-		}
-		
-		cost = 0
-		
-		complete_effect = {
-			
-		}
-	}
-	
 	start_USA_naval_act = {
 		icon = ger_mefo_bills
 		available = {
@@ -567,7 +551,6 @@ USA_congress = {
 				has_country_flag = naval_act_passed
 				has_country_flag = USA_discussing_bill
 			}
-			date > 1938.1.1
 			has_completed_focus = USA_the_naval_act
 		}
 		
@@ -1220,7 +1203,7 @@ USA_congress = {
 		cost = 150
 		
 		available  = {
-			has_country_flag = court_packing_act_passed
+			has_country_flag = court_packing_plan_passed
    		}
 		
 		complete_effect = {

@@ -18,6 +18,22 @@ characters = {
 		}
 	}
 	
+	USA_elizabeth_flynn = {
+		name = USA_elizabeth_flynn
+		
+		portraits = {
+			army = {
+				small = "gfx/interface/ministers/USA/USA_Elizabeth_Flynn.png"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_ELIZABETH_GURLEY_FLYNN_DESC"
+			ideology = anarcho_socialism_subtype
+			traits = {  }
+		}
+	}
+	
 	USA_charles_ruthenberg = {
 		name = USA_charles_ruthenberg
 		
@@ -175,6 +191,22 @@ characters = {
 		}
 	}
 	
+	USA_alben_william_barkley = {
+		name = USA_alben_william_barkley
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_USA_alben_william_barkley"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_ALBEN_BARKLEY_DESC"
+			ideology = progressive_liberalism_subtype
+			traits = {  }
+		}
+	}
+	
 	USA_joseph_lister_hill = {
 		name = USA_joseph_lister_hill
 		
@@ -238,6 +270,47 @@ characters = {
 			traits = {  }
 		}
 	}
+	
+	### VICE PRESIDENTS ###
+	
+	USA_john_nance_garner = {
+		name = USA_john_nance_garner
+		
+		portraits = {
+			army = {
+				small = "gfx/interface/ministers/USA/USA_Cactus_Jack.png"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			
+			slot = head_of_government
+			idea_token = USA_john_nance_garner_hog
+			ledger = civilian
+			
+			cost = 0
+			removal_cost = -1
+			
+			allowed = {
+				original_tag = USA
+			}
+			
+			visible = {
+				
+			}
+			
+			available = {
+				
+			}
+			
+			traits = {
+				hog_smiling_oilman
+			}
+		}
+	}
+	
+	### MINISTERS ###
 	
 	USA_max_shachtman = {
 		name = USA_max_shachtman
@@ -473,40 +546,6 @@ characters = {
 			
 			traits = {
 				eco_naturalist
-			}
-		}
-	}
-	
-	USA_elizabeth_flynn = {
-		name = USA_elizabeth_flynn
-		
-		portraits = {
-			army = {
-				small = "gfx/interface/ministers/USA/USA_Elizabeth_Flynn.png"
-			}
-		}
-		
-		advisor = {
-			cost = 100
-			
-			slot = political_advisor
-			idea_token = USA_elizabeth_flynn
-			ledger = civilian
-			
-			allowed = {
-				original_tag = USA
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
-			traits = {
-				
 			}
 		}
 	}
@@ -1655,6 +1694,37 @@ characters = {
 			defense_skill = 2
 			maneuvering_skill = 1
 			coordination_skill = 2
+		}
+	}
+	
+	### Theorists ###
+	
+	USA_julius_robert_oppenheimer = {
+		name = USA_julius_robert_oppenheimer
+		
+		portraits = {
+			army = {
+				small = "GFX_idea_robert_oppenheimer"
+			}
+		}
+		
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = robert_oppenheimer
+			ledger = army
+			
+			allowed = {
+				original_tag = USA
+			}
+			
+			research_bonus = {
+				nuclear = 0.15
+			}
+			
+			traits = {
+				nuclear_scientist
+			}
 		}
 	}
 }
