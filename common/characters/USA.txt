@@ -1379,6 +1379,7 @@ characters = {
 		portraits = {
 			army = {
 				large = "gfx/leaders/USA/Portrait_USA_Fox_Conner.png"
+				small = "gfx/interface/ministers/USA/military/USA_Fox_Conner.png"
 			}
 		}
 		
@@ -1391,6 +1392,26 @@ characters = {
 			logistics_skill = 2
 			legacy_id = 14
 		}
+		
+		advisor = {
+			cost = 100
+			
+			slot = high_command
+			idea_token = USA_fox_conner_high_command
+			ledger = army
+			
+			allowed = {
+				original_tag = USA
+			}
+			
+			available = {
+				
+			}
+			
+			traits = {
+				army_logistics_2
+			}
+		}
 	}
 	
 	USA_frank_maxwell_andrews = {
@@ -1399,6 +1420,7 @@ characters = {
 		portraits = {
 			army = {
 				large = "gfx/leaders/USA/Portrait_USA_Frank_Maxwell_Andrews.png"
+				small = "gfx/interface/ministers/USA/military/USA_Frank_Maxwell_Andrews.png"
 			}
 		}
 		
@@ -1439,6 +1461,7 @@ characters = {
 		portraits = {
 			army = {
 				large = "gfx/leaders/USA/Portrait_USA_Oscar_Westover.png"
+				small = "gfx/interface/ministers/USA/military/USA_Oscar_Westover.png"
 			}
 		}
 		
@@ -1543,6 +1566,10 @@ characters = {
 				original_tag = USA
 			}
 			
+			available = {
+				not_already_hired_except_as = navy_chief
+			}
+			
 			traits = {
 				navy_carrier_2
 			}
@@ -1561,6 +1588,22 @@ characters = {
 			defense_skill = 3
 			maneuvering_skill = 3
 			coordination_skill = 6
+		}
+		
+		advisor = {
+			cost = 100
+			
+			slot = theorist
+			idea_token = USA_ernest_joseph_king_theorist
+			ledger = navy
+			
+			available = {
+				not_already_hired_except_as = theorist
+				has_completed_focus = USA_naval_air
+			}
+			traits = {
+				naval_aviation_pioneer
+			}
 		}
 	}
 	
@@ -1650,7 +1693,7 @@ characters = {
 		portraits = {
 			army = {
 				large = "gfx/leaders/USA/Portrait_USA_Frank_J_Fletcher.png"
-				#small = "gfx/interface/advisors/USA/USA_frank_jack_fletcher.png"
+				small = "gfx/interface/ministers/USA/military/USA_Frank_Jack_Fletcher.png"
 			}
 		}
 		

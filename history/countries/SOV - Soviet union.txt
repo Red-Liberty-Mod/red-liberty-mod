@@ -45,16 +45,6 @@ set_technology = {
 }
 if = {
 	limit = {
-		NOT = { has_dlc = "No Step Back" }
-	}
-	set_technology = {
-		gwtank = 1
-		basic_light_tank = 1
-		basic_heavy_tank = 1
-	}
-}
-if = {
-	limit = {
 		has_dlc = "No Step Back"
 	}
 	set_technology = {
@@ -63,6 +53,13 @@ if = {
 		improved_light_tank_chassis = 1
 		engine_tech_1 = 1
 		engine_tech_2 = 1
+	}
+	else = {
+		set_technology = {
+			gwtank = 1
+			basic_light_tank = 1
+			basic_heavy_tank = 1
+		}
 	}
 }
 if = {
@@ -146,27 +143,29 @@ set_variable = { SOV_parliament_seats = 542 } # max is 542
 SOV_recalc_parliament = yes
 SOV_refresh_parliament = yes
 
-add_ideas = {
-	SOV_home_of_the_revolution
-	SOV_political_turmoil
-	SOV_nep
-	SOV_tsarist_captives
-}
-set_country_flag = conscription_banned
-
 ### LEADERS ###
 recruit_character = SOV_nikolai_bukharin
 recruit_character = SOV_alexander_bogdanov
 recruit_character = SOV_sergei_kirov
 recruit_character = SOV_joseph_stalin
 
+### MINISTERS ###
+recruit_character = SOV_mikhail_kalinin
+
 ### GENERALS ###
 recruit_character = SOV_mikhail_tukhachevsky
 
-add_namespace = {
-	name = "unit_leader_sov"
-	type = unit_leader
+add_ideas = {
+	SOV_home_of_the_revolution
+	SOV_political_turmoil
+	SOV_nep
+	SOV_tsarist_captives
+	
+	SOV_mikhail_kalinin_hog
 }
+set_country_flag = conscription_banned
+
+
 
 create_field_marshal = {
 	name = "Kliment Voroshilov"
