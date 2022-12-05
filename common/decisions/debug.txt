@@ -239,7 +239,7 @@ debug_category = {
 		}
 	}
 	
-	debug_end_election = {
+	debug_end_class_1_election = {
 	
 		icon = generic_political_discourse
 		
@@ -260,7 +260,68 @@ debug_category = {
 		
 		complete_effect = {
 			USA_class_1_senate_prepare = yes
-			#USA_recalculate_polls = yes
+			
+			USA_hold_senate_election = yes
+			
+			USA_prepare_presidential_election = yes
+			
+			USA_hold_presidential_election = yes
+			set_country_flag = USA_presidential_conclusion
+		}
+	}
+	
+	debug_end_class_2_election = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			tag = USA
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = USA
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			USA_class_2_senate_prepare = yes
+			
+			USA_hold_senate_election = yes
+			
+			USA_prepare_presidential_election = yes
+			
+			USA_hold_presidential_election = yes
+			set_country_flag = USA_presidential_conclusion
+		}
+	}
+	
+	debug_end_class_3_election = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			tag = USA
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = USA
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			USA_class_3_senate_prepare = yes
 			
 			USA_hold_senate_election = yes
 			
