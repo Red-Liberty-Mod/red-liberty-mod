@@ -19,6 +19,26 @@ ideas = {
 			}
 		}
 		
+		GEO_anti_german_unrest_1 = {
+			name = GEO_anti_german_unrest
+			desc = GEO_anti_german_unrest_desc
+		
+			removal_cost = -1
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = {
+				always = no
+			}
+			
+			modifier = {
+				stability_factor = -0.25
+				political_power_gain = -0.4
+			}
+		}
+		
 		GEO_beset_on_all_sides = {
 		
 			removal_cost = -1
@@ -68,13 +88,13 @@ ideas = {
 			}
 			
 			modifier = {
-				production_factory_max_efficiency_factor = 0.15
-				line_change_production_efficiency_factor = 0.15
-				production_speed_industrial_complex_factor = 0.15
+				production_speed_industrial_complex_factor = 0.05
 			}
 		}
 		
-		GEO_starting_industrialization = {
+		GEO_georgian_industrial_revolution_1 = {
+			name = GEO_georgian_industrial_revolution
+			deac = GEO_georgian_industrial_revolution_Desc
 		
 			removal_cost = -1
 			
@@ -87,10 +107,8 @@ ideas = {
 			}
 			
 			modifier = {
-				production_speed_buildings_factor = 0.15
-				industrial_capacity_factory = 0.05
-				production_oil_factor = 0.05
-				production_factory_efficiency_gain_factor = 0.15
+				production_speed_industrial_complex_factor = 0.05
+				consumer_goods_factor = -0.05
 			}
 		}
 		
@@ -107,7 +125,8 @@ ideas = {
 			}
 			
 			modifier = {
-				recruitable_population_factor = 0.015
+				conscription_factor = 0.05
+				monthly_population = 0.05
 			}
 		}
 		
@@ -126,27 +145,7 @@ ideas = {
 			modifier = {
 				stability_factor = 0.1
 				production_factory_efficiency_gain_factor = -0.05
-				production_factory_start_efficiency_factor = 0.15
-			}
-		}
-		
-		GEO_continued_industrialization = {
-		
-			removal_cost = -1
-			
-			allowed = {
-				always = no
-			}
-			
-			allowed_civil_war = {
-				always = yes
-			}
-			
-			modifier = {
-				production_factory_max_efficiency_factor = 0.1
-				production_factory_efficiency_gain_factor = 0.1
-				equipment_conversion_speed = 0.1
-				consumer_goods_factor = -0.05
+				production_factory_start_efficiency_factor = 0.05
 			}
 		}
 		
@@ -217,8 +216,8 @@ ideas = {
 			}
 			
 			modifier = {
-				stability_weekly = 0.02
-				war_support_weekly = 0.02
+				stability_weekly = 0.002
+				war_support_weekly = 0.002
 			}
 		}
 		

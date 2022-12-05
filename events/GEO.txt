@@ -6,14 +6,9 @@ country_event = {
 	desc = georgia.1.desc
 	picture = GFX_report_event_revolutions
 	
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	
 	fire_only_once = yes
-	
-	trigger = {
-		tag = GEO
-		date < 1936.1.8
-	}
 
 	option = { # The People's Concerns are Real
 		name = georgia.1.a
@@ -39,8 +34,6 @@ country_event = {
 	}
 }
 
-
-
 country_event = {
 	id = georgia.2 # The Free Georgian League Demands Referendum
 	title = georgia.2.title
@@ -63,8 +56,6 @@ country_event = {
 	}
 }
 
-
-
 country_event = {
 	id = georgia.3 # Referendum For Leaving Warschaur Pakt
 	title = georgia.3.title
@@ -85,7 +76,6 @@ country_event = {
 			}
 		}
 	}
-	
 	
 	option = { # The Referendum Fails!"
 		name = georgia.3.b
@@ -115,19 +105,12 @@ country_event = {
 		ai_chance = { factor = 100 }
 		hidden_effect = {
 			set_politics = {
-			ruling_party = progressive_liberalism
-			elections_allowed = yes
-						}
+				ruling_party = progressive_liberalism
+				elections_allowed = yes
+			}
 			GER = { remove_from_faction = GEO }
 			add_opinion_modifier = { target = GER modifier = large_decrease }
 			remove_ideas = GEO_anti_german_unrest
-			create_country_leader = {
-			name = "Noe Ramishvili"
-			desc = ""
-			picture = ""
-			expire = "1965.1.1"
-			ideology = progressive_liberalism_subtype
-			}
 		}
 	}
 }
@@ -238,23 +221,25 @@ country_event = {
 		name = georgia.8.a
 		ai_chance = { factor = 95 }
 		hidden_effect = {
-			GEO = { country_event = {
-				id = georgia.9
-				days = 5
+			GEO = {
+				country_event = {
+					id = georgia.9
+					days = 5
+				}
 			}
 		}
 	}
-}
 	
 	option = { # It Is Not Worth The Effort
 		name = georgia.8.b
 		ai_chance = { factor = 5 }
 		hidden_effect = {
-			GEO = {country_event = {
-				id = georgia.10
-				days = 5
+			GEO = {
+				country_event = {
+					id = georgia.10
+					days = 5
+				}
 			}
-		}
 		}
 	}
 }
@@ -320,12 +305,12 @@ country_event = {
 		name = georgia.11.a
 		ai_chance = { factor = 100 }
 		hidden_effect = {
-				GER = { remove_from_faction = GEO }
+			GER = { remove_from_faction = GEO }
 			add_opinion_modifier = { target = GER modifier = large_decrease }
 			remove_ideas = GEO_anti_german_unrest
-			}
 		}
 	}
+}
 
 
 
@@ -453,19 +438,14 @@ country_event = {
 	option = { # So Long Democracy
 		name = georgia.16.a
 		ai_chance = { factor = 100 }
-		hidden_effect = {
-			add_ideas = GEO_georgian_terror
-			set_politics = {
-			ruling_party = far_right_authoritarianism
-			elections_allowed = no
-						}
+		
 		remove_ideas = GEO_anti_german_unrest
-		create_country_leader = {
-			name = "Georgian Military Government"
-			desc = ""
-			picture = ""
-			expire = "1965.1.1"
-			ideology = far_right_authoritarianism_subtype
+		add_ideas = GEO_georgian_terror
+		
+		hidden_effect = {
+			set_politics = {
+				ruling_party = far_right_authoritarianism
+				elections_allowed = no
 			}
 		}
 	}
@@ -487,19 +467,12 @@ country_event = {
 		ai_chance = { factor = 100 }
 		hidden_effect = {
 			set_politics = {
-			ruling_party = progressive_liberalism
-			elections_allowed = yes
-						}
+				ruling_party = progressive_liberalism
+				elections_allowed = yes
+			}
 			GER = { remove_from_faction = GEO }
 			add_opinion_modifier = { target = GER modifier = large_decrease }
 			remove_ideas = GEO_anti_german_unrest
-			create_country_leader = {
-			name = "Noe Ramishvili"
-			desc = ""
-			picture = ""
-			expire = "1965.1.1"
-			ideology = progressive_liberalism_subtype
-			}
 		}
 	}
 }
@@ -519,19 +492,14 @@ country_event = {
 		ai_chance = { factor = 100 }
 		hidden_effect = {
 			set_politics = {
-			ruling_party = progressive_liberalism
-			elections_allowed = yes
-						}
+				ruling_party = progressive_liberalism
+				elections_allowed = yes
+			}
+			reset_coalition = yes
+			
 			GER = { remove_from_faction = GEO }
 			add_opinion_modifier = { target = GER modifier = large_decrease }
 			remove_ideas = GEO_anti_german_unrest
-			create_country_leader = {
-			name = "Noe Ramishvili"
-			desc = ""
-			picture = ""
-			expire = "1965.1.1"
-			ideology = progressive_liberalism_subtype
-			}
 		}
 	}
 }
@@ -551,12 +519,13 @@ country_event = {
 		ai_chance = { factor = 100 }
 		hidden_effect = {
 			GER = { puppet = GEO }
+			
 			create_country_leader = {
-			name = "German Occupation Government"
-			desc = ""
-			picture = "gfx/leaders/GEO/Portrait_GEO_German_Occupation_Government.png"
-			expire = "1965.1.1"
-			ideology = authoritarian_democracy_subtype
+				name = "German Occupation Government"
+				desc = ""
+				picture = "gfx/leaders/GEO/Portrait_GEO_German_Occupation_Government.png"
+				expire = "1965.1.1"
+				ideology = authoritarian_democracy_subtype
 			}
 		}
 	}
@@ -582,18 +551,9 @@ country_event = {
 
 	option = { # May Zhordania Honor You
 		name = georgia.20.a
+		retire_country_leader = yes
+		
 		ai_chance = { factor = 100 }
-		hidden_effect = {
-			retire_country_leader = yes
-			create_country_leader = {
-			name = "Noe Zhordania"
-			desc = ""
-			picture = "gfx/leaders/GEO/Portrait_GEO_Noe_Zhordania.png"
-			expire = "1965.1.1"
-			ideology = progressive_liberalism_subtype
-			}
-			
-		}
 	}
 }
 
@@ -662,7 +622,7 @@ country_event = {
 		name = georgia.22.a
 		ai_chance = { factor = 50 }
 		hidden_effect = {
-		add_stability = -0.2
+			add_stability = -0.2
 		}
 	}
 	
@@ -670,9 +630,9 @@ country_event = {
 		name = georgia.22.b
 		ai_chance = { factor = 50 }
 		hidden_effect = {
-		add_popularity = {
-			ideology = libertarian_socialism
-			popularity = 0.07
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = 0.07
 			}
 		}
 	}

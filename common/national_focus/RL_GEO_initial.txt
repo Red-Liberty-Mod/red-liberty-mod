@@ -1,0 +1,1389 @@
+shared_focus = {
+    id = GEO_georgian_industrial_revolution
+	icon = GFX_goal_generic_production2
+	
+    x = 18
+	y = 0
+	
+	cost = 10
+    completion_reward = {
+        add_ideas = GEO_georgian_industrial_revolution
+    }
+	
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = GEO_the_first_steps
+	icon = GFX_goal_generic_production
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = GEO_georgian_industrial_revolution
+	prerequisite = { focus = GEO_georgian_industrial_revolution }
+	
+    completion_reward = {
+        add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = industry
+		}
+    }
+	
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+	id = GEO_support_urbanization
+	icon = GFX_focus_SOV_merge_plants
+	
+	x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = GEO_the_first_steps
+	prerequisite = { focus = GEO_the_first_steps }
+	completion_reward = {
+		add_ideas = GEO_urbanization_effort
+	}
+	
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+	id = GEO_improve_georgian_infastructure
+	icon = GFX_goal_generic_construct_infrastructure
+	
+	x = 1
+	y = 1
+	
+	cost = 5
+	prerequisite = { focus = GEO_the_first_steps }
+	relative_position_id = GEO_the_first_steps
+
+	completion_reward = {
+		231 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		890 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+		
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+	id = GEO_expand_the_tbilisi_factory_district
+	icon = GFX_GER_fixing_the_economy
+	
+	x = 0
+	y = 2
+	
+	cost = 5
+	prerequisite = { focus = GEO_the_first_steps }
+	relative_position_id = GEO_the_first_steps
+
+	completion_reward = {
+		231 = {
+			add_building_construction = {
+				type = 	industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+	id = GEO_improve_working_conditions
+	icon = GFX_USA_6_hour_day
+	
+	x = 3
+	y = 1
+	
+	cost = 5
+	prerequisite = { focus = GEO_the_first_steps }
+	relative_position_id = GEO_the_first_steps
+	
+	completion_reward = {
+		add_ideas = GEO_improved_working_conditions
+	}
+	
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+	id = GEO_build_black_sea_dockyards
+	icon = GFX_focus_POL_develop_polish_shipbuilding
+	
+	x = -3
+	y = 1
+	
+	cost = 5
+	prerequisite = { focus = GEO_the_first_steps }
+	relative_position_id = GEO_the_first_steps
+
+	completion_reward = {
+		966 = { 
+			add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+	id = GEO_military_industrilization
+	icon = GFX_goal_generic_construct_mil_factory
+	
+	x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = GEO_build_black_sea_dockyards
+	prerequisite = { focus = GEO_build_black_sea_dockyards }
+	prerequisite = { focus = GEO_support_urbanization }
+
+	completion_reward = {
+		231 = {
+			add_building_construction = {
+				type = 	arms_factory
+				level = 1
+				instant_build = yes
+			} 
+		}	
+	}
+	
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+	id = GEO_expand_georgian_airports
+	icon = GFX_goal_generic_air_fighter
+	
+	x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = GEO_improve_georgian_infastructure
+	prerequisite = { focus = GEO_improve_georgian_infastructure }
+	prerequisite = { focus = GEO_improve_working_conditions }
+
+	completion_reward = {
+		231 = {
+			add_building_construction = {
+				type = 	air_base
+				level = 2
+				instant_build = yes
+			} 
+		}
+	}
+	
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+		
+	ai_will_do = {
+		factor = 1
+	}
+}
+	
+shared_focus = {
+	id = GEO_the_final_steps
+	icon = GFX_focus_SOV_organize_wreckers
+	
+	x = 0
+	y = 1
+	
+	cost = 10
+	prerequisite = { focus = GEO_expand_the_tbilisi_factory_district }
+	prerequisite = { focus = GEO_expand_georgian_airports }
+	prerequisite = { focus = GEO_military_industrilization }
+	relative_position_id = GEO_expand_the_tbilisi_factory_district
+
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = GEO_georgian_industrial_revolution
+			add_idea = GEO_georgian_industrial_revolution_1
+		}
+	}
+	
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+	
+##########################
+####Free Republic Tree####
+##########################
+	
+shared_focus = {
+	id = GEO_finally_free
+	icon = GFX_GER_towards_a_brighter_future
+	
+	x = 3
+	y = 0
+	
+	cost = 10	
+
+	available = {
+		has_government = progressive_liberalism
+	}
+
+	completion_reward = {
+		add_political_power = 150
+	}
+	
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+	
+shared_focus = {
+	id = GEO_see_the_german_soldiers_off
+	icon = GFX_GER_the_death_of_the_kaiser
+	
+	x = 0
+	y = 1
+	
+	cost = 10
+	prerequisite = { focus = GEO_finally_free }
+	relative_position_id = GEO_finally_free
+	
+	completion_reward = {
+		add_opinion_modifier = { target = GER modifier = large_decrease }
+		reverse_add_opinion_modifier = {
+			target = GER
+			modifier = faction_traitor
+		}
+	}
+	
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+	
+shared_focus = {
+	id = GEO_deal_with_the_other_problems
+	icon = GFX_FRA_free_the_masses
+	
+	x = 2
+	y = 1
+	
+	cost = 10
+	prerequisite = { focus = GEO_see_the_german_soldiers_off }
+	relative_position_id = GEO_see_the_german_soldiers_off
+
+	completion_reward = {
+		add_stability = 0.05
+	}
+		
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+		
+	ai_will_do = {
+		factor = 1
+	}
+}
+	
+	shared_focus = {
+		id = GEO_strike_a_deal_with_the_trade_unions
+		icon = GFX_USA_preparing_our_agenda
+		prerequisite = { focus = GEO_deal_with_the_other_problems }
+		mutually_exclusive = { focus =  }
+		cost = 10
+		x = 1
+		y = 1
+		relative_position_id = GEO_deal_with_the_other_problems
+		
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+		country_event = {
+				id = georgia.21
+				days = 1
+			}
+		}
+	}
+	
+	shared_focus = {
+		id = GEO_hunt_down_the_reactionaries
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = GEO_deal_with_the_other_problems }
+		mutually_exclusive = { focus =  }
+		cost = 10
+		x = -1
+		y = 1
+		relative_position_id = GEO_deal_with_the_other_problems
+		
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = progressive_liberalism
+				popularity = 0.09
+			}		
+			add_stability = -0.05
+		}
+	}
+	
+	shared_focus = {
+		id = GEO_georgia_united_and_strong
+		icon = GFX_WGR_republican_army
+		prerequisite = { focus = GEO_hunt_down_the_reactionaries }
+		prerequisite = { focus = GEO_strike_a_deal_with_the_trade_unions }
+		mutually_exclusive = { focus =  }
+		cost = 10
+		x = 1
+		y = 1
+		relative_position_id = GEO_hunt_down_the_reactionaries
+		
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+		add_timed_idea = { idea = GEO_united_and_strong days = 180 }
+		}
+	}
+	
+	shared_focus = {
+		id = GEO_fortify_the_russian_border
+		icon = GFX_focus_SOV_rebuild_the_savior_cathedral
+		prerequisite = { focus = GEO_see_the_german_soldiers_off }
+		mutually_exclusive = { focus =  }
+		cost = 10
+		x = -2
+		y = 1
+		relative_position_id = GEO_see_the_german_soldiers_off
+		
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+	completion_reward = {
+		231 = {
+			add_building_construction = {
+				type = bunker
+				level = 1
+				instant_build = yes
+				province = 9663
+			}
+			add_building_construction = {
+				type = bunker
+				level = 1
+				instant_build = yes
+				province = 11647
+			}
+			add_building_construction = {
+				type = bunker
+				level = 1
+				instant_build = yes
+				province = 11617
+			}
+			add_building_construction = {
+				type = bunker
+				level = 1
+				instant_build = yes
+				province = 672
+			}
+			add_building_construction = {
+				type = bunker
+				level = 1
+				instant_build = yes
+				province = 654
+			}
+			add_building_construction = {
+				type = bunker
+				level = 1
+				instant_build = yes
+				province = 9626
+			}
+			add_building_construction = {
+				type = bunker
+				level = 1
+				instant_build = yes
+				province = 1530
+			}
+			add_building_construction = {
+				type = bunker
+				level = 1
+				instant_build = yes
+				province = 4534
+			}
+			add_building_construction = {
+				type = bunker
+				level = 1
+				instant_build = yes
+				province = 6436
+			}
+			add_building_construction = {
+				type = bunker
+				level = 1
+				instant_build = yes
+				province = 6763
+			}
+		}
+	}
+}
+
+
+	
+	shared_focus = {
+		id = GEO_fortify_the_anatolian_border
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = GEO_fortify_the_russian_border }
+		mutually_exclusive = { focus =  }
+		cost = 10
+		x = -1
+		y = 1
+		relative_position_id = GEO_fortify_the_russian_border
+		
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+	completion_reward = {
+			add_building_construction = {
+				type = bunker
+				level = 1
+				instant_build = yes
+				province = 7454
+			}
+			add_building_construction = {
+				type = bunker
+				level = 1
+				instant_build = yes
+				province = 10403
+			}
+			add_building_construction = {
+				type = bunker
+				level = 1
+				instant_build = yes
+				province = 6669
+			}
+			add_building_construction = {
+				type = bunker
+				level = 1
+				instant_build = yes
+				province = 9702
+			}
+			add_building_construction = {
+				type = bunker
+				level = 1
+				instant_build = yes
+				province = 12380
+			}
+		}
+	}
+	
+	shared_focus = {
+		id = GEO_fortify_the_azeri_border
+		icon = ITA_prepare_defenses_on_the_german_border
+		prerequisite = { focus = GEO_fortify_the_russian_border }
+		mutually_exclusive = { focus =  }
+		cost = 10
+		x = 1
+		y = 1
+		relative_position_id = GEO_fortify_the_russian_border
+		
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			add_building_construction = {
+				type = bunker
+				level = 1
+				instant_build = yes
+				province = 1559
+				}
+			add_building_construction = {
+				type = bunker
+				level = 1
+				instant_build = yes
+				province = 12309
+				}
+			add_building_construction = {
+				type = bunker
+				level = 1
+				instant_build = yes
+				province = 4605
+				}
+		}
+	}
+	
+	shared_focus = {
+		id = GEO_fortress_georgia
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = GEO_fortify_the_azeri_border }
+		prerequisite = { focus = GEO_fortify_the_anatolian_border }
+		mutually_exclusive = { focus =  }
+		cost = 10
+		x = -1
+		y = 1
+		relative_position_id = GEO_fortify_the_azeri_border
+		
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			add_ideas = GEO_fortress_georgia
+		}
+	}
+	
+	shared_focus = {
+		id = GEO_the_tbilisi_adress
+		icon = ITA_the_freedom_of_speech_is_fundamental
+		prerequisite = { focus = GEO_fortress_georgia }
+		prerequisite = { focus = GEO_georgia_united_and_strong }
+		mutually_exclusive = { focus =  }
+		cost = 10
+		x = -2
+		y = 1
+		relative_position_id = GEO_georgia_united_and_strong
+		
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			country_event = {
+				id = georgia.22
+				days = 1
+			}
+		}
+	}
+	
+	shared_focus = {
+		id = GEO_the_new_constititution
+		icon = ITA_draft_a_new_constitution
+		prerequisite = { focus = GEO_the_tbilisi_adress }
+		mutually_exclusive = { focus =  }
+		cost = 10
+		x = 0
+		y = 1
+		relative_position_id = GEO_the_tbilisi_adress
+		
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			add_stability = 0.15
+		}
+	}
+
+
+##########################
+####German Puppet Path####
+##########################
+
+shared_focus = {
+	id = GEO_under_the_german_boot
+	icon = GFX_GER_the_imperial_economic_plan
+	
+	x = 10
+	y = 0
+	
+	cost = 10
+	available = {
+		has_government = authoritarian_democracy
+	}
+
+	completion_reward = {
+		add_political_power = 100
+	}
+	
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+	
+shared_focus = {
+	id = GEO_welcome_the_soldiers_in
+	icon = GFX_GER_reichskanzlei_goebbels
+	
+		prerequisite = { focus = GEO_under_the_german_boot }
+		mutually_exclusive = { focus =  }
+		cost = 5
+		x = 0
+		y = 1
+		relative_position_id = GEO_under_the_german_boot
+		
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+	completion_reward = {
+		add_opinion_modifier = { target = GER modifier = large_increase }
+		reverse_add_opinion_modifier = {
+			target = GER
+			modifier = large_increase
+		}
+		add_war_support = -0.05
+	}
+}
+	
+	shared_focus = {
+		id = GEO_the_stability_act
+		icon = GFX_FRA_free_the_masses
+		prerequisite = { focus = GEO_welcome_the_soldiers_in }
+		mutually_exclusive = { focus =  }
+		cost = 5
+		x = 3
+		y = 1
+		relative_position_id = GEO_welcome_the_soldiers_in
+		
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			country_event = {
+				id = georgia.23
+				days = 0
+			}
+		}
+	}
+	
+	shared_focus = {
+		id = GEO_draft_the_articles_of_loyalty
+		icon = GFX_GER_meeting_with_the_kaiser
+		prerequisite = { focus = GEO_the_stability_act }
+		mutually_exclusive = { focus =  }
+		cost = 5
+		x = 0
+		y = 1
+		relative_position_id = GEO_the_stability_act
+		
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			country_event = {
+				id = georgia.24
+				days = 0
+			}
+		}
+	}
+	
+	shared_focus = {
+		id = GEO_georgia_forever_in_germanys_debt
+		icon = GFX_GER_paying_what_little_we_can
+		prerequisite = { focus = GEO_draft_the_articles_of_loyalty }
+		mutually_exclusive = { focus =  }
+		cost = 5
+		x = 0
+		y = 1
+		relative_position_id = GEO_draft_the_articles_of_loyalty
+		
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			add_political_power = -100
+			add_stability = 0.05
+		}
+	}
+	
+	shared_focus = {
+		id = GEO_declare_a_state_of_emergancy
+		icon = GFX_GER_announce_the_german_security_act
+		prerequisite = { focus = GEO_welcome_the_soldiers_in }
+		mutually_exclusive = { focus =  }
+		cost = 5
+		x = 0
+		y = 1
+		relative_position_id = GEO_welcome_the_soldiers_in
+		
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			add_ideas = GEO_a_state_of_emergency
+		}
+	}
+	
+	shared_focus = {
+		id = GEO_crack_down_on_resistance
+		icon = GFX_WGR_recruitment
+		prerequisite = { focus = GEO_declare_a_state_of_emergancy }
+		prerequisite = { focus = GEO_the_stability_act }
+		mutually_exclusive = { focus =  }
+		cost = 5
+		x = 1
+		y = 1
+		relative_position_id = GEO_declare_a_state_of_emergancy
+		
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = GEO_anti_german_unrest
+				add_idea = GEO_anti_german_unrest_1
+			}
+		}
+	}
+	
+	shared_focus = {
+		id = GEO_hunt_down_the_FGL_leaders
+		icon = GFX_FRA_eternal_terror
+		prerequisite = { focus = GEO_crack_down_on_resistance }
+		mutually_exclusive = { focus =  }
+		cost = 5
+		x = 0
+		y = 1
+		relative_position_id = GEO_crack_down_on_resistance
+		
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			country_event = {
+				id = georgia.26
+				days = 10
+			}
+		}
+	}
+	
+	shared_focus = {
+		id = GEO_a_safe_and_stable_state
+		icon = GFX_ITA_purge_the_unloyal_blackshirts
+		prerequisite = { focus = GEO_hunt_down_the_FGL_leaders }
+		prerequisite = { focus = GEO_georgia_forever_in_germanys_debt }
+		mutually_exclusive = { focus =  }
+		cost = 10
+		x = 1
+		y = 1
+		relative_position_id = GEO_hunt_down_the_FGL_leaders
+		
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			hidden_effect = { add_stability = 0.05 }
+			custom_effect_tooltip = GEO_safe_and_stable_state_tooltip
+		}
+	}
+	
+	shared_focus = {
+		id = GEO_suspend_elections
+		icon = GFX_ITA_the_war_against_democracies
+		prerequisite = { focus = GEO_welcome_the_soldiers_in }
+		mutually_exclusive = { focus =  }
+		cost = 5
+		x = -2
+		y = 1
+		relative_position_id = GEO_welcome_the_soldiers_in
+		
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			country_event = {
+				id = georgia.25
+				days = 0
+			}
+		}
+	}
+	
+	shared_focus = {
+		id = GEO_democracy_is_a_luxury_we_cant_afford
+		icon = GFX_FRA_empower_the_far_right_gamer
+		prerequisite = { focus = GEO_suspend_elections }
+		mutually_exclusive = { focus =  }
+		cost = 5
+		x = 0
+		y = 1
+		relative_position_id = GEO_suspend_elections
+		
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			add_stability = -0.05
+			add_political_power = 100
+		}
+	}
+	
+	shared_focus = {
+		id = GEO_restore_a_georgian_to_power
+		icon = ITA_prepare_for_the_liberation_of_europe
+		prerequisite = { focus = GEO_democracy_is_a_luxury_we_cant_afford }
+		mutually_exclusive = { focus = GEO_keep_the_occupation_government }
+		cost = 5
+		x = -1
+		y = 1
+		relative_position_id = GEO_democracy_is_a_luxury_we_cant_afford
+		
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = GEO_restore_georgian_leadership_tooltip
+			hidden_effect = {
+				add_stability = 0.1
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Victor Tevzaia"
+					desc = ""
+					picture = "gfx/leaders/GEO/Portrait_GEO_Victor_Tevzaia.png"
+					expire = "1965.1.1"
+					ideology = authoritarian_democracy_subtype
+				}
+			}
+		}
+	}
+	
+	shared_focus = {
+		id = GEO_keep_the_occupation_government
+		icon = GFX_WGR_chain_of_command
+		prerequisite = { focus = GEO_democracy_is_a_luxury_we_cant_afford }
+		mutually_exclusive = { focus = GEO_restore_a_georgian_to_power }
+		cost = 5
+		x = 1
+		y = 1
+		relative_position_id = GEO_democracy_is_a_luxury_we_cant_afford
+		
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		
+		
+		complete_tooltip = {
+			
+		}
+
+		completion_reward = {
+		custom_effect_tooltip = GEO_continue_occupation_tootltip
+			hidden_effect = {
+				add_stability = -0.15
+				GEO = { set_country_flag = GEO_occupation_government }
+			}
+		}
+	}
+	
+	shared_focus = {
+		id = GEO_stable_and_secure
+		icon = GFX_GER_establishing_contact_with_inside_men
+		prerequisite = { focus = GEO_keep_the_occupation_government focus = GEO_restore_a_georgian_to_power }
+		mutually_exclusive = { focus =  }
+		cost = 10
+		x = -1
+		y = 1
+		relative_position_id = GEO_keep_the_occupation_government
+		
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+		custom_effect_tooltip = GEO_stable_and_secure_tooltip
+			hidden_effect = { add_stability = 0.05 }
+		}
+	}
+	
+	shared_focus = {
+		id = GEO_germanys_ally_forevermore
+		icon = GFX_GER_kaiser_wilhelm_ii_man
+		prerequisite = { focus = GEO_stable_and_secure }
+		prerequisite = { focus = GEO_a_safe_and_stable_state }
+		mutually_exclusive = { focus =  }
+		cost = 10
+		x = -2
+		y = 1
+		relative_position_id = GEO_a_safe_and_stable_state
+		
+		
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+		custom_effect_tooltip = GEO_best_friends_forever_tooltip
+			hidden_effect = { add_war_support = 0.08
+			add_stability = 0.02 }
+		}
+	}
+
