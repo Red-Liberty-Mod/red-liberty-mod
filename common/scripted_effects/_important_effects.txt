@@ -249,7 +249,7 @@ clr_opinion_modifiers = {
 		target = PREV
 		modifier = RL_same_ideology
 	}
-	PREV = {
+	ROOT = {
 		remove_opinion_modifier = {
 			target = PREV
 			modifier = RL_similar_ideology_close
@@ -284,10 +284,18 @@ setup_opinion_modifiers = {
 			target = ROOT
 			modifier = RL_same_ideology
 		}
+		reverse_add_opinion_modifier = {
+			target = ROOT
+			modifier = RL_same_ideology
+		}
 	}
 	else_if = {
 		limit = { has_similar_close_govt_to_ROOT = yes }
 		add_opinion_modifier = {
+			target = ROOT
+			modifier = RL_similar_ideology_close
+		}
+		reverse_add_opinion_modifier = {
 			target = ROOT
 			modifier = RL_similar_ideology_close
 		}
@@ -298,10 +306,18 @@ setup_opinion_modifiers = {
 			target = ROOT
 			modifier = RL_similar_ideology
 		}
+		reverse_add_opinion_modifier = {
+			target = ROOT
+			modifier = RL_similar_ideology
+		}
 	}
 	else_if = {
 		limit = { has_similar_distant_govt_to_ROOT = yes }
 		add_opinion_modifier = {
+			target = ROOT
+			modifier = RL_similar_ideology_distant
+		}
+		reverse_add_opinion_modifier = {
 			target = ROOT
 			modifier = RL_similar_ideology_distant
 		}
@@ -312,9 +328,17 @@ setup_opinion_modifiers = {
 			target = ROOT
 			modifier = RL_different_ideology_close
 		}
+		reverse_add_opinion_modifier = {
+			target = ROOT
+			modifier = RL_different_ideology_close
+		}
 	}
 	else = {
 		add_opinion_modifier = {
+			target = ROOT
+			modifier = RL_different_ideology
+		}
+		reverse_add_opinion_modifier = {
 			target = ROOT
 			modifier = RL_different_ideology
 		}

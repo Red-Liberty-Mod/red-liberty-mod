@@ -154,6 +154,24 @@ has_similar_distant_govt_to_ROOT = {
 			ROOT = { has_government = social_democracy }
 		}
 		AND = {
+			has_government = progressive_liberalism
+			ROOT = {
+				OR = {
+					has_government = market_libertarianism
+					has_government = national_conservatism
+					has_government = authoritarian_democracy
+				}
+			}
+		}
+		AND = {
+			OR = {
+				has_government = market_libertarianism
+				has_government = national_conservatism
+				has_government = authoritarian_democracy
+			}
+			ROOT = { has_government = progressive_liberalism }
+		}
+		AND = {
 			has_government = market_libertarianism
 			ROOT = {
 				OR = {

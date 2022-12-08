@@ -1,8 +1,19 @@
 debug_category = {
 	icon = usa_congress
 	
-	allowed = {
+	visible = {
 		is_debug = yes
+		NOT = {
+			has_country_flag = debug_disabled
+		}
+	}
+}
+
+USA_debug_category = {
+	icon = usa_congress
+	
+	allowed = {
+		original_tag = USA
 	}
 	visible = {
 		is_debug = yes

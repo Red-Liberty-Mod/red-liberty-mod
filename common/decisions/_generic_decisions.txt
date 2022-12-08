@@ -73,26 +73,22 @@ economy_decisions = {
 
 propaganda_efforts = {
 
-	war_propaganda = { 
+	war_propaganda = {
 
 		icon = generic_prepare_civil_war
 
 		available = {
-			NOT = { has_country_flag = war_propaganda_campaign_running }
 			has_war_support < 0.5
+			OR = {
+				has_war = yes
+				any_neighbor_country = {
+					has_war = yes
+				}
+			}
 		}
 
 		visible = {
-			OR = {
-				has_war_with_non_exiled_country = yes  
-				any_neighbor_country = {
-					AND = {
-						NOT = { has_government = ROOT }
-						has_offensive_war = yes
-						has_added_tension_amount > 10
-					}
-				}
-			}
+			
 		}
 
 		fire_only_once = no
@@ -104,13 +100,6 @@ propaganda_efforts = {
 
 		modifier = {
 			war_support_weekly = 0.005
-		}
-
-		complete_effect = {
-			set_country_flag = war_propaganda_campaign_running
-		}
-		remove_effect = {
-			clr_country_flag = war_propaganda_campaign_running
 		}
 
 		ai_will_do = {
@@ -128,13 +117,11 @@ propaganda_efforts = {
 		icon = generic_prepare_civil_war
 
 		available = {
-			#NOT = { has_country_flag = war_propaganda_campaign_running }
 			has_casualties_war_support < 0
 		}
 
 		visible = {
-			# has_war = yes
-			has_war_with_non_exiled_country = yes
+			
 		}
 
 		fire_only_once = no
@@ -150,13 +137,6 @@ propaganda_efforts = {
 		modifier = {
 			weekly_casualties_war_support = 0.006
 		}
-
-		#complete_effect = {
-		#	set_country_flag = war_propaganda_campaign_running
-		#}
-		#remove_effect = {
-		#	clr_country_flag = war_propaganda_campaign_running
-		#}
 
 		ai_will_do = {
 			base = 0
@@ -198,13 +178,11 @@ propaganda_efforts = {
 		icon = GFX_decision_generic_naval
 
 		available = {
-			#NOT = { has_country_flag = war_propaganda_campaign_running }
 			has_convoys_war_support < 0
 		}
 
 		visible = {
-			# has_war = yes
-			has_war_with_non_exiled_country = yes
+			
 		}
 
 		fire_only_once = no
@@ -220,13 +198,6 @@ propaganda_efforts = {
 		modifier = {
 			weekly_convoys_war_support = 0.006
 		}
-
-		#complete_effect = {
-		#	set_country_flag = war_propaganda_campaign_running
-		#}
-		#remove_effect = {
-		#	clr_country_flag = war_propaganda_campaign_running
-		#}
 
 		ai_will_do = {
 			base = 0
@@ -253,13 +224,11 @@ propaganda_efforts = {
 		icon = GFX_decision_generic_air
 
 		available = {
-		#	NOT = { has_country_flag = war_propaganda_campaign_running }
 			has_bombing_war_support < 0
 		}
 
 		visible = {
-			# has_war = yes
-			has_war_with_non_exiled_country = yes
+			
 		}
 
 		fire_only_once = no
@@ -268,20 +237,13 @@ propaganda_efforts = {
 		
 		remove_trigger = {
 			has_war = no
-        }
+		}
 		
 		cost = 100
 
 		modifier = {
 			weekly_bombing_war_support = 0.006
 		}
-
-		#complete_effect = {
-		#	set_country_flag = war_propaganda_campaign_running
-		#}
-		#remove_effect = {
-		#	clr_country_flag = war_propaganda_campaign_running
-		#}
 
 		ai_will_do = {
 			base = 0
@@ -314,6 +276,60 @@ propaganda_efforts = {
 					has_idea = limited_conscription
 					has_idea = extensive_conscription
 				}
+			}
+		}
+	}
+	
+	war_propaganda_radio_industry = {
+
+		icon = GFX_decision_hol_radio_oranje
+
+		available = {
+			has_tech = radio
+			threat > 0.25
+		}
+
+		cost = 75
+		fire_only_once = yes
+
+		complete_effect = {
+			add_war_support = 0.05
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 201
+				has_war_support < 0.6
+			}
+		}
+	}
+
+	war_propaganda_film_industry = {
+
+		icon = eng_propaganda_campaigns
+
+		available = {
+			has_war_with_non_exiled_country = yes
+			OR = {
+				is_major = yes
+				is_in_faction = yes
+			}
+			threat > 0.5
+		}
+
+		cost = 100
+		fire_only_once = yes
+
+		complete_effect = {
+			add_war_support = 0.10
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 201
+				has_war_support < 0.6
 			}
 		}
 	}

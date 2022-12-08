@@ -325,7 +325,7 @@ characters = {
 			cost = 100
 			
 			slot = political_advisor
-			idea_token = USA_max_shachtman
+			idea_token = USA_max_shachtman_for
 			ledger = civilian
 			
 			allowed = {
@@ -341,7 +341,7 @@ characters = {
 			}
 			
 			traits = {
-				
+				for_political_appointment
 			}
 		}
 	}
@@ -848,6 +848,36 @@ characters = {
 			
 			traits = {
 				fbi_director
+			}
+		}
+	}
+	
+	USA_howard_lovecraft = {
+		name = USA_howard_lovecraft
+		
+		portraits = {
+			army = {
+				small = "gfx/interface/ministers/USA/USA_Howard_Lovecraft.png"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			
+			slot = political_advisor
+			idea_token = USA_howard_lovecraft_for
+			ledger = civilian
+			
+			allowed = {
+				original_tag = USA
+			}
+			
+			available = {
+				
+			}
+			
+			traits = {
+				for_apologetic_clerk
 			}
 		}
 	}
@@ -1758,11 +1788,15 @@ characters = {
 		advisor={
 			cost = 100
 			slot = theorist
-			idea_token = robert_oppenheimer
+			idea_token = USA_julius_robert_oppenheimer
 			ledger = army
 			
 			allowed = {
 				original_tag = USA
+			}
+			
+			available = {
+				has_completed_focus = USA_the_best_and_brightest
 			}
 			
 			traits = {

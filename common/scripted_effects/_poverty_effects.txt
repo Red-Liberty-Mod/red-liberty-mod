@@ -52,7 +52,7 @@ ECON_poverty_change_monthly = {
 	set_temp_variable = { temp_poverty_rate_monthly = poverty_monthly_change }
 	add_to_temp_variable = { temp_poverty_rate_monthly = modifier@poverty_monthly_rate }
 
-	ECON_calculate_poverty_dampener_effect = yes
+	ECON_calculate_poverty_dampener_effect = yes # diminishing returns on less than 10%
 	multiply_temp_variable = { temp_poverty_rate_monthly = poverty_dampener_effect }
 	subtract_from_variable = { poverty_rate = temp_poverty_rate_monthly }
 
@@ -64,7 +64,7 @@ ECON_poverty_change_monthly = {
 		divide_variable = { poverty_monthly_change = 1.06 }
 	}
 	
-	log = "[GetDateText]: [THIS.GetName] poverty_monthly_change: [?poverty_monthly_change]"
+	#log = "[GetDateText]: [THIS.GetName] poverty_monthly_change: [?poverty_monthly_change]"
 
 	clamp_variable = {
 		var = poverty_rate
@@ -130,7 +130,6 @@ ECON_reload_poverty_effects = {
 	set_variable = { poverty_rate_conscription_effect = poverty_effect_multiplier }
 	set_variable = { poverty_rate_monthly_pop_effect = poverty_effect_multiplier }
 	set_variable = { poverty_rate_research_effect = poverty_effect_multiplier }
-	
 	set_variable = { poverty_rate_consumer_goods_effect = poverty_effect_multiplier }
 	
 	set_variable = { poverty_rate_factory_prod_effect = poverty_effect_multiplier }
@@ -142,7 +141,6 @@ ECON_reload_poverty_effects = {
 	multiply_variable = { poverty_rate_conscription_effect = 0.2 }
 	multiply_variable = { poverty_rate_monthly_pop_effect = 0.8 }
 	multiply_variable = { poverty_rate_research_effect = -0.2 }
-	
 	multiply_variable = { poverty_rate_consumer_goods_effect = -0.2 }
 	
 	multiply_variable = { poverty_rate_factory_prod_effect = -0.25 }
