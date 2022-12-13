@@ -2,7 +2,7 @@ shared_focus = {
     id = USA_reforming_the_military
 	icon = GFX_USA_USA_reforming_the_military
 	
-    x = -13
+    x = -15
 	
 	cost = 2
     completion_reward = {
@@ -1038,7 +1038,7 @@ shared_focus = {
     id = USA_the_navy
 	icon = GFX_USA_the_navy
 	
-    x = 8
+    x = 9
 	y = 1
 	
 	cost = 2
@@ -1046,181 +1046,6 @@ shared_focus = {
 	prerequisite = { focus = USA_reforming_the_military }
     completion_reward = {
         navy_experience = 25
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_the_naval_act
-	icon = GFX_USA_the_naval_act
-	
-    x = 0
-	y = 1
-	
-	cost = 5
-	relative_position_id = USA_the_navy
-	prerequisite = { focus = USA_the_navy }
-    completion_reward = {
-        unlock_decision_tooltip = start_USA_naval_act
-		custom_effect_tooltip = USA_bill_pass_req_tt
-		effect_tooltip = {
-			add_ideas = {
-				USA_naval_act
-			}
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_north_carolina_class
-	icon = GFX_USA_north_carolina_class
-	
-    x = -1
-	y = 1
-	
-	cost = 4
-	relative_position_id = USA_the_naval_act
-	prerequisite = { focus = USA_the_naval_act }
-    completion_reward = {
-		if = {
-			limit = {
-				NOT = {
-					has_tech = basic_ship_hull_heavy
-				}
-			}
-			set_technology = {
-				basic_ship_hull_heavy = 1
-			}
-		}
-        create_equipment_variant = {
-			name = "North Carolina Class"
-			type = ship_hull_heavy_2
-			name_group = USA_BB_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_battery_slot = ship_heavy_battery_2
-				fixed_ship_anti_air_slot = ship_anti_air_1
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-				fixed_ship_radar_slot = empty
-				fixed_ship_engine_slot = heavy_ship_engine_1
-				fixed_ship_secondaries_slot = empty
-				fixed_ship_armor_slot = ship_armor_bb_2
-				front_1_custom_slot = ship_heavy_battery_2
-				mid_1_custom_slot = ship_secondaries_2
-				mid_2_custom_slot = ship_secondaries_2
-				rear_1_custom_slot = ship_heavy_battery_2
-			}
-		}
-		add_equipment_production = {
-			equipment = {
-				type = ship_hull_heavy_2
-				creator = "USA" 
-				version_name = "North Carolina Class"
-			}
-			name = "USS North Carolina" 
-			requested_factories = 1
-			progress = 0.55
-			amount = 1
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_south_dakota_class
-	icon = GFX_USA_south_dakota_class
-	
-    x = 1
-	y = 1
-	
-	cost = 4
-	relative_position_id = USA_the_naval_act
-	prerequisite = { focus = USA_the_naval_act }
-    completion_reward = {
-        if = {
-			limit = {
-				NOT = {
-					has_tech = basic_ship_hull_heavy
-				}
-			}
-			set_technology = {
-				basic_ship_hull_heavy = 1
-			}
-		}
-        create_equipment_variant = {
-			name = "South Dakota Class"
-			type = ship_hull_heavy_2
-			name_group = USA_BB_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_battery_slot = ship_heavy_battery_2
-				fixed_ship_anti_air_slot = ship_anti_air_1
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-				fixed_ship_radar_slot = empty
-				fixed_ship_engine_slot = heavy_ship_engine_1
-				fixed_ship_secondaries_slot = empty
-				fixed_ship_armor_slot = ship_armor_bb_2
-				front_1_custom_slot = ship_heavy_battery_2
-				mid_1_custom_slot = ship_secondaries_2
-				mid_2_custom_slot = ship_airplane_launcher_1
-				rear_1_custom_slot = ship_heavy_battery_2
-			}
-		}
-		add_equipment_production = {
-			equipment = {
-				type = ship_hull_heavy_2
-				creator = "USA" 
-				version_name = "South Dakota Class"
-			}
-			name = "USS South Dakota" 
-			requested_factories = 1
-			progress = 0.55
-			amount = 1
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_two_ocean_navy
-	icon = GFX_USA_two_ocean_navy
-	
-	available = {
-		has_country_flag = naval_act_passed
-		NOT = {
-			has_idea = USA_the_naval_act
-		}
-	}
-	
-    x = 1
-	y = 1
-	
-	cost = 5
-	relative_position_id = USA_north_carolina_class
-	prerequisite = { focus = USA_north_carolina_class }
-	prerequisite = { focus = USA_south_dakota_class }
-    completion_reward = {
-        unlock_decision_tooltip = start_USA_two_ocean_navy_act
-		custom_effect_tooltip = USA_bill_pass_req_tt
-		effect_tooltip = {
-			swap_ideas = {
-				remove_idea = USA_naval_act
-				add_idea = USA_two_ocean_navy_act
-			}
-		}
     }
 	
 	ai_will_do = {
@@ -1239,8 +1064,8 @@ shared_focus = {
 	mutually_exclusive = {
 		focus = USA_naval_air
 	}
-	relative_position_id = USA_two_ocean_navy
-	prerequisite = { focus = USA_two_ocean_navy }
+	relative_position_id = USA_the_navy
+	prerequisite = { focus = USA_the_navy }
     completion_reward = {
 		add_doctrine_cost_reduction = {
 			cost_reduction = 0.5
@@ -1376,6 +1201,74 @@ shared_focus = {
 }
 
 shared_focus = {
+    id = USA_the_naval_act
+	icon = GFX_USA_the_naval_act
+	
+    x = 3
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_matching_europe
+	prerequisite = {
+		focus = USA_matching_europe
+		focus = USA_naval_air
+	}
+    completion_reward = {
+        unlock_decision_tooltip = start_USA_naval_act
+		custom_effect_tooltip = USA_bill_pass_req_tt
+		effect_tooltip = {
+			add_ideas = {
+				USA_naval_act
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_two_ocean_navy
+	icon = GFX_USA_two_ocean_navy
+	
+	available = {
+		has_country_flag = {
+			flag = naval_act_passed
+			days > 280
+		}
+		#custom_trigger_tooltip = {
+		#	tooltip = naval_act_passed_days_tt
+		#	has_country_flag = {
+		#		flag = naval_act_passed
+		#		days > 280
+		#	}
+		#}
+	}
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_modern_screens
+	prerequisite = { focus = USA_modern_screens }
+    completion_reward = {
+        unlock_decision_tooltip = start_USA_two_ocean_navy_act
+		custom_effect_tooltip = USA_bill_pass_req_tt
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = USA_naval_act
+				add_idea = USA_two_ocean_navy_act
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
     id = USA_study_super_heavy_designs
 	icon = GFX_USA_study_super_heavy_designs
 	
@@ -1390,7 +1283,12 @@ shared_focus = {
         add_tech_bonus = {
 			bonus = 0.5
 			uses = 1
-			category = shbb_tech
+			category = bb_tech
+		}
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 1
+			category = cat_ship_heavy_battery
 		}
     }
 	
@@ -1419,7 +1317,7 @@ shared_focus = {
     completion_reward = {
         create_equipment_variant = {
 			name = "Iowa Class"
-			type = ship_hull_cruiser_2
+			type = ship_hull_super_heavy_1
 			name_group = USA_BB_HISTORICAL
 			parent_version = 0
 			modules = {
@@ -1458,15 +1356,15 @@ shared_focus = {
     id = USA_naval_air
 	icon = GFX_USA_naval_air
 	
-    x = 2
+    x = 3
 	y = 1
 	
 	cost = 3
 	mutually_exclusive = {
 		focus = USA_matching_europe
 	}
-	relative_position_id = USA_two_ocean_navy
-	prerequisite = { focus = USA_two_ocean_navy }
+	relative_position_id = USA_the_navy
+	prerequisite = { focus = USA_the_navy }
     completion_reward = {
 		add_doctrine_cost_reduction = {
 			cost_reduction = 0.5
@@ -1486,7 +1384,7 @@ shared_focus = {
     id = USA_the_bureau_of_aeronautics
 	icon = GFX_USA_the_bureau_of_aeronautics
 	
-    x = 0
+    x = -1
 	y = 1
 	
 	cost = 3
@@ -1507,15 +1405,12 @@ shared_focus = {
     id = USA_expand_operations
 	icon = GFX_USA_expand_operations
 	
-    x = 3
+    x = 0
 	y = 1
 	
 	cost = 3
-	relative_position_id = USA_matching_europe
-	prerequisite = {
-		focus = USA_matching_europe
-		focus = USA_naval_air
-	}
+	relative_position_id = USA_the_naval_act
+	prerequisite = { focus = USA_the_naval_act }
     completion_reward = {
         362 = {
 			add_building_construction = {

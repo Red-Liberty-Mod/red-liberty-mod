@@ -1,0 +1,623 @@
+debug_category = {
+
+	debug_disable = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			
+		}
+		
+		visible = {
+			is_debug = yes
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			set_country_flag = debug_disabled
+		}
+	}
+	
+	
+	debug_cristiada = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			
+		}
+		
+		visible = {
+			is_debug = yes
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			country_event = {
+				id = demo_mex.2
+			}
+		}
+	}
+	
+	debug_test_exile = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			
+		}
+		
+		visible = {
+			is_debug = yes
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			GER = {
+				annex_country = {
+					target = HOL
+				}
+			}
+			HOL = {
+				become_exiled_in = {
+					target = USA
+					legitimacy = 25
+				}
+			}
+		}
+	}
+	
+	debug_add_equipment = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			
+		}
+		
+		visible = {
+			is_debug = yes
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 50000
+				producer = ROOT
+			}
+		}
+	}
+	
+	debug_kickstart_ww2 = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			
+		}
+		
+		visible = {
+			is_debug = yes
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			country_event = {
+				id = demo_ww2.1
+			}
+		}
+	}
+	
+	debug_load_FRA_far_left_tree = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			tag = FRA
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = FRA
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			load_focus_tree = FRA_communist_tree
+			set_country_flag = FRA_far_left_force_on
+		}
+	}
+	
+	debug_GER_recalc_parliament = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			tag = GER
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = GER
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			GER_recalc_parliament = yes
+		}
+	}
+	
+	debug_start_wgr_revolt = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			tag = GER
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = GER
+			#NOT = {
+			#	has_country_flag = WGR_revolt_started
+			#}
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			set_country_flag = WGR_revolt_started
+			WGR_start_revolt = yes
+		}
+	}
+	
+	debug_start_GER_civil_war = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			tag = GER
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = GER
+			#NOT = {
+			#	has_country_flag = WGR_revolt_started
+			#}
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			hidden_effect = {
+				start_german_civil_war_CGR = yes
+				start_german_civil_war_RGR = yes
+				start_german_civil_war_PLR = yes
+			}
+			
+			dismantle_faction = yes
+			end_puppet = POL
+			end_puppet = LIT
+			end_puppet = ROM
+			end_puppet = CRI
+			end_puppet = BAL
+			
+			BAY = {
+				add_state_core = 52
+				add_state_core = 53
+				transfer_state = 52
+				transfer_state = 53
+			}
+			
+			GER = {
+				declare_war_on = {
+					target = CGR
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = RGR
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = PLR
+					type = annex_everything
+				}
+			}
+			CGR = {
+				declare_war_on = {
+					target = RGR
+					type = annex_everything
+				}
+			}
+		}
+	}
+	
+	debug_annex_all_china_tags = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			tag = CHI
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = CHI
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			CHI = {
+				annex_country = {
+					target = SHX
+				}
+				annex_country = {
+					target = SHD
+				}
+				annex_country = {
+					target = GUI
+				}
+				annex_country = {
+					target = ANH
+				}
+				annex_country = {
+					target = ZHE
+				}
+				annex_country = {
+					target = HNN
+				}
+				annex_country = {
+					target = GUD
+				}
+				annex_country = {
+					target = YUN
+				}
+				annex_country = {
+					target = SZC
+				}
+				annex_country = {
+					target = XSM
+				}
+				annex_country = {
+					target = GNS
+				}
+				annex_country = {
+					target = SIK
+				}
+			}
+		}
+	}
+}
+
+USA_debug_category = {
+	
+	debug_kill_republicans = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			tag = USA
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = USA
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			USA_kill_republican_party = yes
+		}
+	}
+	
+	debug_boost_farmer_labor = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			tag = USA
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = USA
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			USA = {
+				subtract_from_variable = { representatives_socialist = 15 }
+				add_to_variable = { representatives_farmer_labor = 15 }
+				
+				subtract_from_variable = { senators_socialist = 4 }
+				add_to_variable = { senators_farmer_labor = 4 }
+			}
+		}
+	}
+	
+	debug_boost_communist = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			tag = USA
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = USA
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			every_owned_state = {
+				limit = { can_have_elections_in_state = yes }
+				add_to_variable = { communist_popularity = 0.6 }
+			}
+		}
+	}
+	
+	debug_boost_afp = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			tag = USA
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = USA
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			every_owned_state = {
+				limit = { can_have_elections_in_state = yes }
+				add_to_variable = { afp_popularity = 0.05 }
+			}
+		}
+	}
+	
+	debug_recalc_house = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			tag = USA
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = USA
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			USA_recalc_house = yes
+		}
+	}
+	
+	debug_start_election = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			tag = USA
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = USA
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			USA_class_1_senate_prepare = yes
+			USA_recalculate_polls = yes
+		}
+	}
+	
+	debug_end_class_1_election = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			tag = USA
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = USA
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			USA_class_1_senate_prepare = yes
+			
+			USA_hold_senate_election = yes
+			
+			USA_prepare_presidential_election = yes
+			
+			USA_hold_presidential_election = yes
+			set_country_flag = USA_presidential_conclusion
+		}
+	}
+	
+	debug_end_class_2_election = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			tag = USA
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = USA
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			USA_class_2_senate_prepare = yes
+			
+			USA_hold_senate_election = yes
+			
+			USA_prepare_presidential_election = yes
+			
+			USA_hold_presidential_election = yes
+			set_country_flag = USA_presidential_conclusion
+		}
+	}
+	
+	debug_end_class_3_election = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			tag = USA
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = USA
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			USA_class_3_senate_prepare = yes
+			
+			USA_hold_senate_election = yes
+			
+			USA_prepare_presidential_election = yes
+			
+			USA_hold_presidential_election = yes
+			set_country_flag = USA_presidential_conclusion
+		}
+	}
+	
+	debug_refresh_election = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			tag = USA
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = USA
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			every_owned_state = {
+				limit = { can_have_elections_in_state = yes }
+				USA_convert_party_pop_percentage = yes
+				USA_clamp_state_popularities = yes
+				USA_check_election_vs = yes
+				USA_check_election_margin = yes
+			}
+		}
+	}
+}

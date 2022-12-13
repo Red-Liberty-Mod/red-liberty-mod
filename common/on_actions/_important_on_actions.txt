@@ -13,9 +13,32 @@ on_actions = {
 				set_country_flag = open_intro_splash_screen
 			}
 		
-			every_country = {
-				country_event = opinion_modifier.1
+			setup_opinion_modifiers = yes
+		}
+	}
+	
+	on_daily = {
+		effect = {
+			#log = "[GetDateText] [Root.GetName] on_daily"
+		}
+	}
+	
+	on_weekly = {
+		effect = {
+			#log = "[GetDateText] [Root.GetName] on_weekly"
+			if = {
+				limit = { 
+					has_intelligence_agency = yes
+					is_ai = yes
+				}
+				update_operation_ai = yes
 			}
+		}
+	}
+	
+	on_monthly = {
+		effect = {
+			#log = "[GetDateText] [Root.GetName] on_monthly"
 		}
 	}
 	
@@ -29,10 +52,842 @@ on_actions = {
 		effect = {
 			log = "[GetDateText] [Root.GetName] on_ruling_party_change"
 			
-			every_other_country = {
-				clr_opinion_modifiers = yes
-				setup_opinion_modifiers = yes
+			clr_opinion_modifiers = yes
+			setup_opinion_modifiers = yes
+			
+			every_controlled_state = {
+				limit = {
+					has_resistance = yes
+				}
+				set_temp_variable = { new_compliance = compliance }
+				multiply_temp_variable = { new_compliance = 0.5 }
+				set_compliance = new_compliance
 			}
 		}		
+	}
+	
+	# Ace pilots
+	# country, FROM = ace
+	on_ace_promoted = {
+		effect = {
+			log = "[GetDateText] [Root.GetName] on_ace_promoted"
+		}
+		random_events = {
+			100 = ace_promoted.1
+			5 = ace_promoted.2
+		}
+	}
+
+	# country, FROM = ace, PREV = enemy ace
+	# This event fires twice, once for each ace.
+	on_aces_killed_each_other = {
+		effect = {
+			log = "[GetDateText] [Root.GetName] on_aces_killed_each_other"
+		}
+		random_events = {
+			100 = aces_killed_each_other.1
+		}
+	}
+
+	# country, FROM = our ace,
+	# PREV = enemy ace, has killed FROM
+	on_ace_killed_by_ace = {
+		effect = {
+			log = "[GetDateText] [Root.GetName] on_ace_killed_by_ace"
+		}
+		random_events = {
+			100 = ace_killed_by_ace.1
+		}
+	}
+
+	# country, FROM = our ace,
+	# PREV = enemy ace, killed by FROM
+	on_ace_killed_other_ace = {
+		effect = {
+			log = "[GetDateText] [Root.GetName] on_ace_killed_other_ace"
+		}
+		random_events = {
+			100 = ace_killed_other_ace.1
+		}
+	}
+
+	# our ace is killed by no name
+	# country, FROM = ace
+	on_ace_killed = {
+		effect = {
+			log = "[GetDateText] [Root.GetName] on_ace_killed"
+		}
+		random_events = {
+			100 = ace_died.1
+		}
+	}
+
+	# our ace died in accident
+	# country, FROM = ace
+	on_ace_killed_on_accident = {
+		effect = {
+			log = "[GetDateText] [Root.GetName] on_ace_killed_on_accident"
+		}
+	}
+
+	# enemy ace is killed by our non name
+	# country, FROM = enemy ace
+	on_non_ace_killed_other_ace = {
+		effect = {
+			log = "[GetDateText] [Root.GetName] on_non_ace_killed_other_ace"
+		}
+	}
+	
+	on_nuke_drop = {
+		effect = {
+			log = "[GetDateText] [Root.GetName] on_nuke_drop"
+		}
+		effect = {
+			set_global_flag = first_nuke_dropped
+			
+			if = {
+				limit = {
+					FROM = {
+						is_core_of = JAP
+					}
+					has_global_flag = JAP_nuke_1
+					NOT = {
+						has_global_flag = JAP_nuke_2
+					}
+				}
+				set_global_flag = JAP_nuke_2
+			}
+			if = {
+				limit = {
+					FROM = {
+						is_core_of = JAP
+					}
+					NOT = {
+						has_global_flag = JAP_nuke_1
+					}
+				}
+				set_global_flag = JAP_nuke_1
+			}
+		}
+	}
+	
+	on_leave_faction = {
+		effect = {
+			log = "[GetDateText] [Root.GetName] on_leave_faction"
+			FROM = {
+				add_opinion_modifier = {
+					modifier = faction_traitor
+					target = ROOT
+					days = 365
+				}
+
+				add_opinion_modifier = {
+					modifier = faction_traitor_trade
+					target = ROOT
+					days = 365
+				}
+			}
+		}
+	}
+	
+	on_faction_formed = {
+		effect = {
+			log = "[GetDateText] [Root.GetName] on_faction_formed"
+		}
+	}
+	
+	# ROOT is the new faction leader FROM is the old faction leader
+	on_assume_faction_leadership = {
+		effect = {
+			log = "[GetDateText] [Root.GetName] on_assume_faction_leadership"
+		}
+	}
+	
+	# From is owner country
+	on_army_leader_daily = {
+		effect = {
+			if = {
+				limit = {
+					check_variable = { random < 0.02 }
+					NOT = { has_trait = sick }
+					set_temp_variable = { temp = sum_unit_terrain_modifier@sickness_chance }
+					divide_temp_variable = { temp = num_units }
+					check_variable = { temp > 0.75 }
+					NOT = { has_unit_leader_flag = recently_sick }
+				}
+				add_timed_unit_leader_trait = {
+					trait = sick
+					days = 30
+				}
+				unit_leader_event = { id = generic.17 }
+			}
+		}
+	}
+
+	# From is owner country
+	on_army_leader_won_combat = {
+		effect = {
+			if = {
+				limit = {
+					set_temp_variable = { chance = 0.001 }
+					set_temp_variable = { factor = 1.0 }
+					add_to_temp_variable = { factor = leader_modifier@wounded_chance_factor }
+					multiply_temp_variable = { chance = factor }
+					check_variable = { random < chance }
+					NOT = { has_trait = wounded }
+				}
+				add_timed_unit_leader_trait = {
+					trait = wounded
+					days = 90
+				}
+				unit_leader_event = { id = generic.18 }
+			}
+		}
+	}
+
+	# From is owner country
+	on_army_leader_lost_combat = {
+		effect = {
+			if = {
+				limit = {
+					set_temp_variable = { chance = 0.005 }
+					set_temp_variable = { factor = 1.0 }
+					add_to_temp_variable = { factor = leader_modifier@wounded_chance_factor }
+					multiply_temp_variable = { chance = factor }
+					check_variable = { random < chance }
+					NOT = { has_trait = wounded }
+				}
+				add_timed_unit_leader_trait = {
+					trait = wounded
+					days = 90
+				}
+				unit_leader_event = { id = generic.18 }
+			}
+		}
+	}
+
+	on_army_leader_promoted = {
+		effect = {
+			log = "[GetDateText] [Root.GetName] on_army_leader_promoted"
+			add_timed_unit_leader_trait = {
+				trait = recently_promoted
+				days = 100
+			}
+		}
+	}
+	
+	on_unit_leader_promote_from_ranks_veteran = { #Unit leader scope, FROM is unit
+		effect = {
+			log = "[GetDateText] [Root.GetName] on_unit_leader_promote_from_ranks_veteran"
+			FROM = {
+				add_random_valid_trait_from_unit = {
+					character = ROOT
+				}
+			}
+		}
+	}
+
+	on_unit_leader_promote_from_ranks_green = { #Unit leader scope, FROM is unit
+		effect = {
+			log = "[GetDateText] [Root.GetName] on_unit_leader_promote_from_ranks_green"
+		}
+	}
+	
+	on_unit_leader_created = {
+		effect = {
+			log = "[GetDateText] [Root.GetName] on_unit_leader_created"
+			if = {
+				limit = { is_exiled_leader = yes }
+				From.From = { save_event_target_as = exile_nation }
+				add_unit_leader_trait = exiled_leader
+				
+				add_random_trait = {
+					old_guard
+					brilliant_strategist
+					inflexible_strategist
+					war_hero
+					trait_cautious
+					trait_reckless
+					media_personality
+					harsh_leader
+					infantry_officer
+					cavalry_officer
+					armor_officer
+				}
+
+				add_random_trait = {
+					organizer
+					panzer_leader
+					cavalry_leader
+					trait_engineer
+					infantry_leader
+					naval_invader						
+					commando
+					skilled_staffer
+					trickster					
+				}
+
+				unit_leader_event = { id = mtg_exile_leader_added.1 }
+			}
+			character = {
+				if = { 
+					limit = {
+						is_army_leader = yes
+					}
+					if = {
+						limit = {	
+							FROM = { has_idea = political_loyalty_spirit } #done here instead of the trait file to avoid some oddness with generating assignable traits under certain circumstances, makes it easier to control probabilities
+						}
+						root = {
+							random_list = {
+								50 = { 
+									add_unit_leader_trait = media_personality
+								}
+								50 = { 
+									add_unit_leader_trait = politically_connected
+								}
+							}
+						}
+						
+					}
+					else_if = {
+						limit = {
+							FROM = { has_idea = mobile_warfare_academy_spirit } #done here instead of the trait file to avoid some oddness with generating assignable traits under certain circumstances, makes it easier to control probabilities
+						}
+						root = {
+							random_list = {
+								50 = { 
+									add_unit_leader_trait = panzer_leader
+								}
+								50 = {}
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							FROM = { has_idea = inventive_leadership_spirit } #done here instead of the trait file to avoid some oddness with generating assignable traits under certain circumstances, makes it easier to control probabilities
+						}
+						root = {
+							random_list = {
+								75 = { 
+									random_list = {
+										33 = { add_unit_leader_trait = naval_invader }
+										33 = { add_unit_leader_trait = commando }
+										33 = { add_unit_leader_trait = trickster }
+									}
+								}
+								25 = {}
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							FROM = { has_idea = mass_assault_academy_spirit } #done here instead of the trait file to avoid some oddness with generating assignable traits under certain circumstances, makes it easier to control probabilities
+						}
+						root = {
+							random_list = {
+								50 = { 
+									add_unit_leader_trait = infantry_officer
+								}
+								50 = {}
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							FROM = { has_idea = superior_firepower_academy_spirit } #done here instead of the trait file to avoid some oddness with generating assignable traits under certain circumstances, makes it easier to control probabilities
+						}
+						root = {
+							random_list = {
+								50 = { 
+									add_unit_leader_trait = engineer_officer
+								}
+								50 = {}
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							FROM = { has_idea = theatre_training_spirit } #done here instead of the trait file to avoid some oddness with generating assignable traits under certain circumstances, makes it easier to control probabilities
+						}
+						root = {
+							random_list = {
+								50 = { 
+									random_list = {
+										50 = { add_unit_leader_trait = brilliant_strategist }
+										50 = { add_unit_leader_trait = inflexible_strategist }
+									}
+								}
+								50 = {}
+							}
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						FROM = { has_idea = fleet_in_being_academy_spirit } #done here instead of the trait file to avoid some oddness with generating assignable traits under certain circumstances, makes it easier to control probabilities
+					}
+					root = {
+						random_list = {
+							50 = { 
+								add_unit_leader_trait = gunnery_expert
+							}
+							50 = {}
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						FROM = { has_idea = trade_interdiction_academy_spirit } #done here instead of the trait file to avoid some oddness with generating assignable traits under certain circumstances, makes it easier to control probabilities
+					}
+					root = {
+						random_list = {
+							25 = { 
+								add_unit_leader_trait = seawolf
+							}
+							25 = { 
+								add_unit_leader_trait = blockade_runner
+							}
+							50 = {}
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						FROM = { has_idea = base_strike_academy_spirit } #done here instead of the trait file to avoid some oddness with generating assignable traits under certain circumstances, makes it easier to control probabilities
+					}
+					root = {
+						random_list = {
+							50 = { 
+								add_unit_leader_trait = aviation_enthusiast 
+							}
+							50 = {}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	#FROM - Country (owner)
+	#ROOT - leader
+	#FROMFROM - original owner for exiled leaders
+	on_unit_leader_level_up = {
+		effect = {
+			log = "[GetDateText] [Root.GetName] on_unit_leader_level_up"
+			if = { 
+				limit = { 
+					FROM = { 
+						has_idea = bold_attack_spirit 
+					} 
+				}
+				character = { 
+					IF = { 
+						limit = { is_army_leader = yes }
+					
+						random_list = { 
+							50 = { add_attack = 1 } 
+							50 = {} 
+						} 
+					}
+				}
+			}
+			else_if = { #since these spirits are mutually exclusive, we can use else_if for added performance!
+				limit = {
+					FROM = { has_idea = tenacious_defense_spirit }
+				}
+				character = { 
+					IF = { 
+						limit = { is_army_leader = yes }
+					
+						random_list = {
+							50 = { add_defense = 1 }
+							50 = {}
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { has_idea = meticulous_preparation_spirit }
+				}
+				character = { 
+					IF = { 
+						limit = { is_army_leader = yes }
+					
+						random_list = {
+							50 = { 
+								add_planning = 1 
+								add_logistics = 1
+							}
+							50 = {}
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { has_idea = instilled_aggression_spirit }
+				}
+				character = { 
+					IF = { 
+						limit = { is_navy_leader = yes }
+		
+						random_list = {
+							40 = { 
+								add_attack = 1 
+							}
+							60 = {}
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { has_idea = calculated_restraint_spirit }
+				}
+				character = { 
+					IF = { 
+						limit = { is_navy_leader = yes }
+					
+						random_list = {
+							40 = { 
+								add_defense = 1 
+							}
+							60 = {}
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { has_idea = signals_training_spirit }
+				}
+				character = { 
+					IF = { 
+						limit = { is_navy_leader = yes }
+					
+						random_list = {
+							40 = { 
+								add_maneuver = 1
+								add_coordination = 1
+							}
+							60 = {}
+						}
+					}
+				}
+			}
+		}  
+	}
+	
+	#Root is exile
+	#From is new host
+	#FromFrom is old host
+	on_host_changed_from_capitulation = {
+		effect = {
+			log = "[GetDateText] [Root.GetName] on_host_changed_from_capitulation"
+			#Transfer exile leaders to new host
+			From.From = {
+				every_army_leader = {
+					limit = { is_exiled_leader_from = Root }
+					set_nationality = Root.From
+				}
+			}
+		}
+	}
+
+	#Root is exile
+	#From is old host 
+	on_exile_government_reinstated = {
+		effect = {
+			log = "[GetDateText] [Root.GetName] on_exile_government_reinstated"
+			From = {
+				every_army_leader = {
+					limit = { is_exiled_leader_from = Root }
+					set_nationality = Root
+				}
+			}
+			Root = {
+				every_army_leader = {
+					limit = { is_exiled_leader_from = Root }
+					remove_unit_leader_trait = exiled_leader
+					remove_exile_tag = yes
+				}
+			}
+		}
+	}
+	
+	# called when an operative performing an offensive mission in a country
+	# has been spotted
+	on_operative_on_mission_spotted = {
+		effect = {
+			log = "[GetDateText] [Root.GetName] on_operative_on_mission_spotted"
+		
+            # SCOPE  the operative
+            # ROOT   the country the operative was performing its mission in
+            # FROM   the country the operative is operating for
+
+			# base values
+            set_temp_variable = {
+                var = capture_chance
+                value = 90
+            }
+            set_temp_variable = {
+                var = kill_chance
+                value = 10
+            }			
+
+            # nullify kill chance for some missions
+            if = {
+                limit = {
+                    OR = {
+                        operative_leader_mission = control_trade
+                        operative_leader_mission = diplomatic_pressure
+                    }
+                }
+                set_temp_variable = {
+                    var = kill_chance
+                    value = 0
+                }
+            }
+
+            random_list = {
+                temp_var:capture_chance = {
+                   	capture_operative = {
+                   	    captured_by = ROOT
+                   	}  	
+                }
+                temp_var:kill_chance = {
+                    kill_operative = {
+                        killed_by = ROOT
+					}
+				}
+			}
+		}
+	}
+	
+	on_operative_captured = {
+		effect = {
+			log = "[GetDateText] [Root.GetName] on_operative_captured"
+		
+			# SCOPE  the operative
+			# ROOT   the country the operative was performing its mission in
+			# FROM   the country the operative is operating for
+			operative_leader_event = {
+					id = lar_operative_event.6
+					recipient = ROOT
+					originator = ROOT
+					set_from_from = ROOT
+					set_from = FROM
+					days = 1
+			}
+			if = {
+				limit = {
+					NOT = { has_unit_leader_flag = le_clerc1 }
+				}
+				set_unit_leader_flag = le_clerc1
+			}
+			else_if = {
+				limit = {
+					has_unit_leader_flag = le_clerc1
+				}
+				set_unit_leader_flag = le_clerc2
+			}
+			random_list = {
+				log = yes
+				90 = { #regular
+					operative_leader_event = {
+						id = lar_operative_event.1
+						set_from_from = ROOT
+					}
+				}
+				10 = { #operative turned
+					modifier = {
+						has_trait = operative_tough
+						factor = 0 #tough operatives never get turned
+					}
+					modifier = {
+						has_trait = operative_double_agent
+						factor = 0 #no tripple agents please
+					}
+					turn_operative = { turned_by = ROOT }
+					# ensure the operative has the nationality of the country he is coming from
+					add_nationality = FROM
+					operative_leader_event = {
+            	    	id = lar_operative_event.5
+						set_from_from = FROM #tells the event which nationality to add
+					}
+            	}
+			}
+		}
+	}
+	
+	on_operative_death = {
+		effect = {
+			log = "[GetDateText] [Root.GetName] on_operative_death"
+		
+			# SCOPE  the operative
+			# ROOT   the killer country (optional)
+			# FROM   the country the operative is operating for
+			if = {
+				limit = {
+					country_exists = ROOT
+				}
+
+				# operative killed by a country, likelly while on mission
+				operative_leader_event = {
+					id = lar_operative_event.3
+					set_from_from = ROOT
+				}
+			}
+			else = {
+				# other cause of death
+			}
+			
+			if = {
+				limit = {
+					FROM = {
+						NOT = { is_ai = yes }
+						has_done_agency_upgrade = upgrade_suicide_pills
+					}
+				}
+				set_global_flag = kill_me_alive_flag
+			}
+		}
+	}
+	
+	on_operative_detected_during_operation = {
+		effect = {
+			log = "[GetDateText] [Root.GetName] on_operative_detected_during_operation"
+		
+			random_list = {
+				45 = {
+					force_operative_leader_into_hiding = 45
+					operative_leader_event = {
+						id = lar_operative_event.2
+						set_from_from = FROM
+					}
+				}
+				25 = {
+					capture_operative = {
+						captured_by = FROM
+					}
+				}
+				25 = {
+					harm_operative_leader = 90
+					operative_leader_event = {
+						id = lar_operative_event.4
+						set_from_from = FROM
+					}
+				}
+				5 = {
+					kill_operative = {
+						killed_by = FROM
+					}
+				}
+			}
+		}
+	}
+
+	on_operation_completed = {
+		effect = {
+			log = "[GetDateText] [Root.GetName] on_operation_completed"
+		
+			# same scope setup as in operation outcome:
+			# THIS: the operation
+			# ROOT: the initiating country
+			# FROM: the target country
+			#log = "This: [This.GetName] From: [From.GetName] Root: [Root.GetName]"
+			
+			if = {
+				limit = {
+					ROOT = { has_country_flag = just_freed_operative_flag }
+				}
+				every_operative = {
+					if = {
+						limit = {
+							NOT = { has_trait = operative_escape_artist }
+						}
+						random_list = {
+							15 = { add_unit_leader_trait = operative_escape_artist }
+							85 = {}
+						}
+					}
+				}
+				ROOT = { clr_country_flag = just_freed_operative_flag }
+			}
+			every_operative = { #add target nationality if linguist
+				if = {
+					limit = {
+						has_trait = operative_linguist
+						NOT = { operative_leader_mission = no_mission }
+						NOT = { has_nationality = FROM }
+					}
+					random_list = {
+						20 = { add_nationality = FROM }
+						80 = {}
+					}
+				}
+			}
+			every_operative = {
+				if = {
+					limit = {
+						has_nationality = FRA
+					}
+					ROOT = {
+						add_to_variable = {
+							var = fra_nat
+							value = 1
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_nationality = ENG
+					}
+					ROOT = {
+						add_to_variable = {
+							var = eng_nat
+							value = 1
+						}
+					}
+				}
+			}
+			ROOT = {
+				if = {
+					limit = {
+						check_variable = { fra_nat > 0 }
+						check_variable = { eng_nat > 0 }
+					}
+					set_country_flag = achievement_listen_carefully_flag
+				}
+				set_variable = {
+					var = fra_nat
+					value = 0
+				}
+				set_variable = {
+					var = eng_nat
+					value = 0
+				}
+			}
+		}
+	}
+	
+	# called a country fully decrypts cipher of a target country
+	# scope is the target country that its cipher is decrypted
+	# from scope is the decrypter country
+	on_fully_decrypted_cipher = {
+		effect = {
+			log = "[GetDateText] [From.GetName]: on_fully_decrypted_cipher TARGET: [Root.GetName]"
+		}
+	}
+
+	# called when a country activates its active cipher bonuses against a target
+	# scope is the target country
+	# from scope is the country that activates its bonuses
+	on_activated_active_decryption_bonuses = {
+		effect = {
+			log = "[GetDateText] [From.GetName]: on_activated_active_decryption_bonuses TARGET: [Root.GetName]"
+		}
 	}
 }

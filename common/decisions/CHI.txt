@@ -674,6 +674,12 @@ CHI_integration_category = {
 					824 = {
 						is_core_of = ROOT
 					}
+					868 = {
+						is_core_of = ROOT
+					}
+					921 = {
+						is_core_of = ROOT
+					}
 				}
 			}
 		}
@@ -701,6 +707,8 @@ CHI_integration_category = {
 			add_stability = 0.025
 			add_state_core = 615
 			add_state_core = 824
+			add_state_core = 868
+			add_state_core = 921
 		}
 		
 		ai_will_do = {
@@ -1086,6 +1094,9 @@ CHI_integration_category = {
 					746 = {
 						is_core_of = ROOT
 					}
+					920 = {
+						is_core_of = ROOT
+					}
 				}
 			}
 		}
@@ -1113,6 +1124,157 @@ CHI_integration_category = {
 			add_stability = 0.025
 			add_state_core = 621
 			add_state_core = 746
+			add_state_core = 920
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	
+	CHI_core_chahar = {
+	
+		icon = GFX_decision_generic_form_nation
+		
+		visible = {
+			owns_state = 612
+			NOT = {
+				AND = {
+					612 = {
+						is_core_of = ROOT
+					}
+					611 = {
+						is_core_of = ROOT
+					}
+				}
+			}
+		}
+		
+		available = {
+			controls_state = 612
+		}
+		
+		highlight_states = {
+			highlight_state_targets = { state = 612 }
+		}
+		
+		cost = 25
+		
+		fire_only_once = yes
+		
+		days_remove = 30
+		
+		modifier = {
+			stability_weekly = -0.0025
+			political_power_gain = -0.15
+		}
+		
+		remove_effect = {
+			add_stability = 0.025
+			add_state_core = 612
+			add_state_core = 611
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	
+	CHI_core_xinjiang = {
+	
+		icon = GFX_decision_generic_form_nation
+		
+		visible = {
+			owns_state = 617
+			NOT = {
+				AND = {
+					617 = {
+						is_core_of = ROOT
+					}
+					618 = {
+						is_core_of = ROOT
+					}
+					619 = {
+						is_core_of = ROOT
+					}
+					287 = {
+						is_core_of = ROOT
+					}
+					759 = {
+						is_core_of = ROOT
+					}
+				}
+			}
+		}
+		
+		available = {
+			controls_state = 617
+		}
+		
+		highlight_states = {
+			highlight_state_targets = { state = 617 }
+		}
+		
+		cost = 25
+		
+		fire_only_once = yes
+		
+		days_remove = 30
+		
+		modifier = {
+			stability_weekly = -0.0025
+			political_power_gain = -0.15
+		}
+		
+		remove_effect = {
+			add_stability = 0.025
+			add_state_core = 617
+			add_state_core = 618
+			add_state_core = 619
+			add_state_core = 287
+			add_state_core = 759
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	
+	CHI_core_kumul = {
+	
+		icon = GFX_decision_generic_form_nation
+		
+		visible = {
+			owns_state = 760
+			NOT = {
+				760 = {
+					is_core_of = ROOT
+				}
+			}
+		}
+		
+		available = {
+			controls_state = 760
+		}
+		
+		highlight_states = {
+			highlight_state_targets = { state = 760 }
+		}
+		
+		cost = 25
+		
+		fire_only_once = yes
+		
+		days_remove = 30
+		
+		modifier = {
+			stability_weekly = -0.0025
+			political_power_gain = -0.15
+		}
+		
+		remove_effect = {
+			add_stability = 0.025
+			add_state_core = 760
 		}
 		
 		ai_will_do = {

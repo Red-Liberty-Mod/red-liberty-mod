@@ -1,4 +1,28 @@
 on_actions = {
+	on_declare_war = {
+		effect = {
+			log = "[GetDateText]: [Root.GetName] declared war on [From.GetName]"
+		}
+	}
+	
+	on_peaceconference_started = {
+		effect = {
+			log = "[GetDateText]: FROM: [From.GetName] ROOT: [Root.GetName] on_peaceconference_started"
+		}
+	}
+	
+	on_peaceconference_ended = {
+		effect = {
+			log = "[GetDateText]: FROM: [From.GetName] ROOT: [Root.GetName] on_peaceconference_ended"
+		}
+	}
+	
+	on_capitulation_immediate = { = {
+		effect = {
+			log = "[GetDateText]: FROM: [From.GetName] ROOT: [Root.GetName] on_capitulation_immediate"
+		}
+	}
+
 	on_capitulation = {
 		effect = {
 			log = "[GetDateText]: FROM: [From.GetName] ROOT: [Root.GetName] on_capitulation"
@@ -88,7 +112,6 @@ on_actions = {
 							original_tag = UOB
 						}
 					}
-					log = "[GetDateText] BRAZIL NUMBAH ONE"
 					BRA = {
 						white_peace = UOB
 						annex_country = {
@@ -551,12 +574,6 @@ on_actions = {
 				set_global_flag = war_continuing
 			}
 			clr_global_flag = skip_default_capitulation
-		}
-	}
-
-	on_declare_war = {
-		effect = {
-			log = "[GetDateText]: [Root.GetName] declared war on [From.GetName]"
 		}
 	}
 }

@@ -2,10 +2,19 @@ propaganda_efforts = {
 	icon = generic_propaganda
 
 	visible = {
-
+		AND = {
+			has_war = yes
+			any_enemy_country = {
+				is_government_in_exile = no
+			}
+		}
 	}
 }
 
 economy_decisions = {
 	icon = generic_economy
+	
+	visible = {
+		
+	}
 }

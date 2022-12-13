@@ -15,20 +15,12 @@ add_namespace = demo_bra
 add_namespace = demo_uob
 add_namespace = demo_saf
 add_namespace = demo_tur
+add_namespace = demo_ser
+add_namespace = demo_bul
+add_namespace = demo_brm
+add_namespace = demo_man
 
 add_namespace = demo_ww2
-
-add_namespace = demo.ita_gr_war
-add_namespace = demo.jap_chi_war
-add_namespace = demo.sov_fin_war
-add_namespace = demo_gre_victory
-add_namespace = demo.Rus_Ger_war_declaration
-add_namespace = demo.Ger_Rus_war_declaration
-add_namespace = demo_mex_war
-add_namespace = demo_yuc
-add_namespace = demo_usa_jap_peace
-add_namespace = demo_brm
-add_namespace = demo_jap_usa_war
 
 
 country_event = { # vorbeck takes power
@@ -2039,6 +2031,56 @@ news_event = { # straits crisis resolved
 }
 
 country_event = {
+	id = demo_ser.1
+	title = demo_ser.1.title
+	desc = demo_ser.1.desc
+	
+	is_triggered_only = yes
+
+	option = {
+		name = demo_ser.1.a
+		SER = {
+			create_faction = "Balkan League"
+			add_to_faction = ROM
+			add_to_faction = GRE
+		}
+	}
+}
+
+country_event = {
+	id = demo_ser.2
+	title = demo_ser.2.title
+	desc = demo_ser.2.desc
+	
+	is_triggered_only = yes
+
+	option = {
+		name = demo_ser.2.a
+		SER = {
+			declare_war_on = {
+				target = BUL
+				type = annex_everything
+			}
+		}
+	}
+}
+
+country_event = {
+	id = demo_bul.1
+	title = demo_bul.1.title
+	desc = demo_bul.1.desc
+	
+	is_triggered_only = yes
+
+	option = {
+		name = demo_bul.1.a
+		GER = {
+			add_to_faction = BUL
+		}
+	}
+}
+
+country_event = {
 	id = demo_saf.1
 	title = demo_saf.1.title
 	desc = demo_saf.1.desc
@@ -2529,140 +2571,6 @@ country_event = {
 	}
 }
 
-news_event = {
-	id = demo.ita_gr_war.1
-	title = demo.ita_gr_war.1.title
-	desc = demo.ita_gr_war.1.desc
-	picture = GFX_news_event_italo_greco_War
-	
-	major = yes
-	
-	is_triggered_only = yes
-	
-	fire_only_once = yes
-
-	option = {
-		name = ""
-		ITA = {
-			declare_war_on = {
-				target = GRE
-				type = annex_everything
-			}
-		}
-	}
-}
-
-news_event = { #Italian  victory in Italo Greco War
- 	id = demo.Ita_Victory.1
-	title = demo.Ita_Victory.1.t
-	desc = demo.Ita_Victory.1.d
-	picture = GFX_news_event_Italy_victory_Italo_Greco_War
-
-	major = yes
-
-	is_triggered_only = yes
-
-	fire_only_once = yes
-
-	option = {
-		name = demo.Ita_Victory.1.a
-	}
-}
-
-news_event = { # Greece victory in Italo Greco War
- 	id = demo_gre_victory.1
-	title = demo_gre_victory.1.title
-	desc = demo_gre_victory.1.desc
-	picture = GFX_news_event_Greek_victory_Italo_Greco_war
-
-	major = yes
-
-	is_triggered_only = yes
-
-	fire_only_once = yes
-
-	option = {
-		name = demo.gre_victory.1.a
-	}
-}
-news_event = { # Russian declaration of war against Germany 
- 	id = demo.Rus_Ger_war_declaration.1
-	title = demo.Rus_Ger_war_declaration.1.t
-	desc = demo.Rus_Ger_war_declaration.1.d
-	picture = GFX_news_event_Soviet_Russia_Invades_Germany
-
-	major = yes
-
-	is_triggered_only = yes
-
-	fire_only_once = yes
-
-	option = {
-		name = demo.Rus_Ger_war_declaration.1.a
-	}
-}
-news_event = { # German declaration of war against Russia 
- 	id = demo.Ger_Rus_war_declaration.1
-	title = demo.Ger_Rus_war_declaration.1.t
-	desc = demo.Ger_Rus_war_declaration.1.d
-	picture = GFX_news_event_German_invasion_Russia_news_event_picture
-
-	major = yes
-
-	is_triggered_only = yes
-
-	fire_only_once = yes
-
-	option = {
-		name = demo.Ger_Rus_war_declaration.1.a
-	}
-}
-news_event = { # Finnish intervention in the second Russian civil war
-    id = demo.Finnish_Intervention_In_Russian_Civil_War.1.t
-	title =  demo.Finnish_Intervention_In_Russian_Civil_War.1.d
-	desc =  demo.Finnish_Intervention_In_Russian_Civil_War.1.a
-
-	major = yes
-
-	is_triggered_only = yes
-
-	fire_only_once = yes
-
-	option = {
-		name = demo.Ger_Rus_war_declaration.1.a
-	}
-}
-news_event = { # Bolsheviks impose harse cease fire to finns
-    id = demo.Finnish_Intervention_In_Russian_Civil_War.2.t
-	title =  demo.Finnish_Intervention_In_Russian_Civil_War.2.d
-	desc =  demo.Finnish_Intervention_In_Russian_Civil_War.2.a
-
-	major = yes
-
-	is_triggered_only = yes
-
-	fire_only_once = yes
-
-	option = {
-		name = demo.Ger_Rus_war_declaration.1.a
-	}
-}
-news_event = { # Finns beat the Bolshevik Government
-    id = demo.Finnish_Intervention_In_Russian_Civil_War.3.t
-	title =  demo.Finnish_Intervention_In_Russian_Civil_War.3.d
-	desc =  demo.Finnish_Intervention_In_Russian_Civil_War.3.a
-
-	major = yes
-
-	is_triggered_only = yes
-
-	fire_only_once = yes
-
-	option = {
-		name = demo.Ger_Rus_war_declaration.1.a
-	}
-}
-
 country_event = {
 	id = demo_brm.1
 	title = demo_brm.1.title
@@ -3144,8 +3052,6 @@ country_event = {
 	title = demo_usa_jap_peace.11.title
 	desc = demo_usa_jap_peace.11.desc
 	
-	major = yes
-	
 	is_triggered_only = yes
 	
 	fire_only_once = yes
@@ -3172,4 +3078,173 @@ country_event = {
             } 			
 		}
     }
+}
+
+country_event = {
+	id = demo_man.1
+	title = demo_man.1.title
+	desc = demo_man.1.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_man.1.a
+		FNG = {
+			drop_cosmetic_tag = yes
+			set_cosmetic_tag = FNG_manchu_republic
+		}
+		
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_man.2 hours = 6 }
+		}
+	}
+}
+
+news_event = {
+	id = demo_man.2
+	title = demo_man.2.title
+	desc = demo_man.2.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = demo_man.2.a
+	}
+}
+
+country_event = {
+	id = demo_man.3
+	title = demo_man.3.title
+	desc = demo_man.3.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = demo_man.3.a
+		
+		FNG = {
+			keep_current_politics = yes
+		}
+		JAP = {
+			puppet = FNG
+		}
+		FNG = {
+			set_politics = {
+				ruling_party = autocratic_despotism
+				last_election = "1936.1.1"
+				election_frequency = 48
+				elections_allowed = no
+			}
+		}
+		
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_man.4 hours = 6 }
+		}
+		CHI = {
+			country_event = {
+				id = demo_man.6
+				days = 30
+			}
+		}
+		
+		ai_chance = {
+			base = 66
+		}
+	}
+	
+	option = {
+		name = demo_man.b.a
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_man.5 hours = 6 }
+		}
+		CHI = {
+			country_event = {
+				id = demo_man.6
+				days = 30
+			}
+		}
+		
+		ai_chance = {
+			base = 33
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+news_event = {
+	id = demo_man.4
+	title = demo_man.4.title
+	desc = demo_man.4.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = demo_man.4.a
+	}
+}
+
+news_event = {
+	id = demo_man.5
+	title = demo_man.5.title
+	desc = demo_man.5.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = demo_man.5.a
+	}
+}
+
+country_event = {
+	id = demo_man.6
+	title = demo_man.6.title
+	desc = demo_man.6.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_man.6.a
+		CHI = {
+			declare_war_on = {
+				target = FNG
+				type = annex_everything
+			}
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_man.7 hours = 6 }
+		}
+	}
+}
+
+news_event = {
+	id = demo_man.7
+	title = demo_man.7.title
+	desc = demo_man.7.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = demo_man.7.a
+	}
 }
