@@ -64,8 +64,8 @@ country_event = { # 1936 spa convention - choosing veep
 	
 	option = {
 		name = united_states.4.a
-		set_country_flag = USA_progressive_veep
 		custom_effect_tooltip = USA_henry_wallace_veep_tt
+		set_country_flag = USA_1936_henry_wallace_hog
 		
 		ai_chance = {
 			base = 8
@@ -74,11 +74,8 @@ country_event = { # 1936 spa convention - choosing veep
 	
 	option = {
 		name = united_states.4.b
-		set_country_flag = USA_radical_veep
 		custom_effect_tooltip = USA_earl_browder_veep_tt
-		
-		add_to_variable = { SPA_militant_influence = 10 }
-		add_to_variable = { SPA_moderate_influence = -5 }
+		set_country_flag = USA_1936_earl_browder_hog
 		
 		ai_chance = {
 			base = 2
@@ -175,31 +172,18 @@ news_event = { # recession world event
 
 country_event = { # 1940 dnc
 	id = united_states.11
-	title = { # lister is president
-		text = united_states.11.title_lister
-		trigger = {
-			has_government = national_conservatism
-		}
-	}
-	title = { # thomas is president
-		text = united_states.11.title_hull
-		trigger = {
-			NOT = {
-				has_government = national_conservatism
-			}
-		}
-	}
+	title = united_states.11.title
 	desc = {
 		text = united_states.11.desc_lister
 		trigger = {
-			has_government = national_conservatism
+			has_country_flag = USA_1936_election_democrat_victory
 		}
 	}
 	desc = {
 		text = united_states.11.desc_hull
 		trigger = {
 			NOT = {
-				has_government = national_conservatism
+				has_country_flag = USA_1936_election_democrat_victory
 			}
 		}
 	}
@@ -230,6 +214,10 @@ country_event = { # thomas chooses to run again
 	title = united_states.12.title
 	desc = united_states.12.desc
 	
+	trigger = {
+		has_government = libertarian_socialism
+	}
+	
 	is_triggered_only = yes
 	
 	fire_only_once = yes
@@ -254,12 +242,22 @@ country_event = { # 1940 spa convention
 	id = united_states.13
 	title = united_states.13.title
 	desc = {
-		text = united_states.13.thomas_third_term
-		trigger = { has_country_flag = USA_thomas_will_run }
+		text = united_states.13.desc_1 # thomas running for term #3
+		trigger = {
+			has_country_flag = USA_thomas_will_run
+		}
 	}
 	desc = {
-		text = united_states.13.thomas_retired
-		trigger = { NOT = { has_country_flag = USA_thomas_will_run } }
+		text = united_states.13.desc_2 # thomas retiring
+		trigger = {
+			NOT = { has_country_flag = USA_thomas_will_run }
+		}
+	}
+	desc = {
+		text = united_states.13.desc_3 # socialists lost in 36
+		trigger = {
+			NOT = { has_country_flag = USA_1936_election_socialist_victory }
+		}
 	}
 	
 	is_triggered_only = yes
@@ -283,7 +281,6 @@ country_event = { # 1940 spa convention
 			NOT = {
 				has_country_flag = USA_thomas_will_run
 			}
-			check_variable = { SPA_moderate_pop > 15 }
 		}
 		country_event = {
 			id = united_states.14
@@ -297,7 +294,6 @@ country_event = { # 1940 spa convention
 			NOT = {
 				has_country_flag = USA_thomas_will_run
 			}
-			check_variable = { SPA_militant_pop > 15 }
 		}
 		country_event = {
 			id = united_states.14
@@ -311,7 +307,6 @@ country_event = { # 1940 spa convention
 			NOT = {
 				has_country_flag = USA_thomas_will_run
 			}
-			check_variable = { SPA_unionist_pop > 10 }
 		}
 		country_event = {
 			id = united_states.14
@@ -578,7 +573,7 @@ country_event = { # boulder dam
 
 country_event = { # may day
 	id = united_states_flavor.2
-	title = "A Day For Labor"
+	title = united_states_flavor.2.title
 	desc = united_states_flavor.2.desc
 	picture = GFX_report_event_may_day_parade
 	
@@ -587,7 +582,7 @@ country_event = { # may day
 	fire_only_once = yes
 
 	option = {
-		name = "Arise ye wretched of the earth!"
+		name = united_states_flavor.2.a
 		add_political_power = 5
 	}
 }
@@ -603,7 +598,7 @@ country_event = { # aw yea its cthulhu ftaghn time
 	fire_only_once = yes
 
 	option = {
-		name = "-Howard Philips Lovecraft"
+		name = united_states_flavor.3.a
 		if = {
 			limit = {
 				has_country_flag = USA_campaigning_socialist
