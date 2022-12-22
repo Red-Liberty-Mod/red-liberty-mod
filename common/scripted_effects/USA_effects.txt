@@ -85,6 +85,20 @@ USA_calc_congress_control = {
 
 improve_safety_net = {
 	if = {
+		limit = {
+			NOT = {
+				OR = {
+					has_idea = USA_safety_net_barebones
+					has_idea = USA_safety_net_small
+					has_idea = USA_safety_net_acceptable
+					has_idea = USA_safety_net_large
+					has_idea = USA_safety_net_welfare_state
+				}
+			}
+		}
+		add_ideas = USA_safety_net_barebones
+	}
+	else_if = {
 		swap_ideas = {
 			remove_idea = USA_safety_net_barebones
 			add_idea = USA_safety_net_small

@@ -30,32 +30,47 @@ division_template = {
 		infantry = { x = 2 y = 2 }
 	}
 }
-
 division_template = {
-	name = "Armored-Division"
-	division_names_group = RAJ_ARM_01
+	name = "Cavalry Division"
+	division_names_group = RAJ_CAV_01
 
 	regiments = {
-		light_armor = { x = 0 y = 0 }
-		light_armor = { x = 0 y = 1 }
-		infantry = { x = 1 y = 0 }
-		infantry = { x = 1 y = 1 }
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
 	}
 }
-
+division_template = {
+	name = "Gurkha Rifles"
+	division_names_group = RAJ_MTN_01
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+	}
+	priority = 2
+}
 
 ####### OOB #######
 units = {
-	#India Command
-	
-	#Northern Command
+	division= {
+		name = "Burma Rifles"
+		location = 1330
+		division_template = "Infantry Division"
+		start_experience_factor = 0.25
+		start_equipment_factor = 0.85
+	}
 	
 	division= {	# "Pashawar District"
 		division_name = {
 			is_name_ordered = yes
 			name_order = 101
 		}
-		location = 4318
+		location = 12717
 		division_template = "District Garrison"
 		start_experience_factor = 0.1
 		start_equipment_factor = 0.3
@@ -65,7 +80,7 @@ units = {
 			is_name_ordered = yes
 			name_order = 102
 		}
-		location = 1197
+		location = 4998
 		division_template = "District Garrison"
 		start_experience_factor = 0.1
 		start_equipment_factor = 0.3
@@ -75,7 +90,7 @@ units = {
 			is_name_ordered = yes
 			name_order = 103
 		}
-		location = 4087
+		location = 12005
 		division_template = "District Garrison"
 		start_experience_factor = 0.1
 		start_equipment_factor = 0.3
@@ -85,7 +100,7 @@ units = {
 			is_name_ordered = yes
 			name_order = 104
 		}
-		location = 4588
+		location = 10843
 		division_template = "District Garrison"
 		start_experience_factor = 0.1
 		start_equipment_factor = 0.3
@@ -95,7 +110,7 @@ units = {
 			is_name_ordered = yes
 			name_order = 105
 		}
-		location = 10486
+		location = 1978
 		division_template = "District Garrison"
 		start_experience_factor = 0.1
 		start_equipment_factor = 0.3
@@ -107,7 +122,7 @@ units = {
 			is_name_ordered = yes
 			name_order = 106
 		}
-		location = 12335
+		location = 11955
 		division_template = "District Garrison"
 		start_experience_factor = 0.1
 		start_equipment_factor = 0.3
@@ -117,14 +132,14 @@ units = {
 			is_name_ordered = yes
 			name_order = 107
 		}
-		location = 7163
+		location = 12137
 		division_template = "District Garrison"
 		start_experience_factor = 0.1
 		start_equipment_factor = 0.3
 	}
 	division= {	
 		name = "Presidency & Assam District"
-		location = 4541
+		location = 1497
 		division_template = "District Garrison"
 		start_experience_factor = 0.1
 		start_equipment_factor = 0.3
@@ -136,7 +151,7 @@ units = {
 			is_name_ordered = yes
 			name_order = 109
 		}
-		location = 4654
+		location = 12781
 		division_template = "District Garrison"
 		start_experience_factor = 0.1
 		start_equipment_factor = 0.3
@@ -146,7 +161,7 @@ units = {
 			is_name_ordered = yes
 			name_order = 110
 		}
-		location = 4425
+		location = 1349
 		division_template = "District Garrison"
 		start_experience_factor = 0.1
 		start_equipment_factor = 0.3
@@ -156,24 +171,12 @@ units = {
 			is_name_ordered = yes
 			name_order = 111
 		}
-		location = 12317
+		location = 10278
 		division_template = "District Garrison"
 		start_experience_factor = 0.1
 		start_equipment_factor = 0.3
 	}
 }
-
-air_wings = {
-	### AHQ India
-	439 = { 
-		### AHQ India -- Fairey Gordons, Battles
-		CAS_equipment_1 = {
-			owner = "RAJ" 
-			amount = 80
-		}
-	}
-}
-
 
 ##### Starting Production #####
 instant_effect = {
