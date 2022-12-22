@@ -143,7 +143,7 @@ shared_focus = {
 	relative_position_id = USA_invest_in_higher_education
 	prerequisite = { focus = USA_invest_in_higher_education }
     completion_reward = {
-        ECON_poverty_change_small = yes
+        improve_safety_net = yes
     }
 	
 	ai_will_do = {
@@ -163,8 +163,7 @@ shared_focus = {
 	prerequisite = { focus = USA_invest_in_higher_education }
 	prerequisite = { focus = USA_compulsory_education }
     completion_reward = {
-        ECON_poverty_change_small = yes 
-		add_stability = 0.03
+        improve_great_depression = yes
 		hidden_effect = {
 			every_owned_state = {
 				limit = {
@@ -217,6 +216,8 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = { FOCUS_FILTER_USA_CONGRESS }
 }
 
 shared_focus = {
@@ -322,8 +323,7 @@ shared_focus = {
 	relative_position_id = USA_right_to_work
 	prerequisite = { focus = USA_right_to_work }
     completion_reward = {
-      add_stability = 0.07
-	  custom_effect_tooltip = USA_fair_comp_tooltip
+		improve_great_depression = yes
     }
 	
 	ai_will_do = {
@@ -378,6 +378,8 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = { FOCUS_FILTER_USA_CONGRESS }
 }
 
 shared_focus = {
@@ -386,10 +388,6 @@ shared_focus = {
 	
     x = 2
 	y = 1
-	
-	available = {
-		has_idea = USA_safety_net_barebones
-	}
 	
 	cost = 5
 	relative_position_id = USA_second_bill_of_rights
@@ -510,6 +508,8 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = { FOCUS_FILTER_USA_CONGRESS }
 }
 
 shared_focus = {
@@ -637,6 +637,8 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = { FOCUS_FILTER_USA_CONGRESS }
 }
 
 shared_focus = {

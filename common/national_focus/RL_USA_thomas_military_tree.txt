@@ -37,6 +37,8 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = { FOCUS_FILTER_ARMY_XP }
 }
 
 shared_focus = {
@@ -61,6 +63,8 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = { FOCUS_FILTER_ARMY_XP }
 }
 
 shared_focus = {
@@ -177,8 +181,9 @@ shared_focus = {
     completion_reward = {
 		army_experience = 25
 		if = {
-			limit = { 
-				has_idea = USA_20_division_plan_a }
+			limit = {
+				has_idea = USA_20_division_plan_a
+			}
 			swap_ideas = {
 				remove_idea = USA_20_division_plan_a
 				add_idea = USA_20_division_plan_ab
@@ -195,6 +200,8 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = { FOCUS_FILTER_ARMY_XP }
 }
 
 shared_focus = {
@@ -215,7 +222,8 @@ shared_focus = {
     completion_reward = {
 		if = {
 			limit = { 
-				has_idea = USA_20_division_plan_a }
+				has_idea = USA_20_division_plan_a
+			}
 			swap_ideas = {
 				remove_idea = USA_20_division_plan_a
 				add_idea = USA_20_division_plan_ad
@@ -223,7 +231,8 @@ shared_focus = {
 		}
 		else_if = {
 			limit = {
-				has_idea = USA_20_division_plan_ab }
+				has_idea = USA_20_division_plan_ab
+			}
 			swap_ideas = {
 				remove_idea = USA_20_division_plan_ab
 				add_idea = USA_20_division_plan_abd
@@ -260,7 +269,8 @@ shared_focus = {
     completion_reward = {
 		if = {
 			limit = { 
-				has_idea = USA_20_division_plan_ab }
+				has_idea = USA_20_division_plan_ab
+			}
 			swap_ideas = {
 				remove_idea = USA_20_division_plan_ab
 				add_idea = USA_20_division_plan_abc
@@ -455,6 +465,8 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = { FOCUS_FILTER_USA_CONGRESS }
 }
 
 shared_focus = {
@@ -550,6 +562,8 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = { FOCUS_FILTER_AIR_XP }
 }
 
 shared_focus = {
@@ -622,6 +636,8 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -646,6 +662,8 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -660,12 +678,18 @@ shared_focus = {
 	prerequisite = { focus = USA_recon_aircraft }
     completion_reward = {
         if = {
-			limit = { has_idea = USA_usac_a }
+			limit = {
+				has_idea = USA_usac_a
+			}
 			swap_ideas = {
 				add_idea = USA_usac_ab
-				remove_idea = USA_usac_a}
+				remove_idea = USA_usac_a
+			}
 		}
-		else_if = { has_idea = USA_usac_ac
+		else_if = {
+			limit = {
+				has_idea = USA_usac_ac
+			}
 			swap_ideas = {
 				add_idea = USA_usac_abc
 				remove_idea = USA_usac_ac
@@ -690,12 +714,18 @@ shared_focus = {
 	prerequisite = { focus = USA_recon_aircraft }
     completion_reward = {
 		if = {
-			limit = { has_idea = USA_usac_a }
+			limit = {
+				has_idea = USA_usac_a
+			}
 			swap_ideas = {
 				add_idea = USA_usac_ac
-				remove_idea = USA_usac_a}
+				remove_idea = USA_usac_a
+			}
 		}
-		else_if = { has_idea = USA_usac_ab
+		else_if = {
+			limit = {
+				has_idea = USA_usac_ab
+			}
 			swap_ideas = {
 				add_idea = USA_usac_abc
 				remove_idea = USA_usac_ab
@@ -862,6 +892,8 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -886,6 +918,8 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -910,6 +944,8 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -1055,6 +1091,8 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = { FOCUS_FILTER_NAVY_XP }
 }
 
 shared_focus = {
@@ -1299,6 +1337,8 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -1473,4 +1513,6 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }
