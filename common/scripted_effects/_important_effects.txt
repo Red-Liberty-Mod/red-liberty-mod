@@ -282,6 +282,52 @@ clr_opinion_modifiers = {
 setup_opinion_modifiers = {
 	every_other_country = {
 		if = {
+			limit = { has_same_govt_as_PREV = yes }
+			add_opinion_modifier = {
+				target = PREV
+				modifier = RL_same_ideology
+			}
+		}
+		else_if = {
+			limit = { has_similar_close_govt_to_PREV = yes }
+			add_opinion_modifier = {
+				target = PREV
+				modifier = RL_similar_ideology_close
+			}
+		}
+		else_if = {
+			limit = { has_similar_govt_to_PREV = yes }
+			add_opinion_modifier = {
+				target = PREV
+				modifier = RL_similar_ideology
+			}
+		}
+		else_if = {
+			limit = { has_similar_distant_govt_to_PREV = yes }
+			add_opinion_modifier = {
+				target = PREV
+				modifier = RL_similar_ideology_distant
+			}
+		}
+		else_if = {
+			limit = { has_different_close_govt_to_PREV = yes }
+			add_opinion_modifier = {
+				target = PREV
+				modifier = RL_different_ideology_close
+			}
+		}
+		else = {
+			add_opinion_modifier = {
+				target = PREV
+				modifier = RL_different_ideology
+			}
+		}
+	}
+}
+
+update_opinion_modifiers = {
+	every_other_country = {
+		if = {
 			limit = { has_same_govt_as_ROOT = yes }
 			add_opinion_modifier = {
 				target = ROOT

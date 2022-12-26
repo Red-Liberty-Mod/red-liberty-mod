@@ -12,8 +12,9 @@ on_actions = {
 				array = global.players
 				set_country_flag = open_intro_splash_screen
 			}
-		
-			setup_opinion_modifiers = yes
+			every_possible_country = {
+				setup_opinion_modifiers = yes
+			}
 		}
 	}
 	
@@ -39,6 +40,7 @@ on_actions = {
 	on_monthly = {
 		effect = {
 			#log = "[GetDateText] [Root.GetName] on_monthly"
+			
 		}
 	}
 	
@@ -52,8 +54,10 @@ on_actions = {
 		effect = {
 			log = "[GetDateText] [Root.GetName] on_ruling_party_change"
 			
-			clr_opinion_modifiers = yes
-			setup_opinion_modifiers = yes
+			every_other_country = {
+				clr_opinion_modifiers = yes
+				update_opinion_modifiers = yes
+			}
 			
 			every_controlled_state = {
 				limit = {
