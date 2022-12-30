@@ -169,9 +169,9 @@ news_event = { # insurgency world news event
 }
 
 news_event = { # brazilian civil war
-	id = worldnews_southamerica.1
-	title = worldnews_southamerica.1.title
-	desc = worldnews_southamerica.1.desc
+	id = worldnews_war.1
+	title = worldnews_war.1.title
+	desc = worldnews_war.1.desc
 	picture = GFX_report_event_intentona_comunista
 	
 	is_triggered_only = yes
@@ -179,9 +179,27 @@ news_event = { # brazilian civil war
 	major = yes
 
 	option = {
-		name = worldnews_southamerica.1.a
+		name = worldnews_war.1.a
 		USA = {
 			setup_brazil_conflict = yes
+		}
+	}
+}
+
+news_event = { # mexican civil war
+	id = worldnews_war.2
+	title = worldnews_war.2.title
+	desc = worldnews_war.2.desc
+	picture = GFX_report_event_cristeros
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = worldnews_war.2.a
+		USA = {
+			setup_mexico_conflict = yes
 		}
 	}
 }
