@@ -179,33 +179,32 @@ adjacency_rule =
 }
 
 #Turkish Straits
-adjacency_rule = 
-{
+adjacency_rule = {
 	name = "BOSPHORUS_STRAIT"
+	
+	is_friend = {
+		TUR_is_friend_for_bosphorus = yes
+	}
 
-	contested =
-	{
+	contested = {
 		army = no
 		navy = no
 		submarine = no
 		trade = no
 	}
-	enemy =
-	{
+	enemy = {
 		army = no
 		navy = no
 		submarine = no
 		trade = no
 	}
-	friend =
-	{
+	friend = {
 		army = yes
 		navy = yes
 		submarine = yes
 		trade = yes
 	}
-	neutral =
-	{
+	neutral = {
 		army = no
 		navy = no
 		submarine = no
@@ -219,37 +218,32 @@ adjacency_rule =
 }
 
 #The Dardanelles
-adjacency_rule =
-{
+adjacency_rule = {
 	name = "DARDANELLES_STRAIT"
 
 	is_friend = {
 		TUR_is_friend_for_dardanelles = yes
 	}
 
-	contested =
-	{
+	contested = {
 		army = no
 		navy = no
 		submarine = no
 		trade = no
 	}
-	enemy =
-	{
+	enemy = {
 		army = no
 		navy = no
 		submarine = no
 		trade = no
 	}
-	friend =
-	{
+	friend = {
 		army = yes
 		navy = yes
 		submarine = yes
 		trade = yes
 	}
-	neutral =
-	{
+	neutral = {
 		army = no
 		navy = no
 		submarine = no
@@ -444,4 +438,39 @@ adjacency_rule = {
 		
 	icon = 5681
 	offset = { 0 0 0 }
+}
+
+#Strait of Otranto
+adjacency_rule = {
+	name = "OTRANTO_STRAIT"
+
+	contested = {
+		army = no
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	enemy = {
+		army = no
+		navy = no
+		submarine = yes
+		trade = no
+	}
+	friend = {
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	neutral = {
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	
+	required_provinces = { 6979 11767 }
+		
+	icon = 6979
+	offset = { 9 0 6 }
 }
