@@ -17,7 +17,6 @@ add_namespace = demo_saf
 add_namespace = demo_tur
 add_namespace = demo_ser
 add_namespace = demo_bul
-add_namespace = demo_brm
 add_namespace = demo_man
 
 add_namespace = demo_usa_jap_peace
@@ -2568,59 +2567,6 @@ country_event = {
 			declare_war_on = {
 				target = HNN
 				type = annex_everything
-			}
-		}
-	}
-}
-
-country_event = {
-	id = demo_brm.1
-	title = demo_brm.1.title
-	desc = demo_brm.1.desc
-	
-	trigger = {
-		original_tag = BRM
-		BRM = {
-			controls_state = 288
-		}
-	}
-	
-	fire_only_once = yes
-
-	option = {
-		name = demo_brm.1.a
-		BRM = {
-			white_peace = {
-				tag = RAJ
-			}
-		
-			transfer_state = 288
-			transfer_state = 965
-			
-			country_event = {
-				id = demo_brm.2
-				days = 30
-			}
-		}
-	}
-}
-
-country_event = {
-	id = demo_brm.2
-	title = demo_brm.2.title
-	desc = demo_brm.2.desc
-	
-	is_triggered_only = yes
-	
-	fire_only_once = yes
-
-	option = {
-		name = demo_brm.2.a
-		SIA = {
-			declare_war_on = {
-				target = BRM
-				type = take_state_focus
-				generator = { 964 965 } 
 			}
 		}
 	}
