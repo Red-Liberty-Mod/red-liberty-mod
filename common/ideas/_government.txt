@@ -1,0 +1,156 @@
+ideas = {
+
+	voting_laws = { 
+		law = yes
+		use_list_view = yes
+		
+		no_voting = {
+			cost = 150
+			removal_cost = -1
+			level = 5
+			
+			available = {
+				NOT = {
+					has_auth_socialist_govt = yes
+					has_democratic_govt = yes
+				}
+			}
+			
+			visible = {
+				
+			}
+
+			modifier = {
+				political_power_gain = 0.15
+				drift_defence_factor = 0.3
+			}
+			
+			cancel_if_invalid = no
+		}
+		
+		elite_voting = {		
+			cost = 150
+			removal_cost = -1
+			level = 5
+			
+			available = {
+				NOT = {
+					has_democratic_govt = yes
+				}
+			}
+			
+			visible = {
+				
+			}
+
+			modifier = {
+				political_power_gain = 0.1
+				drift_defence_factor = 0.15
+			}
+			
+			cancel_if_invalid = no
+		}
+		
+		limited_franchise = {
+			cost = 150
+			removal_cost = -1
+			level = 3
+			
+			allowed = {
+				NOT = {
+					original_tag = USA
+				}
+			}
+			
+			available = {
+				
+			}
+			
+			visible = {
+				
+			}
+
+			modifier = {
+				political_power_gain = 0.05
+				drift_defence_factor = 0.05
+			}
+			
+			cancel_if_invalid = no
+		}
+		
+		USA_jim_crow = {
+			cost = 150
+			removal_cost = -1
+			level = 3
+			
+			allowed = {
+				original_tag = USA
+			}
+			
+			available = {
+				
+			}
+			
+			visible = {
+				
+			}
+
+			modifier = {
+				political_power_gain = 0.05
+				stability_factor = -0.05
+				conscription_factor = -0.15
+			}
+			
+			allowed_to_remove = {
+				always = no
+			}
+			
+			cancel_if_invalid = no
+		}
+		
+		universal_suffrage = {
+			default = yes
+			cost = 150
+			removal_cost = -1
+			level = 2
+			
+			available = {
+				
+			}
+			
+			visible = {
+				
+			}
+
+			modifier = {
+				stability_factor = 0.025
+			}
+			
+			cancel_if_invalid = no
+		}
+		
+		mandatory_voting = {
+			cost = 150
+			removal_cost = -1
+			level = 1
+			
+			available = {
+				NOT = {
+					has_government = national_conservatism
+					has_reactionary_govt = yes
+				}
+			}
+			
+			visible = {
+				
+			}
+
+			modifier = {
+				political_power_gain = -0.05
+				stability_factor = 0.05
+			}
+			
+			cancel_if_invalid = no
+		}
+	}
+}

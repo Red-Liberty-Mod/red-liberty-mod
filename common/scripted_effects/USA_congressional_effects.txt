@@ -784,6 +784,17 @@ USA_nationalize_defense_act_setup = { # nationalize defense industry
 	set_variable = { socialist_flip_cost = 50 }
 	set_variable = { democrat_flip_cost = 125 }
 	
+	if = {
+		limit = {
+			USA = {
+				has_war = yes
+			}
+		}
+		add_to_variable = { USA_republican_bill_support = 0.1 }
+		add_to_variable = { USA_democrat_bill_support = 0.05 }
+		add_to_variable = { USA_fascist_bill_support = 0.05 }
+	}
+	
 	USA_bill_setup = yes # always required
 }
 
