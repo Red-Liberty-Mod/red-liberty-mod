@@ -20,6 +20,8 @@ add_namespace = demo_bul
 add_namespace = demo_man
 
 add_namespace = demo_usa_jap_peace
+add_namespace = demo_jap_usa_war
+add_namespace = demo_jap_chi_war
 
 add_namespace = demo_ww2
 
@@ -2208,6 +2210,7 @@ news_event = {
 
 	option = {
 		name = demo_ww2.2.a
+		set_global_flag = second_great_war_started
 	}
 }
 
@@ -2479,7 +2482,8 @@ country_event = {
 		name = ""
 	}
 }
-country_event = {
+
+country_event = { # SUS movements
 	id = demo_jap_usa_war.1
 	title = demo_jap_usa_war.1.title
 	desc = demo_jap_usa_war.1.desc
@@ -2491,19 +2495,40 @@ country_event = {
 	fire_only_once = yes
 
 	option = {
+		name = demo_jap_usa_war.1.a
+	}
+	
+	option = {
+		name = demo_jap_usa_war.1.b
+	}
+}
+
+country_event = {
+	id = demo_jap_usa_war.2
+	title = demo_jap_usa_war.2.title
+	desc = demo_jap_usa_war.2.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
 		name = ""
-		JAP = 
-		declare_war_on = {
-			target = USA
-			type = annex_everything
+		JAP = {
+			declare_war_on = {
+				target = USA
+				type = annex_everything
+			}
 		}
 	}
 }
 
 country_event = {
-	id = demo.jap_chi_war.1
-	title = ""
-	desc = demo.jap_chi_war.1.desc
+	id = demo_jap_chi_war.1
+	title = demo_jap_chi_war.title
+	desc = demo_jap_chi_war.1.desc
 	
 	is_triggered_only = yes
 	
@@ -2567,6 +2592,45 @@ country_event = {
 			declare_war_on = {
 				target = HNN
 				type = annex_everything
+			}
+		}
+		CHI = {
+			create_faction = "Chinese United Front"
+			add_to_faction = FNG
+			add_to_faction = SHD
+			add_to_faction = SHX
+			add_to_faction = HNN
+			add_to_faction = GUI
+			add_to_faction = YUN
+			add_to_faction = SZC
+			add_to_faction = XSM
+			add_to_faction = SIK
+		}
+		USA = {
+			country_event = {
+				id = demo_jap_chi_war.2
+				days = 7
+			}
+		}
+	}
+}
+
+country_event = {
+	id = demo_jap_chi_war.2
+	title = demo_jap_chi_war.2.title
+	desc = demo_jap_chi_war.2.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ""
+		USA = {
+			diplomatic_relation = {
+				country = JAP
+				relation = embargo
+				active = yes
 			}
 		}
 	}
