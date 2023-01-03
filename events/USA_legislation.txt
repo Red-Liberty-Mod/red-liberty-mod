@@ -682,6 +682,11 @@ country_event = { # equal education act
 	option = { # bill passes
 		name = us_bill.14.a
 		trigger = { has_country_flag = bill_passed }
+		
+		add_ideas = {
+			USA_education_act
+		}
+		
 		USA_bill_clear = yes # ALWAYS DO THIS
 	}
 	
@@ -762,6 +767,12 @@ country_event = { # national healthcare act
 	option = { # bill passes
 		name = us_bill.16.a
 		trigger = { has_country_flag = bill_passed }
+		
+		swap_ideas = {
+			remove_idea = USA_safety_net_large
+			add_idea = USA_safety_net_welfare_state
+		}
+		
 		USA_bill_clear = yes # ALWAYS DO THIS
 	}
 	

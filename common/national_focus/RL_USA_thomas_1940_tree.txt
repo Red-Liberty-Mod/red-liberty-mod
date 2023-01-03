@@ -13,7 +13,6 @@ shared_focus = {
 		focus = USA_spqa
 	}
     completion_reward = {
-       unlock_decision_tooltip = start_USA_second_bill_of_rights
 	   hidden_effect = {
 			every_owned_state = {
 				limit = {
@@ -51,6 +50,8 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -71,6 +72,8 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 }
 
 shared_focus = {
@@ -90,6 +93,8 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = { FOCUS_FILTER_POLITICAL }
 }
 
 shared_focus = {
@@ -110,6 +115,8 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 }
 
 shared_focus = {
@@ -130,6 +137,8 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 }
 
 shared_focus = {
@@ -211,13 +220,19 @@ shared_focus = {
 	prerequisite = { focus = USA_federal_education_grants }
     completion_reward = {
         unlock_decision_tooltip = start_USA_equal_education_act
+		custom_effect_tooltip = USA_bill_pass_req_tt
+		effect_tooltip = {
+			add_ideas = {
+				USA_education_act
+			}
+		}
     }
 	
 	ai_will_do = {
 		factor = 10
 	}
 	
-	search_filters = { FOCUS_FILTER_USA_CONGRESS }
+	search_filters = { FOCUS_FILTER_USA_CONGRESS FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -301,10 +316,7 @@ shared_focus = {
 	prerequisite = { focus = USA_workplace_democracy }
 	prerequisite = { focus = USA_ensure_fair_competition }
     completion_reward = {
-        custom_effect_tooltip = USA_bill_pass_req_tt
-		effect_tooltip = {
-			improve_great_depression = yes
-		}
+        improve_great_depression = yes
     }
 	
 	ai_will_do = {
@@ -497,12 +509,23 @@ shared_focus = {
     x = 1
 	y = 1
 	
+	available = {
+		has_idea = USA_safety_net_large
+	}
+	
 	cost = 8
 	relative_position_id = USA_maternity_insurance
 	prerequisite = { focus = USA_maternity_insurance }
 	prerequisite = { focus = USA_look_at_causes }
     completion_reward = {
         unlock_decision_tooltip = start_USA_national_healthcare_act
+		custom_effect_tooltip = USA_bill_pass_req_tt
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = USA_safety_net_large
+				add_idea = USA_safety_net_welfare_state
+			}
+		}
     }
 	
 	ai_will_do = {

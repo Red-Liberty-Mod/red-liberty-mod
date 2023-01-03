@@ -25,45 +25,14 @@ USA_appalachian_insurgency_category = {
 				hours = 6
 			}
 			set_country_flag = USA_martial_law_enabled
-			subtract_from_variable = {
-				USA_insurgency_strength = 10
-				tooltip = USA_insurgency_strength_loss
-			}
 		}
 	}
 	
-	USA_call_in_hoover = {
-		
-		icon = ger_mefo_bills
-		
-		visible = {
-			has_country_flag = USA_insurgency_start
-			NOT = {
-				has_country_flag = USA_insurgency_end
-			}
-		}
-		
-		available = {
-			
-		}
-		
-		cost = 25
-		
-		fire_only_once = yes
-		
-		complete_effect = {
-			subtract_from_variable = {
-				USA_insurgency_strength = 7
-				tooltip = USA_insurgency_strength_loss
-			}
-		}
-	}
-	
-	USA_silence_the_pillar = {
-		icon = ger_mefo_bills
+	USA_finish_ohio = {
+		icon = GFX_decision_infiltrate_state
 		
 		highlight_states = {
-			highlight_state_targets = { state = 382 }
+			highlight_state_targets = { state = 261 }
 		}
 		
 		visible = {
@@ -71,25 +40,37 @@ USA_appalachian_insurgency_category = {
 			NOT = {
 				has_country_flag = USA_insurgency_end
 			}
+			261 = {
+				has_state_flag = USA_active_insurgency
+			}
 		}
 		
 		available = {
-			
+			divisions_in_state = {
+				type = infantry
+				size > 4
+				state = 261
+			}
 		}
 		
-		cost = 25
+		cancel_trigger = {
+			divisions_in_state = {
+				type = infantry
+				size < 5
+				state = 261
+			}
+		}
 		
 		fire_only_once = yes
 		
-		complete_effect = {
-			subtract_from_variable = {
-				USA_insurgency_strength = 5
-				tooltip = USA_insurgency_strength_loss
+		days_remove = 14
+		
+		remove_effect = {
+			261 = {
+				clr_state_flag = USA_active_insurgency
 			}
-			subtract_from_variable = {
-				USA_insurgency_public_opinion = 5
-				tooltip = USA_insurgency_opinion_loss
-			}
+			custom_effect_tooltip = USA_insurgency_strength_loss
+			set_country_flag = USA_ohio_clear
 		}
 	}
 	
@@ -105,6 +86,9 @@ USA_appalachian_insurgency_category = {
 			NOT = {
 				has_country_flag = USA_insurgency_end
 			}
+			393 = {
+				has_state_flag = USA_active_insurgency
+			}
 		}
 		
 		available = {
@@ -113,6 +97,7 @@ USA_appalachian_insurgency_category = {
 				size > 4
 				state = 393
 			}
+			has_country_flag = USA_ohio_clear
 		}
 		
 		cancel_trigger = {
@@ -132,9 +117,9 @@ USA_appalachian_insurgency_category = {
 				id = united_states_insurgency.9
 				hours = 6
 			}
-			subtract_from_variable = {
-				USA_insurgency_strength = 5
-				tooltip = USA_insurgency_strength_loss
+			custom_effect_tooltip = USA_insurgency_strength_loss
+			393 = {
+				clr_state_flag = USA_active_insurgency
 			}
 			set_country_flag = USA_michigan_clear
 		}
@@ -152,6 +137,9 @@ USA_appalachian_insurgency_category = {
 			NOT = {
 				has_country_flag = USA_insurgency_end
 			}
+			362 = {
+				has_state_flag = USA_active_insurgency
+			}
 		}
 		
 		available = {
@@ -175,9 +163,9 @@ USA_appalachian_insurgency_category = {
 		days_remove = 14
 		
 		remove_effect = {
-			subtract_from_variable = {
-				USA_insurgency_strength = 5
-				tooltip = USA_insurgency_strength_loss
+			custom_effect_tooltip = USA_insurgency_strength_loss
+			362 = {
+				clr_state_flag = USA_active_insurgency
 			}
 			set_country_flag = USA_virginia_clear
 		}
@@ -195,6 +183,9 @@ USA_appalachian_insurgency_category = {
 			NOT = {
 				has_country_flag = USA_insurgency_end
 			}
+			363 = {
+				has_state_flag = USA_active_insurgency
+			}
 		}
 		
 		available = {
@@ -218,9 +209,9 @@ USA_appalachian_insurgency_category = {
 		days_remove = 14
 		
 		remove_effect = {
-			subtract_from_variable = {
-				USA_insurgency_strength = 5
-				tooltip = USA_insurgency_strength_loss
+			custom_effect_tooltip = USA_insurgency_strength_loss
+			363 = {
+				clr_state_flag = USA_active_insurgency
 			}
 			set_country_flag = USA_north_carolina_clear
 		}
@@ -228,10 +219,6 @@ USA_appalachian_insurgency_category = {
 
 	USA_strike_the_final_blow = {
 		icon = GFX_decision_infiltrate_state
-		
-		highlight_states = {
-			highlight_state_targets = { state = 853 }
-		}
 		
 		visible = {
 			has_country_flag = USA_insurgency_start
@@ -243,7 +230,7 @@ USA_appalachian_insurgency_category = {
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = USA_insurgency_end_req
-				check_variable = { USA_insurgency_strength < 16 }
+				check_variable = { USA_insurgency_states < 3 }
 			}
 		}
 		

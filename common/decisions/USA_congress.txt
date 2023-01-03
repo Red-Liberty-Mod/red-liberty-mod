@@ -401,9 +401,8 @@ USA_congress = {
 		complete_effect = {
 			custom_effect_tooltip = USA_bill_pass_req_tt
 			effect_tooltip = {
-				USA_add_equal_education = yes
 				add_ideas = {
-					USA_equal_education_act
+					USA_education_act
 				}
 			}
 			USA_equal_education_act_setup = yes
@@ -466,9 +465,9 @@ USA_congress = {
 		complete_effect = {
 			custom_effect_tooltip = USA_bill_pass_req_tt
 			effect_tooltip = {
-				USA_add_national_healthcare = yes
-				add_ideas = {
-					USA_national_healthcare_act
+				swap_ideas = {
+					remove_idea = USA_safety_net_large
+					add_idea = USA_safety_net_welfare_state
 				}
 			}
 			USA_national_healthcare_act_setup = yes
@@ -499,10 +498,7 @@ USA_congress = {
 		complete_effect = {
 			custom_effect_tooltip = USA_bill_pass_req_tt
 			effect_tooltip = {
-				USA_add_second_bill_of_rights = yes
-				add_ideas = {
-					USA_second_bill_of_rights
-				}
+				
 			}
 			USA_second_bill_of_rights_setup = yes
 		}

@@ -156,7 +156,7 @@ shared_focus = {
 		}
         add_to_variable = {
 			TUR_caliph_influence = 2
-			tooltip = TUR_caliph_influence_gain_tt
+			tooltip = TUR_sultan_influence_gain_tt
 		}
     }
 	
@@ -450,7 +450,7 @@ shared_focus = {
 	relative_position_id = TUR_question_of_an_heir
 	prerequisite = { focus = TUR_question_of_an_heir }
     completion_reward = {
-        
+        custom_effect_tooltip = TUR_prepare_his_brothers_tt
     }
 	
 	ai_will_do = {
@@ -505,8 +505,8 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = TUR_allow_the_prentender
-	icon = GFX_TUR_allow_the_prentender
+    id = TUR_allow_the_pretender
+	icon = GFX_TUR_allow_the_pretender
 	
     x = -1
 	y = 1
@@ -535,7 +535,7 @@ shared_focus = {
 	
 	cost = 2
 	mutually_exclusive = {
-		focus = TUR_allow_the_prentender
+		focus = TUR_allow_the_pretender
 	}
 	relative_position_id = TUR_emancipate_the_exiles
 	prerequisite = { focus = TUR_emancipate_the_exiles }
@@ -653,11 +653,39 @@ shared_focus = {
 }
 
 shared_focus = {
+    id = TUR_the_settled_succession
+	icon = GFX_TUR_the_settled_succession
+	
+    x = 0
+	y = 3
+	
+	cost = 2
+	relative_position_id = TUR_question_of_an_heir
+	prerequisite = {
+		focus = TUR_allow_the_pretender
+		focus = TUR_dont_trust_like_that
+		focus = TUR_indoctrinate_the_child
+	}
+	prerequisite = {
+		focus = TUR_favor_the_admiral
+		focus = TUR_the_rogue_jihadist
+		focus = TUR_anyone_but_the_family
+	}
+    completion_reward = {
+        add_stability = 0.05
+    }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
     id = TUR_lets_get_to_work
 	icon = GFX_TUR_lets_get_to_work
 	
     x = 2
-	y = 1
+	y = 2
 	
 	cost = 2
 	relative_position_id = TUR_literary_purge
@@ -665,6 +693,7 @@ shared_focus = {
 		focus = TUR_literary_purge
 		focus = TUR_at_what_cost
 	}
+	prerequisite = { focus = TUR_the_settled_succession }
     completion_reward = {
         country_event = {
 			id = anatolia.11

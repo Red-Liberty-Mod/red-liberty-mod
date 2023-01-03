@@ -418,8 +418,28 @@ country_event = { # shit explodes
 		add_stability = -0.03
 		
 		hidden_effect = {
-			set_variable = { USA_insurgency_public_opinion = 78 }
-			set_variable = { USA_insurgency_strength = 47 }
+			362 = {
+				set_state_flag = USA_active_insurgency
+			}
+			363 = {
+				set_state_flag = USA_active_insurgency
+			}
+			368 = {
+				set_state_flag = USA_active_insurgency
+			}
+			832 = {
+				set_state_flag = USA_active_insurgency
+			}
+			
+			country_event = {
+				id = united_states_insurgency.5
+				days = 6
+			}
+			country_event = {
+				id = united_states_insurgency.6
+				days = 12
+			}
+			
 			random_other_country = {
 				limit = { is_ai = yes }
 				news_event = { id = worldnews.7 hours = 6 }
@@ -453,10 +473,18 @@ country_event = { # dont tell mom im in detroit
 	option = {
 		name = united_states_insurgency.5.a
 		add_stability = -0.03
+		hidden_effect = {
+			261 = {
+				set_state_flag = USA_active_insurgency
+			}
+			393 = {
+				set_state_flag = USA_active_insurgency
+			}
+		}
 	}
 }
 
-country_event = { # violence spreads to virginia and north carolina
+country_event = { # rebel yell, violence in the south
 	id = united_states_insurgency.6
 	title = united_states_insurgency.6.title
 	desc = united_states_insurgency.6.desc
@@ -465,7 +493,21 @@ country_event = { # violence spreads to virginia and north carolina
 
 	option = {
 		name = united_states_insurgency.6.a
-		add_stability = 0.01
+		add_stability = -0.03
+		hidden_effect = {
+			364 = {
+				set_state_flag = USA_active_insurgency
+			}
+			365 = {
+				set_state_flag = USA_active_insurgency
+			}
+			367 = {
+				set_state_flag = USA_active_insurgency
+			}
+			370 = {
+				set_state_flag = USA_active_insurgency
+			}
+		}
 	}
 }
 
