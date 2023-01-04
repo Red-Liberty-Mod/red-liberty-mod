@@ -3,6 +3,32 @@ add_namespace = guangxianarchist
 add_namespace = guangxifederalist
 
 country_event = { # intro event
+	id = guangxifederalist.1
+	title = "Federalist Coup"
+	desc = "Seeking an opportunity the Federalists led by Chen Jiongming lead a coup designed to put inplace their ideas of chinese federalism. The federalists themselves broke away from the KMT as they saw the KMT as not true republicans. This seeing both parties split ways. In the time between now and the exile of the KMT, the China Zhi Gong Party or CZGP, started getting support amongst Guangdong merchants and local workers unions whilst in rivalry with the CCP."
+	
+	picture = "GFX_report_event_student_protest_CHI"
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	
+
+	
+	
+	option = {
+		name = "Long Live The Republic!"
+		custom_effect_tooltip = FED_GUD_tt
+		hidden_effect = {
+		set_politics = { ruling_party = social_democracy }
+		set_cosmetic_tag = GUD_Federalist
+		}
+		
+	}
+}
+
+country_event = { # intro event
 	id = guangxicivilwar.1
 	title = "Guomindang Soldiers Revolt in Guangdong!"
 	desc = "The GMD is a party derviing from Dr. Sun Yat Sen and his ideas of a republican China. Now his followers seek to keep his legacy alive ftaer he lost power to Rongyao's father."
@@ -56,10 +82,7 @@ country_event = { # intro event
 		hidden_effect = {
 		add_ideas = KMT_federalist_unrest
 		}
-		country_event = {
-		id = guangxifederalist.1
-		days = 1
-		}
+		
 	}
 	
 	option = {
@@ -296,8 +319,8 @@ country_event = { # intro event
 
 country_event = { # intro event
 	id = guangxifederalist.1
-	title = "Federalist Riots"
-	desc = "Frustrated with the KMT with anarchist alignment, strikes  from the Federalist Party occur in Guangdong."
+	title = "Federalist Coup"
+	desc = "Seeking an opportunity the Federalists led by Chen Jiongming lead a coup designed to put inplace their ideas of chinese federalism. The federalists themselves broke away from the KMT as they saw the KMT as not true republicans. This seeing both parties split ways. In the time between now and the exile of the KMT, the China Zhi Gong Party or CZGP, started getting support amongst Guangdong merchants and local workers unions whilst in rivalry with the CCP."
 	
 	picture = "GFX_report_event_student_protest_CHI"
 	
@@ -310,10 +333,11 @@ country_event = { # intro event
 	
 	
 	option = {
-		name = "Send in the Police"
+		name = "Long Live The Republic!"
 		custom_effect_tooltip = FED_GUD_tt
 		hidden_effect = {
-		add_stability = -0.1
+		set_politics = { ruling_party = social_democracy }
+		set_cosmetic_tag = GUD_Federalist
 		}
 		
 	}
