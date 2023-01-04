@@ -844,69 +844,23 @@ USA_congress = {
 	
 ############## DO NOT MODIFY BELOW THIS LINE ### I'm gonna modify beyond this line if I don't get my 1 million dollars #################################
 	
-	#start_vote = {
-	#	icon = ger_mefo_bills
-	#	available = {
-	#		
-	#	}
-	#	
-	#	visible = {
-	#		original_tag = USA
-	#		has_country_flag = USA_discussing_bill
-	#	}
-	#	
-	#	cost = 0
-	#	
-	#	days_remove = 5
-	#	
-	#	complete_effect = {
-	#		custom_effect_tooltip = start_vote_tt
-	#	}
-	#	
-	#	remove_effect = {
-	#		if = {
-	#			limit = {
-	#				OR = {
-	#					check_variable = { senators_support < quorum_medium }
-	#					check_variable = { representatives_support < rep_quorum_medium }
-	#				}
-	#			}
-	#			custom_effect_tooltip = vote_will_fail_tt
-	#		}
-	#		else_if = {
-	#			custom_effect_tooltip = vote_will_pass_tt
-	#		}
-	#	
-	#		USA_bill_vote = yes
-	#	}
-	#	
-	#	priority = 100
-	#}
-	
-	USA_eliminate_payroll_tax = {
+	USA_force_pass_bill_debug = {
 		
 		visible = {
 			AND = {
 				original_tag = USA
-				check_variable = { bill_id = 2 }
-				has_country_flag = USA_special_decisions_enabled
+				check_variable = { bill_id > 0 }
 			}
+			is_debug = yes
         }
-			
-		cost = 50
-		
-		fire_only_once = yes
        		
 		available = {
-			
+			is_debug = yes
 		}
-				
+		
     	complete_effect = {
-			add_to_variable = { republican_supporting_senators = 5 }
-			add_to_variable = { senators_support = 5 }
-			
-			add_to_variable = { democrat_supporting_senators = 4 }
-			add_to_variable = { senators_support = 4 }
+			set_country_flag = bill_passed
+			USA_bill_vote = yes
 		}
 	}
 	
@@ -950,6 +904,7 @@ USA_congress = {
 				NOT = { check_variable = { USA_communist_bill_support = 1 } }
 			}
 		}
+		
     	complete_effect = {
 			
 		}
@@ -987,6 +942,7 @@ USA_congress = {
 				NOT = { check_variable = { USA_socialist_bill_support = 1 } }
 			}
 		}
+		
     	complete_effect = {
 			if = {
 				limit = {
@@ -1036,6 +992,7 @@ USA_congress = {
 				NOT = { check_variable = { USA_farmer_labor_bill_support = 1 } }
 			}
 		}
+		
     	complete_effect = {
 			
 		}
