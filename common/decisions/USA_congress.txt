@@ -194,12 +194,9 @@ USA_congress = {
 		complete_effect = {
 			custom_effect_tooltip = USA_bill_pass_req_tt
 			effect_tooltip = {
-				custom_effect_tooltip = USA_SPA_worse_rural					
-				custom_effect_tooltip = USA_end_depression_tt
+				improve_great_depression = yes				
 			}
 			USA_farm_tenant_act_setup = yes
-			improve_great_depression = yes
-			set_country_flag = farm_tenant_act_passed
 		}
 	}
 	
@@ -399,7 +396,7 @@ USA_congress = {
 				has_country_flag = USA_discussing_bill
 				has_country_flag = equal_education_passed
 			}
-			has_completed_focus = USA_attempt_standardization
+			has_completed_focus = USA_second_bill_of_rights
 		}
 		
 		cost = 0
@@ -409,10 +406,6 @@ USA_congress = {
 			add_ideas = {
 				USA_education_act
 			}
-			effect_tooltip = {
-				custom_effect_tooltip = USA_SPA_better_urban
-			}
-			set_country_flag = equal_education_passed
 			USA_equal_education_act_setup = yes
 		}
 	}
@@ -432,7 +425,7 @@ USA_congress = {
 				has_country_flag = USA_discussing_bill
 				has_country_flag = economic_equality_passed
 			}
-			has_completed_focus = USA_economic_equality_act
+			has_completed_focus = USA_second_bill_of_rights
 		}
 		
 		cost = 0
@@ -464,7 +457,7 @@ USA_congress = {
 				has_country_flag = USA_discussing_bill
 				has_country_flag = national_healthcare_passed
 			}
-			has_completed_focus = USA_national_healthcare_act
+			has_completed_focus = USA_second_bill_of_rights
 		}
 		
 		cost = 0
@@ -497,21 +490,18 @@ USA_congress = {
 				has_country_flag = second_bill_of_rights_passed
 			}
 			has_completed_focus = USA_second_bill_of_rights
+			always = no
 		}
 		
 		cost = 0
 		
 		complete_effect = {
 			custom_effect_tooltip = USA_bill_pass_req_tt
-			effect_tooltip = {
-			  custom_effect_tooltip = USA_increase_SPA_popularity_med
-			  custom_effect_tooltip = USA_poverty_rate_low_tt
-			  
-			}
 			USA_second_bill_of_rights_setup = yes
-			set_country_flag = second_bill_of_rights_passed
-			improve_great_depression = yes
-			ECON_poverty_change_medium = yes
+			effect_tooltip = {
+				improve_great_depression = yes
+				ECON_poverty_change_medium = yes
+			}
 		}
 	}
 	
