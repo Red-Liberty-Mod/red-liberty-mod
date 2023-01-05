@@ -740,6 +740,12 @@ country_event = {
 			id = koumintang_cc_clique.1
 			days = 3
 		}
+		
+		set_variable = { CCC_LIZ = 0 }
+		set_variable = { CCC_GUO = 0 }
+		set_variable = { CCC_CIA = 0 }
+		set_variable = { BSS_DAI = 0 }
+		set_variable = { BSS_ZON = 0 }
 	}
 }
 	 
@@ -748,7 +754,7 @@ country_event = {
 
 country_event = {
     id = koumintang_cc_clique.1
-    title = "Electing a CC Member"
+    title = "Electing a Head of Government"
     desc = "Now we must choose the president of our party and click."
     picture = "-" 
     fire_only_once = yes
@@ -757,10 +763,12 @@ country_event = {
 	option = {
 		name = "Li Zongren's Left Faction Wins"
 		custom_effect_tooltip = LFC_CC_tt
+		add_to_variable = { CCC_LIZ = 1 }
 		add_popularity = {
 			ideology = authoritarian_democracy
 			popularity = 0.1
 		}
+		
 		country_event = {
 			id = koumintang_cc_clique.2
 			days = 3
@@ -770,6 +778,7 @@ country_event = {
 	option = {
 		name = "Elected Gofu's Center"
 		custom_effect_tooltip = CFC_CC_tt
+		add_to_variable = { CCC_GUO = 1 }
 		country_event = {
 			id = koumintang_cc_clique.2
 			days = 3
@@ -780,7 +789,10 @@ country_event = {
 	option = {
 		name = "Chiang Kai Shek Secure's the Government"
 		custom_effect_tooltip = RFC_CC_tt
+		add_to_variable = { BSS_DAI = 1 }
+		add_to_variable = { BSS_ZON = 1 }
 		custom_effect_tooltip = BSS_CC_tt
+		add_to_variable = { CCC_CIA = 1 }
 		country_event = {
 			id = koumintang_cc_clique.2
 			days = 3
@@ -789,7 +801,7 @@ country_event = {
 } 	
 country_event = {
     id = koumintang_cc_clique.2
-    title = "Selecting a Cabinet"
+    title = "Selecting a Vice Head of Government"
     desc = "Due to our victory we shall choose our faction under our new president. Now we must choose the vice president."
     picture = "-" 
     fire_only_once = yes
@@ -798,6 +810,9 @@ country_event = {
 	option = {
 		name = "Choose Jiang's son."
 		custom_effect_tooltip = LFC_CC_tt
+		add_to_variable = { CCC_LIZ = 1 }
+		add_to_variable = { CCC_GUO = 1 }
+		add_to_variable = { CCC_CIA = 1 }
 		add_popularity = {
 			ideology = authoritarian_democracy
 			popularity = 0.1
@@ -811,6 +826,8 @@ country_event = {
 	option = {
 		name = "Choose the loyal Dai Anlan."
 		custom_effect_tooltip = BSS_CC_tt
+		add_to_variable = { BSS_DAI = 1 }
+		add_to_variable = { BSS_ZON = 1 }
 		add_popularity = {
 			ideology = fascism
 			popularity = 0.1
@@ -835,13 +852,25 @@ country_event = {
 		name = "Stick With Soong Chingling"
 		custom_effect_tooltip = LFC_CC_tt
 		custom_effect_tooltip = CFC_CC_tt
+		add_to_variable = { CCC_LIZ = 1 }
+		add_to_variable = { CCC_GUO = 1 }
+		country_event = {
+			id = koumintang_cc_clique.4
+			days = 3
+		}
 	}
 		
 	option = {
 		name = "Elect Hu Zongnan"
 		custom_effect_tooltip = BSS_CC_tt
 		custom_effect_tooltip = RFC_CC_tt
-		
+		add_to_variable = { CCC_CIA = 1 }
+		add_to_variable = { BSS_DAI = 1 }
+		add_to_variable = { BSS_ZON = 1 }
+		country_event = {
+			id = koumintang_cc_clique.4
+			days = 3
+		}
 	}
 }
 
@@ -858,12 +887,50 @@ country_event = {
 		name = "Elect Cheng Geng"
 		custom_effect_tooltip = LFC_CC_tt
 		custom_effect_tooltip = CFC_CC_tt
+		add_to_variable = { CCC_LIZ = 1 }
+		add_to_variable = { CCC_GUO = 1 }
+		country_event = {
+			id = koumintang_cc_clique.5
+			days = 3
+		}
 	}
 		
 	option = {
 		name = "Elect Tang Enbo"
 		custom_effect_tooltip = BSS_CC_tt
 		custom_effect_tooltip = RFC_CC_tt
+		add_to_variable = { CCC_CIA = 1 }
+		add_to_variable = { BSS_DAI = 1 }
+		add_to_variable = { BSS_ZON = 1 }
+		country_event = {
+			id = koumintang_cc_clique.5
+			days = 3
+		}
+	}
+}
+
+country_event = {
+    id = koumintang_cc_clique.5
+    title = "Selecting a Cabinet Part 3"
+    desc = "Now we must decide our minister of national security."
+    picture = "-" 
+    fire_only_once = yes
+    is_triggered_only  = yes
 		
+	option = {
+		name = "Elect Sun Li-Jen"
+		custom_effect_tooltip = LFC_CC_tt
+		custom_effect_tooltip = CFC_CC_tt
+		add_to_variable = { CCC_LIZ = 1 }
+		add_to_variable = { CCC_GUO = 1 }
+	}
+		
+	option = {
+		name = "Elect Mao Renfeng"
+		custom_effect_tooltip = BSS_CC_tt
+		custom_effect_tooltip = RFC_CC_tt
+		add_to_variable = { CCC_CIA = 1 }
+		add_to_variable = { BSS_DAI = 1 }
+		add_to_variable = { BSS_ZON = 1 }
 	}
 }
