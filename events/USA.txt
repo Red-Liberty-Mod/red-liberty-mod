@@ -195,7 +195,7 @@ country_event = { # 1940 dnc
 	option = { # lister second term
 		name = united_states.11.a
 		trigger = {
-			has_government = USA_1936_election_democrat_victory
+			has_country_flag = USA_1936_election_democrat_victory
 		}
 	}
 	
@@ -203,7 +203,7 @@ country_event = { # 1940 dnc
 		name = united_states.11.b
 		trigger = {
 			NOT = {
-				has_government = USA_1936_election_democrat_victory
+				has_country_flag = USA_1936_election_democrat_victory
 			}
 		}
 	}
@@ -215,7 +215,7 @@ country_event = { # thomas chooses to run again
 	desc = united_states.12.desc
 	
 	trigger = {
-		has_government = libertarian_socialism
+		has_country_flag = USA_1936_election_socialist_victory
 	}
 	
 	is_triggered_only = yes
@@ -245,12 +245,14 @@ country_event = { # 1940 spa convention
 		text = united_states.13.desc_1 # thomas running for term #3
 		trigger = {
 			has_country_flag = USA_thomas_will_run
+			has_country_flag = USA_1936_election_socialist_victory
 		}
 	}
 	desc = {
 		text = united_states.13.desc_2 # thomas retiring
 		trigger = {
 			NOT = { has_country_flag = USA_thomas_will_run }
+			has_country_flag = USA_1936_election_socialist_victory
 		}
 	}
 	desc = {
