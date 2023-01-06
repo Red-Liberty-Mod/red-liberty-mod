@@ -1,9 +1,28 @@
 USA_recalc_house = {
+
+	set_variable = { communist_change_rep = representatives_communist }
+	set_variable = { socialist_change_rep = representatives_socialist }
+	set_variable = { republican_change_rep = representatives_republican }
+	set_variable = { democrat_change_rep = representatives_democrat }
+	set_variable = { afp_change_rep = representatives_fascist }
+
 	every_owned_state = {
 		limit = { can_have_elections_in_state = yes }
 		USA_recalc_house_state = yes
 	}
 	USA_calculate_reps = yes
+	
+	subtract_from_variable = { communist_change_rep = representatives_communist }
+	subtract_from_variable = { socialist_change_rep = representatives_socialist }
+	subtract_from_variable = { republican_change_rep = representatives_republican }
+	subtract_from_variable = { democrat_change_rep = representatives_democrat }
+	subtract_from_variable = { afp_change_rep = representatives_fascist }
+	
+	multiply_variable = { communist_change_rep = -1 }
+	multiply_variable = { socialist_change_rep = -1 }
+	multiply_variable = { republican_change_rep = -1 }
+	multiply_variable = { democrat_change_rep = -1 }
+	multiply_variable = { afp_change_rep = -1 }
 }
 
 USA_recalc_house_state = { # call within state
