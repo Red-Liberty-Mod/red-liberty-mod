@@ -18,6 +18,7 @@ add_namespace = demo_tur
 add_namespace = demo_ser
 add_namespace = demo_bul
 add_namespace = demo_man
+add_namespace = demo_aus
 
 add_namespace = demo_usa_jap_peace
 add_namespace = demo_jap_usa_war
@@ -934,7 +935,7 @@ country_event = { # rom-hun war
 				type = annex_everything
 			}
 			declare_war_on = {
-				target = HUN
+				target = ROM
 				type = annex_everything
 			}
 		}
@@ -2145,7 +2146,7 @@ news_event = { # national party victory
 	id = demo_saf.2
 	title = demo_saf.2.title
 	desc = demo_saf.2.desc
-	picture = GFX_news_event_demo_saf_2
+	picture = GFX_news_event_SAF_national_party
 	
 	is_triggered_only = yes
 	
@@ -3346,5 +3347,34 @@ news_event = {
 
 	option = {
 		name = demo_man.7.a
+	}
+}
+
+country_event = {
+	id = demo_aus.1
+	title = demo_aus.1.title
+	desc = demo_aus.1.desc
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = demo_aus.1.a
+		set_cosmetic_tag = AUS_republic
+		dismantle_faction = yes
+	}
+	
+	option = {
+		name = demo_aus.2.a
+		dismantle_faction = yes
+	}
+	
+	option = {
+		name = demo_aus.3.a
+		dismantle_faction = yes
+		GER = {
+			annex_country = {
+				target = AUS
+			}
+		}
 	}
 }
