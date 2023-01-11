@@ -1,6 +1,6 @@
 focus_tree = {
-	id = rocque
-	continuous_focus_position = { x = -40 y = 1050 } 
+	id = FRA_rocque_tree
+	continuous_focus_position = { x = 100 y = 850 } 
 	country = {
 		factor = 0
 		modifier = {
@@ -8,145 +8,259 @@ focus_tree = {
 			tag = FRA
 		}
 	}
-	#A Republic Without Democracy
-	focus = {
-		id = FRA_a_republic_without_democracy
-		icon = GFX_goal_unknown
-		x = 18
-		y = 7
-		cost = 2
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
-		prerequisite = { focus = FRA_the_end_of_democracy  focus = FRA_rally_to_the_republic  }
-		mutually_exclusive = { focus = FRA_the_restoration  focus = FRA_national_reconciliation  }
-	}
-
-	#Veteran Brigades
-	focus = {
-		id = FRA_veteran_brigades
-		icon = GFX_goal_unknown
-		x = 25
-		y = 1
-		cost = 2
-		search_filters = {
-			FOCUS_FILTER_MANPOWER
-		}
-		prerequisite = { focus = FRA_army_reorganization  }
-	}
-
-	#National Reconciliation
-	focus = {
-		id = FRA_national_reconciliation
-		icon = GFX_goal_unknown
-		x = 20
-		y = 7
-		cost = 2
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
-		prerequisite = { focus = FRA_rally_to_the_republic  }
-	}
-
-	#Army Reorganization
-	focus = {
-		id = FRA_army_reorganization
-		icon = GFX_goal_unknown
-		x = 28
-		y = 0
-		cost = 2
-		search_filters = {
-			FOCUS_FILTER_MANPOWER
-		}
-	}
-
-	#The Restoration
-	focus = {
-		id = FRA_the_restoration
-		icon = GFX_goal_unknown
-		x = 16
-		y = 7
-		cost = 2
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
-		prerequisite = { focus = FRA_the_end_of_democracy  }
-	}
-
-	#Alliance of Labour and Capital
+	
 	focus = {
 		id = FRA_alliance_of_labour_and_capital
 		icon = GFX_goal_unknown
+		
 		x = 2
 		y = 0
-		cost = 2
+		cost = 4
+		
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
+		}
+		
 		search_filters = {
 			FOCUS_FILTER_INDUSTRY
 		}
 	}
 
-	#Catholic Corporatism
 	focus = {
 		id = FRA_catholic_corporatism
 		icon = GFX_goal_unknown
-		x = 0
+		
+		x = -2
 		y = 1
+		cost = 4
+		
+		relative_position_id = FRA_alliance_of_labour_and_capital
+		prerequisite = { focus = FRA_alliance_of_labour_and_capital }
+		completion_reward = {
+			add_ideas = {
+				FRA_catholic_corporatism_1
+			}
+		}
+		
 		search_filters = {
 			FOCUS_FILTER_INDUSTRY
 		}
-		prerequisite = { focus = FRA_alliance_of_labour_and_capital  }
 	}
 
-	#Prepare the War Economy
 	focus = {
 		id = FRA_prepare_the_war_economy
 		icon = GFX_goal_unknown
-		x = 2
+		
+		x = 0
 		y = 1
-		cost = 2
+		cost = 4
+		
+		relative_position_id = FRA_alliance_of_labour_and_capital
+		prerequisite = { focus = FRA_alliance_of_labour_and_capital }
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					is_urban_state = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+		
 		search_filters = {
 			FOCUS_FILTER_INDUSTRY
 		}
-		prerequisite = { focus = FRA_alliance_of_labour_and_capital  }
 	}
 
-	#Urban Industrial Centers
 	focus = {
 		id = FRA_urban_industrial_centers
 		icon = GFX_goal_unknown
-		x = 4
+		x = 2
 		y = 1
-		cost = 2
+		cost = 4
+		
+		relative_position_id = FRA_alliance_of_labour_and_capital
+		prerequisite = { focus = FRA_alliance_of_labour_and_capital }
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					is_urban_state = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+		
 		search_filters = {
 			FOCUS_FILTER_INDUSTRY
 		}
-		prerequisite = { focus = FRA_alliance_of_labour_and_capital  }
 	}
 
-	#Colonial Development
 	focus = {
 		id = FRA_colonial_development
 		icon = GFX_goal_unknown
-		x = 9
+		
+		x = 7
 		y = 1
-		cost = 2
+		cost = 4
+		
+		relative_position_id = FRA_alliance_of_labour_and_capital
+		prerequisite = { focus = FRA_alliance_of_labour_and_capital }
+		
 		search_filters = {
 			FOCUS_FILTER_INDUSTRY
 		}
-		prerequisite = { focus = FRA_alliance_of_labour_and_capital  }
 	}
 
-	#Christian Welfare
 	focus = {
 		id = FRA_christian_welfare
 		icon = GFX_goal_unknown
+		
 		x = 1
-		y = 2
-		cost = 2
+		y = 1
+		cost = 4
+		
+		relative_position_id = FRA_catholic_corporatism
+		prerequisite = { focus = FRA_catholic_corporatism }
+		
 		search_filters = {
 			FOCUS_FILTER_INDUSTRY
 		}
-		prerequisite = { focus = FRA_catholic_corporatism  }
+	}
+
+	focus = {
+		id = FRA_expand_the_arms_industry
+		icon = GFX_goal_unknown
+		
+		x = 1
+		y = 1
+		cost = 4
+		
+		relative_position_id = FRA_prepare_the_war_economy
+		prerequisite = {focus = FRA_prepare_the_war_economy }
+		prerequisite = { focus = FRA_urban_industrial_centers }
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					is_urban_state = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+	}
+	
+	focus = {
+		id = FRA_rural_revival
+		icon = GFX_goal_unknown
+		
+		x = 1
+		y = 1
+		cost = 4
+		
+		relative_position_id = FRA_urban_industrial_centers
+		prerequisite = { focus = FRA_urban_industrial_centers }
+		
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+	}
+	
+	focus = {
+		id = FRA_north_africa
+		icon = GFX_goal_unknown
+		
+		x = -2
+		y = 1
+		cost = 4
+		
+		relative_position_id = FRA_colonial_development
+		prerequisite = { focus = FRA_colonial_development }
+		completion_reward = {
+			459 = {
+				add_extra_state_shared_building_slots = 1
+				add_resource = {
+					type = oil
+					amount = 6
+				}
+			}
+			460 = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+	}
+
+	focus = {
+		id = FRA_central_africa
+		icon = GFX_goal_unknown
+		
+		x = 0
+		y = 1
+		cost = 4
+		
+		relative_position_id = FRA_colonial_development
+		prerequisite = { focus = FRA_colonial_development }
+		completion_reward = {
+			539 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			772 = {
+				add_extra_state_shared_building_slots = 1
+				add_resource = {
+					type = rubber
+					amount = 2
+				}
+			}
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+	}
+
+	focus = {
+		id = FRA_middle_east
+		icon = GFX_goal_unknown
+		
+		x = 2
+		y = 1
+		cost = 4
+		
+		relative_position_id = FRA_colonial_development
+		prerequisite = { focus = FRA_colonial_development }
+		completion_reward = {
+			553 = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
 	}
 
 	#Institute a Minimum Wage
@@ -155,11 +269,17 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 0
 		y = 3
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_INDUSTRY
 		}
 		prerequisite = { focus = FRA_christian_welfare  }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FRA_catholic_corporatism_1
+				add_idea = FRA_catholic_corporatism_2
+			}
+		}
 	}
 
 	#Promote Motherhood
@@ -168,11 +288,17 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 2
 		y = 3
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_INDUSTRY
 		}
 		prerequisite = { focus = FRA_prepare_the_war_economy  } prerequisite = { focus = FRA_christian_welfare  }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FRA_pop_crisis_1
+				add_idea = FRA_pop_crisis_2
+			}
+		}
 	}
 
 	#Church Primacy
@@ -181,37 +307,11 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 1
 		y = 4
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
 		prerequisite = { focus = FRA_institute_a_minimum_wage  } prerequisite = { focus = FRA_promote_motherhood  }
-	}
-
-	#Expand the Arms Industry
-	focus = {
-		id = FRA_expand_the_arms_industry
-		icon = GFX_goal_unknown
-		x = 3
-		y = 2
-		cost = 2
-		search_filters = {
-			FOCUS_FILTER_INDUSTRY
-		}
-		prerequisite = { focus = FRA_prepare_the_war_economy  } prerequisite = { focus = FRA_urban_industrial_centers  }
-	}
-
-	#Rural Revival
-	focus = {
-		id = FRA_rural_revival
-		icon = GFX_goal_unknown
-		x = 5
-		y = 2
-		cost = 2
-		search_filters = {
-			FOCUS_FILTER_INDUSTRY
-		}
-		prerequisite = { focus = FRA_urban_industrial_centers  }
 	}
 
 	#Rural Integration
@@ -220,7 +320,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 4
 		y = 3
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_INDUSTRY
 		}
@@ -233,7 +333,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 4
 		y = 4
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_INDUSTRY
 		}
@@ -242,54 +342,15 @@ focus_tree = {
 
 	#Travail, Famille, Patrie
 	focus = {
-		id = FRA_travailfamillepatrie
+		id = FRA_travail_famillie_patrie
 		icon = GFX_goal_unknown
 		x = 2
 		y = 5
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_INDUSTRY
 		}
 		prerequisite = { focus = FRA_church_primacy  } prerequisite = { focus = FRA_metropolitan_highways  }
-	}
-
-	#North Africa
-	focus = {
-		id = FRA_north_africa
-		icon = GFX_goal_unknown
-		x = 7
-		y = 2
-		cost = 2
-		search_filters = {
-			FOCUS_FILTER_INDUSTRY
-		}
-		prerequisite = { focus = FRA_colonial_development  }
-	}
-
-	#Central Africa
-	focus = {
-		id = FRA_central_africa
-		icon = GFX_goal_unknown
-		x = 9
-		y = 2
-		cost = 2
-		search_filters = {
-			FOCUS_FILTER_INDUSTRY
-		}
-		prerequisite = { focus = FRA_colonial_development  }
-	}
-
-	#Middle East
-	focus = {
-		id = FRA_middle_east
-		icon = GFX_goal_unknown
-		x = 11
-		y = 2
-		cost = 2
-		search_filters = {
-			FOCUS_FILTER_INDUSTRY
-		}
-		prerequisite = { focus = FRA_colonial_development  }
 	}
 
 	#The Northern Protectorates
@@ -298,11 +359,19 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 6
 		y = 3
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_INDUSTRY
 		}
 		prerequisite = { focus = FRA_north_africa  }
+		completion_reward = {
+			458 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			461 = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
 	}
 
 	#The Four Communes
@@ -311,11 +380,20 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 8
 		y = 3
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_INDUSTRY
 		}
 		prerequisite = { focus = FRA_north_africa  focus = FRA_central_africa  }
+		completion_reward = {
+			272 = {
+				add_extra_state_shared_building_slots = 2
+				add_resource = {
+					type = steel
+					amount = 2
+				}
+			}
+		}
 	}
 
 	#The Oil Must Flow
@@ -324,7 +402,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 10
 		y = 3
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_INDUSTRY
 		}
@@ -337,7 +415,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 12
 		y = 3
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_INDUSTRY
 		}
@@ -348,13 +426,117 @@ focus_tree = {
 	focus = {
 		id = FRA_finalize_the_investments
 		icon = GFX_goal_unknown
+		
 		x = 9
 		y = 4
-		cost = 2
+		cost = 4
+		
+		prerequisite = {
+			focus = FRA_the_northern_protectorates
+			focus = FRA_the_four_communes
+			focus = FRA_the_oil_must_flow
+			focus = FRA_our_loyal_syria
+		}
+		
+		completion_reward = {
+			if = {
+				limit = {
+					has_completed_focus = FRA_north_africa
+				}
+				459 = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+				460 = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = FRA_central_africa
+				}
+				539 = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+				772 = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = FRA_middle_east
+				}
+				553 = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = FRA_the_northern_protectorates
+				}
+				458 = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+				461 = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = FRA_the_four_communes
+				}
+				272 = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+		
 		search_filters = {
 			FOCUS_FILTER_INDUSTRY
 		}
-		prerequisite = { focus = FRA_the_northern_protectorates  focus = FRA_the_four_communes  focus = FRA_the_oil_must_flow  focus = FRA_our_loyal_syria  }
+	}
+
+	#Army Reorganization
+	focus = {
+		id = FRA_army_reorganization
+		icon = GFX_goal_unknown
+		x = 28
+		y = 0
+		cost = 4
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
 	}
 
 	#La Croix Brûle Brûlante
@@ -363,7 +545,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 18
 		y = 0
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 		}
@@ -375,7 +557,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 18
 		y = 1
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 		}
@@ -388,12 +570,15 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 16
 		y = 2
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 		}
 		prerequisite = { focus = FRA_revise_the_constitution  }
 		mutually_exclusive = { focus = FRA_snuff_the_embers  }
+		completion_reward = {
+			add_autdes_coalition = yes
+		}
 	}
 
 	#Snuff the Embers
@@ -402,12 +587,18 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 20
 		y = 2
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 		}
 		prerequisite = { focus = FRA_revise_the_constitution  }
 		mutually_exclusive = { focus = FRA_placate_monarchists  }
+		completion_reward = {
+			add_popularity = {
+				ideology = autocratic_despotism
+				popularity = -0.05
+			}
+		}
 	}
 
 	#Institutional Loyalty
@@ -416,7 +607,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 14
 		y = 3
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 		}
@@ -429,11 +620,14 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 16
 		y = 3
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 		}
 		prerequisite = { focus = FRA_placate_monarchists  }
+		completion_reward = {
+			add_farauth_coalition = yes
+		}
 	}
 
 	#Direct Control of Courts
@@ -442,11 +636,14 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 15
 		y = 4
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 		}
 		prerequisite = { focus = FRA_ally_the_farright_leagues  }
+		completion_reward = {
+			add_political_power = 100
+		}
 	}
 
 	#Party Police
@@ -455,7 +652,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 17
 		y = 4
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 		}
@@ -468,7 +665,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 16
 		y = 5
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 		}
@@ -481,24 +678,32 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 14
 		y = 5
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 		}
 		prerequisite = { focus = FRA_institutional_loyalty  }
 	}
 
-	#Extol Patriotism
 	focus = {
 		id = FRA_extol_patriotism
 		icon = GFX_goal_unknown
+		
 		x = 18
 		y = 3
-		cost = 2
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
+		cost = 4
+		
+		prerequisite = {
+			focus = FRA_placate_monarchists
+			focus = FRA_snuff_the_embers
 		}
-		prerequisite = { focus = FRA_placate_monarchists  focus = FRA_snuff_the_embers  }
+		completion_reward = {
+			add_war_support = 0.075
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
 	}
 
 	#Model Citizens
@@ -507,7 +712,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 18
 		y = 5
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 		}
@@ -520,11 +725,15 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 20
 		y = 3
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 		}
 		prerequisite = { focus = FRA_snuff_the_embers  }
+		completion_reward = {
+			add_libcon_coalition = yes
+			add_natcon_coalition = yes
+		}
 	}
 
 	#Political Appointments
@@ -533,7 +742,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 19
 		y = 4
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 		}
@@ -546,7 +755,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 21
 		y = 4
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 		}
@@ -559,7 +768,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 20
 		y = 5
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 		}
@@ -570,9 +779,9 @@ focus_tree = {
 	focus = {
 		id = FRA_veterans_above_all
 		icon = GFX_goal_unknown
-		x = 23
+		x = 22
 		y = 3
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 		}
@@ -583,26 +792,34 @@ focus_tree = {
 	focus = {
 		id = FRA_bolster_the_mass_movement
 		icon = GFX_goal_unknown
-		x = 23
+		x = 22
 		y = 5
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 		}
 		prerequisite = { focus = FRA_veterans_above_all  }
+		completion_reward = {
+			add_popularity = {
+				ideology = authoritarian_democracy
+				popularity = 0.0025
+			}
+		}
 	}
 
 	#Women's Suffrage
 	focus = {
 		id = FRA_womenssuffrage
 		icon = GFX_goal_unknown
-		x = 23
+		x = 22
 		y = 6
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 		}
-		prerequisite = { focus = FRA_bolster_the_mass_movement  focus = FRA_the_silent_purge  }
+		prerequisite = {
+			focus = FRA_bolster_the_mass_movement
+		}
 	}
 
 	#Rally to the Republic
@@ -611,7 +828,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 19
 		y = 6
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 		}
@@ -625,12 +842,79 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 17
 		y = 6
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 		}
 		prerequisite = { focus = FRA_state_media  } prerequisite = { focus = FRA_suspend_elections  } prerequisite = { focus = FRA_model_citizens  }
 		mutually_exclusive = { focus = FRA_rally_to_the_republic  }
+	}
+	
+	focus = {
+		id = FRA_the_restoration
+		icon = GFX_goal_unknown
+		x = 16
+		y = 7
+		cost = 4
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = FRA_the_end_of_democracy  }
+		mutually_exclusive = {
+			focus = FRA_a_republic_without_democracy
+			focus = FRA_national_reconciliation
+		}
+	}
+	
+	focus = {
+		id = FRA_a_republic_without_democracy
+		icon = GFX_goal_unknown
+		x = 18
+		y = 7
+		cost = 4
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FRA_the_end_of_democracy
+			focus = FRA_rally_to_the_republic
+		}
+		mutually_exclusive = {
+			focus = FRA_the_restoration
+			focus = FRA_national_reconciliation
+		}
+	}
+
+	#National Reconciliation
+	focus = {
+		id = FRA_national_reconciliation
+		icon = GFX_goal_unknown
+		x = 20
+		y = 7
+		cost = 4
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = {
+			focus = FRA_rally_to_the_republic
+		}
+		mutually_exclusive = {
+			focus = FRA_the_restoration
+			focus = FRA_a_republic_without_democracy
+		}
+	}
+	
+	#Veteran Brigades
+	focus = {
+		id = FRA_veteran_brigades
+		icon = GFX_goal_unknown
+		x = 25
+		y = 1
+		cost = 4
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = FRA_army_reorganization  }
 	}
 
 	#Officers of The Great War
@@ -639,11 +923,18 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 27
 		y = 1
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_MANPOWER
 		}
 		prerequisite = { focus = FRA_army_reorganization  }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.25
+				uses = 2
+				category = land_doctrine
+			}
+		}
 	}
 
 	#Equipment Modernization
@@ -652,11 +943,18 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 29
 		y = 1
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_MANPOWER
 		}
 		prerequisite = { focus = FRA_army_reorganization  }
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = infantry_weapons
+			}
+		}
 	}
 
 	#Integrate the Dispos
@@ -665,7 +963,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 24
 		y = 2
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_MANPOWER
 		}
@@ -678,7 +976,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 26
 		y = 2
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_MANPOWER
 		}
@@ -691,7 +989,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 25
 		y = 3
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_MANPOWER
 		}
@@ -704,7 +1002,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 28
 		y = 2
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_MANPOWER
 		}
@@ -717,7 +1015,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 27
 		y = 3
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_MANPOWER
 		}
@@ -730,7 +1028,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 26
 		y = 4
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_MANPOWER
 		}
@@ -743,7 +1041,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 33
 		y = 0
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
@@ -755,11 +1053,15 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 31
 		y = 1
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
 		prerequisite = { focus = FRA_naval_rearmaments  }
+		mutually_exclusive = {
+			focus = FRA_the_reich
+			focus = FRA_middling_approach
+		}
 	}
 
 	#The Reich
@@ -768,12 +1070,15 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 33
 		y = 1
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
 		prerequisite = { focus = FRA_naval_rearmaments  }
-		mutually_exclusive = { focus = FRA_the_channel  } mutually_exclusive = { focus = FRA_middling_approach  }
+		mutually_exclusive = {
+			focus = FRA_the_channel
+			focus = FRA_middling_approach
+		}
 	}
 
 	#Middling Approach
@@ -782,11 +1087,15 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 35
 		y = 1
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
 		prerequisite = { focus = FRA_naval_rearmaments  }
+		mutually_exclusive = {
+			focus = FRA_the_channel
+			focus = FRA_the_reich
+		}
 	}
 
 	#New Battleships
@@ -795,7 +1104,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 31
 		y = 2
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
@@ -808,7 +1117,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 31
 		y = 3
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
@@ -821,7 +1130,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 33
 		y = 2
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
@@ -834,7 +1143,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 33
 		y = 3
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
@@ -847,7 +1156,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 35
 		y = 2
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
@@ -860,7 +1169,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 35
 		y = 3
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
@@ -873,7 +1182,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 32
 		y = 4
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
@@ -886,7 +1195,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 34
 		y = 4
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
@@ -899,7 +1208,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 33
 		y = 5
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
@@ -912,7 +1221,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 39
 		y = 0
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
@@ -924,7 +1233,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 37
 		y = 1
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
@@ -937,7 +1246,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 39
 		y = 1
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
@@ -950,7 +1259,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 41
 		y = 1
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
@@ -963,7 +1272,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 38
 		y = 2
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
@@ -976,7 +1285,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 40
 		y = 2
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
@@ -989,7 +1298,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 38
 		y = 3
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
@@ -1002,7 +1311,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 38
 		y = 4
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
@@ -1015,7 +1324,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 40
 		y = 3
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
@@ -1028,7 +1337,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 40
 		y = 4
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
@@ -1041,7 +1350,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 39
 		y = 5
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
@@ -1054,7 +1363,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 29
 		y = 6
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
@@ -1066,7 +1375,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 27
 		y = 7
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
@@ -1079,7 +1388,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 30
 		y = 7
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
@@ -1092,7 +1401,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 26
 		y = 8
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
@@ -1105,7 +1414,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 27
 		y = 9
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
@@ -1118,7 +1427,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 28
 		y = 8
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
@@ -1131,7 +1440,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 26
 		y = 10
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
@@ -1144,7 +1453,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 27
 		y = 11
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
@@ -1157,7 +1466,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 28
 		y = 10
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
@@ -1170,7 +1479,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 30
 		y = 8
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
@@ -1183,7 +1492,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 29
 		y = 9
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
@@ -1196,7 +1505,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 31
 		y = 9
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
@@ -1209,7 +1518,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 30
 		y = 10
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
@@ -1222,7 +1531,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 34
 		y = 7
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
@@ -1235,7 +1544,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 33
 		y = 8
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
@@ -1248,7 +1557,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 35
 		y = 8
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
@@ -1261,7 +1570,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 34
 		y = 9
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
@@ -1274,7 +1583,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 34
 		y = 10
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
@@ -1287,7 +1596,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 33
 		y = 11
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
@@ -1300,7 +1609,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 35
 		y = 11
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
@@ -1313,7 +1622,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 34
 		y = 12
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
@@ -1326,7 +1635,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 37
 		y = 7
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
@@ -1339,7 +1648,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 37
 		y = 8
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
@@ -1352,7 +1661,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 36
 		y = 9
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
@@ -1366,7 +1675,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 38
 		y = 9
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
@@ -1379,7 +1688,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 37
 		y = 10
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
@@ -1392,7 +1701,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 37
 		y = 11
-		cost = 2
+		cost = 4
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
