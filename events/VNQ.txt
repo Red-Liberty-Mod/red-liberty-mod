@@ -1,0 +1,76 @@
+add_namespace = vietnam_democracy_revolution
+
+
+country_event = { # intro event
+	id = vietnam_democracy_revolution.1
+	title = "Who Is the VNQDD?"
+	desc = vietnam_democracy_revolution.1.desc
+	
+	picture = "GFX_report_event_SRV_indochina_communist_party_intro"
+	
+	is_triggered_only = yes
+	
+	fire_only_once = no
+
+	option = {
+		name = "We Shall Deal With These Trouble Makers"
+		
+		custom_effect_tooltip = SRV_STRONG_tt
+		set_variable = { SRV_STRONG = 10 }
+		
+	}
+}
+
+country_event = { # intro event
+	id = vietnam_democracy_revolution.100
+	title = "The Uprising"
+	desc = indochina_revolution.1.desc
+	
+	picture = "GFX_report_event_SRV_indochina_communist_party_intro"
+	
+	is_triggered_only = yes
+	
+	fire_only_once = no
+	immediate = {
+	hidden_effect = {
+	VNQ = {
+	add_state_core = 286
+	}
+	}
+	}
+	option = {
+		name = "We Shall Deal With These Trouble Makers"
+		
+		VNQ = {
+		
+		load_oob = "SRV_revolt"
+		declare_war_on = {
+			target = VIN
+			type = annex_everything
+		}
+		
+		
+		}
+		VIN = {
+			release = VNQ
+			}
+		
+	}
+	
+	option = {
+		name = indochina_revolution.100.b
+		VIN = {
+			release = VNQ
+			}
+		VNQ = {
+		
+		declare_war_on = {
+			target = VIN
+			type = annex_everything
+		}
+		
+		change_tag_from = ROOT
+		}
+		
+	}
+}

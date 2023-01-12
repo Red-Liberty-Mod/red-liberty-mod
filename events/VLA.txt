@@ -1,0 +1,75 @@
+add_namespace = la_luttle_revolution
+
+
+country_event = { # intro event
+	id = la_luttle_revolution.1
+	title = "Who is La Lutte?"
+	desc = la_luttle_revolution.1.desc
+	
+	picture = "GFX_report_event_VLA_la_lutte_information"
+	
+	is_triggered_only = yes
+	
+	fire_only_once = no
+
+	option = {
+		name = "Keep an Eye on Them For Now"
+		
+		
+		
+	}
+}
+
+country_event = { # intro event
+	id = la_luttle_revolution.100
+	title = "La Lutte Advance on Saigon"
+	desc = indochina_revolution.1.desc
+	
+	picture = "GFX_report_event_SRV_indochina_communist_party_intro"
+	
+	is_triggered_only = yes
+	
+	fire_only_once = no
+	immediate = {
+	hidden_effect = {
+	VLA = {
+	add_state_core = 286
+	}
+	}
+	}
+	option = {
+		name = "We Shall Deal With These Trouble Makers"
+		
+		VLA = {
+		
+		load_oob = "SRV_revolt"
+		declare_war_on = {
+			target = VIN
+			type = annex_everything
+		}
+		
+		
+		}
+		VIN = {
+			release = VLA
+			}
+		
+	}
+	
+	option = {
+		name = indochina_revolution.100.b
+		VIN = {
+			release = VLA
+			}
+		VLA = {
+		
+		declare_war_on = {
+			target = VIN
+			type = annex_everything
+		}
+		
+		change_tag_from = ROOT
+		}
+		
+	}
+}
