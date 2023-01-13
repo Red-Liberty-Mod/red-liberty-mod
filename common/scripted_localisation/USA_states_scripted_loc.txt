@@ -140,6 +140,7 @@ defined_text = {
 			check_variable = { senator_1 = 1 }
 			NOT = {
 				has_state_flag = socialist_farmer_labor
+				has_state_flag = socialist_nonpartisan_league
 			}
 		}
 		localization_key = SOCIALIST_SINGULAR
@@ -152,6 +153,15 @@ defined_text = {
 			}
 		}
 		localization_key = SOCIALIST_FARMER_LABOR_SINGULAR
+	}
+	text = {
+		trigger = {
+			AND = {
+				check_variable = { senator_1 = 1 }
+				has_state_flag = socialist_nonpartisan_league
+			}
+		}
+		localization_key = SOCIALIST_NONPARTISAN_LEAGUE_SINGULAR
 	}
 	text = {
 		trigger = {
@@ -189,6 +199,7 @@ defined_text = {
 			check_variable = { senator_2 = 1 }
 			NOT = {
 				has_state_flag = socialist_farmer_labor
+				has_state_flag = socialist_nonpartisan_league
 			}
 		}
 		localization_key = SOCIALIST_SINGULAR
@@ -201,6 +212,15 @@ defined_text = {
 			}
 		}
 		localization_key = SOCIALIST_FARMER_LABOR_SINGULAR
+	}
+	text = {
+		trigger = {
+			AND = {
+				check_variable = { senator_2 = 1 }
+				has_state_flag = socialist_nonpartisan_league
+			}
+		}
+		localization_key = SOCIALIST_NONPARTISAN_LEAGUE_SINGULAR
 	}
 	text = {
 		trigger = {
@@ -436,9 +456,8 @@ defined_text = {
 	name = Get_USA_states_gui_FL
 	text = {
 		trigger = {
-			check_variable = { 366.democrat_popularity > 366.socialist_popularity }
-			check_variable = { 366.democrat_popularity > 366.republican_popularity }
-			check_variable = { 366.democrat_popularity > 366.afp_popularity }
+			check_variable = { 366.senator_1 = 3 }
+			check_variable = { 366.senator_2 = 3 }
 		}
 		localization_key = "GFX_USA_states_gui_FL_democrat"
 	}
@@ -461,15 +480,14 @@ defined_text = {
 	name = Get_USA_states_gui_IA
 	text = {
 		trigger = {
-			check_variable = { 392.socialist_popularity > 392.republican_popularity }
-			check_variable = { 392.socialist_popularity > 392.democrat_popularity }
-			check_variable = { 392.socialist_popularity > 392.afp_popularity }
+			check_variable = { 392.senator_1 = 1 }
+			check_variable = { 392.senator_2 = 1 }
 		}
 		localization_key = "GFX_USA_states_gui_IA_socialist"
 	}
 }
 
-defined_text = {
+defined_text = { # idaho
 	name = Get_USA_states_gui_ID
 	text = {
 		trigger = {
@@ -749,17 +767,15 @@ defined_text = { # missouri
 	name = Get_USA_states_gui_MO
 	text = {
 		trigger = {
-			check_variable = { 373.republican_popularity > 373.socialist_popularity }
-			check_variable = { 373.republican_popularity > 373.democrat_popularity }
-			check_variable = { 373.republican_popularity > 373.afp_popularity }
+			check_variable = { 373.senator_1 = 2 }
+			check_variable = { 373.senator_2 = 2 }
 		}
 		localization_key = "GFX_USA_states_gui_MO_republican"
 	}
 	text = {
 		trigger = {
-			check_variable = { 373.democrat_popularity > 373.socialist_popularity }
-			check_variable = { 373.democrat_popularity > 373.republican_popularity }
-			check_variable = { 373.democrat_popularity > 373.afp_popularity }
+			check_variable = { 373.senator_1 = 3 }
+			check_variable = { 373.senator_2 = 3 }
 		}
 		localization_key = "GFX_USA_states_gui_MO_democrat"
 	}
@@ -888,7 +904,7 @@ defined_text = {
 	}
 }
 
-defined_text = {
+defined_text = { # new hampshire
 	name = Get_USA_states_gui_NH
 	text = {
 		trigger = {

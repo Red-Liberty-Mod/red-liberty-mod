@@ -18,8 +18,11 @@ add_namespace = demo_tur
 add_namespace = demo_ser
 add_namespace = demo_bul
 add_namespace = demo_man
+add_namespace = demo_aus
 
 add_namespace = demo_usa_jap_peace
+add_namespace = demo_jap_usa_war
+add_namespace = demo_jap_chi_war
 
 add_namespace = demo_ww2
 
@@ -288,7 +291,7 @@ news_event = {
 	id = demo_mex.5
 	title = demo_mex.5.title
 	desc = demo_mex.5.desc
-	picture = ""
+	picture = GFX_news_event_MEX_parliament
 	
 	major = yes
 	
@@ -303,7 +306,7 @@ news_event = {
 	id = demo_mex.6
 	title = demo_mex.6.title
 	desc = demo_mex.6.desc
-	picture = ""
+	picture = GFX_news_event_MEX_parliament
 	
 	major = yes
 	
@@ -372,6 +375,7 @@ news_event = { # war over news
 	id = demo_ita.3
 	title = demo_ita.3.title
 	desc = demo_ita.3.desc
+	picture = GFX_news_event_IRE_askari
 	
 	major = yes
 	
@@ -400,7 +404,7 @@ news_event = { # improve nat spirits again
 	id = demo_ita.5
 	title = demo_ita.5.title
 	desc = demo_ita.5.desc
-	
+	picture = GFX_news_event_ITA_marching
 	major = yes
 	
 	is_triggered_only = yes
@@ -444,6 +448,7 @@ news_event = { # ita-alb war news
 	id = demo_ita.7
 	title = demo_ita.7.title
 	desc = demo_ita.7.desc
+	picture = GFX_news_event_ITA_artillery
 	
 	major = yes
 	
@@ -458,6 +463,7 @@ news_event = { # ita victory news
 	id = demo_ita.8
 	title = demo_ita.8.title
 	desc = demo_ita.8.desc
+	picture = GFX_news_event_ITA_flag
 	
 	major = yes
 	
@@ -543,6 +549,7 @@ news_event = { # ita-gre war news
 	id = demo_ita.12
 	title = demo_ita.12.title
 	desc = demo_ita.12.desc
+	picture = GFX_news_event_ITA_artillery
 	
 	major = yes
 	
@@ -655,6 +662,7 @@ news_event = { # vienna uprising - news
 	id = demo_ahe.2
 	title = demo_ahe.2.title
 	desc = demo_ahe.2.desc
+	picture = news_event_AHE_revolution
 	
 	is_triggered_only = yes
 	
@@ -927,7 +935,7 @@ country_event = { # rom-hun war
 				type = annex_everything
 			}
 			declare_war_on = {
-				target = HUN
+				target = ROM
 				type = annex_everything
 			}
 		}
@@ -1800,6 +1808,7 @@ news_event = { # prestes victory 1
 	id = demo_uob.1
 	title = demo_uob.1.title
 	desc = demo_uob.1.desc
+	picture = GFX_news_event_BRA_revolution
 	
 	is_triggered_only = yes
 	
@@ -1815,6 +1824,7 @@ news_event = { # prestes victory 2
 	id = demo_uob.2
 	title = demo_uob.2.title
 	desc = demo_uob.2.desc
+	picture = GFX_news_event_BRA_revolution
 	
 	is_triggered_only = yes
 	
@@ -1830,6 +1840,7 @@ news_event = { # prestes victory 3
 	id = demo_uob.3
 	title = demo_uob.3.title
 	desc = demo_uob.3.desc
+	picture = GFX_news_event_BRA_revolution
 	
 	is_triggered_only = yes
 	
@@ -1845,6 +1856,7 @@ news_event = { # prestes victory 4
 	id = demo_uob.4
 	title = demo_uob.4.title
 	desc = demo_uob.4.desc
+	picture = GFX_news_event_BRA_revolution
 	
 	is_triggered_only = yes
 	
@@ -1976,6 +1988,7 @@ news_event = { # straits crisis start news
 	id = demo_tur.2
 	title = demo_tur.2.title
 	desc = demo_tur.2.desc
+	picture = GFX_news_event_TUR_parade
 	
 	is_triggered_only = yes
 	
@@ -2133,6 +2146,7 @@ news_event = { # national party victory
 	id = demo_saf.2
 	title = demo_saf.2.title
 	desc = demo_saf.2.desc
+	picture = GFX_news_event_SAF_national_party
 	
 	is_triggered_only = yes
 	
@@ -2192,6 +2206,12 @@ country_event = {
 				days = 150
 			}
 		}
+		RUS = {
+			country_event = {
+				id = demo_ww2.5
+				days = 150
+			}
+		}
 	    set_country_flag = USA_europe_aflame_flag
 	}
 }
@@ -2208,6 +2228,7 @@ news_event = {
 
 	option = {
 		name = demo_ww2.2.a
+		set_global_flag = second_great_war_started
 	}
 }
 
@@ -2254,6 +2275,12 @@ country_event = {
 	
 	is_triggered_only = yes
 	
+	trigger = {
+		SOV = {
+			exists = yes
+		}
+	}
+	
 	option = {
 		name = demo_ww2.5.a
 		SOV = {
@@ -2282,6 +2309,62 @@ news_event = {
 	
 	option = {
 		name = demo_ww2.6.a
+	}
+}
+
+country_event = {
+	id = demo_ww2.7
+	title = demo_ww2.7.title
+	desc = demo_ww2.7.desc
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		RUS = {
+			exists = yes
+		}
+	}
+	
+	option = {
+		name = demo_ww2.7.a
+		RUS = {
+			declare_war_on = {
+				target = UKR
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = BLR
+				type = annex_everything
+			}
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_ww2.8 hours = 6 }
+		}
+	}
+}
+
+news_event = {
+	id = demo_ww2.8
+	title = demo_ww2.8.title
+	desc = demo_ww2.8.desc
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = demo_ww2.8.a
+	}
+}
+
+news_event = {
+	id = demo_ww2.9
+	title = demo_ww2.9.title
+	desc = demo_ww2.9.desc
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = demo_ww2.9.a
 	}
 }
 
@@ -2346,7 +2429,7 @@ news_event = {
 	id = demo_cen.2
 	title = demo_cen.2.title
 	desc = demo_cen.2.desc
-	
+	picture = GFX_news_event_Demo_Cen_2
 	is_triggered_only = yes
 	
 	major = yes
@@ -2479,7 +2562,8 @@ country_event = {
 		name = ""
 	}
 }
-country_event = {
+
+country_event = { # SUS movements
 	id = demo_jap_usa_war.1
 	title = demo_jap_usa_war.1.title
 	desc = demo_jap_usa_war.1.desc
@@ -2491,19 +2575,40 @@ country_event = {
 	fire_only_once = yes
 
 	option = {
+		name = demo_jap_usa_war.1.a
+	}
+	
+	option = {
+		name = demo_jap_usa_war.1.b
+	}
+}
+
+country_event = {
+	id = demo_jap_usa_war.2
+	title = demo_jap_usa_war.2.title
+	desc = demo_jap_usa_war.2.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
 		name = ""
-		JAP = 
-		declare_war_on = {
-			target = USA
-			type = annex_everything
+		JAP = {
+			declare_war_on = {
+				target = USA
+				type = annex_everything
+			}
 		}
 	}
 }
 
 country_event = {
-	id = demo.jap_chi_war.1
-	title = ""
-	desc = demo.jap_chi_war.1.desc
+	id = demo_jap_chi_war.1
+	title = demo_jap_chi_war.title
+	desc = demo_jap_chi_war.1.desc
 	
 	is_triggered_only = yes
 	
@@ -2569,6 +2674,45 @@ country_event = {
 				type = annex_everything
 			}
 		}
+		CHI = {
+			create_faction = "Chinese United Front"
+			add_to_faction = FNG
+			add_to_faction = SHD
+			add_to_faction = SHX
+			add_to_faction = HNN
+			add_to_faction = GUI
+			add_to_faction = YUN
+			add_to_faction = SZC
+			add_to_faction = XSM
+			add_to_faction = SIK
+		}
+		USA = {
+			country_event = {
+				id = demo_jap_chi_war.2
+				days = 7
+			}
+		}
+	}
+}
+
+country_event = {
+	id = demo_jap_chi_war.2
+	title = demo_jap_chi_war.2.title
+	desc = demo_jap_chi_war.2.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_jap_chi_war.2.a
+		USA = {
+			diplomatic_relation = {
+				country = JAP
+				relation = embargo
+				active = yes
+			}
+		}
 	}
 }
 
@@ -2611,19 +2755,28 @@ country_event = {
 	    ai_chance = { factor = 1 }
 		white_peace = {
 			tag = USA
+			tag = CAN
+		}
+		white_peace = {
 			tag = ENG
 			tag = RAJ
+		}
+		white_peace = {
 			tag = AST
 			tag = NZL
+		}	
+		white_peace = {
 			tag = SRW
 			tag = MAL
+		}
+		white_peace = {
 			tag = OMA 
 			tag = IRQ
+		}	
+		white_peace = {
 			tag = EGY
 			tag = SAF
-			tag = CAN
-			
-		}
+		}		
 		USA = {
             country_event = {
               id = demo_usa_jap_peace.3
@@ -3194,5 +3347,34 @@ news_event = {
 
 	option = {
 		name = demo_man.7.a
+	}
+}
+
+country_event = {
+	id = demo_aus.1
+	title = demo_aus.1.title
+	desc = demo_aus.1.desc
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = demo_aus.1.a
+		set_cosmetic_tag = AUS_republic
+		dismantle_faction = yes
+	}
+	
+	option = {
+		name = demo_aus.2.a
+		dismantle_faction = yes
+	}
+	
+	option = {
+		name = demo_aus.3.a
+		dismantle_faction = yes
+		GER = {
+			annex_country = {
+				target = AUS
+			}
+		}
 	}
 }

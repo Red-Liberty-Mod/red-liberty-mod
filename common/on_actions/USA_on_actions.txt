@@ -117,6 +117,26 @@ on_actions = {
 					id = united_states_thomas.23
 					days = 135 # just before primaries
 				}
+				
+				### PUERTO RICO ###
+				country_event = { # start of puerto rico event chain
+					id = united_states_thomas.100
+					days = 53
+				}
+				country_event = { # ponce massacre
+					id = united_states_thomas.101
+					days = 445
+				}
+				country_event = { # winships interference
+					id = united_states_thomas.102
+					days = 938
+				}
+				country_event = { # pantin's letter
+					id = united_states_thomas.103
+					days = 947
+				}
+				
+				### INSURGENCY ###
 				country_event = { # I HATE THE ANTICHRIST
 					id = united_states_insurgency.1
 					days = 510 # around the middle of may 1937
@@ -219,14 +239,46 @@ on_actions = {
 		}
 	}
 	
-	#on_monthly_USA = { # economy stuff
-	#	effect = {
-	#		add_to_variable = { USA_unemployment = USA_unemployment_change }
-	#		add_to_variable = { USA_poverty = USA_poverty_change }
-	#		add_to_variable = { USA_inflation = USA_inflation_change }
-	#		USA_calc_poverty_goal = yes
-	#	}
-	#}
+	on_weekly_USA = {
+		effect = {
+			if = {
+				limit = {
+					has_country_flag = USA_insurgency_start
+				}
+				
+				clear_variable = USA_insurgency_states
+				every_owned_state = {
+					if = {
+						limit = {
+							has_state_flag = USA_active_insurgency
+						}
+						add_to_variable = { USA.USA_insurgency_states = 1 }
+					}
+				}
+				
+				random_owned_controlled_state = {
+					limit = {
+						has_state_flag = USA_active_insurgency
+						infrastructure > 0
+					}
+					damage_building = {
+						type = infrastructure
+						damage = 1
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						has_state_flag = USA_active_insurgency
+						industrial_complex > 0
+					}
+					damage_building = {
+						type = industrial_complex
+						damage = 1
+					}
+				}
+			}
+		}
+	}
 	
 	on_monthly_USA { # update - kwik mafs
 		effect = {
@@ -255,6 +307,15 @@ on_actions = {
 			}
 		}
 	}
+	
+	#on_monthly_USA = { # economy stuff
+	#	effect = {
+	#		add_to_variable = { USA_unemployment = USA_unemployment_change }
+	#		add_to_variable = { USA_poverty = USA_poverty_change }
+	#		add_to_variable = { USA_inflation = USA_inflation_change }
+	#		USA_calc_poverty_goal = yes
+	#	}
+	#}
 	
 	# completely deprecated now
 	# moved to countdown decision - moved again to on_actions above

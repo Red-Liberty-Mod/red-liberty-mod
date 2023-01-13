@@ -120,6 +120,7 @@ USA_congress = {
 			original_tag = USA
 			NOT = {
 				has_country_flag = USA_discussing_bill
+				has_country_flag = USA_voting_rights_passed
 			}
 		    has_completed_focus = USA_voting_rights_act
 		}
@@ -128,12 +129,14 @@ USA_congress = {
 		
 		complete_effect = {
 			custom_effect_tooltip = USA_bill_pass_req_tt
-			effect_tooltip = {
-				add_ideas = {
-					USA_voting_rights_act
-				}
+			effect_tooltip = {				
+			  custom_effect_tooltip = USA_SPA_better_minority
 			}
 			USA_voting_rights_act_setup = yes
+			add_ideas = {
+					USA_voting_rights_act
+			}
+		   set_country_flag = USA_voting_rights_passed
 		}
 	}
 	
@@ -191,7 +194,7 @@ USA_congress = {
 		complete_effect = {
 			custom_effect_tooltip = USA_bill_pass_req_tt
 			effect_tooltip = {
-				
+				improve_great_depression = yes				
 			}
 			USA_farm_tenant_act_setup = yes
 		}
@@ -393,18 +396,15 @@ USA_congress = {
 				has_country_flag = USA_discussing_bill
 				has_country_flag = equal_education_passed
 			}
-			has_completed_focus = USA_attempt_standardization
+			has_completed_focus = USA_second_bill_of_rights
 		}
 		
 		cost = 0
 		
 		complete_effect = {
 			custom_effect_tooltip = USA_bill_pass_req_tt
-			effect_tooltip = {
-				USA_add_equal_education = yes
-				add_ideas = {
-					USA_equal_education_act
-				}
+			add_ideas = {
+				USA_education_act
 			}
 			USA_equal_education_act_setup = yes
 		}
@@ -425,7 +425,7 @@ USA_congress = {
 				has_country_flag = USA_discussing_bill
 				has_country_flag = economic_equality_passed
 			}
-			has_completed_focus = USA_economic_equality_act
+			has_completed_focus = USA_second_bill_of_rights
 		}
 		
 		cost = 0
@@ -433,7 +433,6 @@ USA_congress = {
 		complete_effect = {
 			custom_effect_tooltip = USA_bill_pass_req_tt
 			effect_tooltip = {
-				USA_add_economic_equality = yes
 				add_ideas = {
 					USA_economic_equality_act
 				}
@@ -457,8 +456,7 @@ USA_congress = {
 				has_country_flag = USA_discussing_bill
 				has_country_flag = national_healthcare_passed
 			}
-			has_completed_focus = USA_national_healthcare_act
-			always = yes
+			has_completed_focus = USA_second_bill_of_rights
 		}
 		
 		cost = 0
@@ -466,9 +464,9 @@ USA_congress = {
 		complete_effect = {
 			custom_effect_tooltip = USA_bill_pass_req_tt
 			effect_tooltip = {
-				USA_add_national_healthcare = yes
-				add_ideas = {
-					USA_national_healthcare_act
+				swap_ideas = {
+					remove_idea = USA_safety_net_large
+					add_idea = USA_safety_net_welfare_state
 				}
 			}
 			USA_national_healthcare_act_setup = yes
@@ -491,20 +489,18 @@ USA_congress = {
 				has_country_flag = second_bill_of_rights_passed
 			}
 			has_completed_focus = USA_second_bill_of_rights
-			always = yes
+			always = no
 		}
 		
 		cost = 0
 		
 		complete_effect = {
 			custom_effect_tooltip = USA_bill_pass_req_tt
-			effect_tooltip = {
-				USA_add_second_bill_of_rights = yes
-				add_ideas = {
-					USA_second_bill_of_rights
-				}
-			}
 			USA_second_bill_of_rights_setup = yes
+			effect_tooltip = {
+				improve_great_depression = yes
+				ECON_poverty_change_medium = yes
+			}
 		}
 	}
 	
@@ -848,69 +844,23 @@ USA_congress = {
 	
 ############## DO NOT MODIFY BELOW THIS LINE ### I'm gonna modify beyond this line if I don't get my 1 million dollars #################################
 	
-	#start_vote = {
-	#	icon = ger_mefo_bills
-	#	available = {
-	#		
-	#	}
-	#	
-	#	visible = {
-	#		original_tag = USA
-	#		has_country_flag = USA_discussing_bill
-	#	}
-	#	
-	#	cost = 0
-	#	
-	#	days_remove = 5
-	#	
-	#	complete_effect = {
-	#		custom_effect_tooltip = start_vote_tt
-	#	}
-	#	
-	#	remove_effect = {
-	#		if = {
-	#			limit = {
-	#				OR = {
-	#					check_variable = { senators_support < quorum_medium }
-	#					check_variable = { representatives_support < rep_quorum_medium }
-	#				}
-	#			}
-	#			custom_effect_tooltip = vote_will_fail_tt
-	#		}
-	#		else_if = {
-	#			custom_effect_tooltip = vote_will_pass_tt
-	#		}
-	#	
-	#		USA_bill_vote = yes
-	#	}
-	#	
-	#	priority = 100
-	#}
-	
-	USA_eliminate_payroll_tax = {
+	USA_force_pass_bill_debug = {
 		
 		visible = {
 			AND = {
 				original_tag = USA
-				check_variable = { bill_id = 2 }
-				has_country_flag = USA_special_decisions_enabled
+				check_variable = { bill_id > 0 }
 			}
+			is_debug = yes
         }
-			
-		cost = 50
-		
-		fire_only_once = yes
        		
 		available = {
-			
+			is_debug = yes
 		}
-				
+		
     	complete_effect = {
-			add_to_variable = { republican_supporting_senators = 5 }
-			add_to_variable = { senators_support = 5 }
-			
-			add_to_variable = { democrat_supporting_senators = 4 }
-			add_to_variable = { senators_support = 4 }
+			set_country_flag = bill_passed
+			USA_bill_vote = yes
 		}
 	}
 	
@@ -954,6 +904,7 @@ USA_congress = {
 				NOT = { check_variable = { USA_communist_bill_support = 1 } }
 			}
 		}
+		
     	complete_effect = {
 			
 		}
@@ -991,6 +942,7 @@ USA_congress = {
 				NOT = { check_variable = { USA_socialist_bill_support = 1 } }
 			}
 		}
+		
     	complete_effect = {
 			if = {
 				limit = {
@@ -1040,6 +992,7 @@ USA_congress = {
 				NOT = { check_variable = { USA_farmer_labor_bill_support = 1 } }
 			}
 		}
+		
     	complete_effect = {
 			
 		}

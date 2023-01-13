@@ -274,6 +274,7 @@ country_event = {
 		hidden_effect = {
 			country_event = { id = us_election_trigger.12 days = 30 }
 			clr_country_flag = USA_presidential_elections
+			set_country_flag = USA_1940_election_over
 		}
 	}
 	
@@ -281,14 +282,41 @@ country_event = {
 		name = us_election.21.a
 		trigger = {
 			check_variable = { ROOT.socialist_electoral_votes > 290 }
+			has_country_flag = USA_thomas_will_run
+		}
+		country_event = {
+			id = us_election.22
+			days = 116
 		}
 	}
 	
 	option = { # democrat victory
-		name = us_election.2.b
+		name = us_election.21.b
 		trigger = {
 			check_variable = { ROOT.democrat_electoral_votes > 290 }
 		}
+	}
+}
+
+country_event = { # thomas inaug day 1940
+	id = us_election.22
+	title = us_election.22.title
+	desc = us_election.22.desc
+	picture = GFX_report_event_thomas_cheer
+
+	is_triggered_only = yes
+	
+	immediate = {
+		
+	}
+	
+	option = { # 
+		name = us_election.22.a
+		set_portraits = {
+			character = USA_norman_thomas
+			civilian = { large = "GFX_portrait_USA_norman_thomas_1940" }
+		}
+		add_political_power = 100
 	}
 }
 
@@ -475,6 +503,7 @@ country_event = { #hold the election
 	id = us_election_trigger.2
  	title = us_election_trigger.2.title
  	desc = us_election_trigger.2.desc
+	picture = GFX_report_event_ballot_box
 
 	immediate = {
  		hidden_effect = {
@@ -540,6 +569,7 @@ country_event = { #Hold Class II election
 	id = us_election_trigger.4
  	title = us_election_trigger.4.title
  	desc = us_election_trigger.4.desc
+	picture = GFX_report_event_ballot_box
 
 	immediate = {
  		hidden_effect = {
@@ -605,6 +635,7 @@ country_event = { #Hold Class III election
 	id = us_election_trigger.7
  	title = us_election_trigger.7.title
  	desc = us_election_trigger.7.desc
+	picture = GFX_report_event_ballot_box
 
 	immediate = {
  		hidden_effect = {

@@ -440,7 +440,7 @@ country_event = { # housing act
 
 country_event = { # wealth tax act
 	id = us_bill.9
-	
+	picture = GFX_report_event_Us_bill_9
 	# different loc based on if it passes or fails
 	title = {
 		text = us_bill.9.title_passed
@@ -682,6 +682,19 @@ country_event = { # equal education act
 	option = { # bill passes
 		name = us_bill.14.a
 		trigger = { has_country_flag = bill_passed }
+		
+		add_ideas = {
+			USA_education_act
+		}
+		every_owned_state = {
+			limit = {
+				can_have_elections_in_state = yes
+				is_urban_state = yes
+			}
+			custom_effect_tooltip = USA_increase_SPA_popularity_low
+			add_to_variable = { socialist_popularity = 0.03 }
+		}
+		
 		USA_bill_clear = yes # ALWAYS DO THIS
 	}
 	
@@ -762,6 +775,12 @@ country_event = { # national healthcare act
 	option = { # bill passes
 		name = us_bill.16.a
 		trigger = { has_country_flag = bill_passed }
+		
+		swap_ideas = {
+			remove_idea = USA_safety_net_large
+			add_idea = USA_safety_net_welfare_state
+		}
+		
 		USA_bill_clear = yes # ALWAYS DO THIS
 	}
 	
