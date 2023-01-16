@@ -21,7 +21,7 @@ NDefines.NBuildings.MAX_SHARED_SLOTS = 56				-- Max slots shared by factories
 -- NDefines.NMilitary.ADDITIONAL_COMBAT_WIDTH = 48
 
 -- Country
-NDefines.NCountry.MIN_STABILITY = -0.5
+NDefines.NCountry.MIN_STABILITY = 0
 NDefines.NCountry.MIN_WAR_SUPPORT = 0
 
 -- Buildings
