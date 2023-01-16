@@ -11,13 +11,11 @@ ideas = {
 			level = 7
 			
 			available = {
-				#has_manpower_for_recruit_change_to = { value = 0.005 group = mobilization_laws }
+				
 			}
 			
 			visible = {
-				NOT = {
-					original_tag = ETH
-				}
+				
 			}
 
 			modifier = {
@@ -35,15 +33,12 @@ ideas = {
 			level = 6
 			
 			available = {
-				#has_manpower_for_recruit_change_to =  { value = 0.015 group = mobilization_laws }
 				NOT = { has_idea = undisturbed_isolation }
 				NOT = { has_idea = isolation }
 			}
 			
 			visible = {
-				NOT = {
-					original_tag = ETH
-				}
+				
 			}
 
 			ai_will_do = {
@@ -77,20 +72,16 @@ ideas = {
 			level = 5
 
 			available = {
-				#has_manpower_for_recruit_change_to =  { value = 0.025 group = mobilization_laws }
 				has_war_support > 0.1
 				NOT = { has_idea = undisturbed_isolation }
 				NOT = { has_idea = isolation }
-				
 				NOT = {
 					has_country_flag = conscription_banned
 				}
 			}
 			
 			visible = {
-				NOT = {
-					original_tag = ETH
-				}
+				
 			}
 
 			modifier = {
@@ -102,14 +93,8 @@ ideas = {
 			ai_will_do = {
    				factor = 1
 				modifier = {
-					#Prio if low on manpower
-					factor = 20
-					manpower_per_military_factory <  1000
-				}
-				modifier = {
-					tag = ENG
-					has_idea_with_trait = military_theorist
-					factor = 20
+					factor = 20 #Prio if low on manpower
+					manpower_per_military_factory < 1000
 				}
 			}
 			
@@ -119,47 +104,34 @@ ideas = {
 		extensive_conscription = {
 			
 			available = {
-				#has_manpower_for_recruit_change_to = { value = 0.05 group = mobilization_laws }
 				OR = {
 					AND = {
 						has_war = yes
 						enemies_strength_ratio > 0.5
-						#any_enemy_country = {
-						#	strength_ratio = {
-						#		tag = ROOT 
-						#		ratio > 0.5
-						#	}
-						#}
 					}					
 				}
 				NOT = {
 					has_country_flag = conscription_banned
 				}
 				has_war_support > 0.2
-				#Special rules AST in TFV
 			}
 			
 			visible = {
-				NOT = {
-					original_tag = ETH
-				}
+				
 			}
 			
 			ai_will_do = {
    				factor = 1
 				modifier = {
-					#Prio if low on manpower
-					factor = 20
+					factor = 20 #Prio if low on manpower
 					manpower_per_military_factory <  800
 				}
 
-				modifier = { # china relies a lot on throwing bodies at the enemy
-					factor = 3
-
+				modifier = {
+					factor = 3 # china relies a lot on throwing bodies at the enemy
 					tag = CHI
 					has_manpower < 200000
 				}
-				
 			}
 			
 			cost = 150
@@ -180,17 +152,10 @@ ideas = {
 		service_by_requirement = {
 			
 			available = {
-				#has_manpower_for_recruit_change_to =  { value = 0.1 group = mobilization_laws }
 				OR = {
 					AND = {
 						has_war = yes
 						enemies_strength_ratio > 0.6
-						#any_enemy_country = {
-						#	strength_ratio = {
-						#		tag = ROOT 
-						#		ratio > 0.6
-						#	}
-						#}
 					}
 				}
 				NOT = {
@@ -203,41 +168,33 @@ ideas = {
 			}
 			
 			visible = {
-				NOT = {
-					original_tag = ETH
-				}
+				
 			}
 
 			ai_will_do = {
    				factor = 1
 				modifier = {
-					#Prio if low on manpower
-					factor = 20
+					factor = 20 #Prio if low on manpower
 					manpower_per_military_factory <  700
 				}
 				modifier = {
-					#Lower chance if has decent amount
-					factor = 0.5
+					factor = 0.5 #Lower chance if has decent amount
 					manpower_per_military_factory >  1000
 				}
 				modifier = {
-					#Block has plenty manpower
-					factor = 0
+					factor = 0 #Block has plenty manpower
 					NOT = { tag = CHI }
 					NOT = { tag = SOV }
 					manpower_per_military_factory >  3000
 				}
-
 				modifier = { # china relies a lot on throwing bodies at the enemy
 					factor = 3
-
 					tag = CHI
 					has_manpower < 200000
 				}
 
 				modifier = { # germany needs this before russia, badly
 					factor = 10
-
 					original_tag = GER
 					has_manpower < 2000000
 				}
@@ -246,7 +203,6 @@ ideas = {
 					original_tag = SOV
 					check_variable = { manpower_k < 3000 }
 				}
-
 			}
 			
 			cost = 150
@@ -271,28 +227,19 @@ ideas = {
 		all_adults_serve = {
 			
 			available = {
-				#has_manpower_for_recruit_change_to =  { value = 0.2 group = mobilization_laws }
 				has_war = yes
 				OR = {
 					has_war_support > 0.7
 					surrender_progress > 0
 				}
 				enemies_strength_ratio > 0.75
-				#any_enemy_country = {
-				#	strength_ratio = {
-				#		tag = ROOT 
-				#		ratio > 0.75
-				#	}
-				#}
 				NOT = {
 					has_country_flag = conscription_banned
 				}
 			}
 			
 			visible = {
-				NOT = {
-					original_tag = ETH
-				}
+				
 			}
 
 			ai_will_do = {
@@ -350,19 +297,12 @@ ideas = {
 		scraping_the_barrel = {
 			
 			available = {
-				#has_manpower_for_recruit_change_to =  { value = 0.25 group = mobilization_laws }
 				has_war = yes
 				OR = {
 					has_war_support > 0.85
 					surrender_progress > 0.25
 				}
 				enemies_strength_ratio > 1
-				#any_enemy_country = {
-				#	strength_ratio = {
-				#		tag = ROOT 
-				#		ratio > 1
-				#	}
-				#}
 				NOT = {
 					has_country_flag = conscription_banned
 				}
@@ -412,107 +352,39 @@ ideas = {
 			cancel_if_invalid = no
 		}
 		
-		ETH_chitet_law = {
-			picture = ETH_chitet_law
+		colonial_army = {
+					
 			cost = 150
 			removal_cost = -1
-			level = 6
-
+			level = 5
+			
 			allowed = {
 				always = no
 			}
+			
 			allowed_to_remove = {
-				always = no
+ 				always = no
 			}
-
-			ai_will_do = {
-   				factor = 0
+			
+			available = {
+				
 			}
-
-			modifier = {
-				conscription = 0.045
-				custom_modifier_tooltip = ETH_chitet_law_tt
-				industrial_capacity_factory = -0.05
-				industrial_capacity_dockyard = -0.05
-				production_speed_buildings_factor = -0.05
-			}
-
-			cancel_if_invalid = no
-		}
-		
-		ETH_chitet_law_peace_time = {
-			picture = ETH_chitet_law
-
-			cost = 150
-			removal_cost = -1
-			level = 6
-
-			allowed = {
-				always = no
-			}
-			allowed_to_remove = {
-				always = no
-			}
-
-			ai_will_do = {
-   				factor = 0
+			
+			visible = {
+				
 			}
 
 			modifier = {
 				conscription = 0.005
-				custom_modifier_tooltip = ETH_chitet_law_tt
-				industrial_capacity_factory = 0.05
-				industrial_capacity_dockyard = 0.05
-				production_speed_buildings_factor = 0.05
+				war_support_factor = -0.05
+				army_org_factor = -0.15
 			}
 
+			ai_will_do = {
+   				factor = 0
+			}
+			
 			cancel_if_invalid = no
-		}
-
-		SWI_citizen_militia_1 = {
-			cost = 200
-			picture = citizen_militia_1
-			removal_cost = -1
-			level = 6
-
-			allowed = {
-				always = no
-			}
-			allowed_to_remove = {
-				always = no
-			}
-			ai_will_do = {
-				factor = 0
-			}
-
-			modifier = {
-				conscription = 0.1
-				custom_modifier_tooltip = SWI_army_limitations_TT
-				ai_desired_divisions_factor = 1
-			}
-		}
-
-		SWI_citizen_militia_2 = {
-			picture = citizen_militia_2
-			cost = 200
-			removal_cost = -1
-			level = 6
-
-			allowed = {
-				always = no
-			}
-			allowed_to_remove = {
- 				always = no
-			}
-			ai_will_do = {
-				factor = 0
-			}
-
-			modifier = {
-				conscription = 0.2
-				custom_modifier_tooltip = SWI_army_limitations_TT
-				ai_desired_divisions_factor = 2
-			}
 		}
 	}
 }
