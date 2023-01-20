@@ -62,16 +62,9 @@ focus_tree = {
 		relative_position_id = FRA_alliance_of_labour_and_capital
 		prerequisite = { focus = FRA_alliance_of_labour_and_capital }
 		completion_reward = {
-			random_owned_state = {
-				limit = {
-					is_urban_state = yes
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 1
+			add_timed_idea = {
+				idea = FRA_preping_war_economy
+				days = 365
 			}
 		}
 		
@@ -85,11 +78,33 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		x = 2
 		y = 1
-		cost = 4
+		cost = 5
 		
 		relative_position_id = FRA_alliance_of_labour_and_capital
 		prerequisite = { focus = FRA_alliance_of_labour_and_capital }
 		completion_reward = {
+			random_owned_state = {
+				limit = {
+					is_urban_state = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				limit = {
+					is_urban_state = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
 			random_owned_state = {
 				limit = {
 					is_urban_state = yes
@@ -146,7 +161,7 @@ focus_tree = {
 		
 		x = 1
 		y = 1
-		cost = 4
+		cost = 5
 		
 		relative_position_id = FRA_prepare_the_war_economy
 		prerequisite = {focus = FRA_prepare_the_war_economy }
@@ -158,10 +173,32 @@ focus_tree = {
 				}
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 1
 					instant_build = yes
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				limit = {
+					is_urban_state = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				limit = {
+					is_urban_state = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
 			}
 		}
 		
@@ -278,6 +315,7 @@ focus_tree = {
 				remove_idea = FRA_catholic_corporatism_1
 				add_idea = FRA_catholic_corporatism_2
 			}
+			add_war_support = -0.05
 		}
 		
 		search_filters = {
@@ -315,7 +353,7 @@ focus_tree = {
 		
 		x = 1
 		y = 1
-		cost = 4
+		cost = 3
 		
 		relative_position_id = FRA_institute_a_minimum_wage
 		prerequisite = { focus = FRA_institute_a_minimum_wage }
@@ -326,7 +364,7 @@ focus_tree = {
 		}
 		
 		search_filters = {
-			FOCUS_FILTER_WAR_SUPPORT
+			FOCUS_FILTER_STABILITY
 		}
 	}
 
@@ -346,6 +384,7 @@ focus_tree = {
 			every_owned_state = {
 				limit = {
 					is_rural_state = yes
+					is_core_of = FRA
 				}
 				add_extra_state_shared_building_slots = 1
 			}
@@ -372,6 +411,7 @@ focus_tree = {
 				limit = {
 					is_urban_state = yes
 					infrastructure < 10
+					is_core_of = FRA
 				}
 				add_building_construction = {
 					type = infrastructure
@@ -626,6 +666,7 @@ focus_tree = {
 		
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_STABILITY
 		}
 	}
 
