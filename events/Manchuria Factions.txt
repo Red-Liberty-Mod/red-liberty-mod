@@ -1,0 +1,62 @@
+add_namespace = manchuria
+add_namespace = manchuria_civilwar
+
+country_event = { # intro event
+	id = manchuria.1
+	title = "A Small Context"
+	desc = "-"
+	
+	picture = "GFX_report_event_student_protest_CHI"
+	
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = "Hyeogmyeong Manse!"
+		
+	}
+}
+
+
+country_event = { # intro event
+	id = manchuria_civilwar.1
+	title = "The Civil War"
+	desc = "-"
+	
+	picture = "GFX_report_event_student_protest_CHI"
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	immediate = {
+	hidden_effect = {
+	KWA = {
+		add_state_core = 858
+		add_state_core = 716
+		}
+	CMP = {
+	add_state_core = 761
+	add_state_core = 714
+	}
+	XUE = {
+	add_state_core = 897
+
+	}
+	ANK = {
+	add_state_core = 717
+	add_state_core = 859
+	add_state_core = 328
+	}
+	}
+	}
+	option = {
+		name = "Crush These Rebels"
+		FNG = {
+		release = ANK
+		release = KWA
+		release = CMP
+		release = XUE
+		}
+	}
+	
+}
