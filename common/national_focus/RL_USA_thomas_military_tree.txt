@@ -28,6 +28,40 @@ shared_focus = {
 }
 
 shared_focus = {
+    id = USA_found_the_oci
+	icon = GFX_USA_oss
+	
+    x = -4
+	y = 1
+	
+	available = {
+		threat > 0.25
+	}
+	
+	cost = 4
+	relative_position_id = USA_reforming_the_military
+	prerequisite = { focus = USA_reforming_the_military }
+    completion_reward = {
+		custom_effect_tooltip = USA_found_the_oci_tt
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = USA_william_donovan_sec
+		
+		hidden_effect = {
+			create_intelligence_agency = {
+				name = "Office of the Coordinator of Information"
+				icon = GFX_intelligence_agency_logo_usa
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = {  }
+}
+
+shared_focus = {
     id = USA_butler_reform_plan
 	icon = GFX_USA_butler_reform_plan
 	
@@ -479,7 +513,7 @@ shared_focus = {
 		factor = 10
 	}
 	
-	search_filters = { FOCUS_FILTER_USA_CONGRESS }
+	search_filters = { FOCUS_FILTER_USA_CONGRESS FOCUS_FILTER_INDUSTRY }
 }
 
 shared_focus = {
@@ -504,6 +538,8 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 }
 
 shared_focus = {
@@ -530,6 +566,8 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = { FOCUS_FILTER_POLITICAL }
 }
 
 shared_focus = {
@@ -1454,6 +1492,29 @@ shared_focus = {
 }
 
 shared_focus = {
+    id = USA_carrier_modernization
+	icon = GFX_USA_carrier_modernization
+	
+    x = 1
+	y = 1
+	
+	cost = 3
+	relative_position_id = USA_naval_air
+	prerequisite = { focus = USA_naval_air }
+    completion_reward = {
+        add_tech_bonus = {
+			bonus = 0.5
+			uses = 1
+			category = cv_tech
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
     id = USA_expand_operations
 	icon = GFX_USA_expand_operations
 	
@@ -1493,6 +1554,8 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = { FOCUS_FILTER_INDUSTRY }
 }
 
 shared_focus = {

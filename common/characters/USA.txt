@@ -72,8 +72,6 @@ characters = {
 		portraits = {
 			civilian = {
 				large = "GFX_portrait_USA_earl_russell_browder"
-			}
-			army = {
 				small = "gfx/interface/ministers/USA/USA_Earl_Browder.png"
 			}
 		}
@@ -86,7 +84,6 @@ characters = {
 			ledger = civilian
 			
 			cost = 0
-			removal_cost = -1
 			can_be_fired = no
 			
 			allowed = {
@@ -107,7 +104,7 @@ characters = {
 		}
 		
 		country_leader = {
-			ideology = proletarian_dictatorship_subtype
+			ideology = syndicalism_subtype
 			traits = {  }
 		}
 	}
@@ -116,7 +113,7 @@ characters = {
 		name = USA_jack_reed
 		
 		portraits = {
-			army = {
+			civilian = {
 				small = "gfx/interface/ministers/USA/USA_John_Reed.png"
 			}
 		}
@@ -129,7 +126,6 @@ characters = {
 			ledger = civilian
 			
 			cost = 0
-			removal_cost = -1
 			can_be_fired = no
 			
 			allowed = {
@@ -154,7 +150,7 @@ characters = {
 		name = USA_henry_wallace
 		
 		portraits = {
-			army = {
+			civilian = {
 				small = "gfx/interface/ministers/USA/USA_Henry_Wallace.png"
 			}
 		}
@@ -167,7 +163,6 @@ characters = {
 			ledger = civilian
 			
 			cost = 0
-			removal_cost = -1
 			can_be_fired = no
 			
 			allowed = {
@@ -189,6 +184,22 @@ characters = {
 		
 		country_leader = {
 			desc = "POLITICS_HENRY_WALLACE_DESC"
+			ideology = sewer_socialism_subtype
+			traits = {  }
+		}
+	}
+	
+	USA_daniel_hoan = {
+		name = USA_daniel_hoan
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_USA_daniel_hoan"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_DANIEL_HOAN_DESC"
 			ideology = sewer_socialism_subtype
 			traits = {  }
 		}
@@ -269,7 +280,7 @@ characters = {
 		
 		country_leader = {
 			desc = "POLITICS_GERALD_LYMAN_SMITH_DESC"
-			ideology = far_right_authoritarianism_subtype
+			ideology = religious_nationalism_subtype
 			traits = {  }
 		}
 	}
@@ -309,7 +320,6 @@ characters = {
 			ledger = civilian
 			
 			cost = 0
-			removal_cost = -1
 			can_be_fired = no
 			
 			allowed = {
@@ -868,6 +878,40 @@ characters = {
 			
 			traits = {
 				fbi_director
+			}
+		}
+	}
+	
+	USA_william_donovan = {
+		name = USA_william_donovan
+		
+		portraits = {
+			army = {
+				small = "gfx/interface/ministers/USA/USA_William_Donovan.png"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			
+			slot = political_advisor
+			idea_token = USA_william_donovan_sec
+			ledger = civilian
+			
+			allowed = {
+				original_tag = USA
+			}
+			
+			available = {
+				has_completed_focus = USA_found_the_oci
+			}
+			
+			visible = {
+				
+			}
+			
+			traits = {
+				sec_spymaster
 			}
 		}
 	}
