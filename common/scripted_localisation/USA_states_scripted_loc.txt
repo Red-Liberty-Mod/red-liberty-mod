@@ -293,6 +293,21 @@ defined_text = {
 		}
 		localization_key = "GFX_USA_states_gui_AR_afp"
 	}
+	text = {
+		trigger = {
+			OR = {
+				AND = {
+					check_variable = { 372.senator_1 = 3 }
+					check_variable = { 372.senator_2 = 4 }
+				}
+				AND = {
+					check_variable = { 372.senator_1 = 4 }
+					check_variable = { 372.senator_2 = 3 }
+				}
+			}
+		}
+		localization_key = "GFX_USA_states_gui_AR_democrat_afp_split"
+	}
 }
 
 defined_text = {
@@ -526,9 +541,8 @@ defined_text = {
 	name = Get_USA_states_gui_IL
 	text = {
 		trigger = {
-			check_variable = { 395.socialist_popularity > 395.republican_popularity }
-			check_variable = { 395.socialist_popularity > 395.democrat_popularity }
-			check_variable = { 395.socialist_popularity > 395.afp_popularity }
+			check_variable = { 395.senator_1 = 1 }
+			check_variable = { 395.senator_2 = 1 }
 		}
 		localization_key = "GFX_USA_states_gui_IL_socialist"
 	}
@@ -743,11 +757,25 @@ defined_text = {
 	name = Get_USA_states_gui_MI
 	text = {
 		trigger = {
-			check_variable = { 393.socialist_popularity > 393.republican_popularity }
-			check_variable = { 393.socialist_popularity > 393.democrat_popularity }
-			check_variable = { 393.socialist_popularity > 393.afp_popularity }
+			check_variable = { 393.senator_1 = 1 }
+			check_variable = { 393.senator_2 = 1 }
 		}
 		localization_key = "GFX_USA_states_gui_MI_socialist"
+	}
+	text = {
+		trigger = {
+			OR = {
+				AND = {
+					check_variable = { 393.senator_1 = 1 }
+					check_variable = { 393.senator_2 = 2 }
+				}
+				AND = {
+					check_variable = { 393.senator_1 = 2 }
+					check_variable = { 393.senator_2 = 1 }
+				}
+			}
+		}
+		localization_key = "GFX_USA_states_gui_MI_socialist_republican_split"
 	}
 }
 
@@ -755,9 +783,8 @@ defined_text = {
 	name = Get_USA_states_gui_MN
 	text = {
 		trigger = {
-			check_variable = { 391.socialist_popularity > 391.republican_popularity }
-			check_variable = { 391.socialist_popularity > 391.democrat_popularity }
-			check_variable = { 391.socialist_popularity > 391.afp_popularity }
+			check_variable = { 391.senator_1 = 1 }
+			check_variable = { 391.senator_2 = 1 }
 		}
 		localization_key = "GFX_USA_states_gui_MN_socialist"
 	}
@@ -1047,18 +1074,16 @@ defined_text = {
 	name = Get_USA_states_gui_NC
 	text = {
 		trigger = {
-			check_variable = { 363.republican_popularity > 363.socialist_popularity }
-			check_variable = { 363.republican_popularity > 363.democrat_popularity }
-			check_variable = { 363.republican_popularity > 363.afp_popularity }
+			check_variable = { 363.senator_1 = 2 }
+			check_variable = { 363.senator_2 = 2 }
 		}
 		localization_key = "GFX_USA_states_gui_NC_republican"
 	}
 	
 	text = {
 		trigger = {
-			check_variable = { 363.democrat_popularity > 363.socialist_popularity }
-			check_variable = { 363.democrat_popularity > 363.republican_popularity }
-			check_variable = { 363.democrat_popularity > 363.afp_popularity }
+			check_variable = { 363.senator_1 = 3 }
+			check_variable = { 363.senator_2 = 3 }
 		}
 		localization_key = "GFX_USA_states_gui_NC_democrat"
 	}
