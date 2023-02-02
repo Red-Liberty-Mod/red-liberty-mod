@@ -86,7 +86,7 @@ FRA_industrialization_category = {
 	
 	FRA_invest_in_construction = {
 	
-		icon = ger_mefo_bills
+		icon = GFX_decision_generic_construction
 		
 		visible = {
 			
@@ -116,7 +116,7 @@ FRA_industrialization_category = {
 	
 	FRA_invest_in_production = {
 	
-		icon = ger_mefo_bills
+		icon = GFX_decision_generic_industry
 		
 		visible = {
 			
@@ -141,6 +141,41 @@ FRA_industrialization_category = {
 		
 		remove_effect = {
 			
+		}
+	}
+	
+	FRA_drill_for_oil_pyrenees = {
+	
+		icon = GFX_decision_oil
+		
+		available = {
+			has_completed_focus = FRA_the_oil_must_flow
+		}
+		
+		visible = {
+			
+		}
+		
+		custom_cost_trigger = {
+			check_variable = { FRA_industry_points > 1 }
+		}
+		custom_cost_text = decision_cost_2_industry_point
+		
+		days_remove = 30
+		
+		fire_only_once = yes
+		
+		complete_effect = {
+			subtract_from_variable = { FRA_industry_points = 2 }
+		}
+		
+		remove_effect = {
+			31 = {
+				add_resource = {
+					type = oil
+					amount = 5
+				}
+			}
 		}
 	}
 }

@@ -222,6 +222,10 @@ focus_tree = {
 		relative_position_id = FRA_urban_industrial_centers
 		prerequisite = { focus = FRA_urban_industrial_centers }
 		
+		completion_reward = {
+			ECON_poverty_change_small = yes
+		}
+		
 		search_filters = {
 			FOCUS_FILTER_INDUSTRY
 		}
@@ -517,6 +521,17 @@ focus_tree = {
 			focus = FRA_middle_east
 		}
 		
+		completion_reward = {
+			31 = {
+				add_extra_state_shared_building_slots = 1
+				add_resource = {
+					type = oil
+					amount = 1
+				}
+			}
+			unlock_decision_tooltip = FRA_drill_for_oil_pyrenees
+		}
+		
 		search_filters = {
 			FOCUS_FILTER_INDUSTRY
 		}
@@ -532,6 +547,12 @@ focus_tree = {
 		
 		relative_position_id = FRA_middle_east
 		prerequisite = { focus = FRA_middle_east }
+		
+		completion_reward = {
+			554 = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
 		
 		search_filters = {
 			FOCUS_FILTER_INDUSTRY
@@ -632,6 +653,30 @@ focus_tree = {
 					add_building_construction = {
 						type = industrial_complex
 						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = FRA_the_oil_must_flow
+				}
+				31 = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = FRA_our_loyal_syria
+				}
+				554 = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
 						instant_build = yes
 					}
 				}
@@ -785,7 +830,6 @@ focus_tree = {
 		}
 	}
 
-	#Party Police
 	focus = {
 		id = FRA_party_police
 		icon = GFX_goal_unknown
@@ -832,6 +876,13 @@ focus_tree = {
 		
 		relative_position_id = FRA_institutional_loyalty
 		prerequisite = { focus = FRA_institutional_loyalty }
+		
+		completion_reward = {
+			add_popularity = {
+				ideology = autocratic_despotism
+				popularity = 0.0025
+			}
+		}
 		
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
@@ -1017,7 +1068,27 @@ focus_tree = {
 		prerequisite = { focus = FRA_state_media }
 		prerequisite = { focus = FRA_suspend_elections }
 		prerequisite = { focus = FRA_model_citizens }
-		mutually_exclusive = { focus = FRA_rally_to_the_republic  }
+		mutually_exclusive = { focus = FRA_rally_to_the_republic }
+		
+		completion_reward = {
+			
+			set_politics = {
+				ruling_party = autocratic_despotism
+				elections_allowed = no
+				last_election = "1936.1.1"
+				election_frequency = 48
+				long_name = FRA_authoritarian_democracy_party_long
+				name = FRA_authoritarian_democracy_party
+			}
+			
+			add_country_leader_role = {
+				character = FRA_francois_de_la_rocque
+				country_leader = {
+					ideology = autocratic_despotism_subtype
+				}
+				promote_leader = yes
+			}
+		}
 		
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
@@ -1087,6 +1158,10 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = FRA_the_restoration
 			focus = FRA_national_reconciliation
+		}
+		
+		completion_reward = {
+			
 		}
 		
 		search_filters = {
