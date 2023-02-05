@@ -34,6 +34,10 @@ country_event = { # choose a side
 			id = france.3
 			days = 5
 		}
+		
+		ai_chance = {
+			base = 50
+		}
 	}
 	
 	option = {
@@ -42,6 +46,14 @@ country_event = { # choose a side
 		country_event = {
 			id = france.6
 			days = 5
+		}
+		
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
 		}
 	}
 }
@@ -77,6 +89,10 @@ country_event = { # popular front - approaching the communists
 		name = "They need us, and we need them."
 		set_country_flag = FRA_popular_front_found_coalition_partner
 		add_political_power = -50
+		
+		ai_chance = {
+			base = 50
+		}
 	}
 	
 	option = {
@@ -84,6 +100,14 @@ country_event = { # popular front - approaching the communists
 		country_event = {
 			id = france.5
 			days = 13
+		}
+		
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
 		}
 	}
 }
@@ -159,7 +183,7 @@ country_event = {
 		set_politics = {
 			ruling_party = autocratic_despotism
 			elections_allowed = no
-			last_election = "1932.11.8"
+			last_election = "1936.4.8"
 			election_frequency = 48
 		}
 	}
@@ -179,9 +203,10 @@ country_event = {
 		set_politics = {
 			ruling_party = authoritarian_democracy
 			elections_allowed = no
-			last_election = "1932.11.8"
+			last_election = "1936.4.8"
 			election_frequency = 48
 		}
+		load_focus_tree = FRA_rocque_tree
 	}
 }
 
