@@ -36,3 +36,42 @@ USA_balance_of_power_category = {
 		}
 	}
 }
+
+USA_lister_bop_category = {
+
+	debug_boost_liberal = {
+		available = {
+			is_debug = yes
+		}
+	
+		visible = {
+			is_debug = yes
+		}
+		
+		complete_effect = {
+			add_power_balance_value = {
+				id = USA_lister_legacy_balance
+				value = -0.05
+				tooltip_side = USA_lister_liberal_side
+			}
+		}
+	}
+	
+	debug_boost_conservative = {
+		available = {
+			is_debug = yes
+		}
+	
+		visible = {
+			is_debug = yes
+		}
+		
+		complete_effect = {
+			add_power_balance_value = {
+				id = USA_lister_legacy_balance
+				value = 0.05
+				tooltip_side = USA_lister_conservative_side
+			}
+		}
+	}
+}

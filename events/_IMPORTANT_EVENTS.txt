@@ -1,5 +1,6 @@
 add_namespace = politics_saver
 add_namespace = opinion_modifier
+add_namespace = tree_reload
 
 country_event = { # called by keep_current_politics
 	id = politics_saver.1
@@ -53,4 +54,14 @@ country_event = { # called monthly
 			setup_opinion_modifiers = yes
 		}
 	}
+}
+
+country_event = {
+	id = tree_reload.1
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = { mark_focus_tree_layout_dirty = yes }
+
+	option = { }
 }

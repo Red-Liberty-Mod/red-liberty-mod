@@ -48,9 +48,12 @@ ECON_poverty_change_monthly = {
 			modifier = ECON_poverty_modifier
 		}
 	}
+	
+	ECON_poverty_war_devastation_effect = yes
 
 	set_temp_variable = { temp_poverty_rate_monthly = poverty_monthly_change }
 	add_to_temp_variable = { temp_poverty_rate_monthly = modifier@poverty_monthly_rate }
+	add_to_temp_variable = { temp_poverty_rate_monthly = poverty_war_devastation_modifier }
 
 	ECON_calculate_poverty_dampener_effect = yes # diminishing returns on less than 10%
 	multiply_temp_variable = { temp_poverty_rate_monthly = poverty_dampener_effect }
@@ -146,4 +149,21 @@ ECON_reload_poverty_effects = {
 	multiply_variable = { poverty_rate_factory_prod_effect = -0.25 }
 	multiply_variable = { poverty_rate_dockyard_prod_effect = -0.15 }
 	multiply_variable = { poverty_rate_construction_effect = -0.25 }
+}
+
+ECON_poverty_war_devastation_effect = {
+	
+	set_variable = { poverty_war_devastation_modifier = 0 }
+	
+	every_owned_state = {
+		limit = {
+			is_core_of = PREV
+		}
+		add_to_variable = { PREV.poverty_war_devastation_modifier = damaged_building_level@infrastructure }
+	}
+	
+	multiply_variable = { poverty_war_devastation_modifier = 0.01 }
+	multiply_variable = { poverty_war_devastation_modifier = -1 }
+	
+	log = "[THIS.GetName] - poverty_war_devastation_modifier = [?THIS.poverty_war_devastation_modifier]"
 }
