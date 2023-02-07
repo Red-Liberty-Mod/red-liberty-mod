@@ -1,0 +1,494 @@
+shared_focus = {
+    id = KMT_guangzhou_uprising
+	icon = GFX_KMT_guangzhou_uprising
+	
+    x = 4
+	y = 0
+	cost = 2
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = KMT_dare_to_die_corps
+	icon = GFX_KMT_guangzhou_uprising
+	
+    x = -1
+	y = 1
+	cost = 2
+	
+	relative_position_id = KMT_guangzhou_uprising
+	prerequisite = {
+		focus = KMT_guangzhou_uprising
+	}
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = KMT_suppress_counter_revolutionaries
+	icon = GFX_KMT_suppress_counter_revolutionaries
+	
+    x = 1
+	y = 1
+	cost = 2
+	
+	relative_position_id = KMT_guangzhou_uprising
+	prerequisite = {
+		focus = KMT_guangzhou_uprising
+	}
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = KMT_night_raids
+	icon = GFX_KMT_night_raids
+	
+    x = 1
+	y = 1
+	cost = 2
+	
+	relative_position_id = KMT_dare_to_die_corps
+	prerequisite = {
+		focus = KMT_dare_to_die_corps
+	}
+	prerequisite = {
+		focus = KMT_suppress_counter_revolutionaries
+	}
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = KMT_international_reservists
+	icon = GFX_KMT_international_reservists
+	
+    x = 0
+	y = 1
+	cost = 2
+	
+	relative_position_id = KMT_night_raids
+	prerequisite = {
+		focus = KMT_night_raids
+	}
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = KMT_approach_the_americans
+	icon = GFX_KMT_approach_the_americans
+	
+    x = -1
+	y = 1
+	cost = 2
+	
+	relative_position_id = KMT_international_reservists
+	prerequisite = {
+		focus = KMT_international_reservists
+	}
+	mutually_exclusive = {
+		focus = KMT_approach_the_japanese
+	}
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = KMT_approach_the_japanese
+	icon = GFX_KMT_approach_the_japanese
+	
+    x = 1
+	y = 1
+	cost = 2
+	
+	relative_position_id = KMT_international_reservists
+	prerequisite = {
+		focus = KMT_international_reservists
+	}
+	mutually_exclusive = {
+		focus = KMT_approach_the_americans
+	}
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = KMT_uphold_the_national_revolution
+	icon = GFX_KMT_uphold_the_national_revolution
+	
+    x = 1
+	y = 1
+	cost = 2
+	
+	relative_position_id = KMT_approach_the_americans
+	prerequisite = {
+		focus = KMT_approach_the_americans
+		focus = KMT_approach_the_japanese
+	}
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = KMT_call_the_national_congress
+	icon = GFX_KMT_call_the_national_congress
+	
+    x = 0
+	y = 1
+	cost = 2
+	
+	relative_position_id = KMT_uphold_the_national_revolution
+	prerequisite = {
+		focus = KMT_uphold_the_national_revolution
+	}
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = KMT_reforming_the_army
+	icon = GFX_KMT_reforming_the_army
+	
+    x = 10
+	y = 0
+	cost = 2
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = KMT_follow_whampoa
+	icon = GFX_KMT_follow_whampoa
+	
+    x = -1
+	y = 1
+	cost = 2
+	
+	relative_position_id = KMT_reforming_the_army
+	prerequisite = {
+		focus = KMT_reforming_the_army
+	}
+	mutually_exclusive = {
+		focus = KMT_a_new_nra
+	}
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = KMT_a_new_nra
+	icon = GFX_KMT_a_new_nra
+	
+    x = 1
+	y = 1
+	cost = 2
+	
+	relative_position_id = KMT_reforming_the_army
+	prerequisite = {
+		focus = KMT_reforming_the_army
+	}
+	mutually_exclusive = {
+		focus = KMT_follow_whampoa
+	}
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = KMT_borrow_german_arms
+	icon = GFX_KMT_borrow_german_arms
+	
+    x = -2
+	y = 1
+	cost = 2
+	
+	relative_position_id = KMT_follow_whampoa
+	prerequisite = {
+		focus = KMT_follow_whampoa
+	}
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = KMT_rebuild_the_guangzhou_arsenal
+	icon = GFX_KMT_rebuild_the_guangzhou_arsenal
+	
+    x = 0
+	y = 1
+	cost = 2
+	
+	relative_position_id = KMT_follow_whampoa
+	prerequisite = {
+		focus = KMT_follow_whampoa
+	}
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = KMT_60_divisions_plan
+	icon = GFX_KMT_60_divisions_plan
+	
+    x = 0
+	y = 1
+	cost = 2
+	
+	relative_position_id = KMT_a_new_nra
+	prerequisite = {
+		focus = KMT_a_new_nra
+	}
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = KMT_guangxi_womens_battalion
+	icon = GFX_KMT_guangxi_womens_battalion
+	
+    x = 2
+	y = 1
+	cost = 2
+	
+	relative_position_id = KMT_a_new_nra
+	prerequisite = {
+		focus = KMT_a_new_nra
+	}
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = KMT_nationalist_indoctrination
+	icon = GFX_KMT_nationalist_indoctrination
+	
+    x = 0
+	y = 1
+	cost = 2
+	
+	relative_position_id = KMT_borrow_german_arms
+	prerequisite = {
+		focus = KMT_borrow_german_arms
+	}
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = KMT_asymmetrical_warfare
+	icon = GFX_KMT_nationalist_indoctrination
+	
+    x = 0
+	y = 1
+	cost = 2
+	
+	relative_position_id = KMT_rebuild_the_guangzhou_arsenal
+	prerequisite = {
+		focus = KMT_rebuild_the_guangzhou_arsenal
+	}
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = KMT_military_affairs_commission
+	icon = GFX_KMT_military_affairs_commission
+	
+    x = 1
+	y = 1
+	cost = 2
+	
+	relative_position_id = KMT_60_divisions_plan
+	prerequisite = {
+		focus = KMT_60_divisions_plan
+	}
+	prerequisite = {
+		focus = KMT_guangxi_womens_battalion
+	}
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = KMT_regional_attack_strategy
+	icon = GFX_KMT_regional_attack_strategy
+	
+    x = 1
+	y = 1
+	cost = 2
+	
+	relative_position_id = KMT_guangxi_womens_battalion
+	prerequisite = {
+		focus = KMT_guangxi_womens_battalion
+	}
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = KMT_chiangs_offensive_war
+	icon = GFX_KMT_chiangs_offensive_war
+	
+    x = 0
+	y = 1
+	cost = 2
+	
+	relative_position_id = KMT_asymmetrical_warfare
+	prerequisite = {
+		focus = KMT_nationalist_indoctrination
+	}
+	prerequisite = {
+		focus = KMT_asymmetrical_warfare
+	}
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = KMT_offence_is_the_best_defence
+	icon = GFX_KMT_offence_is_the_best_defence
+	
+    x = 0
+	y = 1
+	cost = 2
+	
+	relative_position_id = KMT_military_affairs_commission
+	prerequisite = {
+		focus = KMT_military_affairs_commission
+	}
+	prerequisite = {
+		focus = KMT_regional_attack_strategy
+	}
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}

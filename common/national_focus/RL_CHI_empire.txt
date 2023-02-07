@@ -1,41 +1,208 @@
-focus_tree = {
-	id = rongyao
-	continuous_focus_position = { x = 0 y = 3000 } 
-	country = {
-		factor = 0
-		modifier = {
-			add = 0
-			tag = CHI
-		}
+shared_focus = {
+	id = CHI_year_of_the_rat
+	icon = GFX_goal_unknown
+	
+	x = 10
+	y = 0
+	cost = 1
+	
+	completion_reward = {
+	
 	}
-	#An Empire Reborn
-	focus = {
-		id = CHI_an_empire_reborn
-		icon = GFX_goal_unknown
-		x = 10
-		y = 15
-		cost = 5
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
-		prerequisite = { focus = CHI_subjugate_minorities  }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
+}
 
-	#Crush Republicanism
-	focus = {
-		id = CHI_crush_republicanism
-		icon = GFX_goal_unknown
-		x = 16
-		y = 10
-		cost = 5
-		search_filters = {
-			FOCUS_FILTER_MANPOWER
-		}
-		prerequisite = { focus = CHI_a_new_despot  }
+shared_focus = {
+	id = CHI_small_recovery
+	icon = GFX_goal_unknown
+	
+	x = -1
+	y = 1
+	cost = 2
+	
+	relative_position_id = CHI_year_of_the_rat
+	prerequisite = { focus = CHI_year_of_the_rat }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
+}
+
+shared_focus = {
+	id = CHI_call_in_foreign_aid
+	icon = GFX_goal_unknown
+	
+	x = 1
+	y = 1
+	cost = 2
+	
+	relative_position_id = CHI_year_of_the_rat
+	prerequisite = { focus = CHI_year_of_the_rat }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = CHI_the_national_question
+	icon = GFX_goal_unknown
+	
+	x = 1
+	y = 1
+	cost = 1
+	
+	relative_position_id = CHI_small_recovery
+	prerequisite = { focus = CHI_small_recovery }
+	prerequisite = { focus = CHI_call_in_foreign_aid }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = CHI_a_new_cabinet
+	icon = GFX_goal_unknown
+	
+	x = -5
+	y = 1
+	cost = 1
+	
+	relative_position_id = CHI_the_national_question
+	prerequisite = { focus = CHI_the_national_question }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = CHI_stick_with_the_ncera
+	icon = GFX_goal_unknown
+	x = -4
+	y = 1
+	cost = 5
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	relative_position_id = CHI_a_new_cabinet
+	prerequisite = { focus = CHI_a_new_cabinet }
+	mutually_exclusive = { focus = CHI_beiyang_coup }
+}
+
+shared_focus = {
+	id = CHI_beiyang_coup
+	icon = GFX_goal_unknown
+	x = 4
+	y = 1
+	cost = 5
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	relative_position_id = CHI_a_new_cabinet
+	prerequisite = { focus = CHI_a_new_cabinet }
+	mutually_exclusive = { focus = CHI_stick_with_the_ncera }
+}
+
+shared_focus = {
+	id = CHI_hold_a_national_census
+	icon = GFX_goal_unknown
+	
+	x = -2
+	y = 1
+	cost = 5
+	
+	relative_position_id = CHI_stick_with_the_ncera
+	prerequisite = { focus = CHI_stick_with_the_ncera }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = CHI_opening_up
+	icon = GFX_goal_unknown
+	
+	x = 2
+	y = 1
+	cost = 5
+	
+	relative_position_id = CHI_stick_with_the_ncera
+	prerequisite = { focus = CHI_stick_with_the_ncera }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = CHI_the_junta
+	icon = GFX_goal_unknown
+	
+	x = -2
+	y = 1
+	cost = 5
+	
+	relative_position_id = CHI_beiyang_coup
+	prerequisite = { focus = CHI_beiyang_coup }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = CHI_following_hu_shih
+	icon = GFX_goal_unknown
+	
+	x = 2
+	y = 1
+	cost = 5
+	
+	relative_position_id = CHI_beiyang_coup
+	prerequisite = { focus = CHI_beiyang_coup }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+####################################################
+
+shared_focus = {
+	id = CHI_an_empire_reborn
+	icon = GFX_goal_unknown
+	
+	x = 10
+	y = 15
+	cost = 5
+	
+	prerequisite = { focus = CHI_subjugate_minorities }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = CHI_crush_republicanism
+	icon = GFX_goal_unknown
+	x = 16
+	y = 10
+	cost = 5
+	search_filters = {
+		FOCUS_FILTER_MANPOWER
+	}
+	prerequisite = { focus = CHI_a_new_despot  }
+}
 
 	#The Rongyao Fleet
-	focus = {
+	shared_focus = {
 		id = CHI_the_rongyao_fleet
 		icon = GFX_goal_unknown
 		x = 28
@@ -48,151 +215,8 @@ focus_tree = {
 		mutually_exclusive = { focus = CHI_introducing_the_beiyang_fleet  }
 	}
 
-	#Collapse
-	focus = {
-		id = CHI_collapse
-		icon = GFX_goal_unknown
-		x = 15
-		y = 1
-		cost = 1
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
-	}
-
-	#Small Recovery
-	focus = {
-		id = CHI_small_recovery
-		icon = GFX_goal_unknown
-		x = 14
-		y = 2
-		cost = 2
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
-		prerequisite = { focus = CHI_collapse  }
-	}
-
-	#Call in Foreign Aid
-	focus = {
-		id = CHI_call_in_foreign_aid
-		icon = GFX_goal_unknown
-		x = 16
-		y = 2
-		cost = 2
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
-		prerequisite = { focus = CHI_collapse  }
-	}
-
-	#The National Question
-	focus = {
-		id = CHI_the_national_question
-		icon = GFX_goal_unknown
-		x = 15
-		y = 3
-		cost = 1
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
-		prerequisite = { focus = CHI_small_recovery  } prerequisite = { focus = CHI_call_in_foreign_aid  }
-	}
-
-	#A New Cabinet
-	focus = {
-		id = CHI_a_new_cabinet
-		icon = GFX_goal_unknown
-		x = 13
-		y = 4
-		cost = 1
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
-		prerequisite = { focus = CHI_the_national_question  }
-	}
-
-	#Stick With the NCERA
-	focus = {
-		id = CHI_stick_with_the_ncera
-		icon = GFX_goal_unknown
-		x = 11
-		y = 5
-		cost = 5
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
-		prerequisite = { focus = CHI_a_new_cabinet  }
-	}
-
-	#Beiyang Coup
-	focus = {
-		id = CHI_beiyang_coup
-		icon = GFX_goal_unknown
-		x = 15
-		y = 5
-		cost = 5
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
-		prerequisite = { focus = CHI_a_new_cabinet  }
-		mutually_exclusive = { focus = CHI_stick_with_the_ncera  }
-	}
-
-	#Opening Up
-	focus = {
-		id = CHI_opening_up
-		icon = GFX_goal_unknown
-		x = 11
-		y = 6
-		cost = 5
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
-		prerequisite = { focus = CHI_stick_with_the_ncera  }
-	}
-
-	#Hold a National Census
-	focus = {
-		id = CHI_hold_a_national_census
-		icon = GFX_goal_unknown
-		x = 7
-		y = 6
-		cost = 5
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
-		prerequisite = { focus = CHI_stick_with_the_ncera  }
-	}
-
-	#The Junta
-	focus = {
-		id = CHI_the_junta
-		icon = GFX_goal_unknown
-		x = 15
-		y = 6
-		cost = 5
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
-		prerequisite = { focus = CHI_beiyang_coup  }
-	}
-
-	#Following Hu Shih
-	focus = {
-		id = CHI_following_hu_shih
-		icon = GFX_goal_unknown
-		x = 19
-		y = 6
-		cost = 5
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
-		prerequisite = { focus = CHI_beiyang_coup  }
-	}
-
 	#Upgrade Beijing University
-	focus = {
+	shared_focus = {
 		id = CHI_upgrade_beijing_university
 		icon = GFX_goal_unknown
 		x = 8
@@ -205,7 +229,7 @@ focus_tree = {
 	}
 
 	#Moderate Reforms
-	focus = {
+	shared_focus = {
 		id = CHI_moderate_reforms
 		icon = GFX_goal_unknown
 		x = 6
@@ -218,7 +242,7 @@ focus_tree = {
 	}
 
 	#Banning Opium
-	focus = {
+	shared_focus = {
 		id = CHI_banning_opium
 		icon = GFX_goal_unknown
 		x = 8
@@ -231,7 +255,7 @@ focus_tree = {
 	}
 
 	#New Traders
-	focus = {
+	shared_focus = {
 		id = CHI_new_traders
 		icon = GFX_goal_unknown
 		x = 6
@@ -244,7 +268,7 @@ focus_tree = {
 	}
 
 	#Legalize Revolutionary Parties
-	focus = {
+	shared_focus = {
 		id = CHI_legalize_revolutionary_parties
 		icon = GFX_goal_unknown
 		x = 10
@@ -257,7 +281,7 @@ focus_tree = {
 	}
 
 	#Build Up Capitalism
-	focus = {
+	shared_focus = {
 		id = CHI_build_up_capitalism
 		icon = GFX_goal_unknown
 		x = 18
@@ -270,7 +294,7 @@ focus_tree = {
 	}
 
 	#The Merchant Fleet
-	focus = {
+	shared_focus = {
 		id = CHI_the_merchant_fleet
 		icon = GFX_goal_unknown
 		x = 20
@@ -283,7 +307,7 @@ focus_tree = {
 	}
 
 	#Re-organsing the Army
-	focus = {
+	shared_focus = {
 		id = CHI_reorgansing_the_army
 		icon = GFX_goal_unknown
 		x = 25
@@ -296,7 +320,7 @@ focus_tree = {
 	}
 
 	#Scavenge for Old Weapons
-	focus = {
+	shared_focus = {
 		id = CHI_scavenge_for_old_weapons
 		icon = GFX_goal_unknown
 		x = 23
@@ -309,7 +333,7 @@ focus_tree = {
 	}
 
 	#The Army of the Star
-	focus = {
+	shared_focus = {
 		id = CHI_the_army_of_the_star
 		icon = GFX_goal_unknown
 		x = 25
@@ -322,7 +346,7 @@ focus_tree = {
 	}
 
 	#Stars On the Water
-	focus = {
+	shared_focus = {
 		id = CHI_stars_on_the_water
 		icon = GFX_goal_unknown
 		x = 27
@@ -335,7 +359,7 @@ focus_tree = {
 	}
 
 	#Build the Yellow River Line
-	focus = {
+	shared_focus = {
 		id = CHI_build_the_yellow_river_line
 		icon = GFX_goal_unknown
 		x = 22
@@ -349,7 +373,7 @@ focus_tree = {
 	}
 
 	#Build the Yangtze Line
-	focus = {
+	shared_focus = {
 		id = CHI_build_the_yangtze_line
 		icon = GFX_goal_unknown
 		x = 24
@@ -363,7 +387,7 @@ focus_tree = {
 	}
 
 	#Introducing the Beiyang Fleet
-	focus = {
+	shared_focus = {
 		id = CHI_introducing_the_beiyang_fleet
 		icon = GFX_goal_unknown
 		x = 26
@@ -377,7 +401,7 @@ focus_tree = {
 	}
 
 	#Uphold Confucian Values
-	focus = {
+	shared_focus = {
 		id = CHI_uphold_confucian_values
 		icon = GFX_goal_unknown
 		x = 16
@@ -390,7 +414,7 @@ focus_tree = {
 	}
 
 	#Empower the Landlords
-	focus = {
+	shared_focus = {
 		id = CHI_empower_the_landlords
 		icon = GFX_goal_unknown
 		x = 18
@@ -403,7 +427,7 @@ focus_tree = {
 	}
 
 	#The Opium Question
-	focus = {
+	shared_focus = {
 		id = CHI_the_opium_question
 		icon = GFX_goal_unknown
 		x = 20
@@ -416,7 +440,7 @@ focus_tree = {
 	}
 
 	#Allow Unionisation
-	focus = {
+	shared_focus = {
 		id = CHI_allow_unionisation
 		icon = GFX_goal_unknown
 		x = 12
@@ -429,7 +453,7 @@ focus_tree = {
 	}
 
 	#Controlled Democracy
-	focus = {
+	shared_focus = {
 		id = CHI_controlled_democracy
 		icon = GFX_goal_unknown
 		x = 14
@@ -442,7 +466,7 @@ focus_tree = {
 	}
 
 	#Era of Conservatism
-	focus = {
+	shared_focus = {
 		id = CHI_era_of_conservatism
 		icon = GFX_goal_unknown
 		x = 16
@@ -455,7 +479,7 @@ focus_tree = {
 	}
 
 	#Anti-Unionism
-	focus = {
+	shared_focus = {
 		id = CHI_antiunionism
 		icon = GFX_goal_unknown
 		x = 14
@@ -468,7 +492,7 @@ focus_tree = {
 	}
 
 	#The British Model
-	focus = {
+	shared_focus = {
 		id = CHI_the_british_model
 		icon = GFX_goal_unknown
 		x = 10
@@ -481,7 +505,7 @@ focus_tree = {
 	}
 
 	#National Health Care
-	focus = {
+	shared_focus = {
 		id = CHI_national_health_care
 		icon = GFX_goal_unknown
 		x = 12
@@ -494,7 +518,7 @@ focus_tree = {
 	}
 
 	#Jungle Tactics
-	focus = {
+	shared_focus = {
 		id = CHI_jungle_tactics
 		icon = GFX_goal_unknown
 		x = 22
@@ -507,7 +531,7 @@ focus_tree = {
 	}
 
 	#Shells Everywhere
-	focus = {
+	shared_focus = {
 		id = CHI_shells_everywhere
 		icon = GFX_goal_unknown
 		x = 24
@@ -520,7 +544,7 @@ focus_tree = {
 	}
 
 	#The Silent Dragon
-	focus = {
+	shared_focus = {
 		id = CHI_the_silent_dragon
 		icon = GFX_goal_unknown
 		x = 26
@@ -533,7 +557,7 @@ focus_tree = {
 	}
 
 	#The Roaring Tiger
-	focus = {
+	shared_focus = {
 		id = CHI_the_roaring_tiger
 		icon = GFX_goal_unknown
 		x = 28
@@ -546,7 +570,7 @@ focus_tree = {
 	}
 
 	#Beyond the Mountains
-	focus = {
+	shared_focus = {
 		id = CHI_beyond_the_mountains
 		icon = GFX_goal_unknown
 		x = 23
@@ -559,7 +583,7 @@ focus_tree = {
 	}
 
 	#Army Modernization
-	focus = {
+	shared_focus = {
 		id = CHI_army_modernization
 		icon = GFX_goal_unknown
 		x = 25
@@ -572,7 +596,7 @@ focus_tree = {
 	}
 
 	#The Crowned Fleet
-	focus = {
+	shared_focus = {
 		id = CHI_the_crowned_fleet
 		icon = GFX_goal_unknown
 		x = 27
@@ -585,7 +609,7 @@ focus_tree = {
 	}
 
 	#Raining Gunpowder
-	focus = {
+	shared_focus = {
 		id = CHI_raining_gunpowder
 		icon = GFX_goal_unknown
 		x = 24
@@ -598,7 +622,7 @@ focus_tree = {
 	}
 
 	#A Sky On Fire
-	focus = {
+	shared_focus = {
 		id = CHI_a_sky_on_fire
 		icon = GFX_goal_unknown
 		x = 26
@@ -611,7 +635,7 @@ focus_tree = {
 	}
 
 	#Tougher Than Jade
-	focus = {
+	shared_focus = {
 		id = CHI_tougher_than_jade
 		icon = GFX_goal_unknown
 		x = 25
@@ -624,7 +648,7 @@ focus_tree = {
 	}
 
 	#Question of the Monarchy
-	focus = {
+	shared_focus = {
 		id = CHI_question_of_the_monarchy
 		icon = GFX_goal_unknown
 		x = 9
@@ -637,7 +661,7 @@ focus_tree = {
 	}
 
 	#A New Despot
-	focus = {
+	shared_focus = {
 		id = CHI_a_new_despot
 		icon = GFX_goal_unknown
 		x = 17
@@ -650,7 +674,7 @@ focus_tree = {
 	}
 
 	#For the Republic
-	focus = {
+	shared_focus = {
 		id = CHI_for_the_republic
 		icon = GFX_goal_unknown
 		x = 8
@@ -663,7 +687,7 @@ focus_tree = {
 	}
 
 	#An Emperor With Limits
-	focus = {
+	shared_focus = {
 		id = CHI_an_emperor_with_limits
 		icon = GFX_goal_unknown
 		x = 10
@@ -677,7 +701,7 @@ focus_tree = {
 	}
 
 	#Our Nationalist Allies
-	focus = {
+	shared_focus = {
 		id = CHI_our_nationalist_allies
 		icon = GFX_goal_unknown
 		x = 7
@@ -690,7 +714,7 @@ focus_tree = {
 	}
 
 	#Start the North East Expedition
-	focus = {
+	shared_focus = {
 		id = CHI_start_the_north_east_expedition
 		icon = GFX_goal_unknown
 		x = 9
@@ -703,7 +727,7 @@ focus_tree = {
 	}
 
 	#Crush The Traitors
-	focus = {
+	shared_focus = {
 		id = CHI_crush_the_traitors
 		icon = GFX_goal_unknown
 		x = 11
@@ -716,7 +740,7 @@ focus_tree = {
 	}
 
 	#Pivot Towards Washington
-	focus = {
+	shared_focus = {
 		id = CHI_pivot_towards_washington
 		icon = GFX_goal_unknown
 		x = 7
@@ -729,7 +753,7 @@ focus_tree = {
 	}
 
 	#Expel  the International Treaties.
-	focus = {
+	shared_focus = {
 		id = CHI_expeltheinternationaltreaties
 		icon = GFX_goal_unknown
 		x = 9
@@ -742,7 +766,7 @@ focus_tree = {
 	}
 
 	#Alliance With Britian
-	focus = {
+	shared_focus = {
 		id = CHI_alliance_with_britian
 		icon = GFX_goal_unknown
 		x = 11
@@ -755,7 +779,7 @@ focus_tree = {
 	}
 
 	#Warlord Negotiations
-	focus = {
+	shared_focus = {
 		id = CHI_warlord_negotiations
 		icon = GFX_goal_unknown
 		x = 7
@@ -768,7 +792,7 @@ focus_tree = {
 	}
 
 	#Liberate Taiwan
-	focus = {
+	shared_focus = {
 		id = CHI_liberate_taiwan
 		icon = GFX_goal_unknown
 		x = 9
@@ -781,7 +805,7 @@ focus_tree = {
 	}
 
 	#Secure the Warlords
-	focus = {
+	shared_focus = {
 		id = CHI_secure_the_warlords
 		icon = GFX_goal_unknown
 		x = 11
@@ -794,7 +818,7 @@ focus_tree = {
 	}
 
 	#Question of Minorities
-	focus = {
+	shared_focus = {
 		id = CHI_question_of_minorities
 		icon = GFX_goal_unknown
 		x = 8
@@ -807,7 +831,7 @@ focus_tree = {
 	}
 
 	#Subjugate Minorities
-	focus = {
+	shared_focus = {
 		id = CHI_subjugate_minorities
 		icon = GFX_goal_unknown
 		x = 10
@@ -820,7 +844,7 @@ focus_tree = {
 	}
 
 	#For the New Republic
-	focus = {
+	shared_focus = {
 		id = CHI_for_the_new_republic
 		icon = GFX_goal_unknown
 		x = 8
@@ -833,7 +857,7 @@ focus_tree = {
 	}
 
 	#Align With the 21 Articles
-	focus = {
+	shared_focus = {
 		id = CHI_align_with_the_21_articles
 		icon = GFX_goal_unknown
 		x = 18
@@ -846,7 +870,7 @@ focus_tree = {
 	}
 
 	#Unify the Warlords
-	focus = {
+	shared_focus = {
 		id = CHI_unify_the_warlords
 		icon = GFX_goal_unknown
 		x = 16
@@ -859,8 +883,8 @@ focus_tree = {
 	}
 
 	#Question of Minorities
-	focus = {
-		id = CHI_question_of_minorities
+	shared_focus = {
+		id = CHI_question_of_minorities_2
 		icon = GFX_goal_unknown
 		x = 17
 		y = 12
@@ -872,7 +896,7 @@ focus_tree = {
 	}
 
 	#Crush European Influence
-	focus = {
+	shared_focus = {
 		id = CHI_crush_european_influence
 		icon = GFX_goal_unknown
 		x = 17
@@ -881,11 +905,11 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
-		prerequisite = { focus = CHI_question_of_minorities  }
+		prerequisite = { focus = CHI_question_of_minorities_2  }
 	}
 
 	#Our Japanese Allies
-	focus = {
+	shared_focus = {
 		id = CHI_our_japanese_allies
 		icon = GFX_focus_chi_collaboration_with_the_japanese
 		x = 18
@@ -898,7 +922,7 @@ focus_tree = {
 	}
 
 	#The State of China
-	focus = {
+	shared_focus = {
 		id = CHI_the_state_of_china
 		icon = GFX_goal_unknown
 		x = 17
