@@ -20,7 +20,14 @@
  autonomy_RL_integrated_puppet:0 "Integrated Puppet"
  autonomy_RL_colonial_regime:0 "Colonial Regime"
  autonomy_RL_protectorate:0 "Protectorate"
+ autonomy_RL_occupied_puppet:0 "Occupied Puppet"
  autonomy_RL_nominal_puppet:0 "Nominal Puppet"
+ autonomy_RL_personal_union:0 "Personal Union"
+ 
+ can_lower_autonomy_level: "Can lower autonomy level"
+ can_raise_autonomy_level: "Can raise autonomy level"
+ puppet_can_become_free: "May become independent"
+ puppet_can_be_annexed: "May be annexed by the overlord"
  
  ### Decisions ###
  restructure_supply_system:0 "Reorganize the Railway System"
@@ -35,6 +42,33 @@
  unit_leader.2.t: "[From.GetName] Wounded"
  unit_leader.2.d: "In bringing the battle to a successful conclusion, it seems [From.GetRank] [From.GetName] put [From.GetHerselfHimself] at a bit too much risk while leading [From.GetHerHis] men. [From.GetSheHeCap] has been wounded, and it will likely take some time for the wounds to fully heal, until which time the [From.GetRank] will not be performing at [From.GetHerHis] usual level."
  unit_leader.2.a: "Unfortunate."
+ 
+ # Government in Exile Events #
+ mtg_exile_leader_added.1.t: "[exile_nation.GetAdjective] Exile Leader Offers Service"
+ mtg_exile_leader_added.1.desc: "After a long and hazardous journey through enemy-held territory and several neutral states, a high ranking military officer from one of our capitulated allies has finally arrived in the capital. Following a short period of recovery, he has offered his services in our common struggle."
+ mtg_exile_leader_added.1.a: "Your fight is not over yet."
+
+ mtg_exile_government.2.title: "The [From.GetAdjective] Government in Exile"
+ mtg_exile_government.2.desc: "[From.GetLeader] has formally requested permission from the [Root.GetAdjective] government to return to [From.GetNameDef] and re-establish a provisional [From.GetRulingParty] cabinet in preparation for the post-war peace."
+ mtg_exile_government.2.a: "It is time for them to return to their own territory."
+ mtg_exile_government.2.b: "The time is not yet ripe."
+
+ mtg_exile_government.3.title: "[From.GetName] Requests Naval Integration"
+ mtg_exile_government.3.desc: "The [From.GetAdjective] naval leadership has presented us with a plan for the integration of our navy into theirs. They argue that, by allowing [From.GetAdjective] naval planners to have full control over our ships, their effectiveness would be drastically increased in comparison to their current independent actions."
+ mtg_exile_government.3.a: "We agree."
+ mtg_exile_government.3.b: "We will not serve under them."
+
+ mtg_exile_government.4.title: "[From.GetName] Accepts Naval Integration"
+ mtg_exile_government.4.desc: "The [From.GetAdjective] government has informed us that they agree to our proposal, and that henceforth their ships will operate under our command."
+ mtg_exile_government.4.a: "Excellent."
+
+ mtg_exile_government.5.title: "[From.GetName] Rejects Naval Integration"
+ mtg_exile_government.5.desc: "The [From.GetAdjective] government has informed us that their navy will never serve under the command of a foreign power. They mean to aid us, but they shall do so independently."
+ mtg_exile_government.5.a: "They place their pride above the interests of the alliance."
+
+ mtg_generic.1.title: "[From.GetName] Enforces Government Change"
+ mtg_generic.1.desc: "Citing the clear lack of electoral support for our current government, [From.GetNameDef] has demanded a change in politics."
+ mtg_generic.1.a: "We have no choice but to accept."
  
  ### State Categories ###
  developing_rural:0 "Developing Rural"
