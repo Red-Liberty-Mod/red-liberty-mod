@@ -93,8 +93,13 @@ on_actions = {
 							original_tag = BRM
 						}
 					}
+					FROM = {
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
 					RAJ = {
-						white_peace = BRM
 						annex_country = {
 							target = BRM
 						}
@@ -112,14 +117,23 @@ on_actions = {
 							original_tag = UOB
 						}
 					}
+					FROM = {
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
 					BRA = {
-						white_peace = UOB
 						annex_country = {
 							target = UOB
 						}
 						country_event = {
 							id = demo_bra.4
 							days = 25
+						}
+						remove_ideas = {
+							BRA_civil_war
+							BRA_right_wing_coalition
 						}
 					}
 					random_other_country = {
@@ -137,14 +151,23 @@ on_actions = {
 							original_tag = BRA
 						}
 					}
+					FROM = {
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
 					UOB = {
-						white_peace = BRA
 						annex_country = {
 							target = BRA
 						}
 						country_event = {
 							id = demo_uob.5
 							days = 25
+						}
+						remove_ideas = {
+							UOB_civil_war
+							UOB_left_wing_coalition
 						}
 					}
 					random_other_country = {
@@ -165,7 +188,12 @@ on_actions = {
 						}
 					}
 					FROM = {
-						white_peace = ROOT
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
+					FROM = {
 						annex_country = {
 							target = ROOT
 						}
@@ -193,7 +221,12 @@ on_actions = {
 						}
 					}
 					FROM = {
-						white_peace = ROOT
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
+					FROM = {
 						annex_country = {
 							target = ROOT
 						}
@@ -212,38 +245,56 @@ on_actions = {
 							OR = {
 								original_tag = AUS
 								original_tag = GER
+								is_ally_with = AUS
 							}
 						}
 						ROOT = {
 							original_tag = AHE
 						}
 					}
+					FROM = {
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
 					ROOT = {
 						dismantle_faction = yes
 					}
 					AUS = {
-						white_peace = AHE
 						annex_country = {
 							target = AHE
 						}
 						set_capital = { state = 4 }
+						country_event = {
+							id = demo_aus.1
+							days = 25
+						}
 					}
 					set_global_flag = skip_default_capitulation
 				}
 				else_if = {
 					limit = {
 						FROM = {
-							original_tag = AHE
+							OR = {
+								original_tag = AHE
+								is_ally_with = AHE
+							}
 						}
 						ROOT = {
 							original_tag = AUS
 						}
 					}
+					FROM = {
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
 					ROOT = {
 						dismantle_faction = yes
 					}
 					FROM = {
-						white_peace = ROOT
 						annex_country = {
 							target = ROOT
 						}
@@ -259,27 +310,26 @@ on_actions = {
 						FROM = {
 							OR = {
 								original_tag = ROM
-								original_tag = SLO
-								original_tag = TRS
+								is_ally_with = ROM
 							}
 						}
 						ROOT = {
 							original_tag = HUN
 						}
 					}
+					FROM = {
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
 					ROM = {
-						white_peace = {
-							tag = HUN
-						}
 						transfer_state = 885
 						annex_country = {
 							target = TRS
 						}
 					}
 					SLO = {
-						white_peace = {
-							tag = HUN
-						}
 						transfer_state = 73
 						transfer_state = 664
 					}
@@ -296,10 +346,13 @@ on_actions = {
 							original_tag = ROM
 						}
 					}
+					FROM = {
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
 					HUN = {
-						white_peace = {
-							tag = ROM
-						}
 						81 = {
 							set_demilitarized_zone = yes
 						}
@@ -317,10 +370,13 @@ on_actions = {
 							original_tag = SLO
 						}
 					}
+					FROM = {
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
 					HUN = {
-						white_peace = {
-							tag = SLO
-						}
 						puppet = SLO
 					}
 					set_global_flag = skip_default_capitulation
@@ -336,10 +392,13 @@ on_actions = {
 							original_tag = TRS
 						}
 					}
+					FROM = {
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
 					HUN = {
-						white_peace = {
-							tag = TRS
-						}
 						annex_country = {
 							target = TRS
 						}
@@ -358,7 +417,10 @@ on_actions = {
 						}
 					}
 					FROM = {
-						white_peace = ROOT
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
 					}
 					set_global_flag = skip_default_capitulation
 				}
@@ -372,7 +434,12 @@ on_actions = {
 						}
 					}
 					FROM = {
-						white_peace = ROOT
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
+					FROM = {
 						annex_country = {
 							target = ROOT
 						}
@@ -394,7 +461,12 @@ on_actions = {
 						}
 					}
 					FROM = {
-						white_peace = ROOT
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
+					FROM = {
 						annex_country = {
 							target = ROOT
 						}
@@ -447,7 +519,12 @@ on_actions = {
 						}
 					}
 					FROM = {
-						white_peace = ROOT
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
+					FROM = {
 						annex_country = {
 							target = ROOT
 						}
@@ -468,7 +545,12 @@ on_actions = {
 						}
 					}
 					FROM = {
-						white_peace = ROOT
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
+					FROM = {
 						annex_country = {
 							target = ROOT
 						}

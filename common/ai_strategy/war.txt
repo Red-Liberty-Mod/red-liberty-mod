@@ -129,7 +129,7 @@ FRA_crush_germany = {
 	}
 	ai_strategy = {
 		type = conquer
-		id = "GER"
+		id = GER
 		value = 1000
 	}
 }
@@ -154,7 +154,7 @@ UOB_hate_BRA = {
 	
 	ai_strategy = {
 		type = conquer
-		id = "BRA"
+		id = BRA
 		value = 1000
 	}
 }
@@ -179,7 +179,7 @@ BRA_hate_UOB = {
 	
 	ai_strategy = {
 		type = conquer
-		id = "UOB"
+		id = UOB
 		value = 1000
 	}
 }
@@ -244,5 +244,28 @@ GER_allies_let_germany_handle_france = {
 		type = front_unit_request
 		tag = FRA
 		value = -250
+	}
+}
+
+TAG_support_AUS = {
+	allowed = {
+		OR = {
+			original_tag = GER
+			original_tag = ITA
+			original_tag = FRA
+		}
+	}
+	enable = {
+		AUS = {
+			has_war_with = AHE
+		}
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = AUS
+		value = 1500
 	}
 }

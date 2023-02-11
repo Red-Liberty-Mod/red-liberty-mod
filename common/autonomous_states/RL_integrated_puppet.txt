@@ -2,12 +2,16 @@ autonomy_state = {
 	id = autonomy_RL_integrated_puppet
 
 	is_puppet = yes
+	
+	use_overlord_color = yes
 
 	min_freedom_level = 0.0
 
 	manpower_influence = 1.0
 
 	rule = {
+		desc = RULE_DESC_IS_A_SUBJECT
+	
 		can_not_declare_war = yes
 		can_decline_call_to_war = no
 		can_be_spymaster = no
@@ -23,7 +27,6 @@ autonomy_state = {
 		research_sharing_per_country_bonus_factor = -0.5
 		cic_to_overlord_factor = 0.25
 		mic_to_overlord_factor = 0.65
-		autonomy_gain_global_factor = -0.5
 	}
 
 	ai_subject_wants_higher = {

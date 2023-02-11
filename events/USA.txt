@@ -173,6 +173,7 @@ news_event = { # recession world event
 country_event = { # 1940 dnc
 	id = united_states.11
 	title = united_states.11.title
+	picture = GFX_report_event_cordell_hull
 	desc = {
 		text = united_states.11.desc_lister
 		trigger = {
@@ -195,15 +196,15 @@ country_event = { # 1940 dnc
 	option = { # lister second term
 		name = united_states.11.a
 		trigger = {
-			has_government = national_conservatism
+			has_country_flag = USA_1936_election_democrat_victory
 		}
 	}
 	
-	option = {
+	option = { # cordell hull
 		name = united_states.11.b
 		trigger = {
 			NOT = {
-				has_government = national_conservatism
+				has_country_flag = USA_1936_election_democrat_victory
 			}
 		}
 	}
@@ -213,9 +214,9 @@ country_event = { # thomas chooses to run again
 	id = united_states.12
 	title = united_states.12.title
 	desc = united_states.12.desc
-	
+	picture = GFX_report_event_thomas_speech
 	trigger = {
-		has_government = libertarian_socialism
+		has_country_flag = USA_1936_election_socialist_victory
 	}
 	
 	is_triggered_only = yes
@@ -241,16 +242,19 @@ country_event = { # thomas chooses to run again
 country_event = { # 1940 spa convention
 	id = united_states.13
 	title = united_states.13.title
+	picture = GFX_report_event_thomas_cheer
 	desc = {
 		text = united_states.13.desc_1 # thomas running for term #3
 		trigger = {
 			has_country_flag = USA_thomas_will_run
+			has_country_flag = USA_1936_election_socialist_victory
 		}
 	}
 	desc = {
 		text = united_states.13.desc_2 # thomas retiring
 		trigger = {
 			NOT = { has_country_flag = USA_thomas_will_run }
+			has_country_flag = USA_1936_election_socialist_victory
 		}
 	}
 	desc = {
@@ -452,6 +456,7 @@ country_event = { # insurrection act
 	id = united_states_insurgency.4
 	title = united_states_insurgency.4.title
 	desc = united_states_insurgency.4.desc
+	picture = GFX_report_event_birth_of_a_nation
 	
 	is_triggered_only = yes
 
@@ -465,6 +470,7 @@ country_event = { # dont tell mom im in detroit
 	id = united_states_insurgency.5
 	title = united_states_insurgency.5.title
 	desc = united_states_insurgency.5.desc
+	picture = GFX_report_event_birth_of_a_nation
 	
 	is_triggered_only = yes
 	
@@ -488,6 +494,7 @@ country_event = { # rebel yell, violence in the south
 	id = united_states_insurgency.6
 	title = united_states_insurgency.6.title
 	desc = united_states_insurgency.6.desc
+	picture = GFX_report_event_birth_of_a_nation
 	
 	is_triggered_only = yes
 
@@ -702,6 +709,7 @@ country_event = { # new england hurricane
 	id = united_states_flavor.6
 	title = "The Great New England Hurricane"
 	desc = united_states_flavor.6.desc
+	picture = GFX_report_event_flood
 	
 	is_triggered_only = yes
 	
@@ -843,6 +851,7 @@ country_event = { # death of john reed
 	id = united_states_flavor.10
 	title = united_states_flavor.10.title
 	desc = united_states_flavor.10.desc
+	picture = GFX_report_event_jack_reed
 	
 	is_triggered_only = yes
 	
@@ -888,10 +897,11 @@ country_event = { # intel division report
 	}
 }
 
-country_event = { # setting off
+country_event = { # on the road - lincoln brigade
 	id = united_states_intervention.3
 	title = united_states_intervention.3.title
 	desc = united_states_intervention.3.desc
+	picture = GFX_report_event_lincoln_brigade
 	
 	is_triggered_only = yes
 	
@@ -941,6 +951,7 @@ country_event = { # discovery of plutonium
 	id = united_states_mproject.1
 	title = united_states_mproject.1.title
 	desc = united_states_mproject.1.desc
+	picture = GFX_report_event_scientists
 	
 	is_triggered_only = yes
 	
@@ -958,6 +969,7 @@ country_event = { # start of the manhattan project
 	id = united_states_mproject.2
 	title = united_states_mproject.2.title
 	desc = united_states_mproject.2.desc
+	picture = GFX_report_event_scientists
 	
 	is_triggered_only = yes
 	
@@ -977,6 +989,7 @@ country_event = { # the utmost secrecy
 	id = united_states_mproject.3
 	title = united_states_mproject.3.title
 	desc = united_states_mproject.3.desc
+	picture = GFX_report_event_scientists
 	
 	is_triggered_only = yes
 	
@@ -991,6 +1004,7 @@ country_event = { #
 	id = united_states_mproject.4
 	title = united_states_mproject.4.title
 	desc = united_states_mproject.4.desc
+	picture = GFX_report_event_scientists
 	
 	is_triggered_only = yes
 	
@@ -1005,6 +1019,7 @@ country_event = { #
 	id = united_states_mproject.5
 	title = united_states_mproject.5.title
 	desc = united_states_mproject.5.desc
+	picture = GFX_report_event_scientists
 	
 	is_triggered_only = yes
 	
@@ -1019,6 +1034,7 @@ country_event = { #
 	id = united_states_mproject.6
 	title = united_states_mproject.6.title
 	desc = united_states_mproject.6.desc
+	picture = GFX_report_event_scientists
 	
 	is_triggered_only = yes
 	

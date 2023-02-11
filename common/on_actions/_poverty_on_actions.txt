@@ -1,20 +1,6 @@
 on_actions = {
 	on_startup = {
 		effect = {
-			every_country = {
-				if = {
-					limit = {
-						NOT = {
-							has_dynamic_modifier = {
-								modifier = ECON_poverty_modifier
-							}
-						}
-					}
-					add_dynamic_modifier = {
-						modifier = ECON_poverty_modifier
-					}
-				}
-			}
 			
 			ARG = {
 				set_variable = { poverty_rate = 40.4 }
@@ -41,6 +27,11 @@ on_actions = {
 			CHI = {
 				set_variable = { poverty_rate = 92.5 }
 				set_variable = { poverty_monthly_change = 0.06 }
+			}
+			
+			EGY = {
+				set_variable = { poverty_rate = 87.2 }
+				set_variable = { poverty_monthly_change = 0.03 }
 			}
 			
 			ENG = {
@@ -133,30 +124,8 @@ on_actions = {
 			}
 			
 			every_country = {
-				if = {
-					limit = {
-						check_variable = { poverty_rate = 0 }
-					}
-					set_variable = { poverty_rate = 45 }
-				}
-				if = {
-					limit = {
-						check_variable = { poverty_monthly_change = 0 }
-					}
-					set_variable = { poverty_monthly_change = 0.09 }
-				}
-			}
-			
-			every_country = {
 				ECON_reload_poverty_effects = yes
 				ECON_calculate_poverty_dampener_effect = yes
-			}
-		}
-	}
-	on_monthly_URG = {
-		effect = {
-			every_country = {
-				ECON_poverty_change_monthly = yes
 			}
 		}
 	}
