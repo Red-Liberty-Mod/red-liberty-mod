@@ -221,7 +221,7 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				large = ""
+				large = "gfx/leaders/JAP/Portrait_JAP_Kita_Ikki.png"
 			}
 		}
 		
@@ -233,6 +233,25 @@ characters = {
 	}
 	
 	### Ministers ###
+	
+	JAP_fujiwara_ginjiro = {
+		name = JAP_fujiwara_ginjiro
+		
+		portraits = {
+			civilian = {
+				small = ""
+			}
+		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = JAP_fujiwara_ginjiro
+			
+			traits = {
+				eco_resource_industrialist
+			}
+		}
+	}
 	
 	JAP_seigo_nakano = {
 		name = JAP_seigo_nakano
@@ -248,7 +267,7 @@ characters = {
 			cost = 100
 			
 			slot = political_advisor
-			idea_token = JAP_seigo_nakano_sec
+			idea_token = JAP_seigo_nakano
 			ledger = civilian
 			
 			allowed = {
@@ -260,11 +279,34 @@ characters = {
 			}
 			
 			available = {
-				
+				has_reactionary_govt = yes
 			}
 			
 			traits = {
 				sec_man_of_the_people
+			}
+		}
+	}
+	
+	JAP_okawa_shumei = {
+		name = JAP_okawa_shumei
+		
+		portraits = {
+			army = {
+				civilian = ""
+			}
+		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = JAP_okawa_shumei
+			
+			available = {
+				has_reactionary_govt = yes
+			}
+			
+			traits = {
+				edu_propagandist
 			}
 		}
 	}
