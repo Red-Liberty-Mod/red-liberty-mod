@@ -6,19 +6,18 @@ characters = {
 		portraits = {
 			civilian = {
 				large = "gfx/leaders/JAP/Portrait_JAP_Hirohito.png"
+				small = "GFX_minister_JAP_hirohito"
 			}
 		}
 		
 		### country leader added by event ###
 		
 		advisor = {
-			cost = 100
-			
 			slot = head_of_government
 			idea_token = JAP_hirohito_showa_hog
 			ledger = civilian
 			
-			removal_cost = -1
+			can_be_fired = no
 			
 			allowed = {
 				original_tag = JAP
@@ -37,7 +36,45 @@ characters = {
 			}
 		}
 	}
-
+	
+	JAP_yasuhito_chichibu = {
+		name = JAP_yasuhito_chichibu
+		
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/JAP/Portrait_JAP_Yasuhito.png"
+			}
+		}
+		
+		### country leader added by event ###
+		
+		advisor = {
+			slot = head_of_government
+			idea_token = JAP_yasuhito_chichibu_hog
+			ledger = civilian
+			
+			can_be_fired = no
+			
+			allowed = {
+				original_tag = JAP
+			}
+			
+			visible = {
+				
+			}
+			
+			available = {
+				
+			}
+			
+			traits = {
+				
+			}
+		}
+	}
+	
+	### Leaders ###
+	
 	JAP_iwasa_sakutaro = {
 		name = JAP_iwasa_sakutaro
 		
@@ -234,6 +271,37 @@ characters = {
 	
 	### Ministers ###
 	
+	JAP_inejiro_asanuma = {
+		name = JAP_inejiro_asanuma
+		
+		portraits = {
+			civilian = {
+				small = ""
+			}
+		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = JAP_inejiro_asanuma
+			
+			allowed = {
+				original_tag = JAP
+			}
+			
+			visible = {
+				
+			}
+			
+			available = {
+				has_socialist_govt = yes
+			}
+			
+			traits = {
+				for_ideological_crusader
+			}
+		}
+	}
+	
 	JAP_fujiwara_ginjiro = {
 		name = JAP_fujiwara_ginjiro
 		
@@ -247,8 +315,51 @@ characters = {
 			slot = political_advisor
 			idea_token = JAP_fujiwara_ginjiro
 			
+			allowed = {
+				original_tag = JAP
+			}
+			
+			visible = {
+				
+			}
+			
+			available = {
+				has_reactionary_govt = yes
+			}
+			
 			traits = {
 				eco_resource_industrialist
+			}
+		}
+	}
+	
+	JAP_koichi_kido = {
+		name = JAP_koichi_kido
+		
+		portraits = {
+			civilian = {
+				small = ""
+			}
+		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = JAP_koichi_kido
+			
+			allowed = {
+				original_tag = JAP
+			}
+			
+			visible = {
+				
+			}
+			
+			available = {
+				has_reactionary_govt = yes
+			}
+			
+			traits = {
+				
 			}
 		}
 	}
