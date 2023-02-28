@@ -2,19 +2,10 @@
 
 oob = "ITA"
 
-set_research_slots = 4
+set_research_slots = 3
 set_stability = 0.8
 set_war_support = 0.7
-
-add_ideas = {
-	ITA_disorganized_general_staff
-	ITA_questionable_blackshirt_loyalty
-	ITA_massive_deficit
-	
-	limited_exports
-	limited_conscription
-	low_economic_mobilisation
-}
+set_convoys = 200
 
 add_opinion_modifier = {
     target = ENG
@@ -210,8 +201,6 @@ if = {
 	}
 }
 
-set_convoys = 200
-
 set_politics = {
 	ruling_party = fascism
 	last_election = "1932.11.8"
@@ -247,86 +236,30 @@ set_country_flag = despotist_coalition
 set_country_flag = far_right_coalition
 set_country_flag = ultranationalist_coalition
 
-create_country_leader = {
-	name = "Alessandro Pertini"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = democratic_socialism_subtype
-	traits = {
-		
-	}
-}
+### Monarchs ###
+recruit_character = ITA_vittorio_emmanuel_iii
+recruit_character = ITA_umberto_ii
 
-create_country_leader = {
-	name = "Ferruccio Parri"
-	desc = ""
-	picture = "GFX_portrait_italy_ferruccio_parri.tga"
-	expire = "1965.1.1"
-	ideology = social_democracy_subtype
-	traits = {
-		
-	}
-}
+### Leaders ###
+recruit_character = ITA_ruggero_greico
+recruit_character = ITA_alessandro_pertini
+recruit_character = ITA_ferruccio_parri
+recruit_character = ITA_randolfo_pacciardi
+recruit_character = ITA_luigi_einaudi
+recruit_character = ITA_alcide_de_gasperi
+recruit_character = ITA_pietro_badoglio
+recruit_character = ITA_benito_mussolini
 
-create_country_leader = {
-	name = "Luigi Einaudi"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = liberal_conservatism_subtype
-	traits = {
-		
-	}
-}
-
-create_country_leader = {
-	name = "Alcide De Gasperi"
-	desc = ""
-	picture = "GFX_portrait_italy_alcide_de_gasperi.tga"
-	expire = "1965.1.1"
-	ideology = christian_democracy_subtype
-	traits = {
-
-	}
-}
-
-create_country_leader = {
-	name = "Victor Emmanuel III"
-	desc = "POLITICS_VICTOR_EMMANUEL_III_DESC"
-	picture = "GFX_portrait_italy_victor_emmanuel_iii.tga"
-	expire = "1965.1.1"
-	ideology = autocratic_despotism_subtype
-	traits = {
-
-	}
-}
-
-create_country_leader = {
-	name = "Benito Mussolini"
-	desc = "POLITICS_BENITO_MUSSOLINI_DESC"
-	picture = "gfx/leaders/ITA/Portrait_ITA_Benito_Mussolini.png"
-	expire = "1965.1.1"
-	ideology = fascism_subtype
-	traits = {
-		il_duce
-	}
-}
-
-create_field_marshal = {
-	name = "Pietro Badoglio"
-	picture = ""
-	traits = {
-		defensive_doctrine
-		old_guard
-		politically_connected
-		inflexible_strategist
-	}
-	skill = 3
-	attack_skill = 3
-	defense_skill = 3
-	planning_skill = 2
-	logistics_skill = 2
+add_ideas = {
+	ITA_disorganized_general_staff
+	ITA_questionable_blackshirt_loyalty
+	ITA_massive_deficit
+	
+	limited_exports
+	limited_conscription
+	low_economic_mobilisation
+	
+	ITA_vittorio_emmanuel_iii_hog
 }
 
 create_field_marshal = {
