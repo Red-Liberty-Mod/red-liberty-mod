@@ -309,29 +309,55 @@ on_actions = {
 					limit = {
 						FROM = {
 							OR = {
+								original_tag = SLO
 								original_tag = ROM
-								is_ally_with = ROM
+								original_tag = TRS
 							}
 						}
 						ROOT = {
 							original_tag = HUN
 						}
 					}
-					FROM = {
-						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					every_country = {
+						limit = { has_war_with = HUN }
+						diplomatic_relation = { country = HUN relation = war_relation active = no }
 					}
-					ROOT = {
-						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					HUN = {
+						diplomatic_relation = { country = SLO relation = war_relation active = no }
+						diplomatic_relation = { country = ROM relation = war_relation active = no }
+						diplomatic_relation = { country = TRS relation = war_relation active = no }
+					}
+					
+					TRS = {
+						add_state_core = 885
+						transfer_state = 885
 					}
 					ROM = {
-						transfer_state = 885
-						annex_country = {
-							target = TRS
+						random_list = {
+							5 = {
+								country_event = {
+									id = demo_rom.2
+									days = 14
+								}
+							}
+							95 = {
+								country_event = {
+									id = demo_rom.3
+									days = 14
+								}
+							}
 						}
 					}
-					SLO = {
-						transfer_state = 73
-						transfer_state = 664
+					if = {
+						limit = {
+							SLO = {
+								has_war_with = HUN
+							}
+						}
+						SLO = {
+							transfer_state = 73
+							transfer_state = 664
+						}
 					}
 					set_global_flag = skip_default_capitulation
 				}
@@ -377,7 +403,9 @@ on_actions = {
 						diplomatic_relation = { country = FROM relation = war_relation active = no }
 					}
 					HUN = {
-						puppet = SLO
+						annex_country = {
+							target = SLO
+						}
 					}
 					set_global_flag = skip_default_capitulation
 				}
@@ -443,6 +471,55 @@ on_actions = {
 						annex_country = {
 							target = ROOT
 						}
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				
+				### Romanian-Transylvanian War ###
+				else_if = {
+					limit = {
+						FROM = {
+							original_tag = ROM
+						}
+						ROOT = {
+							original_tag = TRS
+						}
+					}
+					FROM = {
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
+					FROM = {
+						annex_country = {
+							target = ROOT
+						}
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							original_tag = TRS
+						}
+						ROOT = {
+							original_tag = ROM
+						}
+					}
+					FROM = {
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
+					FROM = {
+						annex_country = {
+							target = ROOT
+						}
+						set_cosmetic_tag = ROM_republic
+						set_capital = { state = 46 }
+						set_country_flag = can_integrate_ROM
 					}
 					set_global_flag = skip_default_capitulation
 				}
@@ -631,6 +708,115 @@ on_actions = {
 						white_peace = ROOT
 						annex_country = {
 							target = ROOT
+						}
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				
+				### SECOND GREAT WAR - EASTERN FRONT ###
+				
+				else_if = {
+					limit = {
+						FROM = {
+							original_tag = SOV
+						}
+						ROOT = {
+							original_tag = BAL
+						}
+					}
+					FROM = {
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
+					SOV = {
+						annex_country = {
+							target = BAL
+						}
+						release_autonomy = {
+							target = EST
+							autonomy_state = autonomy_RL_soviet_republic
+							freedom_level = 0.5
+						}
+						release_autonomy = {
+							target = LAT
+							autonomy_state = autonomy_RL_soviet_republic
+							freedom_level = 0.5
+						}
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							original_tag = SOV
+						}
+						ROOT = {
+							original_tag = BLR
+						}
+					}
+					FROM = {
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
+					SOV = {
+						set_autonomy = {
+							target = BLR
+							autonomy_state = autonomy_RL_soviet_republic
+							end_wars = yes
+						}
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							original_tag = SOV
+						}
+						ROOT = {
+							original_tag = UKR
+						}
+					}
+					FROM = {
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
+					SOV = {
+						set_autonomy = {
+							target = UKR
+							autonomy_state = autonomy_RL_soviet_republic
+							end_wars = yes
+						}
+						transfer_state = 94
+						transfer_state = 194
+						transfer_state = 241
+						transfer_state = 902
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							original_tag = SOV
+						}
+						ROOT = {
+							original_tag = CRI
+						}
+					}
+					FROM = {
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
+					SOV = {
+						annex_country = {
+							target = CRI
 						}
 					}
 					set_global_flag = skip_default_capitulation
