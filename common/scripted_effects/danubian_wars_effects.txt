@@ -139,6 +139,8 @@ AHE_setup_HUN = {
 			add_state_core = 764
 			add_state_core = 885
 			
+			set_cosmetic_tag = HUN_republic
+			
 			AHE = {
 				every_owned_state = {
 					limit = { is_core_of = HUN }
@@ -152,6 +154,22 @@ AHE_setup_HUN = {
 						to_state_array = owned_controlled_states
 					}
 				}
+			}
+			
+			76 = {
+				set_demilitarized_zone = yes
+			}
+			82 = {
+				set_demilitarized_zone = yes
+			}
+			83 = {
+				set_demilitarized_zone = yes
+			}
+			84 = {
+				set_demilitarized_zone = yes
+			}
+			885 = {
+				set_demilitarized_zone = yes
 			}
 			
 			load_oob = HUN_danubian_war
@@ -172,7 +190,9 @@ HUN_setup_TRS = {
 		
 		HUN = {
 			every_owned_state = {
-				limit = { is_core_of = TRS }
+				limit = {
+					is_core_of = TRS
+				}
 				
 				set_demilitarized_zone = no
 				TRS = { transfer_state = PREV }
@@ -185,6 +205,7 @@ HUN_setup_TRS = {
 		}
 		
 		TRS = {
+			add_state_core = 885
 			load_oob = TRS_danubian_war
 		}
 	}
@@ -322,21 +343,48 @@ AHE_setup_PNB = {
 	}
 }
 
-
-AHE_setup_SLO = {
+HUN_setup_SLO = {
 	hidden_effect {
 		SLO = {
 			add_state_core = 70
 			add_state_core = 71
-			add_state_core = 664
+			add_state_claim = 73
+			add_state_claim = 664
 			
-			AHE = {
+			HUN = {
 				every_owned_state = {
 					limit = { is_core_of = SLO }
 					
 					set_demilitarized_zone = no
-					remove_core_of = AHE
+					remove_core_of = HUN
 					SLO = { transfer_state = PREV }
+					
+					teleport_armies = {
+						limit = { tag = HUN }
+						to_state_array = owned_controlled_states
+					}
+				}
+			}
+			
+			load_oob = SLO_danubian_war
+			AHE_remove_templates = yes
+		}
+	}
+}
+
+AHE_setup_WUK = {
+	hidden_effect {
+		WUK = {
+			add_state_core = 89
+			add_state_core = 91
+			
+			AHE = {
+				every_owned_state = {
+					limit = { is_core_of = WUK }
+					
+					set_demilitarized_zone = no
+					remove_core_of = AHE
+					WUK = { transfer_state = PREV }
 					
 					teleport_armies = {
 						limit = { tag = AHE }
@@ -345,7 +393,7 @@ AHE_setup_SLO = {
 				}
 			}
 			
-			load_oob = SLO_danubian_war
+			load_oob = WUK_danubian_war
 			AHE_remove_templates = yes
 		}
 	}

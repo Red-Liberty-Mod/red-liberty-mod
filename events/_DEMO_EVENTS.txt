@@ -642,6 +642,22 @@ country_event = { # vienna uprising - september 19, 1936
 			set_country_flag = libertarian_socialism_coalition
 			set_country_flag = social_democracy_coalition
 			
+			diplomatic_relation = {
+				country = SER
+				relation = guarantee
+				active = no
+			}
+			diplomatic_relation = {
+				country = SER
+				relation = docking_rights
+				active = no
+			}
+			diplomatic_relation = {
+				country = ALB
+				relation = guarantee
+				active = no
+			}
+			
 			country_event = {
 				id = demo_ahe.3
 				days = 7
@@ -906,13 +922,14 @@ country_event = { # rom-hun war
 		ROM = {
 			set_autonomy = {
 				target = TRS
-				autonomous_state = autonomy_RL_protectorate
+				autonomous_state = autonomy_RL_nominal_puppet
 			}
 			
 			remove_ideas = {
 				ROM_german_dominance
 				ROM_treaty_of_bucharest
 			}
+			country_lock_all_division_template = no
 			
 			load_oob = ROM_danubian_war
 		}
@@ -997,7 +1014,7 @@ country_event = { # slovaks form govt
 
 	option = {
 		name = demo_ahe.12.a
-		AHE_setup_SLO = yes
+		HUN_setup_SLO = yes
 		SLO = {
 			country_event = { # slovak invasion
 				id = demo_ahe.16
@@ -1203,7 +1220,7 @@ country_event = { # soviet-state war
 			}
 		}
 		add_named_threat = { 
-			threat = 25
+			threat = 10
 			name = SOV_RUS_civil_war
 		}
 		hidden_effect = {
@@ -1600,6 +1617,46 @@ country_event = { # 1937 election
 		}
 		ai_chance = {
 			base = 7
+		}
+	}
+}
+
+country_event = { # annex transylvania
+	id = demo_rom.2
+	title = demo_rom.2.title
+	desc = demo_rom.2.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	option = {
+		name = demo_rom.2.a
+		ROM = {
+			annex_country = {
+				target = TRS
+			}
+		}
+	}
+}
+
+country_event = { # war with transylvania
+	id = demo_rom.3
+	title = demo_rom.3.title
+	desc = demo_rom.3.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	option = {
+		name = demo_rom.3.a
+		ROM = {
+			end_puppet = TRS
+			declare_war_on = {
+				target = TRS
+				type = annex_everything
+			}
 		}
 	}
 }
