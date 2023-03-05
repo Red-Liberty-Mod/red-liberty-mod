@@ -40,27 +40,27 @@ shared_focus = {
 	}
 }
 
-	shared_focus = {
-		id = FRA_prepare_the_war_economy
-		icon = GFX_goal_unknown
-		
-		x = 0
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_alliance_of_labour_and_capital
-		prerequisite = { focus = FRA_alliance_of_labour_and_capital }
-		completion_reward = {
-			add_timed_idea = {
-				idea = FRA_preping_war_economy
-				days = 365
-			}
-		}
-		
-		search_filters = {
-			FOCUS_FILTER_INDUSTRY
+shared_focus = {
+	id = FRA_prepare_the_war_economy
+	icon = GFX_goal_unknown
+	
+	x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_alliance_of_labour_and_capital
+	prerequisite = { focus = FRA_alliance_of_labour_and_capital }
+	completion_reward = {
+		add_timed_idea = {
+			idea = FRA_preping_war_economy
+			days = 365
 		}
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
+	}
+}
 
 	shared_focus = {
 		id = FRA_urban_industrial_centers
@@ -699,7 +699,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_revise_the_constitution
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_revise_the_constitution
 		
 		x = 0
 		y = 1
@@ -709,9 +709,7 @@ shared_focus = {
 		prerequisite = { focus = FRA_la_croix_brule_brulante }
 		completion_reward = {
 			set_cosmetic_tag = FRA_social_republic
-			remove_ideas = {
-				FRA_unstable_govt
-			}
+			FRA_improve_govt_stability = yes
 		}
 		
 		search_filters = {
@@ -722,7 +720,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_placate_monarchists
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_placate_monarchists
 		
 		x = -2
 		y = 1
@@ -742,7 +740,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_snuff_the_embers
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_snuff_the_embers
 		
 		x = 2
 		y = 1
@@ -768,7 +766,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_institutional_loyalty
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_institutional_loyalty
 		x = -2
 		y = 1
 		cost = 4
@@ -837,7 +835,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_suspend_elections
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_suspend_elections
 		
 		x = 1
 		y = 1
@@ -857,7 +855,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_state_media
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_state_media
 		
 		x = 0
 		y = 2
@@ -902,7 +900,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_model_citizens
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_model_citizens
 		
 		x = 0
 		y = 2
@@ -918,7 +916,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_le_front_patriotique
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_le_front_patriotique
 		
 		x = 0
 		y = 1
@@ -946,6 +944,9 @@ shared_focus = {
 		
 		relative_position_id = FRA_le_front_patriotique
 		prerequisite = { focus = FRA_le_front_patriotique }
+		completion_reward = {
+			add_political_power = 75
+		}
 		
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
@@ -962,15 +963,18 @@ shared_focus = {
 		
 		relative_position_id = FRA_le_front_patriotique
 		prerequisite = { focus = FRA_le_front_patriotique }
+		completion_reward = {
+			add_stability = 0.05
+		}
 		
 		search_filters = {
-			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_STABILITY
 		}
 	}
 
 	shared_focus = {
 		id = FRA_the_silent_purge
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_the_silent_purge
 		
 		x = 1
 		y = 1
@@ -987,7 +991,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_veterans_above_all
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_veterans_above_all
 		
 		x = 2
 		y = 1
@@ -1013,6 +1017,11 @@ shared_focus = {
 		prerequisite = { focus = FRA_veterans_above_all }
 		
 		completion_reward = {
+			set_party_name = {
+				ideology = authoritarian_democracy
+				long_name = FRA_psf_party_long
+				name = FRA_psf_party
+			}
 			add_popularity = {
 				ideology = authoritarian_democracy
 				popularity = 0.0025
@@ -1047,7 +1056,7 @@ shared_focus = {
 	
 	shared_focus = {
 		id = FRA_the_end_of_democracy
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_the_end_of_democracy
 		
 		x = -1
 		y = 1
@@ -1086,7 +1095,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_rally_to_the_republic
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_rally_to_the_republic
 		
 		x = 1
 		y = 1
@@ -1105,7 +1114,7 @@ shared_focus = {
 	
 	shared_focus = {
 		id = FRA_the_restoration
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_the_restoration
 		
 		x = -1
 		y = 1
@@ -1133,7 +1142,7 @@ shared_focus = {
 	
 	shared_focus = {
 		id = FRA_a_republic_without_democracy
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_republic_without_democracy
 		
 		x = 1
 		y = 1
@@ -1160,7 +1169,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_national_reconciliation
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_national_reconciliation
 		
 		x = 1
 		y = 1
@@ -1338,7 +1347,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_bulwark_against_degeneracy
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_bulwark_against_degeneracy
 		
 		x = 1
 		y = 1
@@ -1483,7 +1492,7 @@ shared_focus = {
 		y = 2
 		cost = 4
 		search_filters = {
-			FOCUS_FILTER_WAR_SUPPORT
+			FOCUS_FILTER_RESEARCH
 		}
 		prerequisite = { focus = FRA_the_channel  }
 		
@@ -1517,7 +1526,7 @@ shared_focus = {
 		y = 2
 		cost = 4
 		search_filters = {
-			FOCUS_FILTER_WAR_SUPPORT
+			FOCUS_FILTER_RESEARCH
 		}
 		prerequisite = { focus = FRA_the_reich  }
 		
@@ -1650,146 +1659,217 @@ shared_focus = {
 		prerequisite = { focus = FRA_channel_manufacturing  focus = FRA_mediterranean_shipbuilding  }
 	}
 
-	#Establish Independent Airforce
 	shared_focus = {
 		id = FRA_establish_independent_airforce
 		icon = GFX_goal_unknown
+		
 		x = 39
 		y = 0
 		cost = 4
+		
+		completion_reward = {
+			air_experience = 25
+		}
+		
 		search_filters = {
 			FOCUS_FILTER_AIR_XP
 		}
 	}
 
-	#Skies of France
 	shared_focus = {
 		id = FRA_skies_of_france
 		icon = GFX_goal_unknown
-		x = 37
+		
+		x = -2
 		y = 1
 		cost = 4
+		
+		relative_position_id = FRA_establish_independent_airforce
+		prerequisite = { focus = FRA_establish_independent_airforce }
+		
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
-		prerequisite = { focus = FRA_establish_independent_airforce  }
 	}
 
-	#Factories of our Enemies
 	shared_focus = {
 		id = FRA_factories_of_our_enemies
 		icon = GFX_goal_unknown
-		x = 39
+		
+		x = 0
 		y = 1
 		cost = 4
+		
+		relative_position_id = FRA_establish_independent_airforce
+		prerequisite = { focus = FRA_establish_independent_airforce }
+		
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
-		prerequisite = { focus = FRA_establish_independent_airforce  }
 	}
 
-	#Naval Integration
 	shared_focus = {
 		id = FRA_naval_integration
 		icon = GFX_goal_unknown
-		x = 41
+		
+		x = 2
 		y = 1
 		cost = 4
-		search_filters = {
-			FOCUS_FILTER_WAR_SUPPORT
+		
+		relative_position_id = FRA_establish_independent_airforce
+		prerequisite = { focus = FRA_establish_independent_airforce }
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = naval_bomber
+			}
 		}
-		prerequisite = { focus = FRA_establish_independent_airforce  }
+		
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
 	}
 
-	#Improve Doctrine
 	shared_focus = {
 		id = FRA_improve_doctrine
 		icon = GFX_goal_unknown
-		x = 38
-		y = 2
+		
+		x = 1
+		y = 1
 		cost = 4
+		
+		relative_position_id = FRA_skies_of_france
+		prerequisite = { focus = FRA_skies_of_france }
+		prerequisite = { focus = FRA_factories_of_our_enemies }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.25
+				uses = 2
+				category = air_doctrine
+			}
+		}
+		
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
-		prerequisite = { focus = FRA_skies_of_france  } prerequisite = { focus = FRA_factories_of_our_enemies  }
 	}
 
-	#Heroes of the Past
 	shared_focus = {
 		id = FRA_heroes_of_the_past
 		icon = GFX_goal_unknown
-		x = 40
-		y = 2
+		
+		x = -1
+		y = 1
 		cost = 4
+		
+		relative_position_id = FRA_naval_integration
+		prerequisite = { focus = FRA_factories_of_our_enemies }
+		prerequisite = { focus = FRA_naval_integration }
+		
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
-		prerequisite = { focus = FRA_factories_of_our_enemies  } prerequisite = { focus = FRA_naval_integration  }
 	}
 
-	#Foreign Studies
 	shared_focus = {
 		id = FRA_foreign_studies
 		icon = GFX_goal_unknown
-		x = 38
-		y = 3
+
+		x = 0
+		y = 1
 		cost = 4
+		
+		relative_position_id = FRA_improve_doctrine
+		prerequisite = { focus = FRA_improve_doctrine }
+		
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
-		prerequisite = { focus = FRA_improve_doctrine  }
 	}
-
-	#Experimental Technology
-	shared_focus = {
-		id = FRA_experimental_technology
-		icon = GFX_goal_unknown
-		x = 38
-		y = 4
-		cost = 4
-		search_filters = {
-			FOCUS_FILTER_WAR_SUPPORT
-		}
-		prerequisite = { focus = FRA_foreign_studies  }
-	}
-
-	#Anti-Air Defenses
+	
 	shared_focus = {
 		id = FRA_antiair_defenses
 		icon = GFX_goal_unknown
-		x = 40
-		y = 3
+		
+		x = 0
+		y = 1
 		cost = 4
-		search_filters = {
-			FOCUS_FILTER_WAR_SUPPORT
+		
+		relative_position_id = FRA_heroes_of_the_past
+		prerequisite = { focus = FRA_heroes_of_the_past }
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = cat_anti_air
+			}
 		}
-		prerequisite = { focus = FRA_heroes_of_the_past  }
+		
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
 	}
 
-	#Terror Bombing
+	shared_focus = {
+		id = FRA_experimental_technology
+		icon = GFX_goal_unknown
+		
+		x = 0
+		y = 1
+		cost = 4
+		
+		relative_position_id = FRA_foreign_studies
+		prerequisite = { focus = FRA_foreign_studies }
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.25
+				uses = 1
+				category = jet_technology
+			}
+			add_tech_bonus = {
+				bonus = 0.25
+				uses = 1
+				category = rocketry
+			}
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+	}
+
 	shared_focus = {
 		id = FRA_terror_bombing
 		icon = GFX_goal_unknown
-		x = 40
-		y = 4
+		
+		x = 0
+		y = 1
 		cost = 4
+		
+		relative_position_id = FRA_antiair_defenses
+		prerequisite = { focus = FRA_antiair_defenses }
+		
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
-		prerequisite = { focus = FRA_antiair_defenses  }
 	}
 
-	#Shriek of the Sky
 	shared_focus = {
 		id = FRA_shriek_of_the_sky
 		icon = GFX_goal_unknown
-		x = 39
-		y = 5
+		
+		x = 1
+		y = 1
 		cost = 4
+		
+		relative_position_id = FRA_experimental_technology
+		prerequisite = { focus = FRA_experimental_technology }
+		prerequisite = { focus = FRA_terror_bombing }
+		
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
-		prerequisite = { focus = FRA_experimental_technology  } prerequisite = { focus = FRA_terror_bombing  }
 	}
 
 	shared_focus = {
@@ -2287,6 +2367,7 @@ shared_focus = {
 			FOCUS_FILTER_ANNEXATION
 		}
 		prerequisite = { focus = FRA_oldenemynewpossibilities  }
+		mutually_exclusive = { focus = FRA_the_wrath_of_paris  }
 	}
 
 	#Volunteer Battalions

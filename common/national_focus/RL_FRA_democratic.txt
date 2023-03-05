@@ -1,0 +1,175 @@
+shared_focus = {
+    id = FRA_popular_front
+	icon = GFX_FRA_popular_front
+	
+    x = 9
+	y = 0
+	
+	cost = 3
+	mutually_exclusive = { focus = FRA_national_union }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_national_union
+	icon = GFX_FRA_national_union
+	
+    x = 17
+	y = 0
+	
+	cost = 3
+	mutually_exclusive = { focus = FRA_popular_front }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_coalition_with_communists
+	icon = GFX_FRA_coalition_with_communists
+	
+    x = -6
+	y = 1
+	
+	cost = 3
+	relative_position_id = FRA_popular_front
+	mutually_exclusive = { focus = FRA_coalition_with_radicals }
+	prerequisite = { focus = FRA_popular_front }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_coalition_with_radicals
+	icon = GFX_FRA_coalition_with_radicals
+	
+    x = -2
+	y = 1
+	
+	cost = 3
+	relative_position_id = FRA_popular_front
+	mutually_exclusive = { focus = FRA_coalition_with_communists }
+	prerequisite = { focus = FRA_popular_front }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_isolate_the_rocquists
+	icon = GFX_FRA_isolate_the_rocquists
+	
+    x = 2
+	y = 1
+	
+	cost = 3
+	relative_position_id = FRA_popular_front
+	prerequisite = { focus = FRA_popular_front }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_stabilizing_the_govt
+	icon = GFX_FRA_stabilizing_the_govt
+	
+    x = 4
+	y = 1
+	
+	cost = 3
+	relative_position_id = FRA_popular_front
+	prerequisite = {
+		focus = FRA_popular_front
+		focus = FRA_national_union
+	}
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_isolate_the_socialists
+	icon = GFX_FRA_isolate_the_socialists
+	
+    x = -2
+	y = 1
+	
+	cost = 3
+	relative_position_id = FRA_national_union
+	prerequisite = { focus = FRA_national_union }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_concentration_republicaine
+	icon = GFX_FRA_concentration_republicaine
+	
+    x = 2
+	y = 1
+	
+	cost = 3
+	relative_position_id = FRA_national_union
+	mutually_exclusive = { focus = FRA_coalition_with_rocquists }
+	prerequisite = { focus = FRA_national_union }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = FRA_coalition_with_rocquists
+	icon = GFX_FRA_coalition_with_rocquists
+	
+    x = 6
+	y = 1
+	
+	cost = 3
+	relative_position_id = FRA_national_union
+	mutually_exclusive = { focus = FRA_concentration_republicaine }
+	prerequisite = { focus = FRA_national_union }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
