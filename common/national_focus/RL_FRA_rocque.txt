@@ -1213,6 +1213,11 @@ shared_focus = {
 		x = -2
 		y = 1
 		cost = 4
+
+		completion_reward = {
+			add_manpower = 50000
+			army_experience = 50
+		}
 		
 		relative_position_id = FRA_army_reorganization
 		prerequisite = { focus = FRA_army_reorganization }
@@ -1318,6 +1323,12 @@ shared_focus = {
 		x = 1
 		y = 1
 		cost = 4
+
+		completion_reward = {
+			add_stability = 0.10
+			add_war_support = 0.05
+			add_political_power = 150
+		}
 		
 		relative_position_id = FRA_officers_of_the_great_war
 		prerequisite = { focus = FRA_officers_of_the_great_war }
@@ -1683,6 +1694,14 @@ shared_focus = {
 		x = -2
 		y = 1
 		cost = 4
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = light_air
+			}
+		}
 		
 		relative_position_id = FRA_establish_independent_airforce
 		prerequisite = { focus = FRA_establish_independent_airforce }
@@ -1699,6 +1718,14 @@ shared_focus = {
 		x = 0
 		y = 1
 		cost = 4
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = heavy_air
+			}
+		}
 		
 		relative_position_id = FRA_establish_independent_airforce
 		prerequisite = { focus = FRA_establish_independent_airforce }
@@ -1758,6 +1785,10 @@ shared_focus = {
 	shared_focus = {
 		id = FRA_heroes_of_the_past
 		icon = GFX_goal_unknown
+
+		completion_reward = {
+			air_experience = 50
+		}
 		
 		x = -1
 		y = 1
@@ -1846,6 +1877,12 @@ shared_focus = {
 		x = 0
 		y = 1
 		cost = 4
+
+		completion_reward = {
+			add_ideas = {
+				FRA_terror_bombing
+			}
+		}
 		
 		relative_position_id = FRA_antiair_defenses
 		prerequisite = { focus = FRA_antiair_defenses }
