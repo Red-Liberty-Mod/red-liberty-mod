@@ -19,6 +19,7 @@ add_namespace = demo_ser
 add_namespace = demo_bul
 add_namespace = demo_man
 add_namespace = demo_aus
+add_namespace = demo_nzl
 
 add_namespace = demo_usa_jap_peace
 add_namespace = demo_jap_usa_war
@@ -3432,6 +3433,94 @@ country_event = {
 			annex_country = {
 				target = AUS
 			}
+		}
+	}
+}
+
+country_event = {
+	id = demo_nzl.1
+	title = demo_nzl.1.title
+	desc = demo_nzl.1.desc
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			set_party_name = {
+				ideology = market_libertarianism
+				long_name = NZL_national_party_long
+				name = NZL_national_party
+			}
+			set_party_name = {
+				ideology = national_conservatism
+				long_name = NZL_national_party_long
+				name = NZL_national_party
+			}
+		}
+	}
+	
+	option = {
+		name = demo_nzl.1.a
+		ai_chance = {
+			base = 64
+		}
+	}
+
+	option = {
+		name = demo_nzl.1.b
+		set_politics = {
+			ruling_party = market_libertarianism
+			elections_allowed = yes
+			last_election = "1938.10.15"
+			election_frequency = 48
+		}
+		ai_chance = {
+			base = 33
+		}
+	}
+}
+
+country_event = {
+	id = demo_nzl.2
+	title = demo_nzl.2.title
+	desc = demo_nzl.2.desc
+	
+	trigger = {
+		has_government = social_democracy
+	}
+	
+	is_triggered_only = yes
+
+	option = {
+		name = demo_nzl.2.a
+		kill_country_leader = yes
+		remove_ideas = NZL_disunited_government
+		set_party_name = {
+			ideology = libertarian_socialism
+			long_name = NZL_democratic_labour_party_long
+			name = NZL_democratic_labour_party
+		}
+		add_popularity = {
+			ideology = libertarian_socialism
+			popularity = -0.07
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+	
+	option = {
+		name = demo_nzl.2.a
+		kill_country_leader = yes
+		set_politics = {
+			ruling_party = libertarian_socialism
+			elections_allowed = yes
+			last_election = "1938.10.15"
+			election_frequency = 48
+		}
+		remove_ideas = NZL_disunited_government
+		ai_chance = {
+			base = 50
 		}
 	}
 }
