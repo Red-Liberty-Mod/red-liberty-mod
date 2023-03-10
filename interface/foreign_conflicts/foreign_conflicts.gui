@@ -3,7 +3,7 @@ guiTypes = {
 	containerWindowType = {
 		name = "foreign_conflicts_container"
 		position = { x = 18 y = 200 }
-        size = { height = 618 width = 500 }
+        size = { height = 518 width = 500 }
 		
 		#background = {
 		#	name = "Background"
@@ -63,7 +63,7 @@ guiTypes = {
     containerWindowType = {
 		name = "foreign_conflict_generic"
 		position = { x = 0 y = 0 }
-		size = { width = 496 height = 506 }
+		size = { width = 496 height = 406 }
 		
 		background = {
 			name = "Background"
@@ -74,10 +74,82 @@ guiTypes = {
             name = "conflict_desc"
 			position = { x = 20 y = 20 }
             text = conflict_desc_text
-            font = "hoi_18"
+            font = "hoi_18mbs"
 			maxWidth = 370
 			maxHeight = 500
         }
+	}
+	
+	containerWindowType = {
+		name = "foreign_conflict_danubian_wars"
+		position = { x = 0 y = 0 }
+		size = { width = 496 height = 406 }
+		
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_tiled_window_thin_border2"
+		}
+
+        instantTextBoxType = {
+            name = "conflict_desc"
+			position = { x = 20 y = 20 }
+            text = conflict_desc_text
+            font = "hoi_18mbs"
+			maxWidth = 290
+			maxHeight = 500
+        }
+		
+		containerWindowType = {
+			name = "escalation_progressbar"
+			position = { x = 27 y = 200 }
+			
+			instantTextBoxType = {
+				name = "escalation_title"
+				position = { x = 80 y = -30 }
+				format = center
+				text = "Escalation"
+				font = "hoi_24header"
+				maxWidth = 290
+				maxHeight = 500
+			}
+			
+			iconType = {
+				name = "progressbar"
+				position = { x = 0 y = 0 }
+				spriteType = "GFX_escalation_progressbar"
+				alwaystransparent = yes
+			}
+			
+			containerWindowType = {
+				name = "indicator_window"
+				position = { x = -37 y = 20 }
+				size = { width = 100%% height = 100%% }
+				
+				iconType = {
+					name = "indicator_icon"
+					position = { x = 0 y = 0 }
+					spriteType = "GFX_indicator"
+				}
+				
+				containerWindowType = {
+						name = "value_window"
+						position = { x = 20 y = 18 }
+						size = { width = 32 height = 17 }
+
+					instantTextBoxType = {
+						name = "indicator_value_text"
+						position = { x = 0 y = 0 }
+						font = "hoi_16mbs"
+						format = center
+						text = "[?global.austria_escalation]"
+						maxWidth = 34
+						maxHeight = 10
+						fixedsize = yes
+						alwaystransparent = yes
+					}
+				}
+			}
+		}
 	}
 	
 	containerWindowType = {
