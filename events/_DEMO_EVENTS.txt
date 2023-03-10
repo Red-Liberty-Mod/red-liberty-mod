@@ -18,6 +18,7 @@ add_namespace = demo_ser
 add_namespace = demo_bul
 add_namespace = demo_man
 add_namespace = demo_aus
+add_namespace = demo_nzl
 
 add_namespace = demo_usa_jap_peace
 add_namespace = demo_jap_usa_war
@@ -557,6 +558,22 @@ country_event = { # vienna uprising - september 19, 1936
 			set_country_flag = libertarian_socialism_coalition
 			set_country_flag = social_democracy_coalition
 			
+			diplomatic_relation = {
+				country = SER
+				relation = guarantee
+				active = no
+			}
+			diplomatic_relation = {
+				country = SER
+				relation = docking_rights
+				active = no
+			}
+			diplomatic_relation = {
+				country = ALB
+				relation = guarantee
+				active = no
+			}
+			
 			country_event = {
 				id = demo_ahe.3
 				days = 7
@@ -730,7 +747,7 @@ country_event = { # royalists form govt
 		}
 		AUS = {
 			add_timed_idea = {
-				idea = AHE_winter
+				idea = AUS_winter
 				days = 90
 			}
 		}
@@ -821,13 +838,14 @@ country_event = { # rom-hun war
 		ROM = {
 			set_autonomy = {
 				target = TRS
-				autonomous_state = autonomy_RL_protectorate
+				autonomous_state = autonomy_RL_nominal_puppet
 			}
 			
 			remove_ideas = {
 				ROM_german_dominance
 				ROM_treaty_of_bucharest
 			}
+			country_lock_all_division_template = no
 			
 			load_oob = ROM_danubian_war
 		}
@@ -912,7 +930,7 @@ country_event = { # slovaks form govt
 
 	option = {
 		name = demo_ahe.12.a
-		AHE_setup_SLO = yes
+		HUN_setup_SLO = yes
 		SLO = {
 			country_event = { # slovak invasion
 				id = demo_ahe.16
@@ -1118,7 +1136,7 @@ country_event = { # soviet-state war
 			}
 		}
 		add_named_threat = { 
-			threat = 25
+			threat = 10
 			name = SOV_RUS_civil_war
 		}
 		hidden_effect = {
@@ -1515,6 +1533,46 @@ country_event = { # 1937 election
 		}
 		ai_chance = {
 			base = 7
+		}
+	}
+}
+
+country_event = { # annex transylvania
+	id = demo_rom.2
+	title = demo_rom.2.title
+	desc = demo_rom.2.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	option = {
+		name = demo_rom.2.a
+		ROM = {
+			annex_country = {
+				target = TRS
+			}
+		}
+	}
+}
+
+country_event = { # war with transylvania
+	id = demo_rom.3
+	title = demo_rom.3.title
+	desc = demo_rom.3.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	option = {
+		name = demo_rom.3.a
+		ROM = {
+			end_puppet = TRS
+			declare_war_on = {
+				target = TRS
+				type = annex_everything
+			}
 		}
 	}
 }
@@ -3290,6 +3348,94 @@ country_event = {
 			annex_country = {
 				target = AUS
 			}
+		}
+	}
+}
+
+country_event = {
+	id = demo_nzl.1
+	title = demo_nzl.1.title
+	desc = demo_nzl.1.desc
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			set_party_name = {
+				ideology = market_libertarianism
+				long_name = NZL_national_party_long
+				name = NZL_national_party
+			}
+			set_party_name = {
+				ideology = national_conservatism
+				long_name = NZL_national_party_long
+				name = NZL_national_party
+			}
+		}
+	}
+	
+	option = {
+		name = demo_nzl.1.a
+		ai_chance = {
+			base = 64
+		}
+	}
+
+	option = {
+		name = demo_nzl.1.b
+		set_politics = {
+			ruling_party = market_libertarianism
+			elections_allowed = yes
+			last_election = "1938.10.15"
+			election_frequency = 48
+		}
+		ai_chance = {
+			base = 33
+		}
+	}
+}
+
+country_event = {
+	id = demo_nzl.2
+	title = demo_nzl.2.title
+	desc = demo_nzl.2.desc
+	
+	trigger = {
+		has_government = social_democracy
+	}
+	
+	is_triggered_only = yes
+
+	option = {
+		name = demo_nzl.2.a
+		kill_country_leader = yes
+		remove_ideas = NZL_disunited_government
+		set_party_name = {
+			ideology = libertarian_socialism
+			long_name = NZL_democratic_labour_party_long
+			name = NZL_democratic_labour_party
+		}
+		add_popularity = {
+			ideology = libertarian_socialism
+			popularity = -0.07
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+	
+	option = {
+		name = demo_nzl.2.a
+		kill_country_leader = yes
+		set_politics = {
+			ruling_party = libertarian_socialism
+			elections_allowed = yes
+			last_election = "1938.10.15"
+			election_frequency = 48
+		}
+		remove_ideas = NZL_disunited_government
+		ai_chance = {
+			base = 50
 		}
 	}
 }

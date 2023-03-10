@@ -27,6 +27,7 @@ guiTypes = {
 			name = "parliament_dot_icon"
 			quadTextureSprite = "SOV_seat_icon"
 			pdx_tooltip = "SOV_congress_seat_tt"
+			pdx_tooltip_delayed = "SOV_congress_seat_tt_desc"
 		}
 	}
 	
@@ -34,7 +35,7 @@ guiTypes = {
 		name = "SOV_parliament_gui"
 		position = { x = -1100 y = -450 }
 		show_position = { x = -400 y =-450 }
-		size = { width = 650 height = 650 }
+		size = { width = 650 height = 700 }
 		
 		show_animation_type = decelerated
 		hide_animation_type = accelerated
@@ -98,24 +99,37 @@ guiTypes = {
 			format = right
 			maxHeight = 50
 			maxWidth = 500
-			font = hoi_24header
+			font = hoi_18mbs
 			text = "SOV_congress_desc"
 		}
 		
-		instantTextBoxType = {
-			name = "SOV_parliament_chairman_title"
-			position = { x = 30 y = 400 }
-			format = center
-			font = hoi_24header
-			text = "Chairman"
-		}
-		
-		iconType = {
+		containerWindowType = {
 			name = "SOV_parliament_chairman"
-			position = { x = 65 y = 435 }
-			scale = 0.85
-			quadTextureSprite = "SOV_kalinin_portrait"
-			pdx_tooltip = "SOV_chairman"
+			size = { width = 0 height = 0 }
+			position = { x = 55 y = 400 }
+			
+			iconType = {
+				name = "SOV_parliament_chairman"
+				position = { x = 9 y = 9 }
+				scale = 1
+				quadTextureSprite = "SOV_kalinin_portrait"
+				pdx_tooltip = "SOV_chairman"
+			}
+			
+			iconType = {
+				name = "SOV_parliament_chairman_frame"
+				spriteType = "GFX_pol_leader_frame"
+				position = { x = 0 y = 0 }		
+				alwaystransparent = yes
+			}
+			
+			instantTextBoxType = {
+				name = "SOV_parliament_chairman_title"
+				position = { x = 40 y = 223 }
+				font = hoi_24header
+				text = "Chairman"
+				pdx_tooltip = "SOV_chairman"
+			}
 		}
 	}
 }

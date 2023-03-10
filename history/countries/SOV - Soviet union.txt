@@ -139,15 +139,16 @@ set_popularities = {
 }
 
 SOV_init_parliament = yes
-set_variable = { SOV_parliament_seats = 542 } # max is 542
-SOV_recalc_parliament = yes
+SOV_setup_variables = yes
 SOV_refresh_parliament = yes
+SOV_calc_coalition = yes
 
 ### LEADERS ###
 recruit_character = SOV_nikolai_bukharin
 recruit_character = SOV_alexander_bogdanov
 recruit_character = SOV_sergei_kirov
 recruit_character = SOV_joseph_stalin
+recruit_character = SOV_lev_kamenev
 
 ### MINISTERS ###
 recruit_character = SOV_mikhail_kalinin
@@ -162,6 +163,8 @@ add_ideas = {
 	SOV_tsarist_captives
 	
 	SOV_mikhail_kalinin_hog
+	
+	limited_exports
 }
 set_country_flag = conscription_banned
 

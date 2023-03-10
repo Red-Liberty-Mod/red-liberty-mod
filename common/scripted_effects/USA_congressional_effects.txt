@@ -1375,6 +1375,34 @@ USA_fascist_support_senate_eventless = {
 	set_country_flag = fascists_negotiated
 }
 
+USA_clamp_bill_election = {
+	if = {
+		limit = {
+			has_government = libertarian_socialism
+		}
+		add_to_variable = { socialist_supporting_senators = socialist_change }
+		
+		USA_bill_add_up_support = yes
+	}
+}
+
+USA_bill_add_up_support = {
+	
+	clear_variable = senators_support
+	add_to_variable = { senators_support = communist_supporting_senators }
+	add_to_variable = { senators_support = socialist_supporting_senators }
+	add_to_variable = { senators_support = republican_supporting_senators }
+	add_to_variable = { senators_support = democrat_supporting_senators }
+	add_to_variable = { senators_support = fascist_supporting_senators }
+	
+	clear_variable = representatives_support
+	add_to_variable = { representatives_support = communist_supporting_reps }
+	add_to_variable = { representatives_support = socialist_supporting_reps }
+	add_to_variable = { representatives_support = republican_supporting_reps }
+	add_to_variable = { representatives_support = democrat_supporting_reps }
+	add_to_variable = { representatives_support = fascist_supporting_reps }
+}
+
 USA_calc_unity_bonus = {
 	if = {
 		limit = {

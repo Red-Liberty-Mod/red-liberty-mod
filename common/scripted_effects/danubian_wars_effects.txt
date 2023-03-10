@@ -51,6 +51,8 @@ AHE_setup_AUS = {
 			add_ideas = {
 				AUS_last_chance
 			}
+			
+			inherit_technology = AHE
 		}
 		
 		AHE = {
@@ -107,6 +109,7 @@ AHE_setup_CZE = {
 			
 			load_oob = CZE_danubian_war
 			AHE_remove_templates = yes
+			inherit_technology = AHE
 		}
 		
 		69 = {
@@ -139,6 +142,8 @@ AHE_setup_HUN = {
 			add_state_core = 764
 			add_state_core = 885
 			
+			set_cosmetic_tag = HUN_republic
+			
 			AHE = {
 				every_owned_state = {
 					limit = { is_core_of = HUN }
@@ -154,6 +159,23 @@ AHE_setup_HUN = {
 				}
 			}
 			
+			76 = {
+				set_demilitarized_zone = yes
+			}
+			82 = {
+				set_demilitarized_zone = yes
+			}
+			83 = {
+				set_demilitarized_zone = yes
+			}
+			84 = {
+				set_demilitarized_zone = yes
+			}
+			885 = {
+				set_demilitarized_zone = yes
+			}
+			
+			inherit_technology = AHE
 			load_oob = HUN_danubian_war
 			AHE_remove_templates = yes
 		}
@@ -168,11 +190,15 @@ HUN_setup_TRS = {
 			add_state_core = 82
 			add_state_core = 83
 			add_state_core = 84
+			
+			inherit_technology = HUN
 		}
 		
 		HUN = {
 			every_owned_state = {
-				limit = { is_core_of = TRS }
+				limit = {
+					is_core_of = TRS
+				}
 				
 				set_demilitarized_zone = no
 				TRS = { transfer_state = PREV }
@@ -185,6 +211,7 @@ HUN_setup_TRS = {
 		}
 		
 		TRS = {
+			add_state_core = 885
 			load_oob = TRS_danubian_war
 		}
 	}
@@ -199,6 +226,8 @@ AHE_setup_CRO = {
 			add_state_core = 798
 			add_state_core = 886
 			add_state_core = 887
+			
+			inherit_technology = AHE
 			
 			AHE = {
 				every_owned_state = {
@@ -231,6 +260,8 @@ CRO_setup_BOS = {
 		BOS = {
 			add_state_core = 104
 			add_state_core = 886
+			
+			inherit_technology = CRO
 			
 			CRO = {
 				every_owned_state = {
@@ -266,6 +297,8 @@ AHE_setup_SLV = {
 			add_state_core = 736
 			add_state_core = 882
 			
+			inherit_technology = AHE
+			
 			AHE = {
 				every_owned_state = {
 					limit = { is_core_of = SLV }
@@ -297,6 +330,8 @@ AHE_setup_PNB = {
 		PNB = {
 			add_state_core = 882
 			
+			inherit_technology = AHE
+			
 			AHE = {
 				every_owned_state = {
 					limit = { is_core_of = PNB }
@@ -322,21 +357,52 @@ AHE_setup_PNB = {
 	}
 }
 
-
-AHE_setup_SLO = {
+HUN_setup_SLO = {
 	hidden_effect {
 		SLO = {
 			add_state_core = 70
 			add_state_core = 71
-			add_state_core = 664
+			add_state_claim = 73
+			add_state_claim = 664
 			
-			AHE = {
+			inherit_technology = HUN
+			
+			HUN = {
 				every_owned_state = {
 					limit = { is_core_of = SLO }
 					
 					set_demilitarized_zone = no
-					remove_core_of = AHE
+					remove_core_of = HUN
 					SLO = { transfer_state = PREV }
+					
+					teleport_armies = {
+						limit = { tag = HUN }
+						to_state_array = owned_controlled_states
+					}
+				}
+			}
+			
+			load_oob = SLO_danubian_war
+			AHE_remove_templates = yes
+		}
+	}
+}
+
+AHE_setup_WUK = {
+	hidden_effect {
+		WUK = {
+			add_state_core = 89
+			add_state_core = 91
+			
+			inherit_technology = AHE
+			
+			AHE = {
+				every_owned_state = {
+					limit = { is_core_of = WUK }
+					
+					set_demilitarized_zone = no
+					remove_core_of = AHE
+					WUK = { transfer_state = PREV }
 					
 					teleport_armies = {
 						limit = { tag = AHE }
@@ -345,7 +411,7 @@ AHE_setup_SLO = {
 				}
 			}
 			
-			load_oob = SLO_danubian_war
+			load_oob = WUK_danubian_war
 			AHE_remove_templates = yes
 		}
 	}
