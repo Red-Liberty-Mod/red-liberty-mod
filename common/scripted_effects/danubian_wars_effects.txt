@@ -19,6 +19,18 @@ AHE_remove_templates = {
 		limit = { has_template = "Kavalleriedivision" }
 		delete_unit_template_and_units = { division_template = "Kavalleriedivision" }
 	}
+	if = {
+		limit = { has_template = "Kraftfahrjägerdivision" }
+		delete_unit_template_and_units = { division_template = "Kraftfahrjägerdivision" }
+	}
+	if = {
+		limit = { has_template = "Kampfwagendivision" }
+		delete_unit_template_and_units = { division_template = "Kampfwagendivision" }
+	}
+	if = {
+		limit = { has_template = "Rote Garde" }
+		delete_unit_template_and_units = { division_template = "Rote Garde" }
+	}
 }
 
 AHE_create_demilitarized_zones = {
@@ -88,6 +100,7 @@ AHE_setup_CZE = {
 		CZE = {
 			add_state_core = 9
 			add_state_core = 69
+			add_state_core = 72
 			add_state_core = 74
 			add_state_core = 75
 			add_state_core = 815
@@ -113,10 +126,10 @@ AHE_setup_CZE = {
 		}
 		
 		69 = {
-			set_demilitarized_zone = no
+			set_demilitarized_zone = yes
 		}
 		815 = {
-			set_demilitarized_zone = no
+			set_demilitarized_zone = yes
 		}
 		
 		add_to_array = {
@@ -242,6 +255,8 @@ AHE_setup_CRO = {
 						to_state_array = owned_controlled_states
 					}
 				}
+				
+				AHE_transfer_navy_to_CRO = yes
 			}
 			
 			load_oob = CRO_danubian_war
@@ -252,6 +267,45 @@ AHE_setup_CRO = {
 			array = austrian_breakaways
 			value = CRO
 		}
+	}
+}
+
+AHE_transfer_navy_to_CRO = {
+	
+	### Battleships ###
+	transfer_ship = {
+		prefer_name = "SMS Svatý Václav"
+		type = battleship
+		target = CRO
+		exclude_refitting = no
+	}
+	
+	### Cruisers ###
+	transfer_ship = {
+		prefer_name = "SMS Admiral Njegovan"
+		type = light_cruiser
+		target = CRO
+		exclude_refitting = no
+	}
+	
+	### Destroyers ###
+	transfer_ship = {
+		prefer_name = "SMS Retyezát"
+		type = destroyer
+		target = CRO
+		exclude_refitting = no
+	}
+	transfer_ship = {
+		prefer_name = "SMS Huszár"
+		type = destroyer
+		target = CRO
+		exclude_refitting = no
+	}
+	transfer_ship = {
+		prefer_name = "SMS Tátra"
+		type = destroyer
+		target = CRO
+		exclude_refitting = no
 	}
 }
 

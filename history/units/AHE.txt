@@ -39,15 +39,15 @@ division_template = {
 	name = "Landsturminfanteriedivision"
 	division_names_group = AUS_MIL_01
 	regiments = {
-		infantry = { x = 0 y = 0 }
-		infantry = { x = 0 y = 1 }
-		infantry = { x = 0 y = 2 }
-		infantry = { x = 1 y = 0 }
-		infantry = { x = 1 y = 1 }
-		infantry = { x = 1 y = 2 }
-		infantry = { x = 2 y = 0 }
-		infantry = { x = 2 y = 1 }
-		infantry = { x = 2 y = 2 }
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 0 y = 2 }
+		militia = { x = 1 y = 0 }
+		militia = { x = 1 y = 1 }
+		militia = { x = 1 y = 2 }
+		militia = { x = 2 y = 0 }
+		militia = { x = 2 y = 1 }
+		militia = { x = 2 y = 2 }
 	}
 }
 ### Mountaineers
@@ -79,6 +79,34 @@ division_template = {
 		cavalry = { x = 1 y = 1 }
 		cavalry = { x = 1 y = 2 }
 	}
+}
+
+division_template = {
+	name = "Kraftfahrjägerdivision"
+	division_names_group = AUS_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+	}
+}
+
+division_template = {
+	name = "Kampfwagendivision"
+	division_names_group = AUS_ARM_01
+	regiments = {
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+	}
+	priority = 2
 }
 
 ########
@@ -159,54 +187,51 @@ units = {
 		division_template = "Infanteriedivision"
 		start_experience_factor = 0.2
 	}
-### Innsbruck
+
 	division = {
 		division_name = {
 			is_name_ordered = yes
 			name_order = 8
 		}
-		location = 673
+		location = 673 # Innsbruck
 		division_template = "Infanteriedivision"
 		start_experience_factor = 0.3
 	}
-### Lemberg/Lwów/Lwiw
 	division = {
 		division_name = {
 			is_name_ordered = yes
 			name_order = 5
 		}
-		location = 11479
+		location = 11479 # Lemberg/Lwów/Lwiw
 		division_template = "Infanteriedivision"
 		start_experience_factor = 0.2
 	}
-### Sarajevo
 	division = {
 		division_name = {
 			is_name_ordered = yes
 			name_order = 6
 		}
-		location = 11899
+		location = 11899 # Sarajevo
 		division_template = "Infanteriedivision"
 		start_experience_factor = 0.2
 	}
-### Krakow
 	division = {
 		division_name = {
 			is_name_ordered = yes
 			name_order = 7
 		}
-		location = 9427
+		location = 9427 # Krakow
 		division_template = "Infanteriedivision"
 		start_experience_factor = 0.2
 	}
-### Landwehr
-### Wien
+	
+	### Landwehr ###
 	division = {
 		division_name = {
 			is_name_ordered = yes
 			name_order = 1
 		}
-		location = 11666
+		location = 11666 # Wien
 		division_template = "Schützendivision"
 		start_experience_factor = 0.1
 	}
@@ -215,69 +240,85 @@ units = {
 			is_name_ordered = yes
 			name_order = 2
 		}
-		location = 11666
+		location = 11666 # Wien
 		division_template = "Schützendivision"
 		start_experience_factor = 0.1
 	}
-### Salzburg
 	division = {
 		division_name = {
 			is_name_ordered = yes
 			name_order = 3
 		}
-		location = 688
+		location = 688 # Salzburg
 		division_template = "Schützendivision"
 		start_experience_factor = 0.1
 	}
-### Innsbruck
 	division = {
 		division_name = {
 			is_name_ordered = yes
 			name_order = 4
 		}
-		location = 673
+		location = 673 # Innsbruck
 		division_template = "Schützendivision"
 		start_experience_factor = 0.1
 	}
-### Graz
 	division = {
 		division_name = {
 			is_name_ordered = yes
 			name_order = 5
 		}
-		location = 13575
+		location = 9648 # Graz
 		division_template = "Schützendivision"
 		start_experience_factor = 0.1
 	}
-### Triest
 	division = {
 		division_name = {
 			is_name_ordered = yes
 			name_order = 6
 		}
-		location = 6626
+		location = 6626 # Triest
 		division_template = "Schützendivision"
 		start_experience_factor = 0.1
 	}
-### Linz
 	division = {
 		division_name = {
 			is_name_ordered = yes
 			name_order = 7
 		}
-		location = 9665
+		location = 9665 # Linz
 		division_template = "Schützendivision"
 		start_experience_factor = 0.1
 	}
-### Laibach
 	division = {
 		division_name = {
 			is_name_ordered = yes
 			name_order = 8
 		}
-		location = 9627
+		location = 9627 # Laibach
 		division_template = "Schützendivision"
 		start_experience_factor = 0.1
+	}
+	
+	### Motorized ###
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 9648 # Graz
+		division_template = "Kraftfahrjägerdivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 9648 # Graz
+		division_template = "Kraftfahrjägerdivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
 	}
 }
 

@@ -22,6 +22,7 @@ TAG_support_ETH = {
 	allowed = {
 		OR = {
 			original_tag = GER
+			original_tag = ENG
 		}
 	}
 	enable = {
@@ -44,6 +45,7 @@ TAG_support_CRT = {
 		OR = {
 			original_tag = ITA
 			original_tag = FRA
+			original_tag = POR
 		}
 	}
 	enable = {
@@ -207,6 +209,11 @@ GER_let_allies_handle_russia = {
 		tag = SOV
 		value = -250
 	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = RUS
+		value = -250
+	}
 }
 
 GER_allies_let_germany_handle_france = {
@@ -224,8 +231,13 @@ GER_allies_let_germany_handle_france = {
 	}
 	enable = {
 		is_in_faction_with = GER
-		SOV = {
-			exists = yes
+		OR = {
+			SOV = {
+				exists = yes
+			}
+			RUS = {
+				exists = yes
+			}
 		}
 	}
 	abort_when_not_enabled = yes
@@ -266,6 +278,27 @@ TAG_support_AUS = {
 	ai_strategy = {
 		type = send_lend_lease_desire
 		id = AUS
-		value = 1500
+		value = 150
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = AUS
+		value = 150
+	}
+}
+
+AUS_focus_on_AHE = {
+	allowed = {
+		original_tag = AUS
+	}
+	enable = {
+		has_war_with = AHE
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		tag = AHE
+		value = 40
 	}
 }
