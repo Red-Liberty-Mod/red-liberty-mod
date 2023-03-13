@@ -20,6 +20,7 @@ add_namespace = demo_bul
 add_namespace = demo_man
 add_namespace = demo_aus
 add_namespace = demo_nzl
+add_namespace = demo_ukr
 
 add_namespace = demo_usa_jap_peace
 add_namespace = demo_jap_usa_war
@@ -1041,18 +1042,11 @@ country_event = { # poland and ukraine occupations
 		88 = {
 			set_state_owner_to = POL
 			set_state_controller_to = POL
+			add_core_of = POL
 			set_demilitarized_zone = no
 		}
-		89 = {
-			set_state_owner_to = UKR
-			set_state_controller_to = UKR
-			set_demilitarized_zone = no
-		}
-		91 = {
-			set_state_owner_to = UKR
-			set_state_controller_to = UKR
-			set_demilitarized_zone = no
-		}
+		
+		AHE_setup_WUK = yes
 	}
 }
 
@@ -2767,6 +2761,11 @@ country_event = {
 			}
 		}
 	}
+	
+	option = {
+		name = demo_jap_chi_war.2.b
+		add_political_power = -50
+	}
 }
 
 country_event = {
@@ -3516,6 +3515,133 @@ country_event = {
 		remove_ideas = NZL_disunited_government
 		ai_chance = {
 			base = 50
+		}
+	}
+}
+
+country_event = {
+	id = demo_ukr.1
+	title = demo_ukr.1.title
+	desc = demo_ukr.1.desc
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = demo_ukr.1.a
+		country_event = {
+			id = demo_ukr.2
+			days = 10
+			93 = {
+				set_demilitarized_zone = yes
+			}
+			192 = {
+				set_demilitarized_zone = yes
+			}
+			201 = {
+				set_demilitarized_zone = yes
+			}
+			226 = {
+				set_demilitarized_zone = yes
+			}
+			902 = {
+				set_demilitarized_zone = yes
+			}
+		}
+		ai_chance = {
+			base = 90
+		}
+	}
+
+	option = {
+		name = demo_ukr.1.b
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+country_event = { # ukrainian revolution
+	id = demo_ukr.2
+	title = demo_ukr.2.title
+	desc = demo_ukr.2.desc
+	
+	is_triggered_only = yes
+	
+	option = { # succeeds
+		name = demo_ukr.2.a
+		UKR = {
+			set_politics = {
+				ruling_party = libertarian_socialism
+				last_election = "1936.1.1"
+				election_frequency = 48
+				elections_allowed = no
+			}
+			remove_ideas = UKR_unpopular_govt
+			leave_faction = yes
+			
+			country_event = {
+				id = demo_ukr.4
+				days = 14
+			}
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_ukr.3 hours = 6 }
+		}
+		ai_chance = {
+			base = 90
+		}
+	}
+	
+	option = { # fails
+		name = demo_ukr.2.b
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+news_event = {
+	id = demo_ukr.3
+	title = demo_ukr.3.title
+	desc = demo_ukr.3.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = demo_ukr.3.a
+	}
+}
+
+country_event = { # ukrainian revolution - aftermath
+	id = demo_ukr.4
+	title = demo_ukr.4.title
+	desc = demo_ukr.4.desc
+	
+	is_triggered_only = yes
+	
+	option = { # rejoins pakt
+		name = demo_ukr.4.a
+		GER = {
+			add_to_faction = UKR
+		}
+		ai_chance = {
+			base = 64
+		}
+	}
+	
+	option = { # german-ukrainian war
+		name = demo_ukr.4.b
+		GER = {
+			declare_war_on = {
+				target = UKR
+				type = annex_everything
+			}
+		}
+		ai_chance = {
+			base = 33
 		}
 	}
 }
