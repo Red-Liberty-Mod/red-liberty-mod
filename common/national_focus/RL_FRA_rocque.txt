@@ -62,55 +62,55 @@ shared_focus = {
 	}
 }
 
-	shared_focus = {
-		id = FRA_urban_industrial_centers
-		icon = GFX_goal_unknown
-		x = 2
-		y = 1
-		cost = 5
-		
-		relative_position_id = FRA_alliance_of_labour_and_capital
-		prerequisite = { focus = FRA_alliance_of_labour_and_capital }
-		completion_reward = {
-			random_owned_state = {
-				limit = {
-					is_urban_state = yes
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 1
+shared_focus = {
+	id = FRA_urban_industrial_centers
+	icon = GFX_goal_unknown
+	x = 2
+	y = 1
+	cost = 5
+	
+	relative_position_id = FRA_alliance_of_labour_and_capital
+	prerequisite = { focus = FRA_alliance_of_labour_and_capital }
+	completion_reward = {
+		random_owned_state = {
+			limit = {
+				is_urban_state = yes
 			}
-			random_owned_state = {
-				limit = {
-					is_urban_state = yes
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
 			}
-			random_owned_state = {
-				limit = {
-					is_urban_state = yes
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 1
-			}
+			add_extra_state_shared_building_slots = 1
 		}
-		
-		search_filters = {
-			FOCUS_FILTER_INDUSTRY
+		random_owned_state = {
+			limit = {
+				is_urban_state = yes
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_state = {
+			limit = {
+				is_urban_state = yes
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
 		}
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
+	}
+}
 
 	shared_focus = {
 		id = FRA_colonial_development
@@ -677,92 +677,92 @@ shared_focus = {
 		}
 	}
 
-	shared_focus = {
-		id = FRA_la_croix_brule_brulante
-		icon = GFX_FRA_la_croix_brule_brulante
-		
-		x = 18
-		y = 0
-		cost = 4
-		
-		completion_reward = {
-			country_event = {
-				id = france_rocque.1
-				hours = 6
-			}
-		}
-		
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
+shared_focus = {
+	id = FRA_la_croix_brule_brulante
+	icon = GFX_FRA_la_croix_brule_brulante
+	
+	x = 18
+	y = 0
+	cost = 3
+	
+	completion_reward = {
+		country_event = {
+			id = france_rocque.1
+			hours = 6
 		}
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
 
-	shared_focus = {
-		id = FRA_revise_the_constitution
-		icon = GFX_FRA_revise_the_constitution
-		
-		x = 0
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_la_croix_brule_brulante
-		prerequisite = { focus = FRA_la_croix_brule_brulante }
-		completion_reward = {
-			set_cosmetic_tag = FRA_social_republic
-			FRA_improve_govt_stability = yes
-		}
-		
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-			FOCUS_FILTER_STABILITY
-		}
+shared_focus = {
+	id = FRA_revise_the_constitution
+	icon = GFX_FRA_revise_the_constitution
+	
+	x = 0
+	y = 1
+	cost = 3
+	
+	relative_position_id = FRA_la_croix_brule_brulante
+	prerequisite = { focus = FRA_la_croix_brule_brulante }
+	completion_reward = {
+		set_cosmetic_tag = FRA_social_republic
+		FRA_improve_govt_stability = yes
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_STABILITY
+	}
+}
 
-	shared_focus = {
-		id = FRA_placate_monarchists
-		icon = GFX_FRA_placate_monarchists
+shared_focus = {
+	id = FRA_placate_monarchists
+	icon = GFX_FRA_placate_monarchists
+	
+	x = -2
+	y = 1
+	cost = 3
 		
-		x = -2
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_revise_the_constitution
-		prerequisite = { focus = FRA_revise_the_constitution }
-		mutually_exclusive = { focus = FRA_snuff_the_embers }
-		completion_reward = {
-			add_autdes_coalition = yes
-		}
-		
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
+	relative_position_id = FRA_revise_the_constitution
+	prerequisite = { focus = FRA_revise_the_constitution }
+	mutually_exclusive = { focus = FRA_snuff_the_embers }
+	completion_reward = {
+		add_autdes_coalition = yes
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
 
-	shared_focus = {
-		id = FRA_snuff_the_embers
-		icon = GFX_FRA_snuff_the_embers
-		
-		x = 2
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_revise_the_constitution
-		prerequisite = { focus = FRA_revise_the_constitution }
-		mutually_exclusive = { focus = FRA_placate_monarchists }
-		completion_reward = {
-			add_popularity = {
-				ideology = autocratic_despotism
-				popularity = -0.05
-			}
-			remove_ideas = {
-				FRA_rising_right
-			}
+shared_focus = {
+	id = FRA_snuff_the_embers
+	icon = GFX_FRA_snuff_the_embers
+	
+	x = 2
+	y = 1
+	cost = 3
+	
+	relative_position_id = FRA_revise_the_constitution
+	prerequisite = { focus = FRA_revise_the_constitution }
+	mutually_exclusive = { focus = FRA_placate_monarchists }
+	completion_reward = {
+		add_popularity = {
+			ideology = autocratic_despotism
+			popularity = -0.05
 		}
-		
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
+		remove_ideas = {
+			FRA_rising_right
 		}
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
 
 	shared_focus = {
 		id = FRA_institutional_loyalty
@@ -800,7 +800,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_direct_control_of_courts
-		icon = GFX_USA_court_tamed
+		icon = GFX_FRA_control_the_courts
 		
 		x = -1
 		y = 1
@@ -819,7 +819,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_party_police
-		icon = GFX_USA_unleash_the_fbi
+		icon = GFX_FRA_party_police
 		
 		x = 1
 		y = 1
@@ -908,6 +908,12 @@ shared_focus = {
 		
 		relative_position_id = FRA_extol_patriotism
 		prerequisite = { focus = FRA_extol_patriotism }
+		completion_reward = {
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = -0.0025
+			}
+		}
 		
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
@@ -1035,7 +1041,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_womens_suffrage
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_womens_suffrage
 		
 		x = 0
 		y = 1
@@ -1189,22 +1195,22 @@ shared_focus = {
 		}
 	}
 	
-	shared_focus = {
-		id = FRA_army_reorganization
-		icon = GFX_goal_unknown
-		
-		x = 27
-		y = 0
-		cost = 3
-		
-		completion_reward = {
-			army_experience = 25
-		}
-		
-		search_filters = {
-			FOCUS_FILTER_ARMY_XP
-		}
+shared_focus = {
+	id = FRA_army_reorganization
+	icon = GFX_goal_unknown
+	
+	x = 27
+	y = 0
+	cost = 3
+	
+	completion_reward = {
+		army_experience = 25
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_ARMY_XP
+	}
+}
 
 	shared_focus = {
 		id = FRA_veteran_brigades
@@ -1341,7 +1347,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_no_more_mutiny
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_no_more_mutiny
 		
 		x = 1
 		y = 1
@@ -1399,7 +1405,7 @@ shared_focus = {
 	#Europe's Reckoning
 	shared_focus = {
 		id = FRA_europesreckoning
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_europes_reckoning
 		x = 26
 		y = 4
 		cost = 4
@@ -1670,22 +1676,22 @@ shared_focus = {
 		prerequisite = { focus = FRA_channel_manufacturing  focus = FRA_mediterranean_shipbuilding  }
 	}
 
-	shared_focus = {
-		id = FRA_establish_independent_airforce
-		icon = GFX_goal_unknown
-		
-		x = 39
-		y = 0
-		cost = 4
-		
-		completion_reward = {
-			air_experience = 25
-		}
-		
-		search_filters = {
-			FOCUS_FILTER_AIR_XP
-		}
+shared_focus = {
+	id = FRA_establish_independent_airforce
+	icon = GFX_goal_unknown
+	
+	x = 39
+	y = 0
+	cost = 3
+	
+	completion_reward = {
+		air_experience = 25
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_AIR_XP
+	}
+}
 
 	shared_focus = {
 		id = FRA_skies_of_france
@@ -1909,18 +1915,18 @@ shared_focus = {
 		}
 	}
 
-	shared_focus = {
-		id = FRA_foreign_relations
-		icon = GFX_goal_unknown
-		
-		x = 29
-		y = 6
-		cost = 4
-		
-		search_filters = {
-			FOCUS_FILTER_ANNEXATION
-		}
+shared_focus = {
+	id = FRA_foreign_relations
+	icon = GFX_goal_unknown
+	
+	x = 29
+	y = 6
+	cost = 3
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
 	}
+}
 
 	shared_focus = {
 		id = FRA_maintain_flexibility
@@ -2084,7 +2090,10 @@ shared_focus = {
 		}
 		
 		relative_position_id = FRA_maintain_flexibility
-		prerequisite = { focus = FRA_maintain_flexibility }
+		prerequisite = {
+			focus = FRA_maintain_flexibility
+			focus = FRA_reaffirm_old_ties
+		}
 		
 		completion_reward = {
 			add_opinion_modifier = {
@@ -2105,7 +2114,7 @@ shared_focus = {
 	}
 
 	shared_focus = {
-		id = FRA_omsk_conference
+		id = FRA_dividing_up_europe
 		icon = GFX_goal_unknown
 		
 		x = 0
@@ -2149,30 +2158,60 @@ shared_focus = {
 		}
 	}
 
-	#Align the Dutch
 	shared_focus = {
 		id = FRA_align_the_dutch
 		icon = GFX_goal_unknown
-		x = 29
-		y = 9
+		
+		x = -1
+		y = 1
 		cost = 4
+		
+		relative_position_id = FRA_renew_our_friendship_with_the_british
+		prerequisite = { focus = FRA_renew_our_friendship_with_the_british }
+		completion_reward = {
+			add_opinion_modifier = {
+				target = HOL
+				modifier = FRA_diplomatic_overtures
+			}
+			HOL = {
+				add_opinion_modifier = {
+					target = FRA
+					modifier = FRA_diplomatic_overtures
+				}
+			}
+		}
+		
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
-		prerequisite = { focus = FRA_renew_our_friendship_with_the_british  }
 	}
 
-	#Align the Norwegians
 	shared_focus = {
 		id = FRA_align_the_norwegians
 		icon = GFX_goal_unknown
-		x = 31
-		y = 9
+		
+		x = 1
+		y = 1
 		cost = 4
+		
+		relative_position_id = FRA_renew_our_friendship_with_the_british
+		prerequisite = { focus = FRA_renew_our_friendship_with_the_british }
+		completion_reward = {
+			add_opinion_modifier = {
+				target = NOR
+				modifier = FRA_diplomatic_overtures
+			}
+			NOR = {
+				add_opinion_modifier = {
+					target = FRA
+					modifier = FRA_diplomatic_overtures
+				}
+			}
+		}
+		
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
-		prerequisite = { focus = FRA_renew_our_friendship_with_the_british  }
 	}
 
 	shared_focus = {
@@ -2199,35 +2238,34 @@ shared_focus = {
 		}
 	}
 
-	shared_focus = {
-		id = FRA_natural_borders_of_france
-		icon = GFX_goal_unknown
-		
-		x = 5
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_foreign_relations
-		prerequisite = { focus = FRA_foreign_relations }
-		
-		completion_reward = {
-			FRA = {
-				add_state_claim = 3
-				add_state_claim = 8
-				add_state_claim = 42
-				add_state_claim = 51
-				add_state_claim = 877
-			}
-			add_named_threat = {
-				threat = 5
-				name = FRA_asserted_claims
-			}
+shared_focus = {
+	id = FRA_natural_borders_of_france
+	icon = GFX_goal_unknown
+	
+	x = 4
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_foreign_relations
+	prerequisite = { focus = FRA_foreign_relations }
+	
+	completion_reward = {
+		FRA = {
+			add_state_claim = 8
+			add_state_claim = 42
+			add_state_claim = 51
+			add_state_claim = 877
 		}
-		
-		search_filters = {
-			FOCUS_FILTER_ANNEXATION
+		add_named_threat = {
+			threat = 5
+			name = FRA_asserted_claims
 		}
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
 
 	shared_focus = {
 		id = FRA_our_lost_territories
@@ -2301,134 +2339,175 @@ shared_focus = {
 		}
 	}
 
-	#Germania Delenda Est
 	shared_focus = {
 		id = FRA_germania_delenda_est
 		icon = GFX_goal_unknown
-		x = 34
-		y = 10
+		
+		x = 0
+		y = 1
 		cost = 4
+		
+		relative_position_id = FRA_light_the_match
+		prerequisite = { focus = FRA_light_the_match }
+		
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
-		prerequisite = { focus = FRA_light_the_match  }
 	}
 
-	#Total War
 	shared_focus = {
 		id = FRA_total_war
 		icon = GFX_goal_unknown
-		x = 33
-		y = 11
+		
+		x = -1
+		y = 1
 		cost = 4
+		
+		relative_position_id = FRA_germania_delenda_est
+		prerequisite = { focus = FRA_germania_delenda_est }
+		
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
-		prerequisite = { focus = FRA_germania_delenda_est  }
 	}
 
-	#A Modern Crusade
 	shared_focus = {
 		id = FRA_a_modern_crusade
 		icon = GFX_goal_unknown
-		x = 35
-		y = 11
+		
+		x = 1
+		y = 1
 		cost = 4
+		
+		relative_position_id = FRA_germania_delenda_est
+		prerequisite = { focus = FRA_germania_delenda_est }
+		
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
-		prerequisite = { focus = FRA_germania_delenda_est  }
 	}
 
-	#They Who Remain
-	shared_focus = {
-		id = FRA_they_who_remain
-		icon = GFX_goal_unknown
-		x = 34
-		y = 12
-		cost = 4
-		search_filters = {
-			FOCUS_FILTER_ANNEXATION
-		}
-		prerequisite = { focus = FRA_total_war  } prerequisite = { focus = FRA_a_modern_crusade  }
+shared_focus = {
+	id = FRA_they_who_remain
+	icon = GFX_goal_unknown
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_total_war
+	prerequisite = { focus = FRA_total_war }
+	prerequisite = { focus = FRA_a_modern_crusade }
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
 	}
+}
 
-	#Austro-Hungarian Collapse
-	shared_focus = {
-		id = FRA_austrohungarian_collapse
-		icon = GFX_goal_unknown
-		x = 37
-		y = 7
-		cost = 4
-		search_filters = {
-			FOCUS_FILTER_ANNEXATION
-		}
-		prerequisite = { focus = FRA_foreign_relations  }
+shared_focus = {
+	id = FRA_austrohungarian_collapse
+	icon = GFX_FRA_austrian_collapse
+	
+	x = 7
+	y = 1
+	cost = 4
+	
+	available = {
+		has_global_flag = austrian_civil_war_started
 	}
+	
+	relative_position_id = FRA_foreign_relations
+	prerequisite = { focus = FRA_foreign_relations }
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
 
-	#Old Enemy, New Possibilities
-	shared_focus = {
-		id = FRA_oldenemynewpossibilities
-		icon = GFX_goal_unknown
-		x = 37
-		y = 8
-		cost = 4
-		search_filters = {
-			FOCUS_FILTER_ANNEXATION
-		}
-		prerequisite = { focus = FRA_austrohungarian_collapse  }
+shared_focus = {
+	id = FRA_old_enemy_new_possibilities
+	icon = GFX_goal_unknown
+	
+	x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_austrohungarian_collapse
+	prerequisite = { focus = FRA_austrohungarian_collapse }
+	completion_reward = {
+		
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
 
-	#The Wrath of Paris
-	shared_focus = {
-		id = FRA_the_wrath_of_paris
-		icon = GFX_goal_unknown
-		x = 36
-		y = 9
-		cost = 4
-		search_filters = {
-			FOCUS_FILTER_ANNEXATION
-		}
-		prerequisite = { focus = FRA_oldenemynewpossibilities  }
-		mutually_exclusive = { focus = FRA_the_grace_of_france  }
+shared_focus = {
+	id = FRA_the_wrath_of_paris
+	icon = GFX_goal_unknown
+	
+	x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_old_enemy_new_possibilities
+	prerequisite = { focus = FRA_old_enemy_new_possibilities }
+	mutually_exclusive = { focus = FRA_the_grace_of_france }
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
 	}
+}
 
-	#The Grace of France
-	shared_focus = {
-		id = FRA_the_grace_of_france
-		icon = GFX_goal_unknown
-		x = 38
-		y = 9
-		cost = 4
-		search_filters = {
-			FOCUS_FILTER_ANNEXATION
-		}
-		prerequisite = { focus = FRA_oldenemynewpossibilities  }
-		mutually_exclusive = { focus = FRA_the_wrath_of_paris  }
+shared_focus = {
+	id = FRA_the_grace_of_france
+	icon = GFX_goal_unknown
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_old_enemy_new_possibilities
+	prerequisite = { focus = FRA_old_enemy_new_possibilities }
+	mutually_exclusive = { focus = FRA_the_wrath_of_paris }
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
 	}
+}
 
-	#Volunteer Battalions
-	shared_focus = {
-		id = FRA_volunteer_battalions
-		icon = GFX_goal_unknown
-		x = 37
-		y = 10
-		cost = 4
-		search_filters = {
-			FOCUS_FILTER_ANNEXATION
-		}
-		prerequisite = { focus = FRA_the_wrath_of_paris  focus = FRA_the_grace_of_france  }
+shared_focus = {
+	id = FRA_volunteer_battalions
+	icon = GFX_goal_unknown
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_the_wrath_of_paris
+	prerequisite = {
+		focus = FRA_the_wrath_of_paris
+		focus = FRA_the_grace_of_france
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
 
-	#Small Arms Donations
-	shared_focus = {
-		id = FRA_small_arms_donations
-		icon = GFX_goal_unknown
-		x = 37
-		y = 11
-		cost = 4
-		search_filters = {
-			FOCUS_FILTER_ANNEXATION
-		}
-		prerequisite = { focus = FRA_volunteer_battalions  }
+shared_focus = {
+	id = FRA_small_arms_donations
+	icon = GFX_goal_unknown
+	
+	x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_volunteer_battalions
+	prerequisite = { focus = FRA_volunteer_battalions }
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
 	}
+}
