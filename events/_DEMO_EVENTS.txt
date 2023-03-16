@@ -646,12 +646,7 @@ country_event = { # vienna uprising - september 19, 1936
 			
 			diplomatic_relation = {
 				country = SER
-				relation = guarantee
-				active = no
-			}
-			diplomatic_relation = {
-				country = SER
-				relation = docking_rights
+				relation = military_access
 				active = no
 			}
 			diplomatic_relation = {
@@ -773,6 +768,9 @@ country_event = { # september constitution - september 26, 1936
 				days = 6
 			}
 		}
+		
+		set_global_flag = austrian_civil_war_started
+		
 		random_other_country = {
 			limit = { is_ai = yes }
 			news_event = { id = demo_ahe.4 hours = 6 }
@@ -799,6 +797,12 @@ news_event = { # september constitution - news
 			USA = {
 				setup_austrian_collapse_conflict = yes
 				set_country_flag = may_send_volunteers_to_AHE
+			}
+			AHE = {
+				setup_austrian_collapse_conflict = yes
+			}
+			AUS = {
+				setup_austrian_collapse_conflict = yes
 			}
 		}
 	}
@@ -1043,6 +1047,7 @@ country_event = { # poland and ukraine occupations
 			set_state_owner_to = POL
 			set_state_controller_to = POL
 			add_core_of = POL
+			remove_core_of = AHE
 			set_demilitarized_zone = no
 		}
 		
