@@ -109,6 +109,13 @@ on_actions = {
 		}		
 	}
 	
+	on_send_volunteers = {
+		effect = {
+			log = "[GetDateText] [Root.GetName] is sending volunteers to [From.GetName]"
+			set_country_flag = sent_volunteers_@FROM
+		}
+	}
+	
 	# Ace pilots
 	# country, FROM = ace
 	on_ace_promoted = {
