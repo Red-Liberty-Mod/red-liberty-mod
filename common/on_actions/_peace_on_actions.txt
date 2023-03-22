@@ -5,6 +5,22 @@ on_actions = {
 		}
 	}
 	
+	on_war_relation_added = {
+		effect = {
+			
+		}
+	}
+	
+	on_peace = {
+		effect = {
+			save_event_target_as = volunteer_target
+			every_other_country = {
+				limit = { has_country_flag = sent_volunteers_@event_target:volunteer_target }
+				clr_country_flag = sent_volunteers_@event_target:volunteer_target
+			}
+		}
+	}
+	
 	on_peaceconference_started = {
 		effect = {
 			log = "[GetDateText]: FROM: [From.GetName] ROOT: [Root.GetName] on_peaceconference_started"
@@ -348,16 +364,9 @@ on_actions = {
 							}
 						}
 					}
-					if = {
-						limit = {
-							SLO = {
-								has_war_with = HUN
-							}
-						}
-						SLO = {
-							transfer_state = 73
-							transfer_state = 664
-						}
+					SLO = {
+						transfer_state = 73
+						transfer_state = 664
 					}
 					set_global_flag = skip_default_capitulation
 				}

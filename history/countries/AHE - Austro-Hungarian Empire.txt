@@ -2,6 +2,12 @@ capital = 4
 set_research_slots = 3
 set_stability = 0.5
 set_war_support = 0.5
+set_convoys = 25
+add_equipment_to_stockpile = {
+    type = motorized_equipment
+    amount = 125
+    producer = GER
+}
 
 OOB = "AHE"
 country_lock_all_division_template = yes
@@ -29,9 +35,7 @@ set_technology = {
 	basic_train = 1
 }
 if = {
-	limit = {
-		has_dlc = "Man the Guns"
-	}
+	limit = { has_dlc_mtg = yes }
 	set_technology = {
 		basic_naval_mines = 1
 		submarine_mine_laying = 1
@@ -53,7 +57,6 @@ if = {
 		basic_cruiser_armor_scheme = 1
 		basic_heavy_armor_scheme = 1
 		mtg_transport = 1
-		basic_fire_control_system = 1
 	}
 	set_naval_oob = "AHE_naval_mtg"
 	else = {
@@ -70,24 +73,42 @@ if = {
 		}
 	}
 }
+if = {
+	limit = { has_dlc_nsb = yes }
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+	}
+	else = {
+		set_technology = {
+			gwtank = 1
+			basic_light_tank = 1
+		}
+	}
+}
+if = {
+	limit = { has_dlc_bba = yes }
+	set_technology = {
+		aa_lmg = 1
+		engines_1 = 1
+		engines_2 = 1
+		iw_small_airframe = 1
+		iw_medium_airframe = 1
+		early_bombs = 1
+	}
+	else = {
+		set_technology = {
+			early_fighter = 1
+			early_bomber = 1
+			CAS1 = 1
+		}
+	}
+}
 
 SER = {
 	give_military_access = AHE
-	
-	diplomatic_relation = {
-		country = AHE
-		relation = docking_rights
-		active = yes
-	}
 }
 give_guarantee = ALB
-
-add_ideas = {
-	AHE_incompetent_military
-	AHE_doomed_empire
-	AHE_german_dependence
-	AHE_inept_legislature
-}
 
 set_politics = {
 	ruling_party = national_conservatism
@@ -115,35 +136,131 @@ set_country_flag = social_democracy_coalition
 set_country_flag = market_libertarian_coalition
 set_country_flag = conservative_coalition
 
-create_country_leader = {
-	name = "Karl Renner"
-	desc = ""
-	picture = "gfx/leaders/AHE/Portrait_AHE_Karl_Renner.png"
-	expire = "1965.1.1"
-	ideology = revolutionary_socialism_subtype
-	traits = {
-		#
+recruit_character = AUS_karl_steinhardt
+recruit_character = AUS_karl_renner
+recruit_character = AUS_theodor_korner
+recruit_character = AUS_carl_vaugoin
+recruit_character = AUS_karl_i
+recruit_character = AUS_engelbert_dollfuss
+recruit_character = AUS_ernest_rudiger_starhemberg
+
+recruit_character = AUS_eugen_von_habsburg
+recruit_character = AUS_karl_albrecht_von_habsburg
+recruit_character = AUS_joseph_august_von_habsburg
+recruit_character = AUS_alfred_jansa_von_tannenau
+recruit_character = AUS_erhard_raus
+recruit_character = AUS_lothar_rendulic
+recruit_character = AUS_karl_eglseer
+recruit_character = AUS_julius_ringel
+recruit_character = AUS_franz_bohme
+recruit_character = AUS_sigismund_schilhawsky_von_bahnbruck
+recruit_character = AUS_eduard_barger
+recruit_character = AUS_friedrich_materna
+recruit_character = AUS_wilhelm_zehner
+recruit_character = AUS_ludwig_von_eimannsberger
+
+add_ideas = {
+	AUS_karl_i_hog
+
+	AHE_incompetent_military
+	AHE_doomed_empire
+	AHE_german_dependence
+	AHE_inept_legislature
+}
+
+if = {
+	limit = {
+		has_dlc_nsb = yes
+	}
+	create_equipment_variant = {
+		name = "Burstyn MtG"
+		type = light_tank_chassis_0
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_small_cannon
+			turret_type_slot = tank_light_two_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = additional_machine_guns
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 0
+			tank_nsb_armor_upgrade = 0
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "leKpfW M.35"
+		type = light_tank_chassis_1
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_small_cannon
+			turret_type_slot = tank_light_two_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 2
+			tank_nsb_armor_upgrade = 2
+		}
 	}
 }
 
-create_country_leader = {
-	name = "Karl I"
-	desc = "POLITICS_KARL_I_DESC"
-	picture = "gfx/leaders/AHE/Portrait_AHE_Karl_I.tga"
-	expire = "1965.1.1"
-	ideology = christian_democracy_subtype
-	traits = {
-		#
+if = {
+	limit = {
+		has_dlc_bba = yes
 	}
-}
-
-create_country_leader = {
-	name = "Engelbert Dollfuß"
-	desc = ""
-	picture = "Portrait_AHE_Engelbert_Dolfuss.tga"
-	expire = "1965.1.1"
-	ideology = fascism_subtype
-	traits = {
-		#
+	create_equipment_variant = {
+		name = "Avia B.534"
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = light_mg_4x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+	}
+	create_equipment_variant = {
+		name = "Aero A.101"
+		type = small_plane_cas_airframe_0
+		modules = {
+			fixed_main_weapon_slot = bomb_locks
+			fixed_auxiliary_weapon_slot_1 = light_mg_2x
+			engine_type_slot = engine_2_1x
+			special_type_slot_1 = lmg_defense_turret
+		}
+	}
+	create_equipment_variant = {
+		name = "Letov S-16"
+		type = small_plane_cas_airframe_0
+		modules = {
+			fixed_main_weapon_slot = bomb_locks
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = lmg_defense_turret
+		}
+	}
+	create_equipment_variant = {
+		name = "Avia F.39"
+		type = medium_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = medium_bomb_bay
+			engine_type_slot = engine_1_3x
+			special_type_slot_1 = lmg_defense_turret
+		}
+	}
+	
+	add_equipment_to_stockpile = {
+		type = small_plane_airframe_0
+		amount = 150
+		variant_name = "Avia B.534"
+		producer = AHE
+	}
+	add_equipment_to_stockpile = {
+		type = small_plane_cas_airframe_0
+		amount = 24
+		variant_name = "Aero A.101"
+		producer = AHE
 	}
 }
