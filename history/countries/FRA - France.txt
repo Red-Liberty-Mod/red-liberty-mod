@@ -68,18 +68,7 @@ set_technology = {
 }
 if = {
 	limit = {
-		NOT = { has_dlc = "No Step Back" }
-	}
-	set_technology = {
-		gwtank = 1
-		basic_light_tank = 1
-		basic_heavy_tank = 1
-		improved_light_tank = 1
-	}
-}
-if = {
-	limit = {
-		has_dlc = "No Step Back"
+		has_dlc_nsb = yes
 	}
 	set_technology = {
 		gwtank_chassis = 1
@@ -88,6 +77,14 @@ if = {
 		improved_light_tank_chassis = 1
 		armor_tech_1 = 1
 		engine_tech_1 = 1
+	}
+	else = {
+		set_technology = {
+			gwtank = 1
+			basic_light_tank = 1
+			basic_heavy_tank = 1
+			improved_light_tank = 1
+		}
 	}
 }
 if = {
@@ -213,10 +210,13 @@ recruit_character = FRA_pierre_taittinger
 recruit_character = FRA_marcel_bucard
 
 ### MINISTERS ###
+recruit_character = FRA_marcel_cachin
 recruit_character = FRA_albert_bedouce
 recruit_character = FRA_albert_lebrun
 recruit_character = FRA_jean_de_orleans
-recruit_character = FRA_marcel_cachin
+recruit_character = FRA_louis_napoleon
+
+activate_advisor = FRA_albert_lebrun_hog
 
 recruit_character = FRA_jean_ybarnegaray
 recruit_character = FRA_roger_salengro
@@ -225,13 +225,22 @@ recruit_character = FRA_maurice_pujo
 recruit_character = FRA_paul_baudouin
 recruit_character = FRA_francois_coty
 
+### GENERALS ###
+recruit_character = FRA_maurice_gamelin
+recruit_character = FRA_antoine_marie_besson
+recruit_character = FRA_georges_catroux
+recruit_character = FRA_charles_delestraint
+recruit_character = FRA_rene_olry
+recruit_character = FRA_maxime_weygand
+recruit_character = FRA_georges_blanchard
+recruit_character = FRA_alphonse_georges
+recruit_character = FRA_gaston_henri_billote
+
 add_ideas = {
 	FRA_revanchisme
 	FRA_fallen_govt
 	FRA_rising_right
 	FRA_pop_crisis_1
-	
-	FRA_albert_lebrun_hog
 }
 
 create_country_leader = {
@@ -243,150 +252,6 @@ create_country_leader = {
 	traits = {
 		
 	}
-}
-
-create_corps_commander = {
-	name = "Jean de Lattre de Tassigny"
-	picture = "Portrait_France_Jean_de_Lattre_de_Tassigny.dds"
-	traits = { trickster brilliant_strategist cavalry_officer war_hero }
-	skill = 4
-	attack_skill = 4
-	defense_skill = 2
-	planning_skill = 4
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Alphonse Juin"
-	picture = "Portrait_France_Alphonse_Juin.dds"
-	traits = { armor_officer career_officer trait_cautious  }
-	skill = 4
-	attack_skill = 3
-	defense_skill = 2
-	planning_skill = 4
-	logistics_skill = 4
-}
-
-create_field_marshal = {
-	name = "Maurice Gamelin"
-	picture = "Portrait_France_Maurice_Gamelin.dds"
-	traits = { defensive_doctrine old_guard inflexible_strategist career_officer }
-	skill = 2
-	attack_skill = 1
-	defense_skill = 3
-	planning_skill = 2
-	logistics_skill = 1
-}
-
-create_field_marshal = {
-	name = "Maxime Weygand"
-	picture = "Portrait_France_Maxime_Weygand.dds"
-	traits = { defensive_doctrine old_guard inflexible_strategist career_officer }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 3
-	planning_skill = 2
-	logistics_skill = 2
-}
-
-create_field_marshal = {
-	name = "Alphonse Georges"
-	picture = "Portrait_France_Alphonse_Joseph_Georges.dds"
-	traits = { defensive_doctrine old_guard trait_cautious }
-	skill = 3
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 4
-	logistics_skill = 2
-}
-
-create_field_marshal = {
-	name = "Antoine-Marie-Benoît Besson"
-	picture = "Portrait_France_Generic_land_2.dds"
-	traits = { defensive_doctrine old_guard }
-	skill = 2
-	attack_skill = 1
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Charles De Gaulle"
-	picture = "Portrait_France_Charles_De_Gaulle.dds"
-	traits = {  armor_officer harsh_leader media_personality }
-	id = 101
-	skill = 4
-	attack_skill = 4
-	defense_skill = 4
-	planning_skill = 3
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Philippe Leclerc"
-	picture = "portrait_france_philippe_leclerc.dds"
-	traits = {  armor_officer trait_reckless career_officer }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Henri Giraud"
-	picture = "portrait_france_henri_giraud.dds"
-	traits = {  trickster trait_cautious career_officer infantry_officer }
-	skill = 3
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 4
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Charles Huntziger"
-	picture = "portrait_france_charles_huntziger.dds"
-	traits = { old_guard infantry_officer }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 1
-	planning_skill = 3
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Gaston-Henri Billotte"
-	picture = "Portrait_France_Generic_land_1.dds"
-	traits = { old_guard trait_cautious infantry_officer }
-	skill = 2
-	attack_skill = 1
-	defense_skill = 3
-	planning_skill = 1
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Henry Freydenberg"
-	picture = "Portrait_France_Generic_land_3.dds"
-	traits = { old_guard infantry_officer }
-	skill = 2
-	attack_skill = 1
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "René Olry"
-	picture = "Portrait_France_Generic_land_5.dds"
-	traits = { old_guard infantry_officer trait_mountaineer }
-	skill = 3
-	attack_skill = 2
-	defense_skill = 4
-	planning_skill = 2
-	logistics_skill = 2
 }
 
 create_navy_leader = {

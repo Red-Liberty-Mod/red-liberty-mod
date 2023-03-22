@@ -2,7 +2,7 @@ shared_focus = {
     id = FRA_popular_front
 	icon = GFX_FRA_popular_front
 	
-    x = 9
+    x = 8
 	y = 0
 	
 	cost = 3
@@ -20,7 +20,7 @@ shared_focus = {
     id = FRA_national_union
 	icon = GFX_FRA_national_union
 	
-    x = 17
+    x = 16
 	y = 0
 	
 	cost = 3
@@ -35,15 +35,19 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = FRA_coalition_with_communists
-	icon = GFX_FRA_coalition_with_communists
+    id = FRA_coalition_with_the_communists
+	icon = GFX_FRA_coalition_with_the_communists
 	
     x = -6
 	y = 1
 	
+	available = {
+		has_country_flag = rev_autocracy_coalition
+	}
+	
 	cost = 3
 	relative_position_id = FRA_popular_front
-	mutually_exclusive = { focus = FRA_coalition_with_radicals }
+	mutually_exclusive = { focus = FRA_coalition_with_the_radicals }
 	prerequisite = { focus = FRA_popular_front }
     completion_reward = {
 		
@@ -55,11 +59,15 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = FRA_coalition_with_radicals
+    id = FRA_coalition_with_the_radicals
 	icon = GFX_FRA_coalition_with_radicals
 	
     x = -2
 	y = 1
+	
+	available = {
+		has_country_flag = progressive_coalition
+	}
 	
 	cost = 3
 	relative_position_id = FRA_popular_front
@@ -85,7 +93,10 @@ shared_focus = {
 	relative_position_id = FRA_popular_front
 	prerequisite = { focus = FRA_popular_front }
     completion_reward = {
-		
+		add_popularity = {
+			ideology = authoritarian_democracy
+			popularity = -0.025
+		}
     }
 	
 	ai_will_do = {
@@ -94,8 +105,8 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = FRA_stabilizing_the_govt
-	icon = GFX_FRA_stabilizing_the_govt
+    id = FRA_stabilizing_the_government
+	icon = GFXFRA_stabilizing_the_government
 	
     x = 4
 	y = 1
@@ -107,7 +118,7 @@ shared_focus = {
 		focus = FRA_national_union
 	}
     completion_reward = {
-		
+		add_stability = 0.05
     }
 	
 	ai_will_do = {
@@ -126,7 +137,10 @@ shared_focus = {
 	relative_position_id = FRA_national_union
 	prerequisite = { focus = FRA_national_union }
     completion_reward = {
-		
+		add_popularity = {
+			ideology = libertarian_socialism
+			popularity = -0.025
+		}
     }
 	
 	ai_will_do = {
@@ -141,9 +155,13 @@ shared_focus = {
     x = 2
 	y = 1
 	
+	available = {
+		has_country_flag = conservative_coalition
+	}
+	
 	cost = 3
 	relative_position_id = FRA_national_union
-	mutually_exclusive = { focus = FRA_coalition_with_rocquists }
+	mutually_exclusive = { focus = FRA_alliance_with_the_rocquists }
 	prerequisite = { focus = FRA_national_union }
     completion_reward = {
 		
@@ -155,11 +173,15 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = FRA_coalition_with_rocquists
-	icon = GFX_FRA_coalition_with_rocquists
+    id = FRA_alliance_with_the_rocquists
+	icon = GFX_FRA_alliance_with_the_rocquists
 	
     x = 6
 	y = 1
+	
+	available = {
+		has_country_flag = authoritarian_coalition
+	}
 	
 	cost = 3
 	relative_position_id = FRA_national_union
@@ -171,5 +193,400 @@ shared_focus = {
 	
 	ai_will_do = {
 		factor = 10
+	}
+}
+
+shared_focus = {
+	id = FRA_delegitimize_the_blanquists
+	icon = GFX_goal_unknown
+	
+	x = -2
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_coalition_with_the_communists
+	prerequisite = { focus = FRA_coalition_with_the_communists }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_ally_the_proletarians
+	icon = GFX_goal_unknown
+	
+	x = 0
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_coalition_with_the_communists
+	prerequisite = { focus = FRA_coalition_with_the_communists }
+	
+	completion_reward = {
+		add_revsoc_coalition = yes
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_reinforce_secularism
+	icon = GFX_goal_unknown
+	
+	x = 2
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_coalition_with_the_communists
+	prerequisite = {
+		focus = FRA_coalition_with_the_communists
+		focus = FRA_coalition_with_the_radicals
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_ally_the_neosocialists
+	icon = GFX_goal_unknown
+	
+	x = 0
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_coalition_with_the_radicals
+	prerequisite = { focus = FRA_coalition_with_the_radicals }
+	
+	completion_reward = {
+		add_socdem_coalition = yes
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_coax_the_blanquists
+	icon = GFX_goal_unknown
+	
+	x = 2
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_coalition_with_the_radicals
+	prerequisite = { focus = FRA_coalition_with_the_radicals }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_the_metropole
+	icon = GFX_goal_unknown
+	
+	x = -1
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_stabilizing_the_government
+	prerequisite = { focus = FRA_stabilizing_the_government }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_our_colonial_holdings
+	icon = GFX_goal_unknown
+	
+	x = 1
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_stabilizing_the_government
+	prerequisite = { focus = FRA_stabilizing_the_government }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_reinstate_free_press
+	icon = GFX_goal_unknown
+	
+	x = -2
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_concentration_republicaine
+	prerequisite = { focus = FRA_concentration_republicaine }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_shuffle_naysayers
+	icon = GFX_goal_unknown
+	
+	x = 0
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_concentration_republicaine
+	prerequisite = { focus = FRA_concentration_republicaine }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_support_the_free_market
+	icon = GFX_goal_unknown
+	
+	x = 2
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_concentration_republicaine
+	prerequisite = {
+		focus = FRA_concentration_republicaine
+		focus = FRA_alliance_with_the_rocquists
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_unofficial_gerrymandering
+	icon = GFX_goal_unknown
+	
+	x = 0
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_alliance_with_the_rocquists
+	prerequisite = { focus = FRA_alliance_with_the_rocquists }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_democratize_monarchists
+	icon = GFX_goal_unknown
+	
+	x = 2
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_alliance_with_the_rocquists
+	prerequisite = { focus = FRA_alliance_with_the_rocquists }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_local_cooperatives
+	icon = GFX_goal_unknown
+	
+	x = 1
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_delegitimize_the_blanquists
+	prerequisite = { focus = FRA_delegitimize_the_blanquists }
+	prerequisite = { focus = FRA_ally_the_proletarians }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_expand_the_welfare_system
+	icon = GFX_goal_unknown
+	
+	x = -1
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_reinforce_secularism
+	prerequisite = { focus = FRA_reinforce_secularism }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_reform_the_banque_de_france
+	icon = GFX_goal_unknown
+	
+	x = 1
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_reinforce_secularism
+	prerequisite = { focus = FRA_reinforce_secularism }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_communal_government
+	icon = GFX_goal_unknown
+	
+	x = 1
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_ally_the_neosocialists
+	prerequisite = { focus = FRA_ally_the_neosocialists }
+	prerequisite = { focus = FRA_coax_the_blanquists }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_colonial_reform
+	icon = GFX_goal_unknown
+	
+	x = 1
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_the_metropole
+	prerequisite = { focus = FRA_the_metropole }
+	prerequisite = { focus = FRA_our_colonial_holdings }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_national_coalition
+	icon = GFX_goal_unknown
+	
+	x = 1
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_reinstate_free_press
+	prerequisite = { focus = FRA_reinstate_free_press }
+	prerequisite = { focus = FRA_shuffle_naysayers }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_laissezfaire_economics
+	icon = GFX_goal_unknown
+	
+	x = -1
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_support_the_free_market
+	prerequisite = { focus = FRA_support_the_free_market }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_stable_business
+	icon = GFX_goal_unknown
+	
+	x = 1
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_support_the_free_market
+	prerequisite = { focus = FRA_support_the_free_market }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_ban_the_communist_party
+	icon = GFX_goal_unknown
+	
+	x = 1
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_unofficial_gerrymandering
+	prerequisite = { focus = FRA_unofficial_gerrymandering }
+	prerequisite = { focus = FRA_democratize_monarchists }
+	
+	completion_reward = {
+		add_popularity = {
+			ideology = revolutionary_autocracy
+			popularity = -0.025
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_frenzied_nationalization
+	icon = GFX_goal_unknown
+	
+	x = 0
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_local_cooperatives
+	prerequisite = { focus = FRA_local_cooperatives }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_womens_suffrage_dem
+	icon = GFX_FRA_womens_suffrage
+	
+	x = 1
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_expand_the_welfare_system
+	prerequisite = { focus = FRA_expand_the_welfare_system }
+	prerequisite = { focus = FRA_reform_the_banque_de_france }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
 }

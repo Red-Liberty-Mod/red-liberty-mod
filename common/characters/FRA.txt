@@ -202,6 +202,41 @@ characters = {
 	
 	### Deputy Leaders ###
 	
+	FRA_marcel_cachin = {
+		name = FRA_marcel_cachin
+		
+		portraits = {
+			civilian = {
+				small = "GFX_minister_FRA_marcel_cachin"
+			}
+		}
+		
+		advisor = {
+			slot = head_of_government
+			idea_token = FRA_marcel_cachin_hog
+			ledger = civilian
+			
+			cost = 0
+			can_be_fired = no
+			
+			allowed = {
+				original_tag = FRA
+			}
+			
+			visible = {
+				
+			}
+			
+			available = {
+				
+			}
+			
+			traits = {
+				hog_ambitious_union_boss
+			}
+		}
+	}
+	
 	FRA_albert_bedouce = {
 		name = FRA_albert_bedouce
 		
@@ -307,18 +342,18 @@ characters = {
 		}
 	}
 	
-	FRA_marcel_cachin = {
-		name = FRA_marcel_cachin
+	FRA_louis_napoleon = {
+		name = FRA_louis_napoleon
 		
 		portraits = {
 			civilian = {
-				small = "GFX_minister_FRA_marcel_cachin"
+				small = "GFX_minister_FRA_louis_napoleon"
 			}
 		}
 		
 		advisor = {
 			slot = head_of_government
-			idea_token = FRA_marcel_cachin_hog
+			idea_token = FRA_louis_napoleon_hog
 			ledger = civilian
 			
 			cost = 0
@@ -337,7 +372,7 @@ characters = {
 			}
 			
 			traits = {
-				hog_ambitious_union_boss
+				
 			}
 		}
 	}
@@ -554,6 +589,289 @@ characters = {
 			traits = {
 				sec_media_magnate
 			}
+		}
+	}
+	
+	### Generals ###
+	
+	FRA_maurice_gamelin = {
+		name = FRA_maurice_gamelin
+		
+		portraits = {
+			army = {
+				large = ""
+				small = ""
+			}
+		}
+		
+		field_marshal = {
+			traits = {
+				inflexible_strategist
+				defensive_doctrine
+				war_hero
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		
+		advisor = {
+			slot = army_chief
+			idea_token = FRA_maurice_gamelin_army_chief
+			available = {
+				not_already_hired_except_as = army_chief
+			}
+			traits = { army_chief_defensive_2 }
+			cost = 100
+		}
+		
+		advisor = {
+			slot = theorist
+			idea_token = FRA_maurice_gamelin_theorist
+			ledger = army
+			available = {
+				not_already_hired_except_as = theorist
+			}
+			traits = { military_theorist }
+			cost = 100
+		}
+	}
+	
+	FRA_antoine_marie_besson = {
+		name = FRA_antoine_marie_besson
+		
+		portraits = {
+			army = {
+				large = ""
+				small = ""
+			}
+		}
+		
+		field_marshal = {
+			traits = {
+				old_guard
+				defensive_doctrine
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	
+	FRA_georges_catroux = {
+		name = FRA_georges_catroux
+		
+		portraits = {
+			army = {
+				large = ""
+				small = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				organizer
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	
+	FRA_charles_delestraint = {
+		name = FRA_charles_delestraint
+		
+		portraits = {
+			army = {
+				large = ""
+				small = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				panzer_leader
+				career_officer
+			}
+			skill = 3
+			attack_skill = 4
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		
+		advisor = {
+			slot = army_chief
+			idea_token = FRA_charles_delestraint_army_chief
+			available = {
+				not_already_hired_except_as = army_chief
+			}
+			traits = { army_chief_maneuver_3 }
+			cost = 200
+		}
+		
+		advisor = {
+			slot = theorist
+			idea_token = FRA_charles_delestraint_theorist
+			ledger = army
+			available = {
+				not_already_hired_except_as = theorist
+			}
+			traits = { mobile_warfare_expert }
+			cost = 150
+		}
+	}
+	
+	FRA_rene_olry = {
+		name = FRA_rene_olry
+		
+		portraits = {
+			army = {
+				large = ""
+				small = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = { trait_mountaineer artillery_specialist }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 4
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = FRA_rene_olry_high_command
+			ledger = army
+			traits = { army_artillery_2 }
+			cost = 100
+		}
+	}
+	
+	FRA_maxime_weygand = {
+		name = FRA_maxime_weygand
+		
+		portraits = {
+			army = {
+				large = ""
+				small = ""
+			}
+		}
+		
+		advisor = {
+			cost = 50
+			slot = high_command
+			idea_token = FRA_maxime_weygand_high_command
+			ledger = army
+			
+			allowed = {
+				original_tag = USA
+			}
+			
+			traits = {
+				army_regrouping_1
+			}
+		}
+
+		corps_commander = {
+			traits = {
+				old_guard
+				trait_cautious
+				skilled_staffer
+				organizer
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 3
+			logistics_skill = 1
+		}
+	}
+	
+	FRA_georges_blanchard = {
+		name = FRA_georges_blanchard
+		
+		portraits = {
+			army = {
+				large = ""
+				small = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				artillery_officer
+				skilled_staffer
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = FRA_georges_blanchard_high_command
+			ledger = army
+			traits = { army_logistics_1 }
+			cost = 50
+		}
+	}
+	
+	FRA_alphonse_georges = {
+		name = FRA_alphonse_georges
+		
+		portraits = {
+			army = {
+				large = ""
+				small = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				old_guard
+				trait_cautious
+				defensive_doctrine
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	
+	FRA_gaston_henri_billote = {
+		name = FRA_gaston_henri_billote
+		
+		portraits = {
+			army = {
+				large = ""
+				small = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				trait_cautious
+				infantry_officer
+				career_officer
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 3
+			planning_skill = 1
+			logistics_skill = 2
 		}
 	}
 }
