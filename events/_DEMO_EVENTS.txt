@@ -21,6 +21,7 @@ add_namespace = demo_man
 add_namespace = demo_aus
 add_namespace = demo_nzl
 add_namespace = demo_ukr
+add_namespace = demo_ven
 
 add_namespace = demo_usa_jap_peace
 add_namespace = demo_jap_usa_war
@@ -3658,3 +3659,62 @@ country_event = { # ukrainian revolution - aftermath
 		}
 	}
 }
+
+country_event = { # venezuelan revolution
+	id = demo_ven.1
+	title = demo_ven.1.title
+	desc = demo_ven.1.desc
+	
+	is_triggered_only = yes
+	
+	option = { # succeeds
+		name = demo_ven.1.a
+		VEN = {
+			set_politics = {
+				ruling_party = proletarian_dictatorship
+			}
+		}
+		if = {
+			limit = {
+				UOB = {
+					exists = yes
+				}
+			}
+			UOB = {
+				add_to_faction = VEN
+			}
+			ARG = {
+				add_to_faction = COL
+			}
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_ven.2 hours = 6 }
+		}
+		ai_chance = {
+			base = 90
+		}
+	}
+	
+	option = { # fails
+		name = demo_ven.2.a
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+news_event = {
+	id = demo_ven.2
+	title = demo_ven.2.title
+	desc = demo_ven.2.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = demo_ven.2.a
+	}
+}
+
