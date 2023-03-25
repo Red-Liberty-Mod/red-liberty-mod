@@ -1,6 +1,6 @@
 shared_focus = {
 	id = FRA_army_reorganization
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_army_reorganization
 	
 	x = 27
 	y = 0
@@ -27,7 +27,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_veteran_brigades
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_veteran_brigades
 	
 	x = -2
 	y = 1
@@ -36,18 +36,19 @@ shared_focus = {
 	relative_position_id = FRA_army_reorganization
 	prerequisite = { focus = FRA_army_reorganization }
 	completion_reward = {
-	add_manpower = 50000
+		add_manpower = 50000
 		army_experience = 50
 	}
 	
 	search_filters = {
 		FOCUS_FILTER_MANPOWER
+		FOCUS_FILTER_ARMY_XP
 	}
 }
 
 shared_focus = {
 	id = FRA_officers_of_the_great_war
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_officers_of_the_great_war
 	
 	x = 0
 	y = 1
@@ -114,50 +115,52 @@ shared_focus = {
 	}
 }
 
-	shared_focus = {
-		id = FRA_old_dogs_new_tricks
-		icon = GFX_FRA_old_dogs_new_tricks
-		
-		x = 1
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_veteran_brigades
-		prerequisite = { focus = FRA_veteran_brigades }
-		prerequisite = { focus = FRA_officers_of_the_great_war }
-		completion_reward = {
-			every_army_leader = {
-				add_planning = 1
-			}
-		}
-		
-		search_filters = {
-			FOCUS_FILTER_MANPOWER
+shared_focus = {
+	id = FRA_old_dogs_new_tricks
+	icon = GFX_FRA_old_dogs_new_tricks
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_veteran_brigades
+	prerequisite = { focus = FRA_veteran_brigades }
+	prerequisite = { focus = FRA_officers_of_the_great_war }
+	completion_reward = {
+		every_army_leader = {
+			add_planning = 1
 		}
 	}
 	
-	shared_focus = {
-		id = FRA_reeducational_service
-		icon = GFX_goal_unknown
+	search_filters = {
 		
-		x = 1
-		y = 1
-		cost = 4
-
-		completion_reward = {
-			add_stability = 0.10
-			add_war_support = 0.05
-			add_political_power = 150
-		}
-		
-		relative_position_id = FRA_officers_of_the_great_war
-		prerequisite = { focus = FRA_officers_of_the_great_war }
-		prerequisite = { focus = FRA_equipment_modernization }
-		
-		search_filters = {
-			FOCUS_FILTER_MANPOWER
-		}
 	}
+}
+	
+shared_focus = {
+	id = FRA_reeducational_service
+	icon = GFX_goal_unknown
+	
+	x = 1
+	y = 1
+	cost = 4
+
+	completion_reward = {
+		add_stability = 0.10
+		add_war_support = 0.05
+		add_political_power = 150
+	}
+	
+	relative_position_id = FRA_officers_of_the_great_war
+	prerequisite = { focus = FRA_officers_of_the_great_war }
+	prerequisite = { focus = FRA_equipment_modernization }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_WAR_SUPPORT
+		FOCUS_FILTER_STABILITY
+	}
+}
 
 	shared_focus = {
 		id = FRA_no_more_mutiny
@@ -195,7 +198,7 @@ shared_focus = {
 	
 	shared_focus = {
 		id = FRA_artillery_modernization
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_artillery_modernization
 		
 		x = 0
 		y = 2
@@ -336,29 +339,29 @@ shared_focus = {
 	}
 }
 
-	shared_focus = {
-		id = FRA_new_battleships
-		icon = GFX_goal_unknown
-		
-		x = 0
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_the_channel
-		prerequisite = { focus = FRA_the_channel }
-		
-		completion_reward = {
-			add_tech_bonus = {
-				bonus = 0.75
-				uses = 1
-				category = bb_tech
-			}
-		}
-		
-		search_filters = {
-			FOCUS_FILTER_RESEARCH
+shared_focus = {
+	id = FRA_new_battleships
+	icon = GFX_FRA_new_battleships
+	
+	x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_the_channel
+	prerequisite = { focus = FRA_the_channel }
+	
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.75
+			uses = 1
+			category = bb_tech
 		}
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
+}
 
 	shared_focus = {
 		id = FRA_industrial_drydocks
@@ -378,7 +381,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_destroyer_fleets
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_destroyer_fleets
 		
 		x = 0
 		y = 1
