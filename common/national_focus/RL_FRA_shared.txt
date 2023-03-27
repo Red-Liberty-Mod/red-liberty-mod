@@ -363,86 +363,88 @@ shared_focus = {
 	}
 }
 
-	shared_focus = {
-		id = FRA_industrial_drydocks
-		icon = GFX_goal_unknown
-		x = 0
-		
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_new_battleships
-		prerequisite = { focus = FRA_new_battleships }
-		
-		search_filters = {
-			FOCUS_FILTER_WAR_SUPPORT
-		}
+shared_focus = {
+	id = FRA_industrial_drydocks
+	icon = GFX_FRA_industrial_drydocks
+	x = 0
+	
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_new_battleships
+	prerequisite = { focus = FRA_new_battleships }
+	
+	search_filters = {
+		FOCUS_FILTER_WAR_SUPPORT
 	}
+}
 
-	shared_focus = {
-		id = FRA_destroyer_fleets
-		icon = GFX_FRA_destroyer_fleets
-		
-		x = 0
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_the_reich
-		prerequisite = { focus = FRA_the_reich }
-		
-		completion_reward = {
-			add_tech_bonus = {
-				bonus = 0.75
-				uses = 1
-				category = dd_tech
-			}
-		}
-		
-		search_filters = {
-			FOCUS_FILTER_RESEARCH
+shared_focus = {
+	id = FRA_destroyer_fleets
+	icon = GFX_FRA_destroyer_fleets
+	
+	x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_the_reich
+	prerequisite = { focus = FRA_the_reich }
+	
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.75
+			uses = 1
+			category = dd_tech
 		}
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
+}
 
-	#Study Foreign Designs
-	shared_focus = {
-		id = FRA_study_foreign_designs
-		icon = GFX_goal_unknown
-		x = 0
-		y = 1
-		cost = 4
-		search_filters = {
-			FOCUS_FILTER_WAR_SUPPORT
-		}
-		relative_position_id = FRA_destroyer_fleets
-		prerequisite = { focus = FRA_destroyer_fleets  }
+shared_focus = {
+	id = FRA_study_foreign_designs
+	icon = GFX_FRA_study_foreign_designs
+	x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_destroyer_fleets
+	prerequisite = { focus = FRA_destroyer_fleets }
+	
+	search_filters = {
+		FOCUS_FILTER_WAR_SUPPORT
 	}
+}
 
-	#Cruiser Patrols
-	shared_focus = {
-		id = FRA_cruiser_patrols
-		icon = GFX_goal_unknown
-		x = 0
-		y = 1
-		cost = 4
-		search_filters = {
-			FOCUS_FILTER_WAR_SUPPORT
-		}
-		relative_position_id = FRA_middling_approach
-		prerequisite = { focus = FRA_middling_approach  }
-		
-		completion_reward = {
-			add_tech_bonus = {
-				bonus = 0.75
-				uses = 1
-				category = cl_tech
-			}
+shared_focus = {
+	id = FRA_cruiser_patrols
+	icon = GFX_FRA_cruiser_patrols
+	x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_middling_approach
+	prerequisite = { focus = FRA_middling_approach }
+	
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.75
+			uses = 1
+			category = cl_tech
 		}
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
+}
 
 	#Ocean Supremacy
 	shared_focus = {
 		id = FRA_ocean_supremacy
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_ocean_supremacy
 		x = 0
 		y = 1
 		cost = 4
@@ -450,7 +452,7 @@ shared_focus = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
 		relative_position_id = FRA_cruiser_patrols
-		prerequisite = { focus = FRA_cruiser_patrols  }
+		prerequisite = { focus = FRA_cruiser_patrols }
 	}
 
 	shared_focus = {
