@@ -1197,7 +1197,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_foreign_relations
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_foreign_relations
 	
 	x = 29
 	y = 6
@@ -1208,72 +1208,72 @@ shared_focus = {
 	}
 }
 
-	shared_focus = {
-		id = FRA_maintain_flexibility
-		icon = GFX_goal_unknown
-		
-		x = -2
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_foreign_relations
-		prerequisite = { focus = FRA_foreign_relations }
-		mutually_exclusive = { focus = FRA_reaffirm_old_ties }
-		
-		search_filters = {
-			FOCUS_FILTER_ANNEXATION
-		}
+shared_focus = {
+	id = FRA_maintain_flexibility
+	icon = GFX_goal_unknown
+	
+	x = -2
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_foreign_relations
+	prerequisite = { focus = FRA_foreign_relations }
+	mutually_exclusive = { focus = FRA_reaffirm_old_ties }
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
 	}
+}
 
-	shared_focus = {
-		id = FRA_reaffirm_old_ties
-		icon = GFX_goal_unknown
-		
-		x = 1
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_foreign_relations
-		prerequisite = { focus = FRA_foreign_relations }
-		mutually_exclusive = { focus = FRA_maintain_flexibility }
-		
-		search_filters = {
-			FOCUS_FILTER_ANNEXATION
+shared_focus = {
+	id = FRA_reaffirm_old_ties
+	icon = GFX_FRA_reaffirm_old_ties
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_foreign_relations
+	prerequisite = { focus = FRA_foreign_relations }
+	mutually_exclusive = { focus = FRA_maintain_flexibility }
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+	
+shared_focus = {
+	id = FRA_the_spanish
+	icon = GFX_FRA_the_spanish
+	
+	x = -3
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_maintain_flexibility
+	prerequisite = { focus = FRA_maintain_flexibility }
+	
+	completion_reward = {
+		add_opinion_modifier = {
+			target = SPR
+			modifier = FRA_diplomatic_overtures
+		}
+		SPR = {
+			add_opinion_modifier = {
+				target = FRA
+				modifier = FRA_diplomatic_overtures
+			}
 		}
 	}
 	
-	shared_focus = {
-		id = FRA_the_spanish
-		icon = GFX_goal_unknown
-		
-		x = -3
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_maintain_flexibility
-		prerequisite = { focus = FRA_maintain_flexibility }
-		
-		completion_reward = {
-			add_opinion_modifier = {
-				target = SPR
-				modifier = FRA_diplomatic_overtures
-			}
-			SPR = {
-				add_opinion_modifier = {
-					target = FRA
-					modifier = FRA_diplomatic_overtures
-				}
-			}
-		}
-		
-		search_filters = {
-			FOCUS_FILTER_ANNEXATION
-		}
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
 	}
+}
 
 	shared_focus = {
 		id = FRA_the_italians
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_the_italians
 		
 		x = -1
 		y = 1
@@ -1302,7 +1302,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_latin_entente
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_latin_entente
 		
 		x = 1
 		y = 1
@@ -1333,7 +1333,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_the_turks
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_the_turks
 		
 		x = 0
 		y = 1
@@ -1409,10 +1409,9 @@ shared_focus = {
 		}
 	}
 
-	#Renew our Friendship with the British
 	shared_focus = {
 		id = FRA_renew_our_friendship_with_the_british
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_renew_our_friendship_with_the_british
 		
 		x = 30
 		y = 8
@@ -1440,7 +1439,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_align_the_dutch
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_align_the_dutch
 		
 		x = -1
 		y = 1
@@ -1468,7 +1467,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_align_the_norwegians
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_align_the_norwegians
 		
 		x = 1
 		y = 1
@@ -1496,7 +1495,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_a_second_entente_cordiale
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_second_entente_cordiale
 		x = 30
 		y = 10
 		cost = 4
@@ -1521,7 +1520,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_natural_borders_of_france
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_natural_borders_of_france
 	
 	x = 4
 	y = 1

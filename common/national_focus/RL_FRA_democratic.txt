@@ -207,6 +207,10 @@ shared_focus = {
 	relative_position_id = FRA_coalition_with_the_communists
 	prerequisite = { focus = FRA_coalition_with_the_communists }
 	
+	completion_reward = {
+		
+	}
+	
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
 	}
@@ -246,6 +250,10 @@ shared_focus = {
 		focus = FRA_coalition_with_the_radicals
 	}
 	
+	completion_reward = {
+		add_political_power = 75
+	}
+	
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
 	}
@@ -282,6 +290,11 @@ shared_focus = {
 	relative_position_id = FRA_coalition_with_the_radicals
 	prerequisite = { focus = FRA_coalition_with_the_radicals }
 	
+	completion_reward = {
+		add_stability = 0.025
+		add_political_power = 25
+	}
+	
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
 	}
@@ -297,6 +310,10 @@ shared_focus = {
 	
 	relative_position_id = FRA_stabilizing_the_government
 	prerequisite = { focus = FRA_stabilizing_the_government }
+	
+	completion_reward = {
+		
+	}
 	
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
@@ -330,6 +347,10 @@ shared_focus = {
 	relative_position_id = FRA_concentration_republicaine
 	prerequisite = { focus = FRA_concentration_republicaine }
 	
+	completion_reward = {
+		add_stability = 0.05
+	}
+	
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
 	}
@@ -345,6 +366,10 @@ shared_focus = {
 	
 	relative_position_id = FRA_concentration_republicaine
 	prerequisite = { focus = FRA_concentration_republicaine }
+	
+	completion_reward = {
+		add_political_power = 50
+	}
 	
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
@@ -363,6 +388,31 @@ shared_focus = {
 	prerequisite = {
 		focus = FRA_concentration_republicaine
 		focus = FRA_alliance_with_the_rocquists
+	}
+	
+	completion_reward = {
+		random_owned_state = {
+			limit = {
+				is_urban_state = yes
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_state = {
+			limit = {
+				is_urban_state = yes
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
 	}
 	
 	search_filters = {
@@ -397,6 +447,13 @@ shared_focus = {
 	relative_position_id = FRA_alliance_with_the_rocquists
 	prerequisite = { focus = FRA_alliance_with_the_rocquists }
 	
+	completion_reward = {
+		add_popularity = {
+			ideology = autocratic_despotism
+			popularity = -0.025
+		}
+	}
+	
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
 	}
@@ -414,6 +471,10 @@ shared_focus = {
 	prerequisite = { focus = FRA_delegitimize_the_blanquists }
 	prerequisite = { focus = FRA_ally_the_proletarians }
 	
+	completion_reward = {
+		add_ideas = FRA_local_cooperatives
+	}
+	
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
 	}
@@ -430,6 +491,14 @@ shared_focus = {
 	relative_position_id = FRA_reinforce_secularism
 	prerequisite = { focus = FRA_reinforce_secularism }
 	
+	completion_reward = {
+		ECON_poverty_change_small = yes
+		swap_ideas = {
+			remove_idea = FRA_pop_crisis_1
+			add_idea = FRA_pop_crisis_2
+		}
+	}
+	
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
 	}
@@ -445,6 +514,10 @@ shared_focus = {
 	
 	relative_position_id = FRA_reinforce_secularism
 	prerequisite = { focus = FRA_reinforce_secularism }
+	
+	completion_reward = {
+		add_ideas = FRA_reformed_central_bank
+	}
 	
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
@@ -760,6 +833,13 @@ shared_focus = {
 	prerequisite = {
 		focus = FRA_frenzied_nationalization
 		focus = FRA_intense_nationalization
+	}
+	
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = FRA_local_cooperatives
+			add_idea = FRA_tout_est_possible
+		}
 	}
 	
 	search_filters = {
