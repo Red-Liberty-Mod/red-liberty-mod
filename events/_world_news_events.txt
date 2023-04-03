@@ -1,6 +1,7 @@
 add_namespace = worldnews
 add_namespace = worldnews_war
 add_namespace = worldnews_southamerica
+add_namespace = worldnews_ww2
 
 news_event = { # thomas election news event
 	id = worldnews.1
@@ -201,6 +202,116 @@ news_event = { # mexican civil war
 		name = worldnews_war.2.a
 		USA = {
 			setup_mexico_conflict = yes
+		}
+	}
+}
+
+news_event = { # ww2 event - france vs germany
+	id = worldnews_ww2.1
+	picture = GFX_report_event_second_great_war
+	
+	title = {
+		text = worldnews_ww2.1.title_starts_war
+		trigger = {
+			has_global_flag = { flag = second_great_war_started days < 10 }
+		}
+	}
+	title = {
+		text = worldnews_ww2.1.title_joins_war
+		trigger = {
+			has_global_flag = { flag = second_great_war_started days > 10 }
+		}
+	}
+	desc = {
+		text = worldnews_ww2.1.desc_starts_war
+		trigger = {
+			has_global_flag = { flag = second_great_war_started days < 10 }
+		}
+	}
+	desc = {
+		text = worldnews_ww2.1.desc_joins_war
+		trigger = {
+			has_global_flag = { flag = second_great_war_started days > 10 }
+		}
+	}
+
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = {
+		name = worldnews_ww2.1.a
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = FRA
+					original_tag = GER
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = worldnews_ww2.1.b
+		trigger = {
+			original_tag = FRA
+		}
+	}
+	
+	option = {
+		name = worldnews_ww2.1.c
+		trigger = {
+			original_tag = GER
+		}
+	}
+}
+
+news_event = { # ww2 event - russia vs germany
+	id = worldnews_ww2.2
+	picture = GFX_report_event_second_great_war
+	
+	title = {
+		text = worldnews_ww2.2.title_starts_war
+		trigger = {
+			has_global_flag = { flag = second_great_war_started days < 10 }
+		}
+	}
+	title = {
+		text = worldnews_ww2.2.title_joins_war
+		trigger = {
+			has_global_flag = { flag = second_great_war_started days > 10 }
+		}
+	}
+	desc = {
+		text = worldnews_ww2.2.desc_starts_war
+		trigger = {
+			has_global_flag = { flag = second_great_war_started days < 10 }
+		}
+	}
+	desc = {
+		text = worldnews_ww2.2.desc_joins_war
+		trigger = {
+			has_global_flag = { flag = second_great_war_started days > 10 }
+		}
+	}
+
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = {
+		name = worldnews_ww2.2.a
+		trigger = {
+			NOT = {
+				original_tag = SOV
+			}
+		}
+	}
+	
+	option = {
+		name = worldnews_ww2.2.b
+		trigger = {
+			original_tag = SOV
 		}
 	}
 }
