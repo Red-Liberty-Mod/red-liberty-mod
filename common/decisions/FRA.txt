@@ -182,3 +182,121 @@ FRA_industrialization_category = {
 		}
 	}
 }
+
+FRA_latin_entente_category = {
+
+	FRA_latin_entente_research_group = {
+		icon = ger_mefo_bills
+		
+		available = {
+			
+		}
+		
+		visible = {
+			tag = FRA
+		}
+		
+		fire_only_once = yes
+		
+		cost = 25
+		
+		complete_effect = {
+			add_to_tech_sharing_group = latin_entente_research
+			set_country_flag = latin_entente_research_formed
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	FRA_latin_entente_join_research_group = {
+		icon = ger_mefo_bills
+		
+		available = {
+			FRA = {
+				has_country_flag = latin_entente_research_formed
+			}
+		}
+		
+		visible = {
+			NOT = {
+				tag = FRA
+			}
+		}
+		
+		fire_only_once = yes
+		
+		cost = 25
+		
+		complete_effect = {
+			add_to_tech_sharing_group = latin_entente_research
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+
+	FRA_latin_entente_invite_portugal = {
+		icon = ger_mefo_bills
+		
+		highlight_states = {
+			highlight_state_targets = { state = 112 }
+		}
+		
+		available = {
+			POR = {
+				has_war = no
+				is_in_faction = no
+			}
+		}
+		
+		visible = {
+			tag = FRA
+		}
+		
+		fire_only_once = yes
+		
+		cost = 25
+		
+		complete_effect = {
+			add_to_faction = POR
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	FRA_latin_entente_invite_romania = {
+		icon = ger_mefo_bills
+		
+		highlight_states = {
+			highlight_state_targets = { state = 46 }
+		}
+		
+		available = {
+			ROM = {
+				has_war = no
+				is_in_faction = no
+			}
+		}
+		
+		visible = {
+			tag = FRA
+		}
+		
+		fire_only_once = yes
+		
+		cost = 25
+		
+		complete_effect = {
+			add_to_faction = ROM
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+}
