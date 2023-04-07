@@ -4,11 +4,11 @@
  
  USA_congress_makeup_tt:0 "\n\n--- §YThe House of Representatives§! ---[get_us_communist_rep_count][get_us_socialist_rep_count][get_us_farmer_labor_rep_count][get_us_liberal_rep_count][get_us_republican_rep_count][get_us_democrat_rep_count][get_us_fascist_rep_count]\nTotal Representatives: §G[?representatives_total]§!\nOur foothold in the House nets us §G+[?USA_house_control|2]§! political power per day.\n\n--- §YThe Senate§! ---[get_us_communist_senator_count][get_us_socialist_senator_count][get_us_farmer_labor_senator_count][get_us_republican_senator_count][get_us_democrat_senator_count][get_us_afp_senator_count]\nTotal Senators: §G[?senators_total]§!\nOur foothold in the Senate nets us §G+[?USA_senate_control|2]§! political power per day.\n\n"
  
- USA_congress_communist_rep_count:0 "\n§r[?representatives_communist]§! Representative(s) support the §rCommunist Party USA§!."
- USA_congress_communist_senator_count:0 "\n§r[?senators_communist]§! Senator(s) support the §rCommunist Party USA§!."
+ USA_congress_communist_rep_count:0 "\n§r[?representatives_communist]§! Representative(s) support the §rCommunist Party§!."
+ USA_congress_communist_senator_count:0 "\n§r[?senators_communist]§! Senator(s) support the §rCommunist Party§!."
  
- USA_congress_socialist_rep_count:0 "\n§R[?representatives_socialist]§! Representative(s) support the §RSocialist Party of America§!."
- USA_congress_socialist_senator_count:0 "\n§R[?senators_socialist]§! Senator(s) support the §RSocialist Party of America§!."
+ USA_congress_socialist_rep_count:0 "\n§R[?representatives_socialist]§! Representative(s) support the §RSocialist Party§!."
+ USA_congress_socialist_senator_count:0 "\n§R[?senators_socialist]§! Senator(s) support the §RSocialist Party§!."
  
  USA_congress_farmer_labor_rep_count:0 "\n§P[?representatives_farmer_labor]§! Representative(s) support the §PSocial Democratic Federation§!."
  USA_congress_farmer_labor_senator_count:0 "\n§P[?senators_farmer_labor]§! Senator(s) support the §PSocial Democratic Federation§!."
@@ -93,16 +93,19 @@
  mut_exclude:0 "Negotiating with some factions is not mutually exclusive."
  
  ### Negotiation decisions
+ USA_force_pass_bill_debug:0 "§RDEBUG§! - Force current bill to pass"
+ 
  USA_talk_with_communists:0 "Negotiate with the £GFX_cpusa_texticon §rCommunists§!"
+ negotiate_some_communist_support:0 "We will negotiate the support of around [?average_boost_communist|%0G] of the undecided §rCommunist§! members of §YCongress§!."
  USA_talk_with_socialists:0 "Negotiate with the £GFX_spa_texticon §RSocialists§!"
- negotiate_some_socialist_support:0 "We will negotiate the support of some §RSocialist§! members of Congress."
+ negotiate_some_socialist_support:0 "We will negotiate the support of around [?average_boost_socialist|%0G] of the undecided §RSocialist§! members of §YCongress§!."
  USA_talk_with_farmer_labor:0 "Negotiate with Farmer-Labor"
  USA_talk_with_republicans:0 "Negotiate with the £GFX_rep_texticon §7Republicans§!"
- negotiate_some_republican_support:0 "We will negotiate the support of some §7Republican§! members of Congress."
+ negotiate_some_republican_support:0 "We will negotiate the support of around [?average_boost_republican|%0G] of the undecided §7Republican§! members of Congress."
  USA_talk_with_democrats:0 "Negotiate with the £GFX_dem_texticon §3Democrats§!"
- negotiate_some_democrat_support:0 "We will negotiate the support of some §3Democratic§! members of Congress."
+ negotiate_some_democrat_support:0 "We will negotiate the support of around [?average_boost_democrat|%0G] of the undecided §3Democratic§! members of Congress."
  USA_talk_with_fascists:0 "Negotiate with the £GFX_afp_texticon §gCommonwealthers§!"
- negotiate_some_fascist_support:0 "We will negotiate the support of some §gCommonwealth§! members of Congress."
+ negotiate_some_fascist_support:0 "We will negotiate the support of around [?average_boost_fascist|%0G] of the undecided §gCommonwealth§! members of Congress."
  
  communists_talking:0 "The Communists are willing to negotiate."
  communists_fully_support:0 "The Communists don't fully support this bill."

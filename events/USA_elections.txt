@@ -511,6 +511,13 @@ country_event = { #hold the election
 			
 			USA_hold_senate_election = yes
 			USA_recalc_house = yes
+			
+			if = {
+				limit = {
+					check_variable = { bill_id > 0 }
+				}
+				USA_clamp_bill_election = yes
+			}
 		}
 	}
 
@@ -577,6 +584,13 @@ country_event = { #Hold Class II election
 			
 			USA_hold_senate_election = yes
 			USA_recalc_house = yes
+			
+			if = {
+				limit = {
+					check_variable = { bill_id > 0 }
+				}
+				USA_clamp_bill_election = yes
+			}
 		}
 	}
 
@@ -643,6 +657,13 @@ country_event = { #Hold Class III election
 			
 			USA_hold_senate_election = yes
 			USA_recalc_house = yes
+			
+			if = {
+				limit = {
+					check_variable = { bill_id > 0 }
+				}
+				USA_clamp_bill_election = yes
+			}
 		}
 	}
 

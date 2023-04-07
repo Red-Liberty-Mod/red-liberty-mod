@@ -19,6 +19,9 @@ add_namespace = demo_ser
 add_namespace = demo_bul
 add_namespace = demo_man
 add_namespace = demo_aus
+add_namespace = demo_nzl
+add_namespace = demo_ukr
+add_namespace = demo_ven
 
 add_namespace = demo_usa_jap_peace
 add_namespace = demo_jap_usa_war
@@ -642,6 +645,17 @@ country_event = { # vienna uprising - september 19, 1936
 			set_country_flag = libertarian_socialism_coalition
 			set_country_flag = social_democracy_coalition
 			
+			diplomatic_relation = {
+				country = SER
+				relation = military_access
+				active = no
+			}
+			diplomatic_relation = {
+				country = ALB
+				relation = guarantee
+				active = no
+			}
+			
 			country_event = {
 				id = demo_ahe.3
 				days = 7
@@ -755,6 +769,9 @@ country_event = { # september constitution - september 26, 1936
 				days = 6
 			}
 		}
+		
+		set_global_flag = austrian_civil_war_started
+		
 		random_other_country = {
 			limit = { is_ai = yes }
 			news_event = { id = demo_ahe.4 hours = 6 }
@@ -781,6 +798,12 @@ news_event = { # september constitution - news
 			USA = {
 				setup_austrian_collapse_conflict = yes
 				set_country_flag = may_send_volunteers_to_AHE
+			}
+			AHE = {
+				setup_austrian_collapse_conflict = yes
+			}
+			AUS = {
+				setup_austrian_collapse_conflict = yes
 			}
 		}
 	}
@@ -810,13 +833,13 @@ country_event = { # royalists form govt
 		AHE = {
 			add_timed_idea = {
 				idea = AHE_winter
-				days = 90
+				days = 120
 			}
 		}
 		AUS = {
 			add_timed_idea = {
-				idea = AHE_winter
-				days = 90
+				idea = AUS_winter
+				days = 120
 			}
 		}
 	}
@@ -906,13 +929,14 @@ country_event = { # rom-hun war
 		ROM = {
 			set_autonomy = {
 				target = TRS
-				autonomous_state = autonomy_RL_protectorate
+				autonomous_state = autonomy_RL_nominal_puppet
 			}
 			
 			remove_ideas = {
 				ROM_german_dominance
 				ROM_treaty_of_bucharest
 			}
+			country_lock_all_division_template = no
 			
 			load_oob = ROM_danubian_war
 		}
@@ -997,7 +1021,7 @@ country_event = { # slovaks form govt
 
 	option = {
 		name = demo_ahe.12.a
-		AHE_setup_SLO = yes
+		HUN_setup_SLO = yes
 		SLO = {
 			country_event = { # slovak invasion
 				id = demo_ahe.16
@@ -1020,26 +1044,15 @@ country_event = { # poland and ukraine occupations
 
 	option = {
 		name = demo_ahe.13.a
-		72 = {
-			set_state_owner_to = POL
-			set_state_controller_to = POL
-			set_demilitarized_zone = no
-		}
 		88 = {
 			set_state_owner_to = POL
 			set_state_controller_to = POL
+			add_core_of = POL
+			remove_core_of = AHE
 			set_demilitarized_zone = no
 		}
-		89 = {
-			set_state_owner_to = UKR
-			set_state_controller_to = UKR
-			set_demilitarized_zone = no
-		}
-		91 = {
-			set_state_owner_to = UKR
-			set_state_controller_to = UKR
-			set_demilitarized_zone = no
-		}
+		
+		AHE_setup_WUK = yes
 	}
 }
 
@@ -1203,7 +1216,7 @@ country_event = { # soviet-state war
 			}
 		}
 		add_named_threat = { 
-			threat = 25
+			threat = 10
 			name = SOV_RUS_civil_war
 		}
 		hidden_effect = {
@@ -1351,14 +1364,12 @@ country_event = {
 				SOV_tsarist_captives
 			}
 		}
-		USA = {
-			country_event = {
-				id = demo_sov.4
-				days = 35
-			}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_sov.4 hours = 6 }
 		}
 		ai_chance = {
-			base = 4
+			base = 3
 		}
 	}
 	
@@ -1378,14 +1389,12 @@ country_event = {
 				SOV_tsarist_captives
 			}
 		}
-		USA = {
-			country_event = {
-				id = demo_sov.5
-				days = 35
-			}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_sov.5 hours = 6 }
 		}
 		ai_chance = {
-			base = 5
+			base = 3
 		}
 	}
 	
@@ -1405,14 +1414,12 @@ country_event = {
 				SOV_tsarist_captives
 			}
 		}
-		USA = {
-			country_event = {
-				id = demo_sov.6
-				days = 35
-			}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_sov.6 hours = 6 }
 		}
 		ai_chance = {
-			base = 1
+			base = 4
 		}
 	}
 }
@@ -1441,7 +1448,7 @@ country_event = { #
 	}
 }
 
-country_event = { # trotskyists expelled from cpusa
+news_event = { # industrialists victory
 	id = demo_sov.4
 	title = demo_sov.4.title
 	desc = demo_sov.4.desc
@@ -1452,14 +1459,10 @@ country_event = { # trotskyists expelled from cpusa
 
 	option = {
 		name = demo_sov.4.a
-		USA = {
-			recruit_character = USA_max_shachtman
-			recruit_character = USA_martin_abern
-		}
 	}
 }
 
-country_event = { # technocrat takeover of cpusa
+news_event = { # left communist victory
 	id = demo_sov.5
 	title = demo_sov.5.title
 	desc = demo_sov.5.desc
@@ -1473,7 +1476,7 @@ country_event = { # technocrat takeover of cpusa
 	}
 }
 
-country_event = { # flynn takes over cpusa
+news_event = { # democratic victory
 	id = demo_sov.6
 	title = demo_sov.6.title
 	desc = demo_sov.6.desc
@@ -1600,6 +1603,46 @@ country_event = { # 1937 election
 		}
 		ai_chance = {
 			base = 7
+		}
+	}
+}
+
+country_event = { # annex transylvania
+	id = demo_rom.2
+	title = demo_rom.2.title
+	desc = demo_rom.2.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	option = {
+		name = demo_rom.2.a
+		ROM = {
+			annex_country = {
+				target = TRS
+			}
+		}
+	}
+}
+
+country_event = { # war with transylvania
+	id = demo_rom.3
+	title = demo_rom.3.title
+	desc = demo_rom.3.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	option = {
+		name = demo_rom.3.a
+		ROM = {
+			end_puppet = TRS
+			declare_war_on = {
+				target = TRS
+				type = annex_everything
+			}
 		}
 	}
 }
@@ -2714,6 +2757,11 @@ country_event = {
 			}
 		}
 	}
+	
+	option = {
+		name = demo_jap_chi_war.2.b
+		add_political_power = -50
+	}
 }
 
 country_event = {
@@ -3195,6 +3243,14 @@ country_event = {
 		FNG = {
 			drop_cosmetic_tag = yes
 			set_cosmetic_tag = FNG_manchu_republic
+			
+			set_politics = {
+				ruling_party = far_right_authoritarianism
+			}
+			add_popularity = {
+				ideology = far_right_authoritarianism
+				popularity = 0.07
+			}
 		}
 		
 		random_other_country = {
@@ -3378,3 +3434,277 @@ country_event = {
 		}
 	}
 }
+
+country_event = {
+	id = demo_nzl.1
+	title = demo_nzl.1.title
+	desc = demo_nzl.1.desc
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			set_party_name = {
+				ideology = market_libertarianism
+				long_name = NZL_national_party_long
+				name = NZL_national_party
+			}
+			set_party_name = {
+				ideology = national_conservatism
+				long_name = NZL_national_party_long
+				name = NZL_national_party
+			}
+		}
+	}
+	
+	option = {
+		name = demo_nzl.1.a
+		ai_chance = {
+			base = 64
+		}
+	}
+
+	option = {
+		name = demo_nzl.1.b
+		set_politics = {
+			ruling_party = market_libertarianism
+			elections_allowed = yes
+			last_election = "1938.10.15"
+			election_frequency = 48
+		}
+		ai_chance = {
+			base = 33
+		}
+	}
+}
+
+country_event = {
+	id = demo_nzl.2
+	title = demo_nzl.2.title
+	desc = demo_nzl.2.desc
+	
+	trigger = {
+		has_government = social_democracy
+	}
+	
+	is_triggered_only = yes
+
+	option = {
+		name = demo_nzl.2.a
+		kill_country_leader = yes
+		remove_ideas = NZL_disunited_government
+		set_party_name = {
+			ideology = libertarian_socialism
+			long_name = NZL_democratic_labour_party_long
+			name = NZL_democratic_labour_party
+		}
+		add_popularity = {
+			ideology = libertarian_socialism
+			popularity = -0.07
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+	
+	option = {
+		name = demo_nzl.2.a
+		kill_country_leader = yes
+		set_politics = {
+			ruling_party = libertarian_socialism
+			elections_allowed = yes
+			last_election = "1938.10.15"
+			election_frequency = 48
+		}
+		remove_ideas = NZL_disunited_government
+		ai_chance = {
+			base = 50
+		}
+	}
+}
+
+country_event = {
+	id = demo_ukr.1
+	title = demo_ukr.1.title
+	desc = demo_ukr.1.desc
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = demo_ukr.1.a
+		country_event = {
+			id = demo_ukr.2
+			days = 10
+			93 = {
+				set_demilitarized_zone = yes
+			}
+			192 = {
+				set_demilitarized_zone = yes
+			}
+			201 = {
+				set_demilitarized_zone = yes
+			}
+			226 = {
+				set_demilitarized_zone = yes
+			}
+			902 = {
+				set_demilitarized_zone = yes
+			}
+		}
+		ai_chance = {
+			base = 90
+		}
+	}
+
+	option = {
+		name = demo_ukr.1.b
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+country_event = { # ukrainian revolution
+	id = demo_ukr.2
+	title = demo_ukr.2.title
+	desc = demo_ukr.2.desc
+	
+	is_triggered_only = yes
+	
+	option = { # succeeds
+		name = demo_ukr.2.a
+		UKR = {
+			set_politics = {
+				ruling_party = libertarian_socialism
+				last_election = "1936.1.1"
+				election_frequency = 48
+				elections_allowed = no
+			}
+			remove_ideas = UKR_unpopular_govt
+			leave_faction = yes
+			
+			country_event = {
+				id = demo_ukr.4
+				days = 14
+			}
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_ukr.3 hours = 6 }
+		}
+		ai_chance = {
+			base = 90
+		}
+	}
+	
+	option = { # fails
+		name = demo_ukr.2.b
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+news_event = {
+	id = demo_ukr.3
+	title = demo_ukr.3.title
+	desc = demo_ukr.3.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = demo_ukr.3.a
+	}
+}
+
+country_event = { # ukrainian revolution - aftermath
+	id = demo_ukr.4
+	title = demo_ukr.4.title
+	desc = demo_ukr.4.desc
+	
+	is_triggered_only = yes
+	
+	option = { # rejoins pakt
+		name = demo_ukr.4.a
+		GER = {
+			add_to_faction = UKR
+		}
+		ai_chance = {
+			base = 64
+		}
+	}
+	
+	option = { # german-ukrainian war
+		name = demo_ukr.4.b
+		GER = {
+			declare_war_on = {
+				target = UKR
+				type = annex_everything
+			}
+		}
+		ai_chance = {
+			base = 33
+		}
+	}
+}
+
+country_event = { # venezuelan revolution
+	id = demo_ven.1
+	title = demo_ven.1.title
+	desc = demo_ven.1.desc
+	
+	is_triggered_only = yes
+	
+	option = { # succeeds
+		name = demo_ven.1.a
+		VEN = {
+			set_politics = {
+				ruling_party = proletarian_dictatorship
+			}
+		}
+		if = {
+			limit = {
+				UOB = {
+					exists = yes
+				}
+			}
+			UOB = {
+				add_to_faction = VEN
+			}
+			ARG = {
+				add_to_faction = COL
+			}
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_ven.2 hours = 6 }
+		}
+		ai_chance = {
+			base = 90
+		}
+	}
+	
+	option = { # fails
+		name = demo_ven.2.a
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+news_event = {
+	id = demo_ven.2
+	title = demo_ven.2.title
+	desc = demo_ven.2.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = demo_ven.2.a
+	}
+}
+

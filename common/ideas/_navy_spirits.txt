@@ -5,7 +5,7 @@ ideas = {
 			ledger = navy
 			available = { has_naval_academy = yes }
 			modifier = {
-				naval_doctrine_cost_factor = -0.05
+				naval_doctrine_cost_factor = -0.1
 			}
 			ai_will_do = {
 				factor = 1
@@ -223,11 +223,11 @@ ideas = {
 				factor = 1
 			}
 		}
-		#big_gun_club_spirit = {
-		#	modifier = {
-		#		ship_hull_heavy_design_cost_factor = -0.6
-		#	}
-		#}
+		big_gun_club_spirit = {
+			modifier = {
+				ship_hull_heavy_design_cost_factor = -0.6
+			}
+		}
 		aviation_enthusiasts_spirit = {
 			ledger = navy
 			research_bonus = {
@@ -240,11 +240,11 @@ ideas = {
 				factor = 1
 			}
 		}
-		#cruiser_warfare_spirit = {
-		#	modifier = {
-		#		ship_hull_cruiser_design_cost_factor = -0.6
-		#	}
-		#}
+		cruiser_warfare_spirit = {
+			modifier = {
+				ship_hull_cruiser_design_cost_factor = -0.6
+			}
+		}
 		#wolfpacks_spirit = {
 		#	modifier = {
 		#		ship_hull_submarine_design_cost_factor = -0.6
@@ -303,11 +303,12 @@ ideas = {
 				
 			}
 			research_bonus = {
-				bb_tech = 0.20
-				ca_tech = 0.20 
+				
 			}
 			modifier = {
-				ship_hull_heavy_design_cost_factor = -0.6
+				navy_max_range_factor = 0.05
+				naval_has_potf_in_combat_attack = 0.05
+				naval_has_potf_in_combat_defense = 0.05
 			}
 			ai_will_do = {
 				factor = 1.5
@@ -322,10 +323,11 @@ ideas = {
 				
 			}
 			research_bonus = {
-				ss_tech = 0.20
+				
 			}
 			modifier = {
-				ship_hull_submarine_design_cost_factor = -0.6
+				naval_torpedo_screen_penetration_factor = 0.05
+				naval_detection = 0.05
 			}
 			ai_will_do = {
 				factor = 1.5
@@ -340,10 +342,11 @@ ideas = {
 				
 			}
 			research_bonus = {
-				cv_tech = 0.20
+				
 			}
 			modifier = {
-				ship_hull_carrier_design_cost_factor = -0.6
+				naval_speed_factor = 0.05
+				strike_force_movement_org_loss = -0.05
 			}
 			ai_will_do = {
 				factor = 1.5

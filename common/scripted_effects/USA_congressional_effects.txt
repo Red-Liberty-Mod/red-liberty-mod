@@ -235,7 +235,7 @@ USA_union_representation_act_setup = { # union rep act
 	set_country_flag = USA_communist_discussing
 	set_country_flag = USA_socialist_discussing
 	set_country_flag = USA_democrat_discussing
-	set_country_flag - USA_republican_discussing
+	set_country_flag = USA_republican_discussing
 	
 	set_variable = { USA_communist_bill_support = 1 }
 	set_variable = { USA_socialist_bill_support = 0.9 }
@@ -1115,6 +1115,71 @@ USA_bill_clear = {
 	clear_variable = USA_bill_strength
 }
 
+USA_communist_support_house_eventless = {
+	custom_effect_tooltip = negotiate_some_communist_support
+	
+	hidden_effect = {
+		
+		### find how many reps are available to flip ###
+		set_temp_variable = { max_new_support = representatives_communist }
+		subtract_from_temp_variable = { max_new_support = communist_supporting_reps }
+		
+		log = "[GetDateText]: [Root.GetName]: max_new_support: [?max_new_support]"
+		
+		multiply_temp_variable = { max_new_support = average_boost_communist }
+		log = "[GetDateText]: [Root.GetName]: max_new_support ([?max_new_support])*average_boost_communist ([?average_boost_communist]): [?max_new_support]"
+		
+		round_temp_variable = max_new_support
+		
+		add_to_variable = { communist_supporting_reps = max_new_support }
+		add_to_variable = { representatives_support = max_new_support }
+		
+		clamp_variable = {
+			var = communist_supporting_reps
+			min = 0
+			max = representatives_communist
+		}
+	}
+	
+	set_country_flag = communists_negotiated
+}
+
+USA_communist_support_senate_eventless = {
+	custom_effect_tooltip = negotiate_some_communist_support
+	
+	hidden_effect = {
+		
+		### find how many senators are available to flip ###
+		set_temp_variable = { max_new_support = senators_communist }
+		subtract_from_temp_variable = { max_new_support = communist_supporting_senators }
+		
+		log = "[GetDateText]: [Root.GetName]: max_new_support: [?max_new_support]"
+		
+		multiply_temp_variable = { max_new_support = average_boost_communist }
+		round_temp_variable = max_new_support
+		
+		log = "[GetDateText]: [Root.GetName]: max_new_support*average_boost_communist: [?max_new_support]"
+		
+		if = {
+			limit = {
+				check_variable = { max_new_support < 1 }
+			}
+			set_temp_variable = { max_new_support = 1 }
+		}
+		
+		add_to_variable = { communist_supporting_senators = max_new_support }
+		add_to_variable = { senators_support = max_new_support }
+		
+		clamp_variable = {
+			var = communist_supporting_senators
+			min = 0
+			max = senators_communist
+		}
+	}
+	
+	set_country_flag = communists_negotiated
+}
+
 USA_socialist_support_house_eventless = {
 	custom_effect_tooltip = negotiate_some_socialist_support
 	
@@ -1373,6 +1438,34 @@ USA_fascist_support_senate_eventless = {
 	}
 	
 	set_country_flag = fascists_negotiated
+}
+
+USA_clamp_bill_election = {
+	if = {
+		limit = {
+			has_government = libertarian_socialism
+		}
+		add_to_variable = { socialist_supporting_senators = socialist_change }
+		
+		USA_bill_add_up_support = yes
+	}
+}
+
+USA_bill_add_up_support = {
+	
+	clear_variable = senators_support
+	add_to_variable = { senators_support = communist_supporting_senators }
+	add_to_variable = { senators_support = socialist_supporting_senators }
+	add_to_variable = { senators_support = republican_supporting_senators }
+	add_to_variable = { senators_support = democrat_supporting_senators }
+	add_to_variable = { senators_support = fascist_supporting_senators }
+	
+	clear_variable = representatives_support
+	add_to_variable = { representatives_support = communist_supporting_reps }
+	add_to_variable = { representatives_support = socialist_supporting_reps }
+	add_to_variable = { representatives_support = republican_supporting_reps }
+	add_to_variable = { representatives_support = democrat_supporting_reps }
+	add_to_variable = { representatives_support = fascist_supporting_reps }
 }
 
 USA_calc_unity_bonus = {

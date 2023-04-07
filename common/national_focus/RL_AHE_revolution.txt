@@ -1,0 +1,198 @@
+shared_focus = {
+    id = AHE_the_austrian_revolution
+	icon = GFX_AHE_the_austrian_revolution
+	
+    x = 8
+	y = 0
+	
+	cost = 1
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_form_local_councils
+	icon = GFX_AHE_form_local_councils
+	
+    x = -1
+	y = 1
+	
+	cost = 2
+	relative_position_id = AHE_the_austrian_revolution
+	prerequisite = { focus = AHE_the_austrian_revolution }
+    completion_reward = {
+        remove_ideas = AHE_inept_legislature
+		if = {
+			limit = {
+				NOT = {
+					has_global_flag = austrian_civil_war_started
+				}
+			}
+			custom_effect_tooltip = AHE_effect_before_war_tt
+			add_political_power = 100
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_seize_factories
+	icon = GFX_AHE_seize_factories
+	
+    x = 1
+	y = 1
+	
+	cost = 2
+	relative_position_id = AHE_the_austrian_revolution
+	prerequisite = { focus = AHE_the_austrian_revolution }
+    completion_reward = {
+        remove_ideas = AHE_german_dependence
+		if = {
+			limit = {
+				NOT = {
+					has_global_flag = austrian_civil_war_started
+				}
+			}
+			custom_effect_tooltip = AHE_effect_before_war_tt
+			4 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_disband_army
+	icon = GFX_AHE_disband_army
+	
+    x = 3
+	y = 1
+	
+	cost = 2
+	relative_position_id = AHE_the_austrian_revolution
+	prerequisite = { focus = AHE_the_austrian_revolution }
+    completion_reward = {
+        remove_ideas = AHE_incompetent_military
+		if = {
+			limit = {
+				NOT = {
+					has_global_flag = austrian_civil_war_started
+				}
+			}
+			custom_effect_tooltip = AHE_effect_before_war_tt
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = 5000
+				producer = AHE
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_september_constitution
+	icon = GFX_AHE_september_constitution
+	
+    x = 0
+	y = 2
+	
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = focus_will_be_bypassed_tt
+			always = no
+		}
+	}
+	
+	cost = 3
+	relative_position_id = AHE_the_austrian_revolution
+	prerequisite = { focus = AHE_the_austrian_revolution }
+    completion_reward = {
+        remove_ideas = AHE_doomed_empire
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_political_reform
+	icon = GFX_AHE_political_reform
+	
+    x = -9
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_september_constitution
+	prerequisite = { focus = AHE_september_constitution }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_war_economy
+	icon = GFX_AHE_war_economy
+	
+    x = 0
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_september_constitution
+	prerequisite = { focus = AHE_september_constitution }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_volkswehr
+	icon = GFX_AHE_volkswehr
+	
+    x = 9
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_september_constitution
+	prerequisite = { focus = AHE_september_constitution }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
