@@ -124,6 +124,13 @@ shared_focus = {
 	prerequisite = { focus = FRA_preparing_the_party_congress }
 	mutually_exclusive = { focus = FRA_party_for_the_nation }
 	
+	completion_reward = {
+		add_popularity = {
+			ideology = proletarian_dictatorship
+			popularity = 0.05
+		}
+	}
+	
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
 	}
@@ -140,6 +147,13 @@ shared_focus = {
 	prerequisite = { focus = FRA_preparing_the_party_congress }
 	prerequisite = { focus = FRA_implement_racial_equality }
 	mutually_exclusive = { focus = FRA_party_for_the_masses }
+	
+	completion_reward = {
+		add_popularity = {
+			ideology = revolutionary_autocracy
+			popularity = 0.05
+		}
+	}
 	
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
@@ -162,6 +176,11 @@ shared_focus = {
 	
 	completion_reward = {
 		set_cosmetic_tag = FRA_socialist_republic
+		set_party_name = {
+			ideology = revolutionary_autocracy
+			long_name = FRA_pcf_party_long
+			name = FRA_pcf_party
+		}
 	}
 	
 	search_filters = {
@@ -171,7 +190,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_national_communism_rises
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_national_communism_rises
 	
 	x = -4
 	y = 1
@@ -188,7 +207,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_the_jacobin_faction
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_the_jacobin_faction
 	
 	x = 4
 	y = 1
@@ -204,8 +223,8 @@ shared_focus = {
 }
 
 shared_focus = {
-	id = FRA_workerspeasantsunite
-	icon = GFX_goal_unknown
+	id = FRA_workers_and_peasants_unite
+	icon = GFX_FRA_workers_and_peasants_unite
 	
 	x = -1
 	y = 1
@@ -221,7 +240,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_loyalty_to_the_motherland
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_loyalty_to_the_fatherland
 	
 	x = 1
 	y = 1
@@ -237,15 +256,15 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_review_the_economic_policy
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_review_of_economic_policy
 	
 	x = 0
 	y = 1
 	cost = 2
 	
-	relative_position_id = FRA_workerspeasantsunite
+	relative_position_id = FRA_workers_and_peasants_unite
 	prerequisite = {
-		focus = FRA_workerspeasantsunite
+		focus = FRA_workers_and_peasants_unite
 		focus = FRA_loyalty_to_the_motherland
 	}
 	
@@ -256,7 +275,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_expand_the_communist_youth_movement
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_expand_the_communist_youth_movement
 	
 	x = 0
 	y = 1
@@ -264,7 +283,7 @@ shared_focus = {
 	
 	relative_position_id = FRA_loyalty_to_the_motherland
 	prerequisite = {
-		focus = FRA_workerspeasantsunite
+		focus = FRA_workers_and_peasants_unite
 		focus = FRA_loyalty_to_the_motherland
 	}
 	
@@ -275,7 +294,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_the_deat_model
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_the_deat_model
 	
 	x = -1
 	y = 1
@@ -297,7 +316,7 @@ shared_focus = {
 	
 shared_focus = {
 	id = FRA_the_leninist_model
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_the_leninist_model
 	
 	x = -1
 	y = 1
@@ -314,7 +333,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_hire_technocrats
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_hire_technocrats
 	
 	x = 0
 	y = 1
@@ -330,7 +349,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_denounce_soviet_influence
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_denounce_soviet_influence
 	
 	x = 0
 	y = 1
@@ -346,7 +365,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_red_legionaries
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_red_legionaries
 	
 	x = -1
 	y = 1
@@ -362,7 +381,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_in_the_embrace_of_national_communism
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_in_the_embrace_of_national_communism
 	
 	x = 1
 	y = 1
@@ -381,7 +400,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_age_of_the_french_proletariat
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_age_of_the_french_proletariat
 	
 	x = 1
 	y = 1
@@ -397,7 +416,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_vive_la_france
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_vive_la_france
 	
 	x = 1
 	y = 1
@@ -414,7 +433,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_beyond_the_paris_revolution
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_beyond_the_paris_revolution
 	
 	x = -1
 	y = 1
@@ -431,7 +450,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_anticapitalist_terror
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_anti_capitalist_terror
 	
 	x = 4
 	y = 1
@@ -443,6 +462,10 @@ shared_focus = {
 		focus = FRA_the_jacobin_faction
 	}
 	
+	completion_reward = {
+		remove_ideas = FRA_rising_right
+	}
+	
 	search_filters = {
 		FOCUS_FILTER_INDUSTRY
 	}
@@ -450,7 +473,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_socialist_reconstruction
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_socialist_reconstruction
 	
 	x = 0
 	y = 1
@@ -459,6 +482,10 @@ shared_focus = {
 	relative_position_id = FRA_anticapitalist_terror
 	prerequisite = { focus = FRA_anticapitalist_terror }
 	
+	completion_reward = {
+		FRA_improve_govt_stability = yes
+	}
+	
 	search_filters = {
 		FOCUS_FILTER_INDUSTRY
 	}
@@ -466,7 +493,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_planned_economy
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_planned_economy
 	
 	x = -1
 	y = 1
@@ -475,6 +502,13 @@ shared_focus = {
 	relative_position_id = FRA_socialist_reconstruction
 	prerequisite = { focus = FRA_socialist_reconstruction }
 	
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = FRA_pop_crisis_1
+			add_idea = FRA_pop_crisis_2
+		}
+	}
+	
 	search_filters = {
 		FOCUS_FILTER_INDUSTRY
 	}
@@ -482,7 +516,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_revolutionary_communes
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_revolutionary_communes
 	
 	x = 1
 	y = 1
@@ -498,7 +532,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_teaching_the_masses
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_teaching_the_masses
 	
 	x = 0
 	y = 1
@@ -517,7 +551,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_collectivization
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_collectivization
 	
 	x = 0
 	y = 1
@@ -536,7 +570,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_socialist_economy_strengthened
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_socialist_economy_strengthened
 	
 	x = 1
 	y = 1
@@ -553,7 +587,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_alliance_with_blum
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_alliance_with_blum
 	
 	x = -1
 	y = 1
@@ -573,7 +607,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_mass_wealth_redistribution
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_mass_wealth_redistribution
 	
 	x = 1
 	y = 1
@@ -589,7 +623,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_behead_the_old
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_behead_the_old
 	
 	x = 1
 	y = 1
@@ -606,7 +640,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_upholding_lenin
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_upholding_lenin
 	
 	x = -1
 	y = 1
@@ -622,7 +656,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_avantgardism
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_avant_gardism
 	
 	x = 1
 	y = 1
@@ -638,7 +672,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_approach_moscow
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_approach_moscow
 	
 	x = 0
 	y = 1
@@ -656,7 +690,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_denounce_soviet_revisionism
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_denounce_soviet_revisionism
 	
 	x = 0
 	y = 1
@@ -674,7 +708,7 @@ shared_focus = {
 	
 shared_focus = {
 	id = FRA_our_cult_of_reason
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_our_cult_of_reason
 	
 	x = 0
 	y = 1
@@ -693,7 +727,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_caira
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_ca_ira
 	
 	x = 0
 	y = 1
@@ -712,7 +746,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_communism_with_french_characteristics
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_communism_with_french_characteristics
 	
 	x = 1
 	y = 1
