@@ -23,6 +23,11 @@ shared_focus = {
 	relative_position_id = FRA_the_revolution_has_arrived
 	prerequisite = { focus = FRA_the_revolution_has_arrived }
 	
+	completion_reward = {
+		remove_anarchism_coalition = yes
+		add_stability = 0.05
+	}
+	
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
 	}
@@ -199,6 +204,10 @@ shared_focus = {
 	relative_position_id = FRA_the_pcf_national_congress
 	prerequisite = { focus = FRA_the_pcf_national_congress }
 	mutually_exclusive = { focus = FRA_the_jacobin_faction }
+	
+	completion_reward = {
+		promote_character = FRA_jacques_doriot
+	}
 	
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
@@ -463,7 +472,10 @@ shared_focus = {
 	}
 	
 	completion_reward = {
-		remove_ideas = FRA_rising_right
+		swap_ideas = {
+			remove_idea = FRA_anti_socialist_resistance_1
+			add_idea = FRA_anti_socialist_resistance_2
+		}
 	}
 	
 	search_filters = {

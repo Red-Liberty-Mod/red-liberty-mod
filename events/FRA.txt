@@ -1,5 +1,6 @@
 add_namespace = france
 add_namespace = france_far_right
+add_namespace = france_far_left
 add_namespace = france_rocque
 
 country_event = {
@@ -153,5 +154,46 @@ country_event = { # Colonial Development
 
 	option = {
 		name = france_rocque.2.a
+	}
+}
+
+### Far Left ###
+
+country_event = {
+	id = france_far_left.1
+	title = france_far_left.1.title
+	desc = france_far_left.1.desc
+	picture = GFX_report_event_revolution
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = france_far_left.1.a
+		set_politics = {
+			ruling_party = revolutionary_autocracy
+			elections_allowed = no
+			last_election = "1936.4.8"
+			election_frequency = 48
+		}
+		hidden_effect = {
+			reset_coalition = yes
+			add_anarchism_coalition = yes
+			add_revsoc_coalition = yes
+			
+			swap_ideas = {
+				remove_idea = FRA_rising_right
+				add_idea = FRA_anti_socialist_resistance_1
+			}
+			end_puppet = MOR
+			end_puppet = TUN
+			end_puppet = SYR
+			
+			TUN = {
+				drop_cosmetic_tag = yes
+			}
+		}
+		load_focus_tree = FRA_communist_tree
 	}
 }

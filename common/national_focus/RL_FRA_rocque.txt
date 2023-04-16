@@ -1271,144 +1271,162 @@ shared_focus = {
 	}
 }
 
-	shared_focus = {
-		id = FRA_the_italians
-		icon = GFX_FRA_the_italians
-		
-		x = -1
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_maintain_flexibility
-		prerequisite = { focus = FRA_maintain_flexibility }
-		
-		completion_reward = {
+shared_focus = {
+	id = FRA_the_italians
+	icon = GFX_FRA_the_italians
+	
+	x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_maintain_flexibility
+	prerequisite = { focus = FRA_maintain_flexibility }
+	
+	completion_reward = {
+		add_opinion_modifier = {
+			target = ITA
+			modifier = FRA_diplomatic_overtures
+		}
+		ITA = {
 			add_opinion_modifier = {
-				target = ITA
+				target = FRA
 				modifier = FRA_diplomatic_overtures
 			}
-			ITA = {
-				add_opinion_modifier = {
-					target = FRA
-					modifier = FRA_diplomatic_overtures
-				}
-			}
-		}
-		
-		search_filters = {
-			FOCUS_FILTER_ANNEXATION
 		}
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
 
-	shared_focus = {
-		id = FRA_latin_entente
-		icon = GFX_FRA_latin_entente
-		
-		x = 1
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_the_spanish
-		prerequisite = { focus = FRA_the_spanish }
-		prerequisite = { focus = FRA_the_italians }
-		
-		completion_reward = {
-			ITA = {
-				
-			}
-			SPR = {
-				
-			}
-			custom_effect_tooltip = effect_if_they_accept_tt
-			effect_tooltip = {
-				set_faction_name = FRA_latin_entente
-				add_to_faction = SPR
-				add_to_faction = ITA
-			}
+shared_focus = {
+	id = FRA_latin_entente
+	icon = GFX_FRA_latin_entente
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_the_spanish
+	prerequisite = { focus = FRA_the_spanish }
+	prerequisite = { focus = FRA_the_italians }
+	
+	completion_reward = {
+		ITA = {
+			
 		}
-		
-		search_filters = {
-			FOCUS_FILTER_ANNEXATION
+		SPR = {
+			
+		}
+		custom_effect_tooltip = effect_if_they_accept_tt
+		effect_tooltip = {
+			create_faction = FRA_latin_entente
+			add_to_faction = SPR
+			add_to_faction = ITA
 		}
 	}
-
-	shared_focus = {
-		id = FRA_the_turks
-		icon = GFX_FRA_the_turks
-		
-		x = 0
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_latin_entente
-		prerequisite = { focus = FRA_latin_entente }
-		
-		completion_reward = {
-			TUR = {
-				
-			}
-			custom_effect_tooltip = effect_if_they_accept_tt
-			effect_tooltip = {
-				add_to_faction = TUR
-			}
-		}
-		
-		search_filters = {
-			FOCUS_FILTER_ANNEXATION
-		}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
 	}
+}
 
-	shared_focus = {
-		id = FRA_the_russians
-		icon = GFX_FRA_the_russians
+shared_focus = {
+	id = FRA_monetary_union
+	icon = GFX_FRA_monetary_union
+	
+	x = -2
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_latin_entente
+	prerequisite = { focus = FRA_latin_entente }
+	
+	completion_reward = {
 		
-		x = 1
-		y = 1
-		cost = 4
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_intel_sharing
+	icon = GFX_FRA_intel_sharing
+	
+	x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_latin_entente
+	prerequisite = { focus = FRA_latin_entente }
+	
+	completion_reward = {
 		
-		available = {
-			has_global_flag = russian_civil_war_ended
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_the_russians
+	icon = GFX_FRA_the_russians
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	available = {
+		has_global_flag = russian_civil_war_ended
+	}
+	
+	relative_position_id = FRA_maintain_flexibility
+	prerequisite = {
+		focus = FRA_maintain_flexibility
+		focus = FRA_reaffirm_old_ties
+	}
+	
+	completion_reward = {
+		add_opinion_modifier = {
+			target = RUS
+			modifier = FRA_diplomatic_overtures
 		}
-		
-		relative_position_id = FRA_maintain_flexibility
-		prerequisite = {
-			focus = FRA_maintain_flexibility
-			focus = FRA_reaffirm_old_ties
-		}
-		
-		completion_reward = {
+		RUS = {
 			add_opinion_modifier = {
-				target = RUS
+				target = FRA
 				modifier = FRA_diplomatic_overtures
 			}
-			RUS = {
-				add_opinion_modifier = {
-					target = FRA
-					modifier = FRA_diplomatic_overtures
-				}
-			}
-		}
-		
-		search_filters = {
-			FOCUS_FILTER_ANNEXATION
 		}
 	}
+	
+	search_filters = {
+		
+	}
+}
 
-	shared_focus = {
-		id = FRA_dividing_up_europe
-		icon = GFX_goal_unknown
-		
-		x = 0
-		y = 2
-		cost = 4
-		
-		relative_position_id = FRA_the_russians
-		prerequisite = { focus = FRA_the_russians }
-		
-		search_filters = {
-			FOCUS_FILTER_ANNEXATION
-		}
+shared_focus = {
+	id = FRA_dividing_up_europe
+	icon = GFX_goal_unknown
+	
+	x = 0
+	y = 2
+	cost = 4
+	
+	relative_position_id = FRA_the_russians
+	prerequisite = { focus = FRA_the_russians }
+	
+	completion_reward = {
+		custom_effect_tooltip = FRA_dividing_up_europe_tt
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
 
 	shared_focus = {
 		id = FRA_renew_our_friendship_with_the_british
@@ -1438,44 +1456,45 @@ shared_focus = {
 		}
 	}
 
-	shared_focus = {
-		id = FRA_align_the_dutch
-		icon = GFX_FRA_align_the_dutch
-		
-		x = -1
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_renew_our_friendship_with_the_british
-		prerequisite = { focus = FRA_renew_our_friendship_with_the_british }
-		completion_reward = {
+shared_focus = {
+	id = FRA_align_the_dutch
+	icon = GFX_FRA_align_the_dutch
+	
+	x = 2
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_reaffirm_old_ties
+	prerequisite = { focus = FRA_reaffirm_old_ties }
+	
+	completion_reward = {
+		add_opinion_modifier = {
+			target = HOL
+			modifier = FRA_diplomatic_overtures
+		}
+		HOL = {
 			add_opinion_modifier = {
-				target = HOL
+				target = FRA
 				modifier = FRA_diplomatic_overtures
 			}
-			HOL = {
-				add_opinion_modifier = {
-					target = FRA
-					modifier = FRA_diplomatic_overtures
-				}
-			}
-		}
-		
-		search_filters = {
-			FOCUS_FILTER_ANNEXATION
 		}
 	}
+	
+	search_filters = {
+		
+	}
+}
 
 	shared_focus = {
 		id = FRA_align_the_norwegians
 		icon = GFX_FRA_align_the_norwegians
 		
-		x = 1
+		x = 4
 		y = 1
 		cost = 4
 		
-		relative_position_id = FRA_renew_our_friendship_with_the_british
-		prerequisite = { focus = FRA_renew_our_friendship_with_the_british }
+		relative_position_id = FRA_reaffirm_old_ties
+		prerequisite = { focus = FRA_reaffirm_old_ties }
 		completion_reward = {
 			add_opinion_modifier = {
 				target = NOR
@@ -1490,40 +1509,81 @@ shared_focus = {
 		}
 		
 		search_filters = {
-			FOCUS_FILTER_ANNEXATION
+			
 		}
 	}
 
-	shared_focus = {
-		id = FRA_a_second_entente_cordiale
-		icon = GFX_FRA_second_entente_cordiale
-		x = 30
-		y = 10
-		cost = 4
-		
-		prerequisite = { focus = FRA_align_the_dutch }
-		prerequisite = { focus = FRA_align_the_norwegians }
-		completion_reward = {
+shared_focus = {
+	id = FRA_a_second_entente_cordiale
+	icon = GFX_FRA_second_entente_cordiale
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_renew_our_friendship_with_the_british
+	prerequisite = { focus = FRA_renew_our_friendship_with_the_british }
+	prerequisite = {
+		focus = FRA_align_the_dutch
+		focus = FRA_align_the_norwegians
+	}
+	
+	completion_reward = {
+		hidden_effect = {
 			ENG = {
-				
-			}
-			custom_effect_tooltip = effect_if_they_accept_tt
-			effect_tooltip = {
 				set_faction_name = FRA_second_entente
-				add_to_faction = ENG
+				add_to_faction = FRA
+			}
+			random_other_country = {
+				limit = { is_ai = yes }
+				news_event = { id = worldnews_faction.1 hours = 6 }
 			}
 		}
-		
-		search_filters = {
-			FOCUS_FILTER_ANNEXATION
+		custom_effect_tooltip = effect_if_they_accept_tt
+		effect_tooltip = {
+			ENG = {
+				set_faction_name = FRA_second_entente
+				add_to_faction = FRA
+			}
 		}
 	}
+	
+	search_filters = {
+		
+	}
+}
+
+shared_focus = {
+	id = FRA_the_turks
+	icon = GFX_FRA_the_turks
+	
+	x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_a_second_entente_cordiale
+	prerequisite = { focus = FRA_a_second_entente_cordiale }
+	
+	completion_reward = {
+		TUR = {
+			
+		}
+		custom_effect_tooltip = effect_if_they_accept_tt
+		effect_tooltip = {
+			add_to_faction = TUR
+		}
+	}
+	
+	search_filters = {
+		
+	}
+}
 
 shared_focus = {
 	id = FRA_natural_borders_of_france
 	icon = GFX_FRA_natural_borders_of_france
 	
-	x = 4
+	x = 8
 	y = 1
 	cost = 4
 	
@@ -1689,7 +1749,7 @@ shared_focus = {
 	id = FRA_austrohungarian_collapse
 	icon = GFX_FRA_austro_hungarian_collapse
 	
-	x = 7
+	x = 11
 	y = 1
 	cost = 4
 	

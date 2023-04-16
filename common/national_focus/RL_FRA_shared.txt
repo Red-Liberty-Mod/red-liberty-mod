@@ -100,7 +100,9 @@ shared_focus = {
 	y = 1
 	cost = 4
 	
-	dynamic = yes
+	allow_branch = {
+		has_government = authoritarian_democracy
+	}
 	
 	relative_position_id = FRA_veteran_brigades
 	prerequisite = { focus = FRA_veteran_brigades }
@@ -162,39 +164,49 @@ shared_focus = {
 	}
 }
 
-	shared_focus = {
-		id = FRA_no_more_mutiny
-		icon = GFX_FRA_no_more_mutiny
-		
-		x = 1
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_integrate_the_dispos
-		prerequisite = { focus = FRA_integrate_the_dispos }
-		prerequisite = { focus = FRA_old_dogs_new_tricks }
-		
-		search_filters = {
-			FOCUS_FILTER_MANPOWER
-		}
+shared_focus = {
+	id = FRA_no_more_mutiny
+	icon = GFX_FRA_no_more_mutiny
+	
+	x = 0
+	y = 2
+	cost = 4
+	
+	relative_position_id = FRA_veteran_brigades
+	prerequisite = { focus = FRA_veteran_brigades }
+	
+	search_filters = {
+		FOCUS_FILTER_MANPOWER
 	}
+}
 
-	shared_focus = {
-		id = FRA_bulwark_against_degeneracy
-		icon = GFX_FRA_bulwark_against_degeneracy
+shared_focus = {
+	id = FRA_bulwark_against_degeneracy
+	icon = GFX_FRA_bulwark_against_degeneracy
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_old_dogs_new_tricks
+	prerequisite = { focus = FRA_old_dogs_new_tricks }
+	prerequisite = { focus = FRA_reeducational_service }
 		
-		x = 1
-		y = 1
-		cost = 4
+	completion_reward = {
+		custom_effect_tooltip = FRA_bulwark_against_degeneracy_tt
 		
-		relative_position_id = FRA_old_dogs_new_tricks
-		prerequisite = { focus = FRA_old_dogs_new_tricks }
-		prerequisite = { focus = FRA_reeducational_service }
-		
-		search_filters = {
-			FOCUS_FILTER_MANPOWER
+		hidden_effect = {
+			create_intelligence_agency = {
+				name = "Direction Générale de la Sûreté Nationale"
+				icon = GFX_intelligence_agency_logo_fra
+			}
 		}
 	}
+		
+	search_filters = {
+		
+	}
+}
 	
 	shared_focus = {
 		id = FRA_artillery_modernization
