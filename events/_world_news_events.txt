@@ -1,5 +1,6 @@
 add_namespace = worldnews
 add_namespace = worldnews_war
+add_namespace = worldnews_faction
 add_namespace = worldnews_southamerica
 add_namespace = worldnews_ww2
 
@@ -313,5 +314,33 @@ news_event = { # ww2 event - russia vs germany
 		trigger = {
 			original_tag = SOV
 		}
+	}
+}
+
+news_event = { # entente cordiale
+	id = worldnews_faction.1
+	title = worldnews_faction.1.title
+	desc = worldnews_faction.1.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = worldnews_faction.1.a
+	}
+}
+
+news_event = { # latin entente
+	id = worldnews_faction.2
+	title = worldnews_faction.2.title
+	desc = worldnews_faction.2.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = worldnews_faction.2.a
 	}
 }
