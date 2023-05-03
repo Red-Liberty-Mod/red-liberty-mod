@@ -413,6 +413,33 @@ USA_debug_category = {
 		}
 	}
 	
+	debug_boost_socialist = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			tag = USA
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = USA
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			every_owned_state = {
+				limit = { can_have_elections_in_state = yes }
+				add_to_variable = { socialist_popularity = 0.05 }
+			}
+		}
+	}
+	
 	debug_boost_afp = {
 	
 		icon = generic_political_discourse
