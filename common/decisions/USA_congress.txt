@@ -1338,4 +1338,28 @@ USA_congress = {
 			add_political_power = -50
 		}
 	}
+	
+	USA_philippines_independence_timer = {
+		
+		available = {
+			has_war_with_major = yes
+		}
+		
+		activation = {
+			always = yes
+		}
+		is_good = yes
+		
+		days_mission_timeout = 3005
+		
+		timeout_effect = {
+			USA = {
+				end_puppet = PHI
+			}
+		}
+		
+		cancel_effect = {
+            set_country_flag = USA_philippines_independence_timer_cancelled
+        }
+	}
 }
