@@ -1279,14 +1279,12 @@ country_event = {
 				SOV_tsarist_captives
 			}
 		}
-		USA = {
-			country_event = {
-				id = demo_sov.4
-				days = 35
-			}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_sov.4 hours = 6 }
 		}
 		ai_chance = {
-			base = 4
+			base = 3
 		}
 	}
 	
@@ -1306,14 +1304,12 @@ country_event = {
 				SOV_tsarist_captives
 			}
 		}
-		USA = {
-			country_event = {
-				id = demo_sov.5
-				days = 35
-			}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_sov.5 hours = 6 }
 		}
 		ai_chance = {
-			base = 5
+			base = 3
 		}
 	}
 	
@@ -1333,14 +1329,12 @@ country_event = {
 				SOV_tsarist_captives
 			}
 		}
-		USA = {
-			country_event = {
-				id = demo_sov.6
-				days = 35
-			}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_sov.6 hours = 6 }
 		}
 		ai_chance = {
-			base = 1
+			base = 4
 		}
 	}
 }
@@ -1369,7 +1363,7 @@ country_event = { #
 	}
 }
 
-country_event = { # trotskyists expelled from cpusa
+news_event = { # industrialists victory
 	id = demo_sov.4
 	title = demo_sov.4.title
 	desc = demo_sov.4.desc
@@ -1380,14 +1374,10 @@ country_event = { # trotskyists expelled from cpusa
 
 	option = {
 		name = demo_sov.4.a
-		USA = {
-			recruit_character = USA_max_shachtman
-			recruit_character = USA_martin_abern
-		}
 	}
 }
 
-country_event = { # technocrat takeover of cpusa
+news_event = { # left communist victory
 	id = demo_sov.5
 	title = demo_sov.5.title
 	desc = demo_sov.5.desc
@@ -1401,7 +1391,7 @@ country_event = { # technocrat takeover of cpusa
 	}
 }
 
-country_event = { # flynn takes over cpusa
+news_event = { # democratic victory
 	id = demo_sov.6
 	title = demo_sov.6.title
 	desc = demo_sov.6.desc
@@ -3460,6 +3450,8 @@ country_event = {
 		country_event = {
 			id = demo_ukr.2
 			days = 10
+		}
+		hidden_effect = {
 			93 = {
 				set_demilitarized_zone = yes
 			}

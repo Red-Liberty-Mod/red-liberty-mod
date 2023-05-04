@@ -1,18 +1,12 @@
 ﻿capital = 276
 
 oob = "CAN"
-if = {
-	limit = { has_dlc = "Man the Guns" }
-	set_naval_oob = "CAN_naval_mtg"
-	else = {
-		set_naval_oob = "CAN_naval_legacy"
-	}
-}
 
 set_research_slots = 3
-set_country_flag = monroe_doctrine
 set_stability = 0.8
 set_war_support = 0.1
+
+add_to_tech_sharing_group = commonwealth_research
 
 # Starting tech
 set_technology = {
@@ -26,35 +20,24 @@ set_technology = {
 
 if = {
 	limit = {
-		has_dlc = "No Step Back"
+		has_dlc_nsb = yes
 	}
 	set_technology = {
 		gwtank_chassis = 1
 		basic_light_tank_chassis = 1
 	}
-}
-else_if = {
-	limit = {
-		NOT = {
-			has_dlc = "No Step Back"
+	else = {
+		set_technology = {
+			gwtank = 1
+			basic_light_tank = 1
 		}
-	}
-	set_technology = {
-		gwtank = 1
-		basic_light_tank = 1
 	}
 }
 
 if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
-	set_technology = {
-		early_destroyer = 1
-		early_light_cruiser = 1
-		transport = 1
+	limit = {
+		has_dlc_mtg = yes
 	}
-}
-else_if = {
-	limit = { has_dlc = "Man the Guns" }
 	set_technology = {
 		basic_naval_mines = 1
 		early_ship_hull_light = 1
@@ -65,6 +48,34 @@ else_if = {
 		basic_torpedo = 1
 		basic_depth_charges = 1
 		mtg_transport = 1
+	}
+	set_naval_oob = "CAN_naval_mtg"
+	else = {
+		set_technology = {
+			early_destroyer = 1
+			early_light_cruiser = 1
+			transport = 1
+		}
+		set_naval_oob = "CAN_naval_legacy"
+	}
+}
+
+if = {
+	limit = {
+		has_dlc_bba = yes
+	}
+	set_technology = {
+		aa_lmg = 1
+		engines_1 = 1
+		aircraft_construction = 1
+		iw_small_airframe = 1
+	}
+	else = {
+		set_technology = {
+			early_fighter = 1
+			naval_bomber1 = 1
+			early_bomber = 1
+		}
 	}
 }
 
@@ -101,83 +112,17 @@ add_ideas = {
 set_convoys = 100
 set_stability = 0.75
 
-create_country_leader = {
-	name = "Timothy Buck"
-	desc = ""
-	picture = ""
-	expire = "1947.1.1"
-	ideology = leninism_subtype
-	traits = {
-		
-	}
-}
+### LEADERS ###
+recruit_character = CAN_timothy_buck
+recruit_character = CAN_james_woodsworth
+recruit_character = CAN_william_lyon_mackenzie_king
+recruit_character = CAN_louis_st_laurent
+recruit_character = CAN_richard_bennett
+recruit_character = CAN_john_blackmore
+recruit_character = CAN_charles_crate
+recruit_character = CAN_adrien_arcand
 
-create_country_leader = {
-	name = "James Shaver Woodsworth"
-	desc = ""
-	picture = ""
-	expire = "1947.1.1"
-	ideology = social_democracy_subtype
-	traits = {
-		
-	}
-}
-
-create_country_leader = {
-	name = "William Lyon Mackenzie King"
-	desc = "POLITICS_MACKENZIE_KING_DESC"
-	picture = "gfx/leaders/CAN/Portrait_CAN_Mackenzie_King.png"
-	expire = "1947.1.1"
-	ideology = progressive_liberalism_subtype
-	traits = {
-		
-	}
-}
-
-create_country_leader = {
-	name = "Richard Bedford Bennett"
-	desc = ""
-	picture = ""
-	expire = "1947.1.1"
-	ideology = national_conservatism_subtype
-	traits = {
-		
-	}
-}
-
-create_country_leader = {
-	name = "John Horne Blackmore"
-	desc = ""
-	picture = ""
-	expire = "1947.1.1"
-	ideology = social_credit_subtype
-	traits = {
-		
-	}
-}
-
-create_country_leader = {
-	name = "Charles Brandle Crate"
-	desc = ""
-	picture = ""
-	expire = "1947.1.1"
-	ideology = far_right_authoritarianism_subtype
-	traits = {
-		
-	}
-}
-
-create_country_leader = {
-	name = "Adrien Arcand"
-	desc = ""
-	picture = ""
-	expire = "1947.1.1"
-	ideology = fascism_subtype
-	traits = {
-		
-	}
-}
-
+### GENERALS ###
 create_corps_commander = {
 	name = "Thomas Victor Anderson"
 	portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_land_3.dds"
@@ -315,44 +260,6 @@ if = {
 			fixed_ship_torpedo_slot = ship_torpedo_1
 			mid_1_custom_slot = ship_torpedo_1
 			rear_1_custom_slot = empty
-		}
-	}
-}
-
-# 1939 Start #
-1939.1.1 = {
-	if = {
-		limit = { not = { has_dlc = "Man the Guns" } }
-		# Ship variants #
-		create_equipment_variant = {
-			name = "Athabaskan Class"
-			type = destroyer_1
-			upgrades = {
-				ship_torpedo_upgrade = 2
-				destroyer_engine_upgrade = 2
-				ship_ASW_upgrade = 2
-				ship_anti_air_upgrade = 2
-			}
-		}
-	}
-	if = {
-		limit = { has_dlc = "Man the Guns" }
-		# Destroyers #
-		create_equipment_variant = {
-			name = "Iroquois Class"
-			type = ship_hull_light_2
-			name_group = CAN_DD_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_battery_slot = ship_light_battery_2
-				fixed_ship_anti_air_slot = ship_anti_air_1
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-				fixed_ship_radar_slot = ship_sonar_2
-				fixed_ship_engine_slot = light_ship_engine_2
-				fixed_ship_torpedo_slot = ship_torpedo_1
-				mid_1_custom_slot = ship_light_battery_2
-				rear_1_custom_slot = ship_depth_charge_2
-			}
 		}
 	}
 }
