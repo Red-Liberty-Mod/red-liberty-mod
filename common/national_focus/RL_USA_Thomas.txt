@@ -722,6 +722,136 @@ shared_focus = {
 	prerequisite = { focus = USA_federal_aid_commission }
 	prerequisite = { focus = USA_strengthen_labor_regs }
     completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 20
+	}
+	
+	search_filters = { FOCUS_FILTER_USA_CONGRESS }
+}
+
+shared_focus = {
+    id = USA_close_ranks
+	icon = GFX_USA_close_ranks
+	
+    x = -2
+	y = 2
+	
+	available = {
+		NOT = {
+			has_completed_focus = USA_social_security_act
+		}
+	}
+	
+	cost = 5
+	relative_position_id = USA_of_poverty
+	prerequisite = { focus = USA_of_poverty }
+    completion_reward = {
+        custom_effect_tooltip = USA_close_ranks_tt
+		custom_effect_tooltip = USA_bill_additional_effect_tt
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = { FOCUS_FILTER_USA_CONGRESS }
+}
+
+shared_focus = {
+    id = USA_promise_fiscal_restraint
+	icon = GFX_USA_promise_fiscal_restraint
+	
+    x = -1
+	y = 1
+	
+	available = {
+		NOT = {
+			has_completed_focus = USA_social_security_act
+		}
+	}
+	
+	cost = 5
+	relative_position_id = USA_of_poverty
+	prerequisite = { focus = USA_of_poverty }
+    completion_reward = {
+        custom_effect_tooltip = USA_promise_fiscal_restraint_tt
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = { FOCUS_FILTER_USA_CONGRESS }
+}
+
+shared_focus = {
+    id = USA_southern_exceptions
+	icon = GFX_USA_southern_exceptions
+	
+    x = 1
+	y = 1
+	
+	available = {
+		NOT = {
+			has_completed_focus = USA_social_security_act
+		}
+	}
+	
+	cost = 5
+	relative_position_id = USA_of_poverty
+	prerequisite = { focus = USA_of_poverty }
+    completion_reward = {
+        custom_effect_tooltip = USA_southern_exceptions_tt
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = { FOCUS_FILTER_USA_CONGRESS }
+}
+
+shared_focus = {
+    id = USA_hall_of_the_bayou_king
+	icon = GFX_USA_hall_of_the_bayou_king
+	
+    x = 2
+	y = 2
+	
+	available = {
+		NOT = {
+			has_completed_focus = USA_social_security_act
+		}
+	}
+	
+	cost = 5
+	relative_position_id = USA_of_poverty
+	prerequisite = { focus = USA_of_poverty }
+    completion_reward = {
+        custom_effect_tooltip = USA_hall_of_the_bayou_king_tt
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = { FOCUS_FILTER_USA_CONGRESS }
+}
+
+shared_focus = {
+    id = USA_social_security_act
+	icon = GFX_USA_social_security_act
+	
+    x = 0
+	y = 3
+	
+	cost = 5
+	relative_position_id = USA_of_poverty
+	prerequisite = { focus = USA_of_poverty }
+    completion_reward = {
         unlock_decision_tooltip = start_USA_social_security_act
 		custom_effect_tooltip = USA_bill_pass_req_tt
 		effect_tooltip = {
@@ -729,10 +859,21 @@ shared_focus = {
 				USA_safety_net_barebones
 			}
 		}
+		if = {
+			limit = {
+				has_completed_focus = USA_close_ranks
+			}
+			effect_tooltip = {
+				add_to_variable = {
+					USA_socialist_unity = 1
+					tooltip = USA_spa_unity_small_gain_tt
+				}
+			}
+		}
     }
 	
 	ai_will_do = {
-		factor = 20
+		factor = 10
 	}
 	
 	search_filters = { FOCUS_FILTER_USA_CONGRESS }

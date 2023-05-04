@@ -30,8 +30,7 @@
 #                                      where you choose the historical division name.
 #           3rd argument is optional = An URL preferably pointing to the WIKI. It's a future feature that is not currently working in
 #                                      the current game version.
-SOV_INF_01 = 
-{
+SOV_INF_01 = {
 	name = "Rifle Division"
 
 	for_countries = { SOV }
@@ -1551,13 +1550,7 @@ SOV_CAV_02 = #COSSACK CAVALRY
 	for_countries = { SOV UKR }
 
 	can_use = {
-		OR = {
-			AND = {
-				tag = SOV
-				has_completed_focus = SOV_restore_cossack_units
-			}
-			tag = UKR
-		}
+		always = no
 	}
 
 	division_types = { "cavalry" }
@@ -1679,13 +1672,14 @@ SOV_CAV_02 = #COSSACK CAVALRY
 	}
 }
 
-SOV_PEN_01 = 
-{
+SOV_PEN_01 = {
 	name = "Penal Units"
 
 	for_countries = { SOV }
 
-	can_use = { has_completed_focus = SOV_penal_battalions }
+	can_use = {
+	
+	}
 
 	division_types = { "infantry" }
 
@@ -1827,80 +1821,5 @@ SOV_PEN_01 =
 		127 = { "%dya Shtrafnaya Chast" }
 		128 = { "%dya Shtrafnaya Chast" }
 		129 = { "%dya Shtrafnaya Chast" }
-	}
-}
-
-SOV_INF_02 = 
-{
-	name = "Trotskyist Revolutionary Militias"
-
-	for_countries = { SOV }
-
-	can_use = { 
-		always = yes
-	}
-
-	division_types = { "infantry" }
-
-	# Number reservation system will tie to another group.
-	#link_numbering_with = { SOV_INF_01 }
-
-	fallback_name = "%dya Diviziya Narodnogo Opolcheniya"
-
-	# Names with numbers (only one number per entry). 
-	# It's okay to have gaps in numbering.
-	ordered =
-	{
-
-	}
-}
-
-SOV_INF_03 = 
-{
-	name = "Ruki"
-
-	for_countries = { SOV }
-
-	can_use = { 
-		has_completed_focus = SOV_the_eyes_fear
-		always = yes
-	}
-
-	division_types = { "infantry" }
-
-	# Number reservation system will tie to another group.
-	#link_numbering_with = { SOV_INF_01 }
-
-	fallback_name = "%dya Ruki"
-
-	# Names with numbers (only one number per entry). 
-	# It's okay to have gaps in numbering.
-	ordered =
-	{
-
-	}
-}
-
-SOV_JAP_INF = {
-	name = "Japanese Expeditionary Force"
-
-	for_countries = { SOV }
-
-	can_use = { 
-		ROOT = { has_country_flag = SOV_CSW_transfer_vladivostok_flag }
-	}
-
-	division_types = { "infantry" }
-
-	# Number reservation system will tie to another group.
-	#link_numbering_with = { SOV_INF_01 }
-
-	fallback_name = "%d Japanese Expeditionary Division"
-
-	# Names with numbers (only one number per entry). 
-	# It's okay to have gaps in numbering.
-	ordered =
-	{
-
 	}
 }
