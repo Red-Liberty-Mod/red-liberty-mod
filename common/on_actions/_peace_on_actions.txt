@@ -722,8 +722,46 @@ on_actions = {
 					set_global_flag = skip_default_capitulation
 				}
 				
-				### SECOND GREAT WAR - EASTERN FRONT ###
+				### PACIFIC WAR ###
+				else_if = {
+					limit = {
+						FROM = {
+							original_tag = JAP
+						}
+						ROOT = {
+							original_tag = USA
+						}
+					}
+					FROM = {
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
+					HAW = {
+						add_state_core = 629
+						transfer_state = 629
+						
+						set_cosmetic_tag = HAW_mandate
+					}
+					JAP = {
+						transfer_state = 630
+						transfer_state = 631
+						transfer_state = 632
+						transfer_state = 638
+						transfer_state = 642
+						transfer_state = 650
+						transfer_state = 727
+						
+						annex_country = {
+							target = PHI
+						}
+						puppet = HAW
+					}
+					set_global_flag = skip_default_capitulation
+				}
 				
+				### SECOND GREAT WAR - EASTERN FRONT ###
 				else_if = {
 					limit = {
 						FROM = {
@@ -774,7 +812,7 @@ on_actions = {
 					SOV = {
 						set_autonomy = {
 							target = BLR
-							autonomy_state = autonomy_RL_soviet_republic
+							autonomy_state = autonomy_RL_occupied_puppet
 							end_wars = yes
 						}
 					}
@@ -798,7 +836,7 @@ on_actions = {
 					SOV = {
 						set_autonomy = {
 							target = UKR
-							autonomy_state = autonomy_RL_soviet_republic
+							autonomy_state = autonomy_RL_occupied_puppet
 							end_wars = yes
 						}
 						transfer_state = 94

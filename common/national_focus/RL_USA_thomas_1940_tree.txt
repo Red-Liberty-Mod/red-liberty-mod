@@ -1,4 +1,28 @@
 shared_focus = {
+    id = USA_four_more_years
+	icon = GFX_USA_politicians_should_be_popular
+	
+    x = 8
+	y = 0
+	
+	cost = 5
+    completion_reward = {
+	   hidden_effect = {
+			every_owned_state = {
+				limit = {
+					can_have_elections_in_state = yes
+				}
+				add_to_variable = { socialist_popularity = 0.01 }
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
     id = USA_second_bill_of_rights
 	icon = GFX_USA_second_bill_of_rights
 	
@@ -6,12 +30,8 @@ shared_focus = {
 	y = 1
 	
 	cost = 5
-	relative_position_id = USA_of_poverty
-	prerequisite = {
-		#focus = USA_of_poverty
-		#focus = USA_itll_never_happen_here
-		#focus = USA_spqa
-	}
+	relative_position_id = USA_four_more_years
+	prerequisite = { focus = USA_four_more_years }
     completion_reward = {
 	   hidden_effect = {
 			every_owned_state = {
