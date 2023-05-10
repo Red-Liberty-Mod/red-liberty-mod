@@ -21,7 +21,7 @@ country_event = {
 
 country_event = { # choose a side
 	id = france.2
-	title = ""
+	title = france.2.title
 	desc = france.2.desc
 	
 	is_triggered_only = yes
@@ -29,7 +29,7 @@ country_event = { # choose a side
 	fire_only_once = yes
 
 	option = {
-		name = "A popular front is what is needed!"
+		name = france.2.a
 		set_country_flag = FRA_popular_front
 		country_event = {
 			id = france.3
@@ -42,8 +42,12 @@ country_event = { # choose a side
 	}
 	
 	option = {
-		name = "The people demand stability through a national union!"
+		name = france.2.b
 		set_country_flag = FRA_national_union
+		country_event = {
+			id = france.6
+			days = 5
+		}
 		
 		ai_chance = {
 			base = 50
@@ -79,9 +83,60 @@ country_event = { # popular front
 		set_country_flag = FRA_popular_front_found_coalition_partner
 		add_political_power = -50
 		country_event = {
-			id = france.4
+			id = france.5
 			days = 6
 		}
+	}
+}
+
+country_event = { # popular front - radicals make demands
+	id = france.4
+	title = france.4.title
+	desc = france.4.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # accept
+		name = france.4.a
+	}
+	
+	option = { # refuse
+		name = france.4.b
+	}
+}
+
+country_event = { # popular front - communists make demands
+	id = france.5
+	title = france.5.title
+	desc = france.5.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # accept
+		name = france.5.a
+	}
+	
+	option = { # refuse
+		name = france.5.b
+	}
+}
+
+country_event = { # national union
+	id = france.6
+	title = france.6.title
+	desc = france.6.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # ally the conservatives
+		name = france.6.a
+		set_country_flag = FRA_national_union_found_coalition_partner
 	}
 }
 
