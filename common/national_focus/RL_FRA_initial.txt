@@ -33,7 +33,7 @@ shared_focus = {
 			
 			if = {
 				limit = {
-					has_country_flag = FRA_popular_front_found_coalition_partner
+					has_country_flag = FRA_communists_coalition_partner
 				}
 				add_popularity = {
 					ideology = revolutionary_autocracy
@@ -52,15 +52,24 @@ shared_focus = {
 					popularity = -0.02
 				}
 				add_authsoc_coalition = yes
-				add_proglib_coalition = yes
 			}
 			else_if = {
 				limit = {
-					has_country_flag = FRA_popular_front_grand_coalition
+					has_country_flag = FRA_radicals_coalition_partner
+				}
+				add_popularity = {
+					ideology = progressive_liberalism
+					popularity = 0.03
+				}
+				add_popularity = {
+					ideology = market_libertarianism
+					popularity = -0.01
+				}
+				add_popularity = {
+					ideology = national_conservatism
+					popularity = -0.02
 				}
 				add_proglib_coalition = yes
-				add_libcon_coalition = yes
-				add_natcon_coalition = yes
 			}
 		}
 		
