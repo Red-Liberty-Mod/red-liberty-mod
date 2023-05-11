@@ -7,6 +7,28 @@ shared_focus = {
 	y = 0
 	cost = 2
 	
+	completion_reward = {
+		add_political_power = 20
+		add_stability = -0.5
+		add_popularity = {
+			ideology = national_conservatism
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = authoritarian_democracy
+			popularity = -0.18
+		}
+		add_popularity = {
+			ideology = autocratic_despotism
+			popularity = -0.03
+		}
+		add_popularity = {
+			ideology = far_right_authoritarianism
+			popularity = -0.02
+		}
+		FRA = { country_event = france_far_left.2 }
+	}
+			
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
 	}
@@ -26,6 +48,7 @@ shared_focus = {
 	completion_reward = {
 		remove_anarchism_coalition = yes
 		add_stability = 0.05
+		FRA = {country_event = france_far_left.3}
 	}
 	
 	search_filters = {
@@ -66,6 +89,15 @@ shared_focus = {
 	
 	relative_position_id = FRA_purge_the_anarchists
 	prerequisite = { focus = FRA_purge_the_anarchists }
+
+	completion_reward = {
+		FRA = {
+			annex_country = {target = FCA transfer troops = yes}
+			annex_country = {target = FWA transfer troops = yes}
+			annex_country = {target = MOR transfer troops = yes}
+			annex_country = {target = TUN transfer troops = yes}
+		}
+	}
 	
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
