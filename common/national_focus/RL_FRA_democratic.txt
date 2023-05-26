@@ -5,10 +5,34 @@ shared_focus = {
     x = 8
 	y = 0
 	
+	allow_branch = {
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+			NOT = {
+				has_completed_focus = FRA_national_union
+			}
+		}
+	}
+	
 	cost = 3
 	mutually_exclusive = { focus = FRA_national_union }
     completion_reward = {
-		
+		hidden_effect = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				mark_focus_tree_layout_dirty = yes
+			}
+		}
     }
 	
 	ai_will_do = {
@@ -23,10 +47,50 @@ shared_focus = {
     x = 16
 	y = 0
 	
+	offset = {
+		x = -8
+		y = 0
+		trigger = {
+			OR = {
+				AND = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+					has_completed_focus = FRA_national_union
+				}
+			}
+		}
+	}
+	
+	allow_branch = {
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+			NOT = {
+				has_completed_focus = FRA_popular_front
+			}
+		}
+	}
+	
 	cost = 3
 	mutually_exclusive = { focus = FRA_popular_front }
     completion_reward = {
-		
+		hidden_effect = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				mark_focus_tree_layout_dirty = yes
+			}
+		}
     }
 	
 	ai_will_do = {
@@ -110,6 +174,22 @@ shared_focus = {
 	
     x = 4
 	y = 1
+	
+	offset = {
+		x = -8
+		y = 0
+		trigger = {
+			OR = {
+				AND = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+					has_completed_focus = FRA_national_union
+				}
+			}
+		}
+	}
 	
 	cost = 3
 	relative_position_id = FRA_popular_front
@@ -882,6 +962,25 @@ shared_focus = {
 	
 	relative_position_id = FRA_enact_the_blum_viollette_proposal
 	prerequisite = { focus = FRA_enact_the_blum_viollette_proposal }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_continue_the_civilizing_mission
+	icon = GFX_goal_unknown
+	
+	x = 2
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_enact_the_blum_viollette_proposal
+	prerequisite = {
+		focus = FRA_enact_the_blum_viollette_proposal
+		focus = FRA_maintain_the_system
+	}
 	
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
