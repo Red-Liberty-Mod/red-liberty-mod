@@ -235,6 +235,13 @@ country_event = { # thomas chooses to run again
 		name = united_states.12.b
 		ai_chance = {
 			base = 3
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = USA_SPNC_1940_OUTCOME
+					option = RULE_OPTION_USA_SPNC_1940_OUTCOME_THOMAS
+				}
+			}
 		}
 	}
 }
@@ -434,8 +441,6 @@ country_event = { # shit explodes
 			832 = {
 				set_state_flag = USA_active_insurgency
 			}
-			
-			set_variable = { USA_insurgency_states = 4 }
 			
 			country_event = {
 				id = united_states_insurgency.5

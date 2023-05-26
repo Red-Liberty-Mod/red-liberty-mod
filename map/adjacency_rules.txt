@@ -90,74 +90,99 @@ adjacency_rule = {
 	offset = { -31.0 0.0 -2.0 }
 }
 
-#Øresund - (Østersøen <-> Kattegat/Skagerak/Nordsøen)
-adjacency_rule = 
-{
-	name = "DANISH_BELTS_STRAIT"
+#Øresund
+adjacency_rule = {
+	name = "ORESUND_STRAIT"
 
-	contested =
-	{
+	contested = {
 		army = no
 		navy = no
 		submarine = yes
 		trade = no
 	}
-	enemy =
-	{
+	enemy = {
 		army = no
 		navy = no
-		submarine = no
+		submarine = yes
 		trade = no
 	}
-	friend =
-	{
+	friend = {
 		army = yes
 		navy = yes
 		submarine = yes
 		trade = yes
 	}
-	neutral =
-	{
+	neutral = {
 		army = yes
 		navy = yes
 		submarine = yes
 		trade = yes
 	}
 	
-	required_provinces = { 6287 3277 3325 3260 394 }
+	required_provinces = { 6287 6345 }
 	
-	icon = 2455
-	offset = { -26 0 -13 }
+	icon = 6287
+	offset = { 4 0 8 }
+}
+
+#Storebælt
+adjacency_rule = {
+	name = "STOREBAELT_STRAIT"
+
+	contested = {
+		army = no
+		navy = no
+		submarine = yes
+		trade = no
+	}
+	enemy = {
+		army = no
+		navy = no
+		submarine = yes
+		trade = no
+	}
+	friend = {
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	neutral = {
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	
+	required_provinces = { 3260 3325 }
+	
+	icon = 3325
+	offset = { 8 0 3 }
 }
 
 #Panama Canal
-adjacency_rule = 
-{
+adjacency_rule = {
 	name = "PANAMA_CANAL"
 
-	contested =
-	{
+	contested = {
 		army = no
 		navy = no
 		submarine = no
 		trade = no
 	}
-	enemy =
-	{
+	enemy = {
 		army = no
 		navy = no
 		submarine = no
 		trade = no
 	}
-	friend =
-	{
+	friend = {
 		army = yes
 		navy = yes
 		submarine = yes
 		trade = yes
 	}
-	neutral =
-	{
+	neutral = {
 		army = no
 		navy = no
 		submarine = no
@@ -291,7 +316,7 @@ adjacency_rule = {
 	}
 	
 	required_provinces = { 6389 317 3231 }
-		
+	
 	icon = 6389
 	offset = { -6 0 0 }
 }
@@ -330,7 +355,7 @@ adjacency_rule = {
 	}
 	
 	required_provinces = { 10904 7982 4959 }
-		
+	
 	icon = 10904
 	offset = { 2 0 12 }
 }
@@ -365,7 +390,7 @@ adjacency_rule = {
 	}
 	
 	required_provinces = { 13276 13277 }
-		
+	
 	icon = 13276
 	offset = { 5 0 -1 }
 }
@@ -400,7 +425,7 @@ adjacency_rule = {
 	}
 	
 	required_provinces = { 1342 10279 }
-		
+	
 	icon = 1342
 	offset = { 4 0 -7 }
 }
@@ -435,7 +460,7 @@ adjacency_rule = {
 	}
 	
 	required_provinces = { 4159 9990 }
-		
+	
 	icon = 5681
 	offset = { 0 0 0 }
 }
@@ -470,7 +495,7 @@ adjacency_rule = {
 	}
 	
 	required_provinces = { 6979 11767 }
-		
+	
 	icon = 6979
 	offset = { 9 0 6 }
 }
