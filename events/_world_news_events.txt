@@ -186,6 +186,37 @@ news_event = { # thomas 1940 election
 	}
 }
 
+news_event = { # death of george v
+	id = worldnews.9
+	title = worldnews.9.title
+	desc = worldnews.9.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = worldnews.9.a
+		trigger = {
+			has_socialist_govt = yes
+		}
+	}
+	
+	option = {
+		name = worldnews.9.b
+		trigger = {
+			has_democratic_govt = yes
+		}
+	}
+	
+	option = {
+		name = worldnews.9.c
+		trigger = {
+			has_reactionary_govt = yes
+		}
+	}
+}
+
 news_event = { # brazilian civil war
 	id = worldnews_war.1
 	title = worldnews_war.1.title
