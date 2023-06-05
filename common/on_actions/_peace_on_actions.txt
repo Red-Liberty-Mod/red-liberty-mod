@@ -367,9 +367,16 @@ on_actions = {
 							}
 						}
 					}
-					SLO = {
-						transfer_state = 73
-						transfer_state = 664
+					if = {
+						limit = {
+							SLO = {
+								has_country_flag = declared_war_on_HUN
+							}
+						}
+						SLO = {
+							transfer_state = 73
+							transfer_state = 664
+						}
 					}
 					set_global_flag = skip_default_capitulation
 				}
