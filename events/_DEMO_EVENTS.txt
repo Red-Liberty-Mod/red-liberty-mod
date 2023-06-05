@@ -2087,6 +2087,116 @@ news_event = { # straits crisis resolved
 	}
 }
 
+country_event = { # adnan assassinated
+	id = demo_tur.5
+	title = demo_tur.5.title
+	desc = demo_tur.5.desc
+	
+	is_triggered_only = yes
+
+	option = { # fethi okyar
+		name = demo_tur.5.a
+		kill_country_leader = yes
+		
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_tur.6 hours = 6 }
+		}
+		
+		ai_chance = {
+			base = 6
+		}
+	}
+	
+	option = { # riza tefvik
+		name = demo_tur.5.b
+		kill_country_leader = yes
+		TUR = {
+			set_politics = {
+				ruling_party = social_democracy
+			}
+			add_popularity = {
+				ideology = social_democracy
+				popularity = 0.07
+			}
+		}
+		
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_tur.7 hours = 6 }
+		}
+		
+		ai_chance = {
+			base = 1
+		}
+	}
+	
+	option = { # kazim karabekir
+		name = demo_tur.5.c
+		kill_country_leader = yes
+		TUR = {
+			set_politics = {
+				ruling_party = authoritarian_democracy
+			}
+			add_popularity = {
+				ideology = authoritarian_democracy
+				popularity = 0.07
+			}
+		}
+		
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_tur.8 hours = 6 }
+		}
+		
+		ai_chance = {
+			base = 3
+		}
+	}
+}
+
+news_event = { # adnan assassinated - fethi okyar
+	id = demo_tur.6
+	title = demo_tur.6.title
+	desc = demo_tur.6.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = demo_tur.6.a
+	}
+}
+
+news_event = { # adnan assassinated - riva tefvik
+	id = demo_tur.7
+	title = demo_tur.7.title
+	desc = demo_tur.7.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = demo_tur.7.a
+	}
+}
+
+news_event = { # adnan assassinated - kazim karabekir
+	id = demo_tur.8
+	title = demo_tur.8.title
+	desc = demo_tur.8.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = demo_tur.8.a
+	}
+}
+
 country_event = {
 	id = demo_ser.1
 	title = demo_ser.1.title
