@@ -920,28 +920,6 @@ if = {
 		has_dlc = "By Blood Alone"
 	}
 	create_equipment_variant = {
-		name = "Bréguet 19 A.2" #
-		type = small_plane_scout_plane_airframe_0
-		modules = {
-			fixed_main_weapon_slot = recon_camera
-			engine_type_slot = engine_1_1x
-			special_type_slot_1 = lmg_defense_turret
-		}
-		icon = "GFX_FRA_CAS1_medium"
-		obsolete = yes
-	}
-	create_equipment_variant = {
-		name = "Bréguet 19 B.2" #
-		type = small_plane_cas_airframe_0
-		modules = {
-			fixed_main_weapon_slot = bomb_locks
-			engine_type_slot = engine_1_1x
-			special_type_slot_1 = lmg_defense_turret
-		}
-		icon = "GFX_FRA_CAS1_medium"
-		obsolete = yes
-	}
-	create_equipment_variant = {
 		name = "Nieuport-Delage NiD 62" #
 		type = small_plane_airframe_0
 		modules = {
@@ -994,6 +972,16 @@ if = {
 			special_type_slot_1 = empty
 		}
 		icon = "GFX_FRA_light_plane_2_medium"
+	}
+	create_equipment_variant = {
+		name = "Loire 46"
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = light_mg_4x
+			fixed_auxiliary_weapon_slot_1 = empty
+			engine_type_slot = engine_2_1x
+			special_type_slot_1 = empty
+		}
 	}
 	create_equipment_variant = {
 		name = "Latécoère 296" #
@@ -1050,6 +1038,18 @@ if = {
 		}
 		icon = "GFX_medium_plane_2_medium"
 	}
+	create_equipment_variant = {
+		name = "Latécoère 302"
+		type = medium_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = medium_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = empty
+			engine_type_slot = engine_1_2x
+			special_type_slot_1 = flying_boat_medium
+			special_type_slot_2 = lmg_defense_turret
+		}
+		icon = "GFX_medium_plane_2_medium"
+	}
 	
 	add_equipment_to_stockpile = {
 		type = small_plane_airframe_0
@@ -1078,13 +1078,13 @@ if = {
 	
 	add_equipment_to_stockpile = {
 		type = cv_small_plane_airframe_0
-		amount = 20
+		amount = 53
 		variant_name = "Dewoitine D.371"
 		producer = FRA
 	}
 	add_equipment_to_stockpile = {
 		type = cv_small_plane_naval_bomber_airframe_0
-		amount = 20
+		amount = 46
 		variant_name = "Levasseur PL.7"
 		producer = FRA
 	}
@@ -1093,6 +1093,12 @@ if = {
 		type = medium_plane_airframe_0
 		amount = 120
 		variant_name = "Amiot 143"
+		producer = FRA
+	}
+	add_equipment_to_stockpile = {
+		type = medium_plane_airframe_0
+		amount = 7
+		variant_name = "Latécoère 302"
 		producer = FRA
 	}
 	add_equipment_to_stockpile = {
