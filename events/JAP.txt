@@ -31,7 +31,7 @@ country_event = { # from japan to china
 	option = {
 		name = japan.2.a
 		add_popularity = {
-			ideology = market_libertarianism
+			ideology = liberal_conservatism
 			popularity = 0.02
 		}
 		add_popularity = {
@@ -55,12 +55,6 @@ country_event = { # inukai dies
 		add_stability = -0.15
 		set_country_flag = inukai_ded
 		kill_country_leader = yes
-		
-		hidden_effect = {
-			JAP_inukai_tsuyoshi = {
-				retire = yes
-			}
-		}
 		
 		add_country_leader_role = {
 			character = JAP_hirohito_showa
@@ -121,7 +115,7 @@ country_event = {
 	option = {
 		name = "Maybe the past didn’t go anywhere..."
 		add_popularity = {
-			ideology = libertarian_socialism
+			ideology = democratic_socialism
 			popularity = -0.02
 		}
 		add_popularity = {
@@ -143,7 +137,7 @@ country_event = {
 	option = {
 		name = "Sounds rosy!"
 		add_popularity = {
-			ideology = market_libertarianism
+			ideology = liberal_conservatism
 			popularity = 0.05
 		}
 	}
@@ -199,15 +193,15 @@ country_event = {
 			popularity = 0.03
 		}
 		add_popularity = {
-			ideology = market_libertarianism
+			ideology = liberal_conservatism
 			popularity = 0.02
 		}
 		
 		JAP_calc_house = yes
 		
 		clear_all_coalitions = yes
-		set_country_flag = progressive_coalition
-		set_country_flag = market_libertarian_coalition
+		add_proglib_coalition = yes
+		add_libcon_coalition = yes
 		
 		hidden_effect = {
 			JAP_hirohito_showa = {
@@ -243,8 +237,7 @@ country_event = {
 		set_country_flag = JAP_status_quo_upheld
 		complete_national_focus = JAP_status_quo
 		
-		set_country_flag = conservative_coalition
-		custom_effect_tooltip = add_conservative_coalition_tt
+		add_natcon_coalition = yes
 		
 		ai_chance = {
 			base = 33
@@ -267,7 +260,7 @@ country_event = {
 			popularity = 0.04
 		}
 		add_popularity = {
-			ideology = libertarian_socialism
+			ideology = democratic_socialism
 			popularity = 0.01
 		}
 		
@@ -425,7 +418,7 @@ country_event = {
 			popularity = 0.01
 		}
 		add_popularity = {
-			ideology = libertarian_socialism
+			ideology = democratic_socialism
 			popularity = 0.01
 		}
 		hidden_effect = {
@@ -461,7 +454,7 @@ country_event = {
 		add_natcon_coalition = yes
 		add_authdem_coalition = yes
 		add_autdes_coalition = yes
-		add_farauth_coalition = yes
+		add_ultracon_coalition = yes
 		add_fash_coalition = yes
 		
 		#load_focus_tree = JAP_nationalist_tree

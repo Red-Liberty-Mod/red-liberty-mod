@@ -6,15 +6,15 @@ GER_recalc_parliament = {
 	}
 	
 	set_variable = {
-		authsoc_mps = party_popularity@revolutionary_autocracy
+		authsoc_mps = party_popularity@vanguard_socialism
 	}
 	
 	set_variable = {
-		revsoc_mps = party_popularity@proletarian_dictatorship
+		revsoc_mps = party_popularity@revolutionary_socialism
 	}
 	
 	set_variable = {
-		demsoc_mps = party_popularity@libertarian_socialism
+		demsoc_mps = party_popularity@democratic_socialism
 	}
 	
 	set_variable = {
@@ -26,7 +26,7 @@ GER_recalc_parliament = {
 	}
 	
 	set_variable = {
-		national_liberal_mps = party_popularity@market_libertarianism
+		national_liberal_mps = party_popularity@liberal_conservatism
 	}
 	
 	set_variable = {
@@ -38,11 +38,11 @@ GER_recalc_parliament = {
 	}
 	
 	set_variable = {
-		despotist_mps = party_popularity@autocratic_despotism
+		despotist_mps = party_popularity@despotism
 	}
 	
 	set_variable = {
-		far_auth_mps = party_popularity@far_right_authoritarianism
+		far_auth_mps = party_popularity@ultraconservatism
 	}
 	
 	set_variable = {
@@ -154,7 +154,7 @@ GER_recalc_parliament = {
 		}
 		if = {
 			limit = {
-				has_government = revolutionary_autocracy
+				has_government = vanguard_socialism
 			}
 			add_to_variable = {
 				authsoc_mps = GER_old_mps_total
@@ -162,7 +162,7 @@ GER_recalc_parliament = {
 		}
 		else_if = {
 			limit = {
-				has_government = proletarian_dictatorship
+				has_government = revolutionary_socialism
 			}
 			add_to_variable = {
 				revsoc_mps = GER_old_mps_total
@@ -170,7 +170,7 @@ GER_recalc_parliament = {
 		}
 		else_if = {
 			limit = {
-				has_government = libertarian_socialism
+				has_government = democratic_socialism
 			}
 			add_to_variable = {
 				demsoc_mps = GER_old_mps_total
@@ -194,7 +194,7 @@ GER_recalc_parliament = {
 		}
 		else_if = {
 			limit = {
-				has_government = market_libertarianism
+				has_government = liberal_conservatism
 			}
 			add_to_variable = {
 				national_liberal_mps = GER_old_mps_total
@@ -223,7 +223,7 @@ GER_recalc_parliament = {
 		else_if = {
 			limit = {
 				OR = {
-					has_government = autocratic_despotism
+					has_government = despotism
 				}
 			}
 			add_to_variable = {
@@ -233,7 +233,7 @@ GER_recalc_parliament = {
 		else_if = {
 			limit = {
 				OR = {
-					has_government = far_right_authoritarianism
+					has_government = ultraconservatism
 				}
 			}
 			add_to_variable = {

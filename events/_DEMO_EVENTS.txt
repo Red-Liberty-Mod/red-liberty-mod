@@ -43,13 +43,13 @@ country_event = { # vorbeck takes power
 		name = demo_ger.1.a
 		GER = {
 			set_politics = {
-				ruling_party = far_right_authoritarianism
+				ruling_party = ultraconservatism
 				last_election = "1936.1.1"
 				election_frequency = 48
 				elections_allowed = no
 			}
 			add_popularity = {
-				ideology = far_right_authoritarianism
+				ideology = ultraconservatism
 				popularity = 0.05
 			}
 		}
@@ -346,7 +346,7 @@ country_event = {
 		}
 		ASA = {
 			set_politics = {
-				ruling_party = autocratic_despotism
+				ruling_party = despotism
 				last_election = "1936.1.1"
 				election_frequency = 48
 				elections_allowed = no
@@ -635,14 +635,14 @@ country_event = { # vienna uprising - september 19, 1936
 			clear_all_coalitions = yes
 		
 			set_politics = {
-				ruling_party = proletarian_dictatorship
+				ruling_party = revolutionary_socialism
 				elections_allowed = no
 				last_election = "1932.10.8"
 				election_frequency = 48
 			}
-			set_country_flag = rev_autocracy_coalition
-			set_country_flag = proletarian_coalition
-			set_country_flag = libertarian_socialism_coalition
+			set_country_flag = vanguard_socialism_coalition
+			set_country_flag = revolutionary_socialism_coalition
+			set_country_flag = democratic_socialism_coalition
 			set_country_flag = social_democracy_coalition
 			
 			diplomatic_relation = {
@@ -714,17 +714,17 @@ country_event = { # september constitution - september 26, 1936
 			}
 			
 			set_popularities = {
-				insurrectionary_anarchism = 0
-				revolutionary_autocracy = 12
-				proletarian_dictatorship = 42
-				libertarian_socialism = 19
+				anarchism = 0
+				vanguard_socialism = 12
+				revolutionary_socialism = 42
+				democratic_socialism = 19
 				social_democracy = 23
 				progressive_liberalism = 4
-				market_libertarianism = 0
+				liberal_conservatism = 0
 				national_conservatism = 0
 				authoritarian_democracy = 0
-				autocratic_despotism = 0
-				far_right_authoritarianism = 0
+				despotism = 0
+				ultraconservatism = 0
 				fascism = 0
 			}
 
@@ -1242,9 +1242,9 @@ news_event = { # soviet-state war news
 		name = demo_rus.3.a
 		trigger = {
 			OR = {
-				has_government = revolutionary_autocracy
-				has_government = proletarian_dictatorship
-				has_government = libertarian_socialism
+				has_government = vanguard_socialism
+				has_government = revolutionary_socialism
+				has_government = democratic_socialism
 			}
 		}
 	}
@@ -1254,9 +1254,9 @@ news_event = { # soviet-state war news
 		trigger = {
 			NOT = {
 				OR = {
-					has_government = revolutionary_autocracy
-					has_government = proletarian_dictatorship
-					has_government = libertarian_socialism
+					has_government = vanguard_socialism
+					has_government = revolutionary_socialism
+					has_government = democratic_socialism
 				}
 			}
 		}
@@ -1275,9 +1275,9 @@ news_event = { # soviet victory
 		name = demo_rus.4.a
 		trigger = {
 			OR = {
-				has_government = revolutionary_autocracy
-				has_government = proletarian_dictatorship
-				has_government = libertarian_socialism
+				has_government = vanguard_socialism
+				has_government = revolutionary_socialism
+				has_government = democratic_socialism
 			}
 		}
 	}
@@ -1287,9 +1287,9 @@ news_event = { # soviet victory
 		trigger = {
 			NOT = {
 				OR = {
-					has_government = revolutionary_autocracy
-					has_government = proletarian_dictatorship
-					has_government = libertarian_socialism
+					has_government = vanguard_socialism
+					has_government = revolutionary_socialism
+					has_government = democratic_socialism
 				}
 			}
 		}
@@ -1309,9 +1309,9 @@ news_event = { # white victory
 		name = demo_rus.5.a
 		trigger = {
 			OR = {
-				has_government = revolutionary_autocracy
-				has_government = proletarian_dictatorship
-				has_government = libertarian_socialism
+				has_government = vanguard_socialism
+				has_government = revolutionary_socialism
+				has_government = democratic_socialism
 			}
 		}
 	}
@@ -1321,9 +1321,9 @@ news_event = { # white victory
 		trigger = {
 			NOT = {
 				OR = {
-					has_government = revolutionary_autocracy
-					has_government = proletarian_dictatorship
-					has_government = libertarian_socialism
+					has_government = vanguard_socialism
+					has_government = revolutionary_socialism
+					has_government = democratic_socialism
 				}
 			}
 		}
@@ -1377,7 +1377,7 @@ country_event = {
 		name = ""
 		SOV = {
 			set_politics = {
-				ruling_party = proletarian_dictatorship
+				ruling_party = revolutionary_socialism
 				elections_allowed = no
 				last_election = "1936.10.8"
 				election_frequency = 48
@@ -1402,7 +1402,7 @@ country_event = {
 		name = ""
 		SOV = {
 			set_politics = {
-				ruling_party = libertarian_socialism
+				ruling_party = democratic_socialism
 				elections_allowed = no
 				last_election = "1936.10.8"
 				election_frequency = 48
@@ -1820,7 +1820,7 @@ country_event = { # brazil politics
 		name = demo_bra.4.b
 		BRA = {
 			set_politics = {
-				ruling_party = far_right_authoritarianism
+				ruling_party = ultraconservatism
 				elections_allowed = no
 				last_election = "1936.1.1"
 				election_frequency = 48
@@ -1936,7 +1936,7 @@ country_event = { # brazil politics
 			set_cosmetic_tag = UOB_federative_republic
 		
 			set_politics = {
-				ruling_party = libertarian_socialism
+				ruling_party = democratic_socialism
 				elections_allowed = no
 				last_election = "1936.1.1"
 				election_frequency = 48
@@ -1953,7 +1953,7 @@ country_event = { # brazil politics
 			drop_cosmetic_tag = yes
 		
 			set_politics = {
-				ruling_party = revolutionary_autocracy
+				ruling_party = vanguard_socialism
 				elections_allowed = no
 				last_election = "1936.1.1"
 				election_frequency = 48
@@ -2271,7 +2271,7 @@ country_event = {
 		name = demo_saf.1.b
 		SAF = {
 			set_politics = {
-				ruling_party = market_libertarianism
+				ruling_party = liberal_conservatism
 				elections_allowed = yes
 				last_election = "1938.5.18"
 				election_frequency = 48
@@ -2281,7 +2281,7 @@ country_event = {
 				popularity = 0.02
 			}
 			add_popularity = {
-				ideology = market_libertarianism
+				ideology = liberal_conservatism
 				popularity = 0.07
 			}
 		}
@@ -2605,7 +2605,7 @@ country_event = {
 		name = demo_cen.3.a
 		CEN = {
 			set_politics = {
-				ruling_party = proletarian_dictatorship
+				ruling_party = revolutionary_socialism
 				elections_allowed = yes
 				last_election = "1938.5.1"
 				election_frequency = 48
@@ -3255,7 +3255,7 @@ country_event = {
 	option = {
 		name = "demo_usa_jap_peace.16.a"
 		add_popularity = {
-	        ideology = libertarian_socialism
+	        ideology = democratic_socialism
 	        popularity = 0.05
         }
 	}
@@ -3276,7 +3276,7 @@ country_event = {
 		USA = {
           add_war_support = -0.15
 		  add_popularity = {
-	        ideology = libertarian_socialism
+	        ideology = democratic_socialism
 	        popularity = -0.04
           }
 		}
@@ -3331,10 +3331,10 @@ country_event = {
 			set_cosmetic_tag = FNG_manchu_republic
 			
 			set_politics = {
-				ruling_party = far_right_authoritarianism
+				ruling_party = ultraconservatism
 			}
 			add_popularity = {
-				ideology = far_right_authoritarianism
+				ideology = ultraconservatism
 				popularity = 0.07
 			}
 		}
@@ -3380,7 +3380,7 @@ country_event = {
 		}
 		FNG = {
 			set_politics = {
-				ruling_party = autocratic_despotism
+				ruling_party = despotism
 				last_election = "1936.1.1"
 				election_frequency = 48
 				elections_allowed = no
@@ -3531,7 +3531,7 @@ country_event = {
 	immediate = {
 		hidden_effect = {
 			set_party_name = {
-				ideology = market_libertarianism
+				ideology = liberal_conservatism
 				long_name = NZL_national_party_long
 				name = NZL_national_party
 			}
@@ -3553,7 +3553,7 @@ country_event = {
 	option = {
 		name = demo_nzl.1.b
 		set_politics = {
-			ruling_party = market_libertarianism
+			ruling_party = liberal_conservatism
 			elections_allowed = yes
 			last_election = "1938.10.15"
 			election_frequency = 48
@@ -3580,12 +3580,12 @@ country_event = {
 		kill_country_leader = yes
 		remove_ideas = NZL_disunited_government
 		set_party_name = {
-			ideology = libertarian_socialism
+			ideology = democratic_socialism
 			long_name = NZL_democratic_labour_party_long
 			name = NZL_democratic_labour_party
 		}
 		add_popularity = {
-			ideology = libertarian_socialism
+			ideology = democratic_socialism
 			popularity = -0.07
 		}
 		ai_chance = {
@@ -3597,7 +3597,7 @@ country_event = {
 		name = demo_nzl.2.a
 		kill_country_leader = yes
 		set_politics = {
-			ruling_party = libertarian_socialism
+			ruling_party = democratic_socialism
 			elections_allowed = yes
 			last_election = "1938.10.15"
 			election_frequency = 48
@@ -3663,7 +3663,7 @@ country_event = { # ukrainian revolution
 		name = demo_ukr.2.a
 		UKR = {
 			set_politics = {
-				ruling_party = libertarian_socialism
+				ruling_party = democratic_socialism
 				last_election = "1936.1.1"
 				election_frequency = 48
 				elections_allowed = no
@@ -3749,7 +3749,7 @@ country_event = { # venezuelan revolution
 		name = demo_ven.1.a
 		VEN = {
 			set_politics = {
-				ruling_party = proletarian_dictatorship
+				ruling_party = revolutionary_socialism
 			}
 		}
 		if = {

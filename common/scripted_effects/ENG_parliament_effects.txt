@@ -6,21 +6,21 @@ ENG_recalc_parliament = { # this will recalculate the number of members of parli
 	}
 	
 	set_variable = {
-		communist_mps = party_popularity@revolutionary_autocracy
+		communist_mps = party_popularity@vanguard_socialism
 	}
 	multiply_variable = {
 		communist_mps = 0.25
 	}
 	
 	set_variable = {
-		independent_labour_mps = party_popularity@proletarian_dictatorship
+		independent_labour_mps = party_popularity@revolutionary_socialism
 	}
 	multiply_variable = {
 		independent_labour_mps = 0.25
 	}
 	
 	set_variable = {
-		labour_mps = party_popularity@libertarian_socialism
+		labour_mps = party_popularity@democratic_socialism
 	}
 	
 	set_variable = {
@@ -38,7 +38,7 @@ ENG_recalc_parliament = { # this will recalculate the number of members of parli
 	}
 	
 	set_variable = {
-		national_liberal_mps = party_popularity@market_libertarianism
+		national_liberal_mps = party_popularity@liberal_conservatism
 	}
 	multiply_variable = {
 		national_liberal_mps = 0.5
@@ -51,11 +51,14 @@ ENG_recalc_parliament = { # this will recalculate the number of members of parli
 		conservative_mps = party_popularity@authoritarian_democracy
 	}
 	add_to_variable = {
-		conservative_mps = party_popularity@autocratic_despotism
+		conservative_mps = party_popularity@despotism
 	}
 	
 	set_variable = {
 		fascist_mps = party_popularity@fascism
+	}
+	add_to_variable = {
+		fascist_mps = party_popularity@ultraconservatism
 	}
 	multiply_variable = {
 		fascist_mps = 0.25
@@ -198,7 +201,7 @@ ENG_calc_coalition_seats = {
 
 	if = {
 		limit = {
-			has_country_flag = libertarian_socialism_coalition
+			has_country_flag = democratic_socialism_coalition
 		}
 		add_to_variable = {
 			coalition_seats = labour_mps
