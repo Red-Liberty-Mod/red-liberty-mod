@@ -1,9 +1,9 @@
 has_socialist_govt = {
 	OR = {
-		has_government = insurrectionary_anarchism
-		has_government = revolutionary_autocracy
-		has_government = proletarian_dictatorship
-		has_government = libertarian_socialism
+		has_government = anarchism
+		has_government = vanguard_socialism
+		has_government = revolutionary_socialism
+		has_government = democratic_socialism
 	}
 }
 
@@ -11,7 +11,7 @@ has_democratic_govt = {
 	OR = {
 		has_government = social_democracy
 		has_government = progressive_liberalism
-		has_government = market_libertarianism
+		has_government = liberal_conservatism
 		has_government = national_conservatism
 	}
 }
@@ -19,8 +19,8 @@ has_democratic_govt = {
 has_reactionary_govt = {
 	OR = {
 		has_government = authoritarian_democracy
-		has_government = autocratic_despotism
-		has_government = far_right_authoritarianism
+		has_government = despotism
+		has_government = ultraconservatism
 		has_government = fascism
 	}
 }
@@ -50,24 +50,24 @@ has_similar_close_govt_to_ROOT = {
 		AND = {
 			OR = {
 				has_government = social_democracy
-				has_government = libertarian_socialism
+				has_government = democratic_socialism
 			}
 			ROOT = {
 				OR = {
 					has_government = social_democracy
-					has_government = libertarian_socialism
+					has_government = democratic_socialism
 				}
 			}
 		}
 		AND = {
 			OR = {
-				has_government = revolutionary_autocracy
-				has_government = proletarian_dictatorship
+				has_government = vanguard_socialism
+				has_government = revolutionary_socialism
 			}
 			ROOT = {
 				OR = {
-					has_government = revolutionary_autocracy
-					has_government = proletarian_dictatorship
+					has_government = vanguard_socialism
+					has_government = revolutionary_socialism
 				}
 			}
 		}
@@ -91,24 +91,24 @@ has_similar_close_govt_to_PREV = {
 		AND = {
 			OR = {
 				has_government = social_democracy
-				has_government = libertarian_socialism
+				has_government = democratic_socialism
 			}
 			PREV = {
 				OR = {
 					has_government = social_democracy
-					has_government = libertarian_socialism
+					has_government = democratic_socialism
 				}
 			}
 		}
 		AND = {
 			OR = {
-				has_government = revolutionary_autocracy
-				has_government = proletarian_dictatorship
+				has_government = vanguard_socialism
+				has_government = revolutionary_socialism
 			}
 			PREV = {
 				OR = {
-					has_government = revolutionary_autocracy
-					has_government = proletarian_dictatorship
+					has_government = vanguard_socialism
+					has_government = revolutionary_socialism
 				}
 			}
 		}
@@ -120,12 +120,12 @@ has_similar_govt_to_ROOT = {
 		AND = {
 			OR = {
 				has_government = fascism
-				has_government = far_right_authoritarianism
+				has_government = ultraconservatism
 			}
 			ROOT = {
 				OR = {
 					has_government = fascism
-					has_government = far_right_authoritarianism
+					has_government = ultraconservatism
 				}
 			}
 		}
@@ -149,12 +149,12 @@ has_similar_govt_to_PREV = {
 		AND = {
 			OR = {
 				has_government = fascism
-				has_government = far_right_authoritarianism
+				has_government = ultraconservatism
 			}
 			PREV = {
 				OR = {
 					has_government = fascism
-					has_government = far_right_authoritarianism
+					has_government = ultraconservatism
 				}
 			}
 		}
@@ -179,7 +179,7 @@ has_similar_distant_govt_to_ROOT = {
 			has_government = social_democracy
 			ROOT = {
 				OR = {
-					has_government = market_libertarianism
+					has_government = liberal_conservatism
 					has_government = national_conservatism
 					has_government = authoritarian_democracy
 				}
@@ -187,7 +187,7 @@ has_similar_distant_govt_to_ROOT = {
 		}
 		AND = {
 			OR = {
-				has_government = market_libertarianism
+				has_government = liberal_conservatism
 				has_government = national_conservatism
 				has_government = authoritarian_democracy
 			}
@@ -197,7 +197,7 @@ has_similar_distant_govt_to_ROOT = {
 			has_government = progressive_liberalism
 			ROOT = {
 				OR = {
-					has_government = market_libertarianism
+					has_government = liberal_conservatism
 					has_government = national_conservatism
 					has_government = authoritarian_democracy
 				}
@@ -205,14 +205,14 @@ has_similar_distant_govt_to_ROOT = {
 		}
 		AND = {
 			OR = {
-				has_government = market_libertarianism
+				has_government = liberal_conservatism
 				has_government = national_conservatism
 				has_government = authoritarian_democracy
 			}
 			ROOT = { has_government = progressive_liberalism }
 		}
 		AND = {
-			has_government = market_libertarianism
+			has_government = liberal_conservatism
 			ROOT = {
 				OR = {
 					has_government = progressive_liberalism
@@ -227,39 +227,39 @@ has_similar_distant_govt_to_ROOT = {
 				has_government = national_conservatism
 				has_government = authoritarian_democracy
 			}
-			ROOT = { has_government = market_libertarianism }
+			ROOT = { has_government = liberal_conservatism }
 		}
 		AND = {
 			OR = {
-				has_government = libertarian_socialism
-				has_government = proletarian_dictatorship
-				has_government = revolutionary_autocracy
+				has_government = democratic_socialism
+				has_government = revolutionary_socialism
+				has_government = vanguard_socialism
 			}
 			ROOT = {
 				OR = {
-					has_government = libertarian_socialism
-					has_government = proletarian_dictatorship
-					has_government = revolutionary_autocracy
+					has_government = democratic_socialism
+					has_government = revolutionary_socialism
+					has_government = vanguard_socialism
 				}
 			}
 		}
 		AND = {
-			has_government = autocratic_despotism
+			has_government = despotism
 			ROOT = {
 				OR = {
 					has_government = fascism
-					has_government = far_right_authoritarianism
-					has_government = autocratic_despotism
+					has_government = ultraconservatism
+					has_government = despotism
 				}
 			}
 		}
 		AND = {
 			OR = {
 				has_government = fascism
-				has_government = far_right_authoritarianism
-				has_government = autocratic_despotism
+				has_government = ultraconservatism
+				has_government = despotism
 			}
-			ROOT = { has_government = autocratic_despotism }
+			ROOT = { has_government = despotism }
 		}
 	}
 }
@@ -270,7 +270,7 @@ has_similar_distant_govt_to_PREV = {
 			has_government = social_democracy
 			PREV = {
 				OR = {
-					has_government = market_libertarianism
+					has_government = liberal_conservatism
 					has_government = national_conservatism
 					has_government = authoritarian_democracy
 				}
@@ -278,7 +278,7 @@ has_similar_distant_govt_to_PREV = {
 		}
 		AND = {
 			OR = {
-				has_government = market_libertarianism
+				has_government = liberal_conservatism
 				has_government = national_conservatism
 				has_government = authoritarian_democracy
 			}
@@ -288,7 +288,7 @@ has_similar_distant_govt_to_PREV = {
 			has_government = progressive_liberalism
 			PREV = {
 				OR = {
-					has_government = market_libertarianism
+					has_government = liberal_conservatism
 					has_government = national_conservatism
 					has_government = authoritarian_democracy
 				}
@@ -296,14 +296,14 @@ has_similar_distant_govt_to_PREV = {
 		}
 		AND = {
 			OR = {
-				has_government = market_libertarianism
+				has_government = liberal_conservatism
 				has_government = national_conservatism
 				has_government = authoritarian_democracy
 			}
 			PREV = { has_government = progressive_liberalism }
 		}
 		AND = {
-			has_government = market_libertarianism
+			has_government = liberal_conservatism
 			PREV = {
 				OR = {
 					has_government = progressive_liberalism
@@ -318,39 +318,39 @@ has_similar_distant_govt_to_PREV = {
 				has_government = national_conservatism
 				has_government = authoritarian_democracy
 			}
-			PREV = { has_government = market_libertarianism }
+			PREV = { has_government = liberal_conservatism }
 		}
 		AND = {
 			OR = {
-				has_government = libertarian_socialism
-				has_government = proletarian_dictatorship
-				has_government = revolutionary_autocracy
+				has_government = democratic_socialism
+				has_government = revolutionary_socialism
+				has_government = vanguard_socialism
 			}
 			PREV = {
 				OR = {
-					has_government = libertarian_socialism
-					has_government = proletarian_dictatorship
-					has_government = revolutionary_autocracy
+					has_government = democratic_socialism
+					has_government = revolutionary_socialism
+					has_government = vanguard_socialism
 				}
 			}
 		}
 		AND = {
-			has_government = autocratic_despotism
+			has_government = despotism
 			PREV = {
 				OR = {
 					has_government = fascism
-					has_government = far_right_authoritarianism
-					has_government = autocratic_despotism
+					has_government = ultraconservatism
+					has_government = despotism
 				}
 			}
 		}
 		AND = {
 			OR = {
 				has_government = fascism
-				has_government = far_right_authoritarianism
-				has_government = autocratic_despotism
+				has_government = ultraconservatism
+				has_government = despotism
 			}
-			PREV = { has_government = autocratic_despotism }
+			PREV = { has_government = despotism }
 		}
 	}
 }
@@ -359,25 +359,25 @@ has_different_close_govt_to_ROOT = {
 	OR = {
 		AND = {
 			OR = {
-				has_government = autocratic_despotism
+				has_government = despotism
 				has_government = authoritarian_democracy
 			}
 			ROOT = {
 				OR = {
-					has_government = autocratic_despotism
+					has_government = despotism
 					has_government = authoritarian_democracy
 				}
 			}
 		}
 		AND = {
 			OR = {
-				has_government = insurrectionary_anarchism
-				has_government = libertarian_socialism
+				has_government = anarchism
+				has_government = democratic_socialism
 			}
 			ROOT = {
 				OR = {
-					has_government = insurrectionary_anarchism
-					has_government = libertarian_socialism
+					has_government = anarchism
+					has_government = democratic_socialism
 				}
 			}
 		}
@@ -388,25 +388,25 @@ has_different_close_govt_to_PREV = {
 	OR = {
 		AND = {
 			OR = {
-				has_government = autocratic_despotism
+				has_government = despotism
 				has_government = authoritarian_democracy
 			}
 			PREV = {
 				OR = {
-					has_government = autocratic_despotism
+					has_government = despotism
 					has_government = authoritarian_democracy
 				}
 			}
 		}
 		AND = {
 			OR = {
-				has_government = insurrectionary_anarchism
-				has_government = libertarian_socialism
+				has_government = anarchism
+				has_government = democratic_socialism
 			}
 			PREV = {
 				OR = {
-					has_government = insurrectionary_anarchism
-					has_government = libertarian_socialism
+					has_government = anarchism
+					has_government = democratic_socialism
 				}
 			}
 		}

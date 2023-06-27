@@ -6,15 +6,18 @@ IRE_recalc_parliament = { # this will recalculate the number of members of parli
 	}
 	
 	set_variable = {
-		communist_tds = party_popularity@revolutionary_autocracy
+		communist_tds = party_popularity@vanguard_socialism
+	}
+	add_to_variable = {
+		communist_tds = party_popularity@anarchism
 	}
 	
 	set_variable = {
-		rev_socialist_tds = party_popularity@proletarian_dictatorship
+		rev_socialist_tds = party_popularity@revolutionary_socialism
 	}
 	
 	set_variable = {
-		socialist_tds = party_popularity@libertarian_socialism
+		socialist_tds = party_popularity@democratic_socialism
 	}
 	
 	set_variable = {
@@ -26,16 +29,16 @@ IRE_recalc_parliament = { # this will recalculate the number of members of parli
 	}
 	
 	set_variable = {
-		conservative_tds = party_popularity@market_libertarianism
+		conservative_tds = party_popularity@liberal_conservatism
 	}
 	add_to_variable = {
 		conservative_tds = party_popularity@national_conservatism
 	}
 	add_to_variable = {
-		conservative_tds = party_popularity@autocratic_despotism
+		conservative_tds = party_popularity@despotism
 	}
 	add_to_variable = {
-		conservative_tds = party_popularity@far_right_authoritarianism
+		conservative_tds = party_popularity@ultraconservatism
 	}
 	
 	set_variable = {
@@ -119,7 +122,7 @@ IRE_recalc_parliament = { # this will recalculate the number of members of parli
 		}
 		if = {
 			limit = {
-				has_government = revolutionary_autocracy
+				has_government = vanguard_socialism
 			}
 			add_to_variable = {
 				communist_tds = IRE_old_tds_total
@@ -127,7 +130,7 @@ IRE_recalc_parliament = { # this will recalculate the number of members of parli
 		}
 		if = {
 			limit = {
-				has_government = proletarian_dictatorship
+				has_government = revolutionary_socialism
 			}
 			add_to_variable = {
 				rev_socialist_tds = IRE_old_tds_total
@@ -136,7 +139,7 @@ IRE_recalc_parliament = { # this will recalculate the number of members of parli
 		else_if = {
 			limit = {
 				OR = {
-					has_government = libertarian_socialism
+					has_government = democratic_socialism
 				}
 			}
 			add_to_variable = {
@@ -164,7 +167,7 @@ IRE_recalc_parliament = { # this will recalculate the number of members of parli
 		else_if = {
 			limit = {
 				OR = {
-					has_government = market_libertarianism
+					has_government = liberal_conservatism
 					has_government = national_conservatism
 				}
 			}

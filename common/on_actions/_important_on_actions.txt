@@ -1,4 +1,4 @@
-# This file conatains on_actions taken from vanilla, as well as several actions that are common to more than one country, such as coalitions
+# This file contains on_actions taken from vanilla, as well as several actions that are common to more than one country, such as coalitions
 # Every on_action listed also has a line which will enable logging for that action
 # -Wobbly
 
@@ -303,23 +303,25 @@ on_actions = {
 	# From is owner country
 	on_army_leader_lost_combat = {
 		effect = {
-			limit = {
-				NOT = {
-					has_trait = wounded
-					has_character_flag = recently_wounded
+			if = {
+				limit = {
+					NOT = {
+						has_trait = wounded
+						has_character_flag = recently_wounded
+					}
+					set_temp_variable = { chance = 0.005 }
+					set_temp_variable = { factor = 1 }
+					add_to_temp_variable = { factor = leader_modifier@wounded_chance_factor }
+					multiply_temp_variable = { chance = factor }
+					check_variable = { random < chance }
 				}
-				set_temp_variable = { chance = 0.005 }
-				set_temp_variable = { factor = 1 }
-				add_to_temp_variable = { factor = leader_modifier@wounded_chance_factor }
-				multiply_temp_variable = { chance = factor }
-				check_variable = { random < chance }
+				set_character_flag = { flag = recently_wounded value = 1 days = 360 }
+				add_timed_unit_leader_trait = {
+					trait = wounded
+					days = 90
+				}
+				unit_leader_event = unit_leader.2
 			}
-			set_character_flag = { flag = recently_wounded value = 1 days = 360 }
-			add_timed_unit_leader_trait = {
-				trait = wounded
-				days = 90
-			}
-			unit_leader_event = unit_leader.2
 		}
 	}
 

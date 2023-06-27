@@ -114,6 +114,7 @@ USA_campaigning_effect = {
 			}
 		}
 	}
+	
 	multiply_temp_variable = { USA_pop_factor = USA_campaigning_multiplier }
 	
 	log = "USA_campaigning_effect: USA_pop_factor: [?USA.USA_pop_factor]"
@@ -124,10 +125,6 @@ USA_campaigning_effect = {
 		log = "[This.GetName]: USA_campaigning_state_boost: SPA: [?socialist_popularity] || DP: [?democrat_popularity] || RP: [?republican_popularity] || AFP: [?afp_popularity]"
 	}
 	clear_array = USA_campaign_states
-	
-	else_if = {
-		limit = { USA = { has_country_flag = USA_campaigning_for_democrats } }
-	}
 }
 
 USA_campaigning_state_boost = {
