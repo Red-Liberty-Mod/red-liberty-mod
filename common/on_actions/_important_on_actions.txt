@@ -190,10 +190,10 @@ on_actions = {
 	
 	on_nuke_drop = {
 		effect = {
-			#log = "[GetDateText] [Root.GetName] on_nuke_drop"
+			log = "[GetDateText] [Root.GetName] on_nuke_drop"
 		}
 		effect = {
-			set_global_flag = first_nuke_dropped
+			#set_global_flag = first_nuke_dropped
 			
 			if = {
 				limit = {
@@ -218,6 +218,13 @@ on_actions = {
 				}
 				set_global_flag = JAP_nuke_1
 			}
+			
+			news_event = { id = nuke_dropped.2 days = 1 }
+			news_event = { id = nuke_dropped.3 days = 1 }
+			news_event = { id = nuke_dropped.4 days = 1 }
+		}
+		random_events = {
+			100 = nuke_dropped.0
 		}
 	}
 	
