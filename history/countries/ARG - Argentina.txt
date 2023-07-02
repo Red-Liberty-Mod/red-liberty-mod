@@ -1,6 +1,6 @@
 ﻿capital = 278
 
-oob = "ARG_1936"
+oob = "ARG"
 if = {
 	limit = { has_dlc = "Man the Guns" }
 		set_naval_oob = "ARG_1936_naval_mtg"
@@ -46,6 +46,24 @@ if = {
 	}
 }
 
+if = {
+	limit = { has_dlc_bba = yes }
+	set_technology = {
+		iw_small_airframe = 1
+		aa_lmg = 1
+		engines_1 = 1
+		early_bombs = 1
+	}
+	set_air_oob = "ARG_air_bba"
+	else = {
+		set_technology = {
+			early_fighter = 1
+			CAS1 = 1
+		}
+		set_air_oob = "ARG_air_legacy"
+	}
+}
+
 set_country_flag = monroe_doctrine
 
 set_convoys = 120
@@ -81,49 +99,13 @@ add_ideas = {
 	ARG_brazilian_immigrants
 }
 
-create_country_leader = {
-	name = "Marcelo Torcuato de Alvear"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = liberal_radicalism_subtype
-	traits = {
-		
-	}
-}
-
-create_country_leader = {
-	name = "Julio Argentino Pascual Roca"
-	desc = "POLITICS_JULIO_ARGENTINO_DESC"
-	picture = ""
-	expire = "1965.1.1"
-	ideology = liberal_conservatism_subtype
-	traits = {
-		
-	}
-}
-
-create_country_leader = {
-	name = "Agustín Pedro Justo Rolón"
-	desc = "POLITICS_AGUSTIN_PEDRO_DESC"
-	picture = "gfx/leaders/ARG/Portrait_ARG_Agustin_Rolon.png"
-	expire = "1965.1.1"
-	ideology = authoritarian_democracy_subtype
-	traits = {
-		
-	}
-}
-
-create_country_leader = {
-	name = "Manuel Carlés"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = fascism_subtype
-	traits = {
-		
-	}
-}
+recruit_character = ARG_victorio_codovilla
+recruit_character = ARG_nicholas_repetto
+recruit_character = ARG_marcelo_torcuato_de_alvear
+recruit_character = ARG_julio_argentino_pascual_roca
+recruit_character = ARG_agustin_pedro_justo_rolon
+recruit_character = ARG_pedro_pablo_ramirez
+recruit_character = ARG_manuel_carles
 
 add_equipment_to_stockpile = {
 	type = train_equipment_1
@@ -343,6 +325,21 @@ if = {
 				mid_2_custom_slot = ship_light_medium_battery_2
 				rear_1_custom_slot = ship_airplane_launcher_1
 			}
+		}
+	}
+}
+
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+	create_equipment_variant = {
+		name = "FMA D.21" #
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
 		}
 	}
 }
