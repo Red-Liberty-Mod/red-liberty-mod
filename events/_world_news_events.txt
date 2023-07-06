@@ -12,6 +12,18 @@ news_event = { # thomas election news event
 
 	is_triggered_only = yes
 	
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	show_major = {
+		or = {
+			regional_europe_news = yes
+			regional_north_america_news = yes
+			regional_south_america_news = yes
+		}
+	}
+	
 	major = yes
 	
 	option = {
@@ -79,6 +91,18 @@ news_event = { # lister election news event
 
 	is_triggered_only = yes
 	
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	show_major = {
+		or = {
+			regional_europe_news = yes
+			regional_north_america_news = yes
+			regional_south_america_news = yes
+		}
+	}
+	
 	major = yes
 	
 	option = {
@@ -92,6 +116,18 @@ news_event = { # deadlocked EC news event
 	desc = worldnews.3.desc
 
 	is_triggered_only = yes
+	
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	show_major = {
+		or = {
+			regional_europe_news = yes
+			regional_north_america_news = yes
+			regional_south_america_news = yes
+		}
+	}
 	
 	major = yes
 	
@@ -179,6 +215,18 @@ news_event = { # thomas 1940 election
 	
 	is_triggered_only = yes
 	
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	show_major = {
+		or = {
+			regional_europe_news = yes
+			regional_north_america_news = yes
+			regional_south_america_news = yes
+		}
+	}
+	
 	major = yes
 
 	option = {
@@ -225,13 +273,21 @@ news_event = { # brazilian civil war
 	
 	is_triggered_only = yes
 	
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	show_major = {
+		or = {
+			regional_north_america_news = yes
+			regional_south_america_news = yes
+		}
+	}
+	
 	major = yes
 
 	option = {
 		name = worldnews_war.1.a
-		USA = {
-			setup_brazil_conflict = yes
-		}
 	}
 }
 
@@ -247,9 +303,6 @@ news_event = { # mexican civil war
 
 	option = {
 		name = worldnews_war.2.a
-		USA = {
-			setup_mexico_conflict = yes
-		}
 	}
 }
 
