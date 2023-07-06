@@ -24,6 +24,13 @@ USA_start_elections_system = {
 
 	every_owned_state = {
 		limit = { can_have_elections_in_state = yes }
+		
+		set_variable = { communist_popularity = 0 }
+		set_variable = { socialist_popularity = 0 }
+		set_variable = { republican_popularity = 0 }
+		set_variable = { democrat_popularity = 0 }
+		set_variable = { afp_popularity = 0 }
+		
 		clamp_variable = { #make sure to clamp any support variable that can change! 
    			var = communist_popularity
     		min = @POPULARITY_CLAMP_MIN
@@ -58,6 +65,7 @@ USA_start_elections_system = {
 	}
 	
 	USA = {
+		set_variable = { communist_electoral_votes = 0 }
 		set_variable = { democrat_electoral_votes = 0 }
 		set_variable = { republican_electoral_votes = 0 }
 		set_variable = { socialist_electoral_votes = 0 }
@@ -66,6 +74,7 @@ USA_start_elections_system = {
 	
 	367 = { # Alabama, extremely conservative, pro-segregation
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.05 }
 		set_variable = { democrat_popularity = 0.82 }
 		set_variable = { afp_popularity = 0.45 }
@@ -81,6 +90,7 @@ USA_start_elections_system = {
 	
 	377 = { # Arizona, swing state
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.55 }
 		set_variable = { democrat_popularity = 0.5 }
 		
@@ -95,6 +105,7 @@ USA_start_elections_system = {
 	
 	372 = { # Arkansas
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.075 }
 		set_variable = { democrat_popularity = 0.55 }
 		set_variable = { afp_popularity = 0.65 }
@@ -110,6 +121,7 @@ USA_start_elections_system = {
 	
 	378 = { # California, pretty messy state
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.55 }
 		set_variable = { republican_popularity = 0.35 }
 		set_variable = { democrat_popularity = 0.3 }
@@ -128,6 +140,7 @@ USA_start_elections_system = {
 	
 	382 = { # Colorado, hot bed of radicalism
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.55 }
 		set_variable = { democrat_popularity = 0.47 }
 		set_variable = { afp_popularity = 0.1 }
@@ -143,6 +156,7 @@ USA_start_elections_system = {
 	
 	830 = { # Connecticut, significantly influenced by NY
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { republican_popularity = 0.1 }
 		set_variable = { democrat_popularity = 0.45 }
 		set_variable = { socialist_popularity = 0.55 }
@@ -159,6 +173,7 @@ USA_start_elections_system = {
 	
 	833 = { # Delaware, slightly democrat
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { republican_popularity = 0.25 }
 		set_variable = { democrat_popularity = 0.55 }
 		set_variable = { socialist_popularity = 0.35 }
@@ -174,6 +189,7 @@ USA_start_elections_system = {
 	
 	366 = { # Florida, largely democrat, socialists popular in tampa
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.25 }
 		set_variable = { democrat_popularity = 0.65 }
 		
@@ -190,8 +206,9 @@ USA_start_elections_system = {
 	
 	365 = { # Georgia, like Alabama, very pro-segregation
 		set_state_flag = US_election_state
-		set_variable = { afp_popularity = 0.45 }
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { democrat_popularity = 0.55 }
+		set_variable = { afp_popularity = 0.45 }
 		
 		set_variable = { senator_1 = 3 }
 		set_variable = { senator_2 = 3 }
@@ -206,6 +223,7 @@ USA_start_elections_system = {
 	
 	387 = { # Idaho, potato state
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.5 }
 		set_variable = { republican_popularity = 0.25 }
 		set_variable = { democrat_popularity = 0.6 }
@@ -221,6 +239,7 @@ USA_start_elections_system = {
 	
 	395 = { # Illinois, core socialist state
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.75 }
 		set_variable = { democrat_popularity = 0.25 }
 		set_variable = { afp_popularity = 0.1 }
@@ -238,6 +257,7 @@ USA_start_elections_system = {
 	
 	396 = { # Indiana, solid republican state
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.45 }
 		set_variable = { republican_popularity = 0.65 }
 		set_variable = { democrat_popularity = 0.25 }
@@ -255,6 +275,7 @@ USA_start_elections_system = {
 	
 	392 = { # Iowa, favors the socialists for pro-agriculture stuff
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.55 }
 		set_variable = { democrat_popularity = 0.25 }
 		
@@ -269,8 +290,9 @@ USA_start_elections_system = {
 	
 	383 = { # Kansas, same as Iowa, more republican leaning
 		set_state_flag = US_election_state
-		set_variable = { republican_popularity = 0.35 }
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.65 }
+		set_variable = { republican_popularity = 0.35 }
 		set_variable = { democrat_popularity = 0.45 }
 		set_variable = { afp_popularity = 0.2 }
 		
@@ -286,6 +308,7 @@ USA_start_elections_system = {
 	
 	369 = { # Kentucky
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.4 }
 		set_variable = { democrat_popularity = 0.65 }
 		set_variable = { afp_popularity = 0.25 }
@@ -305,6 +328,7 @@ USA_start_elections_system = {
 	
 	371 = { # Louisiana, pro segregation, very conservative, afp stronghold
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.05 }
 		set_variable = { democrat_popularity = 0.25 }
 		set_variable = { afp_popularity = 0.7 }
@@ -320,9 +344,10 @@ USA_start_elections_system = {
 	
 	827 = { # Maine, republican
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
+		set_variable = { socialist_popularity = 0.1 }
 		set_variable = { republican_popularity = 0.55 }
 		set_variable = { democrat_popularity = 0.35 }
-		set_variable = { socialist_popularity = 0.1 }
 		
 		set_variable = { senator_1 = 2 }
 		set_variable = { senator_2 = 3 }
@@ -335,9 +360,10 @@ USA_start_elections_system = {
 	
 	361 = { # Maryland, good establishment place
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
+		set_variable = { socialist_popularity = 0.45 }
 		set_variable = { republican_popularity = 0.25 }
 		set_variable = { democrat_popularity = 0.6 }
-		set_variable = { socialist_popularity = 0.45 }
 		
 		set_variable = { senator_1 = 3 }
 		set_variable = { senator_2 = 2 }
@@ -351,9 +377,10 @@ USA_start_elections_system = {
 	
 	357 = { # Massachusetts, home of many famous liberals, though old money is still holding strong
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
+		set_variable = { socialist_popularity = 0.3 }
 		set_variable = { republican_popularity = 0.5 }
 		set_variable = { democrat_popularity = 0.55 }
-		set_variable = { socialist_popularity = 0.3 }
 		set_variable = { afp_popularity = 0.15 }
 		
 		set_variable = { senator_1 = 2 }
@@ -368,6 +395,7 @@ USA_start_elections_system = {
 	
 	393 = { # Michigan, strong union and anti-segregationist sentiment in Detroit, Black Legion in the countryside
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.6 }
 		set_variable = { republican_popularity = 0.35 }
 		set_variable = { democrat_popularity = 0.2 }
@@ -386,8 +414,9 @@ USA_start_elections_system = {
 	
 	391 = { # Minnesota, domain of the farmer-labor party
 		set_state_flag = US_election_state
-		set_variable = { democrat_popularity = 0.15 }
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.8 }
+		set_variable = { democrat_popularity = 0.15 }
 		
 		set_variable = { senator_1 = 1 }
 		set_variable = { senator_2 = 1 }
@@ -403,6 +432,7 @@ USA_start_elections_system = {
 	
 	370 = { # Mississippi, pro-segregation
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { afp_popularity = 0.4 }
 		set_variable = { democrat_popularity = 0.6 }
 		
@@ -419,6 +449,7 @@ USA_start_elections_system = {
 	
 	373 = { # Missouri, st. louis is socialist, countryside is conservative
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.45 }
 		set_variable = { republican_popularity = 0.05 }
 		set_variable = { democrat_popularity = 0.55 }
@@ -436,6 +467,7 @@ USA_start_elections_system = {
 	
 	388 = { # Montana, heavily unionized
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.8 }
 		set_variable = { democrat_popularity = 0.15 }
 		set_variable = { afp_popularity = 0.05 }
@@ -450,6 +482,7 @@ USA_start_elections_system = {
 	
 	384 = { # Nebraska, basically Kansas
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { republican_popularity = 0.4 }
 		set_variable = { socialist_popularity = 0.65 }
 		set_variable = { democrat_popularity = 0.3 }
@@ -467,6 +500,7 @@ USA_start_elections_system = {
 	
 	379 = { # Nevada, heavily influenced by neighbors, local silver mines
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.45 }
 		set_variable = { democrat_popularity = 0.55 }
 		
@@ -481,6 +515,7 @@ USA_start_elections_system = {
 	
 	828 = { # New Hampshire
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { republican_popularity = 0.45 }
 		set_variable = { democrat_popularity = 0.5 }
 		set_variable = { socialist_popularity = 0.15 }
@@ -496,6 +531,7 @@ USA_start_elections_system = {
 	
 	359 = { # New Jersey
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { republican_popularity = 0.15 }
 		set_variable = { democrat_popularity = 0.5 }
 		set_variable = { socialist_popularity = 0.6 }
@@ -512,6 +548,7 @@ USA_start_elections_system = {
 	
 	376 = { # New Mexico, swing state
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.45 }
 		set_variable = { democrat_popularity = 0.55 }
 		set_variable = { afp_popularity = 0.3 }
@@ -546,6 +583,7 @@ USA_start_elections_system = {
 	
 	363 = { # North Carolina, conservative but not super conservative
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.15 }
 		set_variable = { democrat_popularity = 0.6 }
 		set_variable = { afp_popularity = 0.25 }
@@ -563,6 +601,7 @@ USA_start_elections_system = {
 	
 	389 = { # North Dakota, core socialist state, controlled by the socialist nonpartisan league
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.65 }
 		set_variable = { republican_popularity = 0.1 }
 		set_variable = { democrat_popularity = 0.5 }
@@ -580,6 +619,7 @@ USA_start_elections_system = {
 	
 	261 = { # Ohio, swing state
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { republican_popularity = 0.45 }
 		set_variable = { socialist_popularity = 0.6 }
 		set_variable = { democrat_popularity = 0.35 }
@@ -599,6 +639,7 @@ USA_start_elections_system = {
 	
 	374 = { # Oklahoma, tossup between left and right
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.6 }
 		set_variable = { democrat_popularity = 0.55 }
 		set_variable = { afp_popularity = 0.35 }
@@ -615,6 +656,7 @@ USA_start_elections_system = {
 	
 	385 = { # Oregon
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.65 }
 		set_variable = { republican_popularity = 0.1 }
 		set_variable = { democrat_popularity = 0.25 }
@@ -631,6 +673,7 @@ USA_start_elections_system = {
 	
 	360 = { # Pennsylvania, firmly socialist because of pittsburgh and philly
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.7 }
 		set_variable = { republican_popularity = 0.1 }
 		set_variable = { democrat_popularity = 0.55 }
@@ -648,6 +691,7 @@ USA_start_elections_system = {
 	
 	831 = { # Rhode Island
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { republican_popularity = 0.1 }
 		set_variable = { afp_popularity = 0.4 }
 		set_variable = { democrat_popularity = 0.5 }
@@ -663,6 +707,7 @@ USA_start_elections_system = {
 	
 	364 = { # South Carolina
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { democrat_popularity = 0.65 }
 		set_variable = { socialist_popularity = 0.05 }
 		set_variable = { afp_popularity = 0.25 }
@@ -680,6 +725,7 @@ USA_start_elections_system = {
 	
 	390 = { # South Dakota, North Dakota part 2
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.6 }
 		set_variable = { republican_popularity = 0.35 }
 		set_variable = { afp_popularity = 0.05 }
@@ -695,6 +741,7 @@ USA_start_elections_system = {
 	
 	368 = { # Tennessee
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { republican_popularity = 0.15 }
 		set_variable = { democrat_popularity = 0.55 }
 		set_variable = { afp_popularity = 0.3 }
@@ -711,6 +758,7 @@ USA_start_elections_system = {
 	
 	375 = { # Texas, Southern but not too Southern
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.05 }
 		set_variable = { republican_popularity = 0.1 }
 		set_variable = { democrat_popularity = 0.45 }
@@ -730,6 +778,7 @@ USA_start_elections_system = {
 	
 	380 = { # Utah, MORMON GANG
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.1 }
 		set_variable = { republican_popularity = 0.25 }
 		set_variable = { democrat_popularity = 0.7 }
@@ -746,6 +795,7 @@ USA_start_elections_system = {
 	
 	829 = { # Vermont
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.1 }
 		set_variable = { republican_popularity = 0.55 }
 		set_variable = { democrat_popularity = 0.3 }
@@ -761,6 +811,7 @@ USA_start_elections_system = {
 	
 	362 = { # Virginia
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { republican_popularity = 0.35 }
 		set_variable = { democrat_popularity = 0.55 }
 		set_variable = { socialist_popularity = 0.1 }
@@ -778,6 +829,7 @@ USA_start_elections_system = {
 	
 	386 = { # Washington
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { republican_popularity = 0.25 }
 		set_variable = { democrat_popularity = 0.35 }
 		set_variable = { socialist_popularity = 0.7 }
@@ -793,6 +845,7 @@ USA_start_elections_system = {
 	
 	832 = { # West Virginia
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { republican_popularity = 0.2 }
 		set_variable = { democrat_popularity = 0.35 }
 		set_variable = { socialist_popularity = 0.65 }
@@ -808,6 +861,7 @@ USA_start_elections_system = {
 	
 	394 = { # Wisconsin, cheese and socialism
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.9 }
 		set_variable = { democrat_popularity = 0.2 }
 		set_variable = { republican_popularity = 0.15 }
@@ -823,6 +877,7 @@ USA_start_elections_system = {
 	
 	381 = { # Wyoming
 		set_state_flag = US_election_state
+		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.7 }
 		set_variable = { republican_popularity = 0.1 }
 		set_variable = { democrat_popularity = 0.2 }
