@@ -880,39 +880,14 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = USA_our_mandate
-	icon = GFX_USA_our_mandate
+    id = USA_of_politics
+	icon = GFX_USA_of_politics
 	
     x = 5
 	y = 1
 	
-	cost = 2
-	relative_position_id = USA_preparing_our_agenda
-	prerequisite = {
-		focus = USA_preparing_our_agenda
-	}
-    completion_reward = {
-        #country_event = {
-		#	id = united_states_thomas.9
-		#	days = 1
-		#}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-
-shared_focus = {
-    id = USA_of_politics
-	icon = GFX_USA_of_politics
-	
-    x = 0
-	y = 1
-	
 	cost = 5
-	relative_position_id = USA_our_mandate
+	relative_position_id = USA_the_american_crisis
 	prerequisite = { focus = USA_the_american_crisis }
 	prerequisite = { focus = USA_our_mandate }
     completion_reward = {
@@ -1140,6 +1115,44 @@ shared_focus = {
 			id = united_states_thomas.21
 			days = 1
 		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_legislative_reorg_act
+	icon = GFX_USA_legislative_reorg_act
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_spqa
+	prerequisite = { focus = USA_spqa }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_form_senate_ethics_committee
+	icon = GFX_USA_form_senate_ethics_committee
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_spqa
+	prerequisite = { focus = USA_spqa }
+    completion_reward = {
+        
     }
 	
 	ai_will_do = {
