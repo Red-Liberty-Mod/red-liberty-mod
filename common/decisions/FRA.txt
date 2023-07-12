@@ -29,6 +29,10 @@ FRA_industrialization_category = {
 		
 		days_remove = 30
 		
+		complete_effect = {
+			subtract_from_variable = { FRA_industry_points = 1 }
+		}
+		
 		remove_effect = {
 			FROM = {
 				improve_state_category = yes
@@ -86,7 +90,7 @@ FRA_industrialization_category = {
 	
 	FRA_invest_in_construction = {
 	
-		icon = ger_mefo_bills
+		icon = GFX_decision_generic_construction
 		
 		visible = {
 			
@@ -116,7 +120,7 @@ FRA_industrialization_category = {
 	
 	FRA_invest_in_production = {
 	
-		icon = ger_mefo_bills
+		icon = GFX_decision_generic_industry
 		
 		visible = {
 			
@@ -141,6 +145,284 @@ FRA_industrialization_category = {
 		
 		remove_effect = {
 			
+		}
+	}
+	
+	FRA_drill_for_oil_pyrenees = {
+		icon = GFX_decision_oil
+		
+		highlight_states = {
+			highlight_state_targets = { state = 31 }
+		}
+		
+		available = {
+			has_completed_focus = FRA_the_oil_must_flow
+		}
+		
+		visible = {
+			
+		}
+		
+		custom_cost_trigger = {
+			check_variable = { FRA_industry_points > 1 }
+		}
+		custom_cost_text = decision_cost_2_industry_point
+		
+		days_remove = 30
+		
+		fire_only_once = yes
+		
+		complete_effect = {
+			subtract_from_variable = { FRA_industry_points = 2 }
+		}
+		
+		remove_effect = {
+			31 = {
+				add_resource = {
+					type = oil
+					amount = 5
+				}
+			}
+		}
+	}
+}
+
+FRA_latin_entente_category = {
+
+	FRA_latin_entente_research_group = {
+		icon = ger_mefo_bills
+		
+		available = {
+			FRA = {
+				is_faction_leader = yes
+			}
+		}
+		
+		visible = {
+			tag = FRA
+		}
+		
+		fire_only_once = yes
+		
+		cost = 25
+		
+		complete_effect = {
+			add_to_tech_sharing_group = latin_entente_research
+			set_country_flag = latin_entente_research_formed
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	FRA_latin_entente_join_research_group = {
+		icon = ger_mefo_bills
+		
+		available = {
+			FRA = {
+				has_country_flag = latin_entente_research_formed
+			}
+		}
+		
+		visible = {
+			NOT = {
+				tag = FRA
+			}
+		}
+		
+		fire_only_once = yes
+		
+		cost = 25
+		
+		complete_effect = {
+			add_to_tech_sharing_group = latin_entente_research
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+
+	FRA_latin_entente_invite_portugal = {
+		icon = ger_mefo_bills
+		
+		highlight_states = {
+			highlight_state_targets = { state = 112 }
+		}
+		
+		available = {
+			FRA = {
+				is_faction_leader = yes
+			}
+			POR = {
+				has_war = no
+				is_in_faction = no
+			}
+		}
+		
+		visible = {
+			tag = FRA
+		}
+		
+		fire_only_once = yes
+		
+		cost = 25
+		
+		complete_effect = {
+			add_to_faction = POR
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	FRA_latin_entente_invite_romania = {
+		icon = ger_mefo_bills
+		
+		highlight_states = {
+			highlight_state_targets = { state = 46 }
+		}
+		
+		available = {
+			FRA = {
+				is_faction_leader = yes
+			}
+			ROM = {
+				is_puppet = no
+				has_war = no
+				is_in_faction = no
+			}
+		}
+		
+		visible = {
+			tag = FRA
+		}
+		
+		fire_only_once = yes
+		
+		cost = 25
+		
+		complete_effect = {
+			add_to_faction = ROM
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+}
+
+FRA_balance_of_power_category = {
+	
+	FRA_collectivist_propaganda = {
+		icon = GFX_decision_generic_nationalism
+		
+		available = {
+			
+		}
+		
+		visible = {
+			
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+			
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	FRA_deify_gensec = {
+		icon = ger_mefo_bills
+		
+		available = {
+			
+		}
+		
+		visible = {
+			
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+			
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	FRA_redirect_industry = {
+		icon = GFX_decision_eng_trade_unions_support
+		
+		available = {
+			
+		}
+		
+		visible = {
+			
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+			
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	FRA_discourage_caesarism = {
+		icon = generic_political_discourse
+		
+		available = {
+			
+		}
+		
+		visible = {
+			
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+			
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	FRA_purge_something = {
+		icon = GFX_decision_generic_police_action
+		
+		available = {
+			
+		}
+		
+		visible = {
+			
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+			
+		}
+		
+		ai_will_do = {
+			factor = 10
 		}
 	}
 }

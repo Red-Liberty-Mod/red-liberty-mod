@@ -7,68 +7,77 @@ shared_focus = {
 	
 	select_effect = {
 		country_event = {
+			id = france.1
+			days = 2
+		}
+		country_event = {
 			id = france.2
 			days = 5
 		}
 	}
 	
-	cost = 7
+	cost = 3
     completion_reward = {
         custom_effect_tooltip = FRA_convene_assembly_tt
-		
 		if = {
 			limit = {
 				has_country_flag = FRA_popular_front
 			}
 			set_politics = {
-				ruling_party = libertarian_socialism
+				ruling_party = democratic_socialism
 				last_election = "1936.4.3"
 				election_frequency = 48
 				elections_allowed = yes
 			}
-			set_country_flag = libertarian_socialism_coalition
-			set_country_flag = social_democracy_coalition
-			
-			remove_ideas = {
-				FRA_fallen_govt
-			}
+			set_country_flag = democratic_socialism_coalition
 			
 			set_country_flag = FRA_govt_formed
-		}
-		if = {
-			limit = {
-				has_country_flag = FRA_popular_front_found_coalition_partner
+			
+			reset_coalition = yes
+			
+			if = {
+				limit = {
+					has_country_flag = FRA_communists_coalition_partner
+				}
+				add_popularity = {
+					ideology = vanguard_socialism
+					popularity = 0.01
+				}
+				add_popularity = {
+					ideology = revolutionary_socialism
+					popularity = 0.02
+				}
+				add_popularity = {
+					ideology = liberal_conservatism
+					popularity = -0.01
+				}
+				add_popularity = {
+					ideology = national_conservatism
+					popularity = -0.02
+				}
+				add_authsoc_coalition = yes
 			}
-			add_popularity = {
-				ideology = revolutionary_autocracy
-				popularity = 0.01
+			else_if = {
+				limit = {
+					has_country_flag = FRA_radicals_coalition_partner
+				}
+				add_popularity = {
+					ideology = progressive_liberalism
+					popularity = 0.03
+				}
+				add_popularity = {
+					ideology = liberal_conservatism
+					popularity = -0.01
+				}
+				add_popularity = {
+					ideology = national_conservatism
+					popularity = -0.02
+				}
+				add_proglib_coalition = yes
 			}
-			add_popularity = {
-				ideology = proletarian_dictatorship
-				popularity = 0.02
-			}
-			add_popularity = {
-				ideology = market_libertarianism
-				popularity = -0.01
-			}
-			add_popularity = {
-				ideology = national_conservatism
-				popularity = -0.02
-			}
-			set_country_flag = rev_autocracy_coalition
-			set_country_flag = proletarian_coalition
-			set_country_flag = progressive_coalition
-		}
-		if = {
-			limit = {
-				has_country_flag = FRA_popular_front_grand_coalition
-			}
-			set_country_flag = progressive_coalition
-			set_country_flag = market_libertarian_coalition
-			set_country_flag = conservative_coalition
 		}
 		
-		if = {
+		else_if = {
 			limit = {
 				has_country_flag = FRA_national_union
 			}
@@ -78,32 +87,41 @@ shared_focus = {
 				election_frequency = 48
 				elections_allowed = yes
 			}
-			set_country_flag = market_libertarian_coalition
-			set_country_flag = conservative_coalition
-			
-			remove_ideas = {
-				FRA_fallen_govt
-			}
+			set_country_flag = liberal_conservatism_coalition
+			set_country_flag = national_conservatism_coalition
 			
 			set_country_flag = FRA_govt_formed
+			
+			reset_coalition = yes
+			
+			if = {
+				limit = {
+					has_country_flag = FRA_national_union_found_coalition_partner
+				}
+				add_popularity = {
+					ideology = authoritarian_democracy
+					popularity = 0.02
+				}
+				add_authdem_coalition = yes
+			}
+			else_if = {
+				limit = {
+					has_country_flag = FRA_national_union_grand_coalition
+				}
+				set_country_flag = democratic_socialism_coalition
+				set_country_flag = social_democracy_coalition
+				set_country_flag = progressive_coalition
+			}
 		}
-		if = {
-			limit = {
-				has_country_flag = FRA_national_union_found_coalition_partner
-			}
-			add_popularity = {
-				ideology = ultranational_statism
-				popularity = 0.02
-			}
-			set_country_flag = ultranationalist_coalition
+		
+		else = {
+			set_country_flag = FRA_govt_failed
 		}
-		if = {
-			limit = {
-				has_country_flag = FRA_national_union_grand_coalition
+		
+		hidden_effect = {
+			country_event = {
+				id = tree_reload.1
 			}
-			set_country_flag = libertarian_socialism_coalition
-			set_country_flag = social_democracy_coalition
-			set_country_flag = progressive_coalition
 		}
     }
 	
@@ -123,7 +141,7 @@ shared_focus = {
 		has_country_flag = FRA_govt_formed
 	}
 	
-	cost = 5
+	cost = 3
 	relative_position_id = FRA_convene_national_assembly
 	prerequisite = { focus = FRA_convene_national_assembly }
 	mutually_exclusive = {
@@ -131,7 +149,10 @@ shared_focus = {
 	}
     completion_reward = {
 		add_political_power = 50
-        mark_focus_tree_layout_dirty = yes
+		swap_ideas = {
+			remove_idea = FRA_fallen_govt
+			add_idea = FRA_unstable_govt
+		}
     }
 	
 	ai_will_do = {
@@ -152,7 +173,7 @@ shared_focus = {
 		}
 	}
 	
-	cost = 5
+	cost = 3
 	relative_position_id = FRA_convene_national_assembly
 	prerequisite = { focus = FRA_convene_national_assembly }
 	mutually_exclusive = {
@@ -160,7 +181,6 @@ shared_focus = {
 	}
     completion_reward = {
 		add_political_power = -50
-        mark_focus_tree_layout_dirty = yes
     }
 	
 	ai_will_do = {
@@ -175,7 +195,7 @@ shared_focus = {
     x = -2
 	y = 1
 	
-	cost = 5
+	cost = 3
 	relative_position_id = FRA_government_formed
 	prerequisite = { focus = FRA_government_formed }
     completion_reward = {
@@ -194,7 +214,7 @@ shared_focus = {
     x = -1
 	y = 1
 	
-	cost = 5
+	cost = 3
 	relative_position_id = FRA_cooler_heads_prevail
 	prerequisite = { focus = FRA_cooler_heads_prevail }
     completion_reward = {
@@ -213,11 +233,26 @@ shared_focus = {
     x = 0
 	y = 1
 	
-	cost = 5
+	cost = 3
 	relative_position_id = FRA_outlaw_paramilitaries
 	prerequisite = { focus = FRA_outlaw_paramilitaries }
     completion_reward = {
-        
+		add_popularity = {
+			ideology = vanguard_socialism
+			popularity = -0.01
+		}
+		add_popularity = {
+			ideology = despotism
+			popularity = -0.01
+		}
+		add_popularity = {
+			ideology = ultraconservatism
+			popularity = -0.01
+		}
+        add_popularity = {
+			ideology = fascism
+			popularity = -0.01
+		}
     }
 	
 	ai_will_do = {
@@ -232,11 +267,11 @@ shared_focus = {
     x = 1
 	y = 1
 	
-	cost = 5
+	cost = 3
 	relative_position_id = FRA_cooler_heads_prevail
 	prerequisite = { focus = FRA_cooler_heads_prevail }
     completion_reward = {
-        
+        add_stability = 0.05
     }
 	
 	ai_will_do = {
@@ -251,7 +286,7 @@ shared_focus = {
     x = 0
 	y = 1
 	
-	cost = 5
+	cost = 3
 	relative_position_id = FRA_restore_voting_confidence
 	prerequisite = { focus = FRA_restore_voting_confidence }
     completion_reward = {
@@ -270,7 +305,7 @@ shared_focus = {
     x = -1
 	y = 1
 	
-	cost = 5
+	cost = 3
 	relative_position_id = FRA_emergency_powers
 	prerequisite = { focus = FRA_ban_extremists }
 	prerequisite = { focus = FRA_emergency_powers }
@@ -295,13 +330,13 @@ shared_focus = {
 	allow_branch = {
 		NOT = {
 			OR = {
-				has_completed_focus = FRA_government_formed
-				has_completed_focus = FRA_mass_resignations
+				has_country_flag = FRA_govt_formed
+				has_country_flag = FRA_govt_failed
 			}
 		}
 	}
 	
-	cost = 5
+	cost = 3
 	relative_position_id = FRA_mass_resignations
 	prerequisite = {
 		focus = FRA_government_formed
@@ -326,10 +361,10 @@ shared_focus = {
 	dynamic = yes
 	
 	allow_branch = {
-		has_completed_focus = FRA_government_formed
+		has_country_flag = FRA_govt_formed
 	}
 	
-	cost = 5
+	cost = 3
 	relative_position_id = FRA_government_formed
 	prerequisite = {
 		focus = FRA_government_formed
@@ -351,7 +386,7 @@ shared_focus = {
     x = 0
 	y = 1
 	
-	cost = 5
+	cost = 3
 	relative_position_id = FRA_empower_the_far_right_gamer
 	prerequisite = { focus = FRA_empower_the_far_right_gamer }
     completion_reward = {
@@ -370,7 +405,7 @@ shared_focus = {
     x = 0
 	y = 1
 	
-	cost = 5
+	cost = 3
 	relative_position_id = FRA_secure_church
 	prerequisite = { focus = FRA_secure_church }
     completion_reward = {
@@ -389,7 +424,7 @@ shared_focus = {
     x = 0
 	y = 1
 	
-	cost = 5
+	cost = 3
 	relative_position_id = FRA_rally_veterans
 	prerequisite = { focus = FRA_rally_veterans }
     completion_reward = {
@@ -408,7 +443,7 @@ shared_focus = {
     x = -1
 	y = 1
 	
-	cost = 5
+	cost = 3
 	relative_position_id = FRA_social_dabord
 	prerequisite = { focus = FRA_social_dabord }
 	mutually_exclusive = {
@@ -430,7 +465,7 @@ shared_focus = {
     x = 1
 	y = 1
 	
-	cost = 5
+	cost = 3
 	relative_position_id = FRA_social_dabord
 	prerequisite = { focus = FRA_social_dabord }
 	mutually_exclusive = {
@@ -452,7 +487,7 @@ shared_focus = {
     x = 1
 	y = 1
 	
-	cost = 5
+	cost = 3
 	relative_position_id = FRA_cult_of_la_rocque
 	prerequisite = {
 		focus = FRA_cult_of_la_rocque
@@ -461,7 +496,7 @@ shared_focus = {
     completion_reward = {
         country_event = {
 			id = france_far_right.2
-			days = 1
+			hours = 6
 		}
     }
 	
@@ -480,10 +515,10 @@ shared_focus = {
 	dynamic = yes
 	
 	allow_branch = {
-		has_completed_focus = FRA_mass_resignations
+		has_country_flag = FRA_govt_failed
 	}
 	
-	cost = 5
+	cost = 3
 	relative_position_id = FRA_government_formed
 	prerequisite = {
 		focus = FRA_government_formed
@@ -505,7 +540,7 @@ shared_focus = {
     x = 0
 	y = 1
 	
-	cost = 5
+	cost = 3
 	relative_position_id = FRA_empower_the_far_right_monarch
 	prerequisite = { focus = FRA_empower_the_far_right_monarch }
     completion_reward = {
@@ -524,7 +559,7 @@ shared_focus = {
     x = 0
 	y = 1
 	
-	cost = 5
+	cost = 3
 	relative_position_id = FRA_expose_meteque
 	prerequisite = { focus = FRA_expose_meteque }
     completion_reward = {
@@ -543,7 +578,7 @@ shared_focus = {
     x = 0
 	y = 1
 	
-	cost = 5
+	cost = 3
 	relative_position_id = FRA_papal_reapproachment
 	prerequisite = { focus = FRA_papal_reapproachment }
     completion_reward = {
@@ -562,7 +597,7 @@ shared_focus = {
     x = -1
 	y = 1
 	
-	cost = 5
+	cost = 3
 	relative_position_id = FRA_politique_dabord
 	prerequisite = { focus = FRA_politique_dabord }
 	mutually_exclusive = {
@@ -584,7 +619,7 @@ shared_focus = {
     x = 1
 	y = 1
 	
-	cost = 5
+	cost = 3
 	relative_position_id = FRA_politique_dabord
 	prerequisite = { focus = FRA_politique_dabord }
 	mutually_exclusive = {
@@ -606,7 +641,7 @@ shared_focus = {
     x = 1
 	y = 1
 	
-	cost = 5
+	cost = 3
 	relative_position_id = FRA_deal_with_the_devil
 	prerequisite = { focus = FRA_deal_with_the_devil }
 	prerequisite = { focus = FRA_partner_with_moderates }
@@ -629,7 +664,7 @@ shared_focus = {
     x = 2
 	y = 1
 	
-	cost = 5
+	cost = 3
 	relative_position_id = FRA_mass_resignations
 	prerequisite = { focus = FRA_mass_resignations }
     completion_reward = {
@@ -648,7 +683,7 @@ shared_focus = {
     x = -1
 	y = 1
 	
-	cost = 5
+	cost = 3
 	relative_position_id = FRA_masses_cant_be_trusted
 	prerequisite = { focus = FRA_masses_cant_be_trusted }
     completion_reward = {
@@ -667,7 +702,7 @@ shared_focus = {
     x = 0
 	y = 1
 	
-	cost = 5
+	cost = 3
 	relative_position_id = FRA_invite_revolutionaries
 	prerequisite = { focus = FRA_invite_revolutionaries }
     completion_reward = {
@@ -686,7 +721,7 @@ shared_focus = {
     x = 1
 	y = 1
 	
-	cost = 5
+	cost = 3
 	relative_position_id = FRA_masses_cant_be_trusted
 	prerequisite = { focus = FRA_masses_cant_be_trusted }
     completion_reward = {
@@ -705,7 +740,7 @@ shared_focus = {
     x = 0
 	y = 1
 	
-	cost = 5
+	cost = 3
 	relative_position_id = FRA_organize_cells
 	prerequisite = { focus = FRA_organize_cells }
     completion_reward = {
@@ -724,7 +759,7 @@ shared_focus = {
     x = -1
 	y = 1
 	
-	cost = 5
+	cost = 3
 	relative_position_id = FRA_preemptive_strikes
 	prerequisite = { focus = FRA_disarm_the_army }
 	prerequisite = { focus = FRA_preemptive_strikes }

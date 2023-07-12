@@ -1,5 +1,4 @@
 add_namespace = demo_ger
-add_namespace = demo_fra
 add_namespace = demo_mex
 add_namespace = demo_ita
 add_namespace = demo_ahe
@@ -99,90 +98,6 @@ news_event = { # vorbeck takes power - news
 
 	option = {
 		name = demo_ger.4.a
-	}
-}
-
-country_event = { # de la rocque takes power
-	id = demo_fra.1
-	title = ""
-	desc = demo_fra.1.desc
-	
-	is_triggered_only = yes
-	
-	fire_only_once = yes
-
-	option = {
-		name = ""
-		FRA = {
-			set_politics = {
-				ruling_party = authoritarian_democracy
-				last_election = "1936.1.1"
-				election_frequency = 48
-				elections_allowed = no
-			}
-			add_popularity = {
-				ideology = authoritarian_democracy
-				popularity = 0.1
-			}
-			remove_ideas = {
-				FRA_fallen_govt
-				FRA_rising_right
-			}
-		}
-		random_other_country = {
-			limit = { is_ai = yes }
-			news_event = { id = demo_fra.2 hours = 6 }
-		}
-	}
-}
-
-news_event = { # de la rocque takes power - news
-	id = demo_fra.2
-	title = demo_fra.2.title
-	desc = demo_fra.2.desc
-	picture = GFX_report_event_la_rocque
-	
-	major = yes
-	
-	is_triggered_only = yes
-
-	option = {
-		name = demo_fra.2.a
-	}
-}
-
-country_event = { # franco-italian alliance
-	id = demo_fra.3
-	title = ""
-	desc = demo_fra.3.desc
-	
-	is_triggered_only = yes
-	
-	fire_only_once = yes
-
-	option = {
-		name = ""
-		FRA = {
-			add_to_faction = ITA
-		}
-		random_other_country = {
-			limit = { is_ai = yes }
-			news_event = { id = demo_fra.4 hours = 6 }
-		}
-	}
-}
-
-news_event = { # franco-italian alliance - news
-	id = demo_fra.4
-	title = demo_fra.4.title
-	desc = demo_fra.4.desc
-	
-	major = yes
-	
-	is_triggered_only = yes
-
-	option = {
-		name = demo_fra.4.a
 	}
 }
 
