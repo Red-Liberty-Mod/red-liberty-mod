@@ -1,0 +1,106 @@
+
+USA_plot_line_chart = {
+	# This count is displayed as an x-axis label, increment it
+	add_to_variable = { line_graph_count = 1 }
+	
+	USA_line_chart_plot_socialists = yes
+	USA_line_chart_plot_democrats = yes
+	USA_line_chart_plot_republicans = yes
+	
+	# Prune arrays so they hold at most 20 elements
+	if = {
+		limit = {
+			check_variable = { line_graph_count > 20 }
+		}
+		remove_from_array = { array = socialist_graph_offsets index = 0 }
+		remove_from_array = { array = socialist_graph_slopes index = 0 }
+		
+		remove_from_array = { array = democrats_graph_offsets index = 0 }
+		remove_from_array = { array = democrats_graph_slopes index = 0 }
+		
+		remove_from_array = { array = republican_graph_offsets index = 0 }
+		remove_from_array = { array = republican_graph_slopes index = 0 }
+	}
+}
+
+USA_line_chart_plot_socialists = {
+	# We keep track of the last y position so we can calculate the slope
+	set_variable = { socialist_last_y_position = socialist_y_position }
+	
+	# set y position to national pop
+	set_variable = { socialist_y_position = socialist_pie_var }
+	round_variable = socialist_y_position
+
+	# The y position offset is the inverse of the y position
+	set_temp_variable = { offset = socialist_last_y_position }
+	multiply_temp_variable = { offset = -1 }
+	add_to_array = { socialist_graph_offsets = offset }
+
+	# The 'slope' here is simply the difference between the current y value and the last one, divided by 2 plus 50
+	# These last two changes are needed for the shader
+	set_temp_variable = { diff = socialist_y_position }
+	subtract_from_temp_variable = { diff = socialist_last_y_position }
+	divide_temp_variable = { diff = 2 }
+	add_to_temp_variable = { diff = 50 }
+	add_to_array = { socialist_graph_slopes = diff }
+}
+
+USA_line_chart_plot_democrats = {
+	# We keep track of the last y position so we can calculate the slope
+	set_variable = { democrats_last_y_position = democrats_y_position }
+	
+	# set y position to national pop
+	set_variable = { democrats_y_position = democrat_pie_var }
+	round_variable = democrats_y_position
+	
+	# The y position offset is the inverse of the y position
+	set_temp_variable = { offset = democrats_last_y_position }
+	multiply_temp_variable = { offset = -1 }
+	add_to_array = { democrats_graph_offsets = offset }
+
+	# The 'slope' here is simply the difference between the current y value and the last one, divided by 2 plus 50
+	# These last two changes are needed for the shader
+	set_temp_variable = { diff = democrats_y_position }
+	subtract_from_temp_variable = { diff = democrats_last_y_position }
+	divide_temp_variable = { diff = 2 }
+	add_to_temp_variable = { diff = 50 }
+	add_to_array = { democrats_graph_slopes = diff }
+}
+
+USA_line_chart_plot_republicans = {
+	# We keep track of the last y position so we can calculate the slope
+	set_variable = { republican_last_y_position = republican_y_position }
+	
+	# set y position to national pop
+	set_variable = { republican_y_position = republican_pie_var }
+	round_variable = republican_y_position
+	
+	# The y position offset is the inverse of the y position
+	set_temp_variable = { offset = republican_last_y_position }
+	multiply_temp_variable = { offset = -1 }
+	add_to_array = { republican_graph_offsets = offset }
+
+	# The 'slope' here is simply the difference between the current y value and the last one, divided by 2 plus 50
+	# These last two changes are needed for the shader
+	set_temp_variable = { diff = republican_y_position }
+	subtract_from_temp_variable = { diff = republican_last_y_position }
+	divide_temp_variable = { diff = 2 }
+	add_to_temp_variable = { diff = 50 }
+	add_to_array = { republican_graph_slopes = diff }
+}
+
+USA_clear_line_chart = {
+	clear_array = socialist_graph_offsets
+	clear_array = socialist_graph_slopes
+	clear_array = socialist_numbers
+	
+	clear_array = democrats_graph_offsets
+	clear_array = democrats_graph_slopes
+	clear_array = democrat_numbers
+	
+	clear_array = republican_graph_offsets
+	clear_array = republican_graph_slopes
+	clear_array = republican_numbers
+	
+	set_variable = { line_graph_count = 0 }
+}

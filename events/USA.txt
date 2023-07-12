@@ -235,6 +235,13 @@ country_event = { # thomas chooses to run again
 		name = united_states.12.b
 		ai_chance = {
 			base = 3
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = USA_SPNC_1940_OUTCOME
+					option = RULE_OPTION_USA_SPNC_1940_OUTCOME_THOMAS
+				}
+			}
 		}
 	}
 }
@@ -367,6 +374,52 @@ country_event = { # 1940 spa convention - veep
 	}
 }
 
+country_event = { # we beat japan, set up occupation tag
+	id = united_states.200
+	title = united_states.200.title
+	desc = united_states.200.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # stay as usa
+		name = united_states.200.a
+		USA_create_japan_occupation = yes
+	}
+	
+	option = { # play as jap
+		name = united_states.200.b
+		USA_create_japan_occupation = yes
+		JAP = {
+			change_tag_from = ROOT
+		}
+	}
+}
+
+country_event = { # we beat japan, set up korean tag
+	id = united_states.201
+	title = united_states.201.title
+	desc = united_states.201.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # stay as usa
+		name = united_states.201.a
+		USA_create_korean_occupation = yes
+	}
+	
+	option = { # play as kor
+		name = united_states.201.b
+		USA_create_korean_occupation = yes
+		KOR = {
+			change_tag_from = ROOT
+		}
+	}
+}
+
 country_event = { # appalachian insurgency start
 	id = united_states_insurgency.1
 	title = united_states_insurgency.1.title
@@ -434,8 +487,6 @@ country_event = { # shit explodes
 			832 = {
 				set_state_flag = USA_active_insurgency
 			}
-			
-			set_variable = { USA_insurgency_states = 4 }
 			
 			country_event = {
 				id = united_states_insurgency.5

@@ -4,7 +4,7 @@ add_namespace = us_election_trigger
 
 country_event = { # 1936 election trigger
 	id = us_election.1
-	title = "Election Day"
+	title = us_election.1.title
 	desc = us_election.1.desc
 	picture = GFX_report_event_ballot_box
 
@@ -28,7 +28,7 @@ country_event = { # 1936 election trigger
 
 country_event = {
 	id = us_election.2
-	title = "The Results"
+	title = us_election.2.title
 	desc = us_election.2.desc
 	picture = GFX_report_event_white_house
 
@@ -111,6 +111,18 @@ country_event = {
 		load_focus_tree = USA_flame_burnt_out_tree
 		
 		set_country_flag = USA_1936_election_democrat_victory
+	}
+}
+
+country_event = { # currently unused
+	id = us_election.3
+	title = us_election.3.title
+	desc = us_election.3.desc
+
+	is_triggered_only = yes
+	
+	option = {
+		name = us_election.3.a
 	}
 }
 
@@ -211,7 +223,7 @@ country_event = { # thomas inaug day
 
 country_event = { # lister inaug day
 	id = us_election.7
-	title = "Inuaguration Day"
+	title = us_election.7.title
 	desc = us_election.7.desc
 
 	is_triggered_only = yes
@@ -288,6 +300,10 @@ country_event = {
 			id = us_election.22
 			days = 116
 		}
+		country_event = {
+			id = worldnews.8
+			hours = 6
+		}
 	}
 	
 	option = { # democrat victory
@@ -312,10 +328,7 @@ country_event = { # thomas inaug day 1940
 	
 	option = { # 
 		name = us_election.22.a
-		set_portraits = {
-			character = USA_norman_thomas
-			civilian = { large = "GFX_portrait_USA_norman_thomas_1940" }
-		}
+		USA_thomas_third_term_setup = yes
 		add_political_power = 100
 	}
 }
@@ -465,8 +478,8 @@ country_event = { #mark states for election
 			modifier = {
 				factor = 0
 				has_game_rule = {
-					rule = USA_ELECTION_OUTCOME
-					option = USA_ELECTION_OUTCOME_DEMOCRAT
+					rule = USA_ELECTION_1936_OUTCOME
+					option = USA_ELECTION_1936_OUTCOME_DEMOCRAT
 				}
 			}
 		}
@@ -490,8 +503,8 @@ country_event = { #mark states for election
 			modifier = {
 				factor = 0
 				has_game_rule = {
-					rule = USA_ELECTION_OUTCOME
-					option = USA_ELECTION_OUTCOME_SOCIALIST
+					rule = USA_ELECTION_1936_OUTCOME
+					option = USA_ELECTION_1936_OUTCOME_SOCIALIST
 				}
 			}
 		}

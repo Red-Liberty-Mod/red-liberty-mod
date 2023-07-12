@@ -16,9 +16,9 @@
  USA_class_2_elections_tt:0 "§YClass 2 Senators§!"
  USA_class_3_elections_tt:0 "§YClass 3 Senators§!"
  
- USA_senate_elections_occur_tt:0 "Senate elections will be held.\n\n"
- USA_senate_elections:0 "Senate elections are ongoing."
- USA_senate_conclusion:0 "Senate elections are over."
+ USA_senate_elections_occur_tt:0 "Congressional elections have been held.\n\n"
+ USA_senate_elections:0 "Congressional elections are ongoing."
+ USA_senate_conclusion:0 "Congressional elections are over."
  
  USA_senate_elections_visible_tt:0 "§YAs it is an election year, Congressional elections will be held.§!"
  USA_presidential_elections_visible_tt:0 "§YPresidential elections will also be held this year.§!"
@@ -30,6 +30,8 @@
  USA_elections_no_content_tt:0 "§RWARNING: This path does not have content yet!§!"
  
  currently_campaigning:0 "We are currently campaigning elsewhere."
+ USA_campaigning_for_democrats:0 "We are currently campaigning for the Democrats"
+ USA_campaigning_for_socialists:0 "We are currently campaigning for the Socialists"
  
  COMMUNIST_SINGULAR:0 "§rCommunist§!"
  SOCIALIST_SINGULAR:0 "§RSocialist§!"
@@ -39,11 +41,11 @@
  DEMOCRAT_SINGULAR:0 "§3Democrat§!"
  AFP_SINGULAR:0 "§gCommonwealth§!"
  
- COMMUNIST_PLURAL:0 "§rCommunists§!"
- SOCIALIST_PLURAL:0 "§RSocialists§!"
- REPUBLICAN_PLURAL:0 "§7Republicans§!"
- DEMOCRAT_PLURAL:0 "§3Democrats§!"
- AFP_PLURAL:0 "§gCommonwealthers§!"
+ COMMUNIST_PLURAL:0 "£GFX_cpusa_texticon §rCommunists§!"
+ SOCIALIST_PLURAL:0 "£GFX_spa_texticon §RSocialists§!"
+ REPUBLICAN_PLURAL:0 "£GFX_rep_texticon §7Republicans§!"
+ DEMOCRAT_PLURAL:0 "£GFX_dem_texticon §3Democrats§!"
+ AFP_PLURAL:0 "£GFX_afp_texticon §gCommonwealthers§!"
  
  COMMUNIST_PARTY:0 "§rCommunist Party§!"
  SOCIALIST_PARTY:0 "§RSocialist Party§!"
@@ -314,21 +316,20 @@
  PRESIDENT_CONCLUSION_WYOMING:0 "\n- §Y[381.GetName]§!: Voted [381.GetPresidentVotes], giving them §Y[?381.electoral_votes]§! votes."
  PRESIDENT_CONCLUSION_PUERTO_RICO:0 "\n- §Y[686.GetName]§!: Voted [686.GetPresidentVotes], giving them §Y[?686.electoral_votes]§! votes."
  
- ### INAUGURATION EVENTS ###
+ ### EVENTS ###
  us_election.1.title:0 "Election Day"
  us_election.1.desc:0 "Today's the day! Americans everywhere are going down to their polling places, casting their votes for who will be the next President of the United States. It'll take a few days to collect and count the results, at which point a victor will likely be declared."
  us_election.1.a:0 "The anticipation!"
  
+ us_election.2.title:0 "The Results"
  us_election.2.desc:0 "The final votes have been counted, and the results are in:\n\nThe Socialist Party recieved [?socialist_electoral_votes] electoral votes.\n\nThe Democratic Party recieved [?democrat_electoral_votes] electoral votes."
  us_election.2.a:0 "No Majority!"
  us_election.2.b:0 "Thomas wins again!"
  us_election.2.c:0 "Lister wins the election!"
  
- USA_1936_election_over:0 "The 1936 presidential election is over"
- USA_1938_election_over:0 "The 1938 midterm elections are over"
- USA_1940_election_over:0 "The 1940 presidential election is over"
- 
- us_election.3.a:0 "A peaceful transfer of power is crucial to democracy."
+ us_election.3.title:0 ""
+ us_election.3.desc:0 ""
+ us_election.3.a:0 ""
  
  us_election.4.desc:0 "With the recent election being split four ways, it is perhaps unsurprising that no one candidate would secure the needed electoral votes to claim victory. Now it falls to the House of Representatives to decide which candidate had the most solid claim, which in practical terms means that the party that influences the most states will probably win, as only one representative per state is allowed to vote."
  us_election.4.a:0 "The House votes for Thomas."
@@ -338,6 +339,10 @@
  us_election.5.title:0 "Inuaguration Day"
  us_election.5.desc:0 "The president-elect stood before a massive, cheering crowd on the Washington Mall. His hands rested easily on the podium; this is, after all, his second time up here. “Ladies and gentlemen!” He announces into the microphone, silencing the rapturous applause that had heralded his ascent.\n\n“I stand before you today humbled and grateful. Humbled by the many millions that have pledged their support to me, and to the Socialist Party and all of its candidates. And I am grateful for the providence of our Lord, who has shown me the way here.”\n\nHe paused for a moment, letting the cacophonous applause wash over him and up the steps of the Capitol. He didn’t turn around, but he smiled at the thought of the legislators behind him hearing the thunderous approval from the crowd. It would cow them; send them a message that the socialists were here to stay, and beloved by the people.\n\nHis eyes wandered over the assembled masses. Some were holding flags and banners; mostly for the Socialist Party, but there were a few from the Socialist Labor Party, the Farmer-Labor Party, the Progressive Party, and Communist Party. He tacitly disapproved of the final one but had avoided disavowing them while on the campaign trail. If they would support him, then he would let them, but he sure as hell wasn’t going to give them anything for it.\n\nThe unions were out in force too. The American Federation of Labor was, of course, present, as was the redoubtable Industrial Workers of the World, with their red and black banners, and there was even a single banner for the infirm and aging Knights of Labor.\n\nParties and unions; they’d all been fighting decades for this, for a time when one of their own could sit in the White House. Debs had been a monumental victory, as had his reelection. But Thomas was a victory too. He was a statement, the socialists would not burn hot and short but were here to stay."
  us_election.5.a:0 "I, Norman Matoon Thomas..."
+ 
+ us_election.7.title:0 "Inuaguration Day"
+ us_election.7.desc:0 ""
+ us_election.7.a:0 ""
  
  us_election.20.title:0 "Election Day"
  us_election.20.desc:0 "Today's the day! Americans everywhere are going down to their polling places, casting their votes for who will be the next President of the United States. It'll take a few days to collect and count the results, at which point a victor will likely be declared."
@@ -437,8 +442,12 @@
  USA_opposition_campaign_socialist:0 "Socialist Campaign - [GetOppositionArea]"
  USA_opposition_campaign_democrat:0 "Democratic Campaign - [GetOppositionArea]"
  
- ### DEBUG MENU STUFF ###
+ ### Tooltips ###
+ USA_1936_election_over:0 "The 1936 presidential election is over"
+ USA_1938_election_over:0 "The 1938 midterm elections are over"
+ USA_1940_election_over:0 "The 1940 presidential election is over"
  
+ ### DEBUG MENU STUFF ###
  USA_debug_pops_tooltip:0 "party_popularity:\nCommunist: [?THIS.communist_popularity]\nSocialist: [?THIS.socialist_popularity]\nRepublican: [?THIS.republican_popularity]\nDemocrat: [?THIS.democrat_popularity]\nCommonwealth: [?THIS.afp_popularity]\n\nparty_election_pop:\nCommunist: [?THIS.communist_election_pop]\nSocialist: [?THIS.socialist_election_pop]\nRepublican: [?THIS.republican_election_pop]\nDemocrat: [?THIS.democrat_election_pop]\nCommonwealth: [?THIS.afp_election_pop]\n\nelectoral_votes: [?THIS.electoral_votes]"
  
  

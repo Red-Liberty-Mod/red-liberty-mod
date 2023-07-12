@@ -12,15 +12,27 @@ news_event = { # thomas election news event
 
 	is_triggered_only = yes
 	
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	show_major = {
+		or = {
+			regional_europe_news = yes
+			regional_north_america_news = yes
+			regional_south_america_news = yes
+		}
+	}
+	
 	major = yes
 	
 	option = {
 		name = worldnews.1.a
 		trigger = {
 			OR = {
-				has_government = revolutionary_autocracy
-				has_government = proletarian_dictatorship
-				has_government = libertarian_socialism
+				has_government = vanguard_socialism
+				has_government = revolutionary_socialism
+				has_government = democratic_socialism
 				has_government = social_democracy
 			}
 			NOT = {
@@ -34,7 +46,7 @@ news_event = { # thomas election news event
 		trigger = {
 			OR = {
 				has_government = progressive_liberalism
-				has_government = market_libertarianism
+				has_government = liberal_conservatism
 				has_government = national_conservatism
 				has_government = authoritarian_democracy
 			}
@@ -48,12 +60,12 @@ news_event = { # thomas election news event
 		name = worldnews.1.c
 		trigger = {
 			NOT = {
-				has_government = revolutionary_autocracy
-				has_government = proletarian_dictatorship
-				has_government = libertarian_socialism
+				has_government = vanguard_socialism
+				has_government = revolutionary_socialism
+				has_government = democratic_socialism
 				has_government = social_democracy
 				has_government = progressive_liberalism
-				has_government = market_libertarianism
+				has_government = liberal_conservatism
 				has_government = national_conservatism
 				has_government = authoritarian_democracy
 			}
@@ -79,6 +91,18 @@ news_event = { # lister election news event
 
 	is_triggered_only = yes
 	
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	show_major = {
+		or = {
+			regional_europe_news = yes
+			regional_north_america_news = yes
+			regional_south_america_news = yes
+		}
+	}
+	
 	major = yes
 	
 	option = {
@@ -92,6 +116,18 @@ news_event = { # deadlocked EC news event
 	desc = worldnews.3.desc
 
 	is_triggered_only = yes
+	
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	show_major = {
+		or = {
+			regional_europe_news = yes
+			regional_north_america_news = yes
+			regional_south_america_news = yes
+		}
+	}
 	
 	major = yes
 	
@@ -132,9 +168,9 @@ news_event = { # house elects lister
 		trigger = {
 			NOT = {
 				OR = {
-					has_government = revolutionary_autocracy
-					has_government = proletarian_dictatorship
-					has_government = libertarian_socialism
+					has_government = vanguard_socialism
+					has_government = revolutionary_socialism
+					has_government = democratic_socialism
 				}
 			}
 		}
@@ -171,6 +207,64 @@ news_event = { # insurgency world news event
 	}
 }
 
+news_event = { # thomas 1940 election
+	id = worldnews.8
+	title = worldnews.8.title
+	desc = worldnews.8.desc
+	picture = GFX_report_event_usa_election_thomas_victory
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	show_major = {
+		or = {
+			regional_europe_news = yes
+			regional_north_america_news = yes
+			regional_south_america_news = yes
+		}
+	}
+	
+	major = yes
+
+	option = {
+		name = worldnews.8.a
+	}
+}
+
+news_event = { # death of george v
+	id = worldnews.9
+	title = worldnews.9.title
+	desc = worldnews.9.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = worldnews.9.a
+		trigger = {
+			has_socialist_govt = yes
+		}
+	}
+	
+	option = {
+		name = worldnews.9.b
+		trigger = {
+			has_democratic_govt = yes
+		}
+	}
+	
+	option = {
+		name = worldnews.9.c
+		trigger = {
+			has_reactionary_govt = yes
+		}
+	}
+}
+
 news_event = { # brazilian civil war
 	id = worldnews_war.1
 	title = worldnews_war.1.title
@@ -179,13 +273,21 @@ news_event = { # brazilian civil war
 	
 	is_triggered_only = yes
 	
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	show_major = {
+		or = {
+			regional_north_america_news = yes
+			regional_south_america_news = yes
+		}
+	}
+	
 	major = yes
 
 	option = {
 		name = worldnews_war.1.a
-		USA = {
-			setup_brazil_conflict = yes
-		}
 	}
 }
 
@@ -201,9 +303,6 @@ news_event = { # mexican civil war
 
 	option = {
 		name = worldnews_war.2.a
-		USA = {
-			setup_mexico_conflict = yes
-		}
 	}
 }
 
@@ -235,6 +334,12 @@ news_event = { # ww2 event - france vs germany
 			has_global_flag = { flag = second_great_war_started days > 10 }
 		}
 	}
+	
+	immediate = {
+		hidden_effect = {
+			scoped_sound_effect = "great_war"
+		}
+	}
 
 	is_triggered_only = yes
 	
@@ -250,6 +355,7 @@ news_event = { # ww2 event - france vs germany
 				}
 			}
 		}
+		custom_effect_tooltip = worldnews_ww2.1_tt
 	}
 	
 	option = {
@@ -257,6 +363,7 @@ news_event = { # ww2 event - france vs germany
 		trigger = {
 			original_tag = FRA
 		}
+		custom_effect_tooltip = worldnews_ww2.1_tt
 	}
 	
 	option = {
@@ -264,6 +371,7 @@ news_event = { # ww2 event - france vs germany
 		trigger = {
 			original_tag = GER
 		}
+		custom_effect_tooltip = worldnews_ww2.1_tt
 	}
 }
 
