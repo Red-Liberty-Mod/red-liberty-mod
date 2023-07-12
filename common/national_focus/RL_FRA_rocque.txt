@@ -7,7 +7,15 @@ shared_focus = {
 	cost = 3
 	
 	available = {
-		has_completed_focus = FRA_revise_the_constitution
+		custom_trigger_tooltip = {
+			tooltip = FRA_govt_stabilized
+			NOT = {
+				OR = {
+					has_idea = FRA_fallen_govt
+					has_idea = FRA_unstable_govt
+				}
+			}
+		}
 	}
 	
 	completion_reward = {
@@ -1178,24 +1186,28 @@ shared_focus = {
 		}
 	}
 
-	shared_focus = {
-		id = FRA_national_reconciliation
-		icon = GFX_FRA_national_reconciliation
-		
-		x = 1
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_rally_to_the_republic
-		prerequisite = {
-			focus = FRA_rally_to_the_republic
-		}
-		mutually_exclusive = {
-			focus = FRA_the_restoration
-			focus = FRA_a_republic_without_democracy
-		}
-		
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
+shared_focus = {
+	id = FRA_national_reconciliation
+	icon = GFX_FRA_national_reconciliation
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_rally_to_the_republic
+	prerequisite = {
+		focus = FRA_rally_to_the_republic
 	}
+	mutually_exclusive = {
+		focus = FRA_the_restoration
+		focus = FRA_a_republic_without_democracy
+	}
+	
+	completion_reward = {
+		add_stability = 0.075
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_STABILITY
+	}
+}
