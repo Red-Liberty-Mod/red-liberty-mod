@@ -12,7 +12,7 @@ set_stability = 0.8
 set_convoys = 5
 
 set_politics = {
-	ruling_party = despotism
+	ruling_party = national_conservatism
 	last_election = "1932.11.8"
 	election_frequency = 48
 	elections_allowed = no
@@ -25,8 +25,8 @@ set_popularities = {
 	social_democracy = 0
 	progressive_liberalism = 8
 	liberal_conservatism = 17
-	national_conservatism = 33
-	ultraconservatism = 12
+	national_conservatism = 35
+	ultraconservatism = 10
 	authoritarian_democracy = 5
 	despotism = 25
 	fascism = 0
@@ -34,15 +34,31 @@ set_popularities = {
 
 add_ideas = {
 	HEZ_caliphate
+	HEZ_Talal_Ultranationalism
+	HEZ_Hejazi_National_Party_Dictatorship
+	HEZ_Oil_Tourism_Economy
+	HEZ_Saudi_Militias
 }
 
-create_country_leader = {
-	name = "Ali bin Hussein"
-	desc = ""
-	picture = "gfx/leaders/HEZ/Portrait_HEZ_Ali_bin_Hussein.png"
-	expire = "1965.1.1"
-	ideology = absolute_monarchy_subtype
-	traits = {
-		#
+if = {
+	limit = {
+		OR = {
+			has_dlc = "Together for Victory"
+			has_dlc = "Man the Guns"
+		}
+	}
+	set_autonomy = {
+		target = ASI
+		autonomous_state = autonomy_RL_protectorate
+	}
+	else = {
+		puppet = ASI
+
 	}
 }
+
+create_faction = Arab_Defense_League
+add_to_faction = YEM
+add_to_faction = ASI
+
+recruit_character = HEZ_Ali_bin_Hussien
