@@ -31,6 +31,16 @@ FRA_wins_great_war = {
 			}
 		}
 	}
+	
+	FRA = {
+		transfer_state = 8
+		transfer_state = 28
+		transfer_state = 42
+		transfer_state = 51
+		transfer_state = 877
+		transfer_state = 878
+	}
+	
 	WGR = {
 		add_state_core = 50
 		add_state_core = 52
@@ -52,6 +62,24 @@ FRA_wins_great_war = {
 				limit = { is_core_of = WGR }
 				WGR = { transfer_state = PREV }
 			}
+		}
+		
+		set_cosmetic_tag = WGR_occupied_germany
+		
+		FRA = {
+			set_autonomy = {
+				target = WGR
+				autonomy_state = autonomy_RL_occupied_puppet
+			}
+		}
+		
+		set_politics = {
+			ruling_party = despotism
+			elections_allowed = no
+		}
+		set_popularities = {
+			national_conservatism = 20
+			despotism = 80
 		}
 	}
 	DDR = {
@@ -76,5 +104,27 @@ FRA_wins_great_war = {
 				DDR = { transfer_state = PREV }
 			}
 		}
+		
+		SOV = {
+			set_autonomy = {
+				target = DDR
+				autonomy_state = autonomy_RL_occupied_puppet
+			}
+		}
+		
+		set_politics = {
+			ruling_party = vanguard_socialism
+			elections_allowed = no
+		}
+		set_popularities = {
+			vanguard_socialism = 80
+			despotism = 20
+		}
+	}
+}
+
+SOV_wins_great_war = {
+	SOV = {
+		
 	}
 }
