@@ -1,19 +1,27 @@
-SOV_foreign_policy_category = {
-	#icon = usa_congress
+SOV_factionalism_category = {
 	
 	allowed = {
 		original_tag = SOV
 	}
-
+	
 	visible = {
-		check_variable = { active_conflicts^num > 0 }
+		
 	}
-
+	
 	visible_when_empty = yes
+	
+	priority = 100
+}
 
-	scripted_gui = foreign_conflicts_container
-
-	priority = 101
+SOV_foreign_trade_category = {
+	
+	allowed = {
+		original_tag = SOV
+	}
+	
+	visible = {
+		
+	}
 }
 
 SOV_revolution_category = {
@@ -21,8 +29,9 @@ SOV_revolution_category = {
 	allowed = {
 		original_tag = SOV
 	}
+	
 	visible = {
-		always = no
+		
 	}
 }
 
@@ -31,19 +40,10 @@ SOV_science_meter_category = {
 	allowed = {
 		original_tag = SOV
 	}
+	
 	visible = {
-		always = yes
+		always = no
 	}
 
 	scripted_gui = SOV_science_meter_gui
-}
-
-SOV_regional_autonomy_category = {
-
-	allowed = {
-		original_tag = SOV
-	}
-	visible = {
-		always = yes
-	}
 }
