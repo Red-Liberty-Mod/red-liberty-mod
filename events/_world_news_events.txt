@@ -247,13 +247,23 @@ news_event = { # death of george v
 		name = worldnews.9.a
 		trigger = {
 			has_socialist_govt = yes
+			NOT = {
+				OR = {
+					original_tag = USA
+					original_tag = ENG
+				}
+			}
 		}
 	}
 	
 	option = {
 		name = worldnews.9.b
 		trigger = {
-			has_democratic_govt = yes
+			OR = {
+				has_democratic_govt = yes
+				original_tag = USA
+				original_tag = ENG
+			}
 		}
 	}
 	
