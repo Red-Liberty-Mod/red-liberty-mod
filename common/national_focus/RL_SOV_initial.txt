@@ -437,7 +437,18 @@ shared_focus = {
 	prerequisite = { focus = SOV_reintroduce_conscription }
 	prerequisite = { focus = SOV_call_on_the_internationale }
     completion_reward = {
-        
+		custom_effect_tooltip = SOV_war_communism_tt
+		unlock_decision_category_tooltip = SOV_war_communism_category
+		
+		set_variable = { SOV_war_communism_political_power_gain = -0.1 }
+		set_variable = { SOV_war_communism_stability_weekly = -0.0025 }
+		set_variable = { SOV_war_communism_war_support_weekly = -0.0025 }
+		
+		hidden_effect = {
+			add_dynamic_modifier = {
+				modifier = SOV_war_communism_modifier
+			}
+		}
     }
 	
 	ai_will_do = {
