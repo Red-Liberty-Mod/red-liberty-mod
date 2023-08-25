@@ -1,0 +1,24 @@
+SOV_start_eser_revolt = {
+	
+	SRU = {
+		add_state_core = 217
+		add_state_core = 218
+		add_state_core = 236
+		add_state_core = 237
+		add_state_core = 238
+		add_state_core = 245
+		add_state_core = 265
+		
+		SOV = {
+			every_owned_state = {
+				limit = { is_core_of = SRU }
+				
+				SRU = { transfer_state = PREV }
+				teleport_armies = {
+					limit = { tag = SOV }
+					to_state_array = owned_controlled_states
+				}
+			}
+		}
+	}
+}
