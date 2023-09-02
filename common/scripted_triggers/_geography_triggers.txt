@@ -33,17 +33,19 @@ is_in_central_america = {
 }
 
 is_south_american_tag = {
-	tag = BRA
-	tag = UOB
-	tag = URG
-	tag = ARG
-	tag = CHL
-	tag = PAR
-	tag = BOL
-	tag = PRU
-	tag = ECU
-	tag = COL
-	tag = VEN
+	OR = {
+		tag = BRA
+		tag = UOB
+		tag = URG
+		tag = ARG
+		tag = CHL
+		tag = PAR
+		tag = BOL
+		tag = PRU
+		tag = ECU
+		tag = COL
+		tag = VEN
+	}
 }
 
 is_in_south_america = {
@@ -64,16 +66,43 @@ is_in_africa = {
 	}
 }
 
+is_in_middle_east = {
+	capital_scope = {
+		is_on_continent = middle_east
+	}
+}
+
+is_in_asia = {
+	capital_scope = {
+		is_on_continent = asia
+	}
+}
+
+is_in_australia = {
+	capital_scope = {
+		is_on_continent = australia
+	}
+}
 
 is_chinese_tag = {
-	tag = CHI
-	tag = GUI
-	tag = YUN
-	tag = HNN
-	tag = SHD
-	tag = XSM
-	tag = SIK
-	
+	OR = {
+		tag = CHI
+		tag = GUI
+		tag = YUN
+		tag = HNN
+		tag = SHD
+		tag = XSM
+		tag = SIK
+	}
+}
+
+is_in_china = {
+	OR = {
+		is_chinese_tag = yes
+		original_tag = MON
+		original_tag = KUM
+		original_tag = TIB
+	}
 }
 
 is_urban_state = {
