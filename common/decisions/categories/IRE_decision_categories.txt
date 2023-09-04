@@ -11,3 +11,21 @@ IRE_parliament = {
 
 	priority = 100
 }
+
+IRE_paramilitary_orgs_category = {
+	icon = IRE_parliament
+	
+	allowed = {
+		tag = IRE
+	}
+	
+	visible = {
+		NOT = {
+			has_country_flag = IRE_civil_war_started
+		}
+	}
+	
+	scripted_gui = IRE_paramilitary_scripted_gui
+	
+	visible_when_empty = yes
+}
