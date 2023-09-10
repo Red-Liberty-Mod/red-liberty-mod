@@ -1,17 +1,117 @@
 IRE_parliament = {
 	
-	IRE_reset_parliament = {
-	
+	IRE_end_the_persecutions = {
 		icon = ger_mefo_bills
 		
-		visible = {
-			is_debug = yes
+		available = {
+			has_completed_focus = IRE_democratise_the_republic
 		}
 		
-		cost = 0
+		cost = 50
 		
 		complete_effect = {
-			IRE_recalc_parliament = yes
+			custom_effect_tooltip = IRE_end_the_persecutions_tt
+		}
+	}
+}
+
+IRE_paramilitary_orgs_category = {
+
+	IRE_military_operation_against_ira = {
+		icon = ger_mefo_bills
+		
+		cost = 10
+		days_remove = 7
+		days_re_enable = 14
+		
+		remove_effect = {
+			add_to_variable = {
+				tooltip = IRE_ira_strength_change
+				IRE_ira_strength = -3
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	IRE_military_operation_against_ica = {
+		icon = ger_mefo_bills
+		
+		cost = 10
+		days_remove = 7
+		days_re_enable = 14
+		
+		remove_effect = {
+			add_to_variable = {
+				tooltip = IRE_ica_strength_change
+				IRE_ica_strength = -3
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	IRE_ongoing_violence = {
+		icon = GFX_decision_revolt
+		
+		available = {
+			hidden_trigger = {
+				OR = {
+					has_country_flag = IRE_unrest_started
+					has_country_flag = IRE_paramilitary_violence_over
+				}
+			}
+		}
+		
+		activation = {
+			always = yes
+		}
+		
+		is_good = yes
+		days_mission_timeout = 21
+		days_remove = 7
+		days_re_enable = 0
+		
+		complete_effect = {
+			
+		}
+		
+		timeout_effect = {
+			set_temp_variable_to_random = {
+				var = ira_change
+				min = 1
+				max = 4
+			}
+			round_temp_variable = ira_change
+			add_to_variable = {
+				tooltip = IRE_ira_strength_change
+				IRE_ira_strength = ira_change
+			}
+			clamp_var = {
+				var = IRE_ira_strength
+				min = 0
+				max = 100
+			}
+			
+			set_temp_variable_to_random = {
+				var = ica_change
+				min = 1
+				max = 4
+			}
+			round_temp_variable = ica_change
+			add_to_variable = {
+				tooltip = IRE_ica_strength_change
+				IRE_ica_strength = ica_change
+			}
+			clamp_var = {
+				var = IRE_ica_strength
+				min = 0
+				max = 100
+			}
 		}
 	}
 }

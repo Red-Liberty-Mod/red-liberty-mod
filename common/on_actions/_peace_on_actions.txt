@@ -385,19 +385,29 @@ on_actions = {
 						transfer_state = 885
 					}
 					ROM = {
-						random_list = {
-							5 = {
-								country_event = {
-									id = demo_rom.2
-									days = 14
-								}
+						#random_list = {
+						#	5 = {
+						#		country_event = {
+						#			id = demo_rom.2
+						#			days = 14
+						#		}
+						#	}
+						#	95 = {
+						#		country_event = {
+						#			id = demo_rom.3
+						#			days = 14
+						#		}
+						#	}
+						#}
+						annex_country = {
+							target = TRS
+						}
+						every_owned_state = {
+							limit = {
+								has_core_of = TRS
 							}
-							95 = {
-								country_event = {
-									id = demo_rom.3
-									days = 14
-								}
-							}
+							add_core_of = ROM
+							remove_core_of = TRS
 						}
 					}
 					if = {
