@@ -32,41 +32,30 @@ country_event = { # intro event
 	
 	fire_only_once = no
 	immediate = {
-	hidden_effect = {
-	CAM = {
-	release = SRV
-	}
-	LAO = {
-	release = SRV
-	}
-	}
+		hidden_effect = {
+			SRV = {
+			transfer_state = 980
+			transfer_state = 671
+			}
+		}
 	}
 	option = {
 		name = "We Shall Deal With These Trouble Makers"
 		
 		SRV = {
-		add_state_core = 741
-		add_state_core = 841
-		add_state_core = 958
-		add_state_core = 286
-		add_state_core = 952
-		add_state_core = 670
-		add_state_core = 960
-		add_state_core = 961
+		add_state_core = 980
 		add_state_core = 671
+		add_state_core = 952
+		add_state_core = 981
+		add_state_core = 871
+		add_state_core = 286
+		add_state_core = 958
 		load_oob = "SRV_revolt"
 		declare_war_on = {
 			target = VIN
 			type = annex_everything
 		}
-		declare_war_on = {
-			target = LAO
-			type = annex_everything
-		}
-		declare_war_on = {
-			target = CAM
-			type = annex_everything
-		}
+		
 		}
 		
 	}
@@ -75,29 +64,73 @@ country_event = { # intro event
 		name = indochina_revolution.100.b
 		
 		SRV = {
-		add_state_core = 741
-		add_state_core = 841
-		add_state_core = 958
-		add_state_core = 286
-		add_state_core = 952
-		add_state_core = 670
-		add_state_core = 960
-		add_state_core = 961
+		add_state_core = 980
 		add_state_core = 671
+		add_state_core = 952
+		add_state_core = 981
+		add_state_core = 871
+		add_state_core = 286
+		add_state_core = 958
 		load_oob = "SRV_revolt"
 		declare_war_on = {
 			target = VIN
 			type = annex_everything
 		}
-		declare_war_on = {
-			target = LAO
-			type = annex_everything
-		}
-		declare_war_on = {
-			target = CAM
-			type = annex_everything
-		}
+		
 		change_tag_from = ROOT
+		}
+		
+	}
+}
+
+
+country_event = { # intro event
+	id = indochina_revolution.101
+	title = "Question of a Great Indochinese State?"
+	desc = indochina_revolution.100.desc
+	
+	picture = "GFX_report_event_SRV_SRV_indochina_revolt"
+	
+	is_triggered_only = yes
+	
+	fire_only_once = no
+	immediate = {
+		hidden_effect = {
+			SRV = {
+			transfer_state = 980
+			transfer_state = 671
+			}
+		}
+	}
+	option = {
+		name = "We Shall Deal With These Trouble Makers"
+		
+		SRV = {
+		add_state_core = 980
+		add_state_core = 671
+		add_state_core = 952
+		add_state_core = 981
+		add_state_core = 871
+		add_state_core = 286
+		add_state_core = 958
+		load_oob = "SRV_revolt"
+		declare_war_on = {
+			target = VIN
+			type = annex_everything
+		}
+		
+		}
+		
+	}
+	
+	option = {
+		name = indochina_revolution.100.b
+		
+		SRV = {
+		
+		
+		
+		
 		}
 		
 	}
