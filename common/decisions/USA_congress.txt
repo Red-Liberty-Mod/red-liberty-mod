@@ -691,156 +691,179 @@ USA_congress = {
 		}
 	}
 	
+	start_ludlow_amendment = {
+		icon = ger_mefo_bills
+		available = {
+			NOT = {
+				has_country_flag = USA_discussing_bill
+			}
+			has_completed_focus = USA_as_the_fathers_intended
+		}
+		
+		visible = {
+			NOT = {
+				has_country_flag = USA_discussing_bill
+			}
+			has_completed_focus = USA_as_the_fathers_intended
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			USA_ludlow_amendment_setup = yes
+		}
+	}
+	
 	### MINOR LEGISLATION ###
 	
-	start_USA_national_cancer_act = {
-		icon = ger_mefo_bills
-		available = {
-			original_tag = USA
-		}
-		
-		visible = {
-			original_tag = USA
-			date > 1937.1.20
-			NOT = {
-				has_country_flag = USA_discussing_bill
-			}
-		}
-		
-		fire_only_once = yes
-		
-		cost = 25
-		
-		complete_effect = {
-			add_stability = 0.02
-		}
-	}
+	#start_USA_national_cancer_act = {
+	#	icon = ger_mefo_bills
+	#	available = {
+	#		original_tag = USA
+	#	}
+	#	
+	#	visible = {
+	#		original_tag = USA
+	#		date > 1937.1.20
+	#		NOT = {
+	#			has_country_flag = USA_discussing_bill
+	#		}
+	#	}
+	#	
+	#	fire_only_once = yes
+	#	
+	#	cost = 25
+	#	
+	#	complete_effect = {
+	#		add_stability = 0.02
+	#	}
+	#}
 	
-	start_USA_natural_gas_act = {
-		icon = ger_mefo_bills
-		available = {
-			original_tag = USA
-		}
-		
-		visible = {
-			original_tag = USA
-			date > 1938.1.15
-			NOT = {
-				has_country_flag = USA_discussing_bill
-			}
-		}
-		
-		fire_only_once = yes
-		
-		cost = 25
-		
-		complete_effect = {
-			add_stability = 0.02
-		}
-	}
+	#start_USA_natural_gas_act = {
+	#	icon = ger_mefo_bills
+	#	available = {
+	#		original_tag = USA
+	#	}
+	#	
+	#	visible = {
+	#		original_tag = USA
+	#		date > 1938.1.15
+	#		NOT = {
+	#			has_country_flag = USA_discussing_bill
+	#		}
+	#	}
+	#	
+	#	fire_only_once = yes
+	#	
+	#	cost = 25
+	#	
+	#	complete_effect = {
+	#		add_stability = 0.02
+	#	}
+	#}
 	
 	### EXECUTIVE ORDERS ###
 	
-	USA_executive_order_7806 = { # form the National Public Employment Relations Commission
-		icon = ger_mefo_bills
-		available = {
-			has_completed_focus = USA_strengthen_labor_regs
-		}
-		
-		visible = {
-			original_tag = USA
-			date > 1937.01.01
-			has_completed_focus = USA_strengthen_labor_regs
-			NOT = {
-				has_country_flag = USA_discussing_bill
-			}
-		}
-		
-		fire_only_once = yes
-		
-		cost = 50
-		
-		complete_effect = {
-			
-		}
-	}
+	#USA_executive_order_7806 = { # form the National Public Employment Relations Commission
+	#	icon = ger_mefo_bills
+	#	available = {
+	#		has_completed_focus = USA_strengthen_labor_regs
+	#	}
+	#	
+	#	visible = {
+	#		original_tag = USA
+	#		date > 1937.01.01
+	#		has_completed_focus = USA_strengthen_labor_regs
+	#		NOT = {
+	#			has_country_flag = USA_discussing_bill
+	#		}
+	#	}
+	#	
+	#	fire_only_once = yes
+	#	
+	#	cost = 50
+	#	
+	#	complete_effect = {
+	#		
+	#	}
+	#}
 	
-	USA_public_law_163 = { # expand the ccc
-		icon = ger_mefo_bills
-		available = {
-			has_completed_focus = USA_ccc
-		}
-		
-		visible = {
-			original_tag = USA
-			date > 1940.01.01
-			NOT = {
-				has_country_flag = USA_discussing_bill
-			}
-		}
-		
-		fire_only_once = yes
-		
-		cost = 25
-		
-		complete_effect = {
-			
-		}
-	}
+	#USA_public_law_163 = { # expand the ccc
+	#	icon = ger_mefo_bills
+	#	available = {
+	#		has_completed_focus = USA_ccc
+	#	}
+	#	
+	#	visible = {
+	#		original_tag = USA
+	#		date > 1940.01.01
+	#		NOT = {
+	#			has_country_flag = USA_discussing_bill
+	#		}
+	#	}
+	#	
+	#	fire_only_once = yes
+	#	
+	#	cost = 25
+	#	
+	#	complete_effect = {
+	#		
+	#	}
+	#}
 	
-	USA_executive_order_8802 = {
-		icon = ger_mefo_bills
-		available = {
-			has_war = yes
-		}
-		
-		visible = {
-			original_tag = USA
-			NOT = {
-				has_country_flag = USA_discussing_bill
-			}
-		}
-		
-		visible = {
-			date > 1940.01.01
-		}
-		
-		fire_only_once = yes
-		
-		cost = 100
-		
-		complete_effect = {
-			
-		}
-	}
+	#USA_executive_order_8802 = {
+	#	icon = ger_mefo_bills
+	#	available = {
+	#		has_war = yes
+	#	}
+	#	
+	#	visible = {
+	#		original_tag = USA
+	#		NOT = {
+	#			has_country_flag = USA_discussing_bill
+	#		}
+	#	}
+	#	
+	#	visible = {
+	#		date > 1940.01.01
+	#	}
+	#	
+	#	fire_only_once = yes
+	#	
+	#	cost = 100
+	#	
+	#	complete_effect = {
+	#		
+	#	}
+	#}
 	
-	USA_executive_order_8807 = {
-		icon = ger_mefo_bills
-		available = {
-			has_war = yes
-		}
-		
-		visible = {
-			original_tag = USA
-		}
-		
-		visible = {
-			date > 1940.01.01
-			NOT = {
-				has_country_flag = USA_discussing_bill
-			}
-		}
-		
-		fire_only_once = yes
-		
-		cost = 100
-		
-		complete_effect = {
-			add_ideas = {
-				USA_osrd
-			}
-		}
-	}
+	#USA_executive_order_8807 = {
+	#	icon = ger_mefo_bills
+	#	available = {
+	#		has_war = yes
+	#	}
+	#	
+	#	visible = {
+	#		original_tag = USA
+	#	}
+	#	
+	#	visible = {
+	#		date > 1940.01.01
+	#		NOT = {
+	#			has_country_flag = USA_discussing_bill
+	#		}
+	#	}
+	#	
+	#	fire_only_once = yes
+	#	
+	#	cost = 100
+	#	
+	#	complete_effect = {
+	#		add_ideas = {
+	#			USA_osrd
+	#		}
+	#	}
+	#}
 	
 ############## DO NOT MODIFY BELOW THIS LINE ### I'm gonna modify beyond this line if I don't get my 1 million dollars #################################
 	
