@@ -107,7 +107,7 @@ shared_focus = {
 	}
     completion_reward = {
         country_event = {
-			id = ireland.8
+			id = ireland.9
 			hours = 6
 		}
     }
@@ -660,7 +660,7 @@ shared_focus = {
 		}
 		
 		country_event = {
-			id = ireland.13
+			id = ireland.14
 			hours = 6
 		}
     }
@@ -1207,6 +1207,33 @@ shared_focus = {
 	}
 }
 
+shared_focus = {
+    id = IRE_expand_airfields
+	icon = GFX_IRE_expand_airfields
+	
+    x = 1
+	y = 1
+	cost = 8
+	
+	relative_position_id = IRE_an_taerchor
+	prerequisite = {
+		focus = IRE_an_taerchor
+	}
+    completion_reward = {
+        113 = {
+			add_building_construction = {
+				type = air_base
+				level = 1
+				instant_build = yes
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
 ### NAVY TREE ###
 
 shared_focus = {
@@ -1267,6 +1294,85 @@ shared_focus = {
 	}
     completion_reward = {
         
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_irish_dockyards
+	icon = GFX_IRE_irish_dockyards
+	
+    x = -1
+	y = 1
+	
+	cost = 8
+	relative_position_id = IRE_purchase_submarines
+	prerequisite = {
+		focus = IRE_purchase_submarines
+		focus = IRE_expand_the_surface_fleet
+	}
+    completion_reward = {
+        857 = {
+			add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_study_naval_tactics
+	icon = GFX_IRE_study_naval_tactics
+	
+    x = 1
+	y = 1
+	
+	cost = 8
+	relative_position_id = IRE_purchase_submarines
+	prerequisite = {
+		focus = IRE_purchase_submarines
+		focus = IRE_expand_the_surface_fleet
+	}
+    completion_reward = {
+        add_doctrine_cost_reduction = {
+			cost_reduction = 0.5
+			uses = 1
+			category = naval_doctrine
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_irish_marines
+	icon = GFX_IRE_irish_marines
+	
+    x = 0
+	y = 1
+	
+	cost = 8
+	relative_position_id = IRE_study_naval_tactics
+	prerequisite = {
+		focus = IRE_study_naval_tactics
+	}
+    completion_reward = {
+        add_tech_bonus = {
+			bonus = 0.5
+			uses = 1
+			category = marine_tech
+		}
     }
 	
 	ai_will_do = {
