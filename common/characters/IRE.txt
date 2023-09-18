@@ -34,6 +34,22 @@ characters = {
 				
 			}
 		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = IRE_roddy_connolly
+			
+			available = {
+				AND = {
+					has_socialist_govt = yes
+					is_country_leader = no
+				}
+			}
+			
+			traits = {
+				for_great_compromiser
+			}
+		}
 	}
 	
 	IRE_charles_donnelly = {
@@ -309,6 +325,41 @@ characters = {
 		}
 	}
 	
+	IRE_william_norton = {
+		name = IRE_william_norton
+		
+		portraits = {
+			civilian = {
+				small = "GFX_minister_IRE_william_norton"
+			}
+		}
+		
+		advisor = {
+			slot = head_of_government
+			idea_token = IRE_william_norton_hog
+			ledger = civilian
+			
+			cost = 0
+			can_be_fired = no
+			
+			allowed = {
+				original_tag = IRE
+			}
+			
+			visible = {
+				
+			}
+			
+			available = {
+				
+			}
+			
+			traits = {
+				hog_ambitious_union_boss
+			}
+		}
+	}
+	
 	### Ministers ###
 	
 	IRE_andy_barr = {
@@ -379,6 +430,27 @@ characters = {
 		}
 	}
 	
+	IRE_benjamin_farrington = {
+		name = IRE_benjamin_farrington
+		
+		portraits = {
+			civilian = {
+				small = "GFX_minister_IRE_benjamin_farrington"
+			}
+		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = IRE_benjamin_farrington
+			available = {
+				has_socialist_govt = yes
+			}
+			traits = {
+				edu_technocrat
+			}
+		}
+	}
+	
 	IRE_sean_okelly = {
 		name = IRE_sean_okelly
 		
@@ -410,6 +482,48 @@ characters = {
 			traits = {
 				eco_financial_expert
 			}
+		}
+	}
+	
+	IRE_ernest_blythe = {
+		name = IRE_ernest_blythe
+		
+		portraits = {
+			civilian = {
+				small = "GFX_minister_IRE_ernest_blythe"
+			}
+		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = IRE_ernest_blythe
+			
+			available = {
+				has_socialist_govt = no
+			}
+			
+			traits = {
+				eco_administrative_genius
+			}
+		}
+	}
+	
+	IRE_eoin_macneill = {
+		name = IRE_eoin_macneill
+		
+		portraits = {
+			civilian = {
+				small = "GFX_minister_IRE_eoin_macneill"
+			}
+		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = IRE_eoin_macneill
+			available = {
+				has_socialist_govt = no
+			}
+			traits = { edu_educational_reformer }
 		}
 	}
 	
@@ -449,6 +563,124 @@ characters = {
 	
 	### Military ###
 	
+	IRE_richard_mulcahy = {
+		name = IRE_richard_mulcahy
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_IRE_richard_mulcahy"
+			}
+		}
+		
+		field_marshal = {
+			traits = {
+				trait_cautious
+				brilliant_strategist
+				organizer
+				logistics_wizard
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 3
+		}
+		
+		advisor = {
+			slot = army_chief
+			idea_token = IRE_richard_mulcahy
+			traits = {
+				army_chief_planning_2
+			}
+			cost = 100
+		}
+	}
+	
+	IRE_hugo_macneill = {
+		name = IRE_hugo_macneill
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_IRE_hugo_macneill"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				harsh_leader
+				organizer
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	
+	IRE_tom_barry = {
+		name = IRE_tom_barry
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_IRE_tom_barry"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				career_officer
+				commando
+			}
+			skill = 3
+			attack_skill = 4
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = IRE_tom_barry
+			ledger = army
+			traits = { army_infantry_2 }
+			cost = 100
+		}
+	}
+	
+	IRE_jeremiah_oconnell = {
+		name = IRE_jeremiah_oconnell
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_IRE_jeremiah_oconnell"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+		
+		advisor = {
+			slot = theorist
+			idea_token = IRE_jeremiah_oconnell
+			ledger = army
+			traits = {
+				military_theorist
+			}
+			cost = 100
+		}
+	}
+	
+	### Admirals ###
+	
 	IRE_seamus_omuiris = {
 		name = IRE_seamus_omuiris
 		
@@ -476,5 +708,45 @@ characters = {
 		#	traits = { KR_navy_chief_decisive_battle_2 }
 		#	cost = 100
 		#}
+	}
+	
+	### High Command ###
+	
+	IRE_liam_archer = {
+		name = IRE_liam_archer
+		
+		portraits = {
+			army = {
+				small = "GFX_minister_IRE_liam_archer"
+			}
+		}
+		
+		advisor = {
+			slot = army_chief
+			idea_token = IRE_liam_archer
+			traits = {
+				army_chief_organizational_1
+			}
+			cost = 50
+		}
+	}
+	
+	IRE_john_prout = {
+		name = IRE_john_prout
+		
+		portraits = {
+			army = {
+				small = "GFX_minister_IRE_john_prout"
+			}
+		}
+		
+		advisor = {
+			slot = army_chief
+			idea_token = IRE_john_prout
+			traits = {
+				army_chief_drill_2
+			}
+			cost = 100
+		}
 	}
 }

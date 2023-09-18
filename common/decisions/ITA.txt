@@ -63,7 +63,7 @@ ITA_balance_of_power_category = {
 			hidden_effect = {
 				ASA = {
 					set_politics = {
-						ruling_party = autocratic_despotism
+						ruling_party = despotism
 						last_election = "1936.1.1"
 						election_frequency = 48
 						elections_allowed = no
@@ -74,6 +74,92 @@ ITA_balance_of_power_category = {
 		
 		ai_will_do = {
 			base = 10
+		}
+	}
+	
+	ITA_capture_gondar_mission = {
+	
+		allowed = {
+			
+		}
+		
+		available = {
+			ITA = {
+				controls_province = 1984
+			}
+		}
+		
+		activation = {
+			ITA = {
+				has_war_with = ETH
+			}
+		}
+		
+		visible = {
+			
+		}
+		
+		is_good = no
+		days_mission_timeout = 90
+		fire_only_once = yes
+		
+		complete_effect = {
+			
+		}
+		
+		timeout_effect = {
+			add_power_balance_value = {
+				id = ITA_italo_ethiopian_war_balance
+				value = 0.1
+				tooltip_side = ITA_defeat_side
+			}
+		}
+		
+		remove_effect = {
+			
+		}
+	}
+	
+	ITA_capture_raaso_mission = {
+	
+		allowed = {
+			
+		}
+		
+		available = {
+			ITA = {
+				controls_province = 10775
+			}
+		}
+		
+		activation = {
+			ITA = {
+				has_war_with = ETH
+			}
+		}
+		
+		visible = {
+			
+		}
+		
+		is_good = no
+		days_mission_timeout = 90
+		fire_only_once = yes
+		
+		complete_effect = {
+			
+		}
+		
+		timeout_effect = {
+			add_power_balance_value = {
+				id = ITA_italo_ethiopian_war_balance
+				value = 0.1
+				tooltip_side = ITA_defeat_side
+			}
+		}
+		
+		remove_effect = {
+			
 		}
 	}
 	
@@ -150,6 +236,10 @@ ITA_army_reform = {
 				remove_idea = ITA_disorganized_general_staff
 				add_idea = ITA_disorganized_general_staff_1
 			}
+		}
+		
+		ai_will_do = {
+			base = 10
 		}
 	}
 
@@ -604,6 +694,10 @@ ITA_army_reform = {
 					}
 				}
 			}
+		}
+		
+		ai_will_do = {
+			base = 5
 		}
 	}
 }

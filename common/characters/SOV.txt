@@ -11,7 +11,7 @@ characters = {
 		
 		country_leader = {
 			desc = "POLITICS_NIKOLAI_BUKHARIN_DESC"
-			ideology = leninism_subtype
+			ideology = right_communism_subtype
 			traits = {
 				
 			}
@@ -29,7 +29,7 @@ characters = {
 		
 		country_leader = {
 			desc = "POLITICS_GRIGORY_SOKOLNIKOV_DESC"
-			ideology = leninism_subtype
+			ideology = right_communism_subtype
 			traits = {
 				
 			}
@@ -143,6 +143,25 @@ characters = {
 			
 			traits = {
 				eco_union_man
+			}
+		}
+	}
+	
+	SOV_ivan_smirnov = {
+		name = SOV_ivan_smirnov
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_SOV_ivan_smirnov"
+				small = "GFX_minister_SOV_ivan_smirnov"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_IVAN_SMIRNOV_DESC"
+			ideology = left_communism_subtype
+			traits = {
+				
 			}
 		}
 	}
@@ -894,6 +913,38 @@ characters = {
 			defense_skill = 2
 			planning_skill = 3
 			logistics_skill = 2
+		}
+	}
+	
+	### THEORISTS ###
+	
+	SOV_vladimir_triandafillov = {
+		name = SOV_vladimir_triandafillov
+		
+		portraits = {
+			army = {
+				small = "GFX_portrait_SOV_vladimir_triandafillov"
+			}
+		}
+			
+		advisor = {
+			cost = 100
+			
+			slot = theorist
+			idea_token = SOV_vladimir_triandafillov
+			ledger = army
+			
+			allowed = {
+				original_tag = SOV
+			}
+			
+			available = {
+				
+			}
+			
+			traits = {
+				military_theorist
+			}
 		}
 	}
 }

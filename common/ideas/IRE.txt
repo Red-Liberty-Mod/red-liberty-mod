@@ -21,7 +21,7 @@ ideas = {
 			}
 		}
 		
-		IRE_anglo_irish_trade_war_1 = {
+		IRE_waning_trade_war = {
 			
 			removal_cost = -1 
 			
@@ -42,11 +42,10 @@ ideas = {
 		}
 		
 		IRE_paramilitary_violence = {
-			
 			removal_cost = -1 
 			
 			allowed = {
-				always = yes
+				always = no
 			}
 			
 			allowed_civil_war = { 
@@ -56,6 +55,23 @@ ideas = {
 			modifier = {
 				stability_factor = -0.05
 				conscription_factor = -0.15
+			}
+		}
+		
+		IRE_waning_paramilitary_violence = {
+			removal_cost = -1 
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				stability_factor = -0.025
+				conscription_factor = -0.1
 			}
 		}
 		
@@ -74,6 +90,94 @@ ideas = {
 			modifier = {
 				stability_factor = -0.15
 				war_support_factor = 0.1
+			}
+		}
+		
+		### ARMY TREE ###
+		
+		IRE_womens_auxiliary = {
+			removal_cost = -1 
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				conscription_factor = 0.05
+			}
+		}
+		
+		IRE_guerilla_army = {
+			removal_cost = -1 
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				army_core_defence_factor = 0.05
+				army_morale_factor = 0.1
+			}
+		}
+		
+		IRE_standing_militia = {
+			removal_cost = -1 
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				conscription_factor = 0.05
+				army_core_defence_factor = 0.1
+				army_morale_factor = 0.1
+			}
+		}
+		
+		IRE_professional_army = {
+			removal_cost = -1 
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				army_core_attack_factor = 0.05
+				army_org_factor = 0.1
+			}
+		}
+		
+		IRE_officer_school = {
+			removal_cost = -1 
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				army_core_attack_factor = 0.05
+				army_org_factor = 0.1
+				experience_gain_army = 0.01
 			}
 		}
 		

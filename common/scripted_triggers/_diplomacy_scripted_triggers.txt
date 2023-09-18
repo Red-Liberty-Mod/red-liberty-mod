@@ -99,10 +99,17 @@ DIPLOMACY_REQUEST_LICENSED_PRODUCTION_ENABLE_TRIGGER = {
 	}
 }
 DIPLOMACY_GENERATE_WARGOAL_ENABLE_TRIGGER = {
-	custom_trigger_tooltip = {
-		tooltip = feature_disabled
-		always = no
-	}
+	if = {
+		limit = {
+			ROOT = {
+				has_global_flag = second_great_war_started
+			}
+			custom_trigger_tooltip = {
+				tooltip = wargoals_disabled
+				always = yes
+			}
+		}
+	}	
 }
 DIPLOMACY_BOOST_PARTY_POPULARITY_ENABLE_TRIGGER = {
 	custom_trigger_tooltip = {
@@ -180,16 +187,6 @@ DIPLOMACY_CALL_ALLY_ENABLE_TRIGGER = {
 
 DIPLOMACY_JOIN_ALLY_ENABLE_TRIGGER = {
 	if = {
-		limit = {
-			tag = IRE
-			has_idea = IRE_perfidious_albion
-		}
-		custom_trigger_tooltip = {
-			tooltip = IRE_perfidious_albion_no_call
-			always = no
-		}
-	}
-	else_if = {
 		limit = {
 			tag = RAJ
 			has_war_with = BRM

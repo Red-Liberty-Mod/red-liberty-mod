@@ -1292,29 +1292,47 @@ country_event = {
 	is_triggered_only = yes
 	
 	fire_only_once = yes
+	
+	immediate = {
+		retire_character = SOV_nikolai_bukharin
+		remove_ideas = {
+			SOV_political_turmoil
+			SOV_nep
+			SOV_tsarist_captives
+		}
+	}
 
 	option = { # industrialists
-		name = ""
-		SOV = {
-			retire_character = SOV_nikolai_bukharin
-			
-			remove_ideas = {
-				SOV_political_turmoil
-				SOV_nep
-				SOV_tsarist_captives
-			}
+		name = demo_sov.2.a
+		set_politics = {
+			ruling_party = vanguard_socialism
+			long_name = SOV_kpr_industrialists_long
+			name = SOV_kpr_industrialists
 		}
+		promote_character = SOV_sergei_kirov
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_sov.3 hours = 6 }
+		}
+		ai_chance = {
+			base = 17
+		}
+	}
+	
+	option = { # rightists
+		name = demo_sov.2.b
+		promote_character = SOV_grigory_sokolnikov
 		random_other_country = {
 			limit = { is_ai = yes }
 			news_event = { id = demo_sov.4 hours = 6 }
 		}
 		ai_chance = {
-			base = 3
+			base = 10
 		}
 	}
 	
-	option = { # technocrats
-		name = ""
+	option = { # workers opposition
+		name = demo_sov.2.c
 		SOV = {
 			set_politics = {
 				ruling_party = revolutionary_socialism
@@ -1322,24 +1340,39 @@ country_event = {
 				last_election = "1936.10.8"
 				election_frequency = 48
 			}
-			
-			remove_ideas = {
-				SOV_political_turmoil
-				SOV_nep
-				SOV_tsarist_captives
-			}
 		}
 		random_other_country = {
 			limit = { is_ai = yes }
 			news_event = { id = demo_sov.5 hours = 6 }
 		}
 		ai_chance = {
-			base = 3
+			base = 33
 		}
 	}
 	
-	option = { # libertarians
-		name = ""
+	option = { # left communists
+		name = demo_sov.2.d
+		SOV = {
+			set_politics = {
+				ruling_party = revolutionary_socialism
+				long_name = SOV_kpr_neodecists_long
+				name = SOV_kpr_neodecists
+			}
+		}
+		
+		promote_character = SOV_ivan_smirnov
+		
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_sov.6 hours = 6 }
+		}
+		ai_chance = {
+			base = 20
+		}
+	}
+	
+	option = { # democratic group
+		name = demo_sov.2.e
 		SOV = {
 			set_politics = {
 				ruling_party = democratic_socialism
@@ -1347,24 +1380,18 @@ country_event = {
 				last_election = "1936.10.8"
 				election_frequency = 48
 			}
-			
-			remove_ideas = {
-				SOV_political_turmoil
-				SOV_nep
-				SOV_tsarist_captives
-			}
 		}
 		random_other_country = {
 			limit = { is_ai = yes }
-			news_event = { id = demo_sov.6 hours = 6 }
+			news_event = { id = demo_sov.7 hours = 6 }
 		}
 		ai_chance = {
-			base = 4
+			base = 20
 		}
 	}
 }
 
-country_event = { # 
+news_event = { # industrialists victory
 	id = demo_sov.3
 	title = demo_sov.3.title
 	desc = demo_sov.3.desc
@@ -1375,20 +1402,10 @@ country_event = { #
 
 	option = {
 		name = demo_sov.3.a
-		SOV = {
-			declare_war_on = {
-				target = TMS
-				type = annex_everything
-			}
-			declare_war_on = {
-				target = TKS
-				type = annex_everything
-			}
-		}
 	}
 }
 
-news_event = { # industrialists victory
+news_event = { # bukharinist victory
 	id = demo_sov.4
 	title = demo_sov.4.title
 	desc = demo_sov.4.desc
@@ -1416,7 +1433,7 @@ news_event = { # left communist victory
 	}
 }
 
-news_event = { # democratic victory
+news_event = { # workers opposition victory
 	id = demo_sov.6
 	title = demo_sov.6.title
 	desc = demo_sov.6.desc
@@ -1427,6 +1444,20 @@ news_event = { # democratic victory
 
 	option = {
 		name = demo_sov.6.a
+	}
+}
+
+news_event = { # democratic victory
+	id = demo_sov.7
+	title = demo_sov.7.title
+	desc = demo_sov.7.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_sov.7.a
 	}
 }
 
@@ -1960,7 +1991,7 @@ country_event = { # straits crisis start
 			}
 			
 			add_named_threat = {
-				threat = 5
+				threat = 2.5
 				name = TUR_straits_crisis
 			}
 		}

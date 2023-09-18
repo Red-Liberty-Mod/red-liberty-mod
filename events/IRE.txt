@@ -1,4 +1,6 @@
 add_namespace = ireland
+add_namespace = ireland_civil_war
+add_namespace = ireland_news
 
 country_event = { # intro event
 	id = ireland.1
@@ -26,13 +28,11 @@ country_event = { # cathal brugha released
 
 	option = {
 		name = ireland.2.a
-		IRE_cathal_brugha = {
-			promote_character = yes
-		}
+		promote_character = IRE_cathal_brugha
 	}
 }
 
-country_event = { # hyde asassinated
+country_event = { # education act
 	id = ireland.3
 	title = ireland.3.title
 	desc = ireland.3.desc
@@ -43,111 +43,127 @@ country_event = { # hyde asassinated
 
 	option = {
 		name = ireland.3.a
-		hidden_effect = {
-			set_politics = {
-				ruling_party = national_conservatism
-				last_election = "1930.11.24"
-				election_frequency = 84
-				elections_allowed = no
-			}
-			random_other_country = {
-				limit = { is_ai = yes }
-				news_event = { id = ireland.4 days = 1 }
-			}
-			random_other_country = {
-				limit = { is_ai = yes }
-				news_event = { id = ireland.5 days = 14 }
-			}
-			random_other_country = {
-				limit = { is_ai = yes }
-				news_event = { id = ireland.6 days = 30 }
-			}
+		add_political_power = -25
+		set_country_flag = IRE_religious_education_act_passed
+		
+		ai_chance = {
+			base = 8
+		}
+	}
+	
+	option = {
+		name = ireland.3.b
+		add_popularity = {
+			ideology = national_conservatism
+			popularity = -0.01
+		}
+		
+		ai_chance = {
+			base = 2
 		}
 	}
 }
 
-news_event = { # hyde asassinated - world news
+country_event = { # austerity act
 	id = ireland.4
 	title = ireland.4.title
 	desc = ireland.4.desc
-	picture = GFX_news_event_hyde_death
-	
-	major = yes
 	
 	is_triggered_only = yes
+	
+	fire_only_once = yes
 
 	option = {
 		name = ireland.4.a
+		add_political_power = -50
+		set_country_flag = IRE_financial_austerity_act_passed
+		
+		ai_chance = {
+			base = 5
+		}
+	}
+	
+	option = {
+		name = ireland.4.b
+		add_popularity = {
+			ideology = national_conservatism
+			popularity = -0.02
+		}
+		
+		ai_chance = {
+			base = 5
+		}
 	}
 }
 
-news_event = { # unrest in ireland
+country_event = { # security act
 	id = ireland.5
 	title = ireland.5.title
 	desc = ireland.5.desc
-	picture = GFX_news_event_IRE_unrest
-	
-	immediate = {
-		hidden_effect = {
-			134 = {
-				set_demilitarized_zone = yes
-			}
-		}
-	}
-	
-	major = yes
 	
 	is_triggered_only = yes
+	
+	fire_only_once = yes
 
 	option = {
 		name = ireland.5.a
-	}
-}
-
-news_event = { # second civil war starts
-	id = ireland.6
-	title = ireland.6.title
-	desc = ireland.6.desc
-	picture = GFX_news_event_IRE_civil_war
-	
-	immediate = {
-		hidden_effect = {
-			135 = {
-				set_demilitarized_zone = yes
-			}
-			random_list = {
-				20 = {
-					random_other_country = {
-						limit = { is_ai = yes }
-						country_event = { id = ireland.7 days = 65 }
-					}
-				}
-				40 = {
-					random_other_country = {
-						limit = { is_ai = yes }
-						country_event = { id = ireland.9 days = 65 }
-					}
-				}
-				40 = {
-					random_other_country = {
-						limit = { is_ai = yes }
-						country_event = { id = ireland.11 days = 65 }
-					}
-				}
-			}
+		add_political_power = -100
+		set_country_flag = IRE_national_security_act_passed
+		
+		add_to_variable = {
+			tooltip = IRE_ira_strength_change
+			IRE_ira_strength = -5
+		}
+		add_to_variable = {
+			tooltip = IRE_ica_strength_change
+			IRE_ica_strength = -5
+		}
+		
+		ai_chance = {
+			base = 5
 		}
 	}
 	
-	major = yes
-	
-	is_triggered_only = yes
-
 	option = {
-		name = ireland.6.a
+		name = ireland.5.b
+		add_popularity = {
+			ideology = national_conservatism
+			popularity = -0.03
+		}
+		
+		ai_chance = {
+			base = 5
+		}
 	}
 }
 
-country_event = { # civil war - collins victory
+country_event = { # hyde asassinated
+	id = ireland.6
+	title = ireland.6.title
+	desc = ireland.6.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ireland.6.a
+		IRE_douglas_hyde = {
+			retire = yes
+		}
+		if = {
+			limit = {
+				has_country_flag = IRE_national_security_act_passed
+			}
+			country_event = {
+				id = ireland.7
+				days = 3
+			}
+		}
+	}
+}
+
+country_event = { # cancel elections
 	id = ireland.7
 	title = ireland.7.title
 	desc = ireland.7.desc
@@ -158,34 +174,98 @@ country_event = { # civil war - collins victory
 
 	option = {
 		name = ireland.7.a
-		134 = {
-			set_demilitarized_zone = no
+		unlock_national_focus = IRE_1937_elections
+		set_country_flag = IRE_canceled_elections
+		
+		ai_chance = {
+			base = 9
 		}
-		135 = {
-			set_demilitarized_zone = no
-		}
-		random_other_country = {
-			limit = { is_ai = yes }
-			country_event = { id = ireland.8 hours = 6 }
+	}
+	
+	option = {
+		name = ireland.7.b
+		
+		ai_chance = {
+			base = 1
 		}
 	}
 }
 
-news_event = { # civil war - collins victory news
+country_event = { # 1937 election
 	id = ireland.8
 	title = ireland.8.title
 	desc = ireland.8.desc
 	
-	major = yes
+	trigger = {
+		NOT = {
+			has_country_flag = IRE_canceled_elections
+		}
+	}
 	
 	is_triggered_only = yes
+	
+	fire_only_once = yes
 
-	option = {
+	option = { # socdem
 		name = ireland.8.a
+		set_politics = {
+			ruling_party = social_democracy
+			elections_allowed = yes
+		}
+		
+		hidden_effect = {
+			random_other_country = {
+				limit = { is_ai = yes }
+				news_event = { id = ireland_news.3 hours = 6 }
+			}
+		}
+		
+		ai_chance = {
+			base = 2
+		}
+	}
+	
+	option = { # proglib
+		name = ireland.8.b
+		set_politics = {
+			ruling_party = progressive_liberalism
+			elections_allowed = yes
+		}
+		
+		hidden_effect = {
+			random_other_country = {
+				limit = { is_ai = yes }
+				news_event = { id = ireland_news.4 hours = 6 }
+			}
+		}
+		
+		ai_chance = {
+			base = 3
+		}
+	}
+	
+	option = { # natcon
+		name = ireland.8.c
+		
+		ai_chance = {
+			base = 4
+		}
+	}
+	
+	option = { # authdem
+		name = ireland.8.d
+		set_politics = {
+			ruling_party = authoritarian_democracy
+			elections_allowed = yes
+		}
+		
+		ai_chance = {
+			base = 1
+		}
 	}
 }
 
-country_event = { # civil war - socialist victory
+country_event = { # labour party event
 	id = ireland.9
 	title = ireland.9.title
 	desc = ireland.9.desc
@@ -196,59 +276,24 @@ country_event = { # civil war - socialist victory
 
 	option = {
 		name = ireland.9.a
-		134 = {
-			set_demilitarized_zone = no
-		}
-		135 = {
-			set_demilitarized_zone = no
-		}
-		IRE = {
-			set_politics = {
-				ruling_party = anarchism
-				last_election = "1930.11.24"
-				election_frequency = 84
-				elections_allowed = no
-			}
-			set_popularities = {
-				anarchism = 23
-				vanguard_socialism = 11
-				revolutionary_socialism = 14
-				democratic_socialism = 14
-				social_democracy = 11
-				progressive_liberalism = 6
-				liberal_conservatism = 3
-				national_conservatism = 9
-				authoritarian_democracy = 6
-				despotism = 3
-				ultraconservatism = 0
-				fascism = 0
-			}
-			clr_country_flag = liberal_conservatism_coalition
-			clr_country_flag = national_conservatism_coalition
-		}
-		random_other_country = {
-			limit = { is_ai = yes }
-			country_event = { id = ireland.10 hours = 6 }
-		}
 	}
 }
 
-news_event = { # civil war - socialist victory news
+country_event = { # dile saor event
 	id = ireland.10
 	title = ireland.10.title
 	desc = ireland.10.desc
-	picture = GFX_news_event_IRE_socialists
-	
-	major = yes
 	
 	is_triggered_only = yes
+	
+	fire_only_once = yes
 
 	option = {
 		name = ireland.10.a
 	}
 }
 
-country_event = { # civil war - ira victory
+country_event = { # 
 	id = ireland.11
 	title = ireland.11.title
 	desc = ireland.11.desc
@@ -259,57 +304,74 @@ country_event = { # civil war - ira victory
 
 	option = {
 		name = ireland.11.a
-		134 = {
-			set_demilitarized_zone = no
-		}
-		135 = {
-			set_demilitarized_zone = no
-		}
-		IRE = {
-			set_politics = {
-				ruling_party = despotism
-				last_election = "1930.11.24"
-				election_frequency = 84
-				elections_allowed = no
-			}
-			set_popularities = {
-				anarchism = 0
-				vanguard_socialism = 0
-				revolutionary_socialism = 4
-				democratic_socialism = 8
-				social_democracy = 9
-				progressive_liberalism = 3
-				liberal_conservatism = 6
-				national_conservatism = 11
-				authoritarian_democracy = 13
-				despotism = 26
-				ultraconservatism = 11
-				fascism = 9
-			}
-			clr_country_flag = liberal_conservatism_coalition
-			clr_country_flag = national_conservatism_coalition
-		}
-		random_other_country = {
-			limit = { is_ai = yes }
-			country_event = { id = ireland.12 hours = 6 }
-		}
 	}
 }
 
-news_event = { # civil war - ira victory news
+country_event = { # 
 	id = ireland.12
 	title = ireland.12.title
 	desc = ireland.12.desc
 	
-	major = yes
-	
 	is_triggered_only = yes
+	
+	fire_only_once = yes
 
 	option = {
 		name = ireland.12.a
 	}
 }
 
+country_event = { # sinn fein event
+	id = ireland.13
+	title = ireland.13.title
+	desc = ireland.13.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ireland.13.a
+	}
+}
+
+country_event = { # the black dail
+	id = ireland.14
+	title = ireland.14.title
+	desc = ireland.14.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ireland.14.a
+	}
+}
+
+country_event = { # choosing a king
+	id = ireland.15
+	title = ireland.15.title
+	desc = ireland.15.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ireland.15.a
+	}
+	
+	option = {
+		name = ireland.15.b
+	}
+	
+	option = {
+		name = ireland.15.c
+	}
+}
+
+### Meme ###
 country_event = { # intro event
 	id = ireland.1918
 	title = ireland.1918.title
@@ -371,5 +433,394 @@ country_event = { # intro event
 				}
 			}
 		}
+	}
+}
+
+### CIVIL WAR ###
+
+country_event = { # the violence explodes - unrest period starts
+	id = ireland_civil_war.1
+	title = ireland_civil_war.1.title
+	desc = ireland_civil_war.1.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ireland_civil_war.1.a
+		set_country_flag = IRE_unrest_started
+		
+		add_to_variable = {
+			tooltip = IRE_ira_strength_change
+			IRE_ira_strength = 5
+		}
+		add_to_variable = {
+			tooltip = IRE_ica_strength_change
+			IRE_ica_strength = 5
+		}
+		
+		activate_mission_tooltip = IRE_the_chaos
+		
+		hidden_effect = {
+			random_other_country = {
+				limit = { is_ai = yes }
+				news_event = { id = ireland_news.2 hours = 6 }
+			}
+			ENG = {
+				country_event = {
+					id = ireland_civil_war.4
+					days = 14
+				}
+			}
+			113 = {
+				set_demilitarized_zone = yes
+			}
+			134 = {
+				set_demilitarized_zone = yes
+			}
+			135 = {
+				set_demilitarized_zone = yes
+			}
+			860 = {
+				set_demilitarized_zone = yes
+			}
+		}
+	}
+}
+
+country_event = { # battle of kilkenny
+	id = ireland_civil_war.2
+	title = ireland_civil_war.2.title
+	desc = ireland_civil_war.2.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # ira wins
+		name = ireland_civil_war.2.a
+		add_to_variable = {
+			tooltip = IRE_ira_strength_change
+			IRE_ira_strength = 3
+		}
+		
+		113 = {
+			damage_building = {
+				type = infrastructure
+				damage = 2
+			}
+			damage_building = {
+				type = industrial_complex
+				damage = 1
+			}
+		}
+	}
+	
+	option = { # ica wins
+		name = ireland_civil_war.2.b
+		add_to_variable = {
+			tooltip = IRE_ica_strength_change
+			IRE_ica_strength = 3
+		}
+		
+		113 = {
+			damage_building = {
+				type = infrastructure
+				damage = 2
+			}
+			damage_building = {
+				type = industrial_complex
+				damage = 1
+			}
+		}
+	}
+}
+
+country_event = { # battle on the river shannon
+	id = ireland_civil_war.3
+	title = ireland_civil_war.3.title
+	desc = ireland_civil_war.3.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # ira wins
+		name = ireland_civil_war.3.a
+		add_to_variable = {
+			tooltip = IRE_ira_strength_change
+			IRE_ira_strength = 3
+		}
+		
+		134 = {
+			damage_building = {
+				type = infrastructure
+				damage = 1
+			}
+		}
+	}
+	
+	option = { # ica wins
+		name = ireland_civil_war.3.b
+		add_to_variable = {
+			tooltip = IRE_ica_strength_change
+			IRE_ica_strength = 3
+		}
+		
+		134 = {
+			damage_building = {
+				type = infrastructure
+				damage = 1
+			}
+		}
+	}
+}
+
+country_event = { # violence in northern ireland - for the uk
+	id = ireland_civil_war.4
+	title = ireland_civil_war.4.title
+	desc = ireland_civil_war.4.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ireland_civil_war.4.a
+		119 = {
+			damage_building = {
+				type = infrastructure
+				damage = 1
+			}
+		}
+	}
+}
+
+country_event = { # the big battle
+	id = ireland_civil_war.5
+	title = ireland_civil_war.5.title
+	desc = ireland_civil_war.5.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ireland_civil_war.5.a
+		random_list = {
+			var:IRE_ira_strength = {
+				country_event = {
+					id = ireland_civil_war.6
+					days = 1
+				}
+			}
+			var:IRE_ica_strength = {
+				country_event = {
+					id = ireland_civil_war.7
+					days = 1
+				}
+			}
+		}
+	}
+}
+
+country_event = { # ira wins
+	id = ireland_civil_war.6
+	title = ireland_civil_war.6.title
+	desc = ireland_civil_war.6.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ireland_civil_war.6.a
+		set_country_flag = IRE_ica_pacified
+		set_variable = { IRE_ica_strength = 0 }
+		
+		country_event = {
+			id = ireland_civil_war.8
+			days = 7
+		}
+		
+		hidden_effect = {
+			135 = {
+				set_demilitarized_zone = no
+			}
+		}
+	}
+}
+
+country_event = { # ica wins
+	id = ireland_civil_war.7
+	title = ireland_civil_war.7.title
+	desc = ireland_civil_war.7.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ireland_civil_war.7.a
+		set_country_flag = IRE_ira_pacified
+		set_variable = { IRE_ira_strength = 0 }
+		
+		country_event = {
+			id = ireland_civil_war.9
+			days = 7
+		}
+		
+		hidden_effect = {
+			134 = {
+				set_demilitarized_zone = no
+			}
+			860 = {
+				set_demilitarized_zone = no
+			}
+		}
+	}
+}
+
+country_event = { # ira turns on govt
+	id = ireland_civil_war.8
+	title = ireland_civil_war.8.title
+	desc = ireland_civil_war.8.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ireland_civil_war.8.a
+	}
+}
+
+country_event = { # ica turns on govt
+	id = ireland_civil_war.9
+	title = ireland_civil_war.9.title
+	desc = ireland_civil_war.9.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			start_irish_civil_war_ICA = yes
+			set_global_flag = IRE_civil_war_started
+		}
+	}
+
+	option = {
+		name = ireland_civil_war.9.a
+		custom_effect_tooltip = IRE_ica_uprising_tt
+	}
+	
+	option = {
+		name = ireland_civil_war.9.b
+		ICA = {
+			change_tag_from = ROOT
+		}
+	}
+}
+
+### NEWS EVENTS ###
+
+news_event = { # hyde asassinated - world news
+	id = ireland_news.1
+	title = ireland_news.1.title
+	desc = ireland_news.1.desc
+	picture = GFX_news_event_hyde_death
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	show_major = {
+		OR = {
+			regional_europe_news = yes
+		}
+	}
+	
+	major = yes
+
+	option = {
+		name = ireland_news.1.a
+	}
+}
+
+news_event = { # unrest in ireland
+	id = ireland_news.2
+	title = ireland_news.2.title
+	desc = ireland_news.2.desc
+	picture = GFX_news_event_hyde_death
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	show_major = {
+		OR = {
+			regional_europe_news = yes
+		}
+	}
+	
+	major = yes
+
+	option = {
+		name = ireland_news.2.a
+	}
+}
+
+news_event = { # labour party wins
+	id = ireland_news.3
+	title = ireland_news.3.title
+	desc = ireland_news.3.desc
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	show_major = {
+		OR = {
+			regional_europe_news = yes
+		}
+	}
+	
+	major = yes
+
+	option = {
+		name = ireland_news.3.a
+	}
+}
+
+news_event = { # dile saor wins
+	id = ireland_news.4
+	title = ireland_news.4.title
+	desc = ireland_news.4.desc
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	show_major = {
+		OR = {
+			regional_europe_news = yes
+		}
+	}
+	
+	major = yes
+
+	option = {
+		name = ireland_news.4.a
 	}
 }
