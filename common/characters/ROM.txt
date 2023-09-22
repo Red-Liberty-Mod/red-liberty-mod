@@ -1,0 +1,413 @@
+characters = {
+	
+	ROM_ion_mihalache = {
+		name = ROM_ion_mihalache
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_ROM_ion_mihalache"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_ION_MIHALACHE_DESC"
+			ideology = social_democracy_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	ROM_dinu_bratianu = {
+		name = ROM_dinu_bratianu
+		
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ROM/Portrait_ROM_Dinu_Bratianu.tga"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_DINU_BRATIANU_DESC"
+			ideology = national_liberalism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	ROM_alexandru_averescu = {
+		name = ROM_alexandru_averescu
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_ROM_alexandru_averescu"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_ALEXANDRU_AVERESCU_DESC"
+			ideology = conservative_populism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	ROM_grigore_filipescu = {
+		name = ROM_grigore_filipescu
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_ROM_grigore_filipescu"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_GRIGORE_FILIPESCU_DESC"
+			ideology = authoritarian_democracy_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	ROM_octavian_goga = {
+		name = ROM_octavian_goga
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_ROM_octavian_goga"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_OCTAVIAN_GOGA_DESC"
+			ideology = ultraconservatism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	ROM_corneliu_zelea_codreanu = {
+		name = ROM_corneliu_zelea_codreanu
+		
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ROM/Portrait_ROM_Corneliu_Codreanu.png"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_CORNELIU_CODREANU_DESC"
+			ideology = clerical_fascism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	### Generals ###
+	
+	ROM_petre_dumitrescu = {
+		name = ROM_petre_dumitrescu
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_ROM_petre_dumitrescu"
+				small = "GFX_minister_ROM_petre_dumitrescu"
+			}
+		}
+		
+		field_marshal = {
+			traits = {
+				artillery_officer
+				career_officer
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		
+		advisor = {
+			slot = army_chief
+			idea_token = ROM_petre_dumitrescu
+			traits = {
+				army_chief_offensive_2
+			}
+			cost = 100
+		}
+	}
+	
+	ROM_ion_antonescu = {
+		name = ROM_ion_antonescu
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_ROM_ion_antonescu"
+				small = "GFX_minister_ROM_ion_antonescu"
+			}
+		}
+		
+		corps_commander = {
+			traits = { old_guard war_hero }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		
+		advisor = {
+			slot = army_chief
+			idea_token = ROM_ion_antonescu_army_chief
+			available = { not_already_hired_except_as = army_chief }
+			traits = { army_chief_planning_2 }
+			cost = 100
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = ROM_ion_antonescu_high_command
+			ledger = army
+			available = { not_already_hired_except_as = high_command }
+			traits = { army_regrouping_2 }
+			cost = 100
+		}
+	}
+	
+	ROM_ioan_racovita = {
+		name = ROM_ioan_racovita
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_ROM_ioan_racovita"
+				small = "GFX_minister_ROM_ioan_racovita"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				career_officer
+				cavalry_officer
+				hill_fighter
+			}
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 2
+		}
+		
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = ROM_ioan_racovita
+			traits = { army_cavalry_2 }
+			cost = 100
+		}
+	}
+	
+	ROM_gheorghe_avramescu = {
+		name = ROM_gheorghe_avramescu
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_ROM_gheorghe_avramescu"
+				small = "GFX_minister_ROM_gheorghe_avramescu"
+			}
+		}
+		
+		corps_commander = {
+			traits = { trait_mountaineer }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+		}
+		
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = ROM_gheorghe_avramescu
+			traits = { army_commando_1 }
+			cost = 50
+		}
+	}
+	
+	ROM_corneliu_dragalina = {
+		name = ROM_corneliu_dragalina
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_ROM_corneliu_dragalina"
+				small = "GFX_minister_ROM_corneliu_dragalina"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				artillery_officer
+				trait_reckless
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = ROM_corneliu_dragalina
+			traits = { army_artillery_2 }
+			cost = 100
+		}
+	}
+	
+	ROM_nicolae_ciuperca = {
+		name = ROM_nicolae_ciuperca
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_ROM_nicolae_ciuperca"
+				small = "GFX_minister_ROM_nicolae_ciuperca"
+			}
+		}
+		
+		corps_commander = {
+			traits = { old_guard career_officer infantry_officer }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+		
+		advisor = {
+			slot = theorist
+			idea_token = ROM_nicolae_ciuperca
+			ledger = army
+			traits = { military_theorist }
+			cost = 100
+		}
+	}
+	
+	ROM_dumitru_popescu = {
+		name = ROM_dumitru_popescu
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_ROM_dumitru_popescu"
+				small = "GFX_minister_ROM_dumitru_popescu"
+			}
+		}
+		
+		corps_commander = {
+			traits = { old_guard }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	
+	### Admirals ###
+	
+	ROM_horia_macellariu = {
+		name = ROM_horia_macellariu
+		
+		portraits = {
+			navy = {
+				large = "GFX_portrait_ROM_horia_macellariu"
+				small = "GFX_minister_ROM_horia_macellariu"
+			}
+		}
+		
+		navy_leader = {
+			traits = { blockade_runner }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			maneuvering_skill = 1
+			coordination_skill = 1
+		}
+		
+		advisor = {
+			slot = navy_chief
+			idea_token = ROM_horia_macellariu
+			traits = { navy_chief_maneuver_1 }
+			cost = 50
+		}
+	}
+	
+	### High Command ###
+	
+	ROM_emanoil_ionescu = {
+		name = ROM_emanoil_ionescu
+		
+		portraits = {
+			army = {
+				small = "GFX_minister_ROM_emanoil_ionescu"
+			}
+		}
+		
+		advisor = {
+			slot = theorist
+			idea_token = ROM_emanoil_ionescu
+			ledger = air
+			traits = { air_warfare_theorist }
+			cost = 100
+		}
+	}
+	
+	ROM_ermil_gheorghiu = {
+		name = ROM_ermil_gheorghiu
+		
+		portraits = {
+			army = {
+				small = "GFX_minister_ROM_ermil_gheorghiu"
+			}
+		}
+		
+		advisor = {
+			slot = air_chief
+			idea_token = ROM_ermil_gheorghiu_air_chief
+			available = { not_already_hired_except_as = air_chief }
+			traits = { air_chief_ground_support_2 }
+			cost = 100
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = ROM_ermil_gheorghiu_high_command
+			ledger = air
+			available = { not_already_hired_except_as = high_command }
+			traits = { air_close_air_support_2 }
+			cost = 100
+		}
+	}
+
+	ROM_gheorghe_jienescu = {
+		name = ROM_gheorghe_jienescu
+		
+		portraits = {
+			army = {
+				small = "GFX_minister_ROM_gheorghe_jienescu"
+			}
+		}
+		
+		advisor = {
+			slot = air_chief
+			idea_token = ROM_gheorghe_jienescu
+			traits = { air_chief_reform_2 }
+			cost = 100
+		}
+	}
+}
