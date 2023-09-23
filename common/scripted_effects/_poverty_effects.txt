@@ -123,10 +123,23 @@ ECON_reload_poverty_effects = {
 	add_to_variable = { poverty_effect_multiplier = 1 }
 	
 	#multiply_variable = { poverty_effect_multiplier = modifier@poverty_effect_factor }
-	#clamp_variable = {
-	#	var = poverty_effect_multiplier
-	#	min = 0
-	#}
+	
+	if = {
+		limit = {
+			has_country_flag = semi_industrialized_nation
+		}
+		subtract_from_variable = { poverty_effect_multiplier = 0.15 }
+	}
+	else_if = {
+		limit = {
+			has_country_flag = unindustrialized_nation
+		}
+		subtract_from_variable = { poverty_effect_multiplier = 0.25 }
+	}
+	clamp_variable = {
+		var = poverty_effect_multiplier
+		min = 0
+	}
 
 	set_variable = { poverty_rate_stability_effect = poverty_effect_multiplier }
 	set_variable = { poverty_rate_war_support_effect = poverty_effect_multiplier }
