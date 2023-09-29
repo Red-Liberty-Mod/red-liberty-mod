@@ -296,6 +296,8 @@ on_actions = {
 							OR = {
 								original_tag = AUS
 								is_ally_with = AUS
+								is_in_faction_with = AUS
+								is_subject_of = AUS
 							}
 						}
 						ROOT = {
@@ -331,6 +333,8 @@ on_actions = {
 							OR = {
 								original_tag = AHE
 								is_ally_with = AHE
+								is_in_faction_with = AHE
+								is_subject_of = AHE
 							}
 						}
 						ROOT = {
@@ -361,53 +365,50 @@ on_actions = {
 					limit = {
 						FROM = {
 							OR = {
-								original_tag = SLO
 								original_tag = ROM
 								original_tag = TRS
+								original_tag = SLO
 							}
 						}
 						ROOT = {
 							original_tag = HUN
 						}
 					}
-					every_country = {
-						limit = { has_war_with = HUN }
-						diplomatic_relation = { country = HUN relation = war_relation active = no }
-					}
-					HUN = {
-						diplomatic_relation = { country = SLO relation = war_relation active = no }
-						diplomatic_relation = { country = ROM relation = war_relation active = no }
-						diplomatic_relation = { country = TRS relation = war_relation active = no }
+					FROM = {
+						white_peace = ROOT
 					}
 					
-					TRS = {
-						add_state_core = 885
-						transfer_state = 885
+					HUN = {
+						leave_faction = yes
 					}
-					ROM = {
-						#random_list = {
-						#	5 = {
-						#		country_event = {
-						#			id = demo_rom.2
-						#			days = 14
-						#		}
-						#	}
-						#	95 = {
-						#		country_event = {
-						#			id = demo_rom.3
-						#			days = 14
-						#		}
-						#	}
-						#}
-						annex_country = {
-							target = TRS
-						}
-						every_owned_state = {
-							limit = {
-								has_core_of = TRS
+					if = {
+						limit = {
+							TRS = {
+								has_country_flag = declared_war_on_HUN
 							}
-							add_core_of = ROM
-							remove_core_of = TRS
+						}
+						TRS = {
+							add_state_core = 885
+							transfer_state = 885
+						}
+					}
+					if = {
+						limit = {
+							ROM = {
+								has_country_flag = declared_war_on_HUN
+							}
+						}
+						ROM = {
+							annex_country = {
+								target = TRS
+							}
+							every_owned_state = {
+								limit = {
+									has_core_of = TRS
+								}
+								add_core_of = ROM
+								remove_core_of = TRS
+							}
 						}
 					}
 					if = {
@@ -496,12 +497,9 @@ on_actions = {
 					set_global_flag = skip_default_capitulation
 				}
 				
-				### Serbian-Bosnian War ###
+				### Croatian-Serbian-Bosnian War ###
 				else_if = {
 					limit = {
-						FROM = {
-							original_tag = BOS
-						}
 						ROOT = {
 							original_tag = SER
 						}
@@ -511,14 +509,21 @@ on_actions = {
 					}
 					ROOT = {
 						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
+					if = {
+						limit = {
+							FROM = {
+								original_tag = CRO
+							}
+						}
+						SER = {
+							end_puppet = BOS
+						}
 					}
 					set_global_flag = skip_default_capitulation
 				}
 				else_if = {
 					limit = {
-						FROM = {
-							original_tag = SER
-						}
 						ROOT = {
 							original_tag = BOS
 						}
@@ -529,9 +534,16 @@ on_actions = {
 					ROOT = {
 						diplomatic_relation = { country = FROM relation = war_relation active = no }
 					}
-					FROM = {
-						annex_country = {
-							target = ROOT
+					if = {
+						limit = {
+							FROM = {
+								original_tag = CRO
+							}
+						}
+						CRO = {
+							annex_country = {
+								target = BOS
+							}
 						}
 					}
 					set_global_flag = skip_default_capitulation
