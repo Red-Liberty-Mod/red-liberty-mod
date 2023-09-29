@@ -119,6 +119,11 @@ country_event = { # security act
 			IRE_ica_strength = -5
 		}
 		
+		add_popularity = {
+			ideology = authoritarian_democracy
+			popularity = 0.03
+		}
+		
 		ai_chance = {
 			base = 5
 		}
@@ -158,6 +163,13 @@ country_event = { # hyde asassinated
 			country_event = {
 				id = ireland.7
 				days = 3
+			}
+		}
+		
+		hidden_effect = {
+			random_other_country = {
+				limit = { is_ai = yes }
+				news_event = { id = ireland_news.1 hours = 6 }
 			}
 		}
 	}
@@ -208,10 +220,16 @@ country_event = { # 1937 election
 
 	option = { # socdem
 		name = ireland.8.a
+		trigger = {
+			social_democracy > party_popularity@progressive_liberalism
+		}
+		
 		set_politics = {
 			ruling_party = social_democracy
 			elections_allowed = yes
 		}
+		
+		add_ideas = IRE_william_norton_hog
 		
 		hidden_effect = {
 			random_other_country = {
@@ -227,6 +245,10 @@ country_event = { # 1937 election
 	
 	option = { # proglib
 		name = ireland.8.b
+		trigger = {
+			progressive_liberalism > party_popularity@social_democracy
+		}
+		
 		set_politics = {
 			ruling_party = progressive_liberalism
 			elections_allowed = yes
@@ -247,6 +269,13 @@ country_event = { # 1937 election
 	option = { # natcon
 		name = ireland.8.c
 		
+		hidden_effect = {
+			random_other_country = {
+				limit = { is_ai = yes }
+				news_event = { id = ireland_news.5 hours = 6 }
+			}
+		}
+		
 		ai_chance = {
 			base = 4
 		}
@@ -257,6 +286,13 @@ country_event = { # 1937 election
 		set_politics = {
 			ruling_party = authoritarian_democracy
 			elections_allowed = yes
+		}
+		
+		hidden_effect = {
+			random_other_country = {
+				limit = { is_ai = yes }
+				news_event = { id = ireland_news.6 hours = 6 }
+			}
 		}
 		
 		ai_chance = {
@@ -293,7 +329,7 @@ country_event = { # dile saor event
 	}
 }
 
-country_event = { # 
+country_event = { # na chead event
 	id = ireland.11
 	title = ireland.11.title
 	desc = ireland.11.desc
@@ -368,6 +404,20 @@ country_event = { # choosing a king
 	
 	option = {
 		name = ireland.15.c
+	}
+}
+
+country_event = { # labour-dile saor pledge to support each other in the election
+	id = ireland.16
+	title = ireland.16.title
+	desc = ireland.16.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ireland.16.a
 	}
 }
 
@@ -822,5 +872,53 @@ news_event = { # dile saor wins
 
 	option = {
 		name = ireland_news.4.a
+	}
+}
+
+news_event = { # na chead laochra wins
+	id = ireland_news.5
+	title = ireland_news.5.title
+	desc = ireland_news.5.desc
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	show_major = {
+		OR = {
+			regional_europe_news = yes
+		}
+	}
+	
+	major = yes
+
+	option = {
+		name = ireland_news.5.a
+	}
+}
+
+news_event = { # sinn fein wins
+	id = ireland_news.6
+	title = ireland_news.6.title
+	desc = ireland_news.6.desc
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	show_major = {
+		OR = {
+			regional_europe_news = yes
+		}
+	}
+	
+	major = yes
+
+	option = {
+		name = ireland_news.6.a
 	}
 }

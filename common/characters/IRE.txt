@@ -36,6 +36,7 @@ characters = {
 		}
 		
 		advisor = {
+			cost = 100
 			slot = political_advisor
 			idea_token = IRE_roddy_connolly
 			
@@ -272,14 +273,6 @@ characters = {
 			cost = 0
 			can_be_fired = no
 			
-			allowed = {
-				original_tag = IRE
-			}
-			
-			visible = {
-				
-			}
-			
 			available = {
 				
 			}
@@ -307,14 +300,6 @@ characters = {
 			cost = 0
 			can_be_fired = no
 			
-			allowed = {
-				original_tag = IRE
-			}
-			
-			visible = {
-				
-			}
-			
 			available = {
 				
 			}
@@ -341,14 +326,6 @@ characters = {
 			
 			cost = 0
 			can_be_fired = no
-			
-			allowed = {
-				original_tag = IRE
-			}
-			
-			visible = {
-				
-			}
 			
 			available = {
 				
@@ -378,14 +355,6 @@ characters = {
 			idea_token = IRE_andy_barr
 			ledger = civilian
 			
-			allowed = {
-				original_tag = IRE
-			}
-			
-			visible = {
-				
-			}
-			
 			available = {
 				has_socialist_govt = yes
 			}
@@ -412,14 +381,6 @@ characters = {
 			idea_token = IRE_mairtin_o_cadhain
 			ledger = civilian
 			
-			allowed = {
-				original_tag = IRE
-			}
-			
-			visible = {
-				
-			}
-			
 			available = {
 				has_socialist_govt = yes
 			}
@@ -440,6 +401,7 @@ characters = {
 		}
 		
 		advisor = {
+			cost = 100
 			slot = political_advisor
 			idea_token = IRE_benjamin_farrington
 			available = {
@@ -466,14 +428,6 @@ characters = {
 			slot = political_advisor
 			idea_token = IRE_sean_okelly
 			ledger = civilian
-			
-			allowed = {
-				original_tag = IRE
-			}
-			
-			visible = {
-				
-			}
 			
 			available = {
 				has_democratic_govt = yes
@@ -518,12 +472,33 @@ characters = {
 		}
 		
 		advisor = {
+			cost = 100
 			slot = political_advisor
 			idea_token = IRE_eoin_macneill
 			available = {
 				has_socialist_govt = no
 			}
 			traits = { edu_educational_reformer }
+		}
+	}
+	
+	IRE_joseph_brennan = {
+		name = IRE_joseph_brennan
+		
+		portraits = {
+			civilian = {
+				small = "GFX_minister_IRE_joseph_brennan"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = IRE_joseph_brennan
+			traits = {
+				eco_bank_president
+			}
+			ledger = civilian
 		}
 	}
 	
@@ -552,11 +527,11 @@ characters = {
 			}
 			
 			available = {
-				
+				has_completed_focus = IRE_reform_the_twelve_apostles
 			}
 			
 			traits = {
-				sec_spymaster
+				sec_secret_police_chief
 			}
 		}
 	}
