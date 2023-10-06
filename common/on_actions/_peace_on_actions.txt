@@ -549,6 +549,37 @@ on_actions = {
 					set_global_flag = skip_default_capitulation
 				}
 				
+				else_if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = SER
+								is_ally_with = SER
+								is_in_faction_with = SER
+								is_subject_of = SER
+							}
+						}
+						ROOT = {
+							original_tag = CRO
+						}
+					}
+					FROM = {
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
+					SER = {
+						annex_country = {
+							target = BOS
+						}
+						annex_country = {
+							target = CRO
+						}
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				
 				### Romanian-Transylvanian War ###
 				else_if = {
 					limit = {
@@ -1004,6 +1035,20 @@ on_actions = {
 						}
 					}
 					set_global_flag = skip_default_capitulation
+				}
+				
+				if = { # Fixing all wars vs puppets
+					limit = {
+						ROOT = {
+							is_puppet = yes
+							if = {
+								limit = { is_puppet = yes }
+								OVERLORD = { has_capitulated = no }
+							}
+						}
+					}
+					#log = "ended puppet"
+					ROOT = { OVERLORD = { end_puppet = PREV } }
 				}
 			}
 			else_if = {
