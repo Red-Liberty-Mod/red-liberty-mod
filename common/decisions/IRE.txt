@@ -74,6 +74,12 @@ IRE_paramilitary_orgs_category = {
 	IRE_military_operation_against_ira = {
 		icon = GFX_decision_generic_operation
 		
+		available = {
+			NOT = {
+				has_completed_focus = IRE_contacts_in_the_ira
+			}
+		}
+		
 		cost = 10
 		days_remove = 7
 		days_re_enable = 14
@@ -213,6 +219,62 @@ IRE_paramilitary_orgs_category = {
 		remove_effect = {
 			set_country_flag = IRE_ica_pacified
 			set_variable = { IRE_ica_strength = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	IRE_arm_the_ira = {
+		icon = GFX_decision_generic_operation
+		
+		visible = {
+			has_completed_focus = IRE_contacts_in_the_ira
+		}
+		
+		custom_cost_trigger = {
+			has_equipment = { infantry_equipment > 999 }
+		}
+		custom_cost_text = decision_cost_ie_1000
+		days_remove = 7
+		fire_only_once = yes
+		
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1000
+			}			
+		}
+		
+		remove_effect = {
+			add_to_variable = {
+				tooltip = IRE_ira_strength_change
+				IRE_ira_strength = 5
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	IRE_joint_operation_against_ica = {
+		icon = GFX_decision_generic_operation
+		
+		visible = {
+			has_completed_focus = IRE_contacts_in_the_ira
+		}
+		
+		cost = 40
+		days_remove = 7
+		fire_only_once = yes
+		
+		remove_effect = {
+			add_to_variable = {
+				tooltip = IRE_ica_strength_change
+				IRE_ica_strength = -5
+			}
 		}
 		
 		ai_will_do = {

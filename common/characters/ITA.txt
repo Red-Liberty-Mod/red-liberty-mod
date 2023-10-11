@@ -397,8 +397,8 @@ characters = {
 		
 		portraits = {
 			army = {
-				small = ""
-				large = ""
+				large = "GFX_portrait_unknown"
+				small = "GFX_minister_unknown"
 			}
 		}
 		
@@ -428,8 +428,8 @@ characters = {
 		
 		portraits = {
 			army = {
-				small = ""
-				large = ""
+				large = "GFX_portrait_unknown"
+				small = "GFX_minister_unknown"
 			}
 		}
 		
@@ -459,8 +459,8 @@ characters = {
 		
 		portraits = {
 			army = {
-				small = ""
-				large = ""
+				large = "GFX_portrait_unknown"
+				small = "GFX_minister_unknown"
 			}
 		}
 		
@@ -482,8 +482,8 @@ characters = {
 		
 		portraits = {
 			army = {
-				small = ""
-				large = ""
+				large = "GFX_portrait_unknown"
+				small = "GFX_minister_unknown"
 			}
 		}
 		
@@ -513,8 +513,8 @@ characters = {
 		
 		portraits = {
 			army = {
-				small = ""
-				large = ""
+				large = "GFX_portrait_unknown"
+				small = "GFX_minister_unknown"
 			}
 		}
 		
@@ -535,8 +535,8 @@ characters = {
 		
 		portraits = {
 			army = {
-				small = ""
-				large = ""
+				large = "GFX_portrait_unknown"
+				small = "GFX_minister_unknown"
 			}
 		}
 		
@@ -563,8 +563,8 @@ characters = {
 		
 		portraits = {
 			army = {
-				small = ""
-				large = ""
+				large = "GFX_portrait_unknown"
+				small = "GFX_minister_unknown"
 			}
 		}
 		
@@ -591,8 +591,8 @@ characters = {
 		
 		portraits = {
 			army = {
-				small = ""
-				large = ""
+				large = "GFX_portrait_unknown"
+				small = "GFX_minister_unknown"
 			}
 		}
 		
@@ -611,8 +611,8 @@ characters = {
 		
 		portraits = {
 			army = {
-				small = ""
-				large = ""
+				large = "GFX_portrait_unknown"
+				small = "GFX_minister_unknown"
 			}
 		}
 		
@@ -634,8 +634,8 @@ characters = {
 		
 		portraits = {
 			army = {
-				large = ""
-				small = ""
+				small = "GFX_minister_unknown"
+				large = "GFX_portrait_unknown"
 			}
 		}
 		
@@ -665,8 +665,8 @@ characters = {
 		
 		portraits = {
 			army = {
-				small = ""
-				large = ""
+				large = "GFX_portrait_unknown"
+				small = "GFX_minister_unknown"
 			}
 		}
 		
@@ -688,8 +688,8 @@ characters = {
 		
 		portraits = {
 			army = {
-				small = ""
-				large = ""
+				large = "GFX_portrait_unknown"
+				small = "GFX_minister_unknown"
 			}
 		}
 		
@@ -703,6 +703,257 @@ characters = {
 			defense_skill = 1
 			planning_skill = 1
 			logistics_skill = 1
+		}
+	}
+	
+	### Admirals ###
+	
+	ITA_alberto_da_zara = { # not available at gamestart
+		name = ITA_alberto_da_zara
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_unknown"
+				small = "GFX_minister_unknown"
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				superior_tactician
+				spotter
+			}
+			skill = 4
+			attack_skill = 3
+			defense_skill = 3
+			maneuvering_skill = 3
+			coordination_skill = 4
+		}
+	}
+	
+	ITA_domenico_cavagnari = {
+		name = ITA_domenico_cavagnari
+		
+		portraits = {
+			navy = {
+				large = "GFX_portrait_unknown"
+				small = "GFX_minister_unknown"
+			}
+		}
+		
+		navy_leader = {
+			traits = { seawolf }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			maneuvering_skill = 2
+			coordination_skill = 3
+		}
+		
+		advisor = {
+			slot = navy_chief
+			idea_token = ITA_domenico_cavagnari
+			traits = { navy_chief_maneuver_2 }
+			cost = 100
+		}
+	}
+	
+	ITA_inigo_campioni = {
+		name = ITA_inigo_campioni
+		
+		portraits = {
+			navy = {
+				large = "GFX_portrait_unknown"
+				small = "GFX_minister_unknown"
+			}
+		}
+
+		advisor = {
+			slot = navy_chief
+			idea_token = ITA_inigo_campioni
+			traits = {
+				navy_chief_decisive_battle_1
+			}
+			cost = 50
+		}
+		
+		navy_leader = {
+			traits = {
+				battleship_adherent
+				superior_tactician
+				spotter
+			}
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			maneuvering_skill = 3
+			coordination_skill = 3
+		}
+	}
+	
+	ITA_giuseppe_fioravanzo = {
+		name = ITA_giuseppe_fioravanzo
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_unknown"
+				small = "GFX_minister_unknown"
+			}
+		}
+
+		advisor = {
+			cost = 150
+			slot = theorist
+			idea_token = ITA_giuseppe_fioravanzo
+			ledger = navy
+			traits = {
+				grand_fleet_proponent
+			}
+		}
+
+		navy_leader = {
+			traits = { aviation_enthusiast blockade_runner }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			maneuvering_skill = 4
+			coordination_skill = 2
+		}
+	}
+
+	ITA_carlo_bergamini = {
+		name = ITA_carlo_bergamini
+		
+		portraits = {
+			navy = {
+				large = "GFX_portrait_unknown"
+				small = "GFX_minister_unknown"
+			}
+		}
+
+		advisor = {	
+			slot = high_command
+			idea_token = ITA_carlo_bergamini
+			ledger = navy
+			traits = {
+				navy_capital_ship_2
+			}
+			cost = 100
+		}
+		
+		navy_leader = {
+			traits = { gunnery_expert battleship_adherent ironside }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			maneuvering_skill = 2
+			coordination_skill = 1
+		}
+	}
+
+	ITA_angelo_iachino = {
+		name = ITA_angelo_iachino
+		
+		portraits = {
+			navy = {
+				large = "GFX_portrait_unknown"
+				small = "GFX_minister_unknown"
+			}
+		}
+
+		advisor = {
+			cost = 100
+			slot = theorist
+			idea_token = ITA_angelo_iachino
+			ledger = navy
+			traits = { naval_theorist }
+		}
+
+		navy_leader = {
+			traits = { bold navy_career_officer superior_tactician spotter }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			maneuvering_skill = 3
+			coordination_skill = 1
+		}
+	}
+	
+	### Air Force ###
+	
+	ITA_giuseppe_valle = {
+		name = ITA_giuseppe_valle
+		
+		portraits = {
+			army = {
+				small = "GFX_minister_unknown"
+			}
+		}
+		
+		advisor = {
+			slot = air_chief
+			idea_token = ITA_giuseppe_valle
+			traits = {
+				air_chief_ground_support_2
+			}
+			cost = 100
+		}
+	}
+	
+	ITA_rino_corso_fougier = {
+		name = ITA_rino_corso_fougier
+		
+		portraits = {
+			army = {
+				small = "GFX_minister_unknown"
+			}
+		}
+		
+		advisor = {
+			slot = air_chief
+			idea_token = ITA_rino_corso_fougier
+			traits = { air_chief_all_weather_2 }
+			cost = 100
+		}
+	}
+	
+	ITA_francesco_pricolo = {
+		name = ITA_francesco_pricolo
+		
+		portraits = {
+			army = {
+				small = "GFX_minister_unknown"
+			}
+		}
+		
+		advisor = {
+			slot = high_command
+			ledger = air
+			idea_token = ITA_francesco_pricolo
+			traits = { air_tactical_bombing_2 }
+			cost = 100
+		}
+	}
+	
+	### High Command ###
+	
+	ITA_federico_baistrocchi = {
+		name = ITA_federico_baistrocchi
+		
+		portraits = {
+			army = {
+				small = "GFX_minister_unknown"
+			}
+		}
+		
+		advisor = {
+			slot = army_chief
+			ledger = army
+			idea_token = ITA_federico_baistrocchi
+			traits = {
+				army_chief_reform_1
+			}
+			cost = 50
 		}
 	}
 }

@@ -712,6 +712,7 @@ country_event = { # september constitution - september 26, 1936
 		
 		set_global_flag = austrian_civil_war_started
 		
+		add_to_array = { global.danubian_war_participants = THIS.id }
 		random_other_country = {
 			limit = { is_ai = yes }
 			news_event = { id = demo_ahe.4 hours = 6 }
@@ -732,18 +733,7 @@ news_event = { # september constitution - news
 		name = demo_ahe.4.a
 		hidden_effect = {
 			GER = {
-				setup_austrian_collapse_conflict = yes
 				set_country_flag = may_send_volunteers_to_AUS
-			}
-			USA = {
-				setup_austrian_collapse_conflict = yes
-				set_country_flag = may_send_volunteers_to_AHE
-			}
-			AHE = {
-				setup_austrian_collapse_conflict = yes
-			}
-			AUS = {
-				setup_austrian_collapse_conflict = yes
 			}
 		}
 	}
@@ -921,11 +911,21 @@ country_event = { # bosnians form govt
 		name = demo_ahe.10.a
 		CRO_setup_BOS = yes
 		
-		SER = {
+		CRO = {
 			declare_war_on = {
 				target = BOS
 				type = annex_everything
 			}
+		}
+		BOS = {
+			keep_current_politics = yes
+		}
+		SER = {
+			declare_war_on = {
+				target = CRO
+				type = annex_everything
+			}
+			puppet = BOS
 		}
 	}
 }
@@ -1474,7 +1474,7 @@ country_event = { # king suspends parliament
 		name = ""
 		ENG = {
 			set_politics = {
-				ruling_party = martial_despotism
+				ruling_party = despotism
 				elections_allowed = no
 				last_election = "1936.10.8"
 				election_frequency = 48
@@ -1987,7 +1987,7 @@ country_event = { # straits crisis start
 			country_event = {
 				id = demo_tur.3
 				days = 30
-				days_random = 5
+				random_days = 5
 			}
 			
 			add_named_threat = {

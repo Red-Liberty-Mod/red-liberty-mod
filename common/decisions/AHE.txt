@@ -10,16 +10,22 @@ AHE_austrian_revolution_category = {
 			has_socialist_govt = yes
 		}
 
-		cost = 10
+		cost = 0
 		
 		fire_only_once = yes
 
 		complete_effect = {
 			create_faction = "Red Front"
+			add_to_faction = HUN
 		}
 		
 		ai_will_do = {
-			factor = 10
+			factor = 0
+			
+			modifier = {
+				add = 1000
+				date > 1936.11.1
+			}
 		}
 	}
 }
