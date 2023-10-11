@@ -625,6 +625,26 @@ country_event = { # social security draft chain - too conservative
 	}
 }
 
+country_event = { # we lost the election
+	id = united_states_thomas.36
+	title = united_states_thomas.36.title
+	desc = united_states_thomas.36.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_thomas.36.a
+		custom_effect_tooltip = USA_lame_duck_congress_tt
+		set_country_flag = {
+			flag = USA_lame_duck_period
+			days = 150
+		}
+		add_political_power = -25
+	}
+}
+
 country_event = { # assassination of francis riggs
 	id = united_states_thomas.100
 	title = united_states_thomas.100.title
@@ -659,7 +679,7 @@ country_event = { # ponce massacre
 	}
 }
 
-country_event = {
+country_event = { # winship interferes in the investigation
 	id = united_states_thomas.102
 	title = united_states_thomas.102.title
 	desc = united_states_thomas.102.desc
@@ -685,7 +705,7 @@ country_event = {
 	}
 }
 
-country_event = {
+country_event = { # pantin writes to the president
 	id = united_states_thomas.103
 	title = united_states_thomas.103.title
 	desc = united_states_thomas.103.desc
@@ -705,7 +725,7 @@ country_event = {
 	}
 }
 
-news_event = {
+news_event = { # 49th state
 	id = united_states_thomas.104
 	title = united_states_thomas.104.title
 	desc = united_states_thomas.104.desc
@@ -719,7 +739,7 @@ news_event = {
 	}
 }
 
-news_event = {
+news_event = { # puerto rico independence
 	id = united_states_thomas.105
 	title = united_states_thomas.105.title
 	desc = united_states_thomas.105.desc
