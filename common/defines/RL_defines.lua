@@ -55,5 +55,9 @@ NDefines.NResistance.GARRISON_MANPOWER_LOST_BY_ATTACK = 0.012				-- Vanilla is 0
 -- Trade
 NDefines.NTrade.BASE_TRADE_FACTOR = 100										-- Vanilla is 150
 
+-- MIOs
+-- NDefines.NIndustrialOrganisation.ENABLE_TASK_CAPACITY = true,				-- Enable limited task capacity for MIOs
+-- NDefines.NIndustrialOrganisation.DEFAULT_INITIAL_TASK_CAPACITY = 3,				-- Default start task capacity for each MIO (may be overriden in DB)
+
 -- Visual
 NDefines_Graphics.NGraphics.VICTORY_POINT_MAP_ICON_TEXT_CUTOFF = {300, 500, 1500}
