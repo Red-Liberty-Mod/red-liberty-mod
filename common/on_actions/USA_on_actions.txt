@@ -320,6 +320,21 @@ on_actions = {
 				}
 				USA_mproject_monthly_pulse = yes
 			}
+			
+			### very hacky method to naturally improve the spirit over time ###
+			add_to_variable = { USA_month_counter = 1 }
+			if = {
+				limit = {
+					check_variable = { USA_month_counter = 12 }
+					set_variable = { USA_month_counter = 0 }
+				}
+				if = {
+					limit = {
+						has_country_flag = social_security_passed
+					}
+					improve_great_depression = yes
+				}
+			}
 		}
 	}
 	

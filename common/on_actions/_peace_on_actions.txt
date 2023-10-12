@@ -960,6 +960,26 @@ on_actions = {
 					}
 					set_global_flag = skip_default_capitulation
 				}
+				else_if = {
+					limit = {
+						FROM = {
+							original_tag = FRA
+						}
+						ROOT = {
+							original_tag = SWI
+						}
+					}
+					FROM = {
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
+					FRA = {
+						transfer_state = 3
+					}
+					set_global_flag = skip_default_capitulation
+				}
 				
 				### SECOND GREAT WAR - EASTERN FRONT ###
 				else_if = {
