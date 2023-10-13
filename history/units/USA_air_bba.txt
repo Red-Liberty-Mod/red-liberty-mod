@@ -1,7 +1,7 @@
 
 instant_effect = {
 	create_equipment_variant = {
-		name = "P-6" #export models only
+		name = "P-6 Hawk"
 		type = small_plane_airframe_0
 		modules = {
 			fixed_main_weapon_slot = light_mg_2x
@@ -11,8 +11,9 @@ instant_effect = {
 		obsolete = yes
 	}
 	create_equipment_variant = {
-		name = "P-26A" #
+		name = "P-26A Peashooter"
 		type = small_plane_airframe_0
+		design_team = mio:USA_boeing_organization
 		modules = {
 			fixed_main_weapon_slot = light_mg_2x
 			engine_type_slot = engine_1_1x
@@ -22,8 +23,19 @@ instant_effect = {
 		icon = "GFX_USA_light_plane_2_medium"
 	}
 	create_equipment_variant = {
-		name = "O2U" #
+		name = "PB-2A"
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = light_mg_4x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = lmg_defense_turret
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "O2U Corsair"
 		type = small_plane_cas_airframe_0
+		design_team = mio:USA_vought_organization
 		modules = {
 			fixed_main_weapon_slot = bomb_locks
 			fixed_auxiliary_weapon_slot_1 = light_mg_2x
@@ -32,14 +44,14 @@ instant_effect = {
 		obsolete = yes
 	}
 	create_equipment_variant = {
-		name = "SBU Corsair" #
+		name = "SBU Corsair"
 		type = cv_small_plane_cas_airframe_0
+		design_team = mio:USA_vought_organization
 		modules = {
 			fixed_main_weapon_slot = bomb_locks
 			engine_type_slot = engine_1_1x
 			special_type_slot_1 = dive_brakes_small
 		}
-		obsolete = yes
 	}
 	create_equipment_variant = {
 		name = "BM-2" #
@@ -184,19 +196,31 @@ instant_effect = {
 	}
 	add_equipment_to_stockpile = {
 		type = small_plane_airframe_0
-		amount = 384
-		variant_name = "P-26A"
+		amount = 202
+		variant_name = "P-1 Hawk"
+		producer = USA
+	}
+	add_equipment_to_stockpile = {
+		type = small_plane_airframe_0
+		amount = 151
+		variant_name = "P-26A Peashooter"
+		producer = USA
+	}
+	add_equipment_to_stockpile = {
+		type = small_plane_airframe_0
+		amount = 60
+		variant_name = "PB-2A"
 		producer = USA
 	}
 	add_equipment_to_stockpile = {
 		type = medium_plane_airframe_0
-		amount = 96
+		amount = 39
 		variant_name = "B-6A"
 		producer = USA
 	}
 	add_equipment_to_stockpile = {
 		type = medium_plane_airframe_0
-		amount = 144
+		amount = 78
 		variant_name = "P2Y"
 		producer = USA
 	}
@@ -248,6 +272,17 @@ instant_effect = {
 		progress = 0.85
 		efficiency = 50
 		industrial_manufacturer = mio:USA_grumman_organization
+	}
+	add_equipment_production = {
+		equipment = {
+			type = cv_small_plane_cas_airframe_0
+			creator = "USA"
+			version_name = "SBU Corsair"
+		}
+		requested_factories = 1
+		progress = 0.6
+		efficiency = 50
+		industrial_manufacturer = mio:USA_vought_organization
 	}
 }
 
