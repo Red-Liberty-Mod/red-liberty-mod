@@ -220,9 +220,12 @@ country_event = { # court packing plan
 		trigger = { has_country_flag = bill_passed }
 		set_country_flag = court_packing_plan_passed
 		
-		add_ideas = {
-			USA_stacked_supreme_court
+		add_to_variable = {
+			tooltip = USA_court_lean_more_reformist
+			var = supreme_court_lean
+			value = 6
 		}
+		USA_clamp_supreme_court = yes
 		
 		hidden_effect = {
 			every_owned_state = {

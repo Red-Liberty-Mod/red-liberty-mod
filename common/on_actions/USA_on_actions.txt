@@ -18,7 +18,7 @@ on_actions = {
 					USA_convert_party_pop_percentage = yes
 				}
 			}
-			USA = {
+			USA = { # Congress
 				set_variable = { senators_total = 96 }
 				set_variable = { representatives_total = 483 }
 				USA_congress_quorum = yes
@@ -53,10 +53,14 @@ on_actions = {
 				}
 				USA_calc_congress_control = yes
 			}
-			
-			#USA = {
-			#	USA_calc_poverty_goal = yes
-			#}
+			USA = { # Supreme Court
+				set_variable = { supreme_court_lean = -6 } # LEAN
+				
+				country_event = { # Chief Justice Devanter Dies
+					id = united_states_supreme_court.3
+					days = 1865
+				}
+			}
 			
 			USA = {
 				##### ELECTION EVENTS #####
@@ -333,6 +337,23 @@ on_actions = {
 						has_country_flag = social_security_passed
 					}
 					improve_great_depression = yes
+				}
+			}
+
+			### Supreme Court Retirements ###
+			random_list = {
+				5 = {
+					country_event = {
+						id = united_states_supreme_court.1
+						random_days = 14
+					}
+					set_country_flag = {
+						flag = USA_justice_retired
+						days = 90
+					}
+				}
+				95 = {
+					
 				}
 			}
 		}

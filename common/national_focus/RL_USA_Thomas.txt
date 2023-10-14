@@ -1070,6 +1070,13 @@ shared_focus = {
     x = 1
 	y = 1
 	
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = USA_court_tamed_trigger_tt
+			check_variable = { supreme_court_lean > 0 }
+		}
+	}
+	
 	cost = 8
 	relative_position_id = USA_pack_the_court
 	prerequisite = {
@@ -1077,20 +1084,23 @@ shared_focus = {
 		focus = USA_accept_the_rulings
 	}
     completion_reward = {
-        if = {
-			limit = {
-				has_country_flag = court_packing_plan_passed
-			}
-			country_event = {
-				id = united_states_thomas.19
-				days = 1
-			}
-		}
-		else = {
-			country_event = {
-				id = united_states_thomas.18
-				days = 1
-			}
+        #if = {
+		#	limit = {
+		#		has_country_flag = court_packing_plan_passed
+		#	}
+		#	country_event = {
+		#		id = united_states_thomas.19
+		#		days = 1
+		#	}
+		#}
+		#else = {
+		#	country_event = {
+		#		id = united_states_thomas.18
+		#		days = 1
+		#	}
+		#}
+		remove_ideas = {
+			USA_clashes_with_the_courts
 		}
     }
 	

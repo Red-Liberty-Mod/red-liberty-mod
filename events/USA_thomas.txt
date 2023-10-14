@@ -258,9 +258,9 @@ country_event = { # first-term legislation found unconstitutional
 	}
 }
 
-country_event = { # judicial reform suggested
+country_event = { # judicial reform opening event
 	id = united_states_thomas.14
-	title = "Judicial Reform"
+	title = united_states_thomas.14.title
 	desc = united_states_thomas.14.desc
 	
 	is_triggered_only = yes
@@ -268,13 +268,19 @@ country_event = { # judicial reform suggested
 	fire_only_once = yes
 
 	option = {
-		name = "Genius!"
+		name = united_states_thomas.14.a
+		add_political_power = -25
+	}
+	
+	option = {
+		name = united_states_thomas.14.b
+		custom_effect_tooltip = event_chain_over
 	}
 }
 
-country_event = { # consult congressional leaders?
+country_event = { # 
 	id = united_states_thomas.15
-	title = "Congressional Consultation"
+	title = united_states_thomas.15.title
 	desc = united_states_thomas.15.desc
 	
 	is_triggered_only = yes
@@ -282,19 +288,28 @@ country_event = { # consult congressional leaders?
 	fire_only_once = yes
 
 	option = {
-		name = "This is an open and honest administration."
-		set_country_flag = USA_judicial_reform_consulting
-		add_political_power = -25
+		name = united_states_thomas.15.a
+		every_owned_state = {
+			limit = {
+				can_have_elections_in_state = yes
+				NOT = {
+					is_deep_south_state = yes
+				}
+			}
+			custom_effect_tooltip = USA_decrease_SPA_popularity_low
+			subtract_from_variable = { socialist_popularity = 0.03 }
+		}
 	}
 	
 	option = {
-		name = "We cannot let the opposition know of our plans!"
+		name = united_states_thomas.15.b
+		custom_effect_tooltip = event_chain_over
 	}
 }
 
 country_event = { # senate judiciary hearings
 	id = united_states_thomas.16
-	title = ""
+	title = united_states_thomas.16.title
 	desc = united_states_thomas.16.desc
 	
 	is_triggered_only = yes
@@ -302,17 +317,17 @@ country_event = { # senate judiciary hearings
 	fire_only_once = yes
 
 	option = {
-		name = "More witnesses!"
+		name = united_states_thomas.16.a
 	}
 	
 	option = {
-		name = "Gah, enough already."
+		name = united_states_thomas.16.b
 	}
 }
 
 country_event = { # judicial review section
 	id = united_states_thomas.17
-	title = "The Question of Judicial Review"
+	title = united_states_thomas.17.title
 	desc = united_states_thomas.17.desc
 	
 	is_triggered_only = yes
