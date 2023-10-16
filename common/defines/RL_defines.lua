@@ -47,6 +47,32 @@ NDefines.NDiplomacy.VOLUNTEERS_RETURN_EQUIPMENT = 0.95
 NDefines.NDiplomacy.VOLUNTEERS_DIVISIONS_REQUIRED = 10
 NDefines.NDiplomacy.TENSION_VOLUNTEER_FORCE_DIVISION = 0.5
 
+-- World Tension
+NDefines.NCountry.CIVIL_WAR_INVOLVEMENT_MIN_TENSION = 0						-- Vanilla is 0.5
+NDefines.NDiplomacy.TENSION_STATE_VALUE = 0									-- Vanilla is 2
+NDefines.NDiplomacy.TENSION_NO_CB_WAR = 0									-- Vanilla is 15
+NDefines.NDiplomacy.TENSION_CB_WAR = 0										-- Vanilla is 5
+NDefines.NDiplomacy.TENSION_ANNEX_NO_CLAIM = 0								-- Vanilla is 2
+NDefines.NDiplomacy.TENSION_ANNEX_CLAIM = 0									-- Vanilla is 1
+NDefines.NDiplomacy.TENSION_ANNEX_CORE = 0									-- Vanilla is 0.5
+NDefines.NDiplomacy.TENSION_PUPPET = 0										-- Vanilla is 1.25
+NDefines.NDiplomacy.TENSION_FORCE_GOVERNMENT = 0							-- Vanilla is 0.75
+NDefines.NDiplomacy.TENSION_GUARANTEE = 0									-- Vanilla is -5
+NDefines.NDiplomacy.TENSION_FACTION_JOIN = 0								-- Vanilla is 4
+NDefines.NDiplomacy.TENSION_JOIN_ATTACKER = 0								-- Vanilla is 2
+NDefines.NDiplomacy.TENSION_LIBERATE = 0									-- Vanilla is -1
+NDefines.NDiplomacy.TENSION_TAKE_ONE_CAPITAL_SHIP = 0						-- Vanilla is 0.25
+NDefines.NDiplomacy.TENSION_DEMILITARIZE_ZONE = 0							-- Vanilla is 0.25
+NDefines.NDiplomacy.TENSION_WAR_REPARATION = 0								-- Vanilla is 0.25
+NDefines.NDiplomacy.TENSION_RESOURCE_RIGHTS = 0								-- Vanilla is 0.25
+NDefines.NDiplomacy.TENSION_DISMANTLE_INDUSTRY = 0							-- Vanilla is 0.25
+NDefines.NDiplomacy.TENSION_CAPITULATE = 0									-- Vanilla is 0.4
+NDefines.NDiplomacy.TENSION_VOLUNTEER_FORCE_DIVISION = 0					-- Vanilla is 0.5
+NDefines.NDiplomacy.TENSION_SIZE_FACTOR = 0									-- Vanilla is 1.0
+NDefines.NDiplomacy.TENSION_DECAY_DAILY = 0.003								-- Vanilla is 0.005
+NDefines.NDiplomacy.OPINION_FOR_DEMO_FROM_WT_GENERATION = 0					-- Vanilla is -2.0
+NDefines.NAI.MAX_THREAT_FOR_FIRST_YEAR_CIVILIAN_MODE = 30					-- Vanilla is 60
+
 -- Resistance
 NDefines.NResistance.RESISTANCE_TARGET_MODIFIER_PER_STABILITY_LOSS = 0.1	-- Vanilla is 0.2
 NDefines.NResistance.SUPPRESSION_NEEDED_BY_RESISTANCE_POINT = 0.5			-- Vanilla is 0.75
@@ -61,3 +87,6 @@ NDefines.NTrade.BASE_TRADE_FACTOR = 100										-- Vanilla is 150
 
 -- Visual
 NDefines_Graphics.NGraphics.VICTORY_POINT_MAP_ICON_TEXT_CUTOFF = {300, 500, 1500}
+
+-- General AI
+NDefines.NAI.BASE_RELUCTANCE = 10										-- Vanilla is 20
