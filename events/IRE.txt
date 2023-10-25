@@ -2,6 +2,8 @@ add_namespace = ireland
 add_namespace = ireland_civil_war
 add_namespace = ireland_news
 
+add_namespace = ireland_socialist
+
 country_event = { # intro event
 	id = ireland.1
 	title = ireland.1.title
@@ -920,5 +922,57 @@ news_event = { # sinn fein wins
 
 	option = {
 		name = ireland_news.6.a
+	}
+}
+
+### SOCIALIST IRELAND ###
+
+country_event = { # opening of the congress
+	id = ireland_socialist.1
+	title = ireland_socialist.1.title
+	desc = ireland_socialist.1.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ireland_socialist.1.a
+	}
+}
+
+country_event = { # question of reconstruction
+	id = ireland_socialist.2
+	title = ireland_socialist.2.title
+	desc = ireland_socialist.2.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # strengthen demsocs
+		name = ireland_socialist.2.a
+	}
+	
+	option = { # strengthen anarchists and vansoc
+		name = ireland_socialist.2.b
+	}
+}
+
+country_event = { # question of the economy
+	id = ireland_socialist.3
+	title = ireland_socialist.3.title
+	desc = ireland_socialist.3.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # strengthen demsocs and anarchists
+		name = ireland_socialist.3.a
+	}
+	
+	option = { # strengthen vansoc
+		name = ireland_socialist.3.b
 	}
 }
