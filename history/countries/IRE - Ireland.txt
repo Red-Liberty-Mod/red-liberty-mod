@@ -22,6 +22,22 @@ set_technology = {
 
 if = {
 	limit = {
+		has_dlc_nsb = yes
+	}
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+	}
+	else = {
+		set_technology = {
+			gwtank = 1
+			basic_light_tank = 1
+		}
+	}
+}
+
+if = {
+	limit = {
 		has_dlc = "Man the Guns"
 	}
 	set_naval_oob = "IRE_naval_mtg"

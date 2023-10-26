@@ -16,6 +16,7 @@ IRE_parliament = {
 				tooltip = IRE_ica_strength_change
 				IRE_ica_strength = -5
 			}
+			add_stability = 0.05
 		}
 	}
 	
@@ -35,6 +36,7 @@ IRE_parliament = {
 				tooltip = IRE_ica_strength_change
 				IRE_ica_strength = -5
 			}
+			add_stability = 0.05
 		}
 	}
 	
@@ -406,6 +408,43 @@ IRE_paramilitary_orgs_category = {
 				id = ireland_civil_war.5
 				hours = 6
 			}
+		}
+	}
+	
+	IRE_impending_outbreak = {
+		icon = GFX_decision_revolt
+		
+		available = {
+			if = {
+				limit = {
+					has_government = social_democracy
+				}
+				has_completed_focus = IRE_democratise_the_republic
+			}
+			else = {
+				hidden_trigger = {
+					OR = {
+						has_country_flag = IRE_unrest_started
+						has_country_flag = IRE_paramilitary_violence_over
+					}
+				}
+			}
+		}
+		
+		activation = {
+			always = no # activated by event ireland.17
+		}
+		
+		is_good = no
+		days_mission_timeout = 60
+		fire_only_once = yes
+		
+		complete_effect = {
+			add_political_power = 100
+		}
+		
+		timeout_effect = {
+			add_political_power = -100
 		}
 	}
 }
