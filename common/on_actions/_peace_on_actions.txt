@@ -733,7 +733,13 @@ on_actions = {
 							original_tag = MEX
 						}
 						ROOT = {
-							original_tag = CRT
+							OR = {
+								original_tag = CRT
+								original_tag = CMS
+								original_tag = MTC
+								original_tag = FRP
+								original_tag = YUC
+							}
 						}
 					}
 					FROM = {
@@ -747,10 +753,10 @@ on_actions = {
 							target = ROOT
 						}
 					}
-					random_other_country = {
-						limit = { is_ai = yes }
-						news_event = { id = demo_mex.6 hours = 6 }
-					}
+					#random_other_country = {
+					#	limit = { is_ai = yes }
+					#	news_event = { id = demo_mex.6 hours = 6 }
+					#}
 					set_global_flag = skip_default_capitulation
 				}
 				else_if = {
@@ -759,7 +765,13 @@ on_actions = {
 							original_tag = CRT
 						}
 						ROOT = {
-							original_tag = MEX
+							OR = {
+								original_tag = MEX
+								original_tag = CMS
+								original_tag = MTC
+								original_tag = FRP
+								original_tag = YUC
+							}
 						}
 					}
 					FROM = {
@@ -772,12 +784,161 @@ on_actions = {
 						annex_country = {
 							target = ROOT
 						}
-						set_cosmetic_tag = CRT_mexico
+						if = {
+							limit = {
+								ROOT = {
+									NOT = {
+										OR = {
+											country_exists = MEX
+											country_exists = CMS
+											country_exists = MTC
+											country_exists = FRP
+										}
+									}
+								}
+								set_cosmetic_tag = CRT_mexico
+							}
+						}
 					}
-					random_other_country = {
-						limit = { is_ai = yes }
-						news_event = { id = demo_mex.5 hours = 6 }
+					#random_other_country = {
+					#	limit = { is_ai = yes }
+					#	news_event = { id = demo_mex.5 hours = 6 }
+					#}
+					set_global_flag = skip_default_capitulation
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							original_tag = CMS
+						}
+						ROOT = {
+							OR = {
+								original_tag = MEX
+								original_tag = CRT
+								original_tag = MTC
+								original_tag = FRP
+								original_tag = YUC
+							}
+						}
 					}
+					FROM = {
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
+					FROM = {
+						annex_country = {
+							target = ROOT
+						}
+						if = {
+							limit = {
+								ROOT = {
+									NOT = {
+										OR = {
+											country_exists = MEX
+											country_exists = CRT
+											country_exists = MTC
+											country_exists = FRP
+										}
+									}
+								}
+								set_cosmetic_tag = CMS_mexico
+							}
+						}
+					}
+					#random_other_country = {
+					#	limit = { is_ai = yes }
+					#	news_event = { id = demo_mex.5 hours = 6 }
+					#}
+					set_global_flag = skip_default_capitulation
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							original_tag = FRP
+						}
+						ROOT = {
+							OR = {
+								original_tag = MEX
+								original_tag = CRT
+								original_tag = MTC
+								original_tag = CMS
+								original_tag = YUC
+							}
+						}
+					}
+					FROM = {
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
+					FROM = {
+						annex_country = {
+							target = ROOT
+						}
+					}
+					if = {
+						limit = {
+							FROM = {
+								has_war = no
+							}
+							set_cosmetic_tag = FRP_mexico
+							set_capital = { state = 227 }
+						}
+					}
+					#random_other_country = {
+					#	limit = { is_ai = yes }
+					#	news_event = { id = demo_mex.5 hours = 6 }
+					#}
+					set_global_flag = skip_default_capitulation
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							original_tag = MTC
+						}
+						ROOT = {
+							OR = {
+								original_tag = MEX
+								original_tag = CRT
+								original_tag = FRP
+								original_tag = CMS
+								original_tag = YUC
+							}
+						}
+					}
+					FROM = {
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
+					FROM = {
+						annex_country = {
+							target = ROOT
+						}
+						if = {
+							limit = {
+								ROOT = {
+									NOT = {
+										OR = {
+											country_exists = MEX
+											country_exists = CRT
+											country_exists = FRP
+											country_exists = CMS
+										}
+									}
+								}
+								set_cosmetic_tag = FRP_mexico
+							}
+						}
+					}
+					#random_other_country = {
+					#	limit = { is_ai = yes }
+					#	news_event = { id = demo_mex.5 hours = 6 }
+					#}
 					set_global_flag = skip_default_capitulation
 				}
 				
