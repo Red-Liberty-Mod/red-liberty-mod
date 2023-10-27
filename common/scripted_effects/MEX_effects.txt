@@ -85,3 +85,23 @@ MEX_setup_CRT = {
 	}
 }
 
+MEX_setup_FRP = {
+	hidden_effect = {
+		every_state = {
+			limit = {
+				is_core_of = MEX
+			}
+			add_core_of = FRP
+		}
+		FRP = {
+			transfer_state = 484
+			load_oob = "FRP"
+			
+			if = {
+				limit = { has_template = "Brigada Agrarista" }
+				delete_unit_template_and_units = { division_template = "Brigada Agrarista" }
+			}
+		}
+	}
+}
+

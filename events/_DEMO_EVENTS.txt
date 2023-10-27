@@ -231,10 +231,8 @@ country_event = { # mexico civil war demo event
 				set_demilitarized_zone = no
 			}
 
-			MEX_setup_MTC = yes
 			MEX_setup_YUC = yes
 			MEX_setup_CRT = yes
-			MEX_setup_CMS = yes
 		
 			MEX = {
 				declare_war_on = {
@@ -255,7 +253,7 @@ country_event = { # mexico civil war demo event
 				}
 				remove_ideas = MEX_radical_christians
 				
-				load_obb = "MEX_civil_war_div"
+			
 			}
 			
 			MTC = {
@@ -279,6 +277,7 @@ country_event = { # mexico civil war demo event
 					type = annex_everything
 				}
 			}
+					
 			
 			CRT = {
 				declare_war_on = {
@@ -304,6 +303,200 @@ country_event = { # mexico civil war demo event
 		}
 	}
 }
+
+country_event = { # mexico civil war demo event
+	id = demo_mex.3
+	title = ""
+	desc = demo_mex.3.desc
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ""
+
+			MEX_setup_CMS = yes
+		
+			MEX = {
+				declare_war_on = {
+					target = CRT
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = MTC
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = CMS
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = YUC
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = FRP
+					type = annex_everything
+				}
+				
+			
+			}
+			
+			MTC = {
+				declare_war_on = {
+					target = CRT
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = CMS
+					type = annex_everything
+				}
+			
+			    declare_war_on = {
+					target = FRP
+					type = annex_everything
+				}
+			
+			}
+			
+			CMS = {
+				declare_war_on = {
+					target = CRT
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = MTC
+					type = annex_everything
+				}
+				
+				declare_war_on = {
+					target = FRP
+					type = annex_everything
+				}
+			}
+					
+			
+			CRT = {
+				declare_war_on = {
+					target = MTC
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = CMS
+					type = annex_everything
+				}				
+				declare_war_on = {
+					target = FRP
+					type = annex_everything
+				}
+				
+				
+			}
+			
+			add_named_threat = { 
+				threat = 5
+				name = MEX_civil_war
+			}
+		}
+
+	}
+}
+
+country_event = { # mexico civil war demo event
+	id = demo_mex.4
+	title = ""
+	desc = demo_mex.4.desc
+	
+	hidden = yes
+	
+	option = {
+		name = ""
+
+			MEX_setup_FRP = yes
+		
+			MEX = {
+				declare_war_on = {
+					target = CRT
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = MTC
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = CMS
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = YUC
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = FRP
+					type = annex_everything
+				}
+				
+			
+			}
+			
+			MTC = {
+				declare_war_on = {
+					target = CRT
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = CMS
+					type = annex_everything
+				}
+			
+			    declare_war_on = {
+					target = FRP
+					type = annex_everything
+				}
+			
+			}
+			
+			CMS = {
+				declare_war_on = {
+					target = CRT
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = MTC
+					type = annex_everything
+				}
+				
+				declare_war_on = {
+					target = FRP
+					type = annex_everything
+				}
+			}
+					
+			
+			CRT = {
+				declare_war_on = {
+					target = MTC
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = CMS
+					type = annex_everything
+				}				
+				declare_war_on = {
+					target = FRP
+					type = annex_everything
+				}
+				
+				
+			}
+		}
+
+	}
+}
+
 
 country_event = {
 	id = demo_ita.1
