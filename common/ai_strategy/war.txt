@@ -325,3 +325,79 @@ AUS_focus_on_AHE = {
 		value = 40
 	}
 }
+
+MEX_crush_tag = {
+	allowed = {
+		original_tag = MEX
+	}
+	enable = {
+		OR = {
+			has_war_with = CRT
+			has_war_with = CMS
+			has_war_with = MTC
+			has_war_with = FRP
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		tag = CRT
+		tag = CMS
+		tag = MTC
+		tag = FRP
+		ordertype = front
+		execution_type = rush
+		execute_order = yes
+	}
+}
+
+CRT_crush_TAG = {
+	allowed = {
+		original_tag = CRT
+	}
+	enable = {
+		OR = {
+			has_war_with = MEX
+			has_war_with = CMS
+			has_war_with = MTC
+			has_war_with = FRP
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		tag = MEX
+		tag = CMS
+		tag = MTC
+		tag = FRP
+		execution_type = rush
+		execute_order = yes
+	}
+}
+
+CMS_crush_TAG = {
+	allowed = {
+		original_tag = CMS
+	}
+	enable = {
+		OR = {
+			has_war_with = MEX
+			has_war_with = CRT
+			has_war_with = MTC
+			has_war_with = FRP
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		tag = MEX
+		tag = CRT
+		tag = MTC
+		tag = FRP
+		execution_type = rush
+		execute_order = yes
+	}
+}

@@ -30,6 +30,14 @@ USA_thomas_third_term_setup = {
 	}
 }
 
+USA_clamp_supreme_court = {
+	clamp_variable = {
+		var = supreme_court_lean
+		min = -7
+		max = 7
+	}
+}
+
 USA_calc_congress_control = {
 	
 	### SENATE ###
@@ -153,10 +161,29 @@ improve_safety_net = {
 improve_great_depression = {
 	if = {
 		limit = {
+			has_idea = USA_the_new_economy_2
+		}
+		swap_ideas = {
+			remove_idea = USA_the_new_economy_2
+			add_idea = USA_the_new_economy_3
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = USA_the_new_economy_1
+		}
+		swap_ideas = {
+			remove_idea = USA_the_new_economy_1
+			add_idea = USA_the_new_economy_2
+		}
+	}
+	else_if = {
+		limit = {
 			has_idea = USA_the_great_depression_10
 		}
-		remove_ideas = {
-			USA_the_great_depression_10
+		swap_ideas = {
+			remove_idea = USA_the_great_depression_10
+			add_idea = USA_the_new_economy_1
 		}
 	}
 	else_if = {
