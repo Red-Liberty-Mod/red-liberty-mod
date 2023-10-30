@@ -288,6 +288,10 @@ country_event = { # mexico civil war demo event
 					threat = 5
 					name = MEX_civil_war
 				}
+			
+			    add_ideas = MEX_war_civil
+			
+			
 			}
 		}
 		hidden_effect = {
@@ -460,18 +464,28 @@ country_event = { # CRT wins
 	option = {
 		name = ""
 		set_cosmetic_tag = CRT_mexico
-	    set_capital = 277
-	}
-  
-    hidden_effect = {
+	
+	
+	   hidden_effect = {
 			random_other_country = {
 				limit = { is_ai = yes }
 				news_event = { id = worldnews_war.7 hours = 6 }
 			}
+	    }
+	
+	hidden_effect = {
+			
+	    CRT = {
+			if = { limit = { CRT = { has_ruling_party = despotism } } set_capital = 277 }
 		}
-
-
-
+	
+	
+	
+	}
+	
+	
+	
+	}
 }
 
 country_event = { # MTC wins
@@ -506,7 +520,6 @@ country_event = { # MTC wins
 	option = {
 		name = ""
 		set_cosmetic_tag = MTC_mexico
-	    set_capital = 277
 	
 	    hidden_effect = {
 			random_other_country = {
@@ -514,6 +527,14 @@ country_event = { # MTC wins
 				news_event = { id = worldnews_war.6 hours = 6 }
 			}
 		}
+	
+	    hidden_effect = {
+			MTC = {
+				if = { limit = { MTC = { has_ruling_party = despotism } } set_capital = 277 }
+			}
+		}
+	
+	
 	
 	
 	}
@@ -553,6 +574,13 @@ country_event = { # CMS wins
 		set_cosmetic_tag = CMS_mexico
 	    set_capital = 277
 	
+	    hidden_effect = {
+			CMS = {
+				if = { limit = { CMS = { has_ruling_party = fascism } } set_capital = 277 }
+			}
+		}
+	
+	
 	}
 }
 
@@ -588,7 +616,12 @@ country_event = { # FRP wins
 	option = {
 		name = ""
 		set_cosmetic_tag = FRP_mexico
-	    set_capital = 277
+		
+		hidden_effect = {
+			FRP = {
+				if = { limit = { FRP = { has_ruling_party = anarchism } } set_capital = 277 }
+			}
+		}
 	}
 }
 
