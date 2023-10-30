@@ -206,10 +206,12 @@ on_actions = {
 				}
 			}
 			
-			### produce distribution ###
+			### misc variables ###
 			USA = {
 				set_variable = { USA_produce_units = 3 }
 				set_variable = { USA_produce_decay_rate = 55 }
+				
+				set_variable = { USA_poverty_threshold = 55 }
 			}
 			
 			### DUST BOWL SETUP ###
@@ -293,6 +295,19 @@ on_actions = {
 					}
 					25 = {
 						
+					}
+				}
+			}
+			
+			if = {
+				limit = {
+					check_variable = { USA.poverty_rate < USA_poverty_threshold }
+				}
+				USA = {
+					subtract_from_variable = { USA_poverty_threshold = 5 }
+					country_event = {
+						id = united_states.15
+						hours = 6
 					}
 				}
 			}
