@@ -466,25 +466,22 @@ country_event = { # CRT wins
 		set_cosmetic_tag = CRT_mexico
 	
 	
+	    CRT = {			
+		 remove_ideas = MEX_war_civil
+		 set_capital = { state = 277 }
+	    
+		}
+	   
+	   
+	   
+	   
+	   
 	   hidden_effect = {
 			random_other_country = {
 				limit = { is_ai = yes }
 				news_event = { id = worldnews_war.7 hours = 6 }
 			}
 	    }
-	
-	hidden_effect = {
-			
-	    CRT = {
-			if = { limit = { CRT = { has_ruling_party = despotism } } set_capital = 277 }
-		}
-	
-	
-	
-	}
-	
-	
-	
 	}
 }
 
@@ -528,9 +525,17 @@ country_event = { # MTC wins
 			}
 		}
 	
-	    hidden_effect = {
-			MTC = {
-				if = { limit = { MTC = { has_ruling_party = despotism } } set_capital = 277 }
+	    
+		
+		MTC = {			
+		 remove_ideas = MEX_war_civil
+			
+	    }
+		
+		hidden_effect = {
+			MTC = {			  
+			  set_capital = { state = 277 } 
+			
 			}
 		}
 	
@@ -572,20 +577,67 @@ country_event = { # CMS wins
 	option = {
 		name = ""
 		set_cosmetic_tag = CMS_mexico
-	    set_capital = 277
+	   
 	
-	    hidden_effect = {
-			CMS = {
-				if = { limit = { CMS = { has_ruling_party = fascism } } set_capital = 277 }
-			}
-		}
+
+	
+	    CMS = {			
+		 remove_ideas = MEX_war_civil
+			
+	    }
+	
+	
 	
 	
 	}
 }
 
-country_event = { # FRP wins
-	id = demo_mex.8
+    country_event = { # FRP wins
+	   id = demo_mex.8
+	   title = ""
+	   desc = demo_mex.8.desc
+	
+	  fire_only_once = yes
+	
+	    trigger = {		
+		   original_tag = FRP
+		   484 = { is_owned_by = FRP }	
+		   483 = { is_owned_by = FRP }
+		   482 = { is_owned_by = FRP }
+		   480 = { is_owned_by = FRP }
+		   479 = { is_owned_by = FRP }
+		   899 = { is_owned_by = FRP }
+		   481 = { is_owned_by = FRP }
+		   906 = { is_owned_by = FRP }
+		   478 = { is_owned_by = FRP }
+		   957 = { is_owned_by = FRP }
+		   477 = { is_owned_by = FRP }
+		   905 = { is_owned_by = FRP }
+		   277 = { is_owned_by = FRP }
+		   900 = { is_owned_by = FRP }
+		   485 = { is_owned_by = FRP }
+		   476 = { is_owned_by = FRP }
+		   475 = { is_owned_by = FRP }
+		   904 = { is_owned_by = FRP }
+	    }
+	
+	    option = {
+		   name = ""
+		   set_cosmetic_tag = FRP_mexico
+
+		
+		
+			FRP = {
+			  set_capital = { state = 277 }
+			  remove_ideas = MEX_war_civil
+			
+			}
+		}
+    } 
+
+
+country_event = { # MEX wins
+	id = demo_mex.9
 	title = ""
 	desc = demo_mex.8.desc
 	
@@ -615,13 +667,7 @@ country_event = { # FRP wins
 	
 	option = {
 		name = ""
-		set_cosmetic_tag = FRP_mexico
-		
-		hidden_effect = {
-			FRP = {
-				if = { limit = { FRP = { has_ruling_party = anarchism } } set_capital = 277 }
-			}
-		}
+		set_cosmetic_tag = FRP_mexico		
 	}
 }
 
