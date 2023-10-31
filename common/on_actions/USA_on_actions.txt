@@ -18,7 +18,7 @@ on_actions = {
 					USA_convert_party_pop_percentage = yes
 				}
 			}
-			USA = {
+			USA = { # Congress
 				set_variable = { senators_total = 96 }
 				set_variable = { representatives_total = 483 }
 				USA_congress_quorum = yes
@@ -53,42 +53,46 @@ on_actions = {
 				}
 				USA_calc_congress_control = yes
 			}
-			
-			#USA = {
-			#	USA_calc_poverty_goal = yes
-			#}
+			USA = { # Supreme Court
+				set_variable = { supreme_court_lean = -6 } # LEAN
+				
+				country_event = { # Chief Justice Devanter Dies
+					id = united_states_supreme_court.3
+					days = 1865
+				}
+			}
 			
 			USA = {
 				##### ELECTION EVENTS #####
 			
 				### 1936 ELECTIONS ###
-				country_event = { id = us_election_trigger.3 days = 30 } # SENATE setup - class ii
+				country_event = { id = us_election_trigger.3 days = 30 } # SETUP - class ii
 				country_event = { id = united_states.4 days = 150 } # SPNC
 				country_event = { id = united_states.2 days = 163 } # RNC
 				country_event = { id = united_states.3 days = 176 } # DNC
 				country_event = { id = us_election.1 days = 309 } # ELECTION
 				
 				### 1938 MIDTERM ELECTIONS ###
-				country_event = { id = us_election_trigger.6 days = 760 } # SENATE setup
+				country_event = { id = us_election_trigger.6 days = 760 } # SETUP
 				
 				### 1940 ELECTIONS ###
-				country_event = { id = us_election_trigger.1 days = 1491 } # SENATE setup - class iii
+				country_event = { id = us_election_trigger.1 days = 1491 } # SETUP - class iii
 				country_event = { id = united_states.12 days = 1600 } # thomas choice
 				country_event = { id = united_states.13 days = 1612 } # SPNC
 				country_event = { id = united_states.11 days = 1627 } # DNC
 				country_event = { id = us_election.20 days = 1771 } # ELECTION
 				
 				### 1942 MIDTERM ELECTIONS ###
-				country_event = { id = us_election_trigger.3 days = 2221 } # SENATE setup - class i
+				country_event = { id = us_election_trigger.3 days = 2221 } # SETUP - class i
 				
 				### 1944 ELECTIONS ###
-				country_event = { id = us_election_trigger.6 days = 2952 } # SENATE setup - class ii
+				country_event = { id = us_election_trigger.6 days = 2952 } # SETUP - class ii
 				
 				### 1946 MIDTERM ELECTIONS ###
-				country_event = { id = us_election_trigger.1 days = 3682 } # SENATE setup - class iii
+				country_event = { id = us_election_trigger.1 days = 3682 } # SETUP - class iii
 				
 				### 1948 ELECTIONS ###
-				country_event = { id = us_election_trigger.3 days = 4412 } # SENATE setup - class i
+				country_event = { id = us_election_trigger.3 days = 4412 } # SETUP - class i
 			}
 			
 			USA = {
@@ -137,11 +141,13 @@ on_actions = {
 				}
 				
 				### INSURGENCY ###
-				country_event = { # I HATE THE ANTICHRIST
-					id = united_states_insurgency.1
-					days = 510 # around the middle of may 1937
-					random_days = 15
-				}
+				#country_event = { # I HATE THE ANTICHRIST
+				#	id = united_states_insurgency.1
+				#	days = 510 # around the middle of may 1937
+				#	random_days = 15
+				#}
+				
+				### MANHATTAN PROJECT ###
 				country_event = { # manhattan project start
 					id = united_states_mproject.1
 					days = 1809 # december 14, 1940
@@ -188,12 +194,24 @@ on_actions = {
 					days = 851 # may 1, 1938
 					random_days = 50
 				}
+				country_event = { # the pale poison
+					id = united_states_flavor.11
+					days = 900
+					random_days = 30
+				}
+				country_event = {  # charles lindbergh returns
+					id = united_states_flavor.12
+					days = 1100
+					random_days = 30
+				}
 			}
 			
-			### produce distribution ###
+			### misc variables ###
 			USA = {
 				set_variable = { USA_produce_units = 3 }
 				set_variable = { USA_produce_decay_rate = 55 }
+				
+				set_variable = { USA_poverty_threshold = 55 }
 			}
 			
 			### DUST BOWL SETUP ###
@@ -245,35 +263,51 @@ on_actions = {
 				limit = {
 					has_country_flag = USA_insurgency_start
 				}
-				
-				clear_variable = USA_insurgency_states
-				every_owned_state = {
-					if = {
-						limit = {
-							has_state_flag = USA_active_insurgency
+				random_list = {
+					75 = {
+						random_owned_controlled_state = {
+							limit = {
+								has_state_flag = USA_active_insurgency
+								infrastructure > 0
+							}
+							damage_building = {
+								type = infrastructure
+								damage = 1
+							}
 						}
-						add_to_variable = { USA.USA_insurgency_states = 1 }
+					}
+					25 = {
+						
 					}
 				}
-				
-				random_owned_controlled_state = {
-					limit = {
-						has_state_flag = USA_active_insurgency
-						infrastructure > 0
+				random_list = {
+					75 = {
+						random_owned_controlled_state = {
+							limit = {
+								has_state_flag = USA_active_insurgency
+								infrastructure > 0
+							}
+							damage_building = {
+								type = industrial_complex
+								damage = 1
+							}
+						}
 					}
-					damage_building = {
-						type = infrastructure
-						damage = 1
+					25 = {
+						
 					}
 				}
-				random_owned_controlled_state = {
-					limit = {
-						has_state_flag = USA_active_insurgency
-						industrial_complex > 0
-					}
-					damage_building = {
-						type = industrial_complex
-						damage = 1
+			}
+			
+			if = {
+				limit = {
+					check_variable = { USA.poverty_rate < USA_poverty_threshold }
+				}
+				USA = {
+					subtract_from_variable = { USA_poverty_threshold = 5 }
+					country_event = {
+						id = united_states.15
+						hours = 6
 					}
 				}
 			}
@@ -304,6 +338,38 @@ on_actions = {
 					check_variable = { USA_mproject_phase > 0 }
 				}
 				USA_mproject_monthly_pulse = yes
+			}
+			
+			### very hacky method to naturally improve the spirit over time ###
+			add_to_variable = { USA_month_counter = 1 }
+			if = {
+				limit = {
+					check_variable = { USA_month_counter = 12 }
+					set_variable = { USA_month_counter = 0 }
+				}
+				if = {
+					limit = {
+						has_country_flag = social_security_passed
+					}
+					improve_great_depression = yes
+				}
+			}
+
+			### Supreme Court Retirements ###
+			random_list = {
+				5 = {
+					country_event = {
+						id = united_states_supreme_court.1
+						random_days = 14
+					}
+					set_country_flag = {
+						flag = USA_justice_retired
+						days = 90
+					}
+				}
+				95 = {
+					
+				}
 			}
 		}
 	}

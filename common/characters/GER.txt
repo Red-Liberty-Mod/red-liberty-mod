@@ -1,0 +1,782 @@
+characters = {
+	
+	GER_rudolf_rocker = {
+		name = GER_rudolf_rocker
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_GER_rudolf_rocker"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_RUDOLF_ROCKER_DESC"
+			ideology = anarchism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	GER_karl_liebknecht = {
+		name = GER_karl_liebknecht
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_GER_karl_liebknecht"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_KARL_LIEBKNECHT_DESC"
+			ideology = leninism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	GER_kurt_rosenfeld = {
+		name = GER_kurt_rosenfeld
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_GER_kurt_rosenfeld"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_KURT_ROSENFELD_DESC"
+			ideology = revolutionary_socialism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	GER_otto_wels = {
+		name = GER_otto_wels
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_GER_otto_wels"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_OTTO_WELS_DESC"
+			ideology = democratic_socialism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	GER_philipp_scheidemann = {
+		name = GER_philipp_scheidemann
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_GER_philipp_scheidemann"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_PHILIPP_SCHEIDEMANN_DESC"
+			ideology = social_democracy_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	GER_theodor_heuss = {
+		name = GER_theodor_heuss
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_GER_theodor_heuss"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_THEODOR_HEUSS_DESC"
+			ideology = progressive_liberalism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	GER_heinrich_schnee = {
+		name = GER_heinrich_schnee
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_GER_heinrich_schnee"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_HEINRICH_SCHNEE_DESC"
+			ideology = national_liberalism_subtype
+			traits = {
+				
+			}
+		}
+	}
+
+	GER_kuno_von_westarp = {
+		name = GER_kuno_von_westarp
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_GER_kuno_von_westarp"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_KUNO_VON_WESTARP_DESC"
+			ideology = authoritarian_conservatism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	GER_wilhelm_ii = {
+		name = GER_wilhelm_ii
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_GER_wilhelm_ii"
+				small = "GFX_minister_GER_wilhelm_ii"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_WILHELM_II_DESC"
+			ideology = absolute_monarchy_subtype
+			traits = {
+				
+			}
+		}
+		
+		advisor = {
+			slot = head_of_government
+			idea_token = GER_wilhelm_ii_hog
+			ledger = civilian
+			
+			cost = 0
+			can_be_fired = no
+			
+			allowed = {
+				original_tag = GER
+			}
+			
+			visible = {
+				
+			}
+			
+			available = {
+				
+			}
+			
+			traits = {
+				hog_controversial
+			}
+		}
+	}
+	
+	GER_alfred_hugenberg = {
+		name = GER_alfred_hugenberg
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_GER_alfred_hugenberg"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_ALFRED_HUGENBERG_DESC"
+			ideology = ultraconservatism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	GER_franz_seldte = {
+		name = GER_franz_seldte
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_GER_franz_seldte"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_FRANZ_SELDTE_DESC"
+			ideology = fascism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	### Ministers ###
+	
+	
+	
+	### GENERALS ###
+	
+	GER_kurt_von_hammerstein_equord = {
+		name = GER_kurt_von_hammerstein_equord
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_GER_kurt_von_hammerstein_equord"
+				small = "GFX_minister_GER_kurt_von_hammerstein_equord"
+			}
+		}
+
+		field_marshal = {
+			traits = {
+				politically_connected
+				brilliant_strategist
+				defensive_doctrine
+			}
+			skill = 4
+			attack_skill = 3
+			defense_skill = 4
+			planning_skill = 3
+			logistics_skill = 3
+		}
+		
+		advisor = {
+			cost = 100
+			slot = army_chief
+			idea_token = GER_kurt_von_hammerstein_equord_army_chief
+			
+			available = {
+				not_already_hired_except_as = army_chief
+			}
+			
+			traits = {
+				army_chief_reform_2
+			}
+		}
+		
+		advisor = {
+			cost = 200
+			idea_token = GER_kurt_von_hammerstein_equord_high_command
+			slot = high_command
+			
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			
+			traits = {
+				army_CombinedArms_3
+			}
+		}
+	}
+	
+	GER_alfred_von_vollard_bockelberg = {
+		name = GER_alfred_von_vollard_bockelberg
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_GER_alfred_von_vollard_bockelberg"
+				small = "GFX_minister_GER_alfred_von_vollard_bockelberg"
+			}
+		}
+		
+		field_marshal = {
+			traits = {
+				artillery_specialist
+			}
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 3
+		}
+	}
+	
+	GER_erich_von_manstein = {
+		name = GER_erich_von_manstein
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_GER_erich_von_manstein"
+				small = "GFX_minister_GER_erich_von_manstein"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				brilliant_strategist
+				armor_officer
+				trickster
+				trait_engineer
+			}
+			skill = 4
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 4
+		}
+		
+		advisor = {
+			cost = 100
+			slot = high_command
+			idea_token = GER_erich_von_manstein_high_command
+			
+			traits = {
+				army_armored_2
+			}
+		}
+	}
+	
+	GER_walther_von_brauchitsch = {
+		name = GER_walther_von_brauchitsch
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_GER_walther_von_brauchitsch"
+				small = "GFX_minister_GER_walther_von_brauchitsch"
+			}
+		}
+
+		corps_commander = {
+			traits = { 
+				
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+		}
+	}
+	
+	GER_werner_von_blomberg = {
+		name = GER_werner_von_blomberg
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_GER_werner_von_blomberg"
+				small = "GFX_minister_GER_werner_von_blomberg"
+			}
+		}
+
+		corps_commander = {
+			traits = {
+				career_officer
+				armor_officer
+				trickster
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
+		}
+		
+		advisor = {
+			cost = 100
+			slot = army_chief
+			idea_token = USA_werner_von_blomberg_army_chief
+			
+			available = {
+				not_already_hired_except_as = army_chief
+			}
+			
+			traits = {
+				army_chief_drill_2
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			idea_token = USA_werner_von_blomberg_high_command
+			slot = high_command
+			
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			
+			traits = {
+				army_infantry_2
+			}
+		}
+	}
+	
+	GER_nikolaus_von_falkenhorst = {
+		name = GER_nikolaus_von_falkenhorst
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_GER_nikolaus_von_falkenhorst"
+				small = "GFX_minister_GER_nikolaus_von_falkenhorst"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				commando
+				winter_specialist
+			}
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 4
+		}
+	}
+	
+	GER_eberhard_von_mackensen = {
+		name = GER_eberhard_von_mackensen
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_GER_eberhard_von_mackensen"
+				small = "GFX_minister_GER_eberhard_von_mackensen"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				cavalry_officer
+				cavalry_leader
+			}
+			skill = 3
+			attack_skill = 4
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	
+	GER_fedor_von_bock = {
+		name = GER_fedor_von_bock
+		
+		portraits = {
+			army = {
+				small = "GFX_portrait_GER_fedor_von_bock"
+				small = "GFX_minister_GER_fedor_von_bock"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				brilliant_strategist
+				trait_cautious
+				harsh_leader
+			}
+			skill = 3
+			attack_skill = 4
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	
+	GER_walther_von_reichenau = {
+		name = GER_walther_von_reichenau
+		
+		portraits = {
+			army = {
+				small = "GFX_portrait_GER_walther_von_reichenau"
+				small = "GFX_minister_GER_walther_von_reichenau"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+	}
+	
+	GER_heinz_guderian = {
+		name = GER_heinz_guderian
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_GER_heinz_guderian"
+				small = "GFX_minister_GER_heinz_guderian"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				brilliant_strategist
+				career_officer
+				armor_officer
+				trickster
+				panzer_leader
+			}
+			skill = 4
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 3
+		}
+		
+		advisor = {
+			idea_token = GER_heinz_guderian_army_chief
+			slot = army_chief
+			traits = {
+				army_chief_maneuver_3
+			}
+			cost = 200
+		}
+	}
+	
+	GER_albert_kesselring = {
+		name = GER_albert_kesselring
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_GER_albert_kesselring"
+				small = "GFX_minister_GER_albert_kesselring"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				inflexible_strategist
+				infantry_officer
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 3
+		}
+		
+		advisor = {
+			idea_token = GER_albert_kesselring_army_chief
+			slot = air_chief
+			traits = {
+				air_chief_reform_2
+			}
+			cost = 100
+		}
+	}
+	
+	### HIGH COMMAND ###
+	
+	GER_oswald_lutz = {
+		name = GER_oswald_lutz
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_GER_oswald_lutz"
+				small = "GFX_minister_GER_oswald_lutz"
+			}
+		}
+		
+		advisor = {
+			idea_token = GER_oswald_lutz_high_command
+			slot = high_command
+			traits = {
+				army_cavalry_2
+			}
+			cost = 100
+		}
+	}
+	
+	GER_werner_von_fritsch = {
+		name = GER_werner_von_fritsch
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_GER_werner_von_fritsch"
+				small = "GFX_minister_GER_werner_von_fritsch"
+			}
+		}
+		
+		advisor = {
+			idea_token = GER_oswald_lutz_army_chief
+			slot = army_chief
+			available = {
+				not_already_hired_except_as = army_chief
+			}
+			traits = {
+				army_chief_organizational_2
+			}
+			cost = 100
+		}
+		
+		advisor = {
+			idea_token = GER_oswald_lutz_high_command
+			slot = high_command
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = {
+				army_regrouping_3
+			}
+			cost = 200
+		}
+	}
+	
+	GER_robert_von_greim = {
+		name = GER_robert_von_greim
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_GER_robert_von_greim"
+				small = "GFX_minister_GER_robert_von_greim"
+			}
+		}
+		
+		advisor = {
+			idea_token = GER_robert_von_greim_air_chief
+			slot = air_chief
+			available = {
+				not_already_hired_except_as = air_chief
+			}
+			traits = {
+				air_chief_safety_2
+			}
+			cost = 100
+		}
+		
+		advisor = {
+			idea_token = GER_robert_von_greim_high_command
+			slot = high_command
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = {
+				air_air_superiority_2
+			}
+			cost = 100
+		}
+	}
+	
+	### ADMIRALS ###
+	
+	GER_karl_donitz = {
+		name = GER_karl_donitz
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_GER_karl_donitz"
+				small = "GFX_minister_GER_karl_donitz"
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				seawolf
+				silent_hunter
+			}
+			skill = 4
+			attack_skill = 4
+			defense_skill = 2
+			maneuvering_skill = 3
+			coordination_skill = 4
+		}
+		
+		advisor = {
+			slot = navy_chief
+			idea_token = GER_karl_donitz_navy_chief
+			available = {
+				not_already_hired_except_as = navy_chief
+			}
+			traits = { navy_chief_commerce_raiding_2 }
+			cost = 100
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = GER_karl_donitz_high_command
+			ledger = navy
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = { navy_submarine_2 }
+			cost = 100
+		}
+	}
+	
+	GER_erich_raeder = {
+		name = GER_erich_raeder
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_GER_erich_raeder"
+				small = "GFX_minister_GER_erich_raeder"
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				naval_lineage
+				ironside
+			}
+			skill = 4
+			attack_skill = 3
+			defense_skill = 2
+			maneuvering_skill = 4
+			coordination_skill = 4
+		}
+		
+		advisor = {
+			slot = navy_chief
+			idea_token = GER_erich_raeder_navy_chief
+			available = {
+				not_already_hired_except_as = navy_chief
+			}
+			traits = {
+				navy_chief_maneuver_3
+			}
+			cost = 200
+		}
+		
+		advisor = {
+			slot = theorist
+			ledger = navy
+			idea_token = GER_erich_raeder_theorist
+			available = {
+				not_already_hired_except_as = theorist
+			}
+			traits = {
+				naval_aviation_pioneer
+			}
+			cost = 100
+		}
+	}
+	
+	GER_lothar_von_arnauld = {
+		name = GER_lothar_von_arnauld
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_GER_lothar_von_arnauld"
+				small = "GFX_minister_GER_lothar_von_arnauld"
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				seawolf
+			}
+			skill = 4
+			attack_skill = 3
+			defense_skill = 4
+			maneuvering_skill = 3
+			coordination_skill = 3
+		}
+	}
+}

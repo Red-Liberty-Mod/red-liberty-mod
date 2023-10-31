@@ -1,0 +1,14 @@
+AHE_calc_escalation_progressbar = {
+	
+	set_temp_variable = { indicator_var_temp = global.austria_escalation }
+	divide_temp_variable = { indicator_var_temp = 100 }
+	multiply_temp_variable = { indicator_var_temp = 440 }
+	
+	set_variable = { global.austria_escalation_indicator_var = indicator_var_temp }
+	
+	clamp_variable = {
+		var = global.austria_escalation_indicator_var
+		min = 5
+		max = 435
+	}
+}

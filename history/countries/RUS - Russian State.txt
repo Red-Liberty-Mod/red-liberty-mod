@@ -6,11 +6,13 @@ set_technology = {
 	tech_recon = 1
 	tech_support = 1		
 	tech_mountaineers = 1
+	tech_trucks = 1
 	motorised_infantry = 1
 	gw_artillery = 1 
 	transport = 1 
 	mtg_transport = 1
 	
+	basic_train = 1
 }
 
 oob = "RUS"
@@ -32,59 +34,37 @@ add_ideas = {
 }
 
 set_politics = {
-	ruling_party = autocratic_despotism 
+	ruling_party = despotism 
 	last_election = "1936.1.1"
 	election_frequency = 48
 	elections_allowed = no
 
 }
 set_popularities = {
-	insurrectionary_anarchism = 0
-	revolutionary_autocracy = 0
-	proletarian_dictatorship = 0
-	libertarian_socialism = 0
+	anarchism = 0
+	vanguard_socialism = 0
+	revolutionary_socialism = 0
+	democratic_socialism = 0
 	social_democracy = 5
 	progressive_liberalism = 6
-	market_libertarianism = 2
+	liberal_conservatism = 2
 	national_conservatism = 10
 	authoritarian_democracy = 22
-	autocratic_despotism = 33
-	far_right_authoritarianism = 15
+	despotism = 33
+	ultraconservatism = 15
 	fascism = 7
-} 
-
-create_country_leader = {
-	name = "Alexander Kolchak"
-	desc = "POLITICS_ALEXANDER_KOLCHAK_DESC"
-	picture = "gfx/leaders/RUS/Portrait_RUS_Aleksandr_Kolchak.png"
-	expire = "1965.1.1"
-	ideology = military_government_subtype
-	traits = {
-		reluctant_dictator
-	}
 }
 
-create_country_leader = {
-	name = "Various Military Figures"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = far_right_authoritarianism_subtype
-	traits = {
-		
-	}
-}
+### LEADERS ###
+recruit_character = RUS_alexander_kolchak
+recruit_character = RUS_military_council
+recruit_character = RUS_anastasy_vonsiatsky
 
-create_country_leader = {
-	name = "Anastasy Vonsiatsky"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = clerical_fascism_subtype
-	traits = {
-		
-	}
-}
+### GENERALS ###
+recruit_character = RUS_vasily_boldyrev
+recruit_character = RUS_mikhail_diterikhs
+recruit_character = RUS_anatoly_pepelyayev
+recruit_character = RUS_grigory_semyonov
 
 ORE = {
 	give_military_access = RUS

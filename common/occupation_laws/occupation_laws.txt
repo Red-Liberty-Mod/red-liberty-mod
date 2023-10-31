@@ -61,6 +61,26 @@
 #	}
 #}
 
+territorial_integration = {
+	icon = 13
+	#tooltip = territorial_integration_tt
+	sound_effect = "Martial_Law_Interface_Foreign_Cvilian_Oversight"
+
+	visible = {
+		has_country_flag = can_integrate_@FROM
+	}
+
+	state_modifier = {
+		compliance_gain 				= 0.03
+		required_garrison_factor 		= -0.5
+		resistance_damage_to_garrison 	= -0.3
+		resistance_decay 				= 0.5
+	}
+
+	ai_will_do = {
+		base = 200
+	}
+}
 
 no_garrison = {
 	icon = 1
@@ -84,7 +104,7 @@ no_garrison = {
 
 		modifier = {
 			FROM = {
-				has_government = democratic
+				has_democratic_govt = yes
 			}
 			has_active_resistance = no
 			add = 200
@@ -228,7 +248,10 @@ liberate_workers_occupation = {
 	sound_effect = "Martial_Law_Interface_Liberate_Workers_Occupation_Unique_COM"
 
 	visible = {
-		has_auth_socialist_govt = yes
+		has_socialist_govt = yes
+		NOT = {
+			original_tag = USA
+		}
 	}
 
 	state_modifier = {

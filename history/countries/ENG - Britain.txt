@@ -1,6 +1,6 @@
 ﻿capital = 126
 
-set_oob = "ENG_1936"
+set_oob = "ENG"
 
 load_oob = "ENG_Motorized"
 
@@ -9,20 +9,23 @@ starting_train_buffer = 4
 set_stability = 0.6
 set_war_support = 0.1
 
+add_to_tech_sharing_group = commonwealth_research
+
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
+	tech_trucks = 1
+	motorised_infantry = 1
+	camelry = 1
+	
 	tech_support = 1
 	tech_engineers = 1
 	tech_recon = 1
-	motorised_infantry = 1
+	
 	gw_artillery = 1
 	interwar_antiair = 1
 	
-	trench_warfare = 1
-	
-	fleet_in_being = 1
 	electronic_mechanical_engineering = 1
 	radio = 1
 	radio_detection = 1
@@ -30,42 +33,42 @@ set_technology = {
 	fuel_refining = 1
 
 	basic_train = 1
+	
+	fleet_in_being = 1
 }
 
 if = {
 	limit = {
-		has_dlc = "La Resistance"
+		has_dlc_lar = yes
 	}
 	set_technology = {
 		armored_car1 = 1
 	}
-}
-
-if = {
-	limit = {
-		has_dlc = "Battle for the Bosporus"
+	create_intelligence_agency = {
+		name = "Directorate of Military Intelligence"
+		icon = GFX_intelligence_agency_logo_uk
 	}
-	set_technology = { camelry = 1 }
+	upgrade_intelligence_agency = upgrade_army_department
 }
 
 if = {
 	limit = {
-		NOT = { has_dlc = "No Step Back" }
+		has_dlc_nsb = yes
 	}
 	set_technology = {
-		gwtank = 1
-		basic_light_tank = 1
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
 	}
+	
 	else = {
 		set_technology = {
-			gwtank_chassis = 1
-			basic_light_tank_chassis = 1
+			gwtank = 1
+			basic_light_tank = 1
 		}
 	}
 }
 if = {
 	limit = { has_dlc = "By Blood Alone" }
-		set_air_oob = "ENG_1936_air_bba"
 		set_technology = {
 			aa_lmg = 1
 			engines_1 = 1
@@ -73,13 +76,13 @@ if = {
 			early_bombs = 1
 			aircraft_construction = 1
 			iw_small_airframe = 1
+			iw_carrier_airframe = 1
 			iw_medium_airframe = 1
 			iw_large_airframe = 1
 			basic_medium_airframe = 1
 			basic_small_airframe = 1
 		}
 	else = {
-		set_air_oob = "ENG_1936_air_legacy"
 		set_technology = {
 			early_fighter = 1
 			cv_early_fighter = 1
@@ -199,25 +202,25 @@ set_politics = {
 	elections_allowed = yes
 }
 set_popularities = {
-	insurrectionary_anarchism = 0
-	revolutionary_autocracy = 1
-	proletarian_dictatorship = 1
-	libertarian_socialism = 24
+	anarchism = 0
+	vanguard_socialism = 1
+	revolutionary_socialism = 1
+	democratic_socialism = 24
 	social_democracy = 6
 	progressive_liberalism = 5
-	market_libertarianism = 15
+	liberal_conservatism = 15
 	national_conservatism = 39
 	authoritarian_democracy = 7
-	autocratic_despotism = 1
-	far_right_authoritarianism = 0
+	despotism = 1
+	ultraconservatism = 0
 	fascism = 1
 }
 
 set_country_flag = social_democracy_coalition
-set_country_flag = market_libertarian_coalition
-set_country_flag = conservative_coalition
-set_country_flag = authoritarian_coalition
-set_country_flag = despotist_coalition
+set_country_flag = liberal_conservatism_coalition
+set_country_flag = national_conservatism_coalition
+set_country_flag = authoritarian_democracy_coalition
+set_country_flag = despotism_coalition
 
 create_faction = Commonwealth
 add_to_faction = ENG
@@ -231,418 +234,50 @@ add_to_faction = MAL
 
 give_guarantee = BEL
 
+### LEADERS ###
 recruit_character = ENG_frank_leech
 recruit_character = ENG_harry_pollitt
 recruit_character = ENG_james_maxton
+recruit_character = ENG_george_lansbury
 recruit_character = ENG_clement_attlee
 recruit_character = ENG_ramsay_macdonald
 recruit_character = ENG_archibald_sinclair
 recruit_character = ENG_john_allsebrook_simon
 recruit_character = ENG_neville_chamberlain
+recruit_character = ENG_archibald_ramsay
+recruit_character = ENG_thomas_moore
+recruit_character = ENG_john_beckett
+recruit_character = ENG_henry_page_croft
 recruit_character = ENG_john_charles_fuller
 
-create_country_leader = {
-	name = "Assorted Minor Politicians"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = authoritarian_democracy_subtype
-	traits = {
-		
-	}
-}
+### MINISTERS ###
+recruit_character = ENG_george_v
+recruit_character = ENG_edward_viii
+recruit_character = ENG_charles_iii
+activate_advisor = ENG_george_v_hog
 
-create_country_leader = {
-	name = "Assorted Minor Politicians"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = autocratic_despotism_subtype
-	traits = {
-		
-	}
-}
+recruit_character = ENG_hugh_dalton
+recruit_character = ENG_walter_runciman
+recruit_character = ENG_samuel_hoare
+recruit_character = ENG_arthur_chesterton
+recruit_character = ENG_maxwell_knight
 
-create_field_marshal = {
-	name = "Alan Brooke" # Aristocrat
-	id = 997
-	picture = "Portrait_Britain_Alan_Brooke.dds"
-	traits = { defensive_doctrine trait_cautious career_officer }
-	skill = 5
-	attack_skill = 3
-	defense_skill = 5
-	planning_skill = 5
-	logistics_skill = 3
-}
+### GENERALS ###
+recruit_character = ENG_harold_alexander
+recruit_character = ENG_henry_maitland_wilson
+recruit_character = ENG_john_vereker_gort
+recruit_character = ENG_alan_francis_brooke
+recruit_character = ENG_archibald_wavell
+recruit_character = ENG_john_greer_dill
+recruit_character = ENG_adrian_carton_de_wiart
+recruit_character = ENG_robert_brooke_popham
+recruit_character = ENG_philip_neame
 
-create_field_marshal = {
-	name = "Bernard Montgomery" # Aristocrat
-	id = 996
-	picture = "Portrait_Britain_Bernard_Montgomery.dds"
-	traits = { logistics_wizard offensive_doctrine media_personality trait_cautious inflexible_strategist organizer }
-	skill = 4 
-	attack_skill = 2
-	defense_skill = 4
-	planning_skill = 3
-	logistics_skill = 4
-}
-
-create_corps_commander = {
-	name = "Claude Auchinleck"
-	picture = "Portrait_Britain_Claude_Auchinleck.dds"
-	traits = { inflexible_strategist career_officer }
-	skill = 5
-	attack_skill = 3
-	defense_skill = 5
-	planning_skill = 3
-	logistics_skill = 5
-}
-
-create_corps_commander = {
-	name = "Neil Ritchie"
-	picture = "Portrait_Britain_Neil_Ritchie.dds"
-	traits = { inflexible_strategist armor_officer politically_connected  }
-	skill = 4
-	attack_skill = 3
-	defense_skill = 4
-	planning_skill = 3
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Alan Cunningham"
-	picture = "Portrait_Britain_Alan_Cunningham.dds"
-	traits = {}
-	skill = 4
-	attack_skill = 4
-	defense_skill = 1
-	planning_skill = 4
-	logistics_skill = 4
-}
-
-create_corps_commander = {
-	name = "William Slim"
-	picture = "Portrait_Britain_William_Slim.dds"
-	traits = { trickster war_hero }
-	skill = 5
-	attack_skill = 3
-	defense_skill = 3
-	planning_skill = 5
-	logistics_skill = 5
-}
-
-create_corps_commander = {
-	name = "Richard O'Connor"
-	id = 999
-	picture = "Portrait_Britain_Richard_OConnor.dds"
-	traits = {  }
-	skill = 4
-	attack_skill = 2
-	defense_skill = 4
-	planning_skill = 4
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "William Platt"
-	picture = "Portrait_Britain_William_Platt.dds"
-	traits = {  }
-	skill = 3
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 3
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "George Giffard"
-	picture = "Portrait_Britain_George_Giffard.dds"
-	traits = { career_officer }
-	skill = 3
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 3
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Harold Alexander" # Aristocrat
-	id = 995
-	picture = "Portrait_Britain_Harold_Alexander.dds"
-	traits = { politically_connected }
-	skill = 5
-	attack_skill = 4
-	defense_skill = 4
-	planning_skill = 3
-	logistics_skill = 5
-}
-
-create_corps_commander = {
-	name = "Jackie Smyth"
-	picture = "Portrait_Britain_John_Jackie_Smyth.dds"
-	traits = { old_guard }
-	skill = 1
-	attack_skill = 1
-	defense_skill = 1
-	planning_skill = 1
-	logistics_skill = 1
-}
-
-create_corps_commander = {
-	name = "Thomas Jacomb Hutton"
-		picture = "Portrait_Britain_Thomas_Jacomb_Hutton.dds"
-	traits = { old_guard }
-	skill = 2
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 1
-}
-
-create_corps_commander = {
-	name = "Arthur Percival"
-		picture = "Portrait_Britain_Arthur_Percival.dds"
-	traits = {  trait_cautious }
-	skill = 2
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 1
-}
-
-create_corps_commander = {
-	name = "Merton Beckwith-Smith"
-		picture = "Portrait_Britain_Merton_Beckwith_Smith.dds"
-	traits = { commando }
-	skill = 1
-	attack_skill = 1
-	defense_skill = 1
-	planning_skill = 1
-	logistics_skill = 1
-}
-
-create_corps_commander = {
-	name = "Henry Pownall"
-	picture = "Portrait_Britain_Henry_Pownall.dds"
-	traits = {  trickster }
-	skill = 2
-	attack_skill = 1
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "John Vereker Lord Gort" # Aristocrat
-	id = 994
-	picture = "Portrait_Britain_John_Vereker.dds"
-	traits = { politically_connected trait_cautious }
-	skill = 4
-	attack_skill = 3
-	defense_skill = 3
-	planning_skill = 4
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Henry Wilson"
-		picture = "Portrait_Britain_Henry_Maitland_Wilson.dds"
-	traits = { old_guard politically_connected }
-	skill = 4
-	attack_skill = 2
-	defense_skill = 4
-	planning_skill = 4
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "William Gott"
-		picture = "Portrait_Britain_William_Gott.dds"
-	traits = { armor_officer war_hero inflexible_strategist }
-	skill = 3
-	attack_skill = 2
-	defense_skill = 3
-	planning_skill = 2
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Jock Campbell"
-		picture = "Portrait_Britain_Jock_Campbell.dds"
-	traits = { armor_officer  }
-	skill = 4
-	attack_skill = 4
-	defense_skill = 3
-	planning_skill = 2
-	logistics_skill = 4
-}
-
-create_corps_commander = {
-	name = "Oliver Leese" # Aristocrat
-	id = 993
-	picture = "Portrait_Britain_Oliver_Leese.dds"
-	traits = {  armor_officer harsh_leader politically_connected }
-	skill = 4
-	attack_skill = 4
-	defense_skill = 2
-	planning_skill = 3
-	logistics_skill = 4
-}
-
-create_corps_commander = {
-	name = "Miles Dempsey"
-	picture = "Portrait_Britain_Miles_Dempsey.dds"
-	traits = { brilliant_strategist infantry_officer career_officer }
-	skill = 4
-	attack_skill = 3
-	defense_skill = 4
-	planning_skill = 4
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Brian Horrocks"
-	picture = "Portrait_Britain_Brian_Horrocks.dds"
-	traits = {  armor_officer career_officer war_hero }
-	skill = 3
-	
-	attack_skill = 1
-	defense_skill = 3
-	planning_skill = 3
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Archibald Wavell" # Aristocrat
-	id = 998
-	picture = "Portrait_Britain_Archibald_Wavell.dds"
-	traits = { career_officer }
-	skill = 4
-	attack_skill = 4
-	defense_skill = 2
-	planning_skill = 3
-	logistics_skill = 4
-}
-
-create_navy_leader = {
-	name = "James Fownes Somerville" # Aristocrat
-	id = 983
-		picture = "Portrait_Britain_James_Fownes_Somerville.dds"
-	traits = { superior_tactician aviation_enthusiast navy_career_officer }
-	skill = 5
-	attack_skill = 4
-	defense_skill = 3
-	maneuvering_skill = 4
-	coordination_skill = 5
-}
-
-create_navy_leader = {
-	name = "Henry Harwood" # Aristocrat
-	id = 984
-		picture = "Portrait_Britain_Henry_Harwood.dds"
-	traits = { old_guard_navy bold }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 2
-	maneuvering_skill = 3
-	coordination_skill = 2
-}
-
-create_navy_leader = {
-	name = "Andrew Cunningham"
-	id = 985
-		picture = "Portrait_Britain_Andrew_Cunningham.dds"
-	traits = { blockade_runner superior_tactician navy_career_officer bold gunnery_expert}
-	skill = 5
-	attack_skill = 5
-	defense_skill = 4
-	maneuvering_skill = 3
-	coordination_skill = 4
-}
-
-create_navy_leader = {
-	name = "Bruce Fraser"
-	id = 986
-		picture = "Portrait_Britain_Bruce_Fraser.dds"
-	traits = { aviation_enthusiast naval_lineage blockade_runner }
-	skill = 4
-	attack_skill = 3
-	defense_skill = 2
-	maneuvering_skill = 4
-	coordination_skill = 4
-}
-
-create_navy_leader = {
-	name = "John Tovey" # Aristocrat
-	id = 987
-		picture = "Portrait_Britain_John_Tovey.dds"
-	traits = { gentlemanly naval_lineage superior_tactician }
-	skill = 4
-	attack_skill = 3
-	defense_skill = 3
-	maneuvering_skill = 2
-	coordination_skill = 5
-}
-
-create_navy_leader = {
-	name = "Bernard Rawlings" # Aristocrat
-	id = 988
-		picture = "Portrait_Britain_Bernard_Rawlings.dds"
-	traits = { gentlemanly }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 2
-	maneuvering_skill = 3
-	coordination_skill = 2
-}
-
-create_navy_leader = {
-	name = "John Cunningham"
-	id = 989
-		picture = "Portrait_Britain_John_Cunningham.dds"
-	traits = { navy_career_officer green_water_expert }
-	skill = 4
-	attack_skill = 2
-	defense_skill = 4
-	maneuvering_skill = 4
-	coordination_skill = 3
-}
-
-create_navy_leader = {
-	name = "Charles Forbes"
-	id = 990
-		picture = "Portrait_Britain_Charles_Forbes.dds"
-	traits = { gunnery_expert fly_swatter }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 2
-	maneuvering_skill = 2
-	coordination_skill = 3
-}
-
-create_navy_leader = {
-	name = "Algernon Willis"
-	id = 991
-		picture = "Portrait_Britain_Algernon_Willis.dds"
-	traits = { battleship_adherent spotter }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 2
-	maneuvering_skill = 3
-	coordination_skill = 2
-}
-
-create_navy_leader = {
-	name = "Arthur Power"
-	id = 992
-		picture = "Portrait_Britain_Arthur_Power.dds"
-	traits = { gunnery_expert }
-	skill = 2
-	attack_skill = 3
-	defense_skill = 1
-	maneuvering_skill = 1
-	coordination_skill = 2
-}
+### ADMIRALS ###
+recruit_character = ENG_james_fownes_somerville
+recruit_character = ENG_john_tovey
+recruit_character = ENG_andrew_cunningham
+recruit_character = ENG_barry_domville
 
 if = {
 	limit = {
@@ -1365,6 +1000,29 @@ if = {
 			special_type_slot_1 = empty
 		}
 		obsolete = yes
+		icon = "GFX_ENG_light_plane_5_medium"
+	}
+	create_equipment_variant = {
+		name = "Hawker Hart"
+		type = small_plane_cas_airframe_0
+		modules = {
+			fixed_main_weapon_slot = bomb_locks
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+		obsolete = yes
+		icon = "GFX_ENG_light_plane_5_medium"
+	}
+	create_equipment_variant = {
+		name = "Bristol Bulldog"
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+		obsolete = yes
+		icon = "GFX_ENG_light_plane_5_medium"
 	}
 	create_equipment_variant = {
 		name = "Gloster Gauntlet"
@@ -1429,47 +1087,70 @@ if = {
 		obsolete = yes
 		icon = "GFX_ENG_CAS1_medium"
 	}
-		create_equipment_variant = {
-			name = "Vickers Vildebeest" 
-			type = small_plane_naval_bomber_airframe_0
-			modules = {
-				fixed_main_weapon_slot = torpedo_mounting
-				engine_type_slot = engine_1_1x
-				special_type_slot_1 = empty
-			}
-			icon = "GFX_ENG_naval_bomber1_medium" #TODO GABRIEL: change if art in before release
+	create_equipment_variant = {
+		name = "Vickers Vildebeest" 
+		type = small_plane_naval_bomber_airframe_0
+		modules = {
+			fixed_main_weapon_slot = torpedo_mounting
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
 		}
-		create_equipment_variant = {
-			name = "Blackburn Shark" 
-			type = cv_small_plane_naval_bomber_airframe_0
-			modules = {
-				fixed_main_weapon_slot = torpedo_mounting
-				engine_type_slot = engine_1_1x
-				special_type_slot_1 = empty
-			}
-			icon = "GFX_ENG_naval_bomber1_medium"
-		}
-		create_equipment_variant = {
-			name = "Handley Page Heyford" 
-			type = medium_plane_airframe_0
-			modules = {
-				fixed_main_weapon_slot = medium_bomb_bay
-				engine_type_slot = engine_1_2x
-				special_type_slot_1 = empty
-			}
-			obsolete = yes
-		}
-		create_equipment_variant = {
-			name = "Bristol Blenheim" 
-			type = medium_plane_airframe_1
-			modules = {
-				fixed_main_weapon_slot = medium_bomb_bay
-				engine_type_slot = engine_2_2x
-				special_type_slot_1 = lmg_defense_turret
-			}
-			icon = "GFX_ENG_heavy_fighter1_medium"
-		}
+		icon = "GFX_ENG_naval_bomber1_medium" #TODO GABRIEL: change if art in before release
 	}
+	create_equipment_variant = {
+		name = "Blackburn Shark" 
+		type = cv_small_plane_naval_bomber_airframe_0
+		modules = {
+			fixed_main_weapon_slot = torpedo_mounting
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+		icon = "GFX_ENG_naval_bomber1_medium"
+	}
+	create_equipment_variant = {
+		name = "Handley Page Heyford" 
+		type = medium_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = medium_bomb_bay
+			engine_type_slot = engine_1_2x
+			special_type_slot_1 = empty
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Bristol Blenheim" 
+		type = medium_plane_airframe_1
+		modules = {
+			fixed_main_weapon_slot = medium_bomb_bay
+			engine_type_slot = engine_2_2x
+			special_type_slot_1 = lmg_defense_turret
+		}
+		icon = "GFX_ENG_heavy_fighter1_medium"
+	}
+}
+
+IRQ = { # sadly necessary, make sure this matches IRQ history file
+	set_politics = {
+		ruling_party = despotism
+		last_election = "1936.1.1"
+		election_frequency = 60
+		elections_allowed = yes
+	}
+	set_popularities = {
+		anarchism = 0
+		vanguard_socialism = 0
+		revolutionary_socialism = 0
+		democratic_socialism = 0
+		social_democracy = 0
+		progressive_liberalism = 6
+		liberal_conservatism = 4
+		national_conservatism = 20
+		ultraconservatism = 12
+		authoritarian_democracy = 16
+		despotism = 33
+		fascism = 9
+	}
+}
 
 SAF = { # sadly necessary, make sure this matches SAF history file
 	set_politics = {
@@ -1479,40 +1160,40 @@ SAF = { # sadly necessary, make sure this matches SAF history file
 		elections_allowed = yes
 	}
 	set_popularities = {
-		insurrectionary_anarchism = 0
-		revolutionary_autocracy = 0
-		proletarian_dictatorship = 0
-		libertarian_socialism = 0
+		anarchism = 0
+		vanguard_socialism = 0
+		revolutionary_socialism = 0
+		democratic_socialism = 0
 		social_democracy = 7
 		progressive_liberalism = 10
-		market_libertarianism = 22
+		liberal_conservatism = 22
 		national_conservatism = 21
-		far_right_authoritarianism = 0
+		ultraconservatism = 0
 		authoritarian_democracy = 40
-		autocratic_despotism = 0
+		despotism = 0
 		fascism = 0
 	}
 }
 
 SRW = {
 	set_politics = {
-		ruling_party = autocratic_despotism
+		ruling_party = despotism
 		last_election = "1936.1.1"
 		election_frequency = 48
 		elections_allowed = no
 	}
 	set_popularities = {
-		insurrectionary_anarchism = 0
-		revolutionary_autocracy = 0
-		proletarian_dictatorship = 0
-		libertarian_socialism = 0
+		anarchism = 0
+		vanguard_socialism = 0
+		revolutionary_socialism = 0
+		democratic_socialism = 0
 		social_democracy = 0
 		progressive_liberalism = 6
-		market_libertarianism = 4
+		liberal_conservatism = 4
 		national_conservatism = 20
-		far_right_authoritarianism = 22
+		ultraconservatism = 22
 		authoritarian_democracy = 16
-		autocratic_despotism = 32
+		despotism = 32
 		fascism = 0
 	}
 }

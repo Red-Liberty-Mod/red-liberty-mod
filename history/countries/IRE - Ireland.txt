@@ -1,6 +1,41 @@
 ﻿capital = 857
 
 oob = "IRE"
+set_research_slots = 2
+set_convoys = 10
+set_country_flag = semi_industrialized_nation
+
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_trucks = 1
+	motorised_infantry = 1
+	armored_car1 = 1
+	
+	tech_support = 1
+	tech_military_police = 1
+	
+	gw_artillery = 1
+	
+	fuel_silos = 1
+}
+
+if = {
+	limit = {
+		has_dlc_nsb = yes
+	}
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+	}
+	else = {
+		set_technology = {
+			gwtank = 1
+			basic_light_tank = 1
+		}
+	}
+}
+
 if = {
 	limit = {
 		has_dlc = "Man the Guns"
@@ -24,24 +59,6 @@ if = {
 	}
 }
 
-set_research_slots = 2
-
-set_technology = {
-	infantry_weapons = 1
-	infantry_weapons1 = 1
-	motorised_infantry = 1
-	armored_car1 = 1
-	
-	tech_support = 1
-	tech_military_police = 1
-	
-	gw_artillery = 1
-	
-	fuel_silos = 1
-}
-
-set_convoys = 10
-
 set_politics = {
 	ruling_party = national_conservatism
 	last_election = "1930.11.24"
@@ -49,32 +66,36 @@ set_politics = {
 	elections_allowed = yes
 }
 set_popularities = {
-	insurrectionary_anarchism = 3
-	revolutionary_autocracy = 1
-	proletarian_dictatorship = 4
-	libertarian_socialism = 11
+	anarchism = 3
+	vanguard_socialism = 1
+	revolutionary_socialism = 4
+	democratic_socialism = 11
 	social_democracy = 14
 	progressive_liberalism = 16
-	market_libertarianism = 13
+	liberal_conservatism = 13
 	national_conservatism = 19
 	authoritarian_democracy = 9
-	autocratic_despotism = 5
-	far_right_authoritarianism = 3
+	despotism = 5
+	ultraconservatism = 3
 	fascism = 2
 }
 
-set_country_flag = market_libertarian_coalition
-set_country_flag = conservative_coalition
+set_country_flag = liberal_conservatism_coalition
+set_country_flag = national_conservatism_coalition
 
 set_variable = { tds_total = 160 }
-set_variable = { communist_tds = 2 }
-set_variable = { rev_socialist_tds = 6 }
-set_variable = { socialist_tds = 14 }
-set_variable = { labour_tds = 18 }
-set_variable = { liberal_tds = 25 }
-set_variable = { conservative_tds = 81 }
+set_variable = { communist_tds = 0 }
+set_variable = { rev_socialist_tds = 0 }
+set_variable = { socialist_tds = 0 }
+set_variable = { labour_tds = 28 }
+set_variable = { liberal_tds = 33 }
+set_variable = { conservative_tds = 85 }
 set_variable = { authoritarian_tds = 14 }
 IRE_init_parliament = yes
+
+# Paramilitary stuff #
+set_variable = { IRE_ira_strength = 55 }
+set_variable = { IRE_ica_strength = 45 }
 
 ### Leaders ###
 recruit_character = IRE_jack_white
@@ -83,125 +104,50 @@ recruit_character = IRE_charles_donnelly
 recruit_character = IRE_james_larkin
 recruit_character = IRE_william_obrien
 recruit_character = IRE_sean_lemass
+recruit_character = IRE_william_cosgrave
+recruit_character = IRE_michael_collins
+recruit_character = IRE_arthur_griffith
 recruit_character = IRE_eoin_oduffy
+recruit_character = IRE_cathal_brugha
+recruit_character = IRE_gearoid_cuinneagain
 
 ### Ministers ###
+recruit_character = IRE_james_larkin_jr
+recruit_character = IRE_william_norton
 recruit_character = IRE_douglas_hyde
+
+recruit_character = IRE_andy_barr
+recruit_character = IRE_mairtin_o_cadhain
+recruit_character = IRE_benjamin_farrington
+recruit_character = IRE_sean_okelly
+recruit_character = IRE_ernest_blythe
+recruit_character = IRE_eoin_macneill
+recruit_character = IRE_joseph_brennan
+recruit_character = IRE_liam_tobin
+
+activate_advisor = IRE_douglas_hyde_hog
+
+### Generals ###
+recruit_character = IRE_richard_mulcahy
+recruit_character = IRE_hugo_macneill
+recruit_character = IRE_tom_barry
+recruit_character = IRE_jeremiah_oconnell
+
+recruit_character = IRE_paddy_odaire
+recruit_character = IRE_michael_oriordan
 
 ### Admirals ###
 recruit_character = IRE_seamus_omuiris
 
-add_ideas = {
-	IRE_douglas_hyde_hog
+### High Command ###
+recruit_character = IRE_liam_archer
+recruit_character = IRE_john_prout
 
+add_ideas = {
 	IRE_anglo_irish_trade_war
 	IRE_paramilitary_violence
 	IRE_ireland_divided
 	
 	limited_conscription
 	limited_exports
-	semi_industrial_economy
-}
-
-create_country_leader = {
-	name = "William Thomas Cosgrave"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = market_libertarianism_subtype
-	traits = {
-		#
-	}
-}
-
-create_country_leader = {
-	name = "Michael Collins"
-	desc = "POLITICS_MICHAEL_COLLINS_DESC"
-	picture = "gfx/leaders/IRE/Portrait_IRE_Michael_Collins.png"
-	expire = "1965.1.1"
-	ideology = national_conservatism_subtype
-	traits = {
-		#
-	}
-}
-
-create_country_leader = {
-	name = "Arthur Griffith"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = authoritarian_democracy_subtype
-	traits = {
-		#
-	}
-}
-
-create_country_leader = {
-	name = "Gearóid Ó Cuinneagáin"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = fascism_subtype
-	traits = {
-		#
-	}
-}
-
-### GENERALS ###
-
-create_field_marshal = {
-	name = "Richard Mulcahy"
-	picture = ""
-	traits = {
-		trait_cautious
-		brilliant_strategist
-		organizer
-		logistics_wizard
-	}
-	skill = 2
-	attack_skill = 1
-	defense_skill = 1
-	planning_skill = 2
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Tom Barry"
-	picture = ""
-	traits = {
-		career_officer
-		commando
-	}
-	skill = 3
-	attack_skill = 4
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Hugo MacNeill"
-	picture = ""
-	traits = {
-		harsh_leader
-		organizer
-	}
-	skill = 1
-	attack_skill = 1
-	defense_skill = 1
-	planning_skill = 1
-	logistics_skill = 1
-}
-
-create_corps_commander = {
-	name = "Jeremiah Joseph O'Connell"
-	picture = ""
-	traits = {
-		
-	}
-	skill = 1
-	attack_skill = 1
-	defense_skill = 1
-	planning_skill = 1
-	logistics_skill = 1
 }

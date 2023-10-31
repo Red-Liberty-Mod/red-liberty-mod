@@ -1,17 +1,10 @@
 ﻿capital = 219
 
 oob = "SOV"
-#if = {
-#	limit = { has_dlc = "Man the Guns" }
-#		set_naval_oob = "SOV_1936_naval_mtg"
-#	else = {
-#		set_naval_oob = "SOV_1936_naval_legacy"
-#	}
-#}
 
-set_country_flag = rev_autocracy_coalition
-set_country_flag = proletarian_coalition
-set_country_flag = libertarian_socialism_coalition
+set_country_flag = vanguard_socialism_coalition
+set_country_flag = revolutionary_socialism_coalition
+set_country_flag = democratic_socialism_coalition
 
 set_research_slots = 3
 set_stability = 0.5
@@ -26,15 +19,12 @@ set_technology = {
 	tech_engineers = 1
 	tech_military_police = 1
 	tech_mountaineers = 1
+	tech_trucks = 1
 	motorised_infantry = 1
 	paratroopers = 1
 	gw_artillery = 1
 	interwar_antiair = 1
-	early_fighter = 1
-	fighter1 = 1
-	early_bomber = 1
-	strategic_bomber1 = 1
-	naval_bomber1 = 1
+	
 	mass_assault = 1
 	fleet_in_being = 1
 	fuel_silos = 1
@@ -63,20 +53,7 @@ if = {
 	}
 }
 if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
-	set_technology = {
-		early_submarine = 1
-		basic_submarine = 1
-		early_destroyer = 1
-		early_light_cruiser = 1
-		early_heavy_cruiser = 1
-		early_battleship = 1
-		early_battlecruiser = 1
-		transport = 1
-	}
-}
-if = {
-	limit = { has_dlc = "Man the Guns" }
+	limit = { has_dlc_mtg = yes }
 	set_technology = {
 		basic_naval_mines = 1
 		submarine_mine_laying = 1
@@ -87,11 +64,23 @@ if = {
 		early_ship_hull_cruiser = 1
 		early_ship_hull_heavy = 1
 		basic_battery = 1
-		basic_light_battery = 1
 		basic_torpedo = 1
 		basic_depth_charges = 1
 		basic_secondary_battery = 1
 		mtg_transport = 1
+	}
+	load_oob = "SOV_naval_mtg"
+	else = {
+		set_technology = {
+			early_submarine = 1
+			basic_submarine = 1
+			early_destroyer = 1
+			early_light_cruiser = 1
+			early_heavy_cruiser = 1
+			early_battleship = 1
+			early_battlecruiser = 1
+			transport = 1
+		}
 	}
 }
 if = {
@@ -118,42 +107,72 @@ add_equipment_to_stockpile = {
 set_convoys = 50
 
 set_politics = {
-	ruling_party = revolutionary_autocracy
+	ruling_party = vanguard_socialism
 	last_election = "1932.11.8"
 	election_frequency = 48
 	elections_allowed = no
 }
 set_popularities = {
-	insurrectionary_anarchism = 0
-	revolutionary_autocracy = 18
-	proletarian_dictatorship = 23
-	libertarian_socialism = 22
+	anarchism = 0
+	vanguard_socialism = 18
+	revolutionary_socialism = 23
+	democratic_socialism = 22
 	social_democracy = 21
 	progressive_liberalism = 7
-	market_libertarianism = 0
+	liberal_conservatism = 0
 	national_conservatism = 5
 	authoritarian_democracy = 4
-	autocratic_despotism = 0
-	far_right_authoritarianism = 0
+	despotism = 0
+	ultraconservatism = 0
 	fascism = 0
 }
 
 SOV_init_parliament = yes
-set_variable = { SOV_parliament_seats = 542 } # max is 542
-SOV_recalc_parliament = yes
+SOV_setup_variables = yes
 SOV_refresh_parliament = yes
+SOV_calc_coalition = yes
 
 ### LEADERS ###
 recruit_character = SOV_nikolai_bukharin
-recruit_character = SOV_alexander_bogdanov
+recruit_character = SOV_grigory_sokolnikov
 recruit_character = SOV_sergei_kirov
 recruit_character = SOV_joseph_stalin
+recruit_character = SOV_lev_trotsky
+recruit_character = SOV_alexander_shliapnikov
+recruit_character = SOV_ivan_smirnov
+recruit_character = SOV_alexander_bogdanov
+recruit_character = SOV_lev_kamenev
 
 ### MINISTERS ###
 recruit_character = SOV_mikhail_kalinin
+recruit_character = SOV_anatoly_lunacharsky
+recruit_character = SOV_karl_radek
+recruit_character = SOV_martemyan_ryutin
+recruit_character = SOV_nikolai_yezhov
+recruit_character = SOV_grigory_zinoviev
+recruit_character = SOV_ivar_smilga
+
+activate_advisor = SOV_mikhail_kalinin_hog
 
 ### GENERALS ###
 recruit_character = SOV_mikhail_tukhachevsky
+recruit_character = SOV_kliment_voroshilov
+recruit_character = SOV_alexander_yegorov
+recruit_character = SOV_semyon_budyonny
+recruit_character = SOV_vasily_blyukher
+recruit_character = SOV_boris_shaposhnikov
+recruit_character = SOV_iona_yakir
+recruit_character = SOV_ieronim_uborevich
+recruit_character = SOV_august_kork
+recruit_character = SOV_robert_eidemanis
+recruit_character = SOV_innokenty_khalepsky
+recruit_character = SOV_nikolai_kashirin
+recruit_character = SOV_alexander_sedyakin
+recruit_character = SOV_jukums_vacietis
+recruit_character = SOV_mikhail_velikanov
+recruit_character = SOV_ivan_dubovoy
+recruit_character = SOV_ivan_fedko
+recruit_character = SOV_ivan_belov
 
 add_ideas = {
 	SOV_home_of_the_revolution
@@ -161,272 +180,18 @@ add_ideas = {
 	SOV_nep
 	SOV_tsarist_captives
 	
-	SOV_mikhail_kalinin_hog
+	limited_exports
 }
 set_country_flag = conscription_banned
-
-
-
-create_field_marshal = {
-	name = "Kliment Voroshilov"
-	picture = "Portrait_SOV_Kliment_Voroshilov.png"
-	traits = {
-		old_guard
-		politically_connected
-		inflexible_strategist
-		cavalry_leader
-		cavalry_officer
-	}
-	skill = 2
-	
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 1
-}
-
-create_field_marshal = {
-	name = "Alexander Yegorov"
-	picture = "Portrait_SOV_Alexander_Yegorov.png"
-	traits = {
-		politically_connected
-		organizer
-		war_hero
-	}
-	skill = 3
-
-	
-	attack_skill = 3
-	defense_skill = 3
-	planning_skill = 3
-	logistics_skill = 3
-}
-
-create_field_marshal = {
-	name = "Semyon Budyonny"
-	picture = "Portrait_SOV_Semyon_Budyonny.png"
-	traits = {
-		old_guard
-		politically_connected
-		inflexible_strategist
-		cavalry_officer
-		cavalry_leader
-		war_hero
-	}
-	skill = 3
-	
-	attack_skill = 1
-	defense_skill = 3
-	planning_skill = 3
-	logistics_skill = 3
-}
-
-create_field_marshal = {
-	name = "Vasily Blyukher"
-	picture = "Portrait_SOV_Vasily_Blyukher.png"
-	traits = {
-		politically_connected
-		winter_specialist
-		winter_expert
-		commando
-		war_hero
-		offensive_doctrine
-		inspirational_leader
-	}
-	skill = 4
-	attack_skill = 5
-	defense_skill = 4
-	planning_skill = 5
-	logistics_skill = 4
-}
-
-create_corps_commander = {
-	name = "Boris Shaposhnikov"
-	portrait_path = "e"
-	traits = {
-		career_officer
-		infantry_officer
-		organizer
-	}
-	skill = 5
-	attack_skill = 4
-	defense_skill = 4
-	planning_skill = 5
-	logistics_skill = 5
-}
-
-create_corps_commander = {
-	name = "Iona Yakir"
-	portrait_path = "e"
-	traits = {
-		politically_connected
-		brilliant_strategist
-		war_hero
-		trickster
-	}
-	skill = 5
-	attack_skill = 4
-	defense_skill = 4
-	planning_skill = 5
-	logistics_skill = 4
-}
-
-create_corps_commander = {
-	name = "Ieronim Uborevich"
-	portrait_path = "e"
-	traits = {
-		caring_leader #undefined, and i don't know what it's supposed to do
-		brilliant_strategist
-		infantry_officer
-		infantry_leader
-		infantry_expert
-	}
-	skill = 5
-	attack_skill = 5
-	defense_skill = 5
-	planning_skill = 4
-	logistics_skill = 4
-}
-
-create_corps_commander = {
-	name = "August Kork"
-	portrait_path = "e"
-	traits = {
-		war_hero
-		career_officer
-		infantry_officer
-		infantry_leader
-		infantry_expert
-		organizer
-	}
-	skill = 4
-	attack_skill = 4
-	defense_skill = 3
-	planning_skill = 4
-	logistics_skill = 5
-}
-
-create_corps_commander = {
-	name = "Robert Eidemanis"
-	portrait_path = "e"
-	traits = {
-		career_officer
-		infantry_officer
-		harsh_leader
-	}
-	skill = 2
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Innokenty Khalepsky"
-	portrait_path = "e"
-	traits = {
-		war_hero
-		armor_officer
-	}
-	skill = 2
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Nikolai Kashirin"
-	portrait_path = "e"
-	traits = {
-		infantry_officer
-		infantry_leader
-		cavalry_officer
-		cavalry_leader
-	}
-	skill = 3
-	attack_skill = 3
-	defense_skill = 3
-	planning_skill = 2
-	logistics_skill = 3
-}
-create_corps_commander = { #Purged
-	name = "Alexander Sedyakin"
-	id = 439
-	portrait_path = "gfx/SOV/leaders/Alexander_Sedyakin.tga"
-	traits = {
-		infantry_officer
-		infantry_leader
-		fortress_buster
-	}
-	skill = 2
-	attack_skill = 3
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 3
-}
-create_corps_commander = { #Purged
-	name = "Jukums Vācietis"
-	id = 440
-	portrait_path = "gfx/SOV/leaders/Jukums_Vacietis.tga"
-	traits = {
-		infantry_officer
-	}
-	skill = 2
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 3
-	logistics_skill = 2
-}
-create_corps_commander = { #Purged
-	name = "Mikhail Velikanov"
-	id = 441
-	portrait_path = "gfx/SOV/leaders/Mikhail_Velikanov.tga"
-	traits = {
-		
-	}
-	skill = 2
-	attack_skill = 3
-	defense_skill = 2
-	planning_skill = 3
-	logistics_skill = 2
-}
-create_corps_commander = { #Purged
-	name = "Ivan Dubovoy"
-	portrait_path = "e"
-	traits = {
-		
-	}
-	skill = 2
-	attack_skill = 3
-	defense_skill = 3
-	planning_skill = 2
-	logistics_skill = 3
-}
-create_corps_commander = { #Purged
-	name = "Ivan Fedko"
-	portrait_path = "e"
-	traits = {
-		infantry_leader
-	}
-	skill = 2
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 2
-}
-create_corps_commander = { #Purged
-	name = "Ivan Belov"
-	portrait_path = "e"
-	traits = {
-		politically_connected
-	}
-	skill = 3
-	attack_skill = 3
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 2
-}
+set_country_flag = can_integrate_RUS
+set_country_flag = can_integrate_NRR
+set_country_flag = can_integrate_TMS
+set_country_flag = can_integrate_TKS
+set_country_flag = can_integrate_CRI
+set_country_flag = can_integrate_UKR
+set_country_flag = can_integrate_BLR
+set_country_flag = can_integrate_AZR
+set_country_flag = can_integrate_GEO
 
 create_navy_leader = {
 	name = "Lev Galler"
@@ -854,268 +619,5 @@ if = {
 			tank_nsb_engine_upgrade = 10
 		}
 		icon = "GFX_SOV_basic_heavy_tank_medium"
-	}
-}
-if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
-	### Ship Variants ###
-	create_equipment_variant = {
-		name = "Series I Debakrist"
-		type = submarine_1
-		upgrades = {
-			ship_reliability_upgrade = 1
-			sub_engine_upgrade = 1
-			sub_stealth_upgrade = 1
-			sub_torpedo_upgrade = 1
-		}
-		obsolete = yes
-	}
-	create_equipment_variant = {
-		name = "Series IX Srednyaya"
-		type = submarine_2
-		upgrades = {
-			ship_reliability_upgrade = 1
-			sub_engine_upgrade = 1
-			sub_stealth_upgrade = 1
-			sub_torpedo_upgrade = 1
-		}
-	}
-	create_equipment_variant = {
-		name = "Leningrad & Minsk Class"
-		type = destroyer_1
-		upgrades = {
-			ship_torpedo_upgrade = 3
-			destroyer_engine_upgrade = 3
-			ship_ASW_upgrade = 3
-			ship_anti_air_upgrade = 3
-		}
-	}
-}
-if = {
-	limit = { has_dlc = "Man the Guns" }
-	# Submarines #
-	create_equipment_variant = {			
-		name = "AG Class"
-		type = ship_hull_submarine_1
-		name_group = SOV_SS_SHCHUKA
-		parent_version = 0
-		modules = {
-			fixed_ship_torpedo_slot = ship_torpedo_sub_1
-			fixed_ship_engine_slot = sub_ship_engine_1
-			rear_1_custom_slot = empty
-		}
-		obsolete = yes
-	}
-	create_equipment_variant = {
-		name = "Series I Debakrist"			# represents Debakrist, B class, L-55 sub
-		type = ship_hull_submarine_1
-		name_group = SOV_SS_SHCHUKA
-		parent_version = 0
-		modules = {
-			fixed_ship_torpedo_slot = ship_torpedo_sub_1
-			fixed_ship_engine_slot = sub_ship_engine_1
-			rear_1_custom_slot = ship_torpedo_sub_1
-		}
-		obsolete = yes
-	}
-	create_equipment_variant = {
-		name = "Series II Leninets"				# represents Leninets series II, XI
-		type = ship_hull_submarine_2
-		name_group = SOV_SS_LENINETS
-		parent_version = 0
-		modules = {
-			fixed_ship_torpedo_slot = ship_torpedo_sub_1
-			fixed_ship_engine_slot = sub_ship_engine_1
-			rear_1_custom_slot = ship_mine_layer_sub
-		}
-	}
-	create_equipment_variant = {
-		name = "Series V Shchuka"				# represents Shchuka series III, V, V-bis, V-bis-2
-		type = ship_hull_submarine_1
-		name_group = SOV_SS_SHCHUKA
-		parent_version = 0
-		modules = {
-			fixed_ship_torpedo_slot = ship_torpedo_sub_2
-			fixed_ship_engine_slot = sub_ship_engine_1
-			rear_1_custom_slot = empty
-		}
-		obsolete = yes
-	}
-	create_equipment_variant = {
-		name = "Series IX Srednyaya"				# 'Stalinets', series IX, IX-bis, IX-bis-2 and P-class
-		type = ship_hull_submarine_2
-		name_group = SOV_SS_STALINETS
-		parent_version = 0
-		modules = {
-			fixed_ship_torpedo_slot = ship_torpedo_sub_2
-			fixed_ship_engine_slot = sub_ship_engine_2
-			rear_1_custom_slot = empty
-		}
-	}
-	create_equipment_variant = {
-		name = "Series X Shchuka"				
-		type = ship_hull_submarine_1
-		name_group = SOV_SS_SHCHUKA
-		parent_version = 0
-		modules = {
-			fixed_ship_torpedo_slot = ship_torpedo_sub_2
-			fixed_ship_engine_slot = sub_ship_engine_2
-			rear_1_custom_slot = empty
-		}
-	}
-	# Destroyers #
-	create_equipment_variant = {
-		name = "Orfey Class"						# represents Yakov Sverdlov, Frunze, and Orfey classes
-		type = ship_hull_light_1
-		name_group = SOV_DD_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_light_battery_1
-			fixed_ship_anti_air_slot = empty
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = light_ship_engine_1
-			fixed_ship_torpedo_slot = ship_torpedo_1
-			mid_1_custom_slot = ship_torpedo_1
-			rear_1_custom_slot = empty
-		}
-		obsolete = yes
-	}
-	create_equipment_variant = {
-		name = "Fidonisi Class"						# represents Fidonisi and Izyaslav classes
-		type = ship_hull_light_1
-		name_group = SOV_DD_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_light_battery_1
-			fixed_ship_anti_air_slot = empty
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = light_ship_engine_1
-			fixed_ship_torpedo_slot = ship_torpedo_1
-			mid_1_custom_slot = ship_torpedo_1
-			rear_1_custom_slot = ship_depth_charge_1
-		}
-		obsolete = yes
-	}
-	create_equipment_variant = {
-		name = "Leningrad & Minsk Class"				
-		type = ship_hull_light_2
-		name_group = SOV_DD_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_light_battery_2
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = light_ship_engine_2
-			fixed_ship_torpedo_slot = ship_torpedo_1
-			mid_1_custom_slot = empty
-			rear_1_custom_slot = ship_depth_charge_1
-		}
-	}
-	create_equipment_variant = {
-		name = "Bug Class"					# minelayer
-		type = ship_hull_light_1
-		name_group = SOV_MINELAYERS_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_light_battery_1
-			fixed_ship_anti_air_slot = empty
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = light_ship_engine_2
-			fixed_ship_torpedo_slot = empty
-			mid_1_custom_slot = ship_mine_layer_1
-			rear_1_custom_slot = ship_mine_layer_1
-		}
-	}
-	# Light Cruisers #
-	create_equipment_variant = {
-		name = "Komintern Class"
-		type = ship_hull_cruiser_1
-		name_group = SOV_CL_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_light_medium_battery_1
-			fixed_ship_anti_air_slot = empty
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = cruiser_ship_engine_1
-			mid_1_custom_slot = ship_light_medium_battery_1
-			mid_2_custom_slot = empty
-			rear_1_custom_slot = ship_mine_layer_1
-		}
-		obsolete = yes
-	}
-	create_equipment_variant = {
-		name = "Chervona Ukraina Class"
-		type = ship_hull_cruiser_1
-		name_group = SOV_CL_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_light_medium_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = cruiser_ship_engine_1
-			mid_1_custom_slot = ship_light_medium_battery_1
-			mid_2_custom_slot = ship_torpedo_1
-			rear_1_custom_slot = ship_mine_layer_1
-		}
-	}
-	create_equipment_variant = {
-		name = "Marti Class"
-		type = ship_hull_cruiser_1				# minelayer
-		name_group = SOV_MINELAYERS_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_light_medium_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = cruiser_ship_engine_1
-			mid_1_custom_slot = empty
-			mid_2_custom_slot = empty
-			rear_1_custom_slot = ship_mine_layer_1
-		}
-	}
-	# Heavy Cruisers #
-		create_equipment_variant = {
-			name = "Kirov Class"
-			type = ship_hull_cruiser_1
-			name_group = SOV_CA_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_battery_slot = ship_medium_battery_1
-				fixed_ship_anti_air_slot = ship_anti_air_1
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-				fixed_ship_radar_slot = empty
-				fixed_ship_engine_slot = cruiser_ship_engine_2
-				fixed_ship_armor_slot = ship_armor_cruiser_1
-				mid_1_custom_slot = ship_airplane_launcher_1
-				mid_2_custom_slot = ship_anti_air_1
-				rear_1_custom_slot = ship_medium_battery_1
-			}
-		}
-	# Battleships #
-	create_equipment_variant = {
-		name = "Marat Class"					
-		type = ship_hull_heavy_1
-		name_group = SOV_BB_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_heavy_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = heavy_ship_engine_1
-			fixed_ship_secondaries_slot = ship_secondaries_1
-			fixed_ship_armor_slot = ship_armor_bb_1
-			front_1_custom_slot = ship_heavy_battery_1
-			mid_1_custom_slot = empty
-			mid_2_custom_slot = empty
-			rear_1_custom_slot = empty
-		}
 	}
 }

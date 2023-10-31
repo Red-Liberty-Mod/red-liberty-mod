@@ -73,3 +73,19 @@ should_initiate_resistance = {
 
 # ~~
 
+should_initiate_resistance_415_941_942_943_944_945 = {
+	if = { 
+		limit = {
+			FROM = {
+				tag = AFG
+			} 
+		}
+		OR = {
+			AFG = { has_idea = AFG_tenuous_rule }
+			NOT = { is_core_of = AFG }
+		}
+	}
+	else = {
+		should_initiate_resistance = yes
+	}
+}

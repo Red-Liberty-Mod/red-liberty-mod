@@ -1,9 +1,9 @@
 ideologies = {
 
-	insurrectionary_anarchism = {
+	anarchism = {
 		
 		types = {
-			insurrectionary_anarchism_subtype = {
+			anarchism_subtype = {
 			
 			}
 			
@@ -16,42 +16,55 @@ ideologies = {
 			"FACTION_NAME_ANARCHIST_1"
 		}
 		
-		#color = { 128 5 5 }
-		#color = { 74 4 4 }
 		color = { 0 0 0 }
 		
-		war_impact_on_world_tension = 1.2		#anarkiddie more threatening
-		faction_impact_on_world_tension = 1.5
-		
-		ai_neutral = yes
+		can_host_government_in_exile = no
+		can_collaborate = no
 		
 		rules = {
-			can_send_volunteers = yes
+			can_force_government = yes
 			can_puppet = no
-			can_force_government = no
+			can_join_factions = no
+			can_create_factions = no
+			can_send_volunteers = yes
 		}
 		
 		modifiers = {
-			
+			civilian_intel_to_others = 7.5
+			army_intel_to_others = 7.5
+			navy_intel_to_others = 10.0
+			airforce_intel_to_others = 10.0
 		}
+		
+		war_impact_on_world_tension = 1.2
+		faction_impact_on_world_tension = 1.5
+		ai_neutral = yes
 	}
 
-	revolutionary_autocracy = {
+	vanguard_socialism = {
 	
 		types = {
 		
-			authoritarian_socialism_subtype = {
+			vanguard_socialism_subtype = {
 				
 			}
 		
-			leninism_subtype = {
+			leninism_subtype = { # leninism
+				can_be_randomly_selected = no
+			}
+			
+			bolshevik_leninism_subtype = { # trotskyism
 				can_be_randomly_selected = no
 			}
 		
-			marxism_leninism_subtype = {
+			marxism_leninism_subtype = { # stalinism
 				can_be_randomly_selected = no
 			}
-		
+			
+			right_communism_subtype = { # bukharinism
+				can_be_randomly_selected = no
+			}
+			
 			revolutionary_autocracy_subtype = {
 				can_be_randomly_selected = no
 			}
@@ -61,8 +74,6 @@ ideologies = {
 			"FACTION_NAME_REVOLUTIONARY_1"
 		}
 		
-		#color = { 173 24 24 }
-		#color = { 145 20 20 }
 		color = { 60 15 15 }
 		
 		rules = {
@@ -85,9 +96,10 @@ ideologies = {
 		}
 		
 		ai_neutral = yes
+		ai_ideology_wanted_units_factor = 1.2
 	}
 	
-	proletarian_dictatorship = {
+	revolutionary_socialism = {
 	
 		types = {
 			revolutionary_socialism_subtype = {
@@ -113,13 +125,16 @@ ideologies = {
 			left_nationalism_subtype = {
 				can_be_randomly_selected = no
 			}
+			
+			left_communism_subtype = {
+				can_be_randomly_selected = no
+			}
 		}
 		
 		dynamic_faction_names = {
 			"FACTION_NAME_PROLETARIAN_1"
 		}
 		
-		#color = { 125 91 133 }
 		color = { 125 0 5 }
 		
 		rules = {
@@ -130,6 +145,7 @@ ideologies = {
 		}
 		
 		can_host_government_in_exile = yes
+		can_collaborate = yes
 		
 		modifiers = {
 			civilian_intel_to_others = 15.0
@@ -138,10 +154,12 @@ ideologies = {
 			airforce_intel_to_others = 10.0
 		}
 		
+		war_impact_on_world_tension = 1
 		ai_neutral = yes
+		ai_ideology_wanted_units_factor = 1.2
 	}
 	
-	libertarian_socialism = {
+	democratic_socialism = {
 	
 		types = {
 			democratic_socialism_subtype = {
@@ -153,6 +171,10 @@ ideologies = {
 			}
 			
 			christian_socialism_subtype = {
+				can_be_randomly_selected = no
+			}
+			
+			islamic_socialism_subtype = {
 				can_be_randomly_selected = no
 			}
 			
@@ -169,7 +191,6 @@ ideologies = {
 			"FACTION_NAME_SOCIALIST_1"
 		}
 		
-		#color = { 207 8 68 }
 		color = { 230 5 25 }
 		
 		rules = {
@@ -202,6 +223,10 @@ ideologies = {
 				can_be_randomly_selected = no
 			}
 			
+			left_wing_populism_subtype = {
+				can_be_randomly_selected = no
+			}
+			
 			social_corporatism_subtype = {
 				can_be_randomly_selected = no
 			}
@@ -211,17 +236,18 @@ ideologies = {
 			"FACTION_NAME_SOCIAL_DEMOCRAT_1"
 		}
 		
-		#color = { 185 56 194 }
 		color = { 180 75 160 }
 		
 		rules = {
-			can_create_collaboration_government = no
 			can_force_government = yes
-			can_send_volunteers = yes
 			can_puppet = no
+			can_join_factions = no
+			can_create_factions = no
+			can_send_volunteers = yes
 		}
 		
 		can_host_government_in_exile = yes
+		can_collaborate = yes
 		
 		modifiers = {
 			civilian_intel_to_others = 20.0
@@ -230,6 +256,7 @@ ideologies = {
 			airforce_intel_to_others = 5.0
 		}
 		
+		war_impact_on_world_tension = 1
 		ai_neutral = yes
 	}
 	
@@ -253,17 +280,18 @@ ideologies = {
 			"FACTION_NAME_LIBERAL_1"
 		}
 		
-		#color = { 137 175 196 }
 		color = { 95 180 200 }
 		
 		rules = {
-			can_create_collaboration_government = no
 			can_force_government = yes
-			can_send_volunteers = yes
 			can_puppet = no
+			can_join_factions = no
+			can_create_factions = no
+			can_send_volunteers = yes
 		}
 		
 		can_host_government_in_exile = yes
+		can_collaborate = yes
 		
 		modifiers = {
 			civilian_intel_to_others = 20.0
@@ -275,7 +303,7 @@ ideologies = {
 		ai_neutral = yes
 	}
 	
-	market_libertarianism = {
+	liberal_conservatism = {
 	
 		types = {
 		
@@ -300,17 +328,18 @@ ideologies = {
 			"FACTION_NAME_MARKET_LIBERAL_1"
 		}
 		
-		#color = { 169 196 137 }
 		color = { 110 170 120 }
 		
 		rules = {
-			can_create_collaboration_government = no
 			can_force_government = yes
-			can_send_volunteers = yes
 			can_puppet = no
+			can_join_factions = no
+			can_create_factions = no
+			can_send_volunteers = yes
 		}
 		
 		can_host_government_in_exile = yes
+		can_collaborate = yes
 		
 		modifiers = {
 			civilian_intel_to_others = 20.0
@@ -319,6 +348,7 @@ ideologies = {
 			airforce_intel_to_others = 5.0
 		}
 		
+		war_impact_on_world_tension = 1
 		ai_neutral = yes
 	}
 	
@@ -365,6 +395,7 @@ ideologies = {
 		}
 		
 		ai_neutral = yes
+		ai_ideology_wanted_units_factor = 1.1
 	}
 	
 	authoritarian_democracy = {
@@ -401,6 +432,10 @@ ideologies = {
 			semi_constitutional_monarchy_subtype = {
 				can_be_randomly_selected = no
 			}
+			
+			authoritarian_conservatism_subtype = {
+				can_be_randomly_selected = no
+			}
 		}
 		
 		dynamic_faction_names = {
@@ -424,12 +459,13 @@ ideologies = {
 		}
 		
 		ai_neutral = yes
+		ai_ideology_wanted_units_factor = 1.15
 	}
 	
-	autocratic_despotism = {
+	despotism = {
 	
 		types = { 
-			autocratic_despotism_subtype = {
+			despotism_subtype = {
 			
 			}
 			
@@ -454,6 +490,10 @@ ideologies = {
 			}
 			
 			military_government_subtype = {
+				can_be_randomly_selected = no
+			}
+			
+			military_socialism_subtype = {
 				can_be_randomly_selected = no
 			}
 		}
@@ -481,10 +521,10 @@ ideologies = {
 		ai_neutral = yes
 	}
 	
-	far_right_authoritarianism = {
+	ultraconservatism = {
 	
 		types = { 
-			far_right_authoritarianism_subtype = {
+			ultraconservatism_subtype = {
 			
 			}
 			
@@ -526,13 +566,14 @@ ideologies = {
 		}
 		
 		ai_neutral = yes
+		ai_ideology_wanted_units_factor = 1.2
 	}
 	
 	fascism = {
 	
-		types = { 
+		types = {
 			fascism_subtype = {
-			
+				
 			}
 			
 			imperial_socialism_subtype = {
@@ -576,6 +617,8 @@ ideologies = {
 			airforce_intel_to_others = 7.5
 		}
 		
-		ai_neutral = yes
+		war_impact_on_world_tension = 1
+		ai_fascist = yes
+		ai_ideology_wanted_units_factor = 1.6
 	}
 }

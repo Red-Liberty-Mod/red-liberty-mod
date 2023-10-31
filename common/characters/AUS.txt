@@ -1,0 +1,719 @@
+characters = {
+
+	AUS_karl_steinhardt = {
+		name = AUS_karl_steinhardt
+	
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_AUS_karl_steinhardt"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_KARL_STEINHARDT_DESC"
+			ideology = leninism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	AUS_karl_renner = {
+		name = AUS_karl_renner
+	
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/AHE/Portrait_AHE_Karl_Renner.png"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_KARL_RENNER_DESC"
+			ideology = revolutionary_socialism_subtype
+			traits = {
+				
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_KARL_RENNER_DESC"
+			ideology = austromarxism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	AUS_theodor_korner = {
+		name = AUS_theodor_korner
+	
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_AUS_theodor_korner"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_THEODOR_KORNER_DESC"
+			ideology = social_democracy_subtype
+			traits = {
+				
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = army_chief
+			idea_token = AUS_theodor_korner_army_chief
+			
+			traits = {
+				army_chief_reform_2
+			}
+		}
+	}
+	
+	AUS_carl_vaugoin = {
+		name = AUS_carl_vaugoin
+	
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_AUS_carl_vaugoin"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_CARL_VAUGOIN_DESC"
+			ideology = christian_democracy_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	AUS_karl_i = {
+		name = AUS_karl_i
+	
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/AHE/Portrait_AHE_Karl_I.tga"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_KARL_I_DESC"
+			ideology = christian_democracy_subtype
+			traits = {
+				
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_KARL_I_DESC"
+			ideology = absolute_monarchy_subtype
+			traits = {
+				
+			}
+		}
+		
+		advisor = {
+			slot = head_of_government
+			idea_token = AUS_karl_i_hog
+			ledger = civilian
+			
+			can_be_fired = no
+			
+			allowed = {
+				OR = {
+					original_tag = AUS
+					original_tag = AHE
+				}
+			}
+			
+			visible = {
+				
+			}
+			
+			available = {
+				
+			}
+			
+			traits = {
+				hog_constitutionalist
+			}
+		}
+	}
+	
+	AUS_engelbert_dollfuss = {
+		name = AUS_engelbert_dollfuss
+	
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_AUS_engelbert_dollfuss"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_ENGELBERT_DOLLFUSS_DESC"
+			ideology = ultraconservatism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	AUS_ernest_rudiger_starhemberg = {
+		name = AUS_ernest_rudiger_starhemberg
+	
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_AUS_ernest_rudiger_starhemberg"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_ERNEST_RUDIGER_STARHEMBERG_DESC"
+			ideology = fascism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	### Generals ###
+	
+	AUS_eugen_von_habsburg = {
+		name = AUS_eugen_von_habsburg
+		portraits = {
+			army = {
+				large = "GFX_portrait_AUS_eugen_von_habsburg"
+				small = "GFX_minister_AUS_eugen_von_habsburg"
+			}
+		}
+		
+		field_marshal = {
+			traits = {
+				old_guard
+				war_hero
+				offensive_doctrine
+				skilled_staffer
+				expert_delegator
+			}
+			skill = 4
+			attack_skill = 4
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 3
+		}
+		
+		advisor = {
+			cost = 50
+			slot = army_chief
+			idea_token = AUS_eugen_von_habsburg_army_chief
+			
+			traits = {
+				army_chief_old_guard
+			}
+		}
+	}
+	
+	AUS_karl_albrecht_von_habsburg = {
+		name = AUS_karl_albrecht_von_habsburg
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_AUS_karl_albrecht_von_habsburg"
+				small = "GFX_minister_AUS_karl_albrecht_von_habsburg"
+			}
+		}
+		
+		field_marshal = {
+			traits = {
+				politically_connected
+				artillery_specialist
+				infantry_leader
+			}
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 2
+		}
+	}
+	
+	AUS_joseph_august_von_habsburg = {
+		name = AUS_joseph_august_von_habsburg
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_AUS_joseph_august_von_habsburg"
+				small = "GFX_minister_AUS_joseph_august_von_habsburg"
+			}
+		}
+		
+		field_marshal = {
+			traits = {
+				war_hero
+				trait_reckless
+				inflexible_strategist
+				unyielding_defender
+				inspirational_leader
+			}
+			skill = 4
+			attack_skill = 2
+			defense_skill = 4
+			planning_skill = 3
+			logistics_skill = 4
+		}
+	}
+	
+	AUS_alfred_jansa_von_tannenau = {
+		name = AUS_alfred_jansa_von_tannenau
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_AUS_alfred_jansa_von_tannenau"
+				small = "GFX_minister_AUS_alfred_jansa_von_tannenau"
+			}
+		}
+		
+		field_marshal = {
+			traits = {
+				skilled_staffer
+				expert_delegator
+				organizer
+			}
+			skill = 3
+			attack_skill = 1
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 3
+		}
+		
+		advisor = {
+			cost = 100
+			slot = army_chief
+			idea_token = AUS_alfred_jansa_von_tannenau_army_chief
+			
+			traits = {
+				army_chief_defensive_2
+			}
+		}
+	}
+	
+	AUS_erhard_raus = {
+		name = AUS_erhard_raus
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_AUS_erhard_raus"
+				small = "GFX_minister_AUS_erhard_raus"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				armor_officer
+				organizer
+			}
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 2
+		}
+		
+		advisor = {
+			cost = 100
+			slot = high_command
+			idea_token = AUS_erhard_raus_high_command
+			
+			traits = {
+				army_cavalry_2
+			}
+		}
+	}
+	AUS_lothar_rendulic = {
+		name = AUS_lothar_rendulic
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_AUS_lothar_rendulic"
+				small = "GFX_minister_AUS_lothar_rendulic"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				harsh_leader
+				armor_officer
+				commando
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+	}
+	
+	AUS_karl_eglseer = {
+		name = AUS_karl_eglseer
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_AUS_karl_eglseer"
+				small = "GFX_minister_AUS_karl_eglseer"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				trait_reckless
+				trait_mountaineer
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	
+	AUS_julius_ringel = {
+		name = AUS_julius_ringel
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_AUS_julius_ringel"
+				small = "GFX_minister_AUS_julius_ringel"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				harsh_leader
+				trait_mountaineer
+				commando
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+	}
+	
+	AUS_franz_bohme = {
+		name = AUS_franz_bohme
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_AUS_franz_bohme"
+				small = "GFX_minister_AUS_franz_bohme"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				harsh_leader
+				infantry_officer
+				winter_specialist
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	
+	AUS_sigismund_schilhawsky_von_bahnbruck = {
+		name = AUS_sigismund_schilhawsky_von_bahnbruck
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_AUS_sigismund_schilhawsky_von_bahnbruck"
+				small = "GFX_minister_AUS_sigismund_schilhawsky_von_bahnbruck"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				trait_cautious
+				infantry_leader
+				skilled_staffer
+				organizer
+			}
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 3
+		}
+		
+		advisor = {
+			cost = 100
+			slot = high_command
+			idea_token = AUS_sigismund_schilhawsky_von_bahnbruck_high_command
+			
+			traits = {
+				army_logistics_2
+			}
+		}
+	}
+	
+	AUS_eduard_barger = {
+		name = AUS_eduard_barger
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_AUS_eduard_barger"
+				small = "GFX_minister_AUS_eduard_barger"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				trait_mountaineer
+				trickster
+			}
+			skill = 2
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 1
+		}
+		
+		advisor = {
+			cost = 100
+			slot = high_command
+			idea_token = AUS_eduard_barger_high_command
+			
+			traits = {
+				army_commando_2
+			}
+		}
+	}
+	
+	AUS_friedrich_materna = {
+		name = AUS_friedrich_materna
+		portraits = {
+			army = {
+				large = "GFX_portrait_AUS_friedrich_materna"
+				small = "GFX_minister_AUS_friedrich_materna"
+			}
+		}
+		corps_commander = {
+			traits = {
+				infantry_officer
+				organizer
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 3
+			logistics_skill = 2
+		}
+	}
+	
+	AUS_wilhelm_zehner = {
+		name = AUS_wilhelm_zehner
+		portraits = {
+			army = {
+				large = "GFX_portrait_AUS_wilhelm_zehner"
+				small = "GFX_minister_AUS_wilhelm_zehner"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				brilliant_strategist
+				infantry_leader
+				commando
+				urban_assault_specialist
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+		}
+		
+		advisor = {
+			cost = 100
+			slot = army_chief
+			idea_token = AUS_wilhelm_zehner_army_chief
+			
+			traits = {
+				army_chief_offensive_2
+			}
+		}
+	}
+	
+	AUS_ludwig_von_eimannsberger = {
+		name = AUS_ludwig_von_eimannsberger
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_AUS_ludwig_von_eimannsberger"
+				small = "GFX_minister_AUS_ludwig_von_eimannsberger"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				brilliant_strategist
+				artillery_specialist
+				panzer_leader
+				trait_engineer
+			}
+			skill = 4
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 4
+			logistics_skill = 4
+		}
+		
+		advisor = {
+			cost = 200
+			slot = army_chief
+			idea_token = AUS_ludwig_von_eimannsberger_army_chief
+			
+			available = {
+				not_already_hired_except_as = army_chief
+			}
+			
+			traits = {
+				army_chief_maneuver_3
+			}
+		}
+		
+		advisor = {
+			cost = 150
+			slot = theorist
+			idea_token = AUS_ludwig_von_eimannsberger_theorist
+			
+			available = {
+				not_already_hired_except_as = theorist
+			}
+			
+			traits = {
+				mobile_warfare_expert
+			}
+		}
+	}
+	
+	### Socialists ###
+	
+	AUS_alexander_eifler = {
+		name = AUS_alexander_eifler
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_AUS_alexander_eifler"
+				small = "GFX_minister_AUS_alexander_eifler"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				career_officer
+				militias_officer
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
+		}
+		
+		advisor = {
+			cost = 100
+			slot = army_chief
+			idea_token = AUS_alexander_eifler_army_chief
+			
+			available = {
+				not_already_hired_except_as = army_chief
+			}
+			
+			traits = {
+				army_chief_morale_2
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = high_command
+			idea_token = AUS_alexander_eifler_high_command
+			
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			
+			traits = {
+				army_concealment_2
+			}
+		}
+	}
+	
+	AUS_julius_deutsch = {
+		name = AUS_julius_deutsch
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_AUS_julius_deutsch"
+				small = "GFX_minister_AUS_julius_deutsch"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				militias_officer
+				organizer
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
+		}
+		
+		advisor = {
+			cost = 100
+			slot = army_chief
+			idea_token = AUS_julius_deutsch_army_chief
+			
+			available = {
+				
+			}
+			
+			traits = {
+				army_chief_organizational_2
+			}
+		}
+	}
+	
+	### Fascists ###
+	
+	AUS_artur_phleps = {
+		name = AUS_artur_phleps
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_AUS_artur_phleps"
+				small = "GFX_minister_AUS_artur_phleps"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				trait_mountaineer
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+		}
+	}
+}

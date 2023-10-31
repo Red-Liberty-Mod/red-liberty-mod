@@ -12,7 +12,7 @@ ideas = {
 			removal_cost = -1
 		
 			modifier = {
-				consumer_goods_factor = 0.5
+				consumer_goods_expected_value = 0.5
 				production_speed_industrial_complex_factor = 0.25
 				production_speed_arms_factory_factor = -0.5
 				production_speed_dockyard_factor = -0.5
@@ -43,7 +43,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				consumer_goods_factor = 0.4
+				consumer_goods_expected_value = 0.4
 				production_speed_industrial_complex_factor = 0.2
 				production_speed_arms_factory_factor = -0.5
 				production_speed_dockyard_factor = -0.4
@@ -71,7 +71,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				consumer_goods_factor = 0.35
+				consumer_goods_expected_value = 0.35
 				production_speed_arms_factory_factor = -0.5
 				production_speed_industrial_complex_factor = 0.15
 				industrial_capacity_factory = -0.20
@@ -106,7 +106,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				consumer_goods_factor = 0.3
+				consumer_goods_expected_value = 0.3
 				production_speed_arms_factory_factor = -0.15
 				industrial_capacity_factory = -0.05
 				industrial_capacity_dockyard = -0.05
@@ -156,7 +156,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				consumer_goods_factor = 0.25
+				consumer_goods_expected_value = 0.25
 				industrial_capacity_factory = 0.05
 				industrial_capacity_dockyard = 0.05
 				production_speed_industrial_complex_factor = -0.25
@@ -205,7 +205,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				consumer_goods_factor = 0.2
+				consumer_goods_expected_value = 0.2
 				production_speed_arms_factory_factor = 0.30
 				production_speed_industrial_complex_factor = -0.40
 				industrial_capacity_factory = 0.10
@@ -263,7 +263,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				consumer_goods_factor = 0.10
+				consumer_goods_expected_value = 0.10
 				production_speed_arms_factory_factor = 0.50
 				production_speed_industrial_complex_factor = -0.50
 				industrial_capacity_factory = 0.20
@@ -560,83 +560,6 @@ ideas = {
 					# since they will require our trades
 					has_large_ally_not_pick_closed_economy = yes
 				}
-   			}
-		}
-	}
-	
-	economy_type = {
-		law = yes
-		use_list_view = yes
-		
-		industrial_economy = {
-			
-			available = {
-				custom_trigger_tooltip = {
-					tooltip = economy_type_change_tt
-					always = no
-				}
-			}
-			
-			cost = 0
-			
-			default = yes
-			
-			cancel_if_invalid = no
-			
-			modifier = {
-				poverty_effect_factor = 1
-			}
-			
-			ai_will_do = {
-   				factor = 0
-   			}
-		}
-		
-		semi_industrial_economy = {
-			
-			available = {
-				custom_trigger_tooltip = {
-					tooltip = economy_type_change_tt
-					always = no
-				}
-			}
-			
-			cost = 0
-			
-			cancel_if_invalid = no
-			
-			modifier = {
-				consumer_goods_factor = -0.05
-				poverty_effect_factor = 0.75
-				production_speed_buildings_factor = -0.15
-			}
-			
-			ai_will_do = {
-   				factor = 0
-   			}
-		}
-		
-		agrarian_economy = {
-			
-			available = {
-				custom_trigger_tooltip = {
-					tooltip = economy_type_change_tt
-					always = no
-				}
-			}
-			
-			cost = 0
-			
-			cancel_if_invalid = no
-			
-			modifier = {
-				consumer_goods_factor = -0.1
-				poverty_effect_factor = 0.5
-				production_speed_buildings_factor = -0.3
-			}
-			
-			ai_will_do = {
-   				factor = 0
    			}
 		}
 	}

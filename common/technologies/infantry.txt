@@ -1517,6 +1517,69 @@ technologies = {
 			}
 		}
 	}
+
+	tech_trucks = {
+
+		enable_subunits = {
+			mot_anti_tank_brigade
+			mot_artillery_brigade
+			mot_anti_air_brigade
+		}
+
+		enable_equipments = {
+			motorized_equipment_0
+		}
+
+		enable_equipment_modules = {
+			tank_wheeled_suspension
+		}
+
+		
+		path = {
+			leads_to_tech = motorised_infantry
+			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = armored_car1
+			research_cost_coeff = 1
+		} 
+
+		research_cost = 1.5
+		start_year = 1936
+		folder = {
+			name = infantry_folder
+			position = { x = 0 y = -1 }
+		}
+		
+		categories = {
+			motorized_equipment
+			infantry_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 2
+				date > "1937.1.1"
+			}
+			
+			modifier = {
+				factor = 2
+				date > "1938.1.1"
+			}
+			
+			modifier = {
+				factor = 2
+				date > "1939.1.1"
+			}
+			modifier = {
+				is_major = no
+				factor = 0.75
+			}
+		}
+	}
 	
 	motorised_infantry = {
 
@@ -1528,9 +1591,9 @@ technologies = {
 			motorized_equipment_1
 		}
 
-		enable_equipment_modules = {
-			tank_wheeled_suspension
-		}
+		#enable_equipment_modules = {
+		#	tank_wheeled_suspension
+		#}
 
 		on_research_complete_limit = {
 			NOT = {
@@ -1550,8 +1613,7 @@ technologies = {
 		}
 
 		path = {
-			leads_to_tech = armored_car1
-			research_cost_coeff = 1
+			
 		}
 
 		research_cost = 2
@@ -2033,6 +2095,32 @@ technologies = {
 
 		enable_subunits = {
 			penal_battalion
+		}
+	}
+	
+	tech_irregulars = {
+
+		research_cost = 1
+
+		allow = {
+			always = no
+		}
+
+		enable_subunits = {
+			irregular_infantry
+		}
+	}
+
+	tech_militias = {
+
+		research_cost = 1
+
+		allow = {
+			always = no
+		}
+
+		enable_subunits = {
+			militia
 		}
 	}
 }

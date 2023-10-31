@@ -26,7 +26,6 @@ set_technology = {
 	infantry_weapons1 = 1
 	gw_artillery = 1
 	interwar_antiair = 1
-	early_fighter = 1
 }
 if = {
 	limit = { not = { has_dlc = "Man the Guns" } }
@@ -54,108 +53,54 @@ add_ideas = {
 	ROM_treaty_of_bucharest
 }
 
-set_country_flag = progressive_coalition
-set_country_flag = market_libertarian_coalition
-set_country_flag = conservative_coalition
-set_country_flag = authoritarian_coalition
+set_country_flag = progressive_liberalism_coalition
+set_country_flag = liberal_conservatism_coalition
 
 set_politics = {
-	ruling_party = market_libertarianism
+	ruling_party = liberal_conservatism
 	last_election = "1933.12.20"
 	election_frequency = 48
 	elections_allowed = yes
 }
 set_popularities = {
-	insurrectionary_anarchism = 0
-	revolutionary_autocracy = 0
-	proletarian_dictatorship = 0
-	libertarian_socialism = 1
+	anarchism = 0
+	vanguard_socialism = 0
+	revolutionary_socialism = 0
+	democratic_socialism = 1
 	social_democracy = 2
 	progressive_liberalism = 11
-	market_libertarianism = 30
+	liberal_conservatism = 30
 	national_conservatism = 14
 	authoritarian_democracy = 0
-	autocratic_despotism = 0
-	far_right_authoritarianism = 8
+	despotism = 0
+	ultraconservatism = 8
 	fascism = 34
 }
 
-create_country_leader = {
-	name = "Dinu Brătianu"
-	desc = ""
-	picture = "gfx/leaders/ROM/Portrait_ROM_Dinu_Bratianu.tga"
-	expire = "1965.1.1"
-	ideology = national_liberalism_subtype
-	traits = {
-		#
-	}
-}
+### LEADERS ###
+recruit_character = ROM_ion_mihalache
+recruit_character = ROM_dinu_bratianu
+recruit_character = ROM_alexandru_averescu
+recruit_character = ROM_grigore_filipescu
+recruit_character = ROM_octavian_goga
+recruit_character = ROM_corneliu_zelea_codreanu
 
-create_country_leader = {
-	name = "Corneliu Zelea Codreanu"
-	desc = ""
-	picture = "gfx/leaders/ROM/Portrait_ROM_Corneliu_Codreanu.png"
-	expire = "1965.1.1"
-	ideology = clerical_fascism_subtype
-	traits = {
-		#
-	}
-}
+### GENERALS ###
+recruit_character = ROM_petre_dumitrescu
+recruit_character = ROM_ion_antonescu
+recruit_character = ROM_ioan_racovita
+recruit_character = ROM_gheorghe_avramescu
+recruit_character = ROM_corneliu_dragalina
+recruit_character = ROM_nicolae_ciuperca
+recruit_character = ROM_dumitru_popescu
 
-create_field_marshal = {
-	name = "Petre Dumitrescu"
-	gfx = GFX_Portrait_romania_petre_dumitrescu
-	traits = { offensive_doctrine logistics_wizard }
-	skill = 4
-	attack_skill = 4
-	defense_skill = 4
-	planning_skill = 2
-	logistics_skill = 3
-}
+### ADMIRALS ###
+recruit_character = ROM_horia_macellariu
 
-create_field_marshal = {
-	name = "Ion Antonescu"
-	picture = "Portrait_Romania_Ion_Antonescu.dds"
-	traits = { offensive_doctrine }
-	skill = 4
-	attack_skill = 4
-	defense_skill = 4
-	planning_skill = 2
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Ioan Mihail Racovita"
-	gfx = GFX_Portrait_romania_ioan_mihail_racovita
-	traits = { hill_fighter }
-	skill = 3
-	attack_skill = 2
-	defense_skill = 3
-	planning_skill = 3
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Gheorghe Avramescu"
-	gfx = GFX_Portrait_romania_gheorghe_avramescu
-	traits = { }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 3
-}
-create_navy_leader = {
-	name = "Horia Macellariu"
-	gfx = "GFX_Portrait_romania_horia_macellariu"
-	traits = { gentlemanly spotter }
-	skill = 2
-	attack_skill = 2
-	defense_skill = 2
-	maneuvering_skill = 2
-	coordination_skill = 1
-}
-
+### HIGH COMMAND ###
+recruit_character = ROM_emanoil_ionescu
+recruit_character = ROM_ermil_gheorghiu
+recruit_character = ROM_gheorghe_jienescu
 
 ### VARIANTS ###
 # 1936 Start #

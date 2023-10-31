@@ -4,11 +4,11 @@
  
  USA_congress_makeup_tt:0 "\n\n--- §YThe House of Representatives§! ---[get_us_communist_rep_count][get_us_socialist_rep_count][get_us_farmer_labor_rep_count][get_us_liberal_rep_count][get_us_republican_rep_count][get_us_democrat_rep_count][get_us_fascist_rep_count]\nTotal Representatives: §G[?representatives_total]§!\nOur foothold in the House nets us §G+[?USA_house_control|2]§! political power per day.\n\n--- §YThe Senate§! ---[get_us_communist_senator_count][get_us_socialist_senator_count][get_us_farmer_labor_senator_count][get_us_republican_senator_count][get_us_democrat_senator_count][get_us_afp_senator_count]\nTotal Senators: §G[?senators_total]§!\nOur foothold in the Senate nets us §G+[?USA_senate_control|2]§! political power per day.\n\n"
  
- USA_congress_communist_rep_count:0 "\n§r[?representatives_communist]§! Representative(s) support the §rCommunist Party USA§!."
- USA_congress_communist_senator_count:0 "\n§r[?senators_communist]§! Senator(s) support the §rCommunist Party USA§!."
+ USA_congress_communist_rep_count:0 "\n§r[?representatives_communist]§! Representative(s) support the §rCommunist Party§!."
+ USA_congress_communist_senator_count:0 "\n§r[?senators_communist]§! Senator(s) support the §rCommunist Party§!."
  
- USA_congress_socialist_rep_count:0 "\n§R[?representatives_socialist]§! Representative(s) support the §RSocialist Party of America§!."
- USA_congress_socialist_senator_count:0 "\n§R[?senators_socialist]§! Senator(s) support the §RSocialist Party of America§!."
+ USA_congress_socialist_rep_count:0 "\n§R[?representatives_socialist]§! Representative(s) support the §RSocialist Party§!."
+ USA_congress_socialist_senator_count:0 "\n§R[?senators_socialist]§! Senator(s) support the §RSocialist Party§!."
  
  USA_congress_farmer_labor_rep_count:0 "\n§P[?representatives_farmer_labor]§! Representative(s) support the §PSocial Democratic Federation§!."
  USA_congress_farmer_labor_senator_count:0 "\n§P[?senators_farmer_labor]§! Senator(s) support the §PSocial Democratic Federation§!."
@@ -32,6 +32,11 @@
  
  USA_congress_voting_none:0 "Congress is currently in session, but there is no important legislation being considered."
  USA_congress_voting_bill:0 "\n\n§YCongress§! is currently considering §Y[get_bill_name]§!, which currently expects the support of [get_rep_color]/§Y[get_house_quorum]§! Representatives and [get_senator_color]/[get_senate_quorum] Senators.\n\nStatus in the §LHouse§!: [get_bill_house_status][get_us_communist_rep_support][get_us_socialist_rep_support][get_us_farmer_labor_rep_support][get_us_liberal_rep_support][get_us_republican_rep_support][get_us_democrat_rep_support][get_us_afp_rep_support]\n\nStatus in the §gSenate§!: [get_bill_senate_status][get_us_communist_senator_support][get_us_socialist_senator_support][get_us_republican_senator_support][get_us_democrat_senator_support][get_us_afp_senator_support]"
+ USA_congress_voting_lame_duck:0 "Congress is currently in a lame-duck period, so no legislation can be considered."
+ 
+ ### Lame duck period ###
+ USA_lame_duck_congress_tt:0 "Congress will enter a §Ylame-duck period§!, and no legislation can be passed."
+ USA_lame_duck_period:0 "Congress is in a lame-duck period"
  
  ### Voting decisions
  USA_house_phase:0 "House Discussions"
@@ -49,6 +54,8 @@
  USA_bill_house_passed:0 "§GThe bill has passed!§!"
  USA_bill_status_awaiting_house:0 "§YThe bill is awaiting passage by the House.§!"
  USA_bill_being_filibustered:0 "§RThe bill is being filibustered!§!"
+ 
+ USA_bill_additional_effect_tt:0 "The bill gains an §Yadditional effect§!."
  
  ### Quorum loc
  reps_support_green:0 "§G[?USA.representatives_support]§!"
@@ -93,16 +100,19 @@
  mut_exclude:0 "Negotiating with some factions is not mutually exclusive."
  
  ### Negotiation decisions
+ USA_force_pass_bill_debug:0 "§RDEBUG§! - Force current bill to pass"
+ 
  USA_talk_with_communists:0 "Negotiate with the £GFX_cpusa_texticon §rCommunists§!"
+ negotiate_some_communist_support:0 "We will negotiate the support of around [?average_boost_communist|%0G] of the undecided §rCommunist§! members of §YCongress§!."
  USA_talk_with_socialists:0 "Negotiate with the £GFX_spa_texticon §RSocialists§!"
- negotiate_some_socialist_support:0 "We will negotiate the support of some §RSocialist§! members of Congress."
+ negotiate_some_socialist_support:0 "We will negotiate the support of around [?average_boost_socialist|%0G] of the undecided §RSocialist§! members of §YCongress§!."
  USA_talk_with_farmer_labor:0 "Negotiate with Farmer-Labor"
  USA_talk_with_republicans:0 "Negotiate with the £GFX_rep_texticon §7Republicans§!"
- negotiate_some_republican_support:0 "We will negotiate the support of some §7Republican§! members of Congress."
+ negotiate_some_republican_support:0 "We will negotiate the support of around [?average_boost_republican|%0G] of the undecided §7Republican§! members of Congress."
  USA_talk_with_democrats:0 "Negotiate with the £GFX_dem_texticon §3Democrats§!"
- negotiate_some_democrat_support:0 "We will negotiate the support of some §3Democratic§! members of Congress."
+ negotiate_some_democrat_support:0 "We will negotiate the support of around [?average_boost_democrat|%0G] of the undecided §3Democratic§! members of Congress."
  USA_talk_with_fascists:0 "Negotiate with the £GFX_afp_texticon §gCommonwealthers§!"
- negotiate_some_fascist_support:0 "We will negotiate the support of some §gCommonwealth§! members of Congress."
+ negotiate_some_fascist_support:0 "We will negotiate the support of around [?average_boost_fascist|%0G] of the undecided §gCommonwealth§! members of Congress."
  
  communists_talking:0 "The Communists are willing to negotiate."
  communists_fully_support:0 "The Communists don't fully support this bill."
@@ -127,6 +137,7 @@
  
  ### everything related to bills
  start_test_bill_debug:0 "The Debug Act"
+ start_test_bill_debug_desc:0 "this is just for test purposes"
  debug_bill_passed:0 "We have passed the Debug Act."
  us_bill.1.title_passed:0 "The Debug Act - Passed"
  us_bill.1.title_failed:0 "The Debug Act - Failed"
@@ -134,6 +145,7 @@
  USA_debug_act_effect:0 "If passed, the §YDebug Act§! will provide the following bonus:\nStability: §G+2%§!\n\n"
  
  start_USA_social_security_act:0 "The Social Security Act"
+ start_USA_social_security_act_desc:0 "This bill is considered §GEASY§! to pass; many congresspeople will support it initially, and many can be swayed to support it through negotiation."
  social_security_passed:0 "We have passed the Social Security Act"
  us_bill.2.title_passed:0 "Social Security Bill Passes!"
  us_bill.2.title_failed:0 "Social Security Bill Fails!"
@@ -146,6 +158,7 @@
  USA_force_social_security:0 "Force it Through"
  
  start_USA_farm_tenant_act:0 "The Farm Tenant Act"
+ start_USA_farm_tenant_act_desc:0 "This bill is considered §GEASY§! to pass; many congresspeople will support it initially, and many can be swayed to support it through negotiation."
  farm_tenant_act_passed:0 "We have passed the Farm Tenant Act"
  us_bill.3.title_passed:0 "Farm Tenant Bill Passes!"
  us_bill.3.title_failed:0 "Farm Tenant Bill Fails!"
@@ -155,28 +168,34 @@
  us_bill.3.b:0 "No, junior, not this year for sure."
  
  start_USA_court_packing_act:0 "The Judicial Procedures Reform Act"
+ start_USA_court_packing_act_desc:0 "This bill is considered §RVERY DIFFCULT§! to pass; very few congresspeople will support it initially, and very few can be swayed to support it through negotiation."
  court_packing_plan_passed:0 "We have passed the Judicial Procedures Reform Act"
  USA_abandon_court_packing_tt:0 "§RWe will abandon our attempts to pack the court.§!\n"
  us_bill.4.title_passed:0 "Judicial Reform Bill Passes!"
  us_bill.4.title_failed:0 "Judicial Reform Bill Fails!"
  
  start_USA_reorg_act:0 "The Reorganization Act"
+ start_USA_reorg_act_desc:0 "This bill is considered §YSOMEWHAT DIFFCULT§! to pass; some congresspeople will support it initially, and some can be swayed to support it through negotiation."
  reorg_act_passed:0 "We have passed the Reorganization Act"
  us_bill.5.title_passed:0 "Reorganization Act Passes!"
  us_bill.5.title_failed:0 "Reorganization Act Fails!"
  
  start_USA_union_rep_act:0 "The Union Representation Act"
+ start_USA_union_rep_act_desc:0 "This bill is considered §YSOMEWHAT DIFFCULT§! to pass; some congresspeople will support it initially, and some can be swayed to support it through negotiation."
  union_act_passed:0 "We have passed the Union Representation Act"
  us_bill.6.title_passed:0 "Union Representation Bill Passed!"
  us_bill.6.title_failed:0 "Union Representation Bill Fails!"
  
  start_USA_housing_act:0 "The Housing Act"
+ start_USA_housing_act_desc:0 "This bill is considered §GEASY§! to pass; many congresspeople will support it initially, and many can be swayed to support it through negotiation."
  housing_act_passed:0 "We have passed the Housing Act"
  
  start_USA_pension_act:0 "The Old Age Pension Act"
+ start_USA_pension_act_desc:0 "This bill is considered §GEASY§! to pass; many congresspeople will support it initially, and many can be swayed to support it through negotiation."
  pension_act_passed:0 "We have passed the Old Age Pension Act"
  
  start_USA_wealth_tax_act:0 "The Redistribution of Accumulated Wealth Act"
+ start_USA_wealth_tax_act_desc:0 "This bill is considered §YSOMEWHAT DIFFCULT§! to pass; some congresspeople will support it initially, and some can be swayed to support it through negotiation."
  wealth_tax_act_passed:0 "We have passed the Wealth Tax"
  us_bill.9.title_passed:0 "Wealth Tax Passes!"
  us_bill.9.title_failed:0 "Wealth Tax Fails!"
@@ -226,7 +245,7 @@
  us_bill.21.title_passed:0 "War Industries Nationalized!"
  us_bill.21.title_failed:0 "Nationalization Bill Defeated!"
  
- start_USA_ludlow_amendment:0 "The Ludlow Amendment"
+ start_USA_ludlow_amendment:0 "The Ludlow-Rankin Amendment"
  
  us_bill.1000.title:0 "get filibustered lmao"
  us_bill.1000.a:0 "activate filibuster"
@@ -255,6 +274,8 @@
  USA_executive_order_8807:0 "Executive Order 8807"
  
  ### SPECIAL ###
+ 
+ USA_philippines_independence_timer:0 "Filipino Independence"
  
  USA_recession_timer:0 "§RThe Recession Worsens...§!"
  USA_recession_timer_fail_tt:0 "§RFailing to deal with the recession in a timely manner will have serious political consequences...§!\n"

@@ -2,7 +2,7 @@ shared_focus = {
     id = USA_reforming_the_military
 	icon = GFX_USA_USA_reforming_the_military
 	
-    x = -15
+    x = 30
 	
 	available = {
 		has_country_flag = USA_1936_election_over
@@ -36,6 +36,10 @@ shared_focus = {
 	
 	available = {
 		threat > 0.25
+	}
+	
+	allow_branch = {
+		has_dlc_lar = yes
 	}
 	
 	cost = 4
@@ -353,12 +357,6 @@ shared_focus = {
     completion_reward = {
 		custom_effect_tooltip = USA_ending_war_as_business_tt
 		add_war_support = -0.05
-	    378 = { 
-			remove_building = {
-				type = arms_factory
-				level = 1
-			}
-        }
     }
 	
 	ai_will_do = {
@@ -579,7 +577,7 @@ shared_focus = {
 	
 	available = {
 		has_character = USA_smedley_butler
-		has_country_flag = nationalized_defense_industry
+		#has_country_flag = nationalized_defense_industry
 	}
 	
 	cost = 4
@@ -589,7 +587,7 @@ shared_focus = {
 	prerequisite = { focus = USA_fight_your_own_wars }
 	
     completion_reward = {
-		add_stability = 0.1
+		unlock_decision_tooltip = start_ludlow_amendment
     }
 	
 	ai_will_do = {
@@ -740,10 +738,7 @@ shared_focus = {
 				remove_idea = USA_usac_a
 			}
 		}
-		else_if = {
-			limit = {
-				has_idea = USA_usac_ac
-			}
+		else = {
 			swap_ideas = {
 				add_idea = USA_usac_abc
 				remove_idea = USA_usac_ac
@@ -776,10 +771,7 @@ shared_focus = {
 				remove_idea = USA_usac_a
 			}
 		}
-		else_if = {
-			limit = {
-				has_idea = USA_usac_ab
-			}
+		else = {
 			swap_ideas = {
 				add_idea = USA_usac_abc
 				remove_idea = USA_usac_ab
@@ -888,12 +880,26 @@ shared_focus = {
 				USA_streamlined_prod_cas
 			}
 		}
-		if = {
+		else_if = {
 			limit = {
 				has_completed_focus = USA_independent_air_force
 			}
 			add_ideas = {
 				USA_streamlined_prod_bomber
+			}
+		}
+		else = {
+			custom_effect_tooltip = USA_streamline_production_cas_tt
+			effect_tooltip = {
+				add_ideas = {
+					USA_streamlined_prod_cas
+				}
+			}
+			custom_effect_tooltip = USA_streamline_production_bomber_tt
+			effect_tooltip = {
+				add_ideas = {
+					USA_streamlined_prod_bomber
+				}
 			}
 		}
     }
@@ -1041,6 +1047,11 @@ shared_focus = {
 	}
     completion_reward = {
         # add event here about air force
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 1
+			category = para_tech
+		}
     }
 	
 	ai_will_do = {
@@ -1150,7 +1161,7 @@ shared_focus = {
 	
 	cost = 3
 	mutually_exclusive = {
-		focus = USA_naval_air
+		focus = USA_naval_air_is_the_future
 	}
 	relative_position_id = USA_the_navy
 	prerequisite = { focus = USA_the_navy }
@@ -1299,7 +1310,7 @@ shared_focus = {
 	relative_position_id = USA_matching_europe
 	prerequisite = {
 		focus = USA_matching_europe
-		focus = USA_naval_air
+		focus = USA_naval_air_is_the_future
 	}
     completion_reward = {
         unlock_decision_tooltip = start_USA_naval_act
@@ -1307,46 +1318,6 @@ shared_focus = {
 		effect_tooltip = {
 			add_ideas = {
 				USA_naval_act
-			}
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_two_ocean_navy
-	icon = GFX_USA_two_ocean_navy
-	
-	available = {
-		has_country_flag = {
-			flag = naval_act_passed
-			days > 280
-		}
-		#custom_trigger_tooltip = {
-		#	tooltip = naval_act_passed_days_tt
-		#	has_country_flag = {
-		#		flag = naval_act_passed
-		#		days > 280
-		#	}
-		#}
-	}
-	
-    x = 0
-	y = 1
-	
-	cost = 5
-	relative_position_id = USA_modern_screens
-	prerequisite = { focus = USA_modern_screens }
-    completion_reward = {
-        unlock_decision_tooltip = start_USA_two_ocean_navy_act
-		custom_effect_tooltip = USA_bill_pass_req_tt
-		effect_tooltip = {
-			swap_ideas = {
-				remove_idea = USA_naval_act
-				add_idea = USA_two_ocean_navy_act
 			}
 		}
     }
@@ -1443,7 +1414,7 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = USA_naval_air
+    id = USA_naval_air_is_the_future
 	icon = GFX_USA_naval_air
 	
     x = 3
@@ -1478,8 +1449,8 @@ shared_focus = {
 	y = 1
 	
 	cost = 3
-	relative_position_id = USA_naval_air
-	prerequisite = { focus = USA_naval_air }
+	relative_position_id = USA_naval_air_is_the_future
+	prerequisite = { focus = USA_naval_air_is_the_future }
     completion_reward = {
         add_ideas = {
 			USA_bureau_of_aeronautics
@@ -1493,14 +1464,14 @@ shared_focus = {
 
 shared_focus = {
     id = USA_carrier_modernization
-	icon = GFX_USA_carrier_modernization
+	icon = GFX_focus_generic_refit_civilian_ships
 	
     x = 1
 	y = 1
 	
 	cost = 3
-	relative_position_id = USA_naval_air
-	prerequisite = { focus = USA_naval_air }
+	relative_position_id = USA_naval_air_is_the_future
+	prerequisite = { focus = USA_naval_air_is_the_future }
     completion_reward = {
         add_tech_bonus = {
 			bonus = 0.5
@@ -1518,7 +1489,7 @@ shared_focus = {
     id = USA_expand_operations
 	icon = GFX_USA_expand_operations
 	
-    x = 0
+    x = -1
 	y = 1
 	
 	cost = 3
@@ -1562,12 +1533,12 @@ shared_focus = {
     id = USA_modern_screens
 	icon = GFX_USA_modern_screens
 	
-    x = 0
+    x = 1
 	y = 1
 	
 	cost = 3
-	relative_position_id = USA_expand_operations
-	prerequisite = { focus = USA_expand_operations }
+	relative_position_id = USA_the_naval_act
+	prerequisite = { focus = USA_the_naval_act }
     completion_reward = {
         add_tech_bonus = {
 			bonus = 0.75
@@ -1586,4 +1557,127 @@ shared_focus = {
 	}
 	
 	search_filters = { FOCUS_FILTER_RESEARCH }
+}
+
+shared_focus = {
+    id = USA_invest_in_carrier_aircraft
+	icon = GFX_goal_generic_navy_carrier
+	
+    x = 1
+	y = 1
+	
+	cost = 3
+	relative_position_id = USA_the_bureau_of_aeronautics
+	prerequisite = { focus = USA_the_bureau_of_aeronautics }
+	prerequisite = { focus = USA_carrier_modernization }
+    completion_reward = {
+        add_tech_bonus = {
+			bonus = 0.75
+			uses = 1
+			category = naval_air
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = { FOCUS_FILTER_RESEARCH }
+}
+
+shared_focus = {
+    id = USA_fortify_hawaii
+	icon = GFX_focus_generic_coastal_fort
+	
+    x = 0
+	y = 1
+	
+	cost = 3
+	relative_position_id = USA_invest_in_carrier_aircraft
+	prerequisite = { focus = USA_invest_in_carrier_aircraft }
+    completion_reward = {
+		629 = {
+			add_building_construction = {
+				type = coastal_bunker
+				level = 1
+				instant_build = yes
+				province = 4180
+			}
+			add_building_construction = {
+				type = coastal_bunker
+				level = 1
+				instant_build = yes
+				province = 12021
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_two_ocean_navy
+	icon = GFX_USA_two_ocean_navy
+	
+	available = {
+		has_country_flag = {
+			flag = naval_act_passed
+			days > 280
+		}
+		#custom_trigger_tooltip = {
+		#	tooltip = naval_act_passed_days_tt
+		#	has_country_flag = {
+		#		flag = naval_act_passed
+		#		days > 280
+		#	}
+		#}
+	}
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_expand_operations
+	prerequisite = { focus = USA_expand_operations }
+	prerequisite = { focus = USA_modern_screens }
+	
+    completion_reward = {
+        unlock_decision_tooltip = start_USA_two_ocean_navy_act
+		custom_effect_tooltip = USA_bill_pass_req_tt
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = USA_naval_act
+				add_idea = USA_two_ocean_navy_act
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_non_sibi_sed_patriae
+	icon = GFX_focus_generic_navy_battleship2
+	
+    x = 0
+	y = 1
+	
+	cost = 3
+	relative_position_id = USA_two_ocean_navy
+	prerequisite = {
+		focus = USA_iowa_class
+		focus = USA_fortify_hawaii
+	}
+	prerequisite = { focus = USA_two_ocean_navy }
+    completion_reward = {
+
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
 }

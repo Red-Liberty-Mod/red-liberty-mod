@@ -50,6 +50,7 @@ if = {
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
+	tech_trucks = 1
 	motorised_infantry = 1
 
 	tech_recon = 1
@@ -129,8 +130,6 @@ if = {
 		basic_light_battery = 1
 		basic_medium_battery = 1
 		basic_heavy_battery = 1
-		basic_secondary_battery = 1
-		improved_secondary_battery = 1
 		basic_depth_charges = 1
 		sonar = 1
 		basic_cruiser_armor_scheme = 1
@@ -165,6 +164,7 @@ if = {
 			early_bombs = 1
 			aircraft_construction = 1
 			iw_small_airframe = 1
+			iw_carrier_airframe = 1
 			basic_small_airframe = 1
 			iw_medium_airframe = 1
 			basic_medium_airframe = 1
@@ -195,26 +195,26 @@ set_politics = {
 	elections_allowed = yes
 }
 set_popularities = {
-	insurrectionary_anarchism = 0
-	revolutionary_autocracy = 5
-	proletarian_dictatorship = 0
-	libertarian_socialism = 27
+	anarchism = 0
+	vanguard_socialism = 5
+	revolutionary_socialism = 0
+	democratic_socialism = 27
 	social_democracy = 13
 	progressive_liberalism = 11
-	market_libertarianism = 3
+	liberal_conservatism = 3
 	national_conservatism = 9
 	authoritarian_democracy = 14
-	autocratic_despotism = 0
-	far_right_authoritarianism = 10
+	despotism = 0
+	ultraconservatism = 10
 	fascism = 8
 }
 
-set_country_flag = market_libertarian_coalition
-set_country_flag = conservative_coalition
-set_country_flag = authoritarian_coalition
-set_country_flag = despotist_coalition
-set_country_flag = far_right_coalition
-set_country_flag = ultranationalist_coalition
+set_country_flag = liberal_conservatism_coalition
+set_country_flag = national_conservatism_coalition
+set_country_flag = authoritarian_democracy_coalition
+set_country_flag = despotism_coalition
+set_country_flag = ultraconservatism_coalition
+set_country_flag = fascism_coalition
 
 create_faction = "Warschauer Pakt"
 add_to_faction = GER
@@ -225,6 +225,43 @@ add_to_faction = BAL
 add_to_faction = CRI
 remove_from_faction = ROM
 
+### Leaders ###
+recruit_character = GER_karl_liebknecht
+recruit_character = GER_kurt_rosenfeld
+recruit_character = GER_otto_wels
+recruit_character = GER_philipp_scheidemann
+recruit_character = GER_theodor_heuss
+recruit_character = GER_heinrich_schnee
+recruit_character = GER_kuno_von_westarp
+recruit_character = GER_alfred_hugenberg
+recruit_character = GER_franz_seldte
+
+### Ministers ###
+recruit_character = GER_wilhelm_ii
+
+### Generals ###
+recruit_character = GER_kurt_von_hammerstein_equord
+recruit_character = GER_alfred_von_vollard_bockelberg
+recruit_character = GER_erich_von_manstein
+recruit_character = GER_walther_von_brauchitsch
+recruit_character = GER_werner_von_blomberg
+recruit_character = GER_nikolaus_von_falkenhorst
+recruit_character = GER_eberhard_von_mackensen
+recruit_character = GER_fedor_von_bock
+recruit_character = GER_walther_von_reichenau
+recruit_character = GER_heinz_guderian
+recruit_character = GER_albert_kesselring
+
+### HIGH COMMAND ###
+recruit_character = GER_oswald_lutz
+recruit_character = GER_werner_von_fritsch
+recruit_character = GER_robert_von_greim
+ 
+### ADMIRALS ###
+recruit_character = GER_karl_donitz
+recruit_character = GER_erich_raeder
+recruit_character = GER_lothar_von_arnauld
+
 add_ideas = {
 	GER_master_of_europe
 	GER_the_loss_of_a_generation
@@ -232,106 +269,8 @@ add_ideas = {
 	
 	limited_exports
 	limited_conscription
-}
-
-create_country_leader = {
-	name = "Karl Liebknecht"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = leninism_subtype
-	traits = {
-		
-	}
-}
-
-create_country_leader = {
-	name = "Otto Wels"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = social_democracy_subtype
-	traits = {
-		
-	}
-}
-
-create_country_leader = {
-	name = "Kuno von Westarp"
-	desc = "POLITICS_KUNO_VON_WESTARP_DESC"
-	picture = "gfx/leaders/GER/Portrait_GER_Kuno_von_Westarp.png"
-	expire = "1965.1.1"
-	ideology = authoritarian_democracy_subtype
-	traits = {
-		
-	}
-}
-
-create_country_leader = {
-	name = "Alfred Hugenberg"
-	desc = ""
-	picture = "gfx/leaders/GER/Portrait_GER_Alfred_Hugenberg.png"
-	expire = "1965.1.1"
-	ideology = far_right_authoritarianism_subtype
-	traits = {
-		
-	}
-}
-
-create_country_leader = {
-	name = "Franz Seldte"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = fascism_subtype
-	traits = {
-		
-	}
-}
-
-create_field_marshal = {
-	name = "Werner Freiherr von Fritsch"
-	picture = "Portrait_GER_Werner_Freiherr_von_Fritsch.png"
-	traits = { old_guard harsh_leader }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 2
-	planning_skill = 3
-	logistics_skill = 3
-}
-
-create_field_marshal = {
-	name = "Friedrich August III von Saschen"
-	picture = "Portrait_GER_Friedrich_August.tga"
-	traits = { old_guard infantry_officer inspirational_leader }
-	skill = 3
-	attack_skill = 2
-	defense_skill = 3
-	planning_skill = 3
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Heinz Guderian"
-	picture = "Portrait_GER_Heinz_Guderian.png"
-	traits = { armor_officer career_officer brilliant_strategist panzer_leader }
-	skill = 3
-
-	attack_skill = 4
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 3
-}
-
-create_navy_leader = {
-	name = "Karl Dönitz"
-	picture = "Portrait_GER_Karl_Donitz.png"
-	traits = { navy_career_officer seawolf }
-	skill = 4
-	attack_skill = 4
-	defense_skill = 3
-	maneuvering_skill = 3
-	coordination_skill = 4
+	
+	GER_wilhelm_ii_hog
 }
 
 if = {
@@ -363,6 +302,12 @@ if = {
 		available_to_spy_master = yes
 		nationalities = { GER }
 	}
+	
+	create_intelligence_agency = {
+		name = "Abteilung III b"
+		icon = GFX_intelligence_agency_logo_RL_ger
+	}
+	upgrade_intelligence_agency = upgrade_army_department
 }
 if = {
 	limit = {

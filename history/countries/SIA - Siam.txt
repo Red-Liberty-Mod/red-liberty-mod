@@ -13,6 +13,7 @@ if = {
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
+	tech_trucks = 1
 	motorised_infantry = 1
 	
 	tech_support = 1
@@ -21,10 +22,6 @@ set_technology = {
 	
 	gw_artillery = 1
 	interwar_antiair = 1
-	
-	early_fighter = 1
-	early_bomber = 1
-	CAS1 = 1
 	
 	basic_train = 1
 }
@@ -55,8 +52,6 @@ if = {
 		basic_torpedo = 1
 		basic_battery = 1
 		basic_light_battery = 1
-		basic_secondary_battery = 1
-		improved_secondary_battery = 1
 		basic_medium_battery = 1
 		smoke_generator = 1
 		basic_depth_charges = 1
@@ -80,6 +75,25 @@ if = {
 		basic_light_tank = 1
 	}
 }
+if = {
+	limit = { has_dlc_bba = yes }
+	set_air_oob = "SIA_air_bba"
+	set_technology = {
+		iw_small_airframe = 1
+		aa_lmg = 1
+		engines_1 = 1
+		early_bombs = 1
+		iw_medium_airframe = 1
+	}
+	else = {
+		set_air_oob = "SIA_air_legacy"
+		set_technology = {
+			early_fighter = 1
+			early_bomber = 1
+			CAS1 = 1
+		}
+	}
+}
 
 set_stability = 0.55
 set_war_support = 0.6
@@ -93,17 +107,17 @@ set_politics = {
 	elections_allowed = no
 }
 set_popularities = {
-	insurrectionary_anarchism = 0
-	revolutionary_autocracy = 3
-	proletarian_dictatorship = 12
-	libertarian_socialism = 6
+	anarchism = 0
+	vanguard_socialism = 3
+	revolutionary_socialism = 12
+	democratic_socialism = 6
 	social_democracy = 4
 	progressive_liberalism = 5
-	market_libertarianism = 0
+	liberal_conservatism = 0
 	national_conservatism = 3
 	authoritarian_democracy = 47
-	autocratic_despotism = 11
-	far_right_authoritarianism = 9
+	despotism = 11
+	ultraconservatism = 9
 	fascism = 0
 }
 

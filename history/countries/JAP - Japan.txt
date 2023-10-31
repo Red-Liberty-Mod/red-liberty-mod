@@ -17,26 +17,35 @@ set_technology = {
 	tech_support = 1
 	tech_recon = 1
 	tech_engineers = 1
+	tech_trucks = 1
 	motorised_infantry = 1
 	marines  = 1
 	gw_artillery = 1
-	gwtank = 1
-	basic_light_tank = 1
-	cv_early_fighter = 1
-	cv_CAS1 = 1
-	cv_naval_bomber1 = 1
-	early_fighter = 1
-	naval_bomber1 = 1
-	early_bomber = 1
-	CAS1 = 1
 	
-	trench_warfare = 1
-	base_strike = 1
 	fuel_silos = 1
 	synth_oil_experiments = 1
 	fuel_refining = 1
 
 	basic_train = 1
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+	}
+	add_ideas = {
+		intercommand_rivalries_spirit
+		conflicting_branches_spirit
+	}
+	else = {
+		set_technology = {
+			gwtank = 1
+			basic_light_tank = 1
+		}
+	}
 }
 if = {
 	limit = {
@@ -62,7 +71,6 @@ if = {
 		basic_ship_hull_carrier = 1
 		mtg_transport = 1
 		coastal_defense_ships = 1
-		basic_secondary_battery = 1
 		basic_depth_charges = 1
 		basic_cruiser_armor_scheme = 1
 		cruiser_submarines = 1
@@ -88,23 +96,36 @@ if = {
 	}
 	set_naval_oob = "JAP_1936_naval_legacy"
 }
-
+if = {
+	limit = { has_dlc = "By Blood Alone" }
+	set_technology = {
+		aa_lmg = 1
+		engines_1 = 1
+		engines_2 = 1
+		early_bombs = 1
+		aircraft_construction = 1
+		iw_small_airframe = 1
+		iw_medium_airframe = 1
+		basic_small_airframe = 1
+	}
+	else = {
+		set_technology = {
+			cv_early_fighter = 1
+			cv_CAS1 = 1
+			cv_naval_bomber1 = 1
+			early_fighter = 1
+			naval_bomber1 = 1
+			early_bomber = 1
+			CAS1 = 1
+		}
+	}
+}
 if = {
 	limit = {
 		has_dlc = "La Resistance"
 	}
 	set_technology = {
 		armored_car1 = 1
-	}
-}
-
-if = {
-	limit = {
-		has_dlc = "No Step Back"
-	}
-	add_ideas = {
-		intercommand_rivalries_spirit
-		conflicting_branches_spirit
 	}
 }
 
@@ -123,29 +144,32 @@ set_politics = {
 	elections_allowed = yes
 }
 set_popularities = {
-	insurrectionary_anarchism = 0
-	revolutionary_autocracy = 0
-	proletarian_dictatorship = 1
-	libertarian_socialism = 8
+	anarchism = 0
+	vanguard_socialism = 0
+	revolutionary_socialism = 1
+	democratic_socialism = 8
 	social_democracy = 14
 	progressive_liberalism = 11
-	market_libertarianism = 18
+	liberal_conservatism = 18
 	national_conservatism = 34
 	authoritarian_democracy = 9
-	autocratic_despotism = 1
-	far_right_authoritarianism = 0
+	despotism = 1
+	ultraconservatism = 0
 	fascism = 4
 }
 
-set_country_flag = progressive_coalition
-set_country_flag = market_libertarian_coalition
-set_country_flag = conservative_coalition
+set_country_flag = progressive_liberalism_coalition
+set_country_flag = liberal_conservatism_coalition
+set_country_flag = national_conservatism_coalition
 
 set_variable = { JAP_mps_total = 466 }
 JAP_calc_house = yes
 
-### LEADERS ###
+### MONARCHS ###
 recruit_character = JAP_hirohito_showa
+recruit_character = JAP_yasuhito_chichibu
+
+### LEADERS ###
 recruit_character = JAP_iwasa_sakutaro
 recruit_character = JAP_kanson_arahata
 recruit_character = JAP_abe_isoo
@@ -160,7 +184,26 @@ recruit_character = JAP_kingoro_hashimoto
 recruit_character = JAP_ikki_kita
 
 ### MINISTERS ###
+recruit_character = JAP_inejiro_asanuma
+recruit_character = JAP_fujiwara_ginjiro
+recruit_character = JAP_koichi_kido
 recruit_character = JAP_seigo_nakano
+recruit_character = JAP_okawa_shumei
+
+### GENERALS ###
+recruit_character = JAP_terauchi_hisaichi
+recruit_character = JAP_hata_shunroku
+recruit_character = JAP_sugiyama_hajime
+recruit_character = JAP_yamashita_tomoyuki
+recruit_character = JAP_higashikuni_naruhiko
+recruit_character = JAP_imamura_hitoshi
+recruit_character = JAP_ishiwara_kanji
+recruit_character = JAP_tanaka_shizuichi
+recruit_character = JAP_okamura_yasuji
+
+### GENERALS - KWANTUNG ARMY ###
+recruit_character = JAP_minami_jiro
+recruit_character = JAP_seishiro_itakagi
 
 add_ideas = {
 	JAP_taisho_democracy
@@ -169,318 +212,6 @@ add_ideas = {
 	JAP_twenty_one_demands
 	
 	JAP_hirohito_showa_hog
-}
-
-create_corps_commander = {
-	name = "Tomoyuki Yamashita"
-		picture = "Portrait_Japan_Tomoyuki_Yamashita.dds"
-	traits = {
-		trickster trait_engineer brilliant_strategist politically_connected
-	}
-	skill = 5
-	attack_skill = 4
-	defense_skill = 5
-	planning_skill = 3
-	logistics_skill = 4
-}
-
-create_field_marshal = {
-	name = "Hisaichi Terauchi"
-	picture = "Portrait_Japan_Hisaichi_Terauchi.dds"
-	traits = { 
-		offensive_doctrine
-		JAP_samurai_lineage   # hakushaku
-		politically_connected
-	}
-	skill = 4
-	attack_skill = 4
-	defense_skill = 4
-	planning_skill = 3
-	logistics_skill = 2
-}
-
-create_field_marshal = {
-	name = "Shunroku Hata"
-		picture = "Portrait_Japan_Shunroku_Hata.dds"
-	traits = { offensive_doctrine JAP_samurai_lineage }
-	skill = 4
-	attack_skill = 3
-	defense_skill = 4
-	planning_skill = 2
-	logistics_skill = 4
-}
-
-create_corps_commander = {
-	name = "Akira Muto"
-		picture = "Portrait_Japan_Akira_Muto.dds"
-	traits = { career_officer  }
-	skill = 2
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 1
-}
-
-create_corps_commander = {
-	name = "Kanji Ishiwara"
-		picture = "Portrait_Japan_Kanji_Ishiwara.dds"
-	traits = { JAP_samurai_lineage }
-	skill = 1 
-	attack_skill = 1
-	defense_skill = 1
-	planning_skill = 1
-	logistics_skill = 1
-}
-
-create_corps_commander = {
-	name = "Shizuichi Tanaka"
-		picture = "Portrait_Japan_Shizuichi_Tanaka.dds"
-	traits = { trickster career_officer infantry_officer }
-	skill = 4
-	attack_skill = 4
-	defense_skill = 3
-	planning_skill = 2
-	logistics_skill = 4
-}
-
-create_corps_commander = {
-	name = "Yasuji Okamura"
-		picture = "Portrait_Japan_Yasuji_Okamura.dds"
-	traits = { trait_reckless }
-	skill = 1
-	attack_skill = 1
-	defense_skill = 1
-	planning_skill = 1
-	logistics_skill = 1
-}
-
-create_corps_commander = {
-	name = "Toshizo Nishio" #Toshizo
-		picture = "Portrait_Japan_Toshizo_Nishio.dds"
-	traits = { brilliant_strategist infantry_officer }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 2
-	planning_skill = 3
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Rikichi Ando" #Ando
-		picture = "Portrait_Japan_Rikichi_Ando.dds"
-	traits = { career_officer }
-	skill = 3
-	attack_skill = 1
-	defense_skill = 3
-	planning_skill = 3
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Naruhiko Higashikuni"
-	picture = "Portrait_Japan_Naruhiko_Higashikuni.dds"
-	traits = { JAP_samurai_lineage politically_connected }
-	skill = 3 
-	attack_skill = 3
-	defense_skill = 3
-	planning_skill = 2
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Seishiro Itagaki"
-		picture = "Portrait_Japan_Seishiro_Itagaki.dds"
-	traits = { JAP_samurai_lineage inflexible_strategist trait_reckless }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 3
-	planning_skill = 2
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Takashi Sakai"
-		picture = "Portrait_Japan_Takashi_Sakai.dds"
-	traits = { infantry_officer trait_reckless }
-	skill = 3
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 3
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Kenji Doihara"
-		picture = "Portrait_Japan_Kenji_Doihara.dds"
-	traits = { career_officer substance_abuser }
-	skill = 1 
-	attack_skill = 1
-	defense_skill = 1
-	planning_skill = 1
-	logistics_skill = 1
-}
-
-create_corps_commander = {
-	name = "Kenkichi Ueda"
-		picture = "Portrait_Japan_Kenkichi_Ueda.dds"
-	traits = { old_guard cavalry_officer trait_reckless }
-	skill = 4
-	attack_skill = 3
-	defense_skill = 2
-	planning_skill = 4
-	logistics_skill = 4
-}
-
-create_corps_commander = {
-	name = "Shigeru Honjo"
-		picture = "Portrait_Japan_Shigeru_Honjo.dds"
-	traits = { old_guard war_hero }
-	skill = 1
-	attack_skill = 1
-	defense_skill = 1
-	planning_skill = 1
-	logistics_skill = 1
-}
-
-create_corps_commander = {
-	name = "Yoshijiro Umezu"
-		picture = "Portrait_Japan_Yoshijiro_Umezu.dds"
-	traits = { trait_cautious politically_connected }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 3
-	planning_skill = 1
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Otozo Yamada"
-		picture = "Portrait_Japan_Otozo_Yamada.dds"
-	traits = { cavalry_officer career_officer }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 1
-	planning_skill = 3
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Hatazo Adachi"
-		picture = "Portrait_Japan_Hatazo_Adachi.dds"
-	traits = { trickster JAP_samurai_lineage trait_reckless infantry_officer }
-	skill = 2
-	attack_skill = 1
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Iwane Matsui"
-		picture = "Portrait_Japan_Iwane_Matsui.dds"
-	traits = { old_guard trait_reckless }
-	skill = 1
-	attack_skill = 1
-	defense_skill = 1
-	planning_skill = 1
-	logistics_skill = 1
-}
-create_corps_commander = {
-	name = "Sadao Araki"
-		picture = "Portrait_Japan_Sadao_Araki.dds"
-	traits = { JAP_samurai_lineage }
-	skill = 2
-	attack_skill = 1
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Keisuke Fujie"
-		picture = "Portrait_Japan_Keisuke_Fujie.dds"
-	traits = { fortress_buster career_officer politically_connected } 
-	skill = 3
-	attack_skill = 1
-	defense_skill = 3
-	planning_skill = 3
-	logistics_skill = 3
-}
-create_corps_commander = {
-	name = "Kiichiro Higuchi"
-		picture = "Portrait_Japan_Kiichiro_Higuchi.dds"
-	traits = { career_officer trait_cautious }
-	skill = 2
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 1
-}
-
-create_corps_commander = {
-	name = "Masaharu Homma"
-		picture = "Portrait_Japan_Masaharu_Homma.dds"
-	traits = { media_personality trait_cautious }
-	skill = 2
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 1
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Harukichi Hyakutake"
-		picture = "Portrait_Japan_Harukichi_Hyakutake.dds"
-	traits = { infantry_officer  }
-	skill = 3
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 3
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Jo Iimura"
-		picture = "Portrait_Japan_Jo_Iimura.dds"
-	traits = { career_officer }
-	skill = 2
-	attack_skill = 1
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Hitoshi Imamura"
-		picture = "Portrait_Japan_Hitoshi_Imamura.dds"
-	traits = {  commando career_officer infantry_officer }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 1
-	planning_skill = 3
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Masatane Kanda"
-		picture = "Portrait_Japan_Masatane_Kanda.dds"
-	traits = { trait_cautious }
-	skill = 2
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 1
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Kuniaki Koiso"
-		picture = "Portrait_Japan_Kuniaki_Koiso.dds"
-	traits = { JAP_samurai_lineage old_guard politically_connected }
-	skill = 2
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 1
 }
 
 create_navy_leader = {
@@ -639,7 +370,63 @@ if = {
 		nationalities = { JAP }
 	}
 }
-
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	create_equipment_variant = {
+		name = "Type 94 Tankette"
+		type = light_tank_chassis_0
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_heavy_machine_gun
+			turret_type_slot = tank_light_one_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 1
+			tank_nsb_armor_upgrade = 1
+		}
+		obsolete = yes
+		icon = "GFX_JAP_basic_light_tank_medium"
+	}
+	create_equipment_variant = {
+		name = "Type 89 I-Go"
+		type = medium_tank_chassis_0
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_close_support_gun
+			turret_type_slot = tank_medium_one_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 3
+			tank_nsb_armor_upgrade = 2
+		}
+		icon = "GFX_JAP_basic_medium_tank_medium"
+	}
+	create_equipment_variant = {
+		name = "Type 95 Ha-Go"
+		type = light_tank_chassis_1
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_small_cannon
+			turret_type_slot = tank_light_one_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_diesel_engine
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 2
+			tank_nsb_armor_upgrade = 2
+		}
+		icon = "GFX_JAP_improved_light_tank_medium"
+	}
+}
 if = {
 	limit = {
 		not = { has_dlc = "Man the Guns" }
@@ -1210,157 +997,88 @@ if = {
 			}
 		}
 }
-	# 1939 Start #			
-	1939.1.1 = {
-		if = {
-			limit = {
-				not = { has_dlc = "Man the Guns" }
-			}
-			### Carrier Variants
-			create_equipment_variant = {
-				name = "Hiryu Class"
-				type = carrier_2
-				parent_version = 0
-				upgrades = {
-					ship_deckspace_upgrade = 1
-					carrier_armor_upgrade = 0
-					ship_engine_upgrade = 0
-					ship_reliability_upgrade = 1
-				}
-			}
-			
-			create_equipment_variant = {
-				name = "Kagero Class"
-				type = destroyer_2
-				parent_version = 0
-				upgrades = {
-					ship_torpedo_upgrade = 2
-					destroyer_engine_upgrade = 3
-					ship_ASW_upgrade = 2
-					ship_anti_air_upgrade = 2
-				}
-			}
-		}
-		if = {
-			limit = {
-				has_dlc = "Man the Guns"
-			}
-			create_equipment_variant = {
-				name = "Shokaku Class"
-				type = ship_hull_carrier_2
-				name_group = JAP_CV_HISTORICAL
-				parent_version = 0
-				modules = {
-					fixed_ship_deck_slot_1 = ship_deck_space
-					fixed_ship_deck_slot_2 = ship_deck_space
-					fixed_ship_anti_air_slot = ship_anti_air_2
-					fixed_ship_radar_slot = empty
-					fixed_ship_engine_slot = carrier_ship_engine_2
-					fixed_ship_secondaries_slot = empty
-					front_1_custom_slot = ship_deck_space
-					mid_1_custom_slot = ship_deck_space
-				}
-			}
-			create_equipment_variant = {
-				name = "Yamato Class"
-				type = ship_hull_super_heavy_1
-				name_group = JAP_BB_HISTORICAL
-				parent_version = 0
-				modules = {
-					fixed_ship_battery_slot = ship_super_heavy_battery_1
-					fixed_ship_anti_air_slot = ship_anti_air_2
-					fixed_ship_fire_control_system_slot = ship_fire_control_system_1
-					fixed_ship_radar_slot = empty
-					fixed_ship_engine_slot = heavy_ship_engine_2
-					fixed_ship_secondaries_slot = ship_secondaries_2
-					fixed_ship_armor_slot = ship_armor_shbb
-					front_1_custom_slot = ship_anti_air_1
-					front_2_custom_slot = empty
-					mid_1_custom_slot = empty
-					mid_2_custom_slot = ship_secondaries_2
-					mid_3_custom_slot = ship_secondaries_2
-					rear_1_custom_slot = ship_super_heavy_battery_1
-					rear_2_custom_slot = ship_airplane_launcher_1
-				}
-			}
-			create_equipment_variant = {
-				name = "Asashio Class"
-				type = ship_hull_light_2
-				name_group = JAP_DD_HISTORICAL
-				parent_version = 0
-				modules = {
-					fixed_ship_battery_slot = ship_light_battery_2
-					fixed_ship_anti_air_slot = ship_anti_air_1
-					fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-					fixed_ship_radar_slot = empty
-					fixed_ship_engine_slot = light_ship_engine_2
-					fixed_ship_torpedo_slot = ship_torpedo_2
-					mid_1_custom_slot = ship_torpedo_2
-					rear_1_custom_slot = ship_depth_charge_1
-				}
-			}
-			create_equipment_variant = {
-				name = "Katori Class"
-				type = ship_hull_cruiser_2
-				name_group = JAP_CL_HISTORICAL
-				parent_version = 0
-				modules = {
-					fixed_ship_battery_slot = ship_light_medium_battery_1
-					fixed_ship_anti_air_slot = ship_anti_air_1
-					fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-					fixed_ship_radar_slot = empty
-					fixed_ship_engine_slot = cruiser_ship_engine_1
-					mid_1_custom_slot = ship_torpedo_1
-					mid_2_custom_slot = empty
-					rear_1_custom_slot = ship_airplane_launcher_1
-				}
-				obsolete = yes
-			}
-			create_equipment_variant = {
-				name = "Kagero Class"
-				type = ship_hull_light_2
-				name_group = JAP_DD_HISTORICAL
-				parent_version = 0
-				modules = {
-					fixed_ship_battery_slot = ship_light_battery_2
-					fixed_ship_anti_air_slot = ship_anti_air_1
-					fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-					fixed_ship_radar_slot = empty
-					fixed_ship_engine_slot = light_ship_engine_2
-					fixed_ship_torpedo_slot = ship_torpedo_2
-					mid_1_custom_slot = ship_torpedo_2
-					rear_1_custom_slot = ship_depth_charge_1
-				}
-			}
-			create_equipment_variant = {
-				name = "Hatsutaka Class" 				# DD-sized minelayers
-				type = ship_hull_light_2
-				name_group = JAP_MINELAYERS_HISTORICAL
-				parent_version = 0
-				modules = {
-					fixed_ship_battery_slot = ship_light_battery_1
-					fixed_ship_anti_air_slot = empty
-					fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-					fixed_ship_radar_slot = empty
-					fixed_ship_engine_slot = light_ship_engine_1
-					fixed_ship_torpedo_slot = empty
-					mid_1_custom_slot = ship_mine_layer_1
-					rear_1_custom_slot = ship_mine_layer_1
-				}
-			}
-			create_equipment_variant = {
-				name = "A1/B1 Class"
-				type = ship_hull_cruiser_submarine
-				name_group = JAP_SS_HISTORICAL
-				parent_version = 0
-				modules = {
-					fixed_ship_torpedo_slot = ship_torpedo_sub_1
-					fixed_ship_engine_slot = sub_ship_engine_1
-					front_1_custom_slot = ship_airplane_launcher_1
-					mid_1_custom_slot = empty
-					rear_1_custom_slot = empty
-				}
-			}
-		}	
+
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
 	}
-	
+	create_equipment_variant = {
+		name = "Ki-10"
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+	}
+	create_equipment_variant = {
+		name = "Ki-2"
+		type = small_plane_cas_airframe_0
+		modules = {
+			fixed_main_weapon_slot = small_bomb_bay
+			engine_type_slot = engine_1_2x
+			special_type_slot_1 = lmg_defense_turret
+		}
+		icon = "GFX_JAP_CAS1_medium"
+	}
+	create_equipment_variant = {
+		name = "Ki-1"
+		type = medium_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = medium_bomb_bay
+			engine_type_slot = engine_1_2x
+			special_type_slot_1 = lmg_defense_turret
+		}
+	}
+	create_equipment_variant = {
+		name = "Ki-3"
+		type = small_plane_cas_airframe_0
+		modules = {
+			fixed_main_weapon_slot = bomb_locks
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = lmg_defense_turret
+		}
+		icon = "GFX_JAP_CAS1_medium"
+	}
+	create_equipment_variant = {
+		name = "Aichi D1A2"
+		type = cv_small_plane_cas_airframe_0
+		modules = {
+			fixed_main_weapon_slot = bomb_locks
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = dive_brakes_small
+		}
+		icon = "GFX_JAP_CAS1_medium"
+	}
+	create_equipment_variant = {
+		name = "A4N"
+		type = cv_small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+	}
+	create_equipment_variant = {
+		name = "B2M"
+		type = cv_small_plane_naval_bomber_airframe_0
+		modules = {
+			fixed_main_weapon_slot = torpedo_mounting
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+		obsolete = yes
+		icon = "GFX_JAP_cv_naval_bomber1_medium"
+	}
+	create_equipment_variant = {
+		name = "B4Y"
+		type = cv_small_plane_naval_bomber_airframe_1
+		modules = {
+			fixed_main_weapon_slot = torpedo_mounting
+			fixed_auxiliary_weapon_slot_1 = bomb_locks
+			engine_type_slot = engine_2_1x
+			special_type_slot_1 = empty
+		}
+		icon = "GFX_JAP_cv_naval_bomber1_medium"
+	}
+}	

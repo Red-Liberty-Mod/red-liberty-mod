@@ -1,0 +1,56 @@
+scripted_gui = {
+	line_graph_SAMPLE_scripted_gui = {
+		window_name = "line_graph_gui"
+		context_type = player_context
+
+		visible = {
+			has_country_flag = open_line_gui
+		}
+
+		effects = {
+			close_button_click = {
+				clr_country_flag = open_line_gui
+			}
+			add_button_click = {
+				USA_plot_line_chart = yes
+			}
+		}
+
+		# Set up dynamic list to generate one line segment per point
+		dynamic_lists = {
+			socialist_line_segments = {
+				array = socialist_graph_offsets
+				change_scope = no
+				entry_container = line_graph_socialist_segment
+				index = segment_idx
+			}
+			democrat_line_segments = {
+				array = democrats_graph_offsets
+				change_scope = no
+				entry_container = line_graph_democrat_segment
+				index = segment_idx
+			}
+			republican_line_segments = {
+				array = republican_graph_offsets
+				change_scope = no
+				entry_container = line_graph_republican_segment
+				index = segment_idx
+			}
+		}
+
+		properties = {
+			socialist_segment = {
+				y = socialist_graph_offsets^segment_idx
+				frame = socialist_graph_slopes^segment_idx
+			}
+			democrat_segment = {
+				y = democrats_graph_offsets^segment_idx
+				frame = democrats_graph_slopes^segment_idx
+			}
+			republican_segment = {
+				y = republican_graph_offsets^segment_idx
+				frame = republican_graph_slopes^segment_idx
+			}
+		}
+	}
+}

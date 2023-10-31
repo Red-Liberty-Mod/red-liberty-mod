@@ -1,6 +1,6 @@
 ﻿capital = 278
 
-oob = "ARG_1936"
+oob = "ARG"
 if = {
 	limit = { has_dlc = "Man the Guns" }
 		set_naval_oob = "ARG_1936_naval_mtg"
@@ -15,8 +15,6 @@ set_technology = {
 	tech_mountaineers = 1
 	gw_artillery = 1
 	interwar_antiair = 1
-	early_fighter = 1
-	CAS1 = 1
 }
 if = {
 	limit = { not = { has_dlc = "Man the Guns" } }
@@ -40,12 +38,29 @@ if = {
 		early_ship_hull_cruiser = 1
 		early_ship_hull_heavy = 1
 		basic_battery = 1
-		basic_secondary_battery = 1
 		basic_cruiser_armor_scheme = 1
 		basic_torpedo = 1
 		basic_depth_charges = 1
 		coastal_defense_ships = 1
 		mtg_transport = 1
+	}
+}
+
+if = {
+	limit = { has_dlc_bba = yes }
+	set_technology = {
+		iw_small_airframe = 1
+		aa_lmg = 1
+		engines_1 = 1
+		early_bombs = 1
+	}
+	set_air_oob = "ARG_air_bba"
+	else = {
+		set_technology = {
+			early_fighter = 1
+			CAS1 = 1
+		}
+		set_air_oob = "ARG_air_legacy"
 	}
 }
 
@@ -59,24 +74,24 @@ set_politics = {
 	elections_allowed = yes
 }
 set_popularities = {
-	insurrectionary_anarchism = 0
-	revolutionary_autocracy = 0
-	proletarian_dictatorship = 0
-	libertarian_socialism = 15
+	anarchism = 0
+	vanguard_socialism = 0
+	revolutionary_socialism = 0
+	democratic_socialism = 15
 	social_democracy = 3
 	progressive_liberalism = 24
-	market_libertarianism = 21
+	liberal_conservatism = 21
 	national_conservatism = 18
 	authoritarian_democracy = 19
-	autocratic_despotism = 0
-	far_right_authoritarianism = 0
+	despotism = 0
+	ultraconservatism = 0
 	fascism = 0
 }
 
 set_country_flag = social_democracy_coalition
-set_country_flag = market_libertarian_coalition
-set_country_flag = conservative_coalition
-set_country_flag = authoritarian_coalition
+set_country_flag = liberal_conservatism_coalition
+set_country_flag = national_conservatism_coalition
+set_country_flag = authoritarian_democracy_coalition
 
 add_ideas = {
 	ARG_british_monopoly
@@ -84,49 +99,13 @@ add_ideas = {
 	ARG_brazilian_immigrants
 }
 
-create_country_leader = {
-	name = "Marcelo Torcuato de Alvear"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = liberal_radicalism_subtype
-	traits = {
-		
-	}
-}
-
-create_country_leader = {
-	name = "Julio Argentino Pascual Roca"
-	desc = "POLITICS_JULIO_ARGENTINO_DESC"
-	picture = ""
-	expire = "1965.1.1"
-	ideology = liberal_conservatism_subtype
-	traits = {
-		
-	}
-}
-
-create_country_leader = {
-	name = "Agustín Pedro Justo Rolón"
-	desc = "POLITICS_AGUSTIN_PEDRO_DESC"
-	picture = "gfx/leaders/ARG/Portrait_ARG_Agustin_Rolon.png"
-	expire = "1965.1.1"
-	ideology = authoritarian_democracy_subtype
-	traits = {
-		
-	}
-}
-
-create_country_leader = {
-	name = "Manuel Carlés"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = fascism_subtype
-	traits = {
-		
-	}
-}
+recruit_character = ARG_victorio_codovilla
+recruit_character = ARG_nicholas_repetto
+recruit_character = ARG_marcelo_torcuato_de_alvear
+recruit_character = ARG_julio_argentino_pascual_roca
+recruit_character = ARG_agustin_pedro_justo_rolon
+recruit_character = ARG_pedro_pablo_ramirez
+recruit_character = ARG_manuel_carles
 
 add_equipment_to_stockpile = {
 	type = train_equipment_1
@@ -346,6 +325,21 @@ if = {
 				mid_2_custom_slot = ship_light_medium_battery_2
 				rear_1_custom_slot = ship_airplane_launcher_1
 			}
+		}
+	}
+}
+
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+	create_equipment_variant = {
+		name = "FMA D.21" #
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
 		}
 	}
 }

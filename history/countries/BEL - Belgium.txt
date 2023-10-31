@@ -4,7 +4,8 @@ oob = "BEL"
 
 set_research_slots = 3
 set_stability = 0.8
-set_war_support = 0.3 #we see what you are doing there Adolf
+set_war_support = 0.3
+set_convoys = 50
 
 set_technology = {
 	infantry_weapons = 1
@@ -12,8 +13,8 @@ set_technology = {
 	tech_support = 1		
 	tech_recon = 1
 	tech_engineers = 1
+	tech_trucks = 1
 	motorised_infantry = 1
-	early_fighter = 1
 	trench_warfare = 1
 	fuel_silos = 1
 	fuel_refining = 1
@@ -27,59 +28,42 @@ set_politics = {
 } 
 
 set_popularities = {
-	insurrectionary_anarchism = 0
-	revolutionary_autocracy = 0
-	proletarian_dictatorship = 0
-	libertarian_socialism = 2
-	social_democracy = 25
-	progressive_liberalism = 25
-	market_libertarianism = 10
-	national_conservatism = 20
-	far_right_authoritarianism = 0
-	authoritarian_democracy = 15
-	autocratic_despotism = 3
-	fascism = 0
+	anarchism = 0
+	vanguard_socialism = 5
+	revolutionary_socialism = 0
+	democratic_socialism = 12
+	social_democracy = 17
+	progressive_liberalism = 8
+	liberal_conservatism = 11
+	national_conservatism = 30
+	authoritarian_democracy = 0
+	despotism = 0
+	ultraconservatism = 7
+	fascism = 10
 }
+
+set_country_flag = libertarian_socialism_coalition
+set_country_flag = social_democracy_coalition
+set_country_flag = progressive_liberalism_coalition
+set_country_flag = liberal_conservatism_coalition
+set_country_flag = national_conservatism_coalition
+
+### LEADERS ###
+recruit_character = BEL_joesph_jacquemotte
+recruit_character = BEL_war_van_overstraeten
+recruit_character = BEL_emile_vandervelde
+recruit_character = BEL_henri_de_man
+recruit_character = BEL_francois_bovesse
+recruit_character = BEL_leon_dens
+recruit_character = BEL_paul_van_zeeland
+recruit_character = BEL_staaf_de_clercq
+recruit_character = BEL_leon_degrelle
+
+### GENERALS ###
+recruit_character = BEL_edouard_van_den_bergen
 
 add_ideas = {
 	BEL_we_held
 	BEL_but_at_what_cost
-}
-
-#set_cosmetic_tag = BEL_FRA_exiled_govt
-
-set_convoys = 80
-set_stability = 0.75
-
-create_country_leader = {
-	name = "Albert I"
-	desc = ""
-	picture = "gfx/leaders/BEL/Portait_BEL_Albert_I.png"
-	expire = "1965.1.1"
-	ideology = christian_democracy_subtype
-	traits = {
-		
-	}
-}
-
-create_corps_commander = {
-	name = "M.C.L. Keyaerts"
-	portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_land_2.dds"
-	traits = { trait_mountaineer hill_fighter }
-	skill = 4
-	attack_skill = 3
-	defense_skill = 2
-	planning_skill = 4
-	logistics_skill = 4
-}
-
-create_navy_leader = {
-	name = "Georges Timmermans"
-	portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_navy_3.dds"
-	traits = { bold }
-	skill = 4
-	attack_skill = 4
-	defense_skill = 2
-	maneuvering_skill = 3
-	coordination_skill = 4
+	BEL_treaty_of_arlon
 }

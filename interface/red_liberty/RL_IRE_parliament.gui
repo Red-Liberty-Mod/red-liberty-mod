@@ -1,0 +1,121 @@
+guiTypes = {
+	containerWindowType = {
+		name = "IRE_seat_container"
+		position = { x = 0 y = 0 }
+
+		iconType = { 
+			name = "parliament_dot_icon"
+			quadTextureSprite = "GFX_IRE_seat_icon"
+			pdx_tooltip = "IRE_seats_count"
+		}
+	}
+	
+	containerWindowType = {
+		name = "IRE_parliament_gui"
+		position = { x = 0 y = 0 }
+		size = { width = 490 height = 210 }
+		
+		orientation = center
+
+		gridboxtype = {
+			name = "parliament_diagram"
+			position = { x = 60 y = 20 }
+			size = { width = 100%% height = 100%% }
+			slotsize = { width = 100%% height = 0 }
+			max_slots_horizontal = 1
+			add_horizontal = no
+		}
+		
+		instantTextBoxType = {
+			name = "tds_total"
+			position = { x = 202 y = 160 }
+			format = center
+			maxHeight = 50
+			maxWidth = 100
+			font = hoi_30header
+			text = "[?tds_total]"
+		}
+	}
+	
+	containerWindowType = {
+		name = "IRE_paramilitary_gui"
+		position = { x = 0 y = 0 }
+		size = { width = 490 height = 210 }
+		
+		orientation = center
+		
+		containerWindowType = {
+			name = "IRE_ira_container"
+			size = { width = 0 height = 0 }
+			position = { x = 70 y = 30 }
+			
+			iconType = {
+				name = "ira_leader"
+				position = { x = 0 y = 0 }
+				spriteType = "GFX_portrait_IRE_eoin_oduffy"
+				scale = 0.75
+			}
+			
+			iconType = {
+				name = "ira_strength_progressbar"
+				position = { x = 120 y = 0 }
+				pdx_tooltip = "IRE_ira_strength_tt"
+				spriteType = "GFX_strength_progressbar"
+			}
+			
+			iconType = {
+				name = "ira_pin"
+				position = { x = 80 y = -25 }
+				spriteType = "GFX_IRE_pin"
+				scale = 0.4
+			}
+		}
+		
+		containerWindowType = {
+			name = "IRE_ica_container"
+			size = { width = 0 height = 0 }
+			position = { x = 305 y = 30 }
+		
+			iconType = {
+				name = "ica_leader"
+				position = { x = 0 y = 0 }
+				spriteType = "GFX_portrait_IRE_jack_white"
+				scale = 0.75
+			}
+			
+			iconType = {
+				name = "ica_leader_dead"
+				position = { x = 0 y = 0 }
+				spriteType = "GFX_IRE_jack_white_dead"
+				scale = 0.75
+			}
+			
+			iconType = {
+				name = "ica_strength_progressbar"
+				position = { x = -35 y = 0 }
+				pdx_tooltip = "IRE_ica_strength_tt"
+				spriteType = "GFX_strength_progressbar"
+			}
+			
+			iconType = {
+				name = "ira_pin"
+				position = { x = 80 y = -25 }
+				spriteType = "GFX_IRE_pin"
+				scale = 0.4
+			}
+		}
+		
+		containerWindowType = {
+			name = "info_button_container"
+			position = { x = 0 y = 0 }
+			size = { width = 20 height = 20 }
+
+			iconType = {
+				name = "info_button"
+				spriteType = "GFX_help_button"
+				position = { x = 465 y = -30 }
+				pdx_tooltip = "IRE_info_button_tt"
+			}
+		}
+	}
+}

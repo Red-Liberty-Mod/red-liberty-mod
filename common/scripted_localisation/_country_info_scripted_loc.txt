@@ -2,6 +2,12 @@ defined_text = {
 	name = GetCountryInfoEntryTitle
 	text = {
 		trigger = {
+			original_tag = AHE
+		}
+		localization_key = "[GetCountryInfoEntryTitleAHE]"
+	}
+	text = {
+		trigger = {
 			original_tag = USA
 		}
 		localization_key = "[GetCountryInfoEntryTitleUSA]"
@@ -29,6 +35,13 @@ defined_text = {
 		}
 	}
 	
+	text = {
+		trigger = {
+			original_tag = AHE
+			check_variable = { f > 0 }
+		}
+		localization_key = "[GetCountryInfoTitleAHE]"
+	}
 	text = {
 		trigger = {
 			original_tag = USA
@@ -65,6 +78,13 @@ defined_text = {
 	
 	text = {
 		trigger = {
+			original_tag = AHE
+			check_variable = { f > 0 }
+		}
+		localization_key = "[GetCountryInfoDescAHE]"
+	}
+	text = {
+		trigger = {
 			original_tag = USA
 			check_variable = { f > 0 }
 		}
@@ -79,6 +99,48 @@ defined_text = {
 	}
 	text = {
 		localization_key = "red_liberty_intro_desc"
+	}
+}
+
+### Entry Titles ###
+defined_text = {
+	name = GetCountryInfoEntryTitleAHE
+	
+	text = {
+		trigger = {
+			check_variable = { f = 1 }
+		}
+		localization_key = "AHE_country_intro_title_1"
+	}
+	text = {
+		trigger = {
+			check_variable = { f = 2 }
+		}
+		localization_key = "AHE_country_intro_title_2"
+	}
+	text = {
+		trigger = {
+			check_variable = { f = 3 }
+		}
+		localization_key = "AHE_country_intro_title_3"
+	}
+	text = {
+		trigger = {
+			check_variable = { f = 4 }
+		}
+		localization_key = "AHE_country_intro_title_4"
+	}
+	text = {
+		trigger = {
+			check_variable = { f = 5 }
+		}
+		localization_key = "AHE_country_intro_title_5"
+	}
+	text = {
+		trigger = {
+			check_variable = { f = 6 }
+		}
+		localization_key = "TAG_country_intro_title_appendix"
 	}
 }
 
@@ -157,6 +219,47 @@ defined_text = {
 	}
 }
 
+### Headers ###
+defined_text = {
+	name = GetCountryInfoTitleAHE
+	text = {
+		trigger = {
+			check_variable = { country_info_selected = 1 }
+		}
+		localization_key = "AHE_country_intro_title_1"
+	}
+	text = {
+		trigger = {
+			check_variable = { country_info_selected = 2 }
+		}
+		localization_key = "AHE_country_intro_title_2"
+	}
+	text = {
+		trigger = {
+			check_variable = { country_info_selected = 3 }
+		}
+		localization_key = "AHE_country_intro_title_3"
+	}
+	text = {
+		trigger = {
+			check_variable = { country_info_selected = 4 }
+		}
+		localization_key = "AHE_country_intro_title_4"
+	}
+	text = {
+		trigger = {
+			check_variable = { country_info_selected = 5 }
+		}
+		localization_key = "AHE_country_intro_title_5"
+	}
+	text = {
+		trigger = {
+			check_variable = { country_info_selected = 6 }
+		}
+		localization_key = "TAG_country_intro_title_appendix"
+	}
+}
+
 defined_text = {
 	name = GetCountryInfoTitleUSA
 	text = {
@@ -228,6 +331,47 @@ defined_text = {
 			check_variable = { country_info_selected = 5 }
 		}
 		localization_key = "TAG_country_intro_title_appendix"
+	}
+}
+
+### Descriptions ###
+defined_text = {
+	name = GetCountryInfoDescAHE
+	text = {
+		trigger = {
+			check_variable = { country_info_selected = 1 }
+		}
+		localization_key = "AHE_country_intro_desc_1"
+	}
+	text = {
+		trigger = {
+			check_variable = { country_info_selected = 2 }
+		}
+		localization_key = "AHE_country_intro_desc_2"
+	}
+	text = {
+		trigger = {
+			check_variable = { country_info_selected = 3 }
+		}
+		localization_key = "AHE_country_intro_desc_3"
+	}
+	text = {
+		trigger = {
+			check_variable = { country_info_selected = 4 }
+		}
+		localization_key = "AHE_country_intro_desc_4"
+	}
+	text = {
+		trigger = {
+			check_variable = { country_info_selected = 5 }
+		}
+		localization_key = "AHE_country_intro_desc_5"
+	}
+	text = {
+		trigger = {
+			check_variable = { country_info_selected = 6 }
+		}
+		localization_key = "AHE_country_intro_desc_6"
 	}
 }
 
@@ -309,6 +453,12 @@ defined_text = {
 	name = GetPoster
 	text = {
 		trigger = {
+			original_tag = AHE
+		}
+		localization_key = "GFX_intro_splash_screen_austria"
+	}
+	text = {
+		trigger = {
 			original_tag = USA
 		}
 		localization_key = "GFX_intro_splash_screen_debs"
@@ -319,14 +469,20 @@ defined_text = {
 	name = GetCloseButtonText
 	text = {
 		trigger = {
-			original_tag = USA
+			original_tag = AHE
 		}
-		localization_key = "For Liberty!"
+		localization_key = "Für die Freiheit!"
 	}
 	text = {
 		trigger = {
 			original_tag = FRA
 		}
 		localization_key = "Pour la Liberté!"
+	}
+	text = {
+		trigger = {
+			original_tag = USA
+		}
+		localization_key = "For Liberty!"
 	}
 }

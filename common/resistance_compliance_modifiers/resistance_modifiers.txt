@@ -85,3 +85,47 @@ resistance_75 = {
 		disable_strategic_redeployment_for_controller = 1
 	}
 }
+
+resistance_90 = {
+	type = state_resistance_modifier
+	icon = "GFX_occupation_resistance_modifier_strip:4"
+	small_icon = "GFX_occupation_resistance_modifier_small_strip:4"
+	threshold = 90
+	margin = 2
+
+	state_modifier = {
+		local_factories = -0.03
+	}
+}
+
+### Special Rules ###
+
+resistance_AFG_tenuous_rule = {
+	type = state_resistance_modifier
+	icon = "GFX_resistance_AFG_tenuous_rule"
+	small_icon = "GFX_resistance_AFG_tenuous_rule"
+	threshold = -1
+	margin = 2
+	
+	visible = { 
+		FROM = {
+			tag = AFG
+		} 
+	}
+	
+	enabled = {
+		FROM = {
+			tag = AFG
+			has_idea = AFG_tenuous_rule
+		}
+		always = no
+	}
+	
+	state_modifier = {
+		resistance_target = -0.05
+		resistance_growth = -0.05
+		compliance_gain = -0.04
+		local_factories = -0.4
+		local_resources = -0.4
+	}
+}

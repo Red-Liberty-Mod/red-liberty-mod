@@ -1,16 +1,9 @@
 ﻿capital = 935
 
 oob = "NOR"
-if = {
-	limit = { has_dlc = "Man the Guns" }
-		set_naval_oob = "NOR_1936_naval_mtg"
-	else = {
-		set_naval_oob = "NOR_1936_naval_legacy"
-	}
-}
 
-set_research_slots = 3
-set_stability = 0.9
+set_research_slots = 2
+set_stability = 0.5
 set_war_support = 0.1
 set_convoys = 200		# biggest merchant marine in the world
 
@@ -21,17 +14,7 @@ set_technology = {
 	interwar_antiair = 1
 	tech_support = 1		
 	tech_engineers = 1
-	early_fighter = 1
-	early_bomber = 1
 	tech_recon = 1
-}
-if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
-	set_technology = {
-		early_destroyer = 1
-		early_submarine = 1
-		early_heavy_cruiser = 1
-	}
 }
 if = {
 	limit = { has_dlc = "Man the Guns" }
@@ -43,81 +26,59 @@ if = {
 		early_ship_hull_submarine = 1
 		early_ship_hull_cruiser = 1
 		basic_battery = 1
-		basic_secondary_battery = 1
 		basic_torpedo = 1
 		coastal_defense_ships = 1
 	}
+	set_naval_oob = "NOR_1936_naval_mtg"
+	else = {
+		set_technology = {
+			early_destroyer = 1
+			early_submarine = 1
+			early_heavy_cruiser = 1
+		}
+		set_naval_oob = "NOR_1936_naval_legacy"
+	}
 }
+
+set_politics = {
+	ruling_party = ultraconservatism
+	last_election = "1932.11.8"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	anarchism = 0
+	vanguard_socialism = 10
+	revolutionary_socialism = 0
+	democratic_socialism = 13
+	social_democracy = 7
+	progressive_liberalism = 9
+	liberal_conservatism = 5
+	national_conservatism = 11
+	authoritarian_democracy = 10
+	despotism = 10
+	ultraconservatism = 23
+	fascism = 2
+}
+
+### MONARCHS ###
+recruit_character = NOR_haakon_vii
+
+### LEADERS ###
+recruit_character = NOR_adam_egede_nissen
+recruit_character = NOR_oscar_torp
+recruit_character = NOR_johan_nygaardsvold
+recruit_character = NOR_johan_ludwig_mowinckel
+recruit_character = NOR_jens_hundseid
+recruit_character = NOR_otto_ruge
+recruit_character = NOR_frederick_prytz
 
 add_ideas = {
 	NOR_stor_terror
 
 	limited_conscription
-}
-
-set_politics = {
-	ruling_party = far_right_authoritarianism
-	last_election = "1932.11.8"
-	election_frequency = 0
-	elections_allowed = no
-}
-set_popularities = {
-	insurrectionary_anarchism = 0
-	revolutionary_autocracy = 10
-	proletarian_dictatorship = 0
-	libertarian_socialism = 13
-	social_democracy = 7
-	progressive_liberalism = 9
-	market_libertarianism = 5
-	national_conservatism = 11
-	authoritarian_democracy = 10
-	autocratic_despotism = 10
-	far_right_authoritarianism = 23
-	fascism = 2
-}
-
-create_country_leader = {
-	name = "Otto Ruge"
-	desc = "POLITICS_OTTO_RUGE_DESC"
-	picture = "gfx/leaders/OttoRuge.png"
-	expire = "1965.1.1"
-	ideology = far_right_authoritarianism_subtype
-	traits = {
-		#
-	}
-}
-
-create_country_leader = {
-	name = "Vidkun Quisling"
-	desc = "POLITICS_VIDKUN_QUISLING_DESC"
-	picture = "Portrait_Norway_Vidkun_Quisling.dds"
-	expire = "1965.1.1"
-	ideology = fascism_subtype
-	traits = {
-		#
-	}
-}
-
-create_country_leader = {
-	name = "Johan Ludwig Mowinckel"
-	desc = "POLITICS_JOHAN_LUDWIG_MOWINCKEL_DESC"
-	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_3.dds"
-	expire = "1965.1.1"
-	ideology = national_conservatism_subtype
-	traits = {
-		#
-	}
-}
-
-create_country_leader = {
-	name = "Adam Egede-Nissen"
-	desc = "POLITICS_ADAM_EGEDE_NISSEN_DESC"
-	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_land_5.dds"
-	expire = "1965.1.1"
-	ideology = proletarian_dictatorship_subtype
-	traits = {
-		#
-	}
+	
+	NOR_haakon_vii_hog
 }
 
 create_corps_commander = {
@@ -142,12 +103,7 @@ create_navy_leader = {
 	coordination_skill = 1
 }
 
-### VARIANTS ###
-# 1936 Start #
-if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
-	### Ship Variants ###
-}
+
 if = {
 	limit = { has_dlc = "Man the Guns" }
 	# Submarines #
@@ -228,31 +184,4 @@ if = {
 			rear_1_custom_slot = empty
 		}
 	}
-}
-
-# 1939 Start #
-1939.1.1 = {
-	if = {
-		limit = { not = { has_dlc = "Man the Guns" } }
-		# Ship variants #
-	}
-	if = {
-		limit = { has_dlc = "Man the Guns" }
-		# Destroyers #
-		create_equipment_variant = {
-			name = "Sleipner & Odin Class"							
-			type = ship_hull_light_1
-			name_group = NOR_DD_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_battery_slot = ship_light_battery_1
-				fixed_ship_anti_air_slot = ship_anti_air_1
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-				fixed_ship_radar_slot = empty
-				fixed_ship_engine_slot = light_ship_engine_1
-				fixed_ship_torpedo_slot = ship_torpedo_1
-				mid_1_custom_slot = ship_mine_layer_1
-				rear_1_custom_slot = ship_depth_charge_1
-			}
-		}
 }

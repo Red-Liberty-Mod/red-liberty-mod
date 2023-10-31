@@ -4,110 +4,73 @@ SOV_calc_coalition = {
 	
 	if = {
 		limit = {
-			has_country_flag = rev_autocracy_coalition
+			has_country_flag = vanguard_socialism_coalition
 		}
 		add_to_variable = { SOV_coalition_seats = SOV_industrialist_seats }
+		add_to_variable = { SOV_coalition_seats = SOV_rightist_seats }
 	}
 	if = {
 		limit = {
-			has_country_flag = proletarian_coalition
+			has_country_flag = revolutionary_socialism_coalition
 		}
-		add_to_variable = { SOV_coalition_seats = SOV_technocrat_seats }
+		add_to_variable = { SOV_coalition_seats = SOV_neodecist_seats }
+		add_to_variable = { SOV_coalition_seats = SOV_oppositionist_seats }
 	}
 	if = {
 		limit = {
-			has_country_flag = libertarian_socialism_coalition
+			has_country_flag = democratic_socialism_coalition
 		}
-		add_to_variable = { SOV_coalition_seats = SOV_libertarian_seats }
+		add_to_variable = { SOV_coalition_seats = SOV_democratic_seats }
 	}
+}
+
+SOV_setup_variables = {
+	set_variable = { SOV_parliament_seats = 542 }
+	set_variable = { SOV_industrialist_seats = 87 }
+	set_variable = { SOV_rightist_seats = 123 }
+	set_variable = { SOV_neodecist_seats = 62 }
+	set_variable = { SOV_oppositionist_seats = 88 }
+	set_variable = { SOV_democratic_seats = 102 }
+	set_variable = { SOV_independent_seats = 80 }
 }
 
 SOV_recalc_parliament = {
 	
 	set_variable = { SOV_industrialist_seats = 0 }
-	set_variable = { SOV_technocrat_seats = 0 }
-	set_variable = { SOV_libertarian_seats = 0 }
+	set_variable = { SOV_rightist_seats = 0 }
+	set_variable = { SOV_neodecist_seats = 0 }
+	set_variable = { SOV_oppositionist_seats = 0 }
+	set_variable = { SOV_democratic_seats = 0 }
 	set_variable = { SOV_independent_seats = 0 }
 	
 	set_variable = { SOV_parliament_seats_old = SOV_parliament_seats }
 	
-	set_temp_variable = { ideology_total = party_popularity@revolutionary_autocracy }
-	add_to_temp_variable = { ideology_total = party_popularity@proletarian_dictatorship }
-	add_to_temp_variable = { ideology_total = party_popularity@libertarian_socialism }
-	if = {
-		limit = {
-			has_country_flag = SOV_many_parties
-		}
-		add_to_temp_variable = { ideology_total = party_popularity@social_democracy }
-		add_to_temp_variable = { ideology_total = party_popularity@progressive_liberalism }
-		add_to_temp_variable = { ideology_total = party_popularity@national_conservatism }
-	}
-	
 	set_variable = {
-		SOV_industrialist_seats = party_popularity@revolutionary_autocracy
+		SOV_industrialist_seats = party_popularity@vanguard_socialism
 	}
-	divide_variable = {
-		SOV_industrialist_seats = ideology_total
+	multiply_variable = {
+		SOV_industrialist_seats = 0.5
 	}
-	if = {
-		limit = {
-			has_country_flag = SOV_industrialist_dead
-		}
-		multiply_variable = { SOV_industrialist_seats = 0.15 }
-	}
-	
 	set_variable = {
-		SOV_technocrat_seats = party_popularity@proletarian_dictatorship
+		SOV_rightist_seats = party_popularity@vanguard_socialism
 	}
-	divide_variable = {
-		SOV_technocrat_seats = ideology_total
+	multiply_variable = {
+		SOV_rightist_seats = 0.5
 	}
-	if = {
-		limit = {
-			has_country_flag = SOV_technocrat_dead
-		}
-		multiply_variable = { SOV_technocrat_seats = 0.15 }
-	}
-	
 	set_variable = {
-		SOV_libertarian_seats = party_popularity@libertarian_socialism
+		SOV_neodecist_seats = party_popularity@revolutionary_socialism
 	}
-	divide_variable = {
-		SOV_libertarian_seats = ideology_total
+	multiply_variable = {
+		SOV_neodecist_seats = 0.5
 	}
-	if = {
-		limit = {
-			has_country_flag = SOV_libertarian_dead
-		}
-		multiply_variable = { SOV_libertarian_seats = 0.15 }
+	set_variable = {
+		SOV_oppositionist_seats = party_popularity@revolutionary_socialism
 	}
-	
-	if = {
-		limit = {
-			OR = {
-				has_country_flag = SOV_industrialist_dead
-				has_country_flag = SOV_technocrat_dead
-			}
-		}
-		multiply_variable = { SOV_libertarian_seats = 1.85 }
+	multiply_variable = {
+		SOV_oppositionist_seats = 0.5
 	}
-	if = {
-		limit = {
-			OR = {
-				has_country_flag = SOV_industrialist_dead
-				has_country_flag = SOV_libertarian_dead
-			}
-		}
-		multiply_variable = { SOV_technocrat_seats = 1.85 }
-	}
-	if = {
-		limit = {
-			OR = {
-				has_country_flag = SOV_technocrat_dead
-				has_country_flag = SOV_libertarian_dead
-			}
-		}
-		multiply_variable = { SOV_industrialist_seats = 1.85 }
+	set_variable = {
+		SOV_democratic_seats = party_popularity@democratic_socialism
 	}
 	
 	if = {
@@ -117,22 +80,22 @@ SOV_recalc_parliament = {
 		set_variable = {
 			SOV_eser_seats = party_popularity@social_democracy
 		}
-		divide_variable = {
-			SOV_eser_seats = ideology_total
-		}
-		
 		set_variable = {
 			SOV_liberal_seats = party_popularity@progressive_liberalism
 		}
-		divide_variable = {
-			SOV_liberal_seats = ideology_total
-		}
-		
 		set_variable = {
 			SOV_agrarian_seats = party_popularity@national_conservatism
 		}
-		divide_variable = {
-			SOV_agrarian_seats = ideology_total
+	}
+	else = {
+		set_variable = {
+			SOV_independent_seats = party_popularity@social_democracy
+		}
+		add_to_variable = {
+			SOV_independent_seats = party_popularity@progressive_liberalism
+		}
+		add_to_variable = {
+			SOV_independent_seats = party_popularity@national_conservatism
 		}
 	}
 	
@@ -140,10 +103,16 @@ SOV_recalc_parliament = {
 		SOV_industrialist_seats = SOV_parliament_seats
 	}
 	multiply_variable = {
-		SOV_technocrat_seats = SOV_parliament_seats
+		SOV_rightist_seats = SOV_parliament_seats
 	}
 	multiply_variable = {
-		SOV_libertarian_seats = SOV_parliament_seats
+		SOV_neodecist_seats = SOV_parliament_seats
+	}
+	multiply_variable = {
+		SOV_oppositionist_seats = SOV_parliament_seats
+	}
+	multiply_variable = {
+		SOV_democratic_seats = SOV_parliament_seats
 	}
 	if = {
 		limit = {
@@ -159,10 +128,17 @@ SOV_recalc_parliament = {
 			SOV_agrarian_seats = SOV_parliament_seats
 		}
 	}
+	else = {
+		multiply_variable = {
+			SOV_independent_seats = SOV_parliament_seats
+		}
+	}
 	
 	round_variable = SOV_industrialist_seats
-	round_variable = SOV_technocrat_seats
-	round_variable = SOV_libertarian_seats
+	round_variable = SOV_rightist_seats
+	round_variable = SOV_neodecist_seats
+	round_variable = SOV_oppositionist_seats
+	round_variable = SOV_democratic_seats
 	if = {
 		limit = {
 			has_country_flag = SOV_many_parties
@@ -170,6 +146,9 @@ SOV_recalc_parliament = {
 		round_variable = SOV_eser_seats
 		round_variable = SOV_liberal_seats
 		round_variable = SOV_agrarian_seats
+	}
+	else = {
+		round_variable = SOV_independent_seats
 	}
 	
 	set_variable = {
@@ -179,10 +158,16 @@ SOV_recalc_parliament = {
 		SOV_parliament_seats = SOV_industrialist_seats
 	}
 	add_to_variable = {
-		SOV_parliament_seats = SOV_technocrat_seats
+		SOV_parliament_seats = SOV_rightist_seats
 	}
 	add_to_variable = {
-		SOV_parliament_seats = SOV_libertarian_seats
+		SOV_parliament_seats = SOV_neodecist_seats
+	}
+	add_to_variable = {
+		SOV_parliament_seats = SOV_oppositionist_seats
+	}
+	add_to_variable = {
+		SOV_parliament_seats = SOV_democratic_seats
 	}
 	if = {
 		limit = {
@@ -196,6 +181,11 @@ SOV_recalc_parliament = {
 		}
 		add_to_variable = {
 			SOV_parliament_seats = SOV_agrarian_seats
+		}
+	}
+	else = {
+		add_to_variable = {
+			SOV_parliament_seats = SOV_independent_seats
 		}
 	}
 	#log = "[This.GetName]: SOV_parliament_seats - [?SOV_parliament_seats]"
@@ -222,16 +212,7 @@ SOV_recalc_parliament = {
 		if = {
 			limit = {
 				OR = {
-					AND = {
-						has_government = revolutionary_autocracy
-						NOT = {
-							has_country_flag = SOV_industrialist_dead
-						}
-					}
-					OR = {
-						has_country_flag = SOV_technocrat_dead
-						has_country_flag = SOV_libertarian_dead
-					}
+					has_government = vanguard_socialism
 				}
 			}
 			add_to_variable = {
@@ -240,28 +221,18 @@ SOV_recalc_parliament = {
 		}
 		else_if = {
 			limit = {
-				AND = {
-					has_government = proletarian_dictatorship
-					NOT = {
-						has_country_flag = SOV_technocrat_dead
-					}
-				}
+				has_government = revolutionary_socialism
 			}
 			add_to_variable = {
-				SOV_technocrat_seats = SOV_parliament_seats_old
+				SOV_neodecist_seats = SOV_parliament_seats_old
 			}
 		}
 		else_if = {
 			limit = {
-				AND = {
-					has_government = libertarian_socialism
-					NOT = {
-						has_country_flag = SOV_libertarian_dead
-					}
-				}
+				has_government = democratic_socialism
 			}
 			add_to_variable = {
-				SOV_libertarian_seats = SOV_parliament_seats_old
+				SOV_democratic_seats = SOV_parliament_seats_old
 			}
 		}
 		else = {
@@ -275,18 +246,24 @@ SOV_recalc_parliament = {
 
 SOV_refresh_parliament = {
 	set_temp_variable = { t1 = SOV_industrialist_seats }
-	set_temp_variable = { t2 = SOV_technocrat_seats }
-	set_temp_variable = { t3 = SOV_libertarian_seats }
-	set_temp_variable = { t4 = SOV_eser_seats }
-	set_temp_variable = { t5 = SOV_liberal_seats }
-	set_temp_variable = { t6 = SOV_agrarian_seats }
-	set_temp_variable = { t7 = SOV_parliament_seats }
+	set_temp_variable = { t2 = SOV_rightist_seats }
+	set_temp_variable = { t3 = SOV_neodecist_seats }
+	set_temp_variable = { t4 = SOV_oppositionist_seats }
+	set_temp_variable = { t5 = SOV_democratic_seats }
+	set_temp_variable = { t6 = SOV_eser_seats }
+	set_temp_variable = { t7 = SOV_liberal_seats }
+	set_temp_variable = { t8 = SOV_agrarian_seats }
+	set_temp_variable = { t9 = SOV_independent_seats }
+	set_temp_variable = { t10 = SOV_parliament_seats }
 
 	add_to_temp_variable = { t2 = t1 }
 	add_to_temp_variable = { t3 = t2 }
 	add_to_temp_variable = { t4 = t3 }
 	add_to_temp_variable = { t5 = t4 }
 	add_to_temp_variable = { t6 = t5 }
+	add_to_temp_variable = { t7 = t6 }
+	add_to_temp_variable = { t8 = t7 }
+	add_to_temp_variable = { t9 = t8 }
 	
 	clear_array = SOV_frame_array
 	
@@ -308,29 +285,45 @@ SOV_refresh_parliament = {
 		value = 3
 		size = t3
 	}
-	# Resize array to all t4 seats, setting P4 frame numbers to 4 (Party 4 color)
+	# Resize array to t4 seats, setting P4 frame numbers to 4 (Party 4 color)
 	resize_array = {
 		array = SOV_frame_array
 		value = 4
 		size = t4
 	}
-	# Resize array to all t5, setting P5 frame numbers to 5 (Party 5 color)
+	# Resize array to t5, setting P5 frame numbers to 5 (Party 5 color)
 	resize_array = {
 		array = SOV_frame_array
 		value = 5
 		size = t5
 	}
-	# Resize array to all t6, setting remaining frame numbers to 6 (Party 6 color)
+	# Resize array to t6, setting remaining frame numbers to 6 (Party 6 color)
 	resize_array = {
 		array = SOV_frame_array
 		value = 6
 		size = t6
 	}
-	# Resize array to SOV_parliament_seats, setting remaining frame numbers to 7 (Party 7 color)
+	
 	resize_array = {
 		array = SOV_frame_array
 		value = 7
 		size = t7
+	}
+	resize_array = {
+		array = SOV_frame_array
+		value = 8
+		size = t8
+	}
+	resize_array = {
+		array = SOV_frame_array
+		value = 9
+		size = t9
+	}
+	# Resize array to SOV_parliament_seats, setting remaining frame numbers to 10 
+	resize_array = {
+		array = SOV_frame_array
+		value = 10
+		size = t10
 	}
 }
 

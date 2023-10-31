@@ -16,6 +16,21 @@ characters = {
 				
 			}
 		}
+		
+		corps_commander = {
+			traits = {
+				
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+			
+			visible = {
+				has_socialist_govt = yes
+			}
+		}
 	}
 	
 	IRE_roddy_connelly = {
@@ -32,6 +47,23 @@ characters = {
 			ideology = leninism_subtype
 			traits = {
 				
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = IRE_roddy_connolly
+			
+			available = {
+				AND = {
+					has_socialist_govt = yes
+					is_country_leader = no
+				}
+			}
+			
+			traits = {
+				for_great_compromiser
 			}
 		}
 	}
@@ -108,6 +140,60 @@ characters = {
 		}
 	}
 	
+	IRE_william_cosgrave = {
+		name = IRE_william_cosgrave
+	
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_IRE_william_cosgrave"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_WILLIAM_COSGRAVE_DESC"
+			ideology = liberal_conservatism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	IRE_michael_collins = {
+		name = IRE_michael_collins
+	
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_IRE_michael_collins"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_MICHAEL_COLLINS_DESC"
+			ideology = national_conservatism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	IRE_arthur_griffith = {
+		name = IRE_arthur_griffith
+	
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_IRE_arthur_griffith"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_ARTHUR_GRIFFITH_DESC"
+			ideology = authoritarian_democracy_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
 	IRE_cathal_brugha = {
 		name = IRE_cathal_brugha
 	
@@ -119,7 +205,7 @@ characters = {
 		
 		country_leader = {
 			desc = "POLITICS_CATHAL_BRUGHA_DESC"
-			ideology = autocratic_despotism_subtype
+			ideology = despotism_subtype
 			traits = {
 				
 			}
@@ -137,7 +223,7 @@ characters = {
 		
 		country_leader = {
 			desc = "POLITICS_EOIN_ODUFFY_DESC"
-			ideology = autocratic_despotism_subtype
+			ideology = despotism_subtype
 			traits = {
 				
 			}
@@ -145,7 +231,7 @@ characters = {
 		
 		country_leader = {
 			desc = "POLITICS_EOIN_ODUFFY_DESC"
-			ideology = far_right_authoritarianism_subtype
+			ideology = ultraconservatism_subtype
 			traits = {
 				
 			}
@@ -165,33 +251,42 @@ characters = {
 		}
 	}
 	
-	### Ministers ##
+	IRE_gearoid_cuinneagain = {
+		name = IRE_gearoid_cuinneagain
+	
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_IRE_gearoid_cuinneagain"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_GEAROID_CUINNEAGAIN_DESC"
+			ideology = fascism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	### Deputy Leaders ##
 	
 	IRE_douglas_hyde = {
 		name = IRE_douglas_hyde
 		
 		portraits = {
 			civilian = {
-				small = "GFX_idea_USA_douglas_hyde"
+				small = "GFX_minister_IRE_douglas_hyde"
 			}
 		}
 		
 		advisor = {
-			cost = 100
-			
 			slot = head_of_government
 			idea_token = IRE_douglas_hyde_hog
 			ledger = civilian
 			
-			removal_cost = -1
-			
-			allowed = {
-				original_tag = IRE
-			}
-			
-			visible = {
-				
-			}
+			cost = 0
+			can_be_fired = no
 			
 			available = {
 				
@@ -203,7 +298,378 @@ characters = {
 		}
 	}
 	
+	IRE_james_larkin_jr = {
+		name = IRE_james_larkin_jr
+		
+		portraits = {
+			civilian = {
+				small = "GFX_minister_IRE_james_larkin_jr"
+			}
+		}
+		
+		advisor = {
+			slot = head_of_government
+			idea_token = IRE_james_larkin_jr_hog
+			ledger = civilian
+			
+			cost = 0
+			can_be_fired = no
+			
+			available = {
+				
+			}
+			
+			traits = {
+				hog_political_protege
+			}
+		}
+	}
+	
+	IRE_william_norton = {
+		name = IRE_william_norton
+		
+		portraits = {
+			civilian = {
+				small = "GFX_minister_IRE_william_norton"
+			}
+		}
+		
+		advisor = {
+			slot = head_of_government
+			idea_token = IRE_william_norton_hog
+			ledger = civilian
+			
+			cost = 0
+			can_be_fired = no
+			
+			available = {
+				
+			}
+			
+			traits = {
+				hog_ambitious_union_boss
+			}
+		}
+	}
+	
+	### Ministers ###
+	
+	IRE_andy_barr = {
+		name = IRE_andy_barr
+		
+		portraits = {
+			civilian = {
+				small = "GFX_minister_IRE_andy_barr"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			
+			slot = political_advisor
+			idea_token = IRE_andy_barr
+			ledger = civilian
+			
+			available = {
+				has_socialist_govt = yes
+			}
+			
+			traits = {
+				eco_union_man
+			}
+		}
+	}
+	
+	IRE_mairtin_o_cadhain = {
+		name = IRE_mairtin_o_cadhain
+		
+		portraits = {
+			civilian = {
+				small = "GFX_minister_IRE_mairtin_o_cadhain"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			
+			slot = political_advisor
+			idea_token = IRE_mairtin_o_cadhain
+			ledger = civilian
+			
+			available = {
+				has_socialist_govt = yes
+			}
+			
+			traits = {
+				edu_educational_reformer
+			}
+		}
+	}
+	
+	IRE_benjamin_farrington = {
+		name = IRE_benjamin_farrington
+		
+		portraits = {
+			civilian = {
+				small = "GFX_minister_IRE_benjamin_farrington"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = IRE_benjamin_farrington
+			available = {
+				has_socialist_govt = yes
+			}
+			traits = {
+				edu_technocrat
+			}
+		}
+	}
+	
+	IRE_sean_okelly = {
+		name = IRE_sean_okelly
+		
+		portraits = {
+			civilian = {
+				small = "GFX_minister_IRE_sean_okelly"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			
+			slot = political_advisor
+			idea_token = IRE_sean_okelly
+			ledger = civilian
+			
+			available = {
+				has_democratic_govt = yes
+			}
+			
+			traits = {
+				eco_financial_expert
+			}
+		}
+	}
+	
+	IRE_ernest_blythe = {
+		name = IRE_ernest_blythe
+		
+		portraits = {
+			civilian = {
+				small = "GFX_minister_IRE_ernest_blythe"
+			}
+		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = IRE_ernest_blythe
+			
+			available = {
+				has_socialist_govt = no
+			}
+			
+			traits = {
+				eco_administrative_genius
+			}
+		}
+	}
+	
+	IRE_eoin_macneill = {
+		name = IRE_eoin_macneill
+		
+		portraits = {
+			civilian = {
+				small = "GFX_minister_IRE_eoin_macneill"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = IRE_eoin_macneill
+			available = {
+				has_socialist_govt = no
+			}
+			traits = { edu_educational_reformer }
+		}
+	}
+	
+	IRE_joseph_brennan = {
+		name = IRE_joseph_brennan
+		
+		portraits = {
+			civilian = {
+				small = "GFX_minister_IRE_joseph_brennan"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = IRE_joseph_brennan
+			traits = {
+				eco_bank_president
+			}
+			ledger = civilian
+		}
+	}
+	
+	IRE_liam_tobin = {
+		name = IRE_liam_tobin
+		
+		portraits = {
+			civilian = {
+				small = "GFX_minister_IRE_liam_tobin"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			
+			slot = political_advisor
+			idea_token = IRE_liam_tobin
+			ledger = civilian
+			
+			allowed = {
+				original_tag = IRE
+			}
+			
+			visible = {
+				
+			}
+			
+			available = {
+				has_completed_focus = IRE_reform_the_twelve_apostles
+			}
+			
+			traits = {
+				sec_secret_police_chief
+			}
+		}
+	}
+	
 	### Military ###
+	
+	IRE_richard_mulcahy = {
+		name = IRE_richard_mulcahy
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_IRE_richard_mulcahy"
+			}
+		}
+		
+		field_marshal = {
+			traits = {
+				trait_cautious
+				brilliant_strategist
+				organizer
+				logistics_wizard
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 3
+		}
+		
+		advisor = {
+			slot = army_chief
+			idea_token = IRE_richard_mulcahy
+			traits = {
+				army_chief_planning_2
+			}
+			cost = 100
+		}
+	}
+	
+	IRE_hugo_macneill = {
+		name = IRE_hugo_macneill
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_IRE_hugo_macneill"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				harsh_leader
+				organizer
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	
+	IRE_tom_barry = {
+		name = IRE_tom_barry
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_IRE_tom_barry"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				career_officer
+				commando
+			}
+			skill = 3
+			attack_skill = 4
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = IRE_tom_barry
+			ledger = army
+			traits = { army_infantry_2 }
+			cost = 100
+		}
+	}
+	
+	IRE_jeremiah_oconnell = {
+		name = IRE_jeremiah_oconnell
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_IRE_jeremiah_oconnell"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+		
+		advisor = {
+			slot = theorist
+			idea_token = IRE_jeremiah_oconnell
+			ledger = army
+			traits = {
+				military_theorist
+			}
+			cost = 100
+		}
+	}
+	
+	### Admirals ###
 	
 	IRE_seamus_omuiris = {
 		name = IRE_seamus_omuiris
@@ -232,5 +698,97 @@ characters = {
 		#	traits = { KR_navy_chief_decisive_battle_2 }
 		#	cost = 100
 		#}
+	}
+	
+	### High Command ###
+	
+	IRE_liam_archer = {
+		name = IRE_liam_archer
+		
+		portraits = {
+			army = {
+				small = "GFX_minister_IRE_liam_archer"
+			}
+		}
+		
+		advisor = {
+			slot = army_chief
+			idea_token = IRE_liam_archer
+			traits = {
+				army_chief_organizational_1
+			}
+			cost = 50
+		}
+	}
+	
+	IRE_john_prout = {
+		name = IRE_john_prout
+		
+		portraits = {
+			army = {
+				small = "GFX_minister_IRE_john_prout"
+			}
+		}
+		
+		advisor = {
+			slot = army_chief
+			idea_token = IRE_john_prout
+			traits = {
+				army_chief_drill_2
+			}
+			cost = 100
+		}
+	}
+	
+	### Socialists ###
+	
+	IRE_paddy_odaire = {
+		name = IRE_paddy_odaire
+	
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_IRE_paddy_odaire"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+			
+			visible = {
+				has_socialist_govt = yes
+			}
+		}
+	}
+	
+	IRE_michael_oriordan = {
+		name = IRE_michael_oriordan
+	
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_IRE_michael_oriordan"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+			
+			visible = {
+				has_socialist_govt = yes
+			}
+		}
 	}
 }

@@ -1,28 +1,4 @@
 demo_decisions_category = {
-
-	AHE_rote_front = {
-		
-		allowed = {
-			original_tag = AHE
-		}
-
-		cost = 0
-		
-		fire_only_once = yes
-
-		complete_effect = {
-			create_faction = "Red Front"
-		}
-		
-		ai_will_do = {
-			factor = 0
-			
-			modifier = {
-				add = 1000
-				date > 1936.11.1
-			}
-		}
-	}
 	
 	AUS_weiss_front = {
 		
@@ -62,7 +38,7 @@ demo_decisions_category = {
 			random_list = {
 				10 = {
 					set_politics = {
-						ruling_party = libertarian_socialism
+						ruling_party = democratic_socialism
 						last_election = "1937.1.13"
 						election_frequency = 48
 						elections_allowed = yes
@@ -78,7 +54,7 @@ demo_decisions_category = {
 				}
 				30 = {
 					set_politics = {
-						ruling_party = market_libertarianism
+						ruling_party = liberal_conservatism
 						last_election = "1937.1.13"
 						election_frequency = 48
 						elections_allowed = yes
@@ -94,7 +70,7 @@ demo_decisions_category = {
 				}
 				10 = {
 					set_politics = {
-						ruling_party = far_right_authoritarianism
+						ruling_party = ultraconservatism
 						last_election = "1937.1.13"
 						election_frequency = 48
 						elections_allowed = no
@@ -127,7 +103,7 @@ demo_decisions_category = {
 			if = {
 				limit = {
 					OR = {
-						has_government = libertarian_socialism
+						has_government = democratic_socialism
 						has_government = progressive_liberalism
 					}
 				}
@@ -142,9 +118,9 @@ demo_decisions_category = {
 			else_if = {
 				limit = {
 					OR = {
-						has_government = market_libertarianism
+						has_government = liberal_conservatism
 						has_government = authoritarian_democracy
-						has_government = far_right_authoritarianism
+						has_government = ultraconservatism
 					}
 				}
 				AUS = {
@@ -181,7 +157,7 @@ demo_decisions_category = {
 			random_list = {
 				10 = {
 					set_politics = {
-						ruling_party = libertarian_socialism
+						ruling_party = democratic_socialism
 						last_election = "1937.2.18"
 						election_frequency = 48
 						elections_allowed = yes
@@ -197,7 +173,7 @@ demo_decisions_category = {
 				}
 				25 = {
 					set_politics = {
-						ruling_party = market_libertarianism
+						ruling_party = liberal_conservatism
 						last_election = "1937.2.18"
 						election_frequency = 48
 						elections_allowed = yes
@@ -238,7 +214,7 @@ demo_decisions_category = {
 			if = {
 				limit = {
 					OR = {
-						has_government = libertarian_socialism
+						has_government = democratic_socialism
 						has_government = progressive_liberalism
 					}
 				}
@@ -253,7 +229,7 @@ demo_decisions_category = {
 			else_if = {
 				limit = {
 					OR = {
-						has_government = market_libertarianism
+						has_government = liberal_conservatism
 						has_government = national_conservatism
 					}
 				}

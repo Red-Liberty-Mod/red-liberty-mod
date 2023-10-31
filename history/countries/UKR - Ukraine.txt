@@ -8,6 +8,7 @@ set_research_slots = 3
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
+	tech_trucks = 1
 	tech_recon = 1
 	tech_support = 1		
 	tech_engineers = 1
@@ -16,10 +17,6 @@ set_technology = {
 	motorised_infantry = 1
 	paratroopers = 1
 	gw_artillery = 1
-	early_fighter = 1
-	fighter1 = 1
-	early_bomber = 1
-	naval_bomber1 = 1
 	fuel_silos = 1
 }
 if = {
@@ -72,29 +69,49 @@ if = {
 		}
 	}
 }
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+	set_technology = {
+		aa_lmg = 1
+		engines_1 = 1
+		engines_2 = 1
+		early_bombs = 1
+		aircraft_construction = 1
+		iw_small_airframe = 1
+		iw_medium_airframe = 1
+	}
+	else = {
+		set_technology = {
+			early_fighter = 1
+			early_bomber = 1
+		}
+	}
+}
 
 set_variable = { UKR_german_influence = 27 }
 set_variable = { UKR_russian_influence = 15 }
 
 set_politics = {
-	ruling_party = autocratic_despotism
+	ruling_party = despotism
 	last_election = "1932.11.8"
 	election_frequency = 0
 	elections_allowed = no
 }
 set_popularities = {
-	insurrectionary_anarchism = 5
-	revolutionary_autocracy = 3
-	proletarian_dictatorship = 0
-	libertarian_socialism = 24
+	anarchism = 5
+	vanguard_socialism = 3
+	revolutionary_socialism = 10
+	democratic_socialism = 24
 	social_democracy = 14
-	progressive_liberalism = 12
-	market_libertarianism = 2
-	national_conservatism = 18
+	progressive_liberalism = 2
+	liberal_conservatism = 2
+	national_conservatism = 22
 	authoritarian_democracy = 0
-	autocratic_despotism = 13
-	far_right_authoritarianism = 5
-	fascism = 4
+	despotism = 13
+	ultraconservatism = 5
+	fascism = 0
 }
 
 add_equipment_to_stockpile = {
@@ -115,20 +132,24 @@ add_equipment_to_stockpile = {
 	producer = GER
 }
 
+### LEADERS ###
+recruit_character = UKR_oleksander_shumskyi
+recruit_character = UKR_volodymyr_vynnychenko
+recruit_character = UKR_oleksander_shulhyn
+recruit_character = UKR_viktor_andriievsky
+recruit_character = UKR_pavlo_skoropadskyi
+
+### GENERALS ###
+recruit_character = UKR_konstantin_prisovsky
+recruit_character = UKR_yevhen_konovalets
+recruit_character = UKR_andriy_melnyk
+recruit_character = UKR_mykhailo_omelianovych_pavlenko
+recruit_character = UKR_mykola_kapustyanskyi
+recruit_character = UKR_ivan_poltavets_ostrianytsia
+
 add_ideas = {
 	UKR_unpopular_govt
-	UKR_low_industrialization
-}
-
-create_country_leader = {
-	name = "Pavlo Skoropadskyi"
-	desc = ""
-	picture = "gfx/leaders/UKR/Portrait_UKR_Pavlo_Skoropadski.png"
-	expire = "1953.3.1"
-	ideology = autocratic_despotism_subtype
-	traits = {
-		
-	}
+	UKR_grain_economy
 }
 
 if = {

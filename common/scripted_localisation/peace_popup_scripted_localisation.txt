@@ -123,6 +123,33 @@ defined_text = {
 		localization_key = PEACE_POPUP_WAR_CONCLUSION_AHE_AUS
 	}
 	
+	text = { # irish civil war - government loses
+		trigger = {
+			event_target:winning_country = {
+				OR = {
+					tag = ICA
+					tag = IRA
+				}
+			}
+			event_target:losing_country = {
+				tag = IRE
+			}
+		}
+		localization_key = PEACE_POPUP_WAR_CONCLUSION_ICA_IRA_IRE
+	}
+	
+	text = { # italo-ethiopian war - ethiopia wins
+		trigger = {
+			event_target:winning_country = {
+				original_tag = ETH
+			}
+			event_target:losing_country = {
+				original_tag = ITA
+			}
+		}
+		localization_key = PEACE_POPUP_WAR_CONCLUSION_ETH_ITA
+	}
+	
 	text = { # Generic
 		localization_key = PEACE_POPUP_WAR_CONCLUSION_DEFAULT
 	}
@@ -141,7 +168,11 @@ defined_text = {
 					original_tag = AUS
 					original_tag = CZE
 					original_tag = SLV
+					original_tag = HUN
+					original_tag = ROM
+					original_tag = CRO
 				}
+				has_country_flag = 
 			}
 			event_target:losing_country = {
 				OR = {
@@ -149,6 +180,9 @@ defined_text = {
 					original_tag = AUS
 					original_tag = CZE
 					original_tag = SLV
+					original_tag = HUN
+					original_tag = ROM
+					original_tag = CRO
 				}
 			}
 		}
@@ -203,10 +237,22 @@ defined_text = {
 	text = {
 		trigger = {
 			event_target:losing_country = {
-				original_tag = AHE
+				OR = {
+					original_tag = AHE
+					original_tag = AUS
+				}
 			}
 		}
 		localization_key = PEACE_POPUP_FLAVOR_AHE
+	}
+	
+	text = {
+		trigger = {
+			event_target:losing_country = {
+				original_tag = IRE
+			}
+		}
+		localization_key = PEACE_POPUP_FLAVOR_IRE
 	}
 
 	text = {

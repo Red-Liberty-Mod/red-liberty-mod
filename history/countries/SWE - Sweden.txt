@@ -1,6 +1,8 @@
 ﻿capital = 141	
 
 oob = "SWE"
+set_convoys = 100
+starting_train_buffer = 2
 
 set_research_slots = 3
 
@@ -15,13 +17,8 @@ set_technology = {
 	tech_recon = 1
 	tech_support = 1		
 	tech_engineers = 1
-	gwtank = 1
-	basic_light_tank = 1
-	CAS1 = 1
-	early_fighter = 1
-	naval_bomber1 = 1
-	cv_naval_bomber1 = 1
-	early_bomber = 1
+	
+	basic_train = 1
 }
 if = {
 	limit = { has_dlc = "Man the Guns" }
@@ -34,7 +31,6 @@ if = {
 		basic_ship_hull_submarine = 1
 		early_ship_hull_cruiser = 1
 		basic_battery = 1
-		basic_secondary_battery = 1
 		basic_cruiser_armor_scheme = 1
 		basic_torpedo = 1
 		basic_depth_charges = 1
@@ -55,77 +51,166 @@ if = {
 	}
 }
 
+if = {
+	limit = {
+		has_dlc_nsb = yes
+	}
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+	}
+	else = {
+		set_technology = {
+			gwtank = 1
+			basic_light_tank = 1
+		}
+	}
+}
+
+if = {
+	limit = { has_dlc_bba = yes }
+	set_technology = {
+		iw_small_airframe = 1
+		aa_lmg = 1
+		engines_1 = 1
+	}
+	set_air_oob = "SWE_air_bba"
+	else = {
+		set_technology = {
+			CAS1 = 1
+			early_fighter = 1
+			naval_bomber1 = 1
+			cv_naval_bomber1 = 1
+			early_bomber = 1
+		}
+		set_air_oob = "SWE_air_legacy"
+	}
+}
+
 set_politics = {
 	ruling_party = social_democracy
-	last_election = "1932.11.8"
+	last_election = "1932.9.18"
 	election_frequency = 48
 	elections_allowed = no
 }
 set_popularities = {
-	insurrectionary_anarchism = 0
-	revolutionary_autocracy = 3
-	proletarian_dictatorship = 5
-	libertarian_socialism = 14
+	anarchism = 0
+	vanguard_socialism = 3
+	revolutionary_socialism = 5
+	democratic_socialism = 14
 	social_democracy = 31
 	progressive_liberalism = 13
-	market_libertarianism = 14
+	liberal_conservatism = 14
 	national_conservatism = 19
-	far_right_authoritarianism = 0
+	ultraconservatism = 0
 	authoritarian_democracy = 1
-	autocratic_despotism = 0
+	despotism = 0
 	fascism = 0
 }
 
-set_country_flag = proletarian_coalition
-set_country_flag = libertarian_socialism_coalition
+set_country_flag = revolutionary_socialism_coalition
+set_country_flag = democratic_socialism_coalition
 set_country_flag = social_democracy_coalition
-set_country_flag = market_libertarian_coalition
+set_country_flag = liberal_conservatism_coalition
+
+### Leaders ###
+recruit_character = SWE_john_andersson
+recruit_character = SWE_sven_linderot
+recruit_character = SWE_nils_flyg
+recruit_character = SWE_gustav_moller
+recruit_character = SWE_per_albin_hansson
+recruit_character = SWE_gustaf_andersson
+recruit_character = SWE_axel_pehrsson_bramstorp
+recruit_character = SWE_gosta_bagge
+recruit_character = SWE_nils_august_nilsson
+recruit_character = SWE_ivar_rhedin
+recruit_character = SWE_konrad_hallgren
+
+### Ministers ###
+recruit_character = SWE_gustaf_v
 
 add_ideas = {
 	SWE_scandinavian_steel
 	SWE_statare
+	SWE_december_strikes
+	
+	SWE_gustaf_v_hog
 }
 
-create_country_leader = {
-	name = "Nils Flyg"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = revolutionary_socialism_subtype
-	traits = {
-		
+if = {
+	limit = {
+		has_dlc_nsb = yes
 	}
-}
-
-create_country_leader = {
-	name = "Gustav Moller"
-	desc = ""
-	picture = "gfx/leaders/SWE/Portrait_SWE_Gustav_Moller.png"
-	expire = "1965.1.1"
-	ideology = democratic_socialism_subtype
-	traits = {
-		
+	create_equipment_variant = {
+		name = "Stridsvagn m/21"
+		type = light_tank_chassis_0
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_heavy_machine_gun
+			turret_type_slot = tank_light_one_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 2
+			tank_nsb_armor_upgrade = 1
+		}
+		obsolete = yes #used for oob
 	}
-}
-
-create_country_leader = {
-	name = "Per Albin Hansson"
-	desc = ""
-	picture = "gfx/leaders/SWE/Portrait_SWE_Per_Albin_Hansson.png"
-	expire = "1965.1.1"
-	ideology = social_corporatism_subtype
-	traits = {
-		
+	create_equipment_variant = {
+		name = "Stridsvagn m/31"
+		type = light_tank_chassis_1
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_small_cannon
+			turret_type_slot = tank_light_two_man_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 2
+			tank_nsb_engine_upgrade = 3
+		}
 	}
-}
-
-create_country_leader = {
-	name = "Axel Pehrsson-Bramstorp"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = liberal_conservatism_subtype
-	traits = {
-		
+	
+	create_equipment_variant = {
+		name = "Landsverk L-60"
+		type = light_tank_chassis_1
+		parent_version = 0
+		design_team = mio:SWE_landsverk_organization
+		modules = {
+			main_armament_slot = tank_small_cannon
+			turret_type_slot = tank_light_two_man_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 2
+			tank_nsb_engine_upgrade = 3
+		}
+		obsolete = yes # made mostly for export
+	}
+	
+	create_production_license = {
+		target = IRE
+		equipment = {
+			type = light_tank_chassis_1
+			version = 1
+			#new_prioritised = no
+		}
+		cost_factor = 0
+	}
+	
+	IRE = {
+		add_equipment_to_stockpile = {
+			type = light_tank_chassis_1
+			amount = 2
+			variant_name = "Landsverk L-60"
+		}
 	}
 }

@@ -19,6 +19,18 @@ AHE_remove_templates = {
 		limit = { has_template = "Kavalleriedivision" }
 		delete_unit_template_and_units = { division_template = "Kavalleriedivision" }
 	}
+	if = {
+		limit = { has_template = "Kraftfahrjägerdivision" }
+		delete_unit_template_and_units = { division_template = "Kraftfahrjägerdivision" }
+	}
+	if = {
+		limit = { has_template = "Kampfwagendivision" }
+		delete_unit_template_and_units = { division_template = "Kampfwagendivision" }
+	}
+	if = {
+		limit = { has_template = "Rote Garde" }
+		delete_unit_template_and_units = { division_template = "Rote Garde" }
+	}
 }
 
 AHE_create_demilitarized_zones = {
@@ -47,10 +59,14 @@ AHE_setup_AUS = {
 			add_state_core = 153
 			add_state_core = 875
 			add_state_core = 963
+			add_state_core = 985
 			
 			add_ideas = {
 				AUS_last_chance
 			}
+			
+			inherit_technology = AHE
+			add_to_array = { global.danubian_war_participants = THIS.id }
 		}
 		
 		AHE = {
@@ -70,6 +86,21 @@ AHE_setup_AUS = {
 			load_oob = AHE_danubian_war
 		}
 		
+		AUS_eugen_von_habsburg = { set_nationality = AUS }
+		AUS_karl_albrecht_von_habsburg = { set_nationality = AUS }
+		AUS_joseph_august_von_habsburg = { set_nationality = AUS }
+		AUS_alfred_jansa_von_tannenau = { set_nationality = AUS }
+		AUS_erhard_raus = { set_nationality = AUS }
+		AUS_lothar_rendulic = { set_nationality = AUS }
+		AUS_karl_eglseer = { set_nationality = AUS }
+		AUS_julius_ringel = { set_nationality = AUS }
+		AUS_franz_bohme = { set_nationality = AUS }
+		AUS_sigismund_schilhawsky_von_bahnbruck = { set_nationality = AUS }
+		AUS_eduard_barger = { set_nationality = AUS }
+		AUS_friedrich_materna = { set_nationality = AUS }
+		AUS_wilhelm_zehner = { set_nationality = AUS }
+		AUS_ludwig_von_eimannsberger = { set_nationality = AUS }
+		
 		AUS = {
 			add_state_core = 4
 			add_state_core = 69
@@ -82,10 +113,11 @@ AHE_setup_AUS = {
 }
 
 AHE_setup_CZE = {
-	hidden_effect {
+	hidden_effect = {
 		CZE = {
 			add_state_core = 9
 			add_state_core = 69
+			add_state_core = 72
 			add_state_core = 74
 			add_state_core = 75
 			add_state_core = 815
@@ -107,24 +139,21 @@ AHE_setup_CZE = {
 			
 			load_oob = CZE_danubian_war
 			AHE_remove_templates = yes
+			inherit_technology = AHE
+			add_to_array = { global.danubian_war_participants = THIS.id }
 		}
 		
 		69 = {
-			set_demilitarized_zone = no
+			set_demilitarized_zone = yes
 		}
 		815 = {
-			set_demilitarized_zone = no
-		}
-		
-		add_to_array = {
-			array = austrian_breakaways
-			value = CZE
+			set_demilitarized_zone = yes
 		}
 	}
 }
 
 AHE_setup_HUN = {
-	hidden_effect {
+	hidden_effect = {
 		HUN = {
 			add_state_core = 43
 			add_state_core = 45
@@ -138,6 +167,8 @@ AHE_setup_HUN = {
 			add_state_core = 664
 			add_state_core = 764
 			add_state_core = 885
+			
+			set_cosmetic_tag = HUN_republic
 			
 			AHE = {
 				every_owned_state = {
@@ -154,8 +185,26 @@ AHE_setup_HUN = {
 				}
 			}
 			
+			76 = {
+				set_demilitarized_zone = yes
+			}
+			82 = {
+				set_demilitarized_zone = yes
+			}
+			83 = {
+				set_demilitarized_zone = yes
+			}
+			84 = {
+				set_demilitarized_zone = yes
+			}
+			885 = {
+				set_demilitarized_zone = yes
+			}
+			
+			inherit_technology = AHE
 			load_oob = HUN_danubian_war
 			AHE_remove_templates = yes
+			add_to_array = { global.danubian_war_participants = THIS.id }
 		}
 	}
 }
@@ -168,30 +217,33 @@ HUN_setup_TRS = {
 			add_state_core = 82
 			add_state_core = 83
 			add_state_core = 84
-		}
-		
-		HUN = {
-			every_owned_state = {
-				limit = { is_core_of = TRS }
-				
-				set_demilitarized_zone = no
-				TRS = { transfer_state = PREV }
-				
-				teleport_armies = {
-					limit = { tag = HUN }
-					to_state_array = owned_controlled_states
+			
+			HUN = {
+				every_owned_state = {
+					limit = {
+						is_core_of = TRS
+					}
+					
+					set_demilitarized_zone = no
+					TRS = { transfer_state = PREV }
+					
+					teleport_armies = {
+						limit = { tag = HUN }
+						to_state_array = owned_controlled_states
+					}
 				}
 			}
-		}
-		
-		TRS = {
+			
+			add_state_core = 885
+			inherit_technology = AHE
 			load_oob = TRS_danubian_war
+			add_to_array = { global.danubian_war_participants = THIS.id }
 		}
 	}
 }
 
 AHE_setup_CRO = {
-	hidden_effect {
+	hidden_effect = {
 		CRO = {
 			add_state_core = 103
 			add_state_core = 104
@@ -213,21 +265,59 @@ AHE_setup_CRO = {
 						to_state_array = owned_controlled_states
 					}
 				}
+				
+				AHE_transfer_navy_to_CRO = yes
 			}
 			
+			inherit_technology = AHE
 			load_oob = CRO_danubian_war
 			AHE_remove_templates = yes
-		}
-		
-		add_to_array = {
-			array = austrian_breakaways
-			value = CRO
+			add_to_array = { global.danubian_war_participants = THIS.id }
 		}
 	}
 }
 
+AHE_transfer_navy_to_CRO = {
+	
+	### Battleships ###
+	transfer_ship = {
+		prefer_name = "SMS Svatý Václav"
+		type = battleship
+		target = CRO
+		exclude_refitting = no
+	}
+	
+	### Cruisers ###
+	transfer_ship = {
+		prefer_name = "SMS Admiral Njegovan"
+		type = light_cruiser
+		target = CRO
+		exclude_refitting = no
+	}
+	
+	### Destroyers ###
+	transfer_ship = {
+		prefer_name = "SMS Retyezát"
+		type = destroyer
+		target = CRO
+		exclude_refitting = no
+	}
+	transfer_ship = {
+		prefer_name = "SMS Huszár"
+		type = destroyer
+		target = CRO
+		exclude_refitting = no
+	}
+	transfer_ship = {
+		prefer_name = "SMS Tátra"
+		type = destroyer
+		target = CRO
+		exclude_refitting = no
+	}
+}
+
 CRO_setup_BOS = {
-	hidden_effect {
+	hidden_effect = {
 		BOS = {
 			add_state_core = 104
 			add_state_core = 886
@@ -246,6 +336,7 @@ CRO_setup_BOS = {
 				}
 			}
 			
+			inherit_technology = CRO
 			load_oob = BOS_danubian_war
 			if = {
 				limit = { has_template = "Pješačka Divizija" }
@@ -255,12 +346,14 @@ CRO_setup_BOS = {
 				limit = { has_template = "Divizije Milicije" }
 				delete_unit_template_and_units = { division_template = "Divizije Milicije" }
 			}
+			
+			add_to_array = { global.danubian_war_participants = THIS.id }
 		}
 	}	
 }
 
 AHE_setup_SLV = {
-	hidden_effect {
+	hidden_effect = {
 		SLV = {
 			add_state_core = 102
 			add_state_core = 736
@@ -281,19 +374,16 @@ AHE_setup_SLV = {
 				}
 			}
 			
+			inherit_technology = AHE
 			load_oob = SLV_danubian_war
 			AHE_remove_templates = yes
-		}
-		
-		add_to_array = {
-			array = austrian_breakaways
-			value = SLV
+			add_to_array = { global.danubian_war_participants = THIS.id }
 		}
 	}
 }
 
 AHE_setup_PNB = {
-	hidden_effect {
+	hidden_effect = {
 		PNB = {
 			add_state_core = 882
 			
@@ -316,27 +406,58 @@ AHE_setup_PNB = {
 				}
 			}
 			
+			inherit_technology = AHE
 			load_oob = PNB_danubian_war
 			AHE_remove_templates = yes
+			add_to_array = { global.danubian_war_participants = THIS.id }
 		}
 	}
 }
 
-
-AHE_setup_SLO = {
-	hidden_effect {
+HUN_setup_SLO = {
+	hidden_effect = {
 		SLO = {
 			add_state_core = 70
 			add_state_core = 71
-			add_state_core = 664
+			add_state_claim = 73
+			add_state_claim = 664
 			
-			AHE = {
+			HUN = {
 				every_owned_state = {
 					limit = { is_core_of = SLO }
 					
 					set_demilitarized_zone = no
-					remove_core_of = AHE
+					remove_core_of = HUN
 					SLO = { transfer_state = PREV }
+					
+					teleport_armies = {
+						limit = { tag = HUN }
+						to_state_array = owned_controlled_states
+					}
+				}
+			}
+			
+			inherit_technology = HUN
+			load_oob = SLO_danubian_war
+			AHE_remove_templates = yes
+			add_to_array = { global.danubian_war_participants = THIS.id }
+		}
+	}
+}
+
+AHE_setup_WUK = {
+	hidden_effect = {
+		WUK = {
+			add_state_core = 89
+			add_state_core = 91
+			
+			AHE = {
+				every_owned_state = {
+					limit = { is_core_of = WUK }
+					
+					set_demilitarized_zone = no
+					remove_core_of = AHE
+					WUK = { transfer_state = PREV }
 					
 					teleport_armies = {
 						limit = { tag = AHE }
@@ -345,8 +466,10 @@ AHE_setup_SLO = {
 				}
 			}
 			
-			load_oob = SLO_danubian_war
+			inherit_technology = AHE
+			load_oob = WUK_danubian_war
 			AHE_remove_templates = yes
+			add_to_array = { global.danubian_war_participants = THIS.id }
 		}
 	}
 }

@@ -16,23 +16,23 @@ add_equipment_to_stockpile = {
 }
 
 set_politics = {
-	ruling_party = autocratic_despotism
+	ruling_party = despotism
 	last_election = "1932.11.8"
 	election_frequency = 48
 	elections_allowed = no
 }
 set_popularities = {
-	insurrectionary_anarchism = 0
-	revolutionary_autocracy = 0
-	proletarian_dictatorship = 0
-	libertarian_socialism = 0
+	anarchism = 0
+	vanguard_socialism = 0
+	revolutionary_socialism = 0
+	democratic_socialism = 0
 	social_democracy = 0
 	progressive_liberalism = 0
-	market_libertarianism = 0
+	liberal_conservatism = 0
 	national_conservatism = 35
-	far_right_authoritarianism = 0
+	ultraconservatism = 0
 	authoritarian_democracy = 10
-	autocratic_despotism = 55
+	despotism = 55
 	fascism = 0
 }
 
@@ -44,13 +44,32 @@ add_ideas = {
 	tribal_levy
 }
 
-create_country_leader = {
-	name = "Haile Selassie I"
-	desc = ""
-	picture = "gfx/leaders/ETH/Portrait_ETH_Haile_Selassie_I.png"
-	expire = "1965.1.1"
-	ideology = absolute_monarchy_subtype
-	traits = {
-		
-	}
-}
+### LEADERS ###
+recruit_character = ETH_imru_haile_selassie
+recruit_character = ETH_haile_selassie
+
+### ADVISORS ###
+recruit_character = ETH_amha_selassie
+recruit_character = SWE_viking_tamm # not a mistake
+recruit_character = ETH_mesfin_sileshi
+recruit_character = ETH_seyoum_mengesha
+
+activate_advisor = ETH_amha_selassie_hog
+activate_advisor = SWE_viking_tamm
+
+### GENERALS ###
+recruit_character = ETH_mulugeta_yeggazu
+recruit_character = ETH_abebe_aregai
+recruit_character = ETH_kassa_haile_darge
+recruit_character = ETH_hailu_tekle_haymanot
+recruit_character = ETH_nasibu_zeamanuel
+
+### HIGH COMMAND ###
+recruit_character = ETH_beyene_merid
+recruit_character = ETH_gamtesa_gidera
+recruit_character = ETH_haile_selassie_gugsa
+recruit_character = USA_john_robinson
+
+activate_advisor = USA_john_robinson
+
+### load bearing comment - do not remove ##

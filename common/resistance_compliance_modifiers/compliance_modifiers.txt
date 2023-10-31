@@ -44,3 +44,19 @@ compliance_60 = {
 		recruitable_population_factor = 0.2
 	}
 }
+
+compliance_integration_80 = {
+	type = core_compliance_modifier
+	icon = "GFX_occupation_compliance_modifier_strip:5"
+	small_icon = "GFX_occupation_compliance_modifier_small_strip:5"
+	threshold = 80
+	margin = 2
+
+	visible = {
+		has_country_flag = can_integrate_@FROM
+	}
+
+	on_enable = {
+		add_core_of = ROOT
+	}
+}
