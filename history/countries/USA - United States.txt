@@ -90,7 +90,7 @@ oob = "USA_army"
 
 if = {
 	limit = {
-		has_dlc = "La Resistance"
+		has_dlc_lar = yes
 	}
 	set_technology = {
 		armored_car1 = 1
@@ -98,15 +98,7 @@ if = {
 }
 if = {
 	limit = {
-		NOT = { has_dlc = "No Step Back" }
-	}
-	set_technology = {
-		gwtank = 1
-	}
-}
-if = {
-	limit = {
-		has_dlc = "No Step Back"
+		has_dlc_nsb = yes
 	}
 	set_technology = {
 		gwtank_chassis = 1
@@ -116,10 +108,16 @@ if = {
 	add_ideas = {
 		bureau_of_ordnance_spirit
 	}
+	else = {
+		set_technology = {
+			gwtank = 1
+			basic_light_tank = 1
+		}
+	}
 }
 if = {
 	limit = {
-		has_dlc = "By Blood Alone"
+		has_dlc_bba = yes
 	}
 	set_technology = {
 		iw_small_airframe = 1
@@ -148,7 +146,9 @@ if = {
 	}
 }
 if = {
-	limit = { has_dlc = "Man the Guns" }
+	limit = {
+		has_dlc_mtg = yes
+	}
 	set_naval_oob = "USA_naval_mtg"
 	set_technology = {
 		basic_naval_mines = 1
@@ -367,7 +367,7 @@ if = {
 	create_equipment_variant = {
 		name = "Light Tank, M2A1"
 		type = light_tank_chassis_1
-		parent_version = 1
+		parent_version = 0
 		modules = {
 			main_armament_slot = tank_heavy_machine_gun
 			turret_type_slot = tank_light_one_man_tank_turret

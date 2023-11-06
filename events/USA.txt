@@ -84,90 +84,102 @@ country_event = { # 1936 spa convention - choosing veep
 	}
 }
 
-country_event = {
+country_event = { # southern cotton strike - summer 1937
 	id = united_states.7
-	title = "A Jump in Unemployment!"
+	title = united_states.7.title
 	desc = united_states.7.desc
-	picture = GFX_report_event_unemployment
 	
-	trigger = {
-		NOT = {
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = united_states.8
+				days = 7
+			}
+		}
+	}
+
+	option = {
+		name = united_states.7.a
+		trigger = {
 			has_government = democratic_socialism
 		}
 	}
 	
-	is_triggered_only = yes
-	
-	fire_only_once = yes
-
 	option = {
-		name = "Damn."
-		country_event = {
-			id = united_states.8
-			days = 15
+		name = united_states.7.b
+		trigger = {
+			has_government = national_conservatism
 		}
 	}
 }
 
-country_event = {
+country_event = { # southern cotton strike - violence escalates
 	id = united_states.8
-	title = "Reduction in Manufacturing Output!"
+	title = united_states.8.title
 	desc = united_states.8.desc
-	picture = GFX_report_event_unemployment_2
 	
 	is_triggered_only = yes
 	
 	fire_only_once = yes
 
 	option = {
-		name = "Damn."
-		country_event = {
-			id = united_states.9
-			days = 15
-		}
-	}
-}
-
-country_event = {
-	id = united_states.9
-	title = "Recession!"
-	desc = united_states.9.desc
-	picture = GFX_report_event_usa_election_generic
-	
-	is_triggered_only = yes
-	
-	fire_only_once = yes
-
-	option = {
-		name = "We were doing so well..."
-		set_country_flag = USA_1937_recession
-		worsen_great_depression = yes
-		
-		#mark_focus_tree_layout_dirty = yes
-		
-		add_stability = -0.05
-		
+		name = united_states.8.a
+		add_stability = -0.025
+		add_manpower = -32
 		hidden_effect = {
 			country_event = {
-				id = united_states.10
+				id = united_states.9
+				days = 7
 			}
 		}
 	}
 }
 
-news_event = { # recession world event
+country_event = { # southern cotton strike - strike broken
+	id = united_states.9
+	title = united_states.9.title
+	desc = united_states.9.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states.9.a
+		hidden_effect = {
+			country_event = {
+				id = united_states.10
+				days = 14
+			}
+		}
+	}
+}
+
+country_event = { # southern cotton strike - aftermath
 	id = united_states.10
-	title = "United States Enters Recession!"
+	title = united_states.10.title
 	desc = united_states.10.desc
 	
 	is_triggered_only = yes
 	
 	fire_only_once = yes
-	
-	major = yes
 
 	option = {
-		name = "All that hard work..."
+		name = united_states.10.a
+		trigger = {
+			has_government = democratic_socialism
+		}
+	}
+	
+	option = {
+		name = united_states.10.b
+		trigger = {
+			has_government = national_conservatism
+		}
 	}
 }
 
