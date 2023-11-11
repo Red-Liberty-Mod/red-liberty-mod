@@ -370,6 +370,50 @@ news_event = { # cristeros win civil war
 	}
 }
 
+news_event = { # la reclamacion
+	id = worldnews.12
+	title = worldnews.12.title
+	desc = worldnews.12.desc
+	picture = GFX_news_event_CMS_USA_war
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	show_major = {
+		or = {
+			regional_europe_news = yes
+			regional_north_america_news = yes
+			regional_south_america_news = yes
+		}
+	}
+
+	option = {
+		name = worldnews.12.a
+		trigger = {
+			has_socialist_govt = yes
+		}
+	}
+	
+	option = {
+		name = worldnews.12.b
+		trigger = {
+			has_democratic_govt = yes
+		}
+	}
+	
+	option = {
+		name = worldnews.12.c
+		trigger = {
+			has_reactionary_govt = yes
+		}
+	}
+}
+
 news_event = { # brazilian civil war
 	id = worldnews_war.1
 	title = worldnews_war.1.title
