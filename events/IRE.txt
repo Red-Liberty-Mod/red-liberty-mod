@@ -31,6 +31,7 @@ country_event = { # cathal brugha released
 	option = {
 		name = ireland.2.a
 		promote_character = IRE_cathal_brugha
+		set_variable = { IRE_ira_leader = 1 }
 	}
 }
 
@@ -435,6 +436,54 @@ country_event = { # impending violence
 	option = {
 		name = ireland.17.a
 		activate_mission = IRE_impending_outbreak
+	}
+}
+
+country_event = { # mairtin o cadhain gives a speech denouncing the establishment
+	id = ireland.18
+	title = ireland.18.title
+	desc = ireland.18.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ireland.18.a
+		add_popularity = {
+			ideology = vanguard_socialism
+			popularity = 0.005
+		}
+	}
+}
+
+country_event = { # jim larkin revealed as leader of the ica
+	id = ireland.19
+	title = ireland.19.title
+	desc = ireland.19.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ireland.19.a
+		set_variable = { IRE_ica_leader = 1 }
+	}
+}
+
+country_event = { # larkin rearrested, jack white takes over as leader of ica
+	id = ireland.20
+	title = ireland.20.title
+	desc = ireland.20.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ireland.20.a
+		set_variable = { IRE_ica_leader = 2 }
 	}
 }
 

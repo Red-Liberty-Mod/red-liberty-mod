@@ -601,7 +601,8 @@ shared_focus = {
 		focus = IRE_nationwide_crackdown
 	}
     completion_reward = {
-        custom_effect_tooltip = available_political_advisor
+		add_political_power = 50
+		custom_effect_tooltip = available_political_advisor
 		show_ideas_tooltip = IRE_liam_tobin
     }
 	
@@ -750,6 +751,31 @@ shared_focus = {
 	}
     completion_reward = {
         ECON_poverty_change_medium = yes
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_power_to_the_dail
+	icon = GFX_IRE_power_to_the_dail
+	
+    x = 1
+	y = 1
+	
+	cost = 8
+	relative_position_id = IRE_improve_safety_regulations
+	prerequisite = {
+		focus = IRE_improve_safety_regulations
+	}
+	prerequisite = {
+		focus = IRE_irish_progressivism
+	}
+	
+    completion_reward = {
+        add_stability = 0.05
     }
 	
 	ai_will_do = {
@@ -918,6 +944,9 @@ shared_focus = {
 	cost = 8
 	relative_position_id = IRE_expand_welfare
 	prerequisite = {
+		focus = IRE_power_to_the_dail
+	}
+	prerequisite = {
 		focus = IRE_expand_welfare
 		focus = IRE_rapid_industrialisation
 	}
@@ -935,8 +964,8 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = IRE_who_else_but_mick
-	icon = GFX_IRE_who_else_but_mick
+    id = IRE_father_of_irish_conservatism
+	icon = GFX_IRE_father_of_irish_conservatism
 	
     x = 1
 	y = 1
@@ -948,6 +977,61 @@ shared_focus = {
 		focus = IRE_secure_the_dail
 		focus = IRE_hem_in_the_press
 	}
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_alliance_with_the_blueshirts
+	icon = GFX_IRE_alliance_with_the_blueshirts
+	
+    x = 1
+	y = 1
+	
+	cost = 8
+	relative_position_id = IRE_secure_the_dail
+	prerequisite = {
+		focus = IRE_church_and_state
+		focus = IRE_secure_the_dail
+		focus = IRE_hem_in_the_press
+	}
+	
+    completion_reward = {
+        add_stability = 0.05
+		add_popularity = {
+			ideology = ultraconservatism
+			popularity = 0.02
+		}
+		add_ultracon_coalition = yes
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_who_else_but_mick
+	icon = GFX_IRE_who_else_but_mick
+	
+    x = 1
+	y = 1
+	
+	cost = 8
+	relative_position_id = IRE_father_of_irish_conservatism
+	prerequisite = {
+		focus = IRE_father_of_irish_conservatism
+	}
+	prerequisite = {
+		focus = IRE_alliance_with_the_blueshirts
+	}
+	
     completion_reward = {
         swap_ideas = {
 			remove_idea = IRE_paramilitary_violence
