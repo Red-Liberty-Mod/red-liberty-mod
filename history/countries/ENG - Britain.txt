@@ -326,9 +326,10 @@ if = {
 	limit = {
 		has_dlc = "No Step Back"
 	}
+	### Light Tanks ###
 	create_equipment_variant = {
-		name = "Light Tank Mk. IV"
-		type = light_tank_chassis_1
+		name = "Tank, Light, Mk. IV"
+		type = light_tank_chassis_0
 		parent_version = 0
 		modules = {
 			main_armament_slot = tank_heavy_machine_gun
@@ -345,7 +346,25 @@ if = {
 		obsolete = yes #used for oob
 	}
 	create_equipment_variant = {
-		name = "Light Tank Mk. VI"
+		name = "Tank, Light, Mk. V"
+		type = light_tank_chassis_1
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_heavy_machine_gun
+			turret_type_slot = tank_light_two_man_tank_turret
+			suspension_type_slot = tank_christie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 2
+			tank_nsb_armor_upgrade = 1
+		}
+		icon = "gfx/interface/technologies/ENG_basic_light_tank.dds"
+		obsolete = yes #used for oob
+	}
+	create_equipment_variant = {
+		name = "Tank, Light, Mk. VI"
 		type = light_tank_chassis_1
 		parent_version = 1
 		modules = {
@@ -363,63 +382,73 @@ if = {
 			tank_nsb_armor_upgrade = 2
 		}
 	}
-
 	create_equipment_variant = {
-		name = "Medium Mk. II"
+		name = "Tank, Cruiser, Mk. I (A9)"
+		type = light_tank_chassis_1
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_small_cannon
+			turret_type_slot = tank_light_three_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = additional_machine_guns
+			special_type_slot_2 = empty
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 2
+			tank_nsb_armor_upgrade = 2
+		}
+	}
+	
+	### Medium Tanks ###
+	create_equipment_variant = {
+		name = "Tank, Cruiser, Mk. II (A10)"
 		type = medium_tank_chassis_0
 		parent_version = 0
 		modules = {
 			main_armament_slot = tank_small_cannon
-			turret_type_slot = tank_medium_three_man_tank_turret
+			turret_type_slot = tank_light_three_man_tank_turret
 			suspension_type_slot = tank_bogie_suspension
 			armor_type_slot = tank_riveted_armor
 			engine_type_slot = tank_gasoline_engine
-			special_type_slot_1 = tank_radio_1
+			special_type_slot_1 = additional_machine_guns
+			special_type_slot_2 = empty
 		}
 		upgrades = {
-			tank_nsb_armor_upgrade = 1
 			tank_nsb_engine_upgrade = 2
+			tank_nsb_armor_upgrade = 3
 		}
-		icon = "gfx/interface/technologies/ENG_basic_light_tank.dds"
 	}
-
+	
+	### Heavy Tanks ###
 	create_equipment_variant = {
-		name = "Vickers 6 ton A"
-		type = light_tank_chassis_0
+		name = "Mark VIII"
+		type = heavy_tank_chassis_0
 		parent_version = 0
 		modules = {
-			main_armament_slot = tank_heavy_machine_gun
-			turret_type_slot = tank_light_one_man_tank_turret
-			suspension_type_slot = tank_bogie_suspension
-			armor_type_slot = tank_riveted_armor
-			engine_type_slot = tank_gasoline_engine
-			special_type_slot_1 = secondary_turret_hmg
-		}
-		upgrades = {
-			tank_nsb_armor_upgrade = 3
-			tank_nsb_engine_upgrade = 2
-		}
-		icon = "gfx/interface/equipmentdesigner/tanks/designer/ENG/ENG_light_BAB_camo.dds"
-		obsolete = yes #export only
-	}
-
-	create_equipment_variant = {
-		name = "Vickers 6 ton B"
-		type = light_tank_chassis_0
-		parent_version = 1
-		modules = {
 			main_armament_slot = tank_small_cannon
-			turret_type_slot = tank_light_two_man_tank_turret
+			turret_type_slot = tank_heavy_fixed_superstructure_turret
 			suspension_type_slot = tank_bogie_suspension
 			armor_type_slot = tank_riveted_armor
 			engine_type_slot = tank_gasoline_engine
 		}
 		upgrades = {
 			tank_nsb_armor_upgrade = 3
-			tank_nsb_engine_upgrade = 2
+			tank_nsb_engine_upgrade = 1
 		}
-		icon = "gfx/interface/equipmentdesigner/tanks/designer/ENG/ENG_light_BAB_camo.dds"
-		obsolete = yes #export only
+		icon = "gfx/interface/equipmentdesigner/tanks/designer/ENG/ENG_international.png"
+		obsolete = yes
+	}
+	
+	create_production_license = {
+		target = USA
+		equipment = {
+			type = heavy_tank_chassis_0
+			version = 1
+			#new_prioritised = no
+		}
+		cost_factor = 0
 	}
 }
 

@@ -100,20 +100,73 @@ IRE_paramilitary_orgs_category = {
 		icon = GFX_decision_generic_operation
 		
 		available = {
-			NOT = {
-				has_completed_focus = IRE_contacts_in_the_ira
+			hidden_trigger = {
+				always = no
 			}
 		}
 		
-		cost = 10
+		cost = 0
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	IRE_target_ira_storehouses = {
+		icon = GFX_decision_generic_operation
+		
+		available = {
+			NOT = {
+				has_completed_focus = IRE_contacts_in_the_ira
+				has_country_flag = IRE_taking_action
+			}
+		}
+		
+		cost = 0
 		days_remove = 7
 		days_re_enable = 14
+		
+		complete_effect = {
+			set_country_flag = IRE_taking_action
+		}
 		
 		remove_effect = {
 			add_to_variable = {
 				tooltip = IRE_ira_strength_change
 				IRE_ira_strength = -3
 			}
+			clr_country_flag = IRE_taking_action
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	IRE_target_ira_sympathizers = {
+		icon = GFX_decision_generic_operation
+		
+		available = {
+			NOT = {
+				has_completed_focus = IRE_contacts_in_the_ira
+				has_country_flag = IRE_taking_action
+			}
+		}
+		
+		cost = 0
+		days_remove = 14
+		days_re_enable = 21
+		
+		complete_effect = {
+			set_country_flag = IRE_taking_action
+		}
+		
+		remove_effect = {
+			add_to_variable = {
+				tooltip = IRE_ira_strength_change
+				IRE_ira_strength = -4
+			}
+			clr_country_flag = IRE_taking_action
 		}
 		
 		ai_will_do = {
@@ -124,14 +177,9 @@ IRE_paramilitary_orgs_category = {
 	IRE_military_operation_against_ica = {
 		icon = GFX_decision_generic_operation
 		
-		cost = 10
-		days_remove = 7
-		days_re_enable = 14
-		
-		remove_effect = {
-			add_to_variable = {
-				tooltip = IRE_ica_strength_change
-				IRE_ica_strength = -3
+		available = {
+			hidden_trigger = {
+				always = no
 			}
 		}
 		
