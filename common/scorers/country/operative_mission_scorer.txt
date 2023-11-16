@@ -35,7 +35,7 @@ operative_mission_no_mission_scorer = {
 			base = 100
 			modifier = {
 				has_capitulated = yes
-				factor = 0
+				factor = 0 
 			}
 		}
 	}
@@ -52,7 +52,7 @@ operative_mission_build_intel_network_scorer = {
 			base = 100
 			modifier = {
 				has_capitulated = yes
-				factor = 0
+				factor = 0 
 			}
 			modifier = {
 				has_wargoal_against = FROM
@@ -61,8 +61,6 @@ operative_mission_build_intel_network_scorer = {
 			modifier = {
 				OR = {
 					has_war_with = FROM
-					check_variable = { FROM.ai_strategy_declare_war@THIS > 0 }
-					check_variable = { FROM.ai_strategy_prepare_for_war@THIS > 0 }
 					FROM = {
 						OR = {
 							has_wargoal_against = PREV
@@ -72,91 +70,13 @@ operative_mission_build_intel_network_scorer = {
 				}
 				add = 200
 			}
-			modifier = {
-				tag = GER
-				FROM = {
-					OR = {
-						is_in_faction_with = INT
-						is_in_faction_with = RUS
-					}
-				}
-				add = 50
-			}
-
-			modifier = {
-				OR = {
-					is_in_faction_with = INT
-					is_in_faction_with = RUS
-				}
-				FROM = { is_in_faction_with = GER }
-				add = 50
-			}
-
-			modifier = {
-				OR = {
-					tag = ENG
-					tag = CSA
-				}
-				FROM = { tag = CAN }
-				add = 100
-			}
-
-			modifier = {
-				tag = FRA
-				FROM = { tag = NFA }
-				add = 100
-			}
-
-			modifier = {
-				FROM = { tag = JAP }
-				OR = {
-					tag = CHN
-					tag = GEA
-					tag = RUS
-					tag = SOV
-				}
-				add = 100
-			}
-
-			modifier = {
-				FROM = {
-					OR = {
-						tag = AUS
-						is_subject_of = AUS
-					}
-				}
-				OR = {
-					tag = SER
-					tag = ROM
-				}
-				NOT = {
-					is_in_faction_with = AUS
-					is_subject = yes
-				}
-				add = 200
-			}
-
-			modifier = {
-				FROM = {
-					OR = {
-						tag = SER
-						tag = ROM
-					}
-				}
-				OR = {
-					tag = AUS
-					tag = HUN
-					tag = CRO
-				}
-				add = 200
-			}
-
-			modifier = {
-				FROM = { is_american_tag = yes }
-				is_american_tag = yes
-				add = 200
-			}
 		}
+	}
+}
+
+
+operative_mission_quiet_network_scorer = {
+	targets = {
 	}
 }
 
@@ -206,6 +126,25 @@ operative_mission_root_out_resistance_scorer = {
 	}
 }
 
+operative_mission_boost_ideology_scorer = {
+	targets = {
+		# TODO
+	}
+}
+
+
+operative_mission_control_trade_scorer = {
+	targets = {
+		# TODO
+	}
+}
+
+operative_mission_diplomatic_pressure_scorer = {
+	targets = {
+		# TODO
+	}
+}
+
 operative_mission_propaganda_scorer = {
 	targets = {
 		target_array = potential_and_current_enemies
@@ -230,4 +169,3 @@ operative_mission_propaganda_scorer = {
 		}
 	}
 }
-

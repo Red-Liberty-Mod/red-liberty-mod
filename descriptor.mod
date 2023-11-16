@@ -6,6 +6,7 @@ tags={
 	"National Focuses"
 }
 replace_path = "common/abilities"
+replace_path = "common/ai_equipment"
 replace_path = "common/ai_strategy"
 replace_path = "common/ai_strategy_plans"
 replace_path = "common/ai_focuses"
