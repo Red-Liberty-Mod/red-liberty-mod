@@ -18,7 +18,7 @@ on_actions = {
 					USA_convert_party_pop_percentage = yes
 				}
 			}
-			USA = {
+			USA = { # Congress
 				set_variable = { senators_total = 96 }
 				set_variable = { representatives_total = 483 }
 				USA_congress_quorum = yes
@@ -53,10 +53,14 @@ on_actions = {
 				}
 				USA_calc_congress_control = yes
 			}
-			
-			#USA = {
-			#	USA_calc_poverty_goal = yes
-			#}
+			USA = { # Supreme Court
+				set_variable = { supreme_court_lean = -6 } # LEAN
+				
+				country_event = { # Chief Justice Devanter Dies
+					id = united_states_supreme_court.3
+					days = 1865
+				}
+			}
 			
 			USA = {
 				##### ELECTION EVENTS #####
@@ -92,6 +96,13 @@ on_actions = {
 			}
 			
 			USA = {
+				### COTTON STRIKE ###
+				country_event = {
+					id = united_states.7
+					days = 530
+					random_days = 30
+				}
+				
 				### SPA EVENTS ###
 				country_event = {
 					id = united_states_thomas.1
@@ -202,10 +213,12 @@ on_actions = {
 				}
 			}
 			
-			### produce distribution ###
+			### misc variables ###
 			USA = {
 				set_variable = { USA_produce_units = 3 }
 				set_variable = { USA_produce_decay_rate = 55 }
+				
+				set_variable = { USA_poverty_threshold = 55 }
 			}
 			
 			### DUST BOWL SETUP ###
@@ -292,6 +305,19 @@ on_actions = {
 					}
 				}
 			}
+			
+			if = {
+				limit = {
+					check_variable = { USA.poverty_rate < USA_poverty_threshold }
+				}
+				USA = {
+					subtract_from_variable = { USA_poverty_threshold = 5 }
+					country_event = {
+						id = united_states.15
+						hours = 6
+					}
+				}
+			}
 		}
 	}
 	
@@ -319,6 +345,38 @@ on_actions = {
 					check_variable = { USA_mproject_phase > 0 }
 				}
 				USA_mproject_monthly_pulse = yes
+			}
+			
+			### very hacky method to naturally improve the spirit over time ###
+			add_to_variable = { USA_month_counter = 1 }
+			if = {
+				limit = {
+					check_variable = { USA_month_counter = 12 }
+					set_variable = { USA_month_counter = 0 }
+				}
+				if = {
+					limit = {
+						has_country_flag = social_security_passed
+					}
+					improve_great_depression = yes
+				}
+			}
+
+			### Supreme Court Retirements ###
+			random_list = {
+				5 = {
+					country_event = {
+						id = united_states_supreme_court.1
+						random_days = 14
+					}
+					set_country_flag = {
+						flag = USA_justice_retired
+						days = 90
+					}
+				}
+				95 = {
+					
+				}
 			}
 		}
 	}

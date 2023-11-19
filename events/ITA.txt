@@ -1,4 +1,5 @@
 add_namespace = italy
+add_namespace = italy_news
 add_namespace = italy_ethiopia_war
 
 country_event = { # intro event
@@ -91,5 +92,160 @@ country_event = { # capture of addis ababa
 		add_stability = 0.005
 		add_war_support = 0.005
 		add_political_power = 25
+	}
+}
+
+country_event = { # the king dismisses mussolini
+	id = italy_ethiopia_war.6
+	title = italy_ethiopia_war.6.title
+	desc = italy_ethiopia_war.6.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = italy_ethiopia_war.6.a
+		set_politics = { ruling_party = despotism }
+		set_party_name = {
+			ideology = despotism
+			long_name = ITA_military_junta_party
+			name = ITA_military_junta_party
+		}
+		
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.1
+		}
+		
+		ETH = {
+			country_event = {
+				id = italy_ethiopia_war.9
+				days = 3
+			}
+		}
+		
+		hidden_effect = {
+			reset_coalition = yes
+			
+			remove_power_balance = {
+				id = ITA_italo_ethiopian_war_balance
+			}
+			
+			random_other_country = {
+				limit = { is_ai = yes }
+				news_event = { id = italy_news.1 hours = 6 }
+			}
+		}
+	}
+}
+
+country_event = { # stalled offensive
+	id = italy_ethiopia_war.7
+	title = italy_ethiopia_war.7.title
+	desc = italy_ethiopia_war.7.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = italy_ethiopia_war.7.a
+		add_war_support = -0.05
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.0025
+		}
+		#add_power_balance_modifier = {
+		#	id = ITA_italo_ethiopian_war_balance
+		#	modifier = ITA_stalled_offensive
+		#}
+	}
+}
+
+country_event = { # collapse of morale
+	id = italy_ethiopia_war.8
+	title = italy_ethiopia_war.8.title
+	desc = italy_ethiopia_war.8.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = italy_ethiopia_war.8.a
+		add_war_support = -0.05
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.05
+		}
+	}
+}
+
+country_event = { # peace with ethiopia
+	id = italy_ethiopia_war.9
+	title = italy_ethiopia_war.9.title
+	desc = italy_ethiopia_war.9.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = italy_ethiopia_war.9.a
+		
+		ITA = {
+			white_peace = ETH
+		}
+		ETH = {
+			transfer_state = 914
+		}
+		
+		hidden_effect = {
+			ETH = {
+				save_global_event_target_as = winning_country
+			}
+			ITA = {
+				save_global_event_target_as = losing_country
+			}
+			set_global_flag = war_won
+			set_global_flag = show_peace_popup_alert
+		}
+	}
+}
+
+country_event = { # peace with ethiopia - victory
+	id = italy_ethiopia_war.10
+	title = italy_ethiopia_war.10.title
+	desc = italy_ethiopia_war.10.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = italy_ethiopia_war.10.a
+		
+		add_political_power = 100
+		
+		hidden_effect = {
+			remove_power_balance = {
+				id = ITA_italo_ethiopian_war_balance
+			}
+		}
+	}
+}
+
+news_event = { # mussolini dismissed
+	id = italy_news.1
+	title = italy_news.1.title
+	desc = italy_news.1.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = italy_news.1.a
 	}
 }

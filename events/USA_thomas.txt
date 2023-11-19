@@ -258,9 +258,9 @@ country_event = { # first-term legislation found unconstitutional
 	}
 }
 
-country_event = { # judicial reform suggested
+country_event = { # judicial reform opening event
 	id = united_states_thomas.14
-	title = "Judicial Reform"
+	title = united_states_thomas.14.title
 	desc = united_states_thomas.14.desc
 	
 	is_triggered_only = yes
@@ -268,13 +268,19 @@ country_event = { # judicial reform suggested
 	fire_only_once = yes
 
 	option = {
-		name = "Genius!"
+		name = united_states_thomas.14.a
+		add_political_power = -25
+	}
+	
+	option = {
+		name = united_states_thomas.14.b
+		custom_effect_tooltip = event_chain_over
 	}
 }
 
-country_event = { # consult congressional leaders?
+country_event = { # 
 	id = united_states_thomas.15
-	title = "Congressional Consultation"
+	title = united_states_thomas.15.title
 	desc = united_states_thomas.15.desc
 	
 	is_triggered_only = yes
@@ -282,19 +288,28 @@ country_event = { # consult congressional leaders?
 	fire_only_once = yes
 
 	option = {
-		name = "This is an open and honest administration."
-		set_country_flag = USA_judicial_reform_consulting
-		add_political_power = -25
+		name = united_states_thomas.15.a
+		every_owned_state = {
+			limit = {
+				can_have_elections_in_state = yes
+				NOT = {
+					is_deep_south_state = yes
+				}
+			}
+			custom_effect_tooltip = USA_decrease_SPA_popularity_low
+			subtract_from_variable = { socialist_popularity = 0.03 }
+		}
 	}
 	
 	option = {
-		name = "We cannot let the opposition know of our plans!"
+		name = united_states_thomas.15.b
+		custom_effect_tooltip = event_chain_over
 	}
 }
 
 country_event = { # senate judiciary hearings
 	id = united_states_thomas.16
-	title = ""
+	title = united_states_thomas.16.title
 	desc = united_states_thomas.16.desc
 	
 	is_triggered_only = yes
@@ -302,17 +317,17 @@ country_event = { # senate judiciary hearings
 	fire_only_once = yes
 
 	option = {
-		name = "More witnesses!"
+		name = united_states_thomas.16.a
 	}
 	
 	option = {
-		name = "Gah, enough already."
+		name = united_states_thomas.16.b
 	}
 }
 
 country_event = { # judicial review section
 	id = united_states_thomas.17
-	title = "The Question of Judicial Review"
+	title = united_states_thomas.17.title
 	desc = united_states_thomas.17.desc
 	
 	is_triggered_only = yes
@@ -421,6 +436,7 @@ country_event = { # reed retires as vp
 	option = {
 		name = united_states_thomas.23.a
 		custom_effect_tooltip = USA_reed_will_remember_tt
+		promote_character = USA_earl_russell_browder
 	}
 }
 
@@ -625,6 +641,26 @@ country_event = { # social security draft chain - too conservative
 	}
 }
 
+country_event = { # we lost the election
+	id = united_states_thomas.36
+	title = united_states_thomas.36.title
+	desc = united_states_thomas.36.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_thomas.36.a
+		custom_effect_tooltip = USA_lame_duck_congress_tt
+		set_country_flag = {
+			flag = USA_lame_duck_period
+			days = 150
+		}
+		add_political_power = -25
+	}
+}
+
 country_event = { # assassination of francis riggs
 	id = united_states_thomas.100
 	title = united_states_thomas.100.title
@@ -659,7 +695,7 @@ country_event = { # ponce massacre
 	}
 }
 
-country_event = {
+country_event = { # winship interferes in the investigation
 	id = united_states_thomas.102
 	title = united_states_thomas.102.title
 	desc = united_states_thomas.102.desc
@@ -671,7 +707,7 @@ country_event = {
 	option = {
 		name = united_states_thomas.102.a
 		trigger = {
-			has_government = libertarian_socialism
+			has_government = democratic_socialism
 		}
 		add_political_power = -25
 	}
@@ -685,7 +721,7 @@ country_event = {
 	}
 }
 
-country_event = {
+country_event = { # pantin writes to the president
 	id = united_states_thomas.103
 	title = united_states_thomas.103.title
 	desc = united_states_thomas.103.desc
@@ -705,7 +741,7 @@ country_event = {
 	}
 }
 
-news_event = {
+news_event = { # 49th state
 	id = united_states_thomas.104
 	title = united_states_thomas.104.title
 	desc = united_states_thomas.104.desc
@@ -719,7 +755,7 @@ news_event = {
 	}
 }
 
-news_event = {
+news_event = { # puerto rico independence
 	id = united_states_thomas.105
 	title = united_states_thomas.105.title
 	desc = united_states_thomas.105.desc

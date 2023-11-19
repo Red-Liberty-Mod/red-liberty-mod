@@ -1,0 +1,284 @@
+# AI Ship Designs for 'MURICA
+
+USA_destroyers = {
+	category = naval
+	
+	available_for = {
+		USA
+	}
+	
+	roles = {
+		naval_screen
+	}
+	
+	priority = {
+		factor = 500
+		modifier = {
+			factor = 1
+		}
+	}
+	
+	basic_ship_hull_light_1 = {
+		name = "Benham Class"
+		
+		priority = {
+			factor = 10
+			modifier = {
+				factor = 10
+			}
+		}
+		role_icon_index = 1
+		
+		target_variant = {
+			match_value = 2000.0
+			
+			type = ship_hull_light_2
+			modules = {
+				fixed_ship_battery_slot = dp_light_battery_1
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = light_ship_engine_1
+				fixed_ship_torpedo_slot = ship_torpedo
+				mid_1_custom_slot = ship_torpedo
+				rear_1_custom_slot = ship_depth_charge
+			}
+		}
+		
+		allowed_modules = {
+			ship_anti_air
+			ship_depth_charge
+			dp_light_battery
+			ship_torpedo
+			light_ship_engine
+			ship_sonar
+			ship_fire_control_system
+			ship_radar
+		}
+	}
+	
+	improved_ship_hull_light_1 = {
+		name = "Sims Class"
+		
+		priority = {
+			factor = 10
+			modifier = {
+				factor = 10
+			}
+		}
+		role_icon_index = 1
+		
+		target_variant = {
+			match_value = 2000.0
+			
+			type = ship_hull_light_3
+			modules = {
+				fixed_ship_battery_slot = dp_light_battery_2
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = light_ship_engine_1
+				fixed_ship_torpedo_slot = ship_torpedo
+				front_1_custom_slot = ship_depth_charge
+				mid_1_custom_slot = ship_torpedo
+				rear_1_custom_slot = dp_light_battery_2
+			}
+		}
+		
+		allowed_modules = {
+			ship_anti_air
+			ship_depth_charge
+			dp_light_battery
+			ship_torpedo
+			light_ship_engine
+			ship_sonar
+			ship_fire_control_system
+			ship_radar
+		}
+	}
+	
+	advanced_ship_hull_light_1 = {
+		name = "Fletcher Class"
+		
+		priority = {
+			factor = 10
+			modifier = {
+				factor = 10
+			}
+		}
+		role_icon_index = 1
+		enable = { 
+			has_tech = improved_dp_light_battery
+			has_tech = advanced_ship_hull_light
+		}
+		
+		target_variant = {
+			match_value = 2000.0
+			
+			type = ship_hull_light_4
+			modules = {
+				fixed_ship_battery_slot = dp_light_battery_3
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = light_ship_engine_4
+				fixed_ship_torpedo_slot = ship_torpedo
+				front_1_custom_slot = dp_light_battery_3
+				mid_1_custom_slot = dp_light_battery_3
+				mid_2_custom_slot = dp_light_battery_3
+				rear_1_custom_slot = dp_light_battery_3
+			}
+		}
+		
+		allowed_modules = {
+			ship_anti_air
+			ship_depth_charge
+			dp_light_battery
+			ship_torpedo
+			light_ship_engine
+			ship_fire_control_system
+			ship_radar
+		}
+	}
+	
+	advanced_ship_hull_light_2 = {
+		name = "Allen M. Sumner Class"
+		
+		priority = {
+			factor = 10
+			modifier = {
+				factor = 10
+			}
+		}
+		role_icon_index = 1
+		enable = { 
+			has_tech = advanced_dp_light_battery
+			has_tech = advanced_ship_hull_light
+		}
+		
+		target_variant = {
+			match_value = 2000.0
+			
+			type = ship_hull_light_4
+			modules = {
+				fixed_ship_battery_slot = dp_light_battery_4
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = light_ship_engine_4
+				fixed_ship_torpedo_slot = ship_torpedo
+				front_1_custom_slot = dp_light_battery_4
+				mid_1_custom_slot = ship_depth_charge
+				mid_2_custom_slot = ship_torpedo
+				rear_1_custom_slot = dp_light_battery_4
+			}
+		}
+		
+		allowed_modules = {
+			ship_anti_air
+			ship_depth_charge
+			dp_light_battery
+			ship_torpedo
+			light_ship_engine
+			ship_fire_control_system
+			ship_radar
+		}
+	}
+	
+	advanced_ship_hull_light_minelayer = {
+		name = "Robert H. Smith Class"
+		
+		priority = {
+			factor = 10
+			modifier = {
+				factor = 10
+			}
+		}
+		role_icon_index = 4
+		enable = { 
+			has_tech = advanced_dp_light_battery
+			has_tech = advanced_ship_hull_light
+		}
+		
+		target_variant = {
+			match_value = 2000.0
+			
+			type = ship_hull_light_4
+			modules = {
+				fixed_ship_battery_slot = dp_light_battery_4
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = light_ship_engine_4
+				fixed_ship_torpedo_slot = empty
+				front_1_custom_slot = dp_light_battery_4
+				mid_1_custom_slot = ship_depth_charge
+				mid_2_custom_slot = ship_mine_layer_1
+				rear_1_custom_slot = dp_light_battery_4
+			}
+		}
+		
+		allowed_modules = {
+			ship_anti_air
+			ship_depth_charge
+			ship_mine_layer
+			dp_light_battery
+			light_ship_engine
+			ship_fire_control_system
+			ship_radar
+		}
+	}
+}
+
+USA_battleships = {
+	category = naval
+	
+	available_for = {
+		USA
+	}
+	
+	roles = {
+		naval_capital_shbb
+	}
+
+	priority = {
+		factor = 500
+		modifier = {
+			factor = 1
+		}
+	}
+
+	ship_hull_super_heavy_1 = {
+		name = "Washington Class"
+	
+		priority = {
+			base = 10
+		}
+		role_icon_index = 1
+
+		target_variant = {
+			type = ship_hull_super_heavy_1
+			match_value = 1000.0
+
+			modules = {
+				fixed_ship_battery_slot = ship_super_heavy_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = heavy_ship_engine
+				fixed_ship_secondaries_slot = ship_dp_secondaries
+				fixed_ship_armor_slot = ship_armor_shbb
+				front_1_custom_slot = ship_super_heavy_battery
+				front_2_custom_slot = ship_anti_air
+				mid_1_custom_slot = ship_dp_secondaries
+				mid_2_custom_slot = ship_dp_secondaries
+				mid_3_custom_slot = ship_dp_secondaries
+				rear_1_custom_slot = ship_super_heavy_battery
+				rear_2_custom_slot = ship_super_heavy_battery
+			}
+		}
+		requirements = {
+			module = ship_armor_shbb
+		}
+	}
+}

@@ -1,3 +1,91 @@
+
+start_irish_civil_war_ICA = {
+	create_dynamic_country = {
+		original_tag = IRE
+		save_global_event_target_as = socialist_ireland
+		#every_state = {
+		#	limit = {
+		#		is_core_of = IRE
+		#	}
+		#	add_core_of = PREV
+		#}
+		
+		transfer_state = 135
+		
+		set_capital = 135
+		set_politics = {
+			ruling_party = anarchism
+			elections_allowed = no
+		}
+		set_popularities = {
+			anarchism = 20
+			vanguard_socialism = 20
+			revolutionary_socialism = 30
+			democratic_socialism = 30
+		}
+		set_cosmetic_tag = IRE_limerick_soviet
+		set_country_flag = IRE_is_socialist_ireland
+		
+		load_focus_tree = IRE_socialist_tree
+		
+		ICA = {
+			load_oob = "ICA"
+			if = {
+				limit = {
+					check_variable = { IRE.IRE_ica_strength > 35 }
+				}
+				load_oob = "ICA_bonus_1"
+			}
+			if = {
+				limit = {
+					check_variable = { IRE.IRE_ica_strength > 75 }
+				}
+				load_oob = "ICA_bonus_2"
+			}
+			
+			declare_war_on = {
+				target = IRE
+				type = annex_everything
+			}
+			
+			add_ideas = {
+				closed_economy
+				low_economic_mobilisation
+			}
+		}
+	}
+	
+	### Leaders ###
+	IRE_jack_white = {
+		set_nationality = ICA
+		promote_character = yes
+	}
+	IRE_roddy_connelly = {
+		set_nationality = ICA
+		promote_character = yes
+	}
+	IRE_charles_donnelly = {
+		set_nationality = ICA
+		promote_character = yes
+	}
+	IRE_james_larkin = {
+		set_nationality = ICA
+		promote_character = yes
+	}
+	
+	### Deputy Leaders ###
+	IRE_james_larkin_jr = { set_nationality = ICA }
+	
+	### Ministers ###
+	IRE_andy_barr = { set_nationality = ICA }
+	IRE_mairtin_o_cadhain = { set_nationality = ICA }
+	IRE_benjamin_farrington = { set_nationality = ICA }
+	
+	### Generals ###
+	IRE_paddy_odaire = { set_nationality = ICA }
+	IRE_michael_oriordan = { set_nationality = ICA }
+}
+
 IRE_recalc_parliament = { # this will recalculate the number of members of parliament based on party popularity
 	
 	#Sets variable to check for discrepencies
@@ -11,13 +99,22 @@ IRE_recalc_parliament = { # this will recalculate the number of members of parli
 	add_to_variable = {
 		communist_tds = party_popularity@anarchism
 	}
+	multiply_variable = {
+		communist_tds = 0.4
+	}
 	
 	set_variable = {
 		rev_socialist_tds = party_popularity@revolutionary_socialism
 	}
+	multiply_variable = {
+		rev_socialist_tds = 0.4
+	}
 	
 	set_variable = {
 		socialist_tds = party_popularity@democratic_socialism
+	}
+	multiply_variable = {
+		socialist_tds = 0.6
 	}
 	
 	set_variable = {
@@ -33,12 +130,6 @@ IRE_recalc_parliament = { # this will recalculate the number of members of parli
 	}
 	add_to_variable = {
 		conservative_tds = party_popularity@national_conservatism
-	}
-	add_to_variable = {
-		conservative_tds = party_popularity@despotism
-	}
-	add_to_variable = {
-		conservative_tds = party_popularity@ultraconservatism
 	}
 	
 	set_variable = {

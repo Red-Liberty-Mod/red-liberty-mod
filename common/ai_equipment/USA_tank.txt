@@ -1,0 +1,1127 @@
+# AI tank design for testing
+
+USA_light_tanks = {
+	category = land
+
+	available_for = { USA }
+
+	roles = {
+		land_light_tank
+	}
+
+	priority = {
+		factor = 1000
+	}
+
+	great_war_tank_default = {
+	
+		priority = {
+			factor = 1
+			modifier = { 
+				has_tech = basic_light_tank_chassis
+				factor = 0
+			}
+		}
+
+		target_variant = {
+			match_value = 1000
+			type = light_tank_chassis_0
+			modules = {
+				main_armament_slot = tank_heavy_machine_gun
+				turret_type_slot = tank_light_one_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = empty
+				special_type_slot_2 = empty
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 3
+				tank_nsb_armor_upgrade = {
+					base = 1
+					modifier = {
+						add = 1
+						has_war = yes
+					}
+				}
+			}
+		}
+
+		allowed_modules = {
+			tank_heavy_machine_gun
+			tank_light_one_man_tank_turret
+			tank_bogie_suspension
+			tank_riveted_armor
+			tank_gasoline_engine
+		}
+	}
+
+	basic_light_tank_1 = { # M2A1 light
+		name = "Light Tank, M2A1"
+	
+		priority = {
+			factor = 100
+			modifier = { 
+				has_tech = improved_light_tank_chassis 
+				factor = 0 #let's not waste XP here
+			}
+			modifier = { 
+				date > 1938.1.1
+				factor = 0.5
+			}
+		}
+
+		target_variant = {
+			match_value = 2000
+			type = light_tank_chassis_1
+			modules = {
+				main_armament_slot = tank_heavy_machine_gun
+				turret_type_slot = tank_light_one_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = tank_radio_module
+				special_type_slot_2 = empty
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 5
+				tank_nsb_armor_upgrade = {
+					base = 2
+				}
+			}
+		}
+
+		allowed_modules = {
+			tank_heavy_machine_gun
+			tank_light_one_man_tank_turret
+			tank_bogie_suspension
+			tank_riveted_armor
+			tank_gasoline_engine
+			tank_radio_1
+			tank_radio_2
+			tank_radio_3
+		}
+	}
+	
+	basic_light_tank_2 = { # M2A2 light
+		name = "Light Tank, M2A2"
+		
+		priority = {
+			factor = 100
+			modifier = { 
+				has_tech = improved_light_tank_chassis 
+				factor = 0 #let's not waste XP here
+			}
+			modifier = { 
+				date > 1938.1.1
+				factor = 0.5
+			}
+		}
+
+		target_variant = {
+			match_value = 2000
+			type = light_tank_chassis_1
+			modules = {
+				main_armament_slot = tank_heavy_machine_gun
+				turret_type_slot = tank_light_one_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = secondary_turret_hmg
+				special_type_slot_2 = tank_radio_module
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 5
+				tank_nsb_armor_upgrade = {
+					base = 2
+				}
+			}
+		}
+
+		allowed_modules = {
+			tank_heavy_machine_gun
+			tank_light_one_man_tank_turret
+			tank_bogie_suspension
+			tank_riveted_armor
+			tank_gasoline_engine
+			secondary_turret_hmg
+			tank_radio_1
+		}
+	}
+	
+	basic_light_tank_3 = { # M2A3 light
+		name = "Light Tank, M2A3"
+		
+		priority = {
+			factor = 100
+			modifier = { 
+				has_tech = improved_light_tank_chassis 
+				factor = 0 #let's not waste XP here
+			}
+			modifier = { 
+				date > 1939.1.1
+				factor = 0.5
+			}
+		}
+
+		target_variant = {
+			match_value = 2000
+			type = light_tank_chassis_1
+			modules = {
+				main_armament_slot = tank_heavy_machine_gun
+				turret_type_slot = tank_light_one_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = secondary_turret_hmg
+				special_type_slot_2 = tank_radio_module
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 5
+				tank_nsb_armor_upgrade = {
+					base = 3
+				}
+			}
+		}
+
+		allowed_modules = {
+			tank_heavy_machine_gun
+			tank_light_one_man_tank_turret
+			tank_bogie_suspension
+			tank_riveted_armor
+			tank_gasoline_engine
+			secondary_turret_hmg
+			tank_radio_1
+		}
+	}
+	
+	basic_light_tank_4 = { # M2A4 light
+		name = "Light Tank, M2A4"
+		
+		priority = {
+			factor = 100
+			modifier = { 
+				has_tech = improved_light_tank_chassis 
+				factor = 0 #let's not waste XP here
+			}
+			modifier = { 
+				date > 1940.1.1
+				factor = 0.5
+			}
+		}
+
+		target_variant = {
+			match_value = 2000
+			type = light_tank_chassis_1
+			modules = {
+				main_armament_slot = {
+					any_of = {
+						tank_small_cannon
+						tank_small_cannon_2
+						tank_high_velocity_cannon
+					}
+				}
+				turret_type_slot = tank_light_one_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = tank_radio_module
+				special_type_slot_2 = empty
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 5
+				tank_nsb_armor_upgrade = {
+					base = 4
+				}
+			}
+		}
+
+		allowed_modules = {
+			tank_small_cannon
+			tank_small_cannon_2
+			tank_high_velocity_cannon
+			tank_light_one_man_tank_turret
+			tank_bogie_suspension
+			tank_riveted_armor
+			tank_gasoline_engine
+			tank_radio_1
+		}
+	}
+	
+	basic_light_tank_5 = { # M2AT light
+		name = "Light Tank, M2AT"
+		
+		priority = {
+			factor = 100
+			modifier = { 
+				has_tech = improved_light_tank_chassis 
+				factor = 0 #let's not waste XP here
+			}
+			modifier = { 
+				date > 1940.1.1
+				factor = 0.5
+			}
+		}
+
+		target_variant = {
+			match_value = 2000
+			type = light_tank_chassis_1
+			modules = {
+				main_armament_slot = {
+					any_of = {
+						tank_auto_cannon
+						tank_auto_cannon_2
+					}
+				}
+				turret_type_slot = tank_light_one_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = tank_radio_module
+				special_type_slot_2 = empty
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 5
+				tank_nsb_armor_upgrade = {
+					base = 4
+				}
+			}
+		}
+
+		allowed_modules = {
+			tank_auto_cannon
+			tank_auto_cannon_2
+			tank_light_one_man_tank_turret
+			tank_bogie_suspension
+			tank_riveted_armor
+			tank_gasoline_engine
+			tank_radio_1
+		}
+	}
+	
+	### Improved Tank Chassis ###
+	
+	improved_light_tank_1 = { # M3 Stuart
+		name = "Light Tank, M3 'Stuart'"
+		
+		priority = {
+			factor = 10
+			modifier = { 
+				has_tech = advanced_light_tank_chassis 
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		target_variant = {
+			match_value = 3000
+			type = light_tank_chassis_2
+			modules = {
+				main_armament_slot = {
+					any_of = {
+						tank_high_velocity_cannon
+						tank_small_cannon_2
+						tank_small_cannon
+					} 
+				}
+				turret_type_slot = tank_light_two_man_tank_turret 
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = sloped_armor
+				special_type_slot_2 = additional_machine_guns
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 5
+				tank_nsb_armor_upgrade = {
+					base = 3
+				}
+			}
+		}
+
+		allowed_modules = {
+			tank_small_cannon_2 
+			tank_high_velocity_cannon
+			tank_small_cannon 
+			tank_light_two_man_tank_turret
+			tank_bogie_suspension
+			tank_riveted_armor
+			tank_gasoline_engine
+			sloped_armor
+			additional_machine_guns
+		}
+	}
+	
+	improved_light_tank_2 = { # M3A1 Stuart - new turret, added vertical stabilizer, removed sponson mgs
+		name = "Light Tank, M3A1 'Stuart'"
+
+		priority = {
+			factor = 10
+			modifier = { 
+				has_tech = advanced_light_tank_chassis 
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		target_variant = {
+			match_value = 3000
+			type = light_tank_chassis_2
+			modules = {
+				main_armament_slot = {
+					any_of = {
+						tank_high_velocity_cannon
+						tank_small_cannon_2
+						tank_small_cannon
+					} 
+				}
+				turret_type_slot = tank_light_two_man_tank_turret 
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = sloped_armor
+				special_type_slot_2 = stabilizer
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 5
+				tank_nsb_armor_upgrade = {
+					base = 3
+				}
+			}
+		}
+
+		allowed_modules = {
+			tank_small_cannon_2 
+			tank_high_velocity_cannon
+			tank_small_cannon 
+			tank_light_two_man_tank_turret
+			tank_bogie_suspension
+			tank_riveted_armor
+			tank_gasoline_engine
+			sloped_armor
+			stabilizer
+		}
+	}
+	
+	### M3A2 was planned, but never made ###
+	
+	improved_light_tank_3 = { # M3A3 Stuart - welded hull, rear overhang for radio
+		name = "Light Tank, M3A3 'Stuart'"
+		
+		priority = {
+			factor = 10
+			modifier = { 
+				has_tech = advanced_light_tank_chassis 
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		target_variant = {
+			match_value = 3000
+			type = light_tank_chassis_2
+			modules = {
+				main_armament_slot = {
+					any_of = {
+						tank_high_velocity_cannon
+						tank_small_cannon_2
+						tank_small_cannon
+					} 
+				}
+				turret_type_slot = tank_light_two_man_tank_turret 
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_welded_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = tank_radio_module
+				special_type_slot_2 = sloped_armor
+				special_type_slot_3 = stabilizer
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 5
+				tank_nsb_armor_upgrade = {
+					base = 3
+				}
+			}
+		}
+
+		allowed_modules = {
+			tank_radio_3
+			tank_radio_2
+			tank_radio_1
+			tank_small_cannon_2 
+			tank_high_velocity_cannon
+			tank_small_cannon 
+			tank_light_two_man_tank_turret
+			tank_bogie_suspension
+			tank_gasoline_engine
+			sloped_armor
+			stabilizer
+		}
+		
+		requirements = {
+			module = tank_welded_armor
+		}
+	}
+	
+	improved_light_tank_4 = { # M5 Stuart - twin cadillac engines, same turret as M3A1, redesigned hull
+		name = "Light Tank, M5 'Stuart'"
+		
+		priority = {
+			factor = 10
+			modifier = { 
+				has_tech = advanced_light_tank_chassis 
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		target_variant = {
+			match_value = 3000
+			type = light_tank_chassis_2
+			modules = {
+				main_armament_slot = {
+					any_of = {
+						tank_high_velocity_cannon
+						tank_small_cannon_2
+						tank_small_cannon
+					} 
+				}
+				turret_type_slot = tank_light_two_man_tank_turret 
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_welded_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = sloped_armor
+				special_type_slot_2 = stabilizer
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 6
+				tank_nsb_armor_upgrade = {
+					base = 3
+				}
+			}
+		}
+
+		allowed_modules = {
+			tank_small_cannon_2 
+			tank_high_velocity_cannon
+			tank_small_cannon 
+			tank_light_two_man_tank_turret
+			tank_bogie_suspension
+			tank_gasoline_engine
+			sloped_armor
+			stabilizer
+		}
+		
+		requirements = {
+			module = tank_welded_armor
+		}
+	}
+	
+	improved_light_tank_5 = { # M5A1 Stuart - same turret as M3A3
+		name = "Light Tank, M5A1 'Stuart'"
+		
+		priority = {
+			factor = 10
+			modifier = { 
+				has_tech = advanced_light_tank_chassis 
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		target_variant = {
+			match_value = 3000
+			type = light_tank_chassis_2
+			modules = {
+				main_armament_slot = {
+					any_of = {
+						tank_high_velocity_cannon
+						tank_small_cannon_2
+						tank_small_cannon
+					} 
+				}
+				turret_type_slot = tank_light_two_man_tank_turret 
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_welded_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = tank_radio_module
+				special_type_slot_2 = sloped_armor
+				special_type_slot_3 = stabilizer
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 6
+				tank_nsb_armor_upgrade = {
+					base = 3
+				}
+			}
+		}
+
+		allowed_modules = {
+			tank_radio_3
+			tank_radio_2
+			tank_radio_1
+			tank_small_cannon_2 
+			tank_high_velocity_cannon
+			tank_small_cannon 
+			tank_light_two_man_tank_turret
+			tank_bogie_suspension
+			tank_gasoline_engine
+			sloped_armor
+			stabilizer
+		}
+		
+		requirements = {
+			module = tank_welded_armor
+		}
+	}
+	
+	### Advanced Light Tank Chassis ###
+	
+	advanced_light_tank_1 = { # M24 Chaffee
+		name = "Light Tank, M24 'Chaffee'"
+		
+		priority = {
+			factor = 10
+		}
+		
+		target_variant = {
+			match_value = 4000
+			type = light_tank_chassis_3
+			modules = {
+				main_armament_slot = tank_high_velocity_cannon
+				turret_type_slot = tank_light_three_man_tank_turret
+				suspension_type_slot = tank_torsion_bar_suspension
+				armor_type_slot = tank_welded_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = tank_radio_module
+				special_type_slot_2 = sloped_armor
+				special_type_slot_3 = additional_machine_guns
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 7
+				tank_nsb_armor_upgrade = 6
+			}
+		}
+
+		allowed_modules = { 
+			tank_radio_3
+			tank_radio_2
+			tank_radio_1   
+			tank_high_velocity_cannon
+			tank_light_three_man_tank_turret
+			tank_torsion_bar_suspension
+			tank_welded_armor
+			tank_gasoline_engine
+			sloped_armor
+			additional_machine_guns
+		}
+	}
+}
+
+USA_light_tank_artillery = {
+	category = land
+
+	available_for = { USA }
+
+	roles = {
+		land_light_tank_artillery
+	}
+
+	priority = {
+		factor = 500
+	}
+	
+	improved_light_tank_artillery_1 = {
+		name = "Howitzer Motor Carriage, M8"
+		
+		priority = {
+			factor = 100
+		}
+		enable = {
+			#has_tech = artillery1
+		}
+
+		target_variant = {
+			match_value = 1000
+			type = light_tank_artillery_chassis_2
+			modules = {
+				main_armament_slot = tank_close_support_gun
+				turret_type_slot = tank_light_two_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_welded_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = tank_radio_module
+				special_type_slot_2 = sloped_armor
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 6
+				tank_nsb_armor_upgrade = {
+					base = 2
+				}
+			}
+		}
+
+		allowed_modules = {
+			tank_close_support_gun
+			tank_light_two_man_tank_turret
+			tank_bogie_suspension
+			tank_welded_armor
+			tank_gasoline_engine
+			tank_radio_module
+			sloped_armor
+		}
+	}
+}
+
+USA_medium_tanks = {
+	category = land
+
+	available_for = { USA }
+
+	roles = {
+		land_medium_tank
+	}
+
+	priority = {
+		factor = 2000
+	}
+
+	basic_medium_tank_1 = { # M2 Medium
+		name = "Medium Tank, M2"
+	
+		priority = {
+			factor = 100
+			modifier = { 
+				has_tech = improved_medium_tank_chassis
+				factor = 0 #let's not waste XP here
+			}
+		}
+		
+		target_variant = {
+			match_value = 2000
+			type = medium_tank_chassis_1
+			modules = {
+				main_armament_slot = {
+					any_of = {
+						tank_small_cannon_2
+						tank_high_velocity_cannon
+						tank_small_cannon 
+					} 
+				}
+				turret_type_slot = tank_medium_two_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = sloped_armor
+				special_type_slot_2 = empty
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 7
+				tank_nsb_armor_upgrade = {
+					base = 3
+				}
+			}
+		}
+
+		allowed_modules = {
+			tank_small_cannon 
+			tank_small_cannon_2  
+			tank_high_velocity_cannon
+			tank_medium_two_man_tank_turret
+			tank_bogie_suspension
+			tank_riveted_armor
+			tank_gasoline_engine
+			sloped_armor
+		}
+	}
+	
+	basic_medium_tank_2 = { # M2A1 Medium - uparmored and supercharged engine
+		name = "Medium Tank, M2A1"
+		
+		priority = {
+			factor = 100
+			modifier = { 
+				has_tech = improved_medium_tank_chassis
+				factor = 0 #let's not waste XP here
+			}
+		}
+		
+		target_variant = {
+			match_value = 2000
+			type = medium_tank_chassis_1
+			modules = {
+				main_armament_slot = {
+					any_of = {
+						tank_small_cannon_2
+						tank_high_velocity_cannon
+						tank_small_cannon 
+					} 
+				}
+				turret_type_slot = tank_medium_two_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = sloped_armor
+				special_type_slot_2 = additional_machine_guns
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 8
+				tank_nsb_armor_upgrade = {
+					base = 4
+				}
+			}
+		}
+
+		allowed_modules = {
+			tank_small_cannon 
+			tank_small_cannon_2  
+			tank_high_velocity_cannon
+			tank_medium_two_man_tank_turret
+			tank_bogie_suspension
+			tank_riveted_armor
+			tank_gasoline_engine
+			sloped_armor
+			additional_machine_guns
+		}
+	}
+	
+	basic_medium_tank_3 = { # M3 Lee
+		name = "Medium Tank, M3 'Lee'"
+		
+		priority = {
+			factor = 100
+			modifier = { 
+				has_tech = improved_medium_tank_chassis
+				factor = 0 #let's not waste XP here
+			}
+		}
+		
+		target_variant = {
+			match_value = 2000
+			type = medium_tank_chassis_1
+			modules = {
+				main_armament_slot = {
+					any_of = {
+						tank_medium_cannon_2
+						tank_medium_cannon
+					} 
+				}
+				turret_type_slot = tank_medium_fixed_superstructure_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = sloped_armor
+				special_type_slot_2 = additional_machine_guns
+				special_type_slot_3 = secondary_turret_small_cannon
+				special_type_slot_4 = easy_maintenance
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 8
+				tank_nsb_armor_upgrade = {
+					base = 3
+				}
+			}
+		}
+
+		allowed_modules = {
+			tank_medium_cannon
+			tank_medium_cannon_2
+			tank_medium_fixed_superstructure_turret
+			tank_bogie_suspension
+			tank_riveted_armor
+			tank_gasoline_engine
+			sloped_armor
+			additional_machine_guns
+			secondary_turret_small_cannon
+			easy_maintenance
+		}
+	}
+	
+	improved_medium_tank_1 = {
+		name = "Medium Tank, M4 'Sherman'"
+		
+		priority = {
+			factor = 100
+			modifier = { 
+				has_tech = improved_medium_tank_chassis
+				factor = 0 #let's not waste XP here
+			}
+		}
+		
+		target_variant = {
+			match_value = 2000
+			type = medium_tank_chassis_2
+			modules = {
+				main_armament_slot = {
+					any_of = {
+						tank_medium_cannon
+						tank_medium_cannon_2
+					} 
+				}
+				turret_type_slot = tank_medium_three_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_welded_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = tank_radio_module
+				special_type_slot_2 = stabilizer
+				special_type_slot_3 = sloped_armor
+				special_type_slot_4 = easy_maintenance
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 5
+				tank_nsb_armor_upgrade = 8
+			}
+		}
+
+		allowed_modules = {
+			tank_medium_cannon
+			tank_medium_cannon_2
+			tank_medium_three_man_tank_turret
+			tank_bogie_suspension
+			tank_welded_armor
+			tank_gasoline_engine
+			tank_radio_module
+			stabilizer
+			sloped_armor
+			easy_maintenance
+		}
+	}
+	
+	improved_medium_tank_2 = {
+		name = "Medium Tank, M4(105) 'Sherman'"
+		
+		priority = {
+			factor = 100
+			modifier = { 
+				has_tech = improved_medium_tank_chassis
+				factor = 0 #let's not waste XP here
+			}
+		}
+		
+		target_variant = {
+			match_value = 2000
+			type = medium_tank_chassis_2
+			modules = {
+				main_armament_slot = {
+					any_of = {
+						tank_medium_howitzer
+						tank_medium_howitzer_2
+					} 
+				}
+				turret_type_slot = tank_medium_three_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_welded_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = tank_radio_module
+				special_type_slot_2 = stabilizer
+				special_type_slot_3 = sloped_armor
+				special_type_slot_4 = easy_maintenance
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 5
+				tank_nsb_armor_upgrade = 8
+			}
+		}
+
+		allowed_modules = {
+			tank_medium_howitzer
+			tank_medium_howitzer_2
+			tank_medium_three_man_tank_turret
+			tank_bogie_suspension
+			tank_welded_armor
+			tank_gasoline_engine
+			tank_radio_module
+			stabilizer
+			sloped_armor
+			easy_maintenance
+		}
+	}
+	
+	improved_medium_tank_3 = {
+		name = "Medium Tank, M4A1 'Sherman'"
+		
+		priority = {
+			factor = 100
+			modifier = { 
+				has_tech = improved_medium_tank_chassis
+				factor = 0 #let's not waste XP here
+			}
+		}
+		
+		target_variant = {
+			match_value = 2000
+			type = medium_tank_chassis_2
+			modules = {
+				main_armament_slot = {
+					any_of = {
+						tank_medium_cannon
+						tank_medium_cannon_2
+					} 
+				}
+				turret_type_slot = tank_medium_three_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_cast_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = tank_radio_module
+				special_type_slot_2 = stabilizer
+				special_type_slot_3 = sloped_armor
+				special_type_slot_4 = easy_maintenance
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 5
+				tank_nsb_armor_upgrade = 8
+			}
+		}
+
+		allowed_modules = {
+			tank_medium_cannon
+			tank_medium_cannon_2
+			tank_medium_three_man_tank_turret
+			tank_bogie_suspension
+			tank_cast_armor
+			tank_gasoline_engine
+			tank_radio_module
+			stabilizer
+			sloped_armor
+			easy_maintenance
+		}
+	}
+	
+	improved_medium_tank_4 = {
+		name = "Medium Tank, M4A1(76)W 'Sherman'"
+		
+		priority = {
+			factor = 100
+			modifier = { 
+				has_tech = improved_medium_tank_chassis
+				factor = 0 #let's not waste XP here
+			}
+		}
+		
+		target_variant = {
+			match_value = 2000
+			type = medium_tank_chassis_2
+			modules = {
+				main_armament_slot = {
+					any_of = {
+						tank_high_velocity_cannon
+						tank_high_velocity_cannon_2
+						tank_high_velocity_cannon_3
+					}
+				}
+				turret_type_slot = tank_medium_three_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_cast_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = tank_radio_module
+				special_type_slot_2 = stabilizer
+				special_type_slot_3 = sloped_armor
+				special_type_slot_4 = easy_maintenance
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 5
+				tank_nsb_armor_upgrade = 8
+			}
+		}
+
+		allowed_modules = {
+			tank_high_velocity_cannon
+			tank_high_velocity_cannon_2
+			tank_high_velocity_cannon_3
+			tank_medium_three_man_tank_turret
+			tank_bogie_suspension
+			tank_cast_armor
+			tank_gasoline_engine
+			tank_radio_module
+			stabilizer
+			sloped_armor
+			easy_maintenance
+		}
+	}
+}
+
+USA_medium_tank_artillery = {
+	category = land
+
+	available_for = { USA }
+
+	roles = {
+		land_light_tank_artillery
+	}
+
+	priority = {
+		factor = 500
+	}
+	
+	basic_medium_tank_artillery_1 = {
+		name = "Howitzer Motor Carriage, M7 'Priest'"
+		
+		priority = {
+			factor = 100
+		}
+		enable = {
+			#has_tech = artillery1
+		}
+
+		target_variant = {
+			match_value = 1000
+			type = medium_tank_artillery_chassis_1
+			modules = {
+				main_armament_slot = {
+					any_of = {
+						tank_medium_howitzer
+						tank_medium_howitzer_2
+					}
+				}
+				turret_type_slot = tank_medium_fixed_superstructure_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_welded_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = tank_radio_module
+				special_type_slot_2 = sloped_armor
+				special_type_slot_3 = easy_maintenance
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 6
+				tank_nsb_armor_upgrade = {
+					base = 2
+				}
+			}
+		}
+
+		allowed_modules = {
+			tank_medium_howitzer
+			tank_medium_howitzer_2
+			tank_medium_fixed_superstructure_turret
+			tank_bogie_suspension
+			tank_welded_armor
+			tank_gasoline_engine
+			tank_radio_module
+			sloped_armor
+			easy_maintenance
+		}
+	}
+}

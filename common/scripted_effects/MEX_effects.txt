@@ -1,20 +1,15 @@
-MEX_setup_CRT = {
+MEX_setup_MTC = {
 	hidden_effect = {
 		every_state = {
 			limit = {
 				is_core_of = MEX
 			}
-			add_core_of = CRT
+			add_core_of = MTC
 		}
-		CRT = {
-			transfer_state = 478
-			set_province_controller = 2008
-			set_province_controller = 7921
-			set_province_controller = 8057
-			set_province_controller = 10172
-			set_province_controller = 13337
-			set_province_controller = 13345
-			load_oob = "CRT"
+		MTC = {
+			transfer_state = 479
+			set_province_controller = 12810
+			load_oob = "MTC"
 			
 			if = {
 				limit = { has_template = "Brigada Agrarista" }
@@ -35,3 +30,78 @@ MEX_setup_YUC = {
 		}
 	}
 }
+
+MEX_setup_CMS = {
+	hidden_effect = {
+		every_state = {
+			limit = {
+				is_core_of = MEX
+			}
+			add_core_of = CMS
+		}
+		CMS = {
+			transfer_state = 480
+			transfer_state = 482
+			set_province_controller = 10738
+			set_province_controller = 1952
+			set_province_controller = 13240
+			load_oob = "CMS"
+			
+			if = {
+				limit = { has_template = "Brigada Agrarista" }
+				delete_unit_template_and_units = { division_template = "Brigada Agrarista" }
+			}
+		}
+	}
+}
+
+MEX_setup_CRT = {
+	hidden_effect = {
+		every_state = {
+			limit = {
+				is_core_of = MEX
+			}
+			add_core_of = CRT
+		}
+		CRT = {
+			transfer_state = 478
+			transfer_state = 481
+			transfer_state = 899
+			set_province_controller = 2008
+			set_province_controller = 7921
+			set_province_controller = 8057
+			set_province_controller = 10172
+			set_province_controller = 13337
+			set_province_controller = 13345
+			set_province_controller = 8032
+			set_province_controller = 12804
+			load_oob = "CRT"
+			
+			if = {
+				limit = { has_template = "Brigada Agrarista" }
+				delete_unit_template_and_units = { division_template = "Brigada Agrarista" }
+			}
+		}
+	}
+}
+
+MEX_setup_FRP = {
+	hidden_effect = {
+		every_state = {
+			limit = {
+				is_core_of = MEX
+			}
+			add_core_of = FRP
+		}
+		FRP = {
+			transfer_state = 484
+			load_oob = "FRP"
+			
+			if = {
+				limit = { has_template = "Brigada Agrarista" }
+				delete_unit_template_and_units = { division_template = "Brigada Agrarista" }
+			}
+		}
+	}
+}
+

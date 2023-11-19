@@ -1,0 +1,117 @@
+
+GER_focus_on_france = {
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		is_neighbor_of = FRA
+		FRA = {
+			has_capitulated = no
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = conquer
+		id = FRA
+		value = 200
+	}
+	ai_strategy = {
+		type = front_armor_score
+		id = FRA
+		value = 40
+	}
+}
+
+GER_eyes_on_belgium = {
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		is_neighbor_of = BEL
+		BEL = {
+			gives_military_access_to = FRA
+			has_capitulated = no
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = conquer
+		id = BEL
+		value = 50
+	}
+}
+
+GER_let_allies_handle_russia = {
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		is_in_faction_with = UKR
+		is_faction_leader = yes
+		FRA = {
+			is_faction_leader = yes
+		}
+		NOT = {
+			UKR = {
+				surrender_progress > 0.75
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = front_unit_request
+		tag = SOV
+		value = -250
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = RUS
+		value = -250
+	}
+}
+
+GER_allies_let_germany_handle_france = {
+	allowed = {
+		OR = {
+			original_tag = POL
+			original_tag = BAL
+			original_tag = LAT
+			original_tag = EST
+			original_tag = BLR
+			original_tag = UKR
+			original_tag = LIT
+			original_tag = CRI
+		}
+	}
+	enable = {
+		is_in_faction_with = GER
+		OR = {
+			SOV = {
+				exists = yes
+			}
+			RUS = {
+				exists = yes
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		tag = RUS
+		value = 250
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = SOV
+		value = 250
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = FRA
+		value = -250
+	}
+}

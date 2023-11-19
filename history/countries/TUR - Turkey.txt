@@ -51,6 +51,20 @@ if = {
 		mtg_transport = 1
 	}
 }
+if = {
+	limit = { has_dlc = "By Blood Alone" }
+	set_technology = {
+		iw_small_airframe = 1
+		iw_medium_airframe = 1
+	}
+	else = {
+		set_technology = {
+			early_fighter = 1
+			early_bomber = 1
+			CAS1 = 1
+		}
+	}
+}
 
 set_politics = {
 	ruling_party = liberal_conservatism
@@ -79,21 +93,20 @@ set_country_flag = liberal_conservatism_coalition
 
 set_country_flag = conscription_banned
 
-add_ideas = {
-	TUR_federation
-	TUR_unequal_treaties
-	TUR_foreign_expertise
-	TUR_growing_opposition
-	TUR_karakol_society
-}
+### MONARCHS ###
+recruit_character = TUR_sehzade_mehmed_selim
 
 ### LEADERS ###
-recruit_character = TUR_mirsaid_sultan_galiev
+recruit_character = TUR_ethem_nejat
+recruit_character = TUR_mustafa_subhi
+recruit_character = TUR_sevket_sureyya_aydemir
 recruit_character = TUR_suat_dervis
 recruit_character = TUR_riza_tevfik
-recruit_character = TUR_fethi_okyar
 recruit_character = TUR_adnan_adivar
-recruit_character = TUR_kazim_karabekir
+recruit_character = TUR_fethi_okyar
+recruit_character = TUR_kazim_karabekir # also a general
+recruit_character = TUR_necip_fazil_kisakurek
+recruit_character = TUR_enver_pasha
 
 ### ADVISORS ###
 recruit_character = TUR_adnan_menderes
@@ -105,17 +118,29 @@ recruit_character = TUR_mazhar_german
 recruit_character = TUR_omer_behcet_uz
 recruit_character = TUR_omer_seyfettin
 recruit_character = TUR_mehmed_cavid
-#recruit_character = TUR_Hasan_Ali_Yucel
-#recruit_character = TUR_Sukur_Saracoglu
-#recruit_character = TUR_Sevket_Sureyya_Aydemir
+recruit_character = TUR_hasan_ali_yucel
+recruit_character = TUR_nuri_demirag
+recruit_character = TUR_sukur_saracoglu
+recruit_character = TUR_mustafa_sagir
+
+activate_advisor = TUR_sehzade_mehmed_selim_hog
+activate_advisor = TUR_kazim_karabekir_army_chief
 
 ### GENERALS ###
-#recruit_character = TUR_Fevzi_Cakmak
-#recruit_character = TUR_Kazim_Orbay
-#recruit_character = TUR_Nuri_Yamut
-#recruit_character = TUR_Cemal_Madanoglu
-#recruit_character = TUR_Ismet_Inonu
-#recruit_character = TUR_Kölemen_Abdullah_Pasha
+recruit_character = TUR_fevzi_cakmak
+recruit_character = TUR_kazim_orbay
+recruit_character = TUR_nuri_yamut
+recruit_character = TUR_cemal_madanoglu
+recruit_character = TUR_ismet_resit
+recruit_character = TUR_kolemen_abdullah_pasha
+
+add_ideas = {
+	TUR_federation
+	TUR_unequal_treaties
+	TUR_foreign_expertise
+	TUR_growing_opposition
+	TUR_karakol_society
+}
 
 ### VARIANTS ###
 # 1936 Start #
