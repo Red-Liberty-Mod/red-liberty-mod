@@ -105,7 +105,7 @@ leader_traits = {
 	dive_bomber = {
 		sprite = 14
 		equipment_bonus = {
-			CAS_equipment = {
+			small_plane_cas_airframe = {
 				instant = yes
 				air_ground_attack = 0.1 
 			}
@@ -207,10 +207,10 @@ leader_traits = {
 	light_aircraft_manufacturer = {
 		random = no
 		equipment_bonus = {
-			fighter_equipment = {
+			small_plane_airframe = {
 				air_agility = 0.1 maximum_speed = 0.1
 			}
-			cv_fighter_equipment = {
+			cv_small_plane_airframe = {
 				air_agility = 0.1 maximum_speed = 0.1
 			}
 		}
@@ -223,10 +223,10 @@ leader_traits = {
 	light_aircraft_manufacturer_2 = { 
 		random = no
 		equipment_bonus = {
-			fighter_equipment = {
+			small_plane_airframe = {
 				air_agility = 0.2 maximum_speed = 0.1
 			}
-			cv_fighter_equipment = {
+			cv_small_plane_airframe = {
 				air_agility = 0.2 maximum_speed = 0.1
 			}
 		}
@@ -240,10 +240,10 @@ leader_traits = {
 	CAS_manufacturer = {
 		random = no
 		equipment_bonus = {
-			CAS_equipment = {
+			small_plane_cas_airframe = {
 				air_ground_attack = 0.1 reliability = 0.1
 			}
-			cv_CAS_equipment = {
+			cv_small_plane_cas_airframe = {
 				air_ground_attack = 0.1 reliability = 0.1
 			}		
 		}
@@ -256,13 +256,13 @@ leader_traits = {
 	medium_aircraft_manufacturer = {
 		random = no
 		equipment_bonus = {
-			heavy_fighter_equipment = {
+			medium_plane_fighter_airframe = {
 				reliability = 0.2
 			}
-			tac_bomber_equipment = {
+			medium_plane_airframe = {
 				reliability = 0.2
 			}
-			scout_plane_equipment = {
+			medium_plane_scout_plane_airframe = {
 				reliability = 0.2
 			}
 		}
@@ -275,14 +275,14 @@ leader_traits = {
 	fuel_efficient_aircraft_manufacturer = { 
 		random = no
 		equipment_bonus = {
-			fighter_equipment = {
+			small_plane_airframe = {
 				air_range = 0.1
 			}
-			heavy_fighter_equipment = {
+			medium_plane_fighter_airframe = {
 				air_range = 0.1
 				reliability = 0.2
 			}
-			tac_bomber_equipment = {
+			medium_plane_airframe = {
 				reliability = 0.2
 			}
 		}
@@ -309,20 +309,42 @@ leader_traits = {
 	naval_aircraft_manufacturer = {
 		random = no
 		equipment_bonus = {
-			nav_bomber_equipment = {
+			small_plane_naval_bomber_airframe = {
 				air_range = 0.1 naval_strike_attack = 0.1
 			}
-			cv_nav_bomber_equipment = {
+			cv_small_plane_naval_bomber_airframe = {
 				air_range = 0.1 naval_strike_attack = 0.1
 			}
-			cv_fighter_equipment = {
+			cv_small_plane_airframe = {
 				air_range = 0.1 air_agility = 0.1
 			}
-			cv_CAS_equipment = {
+			cv_small_plane_cas_airframe = {
 				air_range = 0.1 naval_strike_attack = 0.1
 			}
 		}
 		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	multi_role_aircraft_manufacturer = {
+		random = no
+		equipment_bonus = {
+			small_plane_naval_bomber_airframe = {
+				reliability = 0.1
+			}
+			medium_plane_airframe = {
+				reliability = 0.1
+			}
+			small_plane_cas_airframe = {
+				reliability = 0.1
+			}
+			medium_plane_scout_plane_airframe = {
+				reliability = 0.1
+			}
+		}
+
 		ai_will_do = {
 			factor = 1
 		}
@@ -347,7 +369,7 @@ leader_traits = {
 		random = no
 		equipment_bonus = {
 			armor = {
-				maximum_speed = 0.05 reliability = 0.1 
+				maximum_speed = 0.05 reliability = 0.1
 			}
 		}
 		
@@ -660,6 +682,7 @@ leader_traits = {
 		production_speed_supply_node_factor = 0.15
 		equipment_bonus = {
 			train_equipment = {
+				instant = yes
 				build_cost_ic = -0.25
 				reliability = 0.1
 			}
@@ -691,6 +714,26 @@ leader_traits = {
 	electronics_concern = {
 		random = no
 		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	telephone_company = {
+		random= No
+		land_reinforce_rate = 0.02
+		coordination_bonus = 0.04
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	mining_company = {
+		random = no
+
+		local_resources_factor = 0.1
+		production_lack_of_resource_penalty_factor = -0.15
+
 		ai_will_do = {
 			factor = 1
 		}
@@ -1328,7 +1371,9 @@ leader_traits = {
 	army_cavalry_1 = { # +4 cavalry/motorized efficiency
 		sprite = 17
 		cavalry_attack_factor = 0.05
-		cavalry_defence_factor = 0.05	
+		cavalry_defence_factor = 0.05
+		motorized_attack_factor = 0.025
+		motorized_defence_factor = 0.025
 		experience_gain_army = @experience_gain_low
 		
 		command_cap = @tier1
@@ -1341,7 +1386,9 @@ leader_traits = {
 	army_cavalry_2 = { # +8 cavalry/motorized efficiency
 		sprite = 17
 		cavalry_attack_factor = 0.1
-		cavalry_defence_factor = 0.1	
+		cavalry_defence_factor = 0.1
+		motorized_attack_factor = 0.05
+		motorized_defence_factor = 0.05
 		experience_gain_army = @experience_gain_medium
 		
 		command_cap = @tier2
@@ -1354,7 +1401,9 @@ leader_traits = {
 	army_cavalry_3 = { # +12 cavalry/motorized efficiency
 		sprite = 17
 		cavalry_attack_factor = 0.15
-		cavalry_defence_factor = 0.15		
+		cavalry_defence_factor = 0.15
+		motorized_attack_factor = 0.1
+		motorized_defence_factor = 0.1
 		experience_gain_army = @experience_gain_high
 		
 		command_cap = @tier3

@@ -1,0 +1,683 @@
+
+start_irish_civil_war_ICA = {
+	create_dynamic_country = {
+		original_tag = IRE
+		save_global_event_target_as = socialist_ireland
+		#every_state = {
+		#	limit = {
+		#		is_core_of = IRE
+		#	}
+		#	add_core_of = PREV
+		#}
+		
+		transfer_state = 135
+		
+		set_capital = 135
+		set_politics = {
+			ruling_party = anarchism
+			elections_allowed = no
+		}
+		set_popularities = {
+			anarchism = 20
+			vanguard_socialism = 20
+			revolutionary_socialism = 30
+			democratic_socialism = 30
+		}
+		set_cosmetic_tag = IRE_limerick_soviet
+		set_country_flag = IRE_is_socialist_ireland
+		
+		load_focus_tree = IRE_socialist_tree
+		
+		ICA = {
+			load_oob = "ICA"
+			if = {
+				limit = {
+					check_variable = { IRE.IRE_ica_strength > 35 }
+				}
+				load_oob = "ICA_bonus_1"
+			}
+			if = {
+				limit = {
+					check_variable = { IRE.IRE_ica_strength > 75 }
+				}
+				load_oob = "ICA_bonus_2"
+			}
+			
+			declare_war_on = {
+				target = IRE
+				type = annex_everything
+			}
+			
+			add_ideas = {
+				closed_economy
+				low_economic_mobilisation
+			}
+		}
+	}
+	
+	### Leaders ###
+	IRE_jack_white = {
+		set_nationality = ICA
+		promote_character = yes
+	}
+	IRE_roddy_connelly = {
+		set_nationality = ICA
+		promote_character = yes
+	}
+	IRE_charles_donnelly = {
+		set_nationality = ICA
+		promote_character = yes
+	}
+	IRE_james_larkin = {
+		set_nationality = ICA
+		promote_character = yes
+	}
+	
+	### Deputy Leaders ###
+	IRE_james_larkin_jr = { set_nationality = ICA }
+	
+	### Ministers ###
+	IRE_andy_barr = { set_nationality = ICA }
+	IRE_mairtin_o_cadhain = { set_nationality = ICA }
+	IRE_benjamin_farrington = { set_nationality = ICA }
+	
+	### Generals ###
+	IRE_paddy_odaire = { set_nationality = ICA }
+	IRE_michael_oriordan = { set_nationality = ICA }
+}
+
+IRE_recalc_parliament = { # this will recalculate the number of members of parliament based on party popularity
+	
+	#Sets variable to check for discrepencies
+	set_variable = {
+		IRE_old_tds_total = tds_total
+	}
+	
+	set_variable = {
+		communist_tds = party_popularity@vanguard_socialism
+	}
+	add_to_variable = {
+		communist_tds = party_popularity@anarchism
+	}
+	multiply_variable = {
+		communist_tds = 0.4
+	}
+	
+	set_variable = {
+		rev_socialist_tds = party_popularity@revolutionary_socialism
+	}
+	multiply_variable = {
+		rev_socialist_tds = 0.4
+	}
+	
+	set_variable = {
+		socialist_tds = party_popularity@democratic_socialism
+	}
+	multiply_variable = {
+		socialist_tds = 0.6
+	}
+	
+	set_variable = {
+		labour_tds = party_popularity@social_democracy
+	}
+	
+	set_variable = {
+		liberal_tds = party_popularity@progressive_liberalism
+	}
+	
+	set_variable = {
+		conservative_tds = party_popularity@liberal_conservatism
+	}
+	add_to_variable = {
+		conservative_tds = party_popularity@national_conservatism
+	}
+	
+	set_variable = {
+		authoritarian_tds = party_popularity@authoritarian_democracy
+	}
+	
+	#Gets seats
+	multiply_variable = {
+		communist_tds = tds_total
+	}
+	multiply_variable = {
+		rev_socialist_tds = tds_total
+	}
+	multiply_variable = {
+		socialist_tds = tds_total
+	}
+	multiply_variable = {
+		labour_tds = tds_total
+	}
+	multiply_variable = {
+		liberal_tds = tds_total
+	}
+	multiply_variable = {
+		conservative_tds = tds_total
+	}
+	multiply_variable = {
+		authoritarian_tds = tds_total
+	}
+	
+	#rounds
+	round_variable = communist_tds
+	round_variable = rev_socialist_tds
+	round_variable = socialist_tds
+	round_variable = labour_tds
+	round_variable = liberal_tds
+	round_variable = conservative_tds
+	round_variable = authoritarian_tds
+	
+	#Gets new total seat value
+	set_variable = {
+		tds_total = 0
+	}
+	add_to_variable = {
+		tds_total = communist_tds
+	}
+	add_to_variable = {
+		tds_total = rev_socialist_tds
+	}
+	add_to_variable = {
+		tds_total = socialist_tds
+	}
+	add_to_variable = {
+		tds_total = labour_tds
+	}
+	add_to_variable = {
+		tds_total = liberal_tds
+	}
+	add_to_variable = {
+		tds_total = conservative_tds
+	}
+	add_to_variable = {
+		tds_total = authoritarian_tds
+	}
+	
+	#gets discrepency
+	subtract_from_variable = {
+		IRE_old_tds_total = tds_total
+	}
+	
+	#deals with discrepency, if needed
+	if = {
+		limit = {
+			NOT = {
+				check_variable = {
+					IRE_old_tds_total = 0
+				}
+			}
+		}
+		add_to_variable = {
+			tds_total = IRE_old_tds_total
+		}
+		if = {
+			limit = {
+				has_government = vanguard_socialism
+			}
+			add_to_variable = {
+				communist_tds = IRE_old_tds_total
+			}
+		}
+		if = {
+			limit = {
+				has_government = revolutionary_socialism
+			}
+			add_to_variable = {
+				rev_socialist_tds = IRE_old_tds_total
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_government = democratic_socialism
+				}
+			}
+			add_to_variable = {
+				socialist_tds = IRE_old_tds_total
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_government = social_democracy
+				}
+			}
+			add_to_variable = {
+				labour_tds = IRE_old_tds_total
+			}
+		}
+		else_if = {
+			limit = {
+				has_government = progressive_liberalism
+			}
+			add_to_variable = {
+				liberal_tds = IRE_old_tds_total
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_government = liberal_conservatism
+					has_government = national_conservatism
+				}
+			}
+			add_to_variable = {
+				conservative_tds = IRE_old_tds_total
+			}
+		}
+		else_if = {
+			limit = {
+				has_government = authoritarian_democracy
+			}
+			add_to_variable = {
+				authoritarian_tds = IRE_old_tds_total
+			}
+		}
+	}
+	
+	IRE_refresh_parliament = yes
+}
+
+IRE_refresh_parliament = {
+	
+	set_temp_variable = { t1 = communist_tds }
+	set_temp_variable = { t2 = rev_socialist_tds }
+	set_temp_variable = { t3 = socialist_tds }
+	set_temp_variable = { t4 = labour_tds }
+	set_temp_variable = { t5 = liberal_tds }
+	set_temp_variable = { t6 = conservative_tds }
+	set_temp_variable = { t7 = authoritarian_tds }
+	set_temp_variable = { t8 = 160 }
+
+	add_to_temp_variable = { t2 = t1 }
+	add_to_temp_variable = { t3 = t2 }
+	add_to_temp_variable = { t4 = t3 }
+	add_to_temp_variable = { t5 = t4 }
+	add_to_temp_variable = { t6 = t5 }
+	add_to_temp_variable = { t7 = t6 }
+	
+	clear_array = IRE_frame_array
+	
+	# Resize array to t1 seats, setting P1 frame numbers to 1 (Party 1 color)
+	resize_array = {
+		array = IRE_frame_array
+		value = 1
+		size = t1
+	}
+	# Resize array to t2 seats, setting P2 frame numbers to 2 (Party 2 color)
+	resize_array = {
+		array = IRE_frame_array
+		value = 2
+		size = t2
+	}
+	# Resize array to t3 seats, setting P3 frame numbers to 3 (Party 3 color)
+	resize_array = {
+		array = IRE_frame_array
+		value = 3
+		size = t3
+	}
+	# Resize array to all t4 seats, setting P4 frame numbers to 4 (Party 4 color)
+	resize_array = {
+		array = IRE_frame_array
+		value = 4
+		size = t4
+	}
+	# Resize array to all t5, setting P5 frame numbers to 5 (Party 5 color)
+	resize_array = {
+		array = IRE_frame_array
+		value = 5
+		size = t5
+	}
+	# Resize array to all t6, setting P6 frame numbers to 6 (Party 6 color)
+	resize_array = {
+		array = IRE_frame_array
+		value = 6
+		size = t6
+	}
+	# Resize array to all t7, setting P6 frame numbers to 7 (Party 7 color)
+	resize_array = {
+		array = IRE_frame_array
+		value = 7
+		size = t7
+	}
+	# Resize array to all 160 seats, setting remaining frame numbers to 7 (Party 7 color)
+	resize_array = {
+		array = IRE_frame_array
+		value = 7
+		size = t8
+	}
+}
+
+IRE_init_parliament = {
+	
+	# Spread: 2.38
+	# First Row Radius: 3.31
+	# Total Delegates: 160
+	
+	IRE_refresh_parliament = yes
+	
+	clear_array = IRE_x_array
+	clear_array = IRE_y_array
+	
+	add_to_array = { IRE_x_array = 0 }
+	add_to_array = { IRE_y_array = 148 }
+	add_to_array = { IRE_x_array = 15 }
+	add_to_array = { IRE_y_array = 148 }
+	add_to_array = { IRE_x_array = 30 }
+	add_to_array = { IRE_y_array = 148 }
+	add_to_array = { IRE_x_array = 45 }
+	add_to_array = { IRE_y_array = 148 }
+	add_to_array = { IRE_x_array = 60 }
+	add_to_array = { IRE_y_array = 148 }
+	add_to_array = { IRE_x_array = 75 }
+	add_to_array = { IRE_y_array = 148 }
+	add_to_array = { IRE_x_array = 90 }
+	add_to_array = { IRE_y_array = 148 }
+	add_to_array = { IRE_x_array = 2 }
+	add_to_array = { IRE_y_array = 133 }
+	add_to_array = { IRE_x_array = 17 }
+	add_to_array = { IRE_y_array = 133 }
+	add_to_array = { IRE_x_array = 32 }
+	add_to_array = { IRE_y_array = 133 }
+	add_to_array = { IRE_x_array = 47 }
+	add_to_array = { IRE_y_array = 134 }
+	add_to_array = { IRE_x_array = 5 }
+	add_to_array = { IRE_y_array = 119 }
+	add_to_array = { IRE_x_array = 62 }
+	add_to_array = { IRE_y_array = 134 }
+	add_to_array = { IRE_x_array = 21 }
+	add_to_array = { IRE_y_array = 118 }
+	add_to_array = { IRE_x_array = 78 }
+	add_to_array = { IRE_y_array = 134 }
+	add_to_array = { IRE_x_array = 36 }
+	add_to_array = { IRE_y_array = 118 }
+	add_to_array = { IRE_x_array = 9 }
+	add_to_array = { IRE_y_array = 104 }
+	add_to_array = { IRE_x_array = 93 }
+	add_to_array = { IRE_y_array = 136 }
+	add_to_array = { IRE_x_array = 51 }
+	add_to_array = { IRE_y_array = 120 }
+	add_to_array = { IRE_x_array = 26 }
+	add_to_array = { IRE_y_array = 103 }
+	add_to_array = { IRE_x_array = 67 }
+	add_to_array = { IRE_y_array = 120 }
+	add_to_array = { IRE_x_array = 42 }
+	add_to_array = { IRE_y_array = 104 }
+	add_to_array = { IRE_x_array = 15 }
+	add_to_array = { IRE_y_array = 91 }
+	add_to_array = { IRE_x_array = 83 }
+	add_to_array = { IRE_y_array = 121 }
+	add_to_array = { IRE_x_array = 57 }
+	add_to_array = { IRE_y_array = 106 }
+	add_to_array = { IRE_x_array = 33 }
+	add_to_array = { IRE_y_array = 90 }
+	add_to_array = { IRE_x_array = 22 }
+	add_to_array = { IRE_y_array = 78 }
+	add_to_array = { IRE_x_array = 99 }
+	add_to_array = { IRE_y_array = 124 }
+	add_to_array = { IRE_x_array = 74 }
+	add_to_array = { IRE_y_array = 107 }
+	add_to_array = { IRE_x_array = 50 }
+	add_to_array = { IRE_y_array = 90 }
+	add_to_array = { IRE_x_array = 41 }
+	add_to_array = { IRE_y_array = 77 }
+	add_to_array = { IRE_x_array = 65 }
+	add_to_array = { IRE_y_array = 94 }
+	add_to_array = { IRE_x_array = 31 }
+	add_to_array = { IRE_y_array = 65 }
+	add_to_array = { IRE_x_array = 91 }
+	add_to_array = { IRE_y_array = 109 }
+	add_to_array = { IRE_x_array = 59 }
+	add_to_array = { IRE_y_array = 78 }
+	add_to_array = { IRE_x_array = 83 }
+	add_to_array = { IRE_y_array = 96 }
+	add_to_array = { IRE_x_array = 51 }
+	add_to_array = { IRE_y_array = 65 }
+	add_to_array = { IRE_x_array = 40 }
+	add_to_array = { IRE_y_array = 54 }
+	add_to_array = { IRE_x_array = 107 }
+	add_to_array = { IRE_y_array = 114 }
+	add_to_array = { IRE_x_array = 75 }
+	add_to_array = { IRE_y_array = 83 }
+	add_to_array = { IRE_x_array = 69 }
+	add_to_array = { IRE_y_array = 67 }
+	add_to_array = { IRE_x_array = 51 }
+	add_to_array = { IRE_y_array = 43 }
+	add_to_array = { IRE_x_array = 101 }
+	add_to_array = { IRE_y_array = 99 }
+	add_to_array = { IRE_x_array = 62 }
+	add_to_array = { IRE_y_array = 54 }
+	add_to_array = { IRE_x_array = 93 }
+	add_to_array = { IRE_y_array = 86 }
+	add_to_array = { IRE_x_array = 85 }
+	add_to_array = { IRE_y_array = 73 }
+	add_to_array = { IRE_x_array = 63 }
+	add_to_array = { IRE_y_array = 34 }
+	add_to_array = { IRE_x_array = 81 }
+	add_to_array = { IRE_y_array = 57 }
+	add_to_array = { IRE_x_array = 74 }
+	add_to_array = { IRE_y_array = 44 }
+	add_to_array = { IRE_x_array = 117 }
+	add_to_array = { IRE_y_array = 105 }
+	add_to_array = { IRE_x_array = 112 }
+	add_to_array = { IRE_y_array = 90 }
+	add_to_array = { IRE_x_array = 105 }
+	add_to_array = { IRE_y_array = 77 }
+	add_to_array = { IRE_x_array = 97 }
+	add_to_array = { IRE_y_array = 64 }
+	add_to_array = { IRE_x_array = 75 }
+	add_to_array = { IRE_y_array = 26 }
+	add_to_array = { IRE_x_array = 87 }
+	add_to_array = { IRE_y_array = 36 }
+	add_to_array = { IRE_x_array = 94 }
+	add_to_array = { IRE_y_array = 49 }
+	add_to_array = { IRE_x_array = 88 }
+	add_to_array = { IRE_y_array = 19 }
+	add_to_array = { IRE_x_array = 128 }
+	add_to_array = { IRE_y_array = 99 }
+	add_to_array = { IRE_x_array = 111 }
+	add_to_array = { IRE_y_array = 58 }
+	add_to_array = { IRE_x_array = 101 }
+	add_to_array = { IRE_y_array = 30 }
+	add_to_array = { IRE_x_array = 118 }
+	add_to_array = { IRE_y_array = 71 }
+	add_to_array = { IRE_x_array = 108 }
+	add_to_array = { IRE_y_array = 43 }
+	add_to_array = { IRE_x_array = 125 }
+	add_to_array = { IRE_y_array = 84 }
+	add_to_array = { IRE_x_array = 102 }
+	add_to_array = { IRE_y_array = 13 }
+	add_to_array = { IRE_x_array = 115 }
+	add_to_array = { IRE_y_array = 25 }
+	add_to_array = { IRE_x_array = 124 }
+	add_to_array = { IRE_y_array = 53 }
+	add_to_array = { IRE_x_array = 123 }
+	add_to_array = { IRE_y_array = 38 }
+	add_to_array = { IRE_x_array = 116 }
+	add_to_array = { IRE_y_array = 9 }
+	add_to_array = { IRE_x_array = 132 }
+	add_to_array = { IRE_y_array = 66 }
+	add_to_array = { IRE_x_array = 140 }
+	add_to_array = { IRE_y_array = 95 }
+	add_to_array = { IRE_x_array = 139 }
+	add_to_array = { IRE_y_array = 80 }
+	add_to_array = { IRE_x_array = 130 }
+	add_to_array = { IRE_y_array = 21 }
+	add_to_array = { IRE_x_array = 131 }
+	add_to_array = { IRE_y_array = 6 }
+	add_to_array = { IRE_x_array = 139 }
+	add_to_array = { IRE_y_array = 50 }
+	add_to_array = { IRE_x_array = 138 }
+	add_to_array = { IRE_y_array = 35 }
+	add_to_array = { IRE_x_array = 146 }
+	add_to_array = { IRE_y_array = 64 }
+	add_to_array = { IRE_x_array = 146 }
+	add_to_array = { IRE_y_array = 19 }
+	add_to_array = { IRE_x_array = 146 }
+	add_to_array = { IRE_y_array = 5 }
+	add_to_array = { IRE_x_array = 153 }
+	add_to_array = { IRE_y_array = 34 }
+	add_to_array = { IRE_x_array = 153 }
+	add_to_array = { IRE_y_array = 94 }
+	add_to_array = { IRE_x_array = 153 }
+	add_to_array = { IRE_y_array = 79 }
+	add_to_array = { IRE_x_array = 153 }
+	add_to_array = { IRE_y_array = 49 }
+	add_to_array = { IRE_x_array = 161 }
+	add_to_array = { IRE_y_array = 5 }
+	add_to_array = { IRE_x_array = 161 }
+	add_to_array = { IRE_y_array = 19 }
+	add_to_array = { IRE_x_array = 161 }
+	add_to_array = { IRE_y_array = 64 }
+	add_to_array = { IRE_x_array = 169 }
+	add_to_array = { IRE_y_array = 35 }
+	add_to_array = { IRE_x_array = 168 }
+	add_to_array = { IRE_y_array = 50 }
+	add_to_array = { IRE_x_array = 176 }
+	add_to_array = { IRE_y_array = 6 }
+	add_to_array = { IRE_x_array = 176 }
+	add_to_array = { IRE_y_array = 21 }
+	add_to_array = { IRE_x_array = 168 }
+	add_to_array = { IRE_y_array = 80 }
+	add_to_array = { IRE_x_array = 166 }
+	add_to_array = { IRE_y_array = 95 }
+	add_to_array = { IRE_x_array = 175 }
+	add_to_array = { IRE_y_array = 66 }
+	add_to_array = { IRE_x_array = 190 }
+	add_to_array = { IRE_y_array = 9 }
+	add_to_array = { IRE_x_array = 184 }
+	add_to_array = { IRE_y_array = 38 }
+	add_to_array = { IRE_x_array = 182 }
+	add_to_array = { IRE_y_array = 53 }
+	add_to_array = { IRE_x_array = 191 }
+	add_to_array = { IRE_y_array = 25 }
+	add_to_array = { IRE_x_array = 205 }
+	add_to_array = { IRE_y_array = 13 }
+	add_to_array = { IRE_x_array = 181 }
+	add_to_array = { IRE_y_array = 84 }
+	add_to_array = { IRE_x_array = 198 }
+	add_to_array = { IRE_y_array = 43 }
+	add_to_array = { IRE_x_array = 189 }
+	add_to_array = { IRE_y_array = 71 }
+	add_to_array = { IRE_x_array = 206 }
+	add_to_array = { IRE_y_array = 30 }
+	add_to_array = { IRE_x_array = 196 }
+	add_to_array = { IRE_y_array = 58 }
+	add_to_array = { IRE_x_array = 179 }
+	add_to_array = { IRE_y_array = 99 }
+	add_to_array = { IRE_x_array = 218 }
+	add_to_array = { IRE_y_array = 19 }
+	add_to_array = { IRE_x_array = 212 }
+	add_to_array = { IRE_y_array = 49 }
+	add_to_array = { IRE_x_array = 220 }
+	add_to_array = { IRE_y_array = 36 }
+	add_to_array = { IRE_x_array = 232 }
+	add_to_array = { IRE_y_array = 26 }
+	add_to_array = { IRE_x_array = 209 }
+	add_to_array = { IRE_y_array = 64 }
+	add_to_array = { IRE_x_array = 202 }
+	add_to_array = { IRE_y_array = 77 }
+	add_to_array = { IRE_x_array = 194 }
+	add_to_array = { IRE_y_array = 90 }
+	add_to_array = { IRE_x_array = 190 }
+	add_to_array = { IRE_y_array = 105 }
+	add_to_array = { IRE_x_array = 233 }
+	add_to_array = { IRE_y_array = 44 }
+	add_to_array = { IRE_x_array = 225 }
+	add_to_array = { IRE_y_array = 57 }
+	add_to_array = { IRE_x_array = 244 }
+	add_to_array = { IRE_y_array = 34 }
+	add_to_array = { IRE_x_array = 221 }
+	add_to_array = { IRE_y_array = 73 }
+	add_to_array = { IRE_x_array = 214 }
+	add_to_array = { IRE_y_array = 86 }
+	add_to_array = { IRE_x_array = 245 }
+	add_to_array = { IRE_y_array = 54 }
+	add_to_array = { IRE_x_array = 206 }
+	add_to_array = { IRE_y_array = 99 }
+	add_to_array = { IRE_x_array = 256 }
+	add_to_array = { IRE_y_array = 43 }
+	add_to_array = { IRE_x_array = 237 }
+	add_to_array = { IRE_y_array = 67 }
+	add_to_array = { IRE_x_array = 232 }
+	add_to_array = { IRE_y_array = 83 }
+	add_to_array = { IRE_x_array = 200 }
+	add_to_array = { IRE_y_array = 114 }
+	add_to_array = { IRE_x_array = 266 }
+	add_to_array = { IRE_y_array = 54 }
+	add_to_array = { IRE_x_array = 256 }
+	add_to_array = { IRE_y_array = 65 }
+	add_to_array = { IRE_x_array = 224 }
+	add_to_array = { IRE_y_array = 96 }
+	add_to_array = { IRE_x_array = 248 }
+	add_to_array = { IRE_y_array = 78 }
+	add_to_array = { IRE_x_array = 216 }
+	add_to_array = { IRE_y_array = 109 }
+	add_to_array = { IRE_x_array = 276 }
+	add_to_array = { IRE_y_array = 65 }
+	add_to_array = { IRE_x_array = 242 }
+	add_to_array = { IRE_y_array = 94 }
+	add_to_array = { IRE_x_array = 266 }
+	add_to_array = { IRE_y_array = 77 }
+	add_to_array = { IRE_x_array = 257 }
+	add_to_array = { IRE_y_array = 90 }
+	add_to_array = { IRE_x_array = 233 }
+	add_to_array = { IRE_y_array = 107 }
+	add_to_array = { IRE_x_array = 208 }
+	add_to_array = { IRE_y_array = 124 }
+	add_to_array = { IRE_x_array = 284 }
+	add_to_array = { IRE_y_array = 78 }
+	add_to_array = { IRE_x_array = 274 }
+	add_to_array = { IRE_y_array = 90 }
+	add_to_array = { IRE_x_array = 249 }
+	add_to_array = { IRE_y_array = 106 }
+	add_to_array = { IRE_x_array = 223 }
+	add_to_array = { IRE_y_array = 121 }
+	add_to_array = { IRE_x_array = 292 }
+	add_to_array = { IRE_y_array = 91 }
+	add_to_array = { IRE_x_array = 265 }
+	add_to_array = { IRE_y_array = 104 }
+	add_to_array = { IRE_x_array = 240 }
+	add_to_array = { IRE_y_array = 120 }
+	add_to_array = { IRE_x_array = 281 }
+	add_to_array = { IRE_y_array = 103 }
+	add_to_array = { IRE_x_array = 255 }
+	add_to_array = { IRE_y_array = 120 }
+	add_to_array = { IRE_x_array = 214 }
+	add_to_array = { IRE_y_array = 136 }
+	add_to_array = { IRE_x_array = 297 }
+	add_to_array = { IRE_y_array = 104 }
+	add_to_array = { IRE_x_array = 271 }
+	add_to_array = { IRE_y_array = 118 }
+	add_to_array = { IRE_x_array = 229 }
+	add_to_array = { IRE_y_array = 134 }
+	add_to_array = { IRE_x_array = 286 }
+	add_to_array = { IRE_y_array = 118 }
+	add_to_array = { IRE_x_array = 244 }
+	add_to_array = { IRE_y_array = 134 }
+	add_to_array = { IRE_x_array = 302 }
+	add_to_array = { IRE_y_array = 119 }
+	add_to_array = { IRE_x_array = 260 }
+	add_to_array = { IRE_y_array = 134 }
+	add_to_array = { IRE_x_array = 275 }
+	add_to_array = { IRE_y_array = 133 }
+	add_to_array = { IRE_x_array = 290 }
+	add_to_array = { IRE_y_array = 133 }
+	add_to_array = { IRE_x_array = 305 }
+	add_to_array = { IRE_y_array = 133 }
+	add_to_array = { IRE_x_array = 217 }
+	add_to_array = { IRE_y_array = 148 }
+	add_to_array = { IRE_x_array = 232 }
+	add_to_array = { IRE_y_array = 148 }
+	add_to_array = { IRE_x_array = 247 }
+	add_to_array = { IRE_y_array = 148 }
+	add_to_array = { IRE_x_array = 262 }
+	add_to_array = { IRE_y_array = 148 }
+	add_to_array = { IRE_x_array = 277 }
+	add_to_array = { IRE_y_array = 148 }
+	add_to_array = { IRE_x_array = 292 }
+	add_to_array = { IRE_y_array = 148 }
+	add_to_array = { IRE_x_array = 307 }
+	add_to_array = { IRE_y_array = 148 }
+}

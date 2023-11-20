@@ -141,6 +141,26 @@ has_similar_govt_to_ROOT = {
 				}
 			}
 		}
+		
+		### libcons and other democrats
+		AND = {
+			has_government = liberal_conservatism
+			ROOT = {
+				OR = {
+					has_government = progressive_liberalism
+					has_government = national_conservatism
+					has_government = authoritarian_democracy
+				}
+			}
+		}
+		AND = {
+			OR = {
+				has_government = progressive_liberalism
+				has_government = national_conservatism
+				has_government = authoritarian_democracy
+			}
+			ROOT = { has_government = liberal_conservatism }
+		}
 	}
 }
 
@@ -169,6 +189,24 @@ has_similar_govt_to_PREV = {
 					has_government = authoritarian_democracy
 				}
 			}
+		}
+		
+		### libcons and other democrats
+		AND = {
+			has_government = liberal_conservatism
+			PREV = {
+				OR = {
+					has_government = progressive_liberalism
+					has_government = national_conservatism
+				}
+			}
+		}
+		AND = {
+			OR = {
+				has_government = progressive_liberalism
+				has_government = national_conservatism
+			}
+			PREV = { has_government = liberal_conservatism }
 		}
 	}
 }
@@ -211,24 +249,8 @@ has_similar_distant_govt_to_ROOT = {
 			}
 			ROOT = { has_government = progressive_liberalism }
 		}
-		AND = {
-			has_government = liberal_conservatism
-			ROOT = {
-				OR = {
-					has_government = progressive_liberalism
-					has_government = national_conservatism
-					has_government = authoritarian_democracy
-				}
-			}
-		}
-		AND = {
-			OR = {
-				has_government = progressive_liberalism
-				has_government = national_conservatism
-				has_government = authoritarian_democracy
-			}
-			ROOT = { has_government = liberal_conservatism }
-		}
+		
+		### socialists ###
 		AND = {
 			OR = {
 				has_government = democratic_socialism
@@ -243,6 +265,8 @@ has_similar_distant_govt_to_ROOT = {
 				}
 			}
 		}
+		
+		### despotists and others auths
 		AND = {
 			has_government = despotism
 			ROOT = {
@@ -260,6 +284,30 @@ has_similar_distant_govt_to_ROOT = {
 				has_government = despotism
 			}
 			ROOT = { has_government = despotism }
+		}
+		
+		### demsocs and proglibs
+		AND = {
+			has_government = democratic_socialism
+			ROOT = {
+				has_government = progressive_liberalism
+			}
+		}
+		AND = {
+			has_government = progressive_liberalism
+			ROOT = { has_government = democratic_socialism }
+		}
+		
+		### libcons and authdems
+		AND = {
+			has_government = liberal_conservatism
+			ROOT = {
+				has_government = authoritarian_democracy
+			}
+		}
+		AND = {
+			has_government = authoritarian_democracy
+			ROOT = { has_government = liberal_conservatism }
 		}
 	}
 }
@@ -302,24 +350,8 @@ has_similar_distant_govt_to_PREV = {
 			}
 			PREV = { has_government = progressive_liberalism }
 		}
-		AND = {
-			has_government = liberal_conservatism
-			PREV = {
-				OR = {
-					has_government = progressive_liberalism
-					has_government = national_conservatism
-					has_government = authoritarian_democracy
-				}
-			}
-		}
-		AND = {
-			OR = {
-				has_government = progressive_liberalism
-				has_government = national_conservatism
-				has_government = authoritarian_democracy
-			}
-			PREV = { has_government = liberal_conservatism }
-		}
+		
+		### socialists ###
 		AND = {
 			OR = {
 				has_government = democratic_socialism
@@ -351,6 +383,30 @@ has_similar_distant_govt_to_PREV = {
 				has_government = despotism
 			}
 			PREV = { has_government = despotism }
+		}
+		
+		### demsocs and proglibs
+		AND = {
+			has_government = democratic_socialism
+			PREV = {
+				has_government = progressive_liberalism
+			}
+		}
+		AND = {
+			has_government = progressive_liberalism
+			PREV = { has_government = democratic_socialism }
+		}
+		
+		### libcons and authdems
+		AND = {
+			has_government = liberal_conservatism
+			PREV = {
+				has_government = authoritarian_democracy
+			}
+		}
+		AND = {
+			has_government = authoritarian_democracy
+			PREV = { has_government = liberal_conservatism }
 		}
 	}
 }

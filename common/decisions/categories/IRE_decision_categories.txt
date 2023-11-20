@@ -3,6 +3,12 @@ IRE_parliament = {
 	
 	allowed = {
 		tag = IRE
+		NOT = {
+			OR = {
+				tag = ICA
+				tag = IRA
+			}
+		}
 	}
 	
 	scripted_gui = IRE_parliament_scripted_gui
@@ -10,4 +16,29 @@ IRE_parliament = {
 	visible_when_empty = yes
 
 	priority = 100
+}
+
+IRE_paramilitary_orgs_category = {
+	icon = GFX_decision_category_eng_organize_the_blackshirts
+	
+	allowed = {
+		tag = IRE
+		NOT = {
+			OR = {
+				tag = ICA
+				tag = IRA
+			}
+		}
+	}
+	
+	visible = {
+		NOT = {
+			has_global_flag = IRE_civil_war_started
+			has_global_flag = IRE_civil_war_avoided
+		}
+	}
+	
+	scripted_gui = IRE_paramilitary_scripted_gui
+	
+	visible_when_empty = yes
 }

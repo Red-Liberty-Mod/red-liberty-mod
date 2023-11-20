@@ -1,0 +1,89 @@
+USA_supreme_court = {
+
+	USA_lobby_a_justice = {
+		
+		visible = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		cost = 50
+		days_remove = 30
+		days_re_enable = 90
+		
+		complete_effect = {
+			if = {
+				limit = {
+					has_government = democratic_socialism
+				}
+				add_to_variable = {
+					tooltip = USA_court_lean_more_reformist
+					var = supreme_court_lean
+					value = 1
+				}
+			}
+			else_if = {
+				limit = {
+					has_government = national_conservatism
+				}
+				add_to_variable = {
+					tooltip = USA_court_lean_more_conservative
+					var = supreme_court_lean
+					value = -1
+				}
+			}
+		}
+		
+		remove_effect = {
+			if = {
+				limit = {
+					has_government = democratic_socialism
+				}
+				add_to_variable = {
+					tooltip = USA_court_lean_more_conservative
+					var = supreme_court_lean
+					value = -1
+				}
+			}
+			else_if = {
+				limit = {
+					has_government = national_conservatism
+				}
+				add_to_variable = {
+					tooltip = USA_court_lean_more_reformist
+					var = supreme_court_lean
+					value = 1
+				}
+			}
+		}
+	}
+	
+	USA_convince_justice_devanter = {
+		
+		visible = {
+			NOT = {
+				has_country_flag = USA_van_devanter_retired
+			}
+		}
+		
+		available = {
+			has_completed_focus = USA_accept_the_rulings
+			NOT = {
+				has_country_flag = USA_van_devanter_retired
+			}
+		}
+		
+		cost = 150
+		
+		complete_effect = {
+			set_country_flag = USA_van_devanter_retired
+			country_event = {
+				id = united_states_supreme_court.2
+				hours = 6
+			}
+		}
+	}
+}

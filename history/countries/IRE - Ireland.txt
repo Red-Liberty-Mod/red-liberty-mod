@@ -1,6 +1,40 @@
 ﻿capital = 857
 
 oob = "IRE"
+set_research_slots = 2
+set_convoys = 10
+
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_trucks = 1
+	motorised_infantry = 1
+	armored_car1 = 1
+	
+	tech_support = 1
+	tech_military_police = 1
+	
+	gw_artillery = 1
+	
+	fuel_silos = 1
+}
+
+if = {
+	limit = {
+		has_dlc_nsb = yes
+	}
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+	}
+	else = {
+		set_technology = {
+			gwtank = 1
+			basic_light_tank = 1
+		}
+	}
+}
+
 if = {
 	limit = {
 		has_dlc = "Man the Guns"
@@ -23,24 +57,6 @@ if = {
 		}
 	}
 }
-
-set_research_slots = 2
-
-set_technology = {
-	infantry_weapons = 1
-	infantry_weapons1 = 1
-	motorised_infantry = 1
-	armored_car1 = 1
-	
-	tech_support = 1
-	tech_military_police = 1
-	
-	gw_artillery = 1
-	
-	fuel_silos = 1
-}
-
-set_convoys = 10
 
 set_politics = {
 	ruling_party = national_conservatism
@@ -68,13 +84,20 @@ set_country_flag = national_conservatism_coalition
 
 set_variable = { tds_total = 160 }
 set_variable = { communist_tds = 0 }
-set_variable = { rev_socialist_tds = 3 }
-set_variable = { socialist_tds = 10 }
-set_variable = { labour_tds = 18 }
-set_variable = { liberal_tds = 30 }
+set_variable = { rev_socialist_tds = 0 }
+set_variable = { socialist_tds = 0 }
+set_variable = { labour_tds = 28 }
+set_variable = { liberal_tds = 33 }
 set_variable = { conservative_tds = 85 }
 set_variable = { authoritarian_tds = 14 }
 IRE_init_parliament = yes
+
+# Paramilitary stuff #
+set_variable = { IRE_ira_strength = 45 }
+set_variable = { IRE_ica_strength = 35 }
+
+set_variable = { IRE_ira_leader = 0 }
+set_variable = { IRE_ica_leader = 0 }
 
 ### Leaders ###
 recruit_character = IRE_jack_white
@@ -91,17 +114,36 @@ recruit_character = IRE_cathal_brugha
 recruit_character = IRE_gearoid_cuinneagain
 
 ### Ministers ###
-recruit_character = IRE_douglas_hyde
 recruit_character = IRE_james_larkin_jr
+recruit_character = IRE_william_norton
+recruit_character = IRE_douglas_hyde
+
 recruit_character = IRE_andy_barr
 recruit_character = IRE_mairtin_o_cadhain
+recruit_character = IRE_benjamin_farrington
 recruit_character = IRE_sean_okelly
+recruit_character = IRE_ernest_blythe
+recruit_character = IRE_eoin_macneill
+recruit_character = IRE_joseph_brennan
 recruit_character = IRE_liam_tobin
 
 activate_advisor = IRE_douglas_hyde_hog
 
+### Generals ###
+recruit_character = IRE_richard_mulcahy
+recruit_character = IRE_hugo_macneill
+recruit_character = IRE_tom_barry
+recruit_character = IRE_jeremiah_oconnell
+
+recruit_character = IRE_paddy_odaire
+recruit_character = IRE_michael_oriordan
+
 ### Admirals ###
 recruit_character = IRE_seamus_omuiris
+
+### High Command ###
+recruit_character = IRE_liam_archer
+recruit_character = IRE_john_prout
 
 add_ideas = {
 	IRE_anglo_irish_trade_war
@@ -110,64 +152,4 @@ add_ideas = {
 	
 	limited_conscription
 	limited_exports
-	semi_industrial_economy
-}
-
-### GENERALS ###
-
-create_field_marshal = {
-	name = "Richard Mulcahy"
-	picture = ""
-	traits = {
-		trait_cautious
-		brilliant_strategist
-		organizer
-		logistics_wizard
-	}
-	skill = 2
-	attack_skill = 1
-	defense_skill = 1
-	planning_skill = 2
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Tom Barry"
-	picture = ""
-	traits = {
-		career_officer
-		commando
-	}
-	skill = 3
-	attack_skill = 4
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Hugo MacNeill"
-	picture = ""
-	traits = {
-		harsh_leader
-		organizer
-	}
-	skill = 1
-	attack_skill = 1
-	defense_skill = 1
-	planning_skill = 1
-	logistics_skill = 1
-}
-
-create_corps_commander = {
-	name = "Jeremiah Joseph O'Connell"
-	picture = ""
-	traits = {
-		
-	}
-	skill = 1
-	attack_skill = 1
-	defense_skill = 1
-	planning_skill = 1
-	logistics_skill = 1
 }
