@@ -53,6 +53,7 @@
  SOV_lev_kamenev:0 "Lev Kamenev"
  
  ### Ministers ###
+ SOV_lazar_kaganovich:0 "Lazar Kaganovich"
  SOV_mikhail_kalinin:0 "Mikhail Kalinin"
  SOV_maxim_litvinov:0 "Maxim Litvinov"
  SOV_anatoly_lunacharsky:0 "Anatoly Lunacharsky"
@@ -61,6 +62,8 @@
  SOV_nikolai_yezhov:0 "Nikolai Yezhov"
  SOV_grigory_zinoviev:0 "Grigory Zinoviev"
  SOV_ivar_smilga:0 "Ivar Smilga"
+ SOV_alexandra_kollontai:0 "Alexandra Kollontai"
+ SOV_nadezhda_krupskaya:0 "Nadezhda Krupskaya"
  
  ### Generals ###
  SOV_mikhail_tukhachevsky:0 "Mikhail Tukhachevsky"
@@ -81,9 +84,11 @@
  SOV_ivan_dubovoy:0 "Ivan Dubovoy"
  SOV_ivan_fedko:0 "Ivan Fedko"
  SOV_ivan_belov:0 "Ivan Belov"
+ SOV_vitaly_primakov:0 "Vitaly Primakov"
  
  ### Theorists ###
  SOV_vladimir_triandafillov:0 "Vladimir Triandafillov"
+ SOV_alexander_svechin:0 "Alexander Svechin"
  
  ### Mechanics ###
  SOV_congress_tt:0 "§RThe Congress of Soviets§!"
@@ -168,6 +173,8 @@
  SOV_the_secretarys_letter_desc:0 ""
  
  ### Decisions ###
+ 
+ ## War Communism ##
  SOV_war_communism_category:0 "Managing War Communism"
  SOV_war_communism_category_desc:0 "war communism sucks yadda yadda"
  SOV_war_communism_modifier:0 "War Communism"
@@ -175,11 +182,62 @@
  
  SOV_rising_discontent:0 "The Boiling Point"
  
- 
+ ## Factionalism ##
  SOV_factionalism_category:0 "Factionalism"
- SOV_factionalism_category_desc:0 "--§YIndustrialists§!--\nA left faction that opposes the NEP and proposed mechanisms of planning to advance the challenges of stabilization of the food situation and modernization of the army. This faction is an adherent supporter of centralized army control and industrial planning.\n\n--§YRightists§!--\nLed by Grigory Sokolnikov, derided by their enemies as 'ekonomisty' and 'rightists', is a group of pragmatic thinkers, who see the only way out of the situation - to deepen the NEP, loosen regulations on concessions and trade, promote a strong currency and austerity policies for fiscal stabilization, and re-entrance into the global market.\n\n--§YNeo-Decists§!--\nA group oriented on demands of loosening party control over the army and workers. Decists are in favor of cooperating with anarchists and other left-socialist organizations and view the NEP as a mistake and a capitalist restoration.\n\n--§YWorker's Opposition§!--\nAll political power to the Soviets! is the rallying cry of the Worker's Opposition, led by Alexander Shliapnikov. This faction seeks to radically reform the nation along syndicalist lines, granting the job of economic planning to a trade-union congress, and to have the Party remain solely as an ‘overseer’.\n\n--§YDemocratic Group§!--\nLed by 'moderate bolshevik' Lev Kamenev, this faction desires to promote a big-tent socialist party strongly interconnected with the state (making no distinction between the two). All in the pursuit of Kamenev's dream; an RSFSR governed by all the socialist forces, democratically and peacefully."
+ SOV_factionalism_category_desc:0 ""
  
+ industrialist_icon_tt:0 "A left faction that opposes the NEP and proposed mechanisms of planning to advance the challenges of stabilization of the food situation and modernization of the army. This faction is an adherent supporter of centralized army control and industrial planning."
+ rightist_icon_tt:0 "Led by Grigory Sokolnikov, derided by their enemies as 'ekonomisty' and 'rightists', is a group of pragmatic thinkers, who see the only way out of the situation - to deepen the NEP, loosen regulations on concessions and trade, promote a strong currency and austerity policies for fiscal stabilization, and re-entrance into the global market."
+ decist_icon_tt:0 "A group oriented on demands of loosening party control over the army and workers. Decists are in favor of cooperating with anarchists and other left-socialist organizations and view the NEP as a mistake and a capitalist restoration."
+ syndicalist_icon_tt:0 "All political power to the Soviets! is the rallying cry of the Worker's Opposition, led by Alexander Shliapnikov. This faction seeks to radically reform the nation along syndicalist lines, granting the job of economic planning to a trade-union congress, and to have the Party remain solely as an ‘overseer’."
+ democrat_icon_tt:0 "Led by 'moderate bolshevik' Lev Kamenev, this faction desires to promote a big-tent socialist party strongly interconnected with the state (making no distinction between the two). All in the pursuit of Kamenev's dream; an RSFSR governed by all the socialist forces, democratically and peacefully."
  
+ SOV_industrialist_advisor_req:0 "§YIndustrialist§! opinion is at least §YNeutral§!"
+ 
+ SOV_friendly:0 "§GFriendly§!"
+ SOV_cordial:0 "§GCordial§!"
+ SOV_neutral:0 "§YNeutral§!"
+ SOV_annoyed:0 "§RAnnoyed§!"
+ SOV_angry:0 "§RAngry§!"
+ 
+ SOV_very_high:0 "Very High"
+ SOV_high:0 "High"
+ SOV_middling:0 "Middling"
+ SOV_low:0 "Low"
+ SOV_irrelevant:0 "Irrelevant"
+ 
+ SOV_industrialist_opinion_status:0 "[GetIndustrialistOpinion] ([?SOV_industrialist_opinion])"
+ SOV_rightist_opinion_status:0 "[GetRightistOpinion] ([?SOV_rightist_opinion])"
+ SOV_decist_opinion_status:0 "[GetDecistOpinion] ([?SOV_decist_opinion])"
+ SOV_syndicalist_opinion_status:0 "[GetSyndicalistOpinion] ([?SOV_syndicalist_opinion])"
+ SOV_democrat_opinion_status:0 "[GetDemocratOpinion] ([?SOV_democrat_opinion])"
+ 
+ SOV_industrialist_opinion_gain:0 "The §YIndustrialists§! gain §G+$RIGHT|0$§! opinion"
+ SOV_industrialist_opinion_lose:0 "The §YIndustrialists§! lose §R$RIGHT|0$§! opinion"
+ SOV_industrialist_influence_gain:0 "The §YIndustrialists§! gain §G+$RIGHT|0$§! influence"
+ SOV_industrialist_influence_lose:0 "The §YIndustrialists§! lose §R$RIGHT|0$§! influence"
+ 
+ SOV_rightist_opinion_gain:0 "The §YRightists§! gain §G+$RIGHT|0$§! opinion"
+ SOV_rightist_opinion_lose:0 "The §YRightists§! lose §R$RIGHT|0$§! opinion"
+ SOV_rightist_influence_gain:0 "The §YRightists§! gain §G+$RIGHT|0$§! influence"
+ SOV_rightist_influence_lose:0 "The §YRightists§! lose §R$RIGHT|0$§! influence"
+ 
+ SOV_decist_opinion_lose:0 "The §YDecists§! lose §R$RIGHT|0$§! opinion"
+ SOV_decist_influence_lose:0 "The §YDecists§! lose §R$RIGHT|0$§! influence"
+ 
+ SOV_syndicalist_opinion_lose:0 "The §YSyndicalists§! lose §R$RIGHT|0$§! opinion"
+ SOV_syndicalist_influence_lose:0 "The §YSyndicalists§! lose §R$RIGHT|0$§! influence"
+ 
+ SOV_democrat_opinion_lose:0 "The §YDemocrats§! lose §R$RIGHT|0$§! opinion"
+ SOV_democrat_influence_lose:0 "The §YDemocrats§! lose §R$RIGHT|0$§! influence"
+ 
+ SOV_industrialist_influence_status:0 "[GetIndustrialistInfluence] ([?SOV_industrialist_influence])"
+ SOV_rightist_influence_status:0 "[GetRightistInfluence] ([?SOV_rightist_influence])"
+ SOV_decist_influence_status:0 "[GetDecistInfluence] ([?SOV_decist_influence])"
+ SOV_syndicalist_influence_status:0 "[GetSyndicalistInfluence] ([?SOV_syndicalist_influence])"
+ SOV_democrat_influence_status:0 "[GetDemocratInfluence] ([?SOV_democrat_influence])"
+ 
+ ## International Trade ##
  SOV_foreign_trade_category:0 "Foreign Trade"
  SOV_foreign_trade_category_desc:0 "Part of our program of deepening the NEP is the expansion of foreign trade."
  SOV_import_trucks:0 "Import Motorized from @USA General Motors"
@@ -187,7 +245,7 @@
  SOV_import_convoys:0 "Import Trade Ships from @ENG Harland & Wolff"
  SOV_import_electronics:0 "Import Electronics from @GER Siemens"
  
- 
+ ## SCIENCE ##
  SOV_science_meter_category:0 "The SCIENCE Meter"
  SOV_science_meter_category_desc:0 "Our current level of §YSCIENCE§! is §Y([?SOV_SCIENCE_level])§! which is [GetScienceLevel]"
  SOV_SCIENCE_pitiful:0 "§RPitiful. Are you even trying?§!"
