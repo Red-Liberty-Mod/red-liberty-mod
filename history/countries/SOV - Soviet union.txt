@@ -25,8 +25,6 @@ set_technology = {
 	gw_artillery = 1
 	interwar_antiair = 1
 	
-	mass_assault = 1
-	fleet_in_being = 1
 	fuel_silos = 1
 	fuel_refining = 1
 	synth_oil_experiments = 1
@@ -35,7 +33,7 @@ set_technology = {
 }
 if = {
 	limit = {
-		has_dlc = "No Step Back"
+		has_dlc_nsb = yes
 	}
 	set_technology = {
 		gwtank_chassis = 1
@@ -85,17 +83,20 @@ if = {
 }
 if = {
 	limit = {
-		has_dlc = "La Resistance"
+		has_dlc_lar = yes
 	}
 	set_technology = {
 		armored_car1 = 1
 	}
 }
 
-add_equipment_to_stockpile = {
-    type = heavy_tank_equipment
-    amount = 10
-    producer = SOV
+if = {
+	limit = {
+		has_dlc_aat = yes
+	}
+	mio:SOV_okmo_organization = {
+		complete_mio_trait = generic_mio_trait_light_tank_improvements
+	}
 }
 
 add_equipment_to_stockpile = {
@@ -131,6 +132,7 @@ SOV_refresh_parliament = yes
 SOV_calc_coalition = yes
 
 ### LEADERS ###
+recruit_character = SOV_nestor_makhno
 recruit_character = SOV_nikolai_bukharin
 recruit_character = SOV_grigory_sokolnikov
 recruit_character = SOV_sergei_kirov
@@ -176,9 +178,22 @@ recruit_character = SOV_ivan_fedko
 recruit_character = SOV_ivan_belov
 recruit_character = SOV_vitaly_primakov
 
+### ADMIRALS ###
+recruit_character = SOV_lev_galler
+recruit_character = SOV_gordey_levchenko
+recruit_character = SOV_vladimir_kasatonov
+recruit_character = SOV_neon_antonov
+recruit_character = SOV_grigory_kireev
+
+### HIGH COMMAND ###
+recruit_character = SOV_aleksandr_novikov
+recruit_character = SOV_aleksandr_samoylo
+
 ### THEORISTS ###
 recruit_character = SOV_vladimir_triandafillov
 recruit_character = SOV_alexander_svechin
+recruit_character = SOV_aleksandr_nemits
+recruit_character = SOV_igor_kurchatov
 
 add_ideas = {
 	SOV_home_of_the_revolution
@@ -198,37 +213,6 @@ set_country_flag = can_integrate_UKR
 set_country_flag = can_integrate_BLR
 set_country_flag = can_integrate_AZR
 set_country_flag = can_integrate_GEO
-
-create_navy_leader = {
-	name = "Lev Galler"
-	portrait_path = "e"
-	traits = {
-		ironside
-		cruiser_captain
-		spotter
-		mine_layer
-	}
-	skill = 3
-	attack_skill = 3
-	defense_skill = 3
-	maneuvering_skill = 3
-	coordination_skill = 3
-}
-
-create_navy_leader = {
-	name = "Gordey Levchenko"
-	picture = "e"
-	traits = {  }
-	skill = 2
-}
-
-
-create_navy_leader = {
-	name = "Vladimir Kasatonov"
-	picture = "e"
-	traits = { seawolf }
-	skill = 2
-}
 
 if = {
 	limit = {
@@ -326,6 +310,7 @@ if = {
 		name = "T-26TT mod. 1931"
 		type = light_tank_chassis_1
 		parent_version = 0
+		design_team = mio:SOV_okmo_organization
 		modules = {
 			main_armament_slot = tank_heavy_machine_gun
 			turret_type_slot = tank_light_one_man_tank_turret
@@ -345,6 +330,7 @@ if = {
 		name = "T-26TT mod. 1932"
 		type = light_tank_chassis_1
 		parent_version = 1
+		design_team = mio:SOV_okmo_organization
 		modules = {
 			main_armament_slot = tank_heavy_machine_gun
 			turret_type_slot = tank_light_one_man_tank_turret
@@ -364,6 +350,7 @@ if = {
 		name = "T-26TT mod. 1933"
 		type = light_tank_chassis_1
 		parent_version = 2
+		design_team = mio:SOV_okmo_organization
 		modules = {
 			main_armament_slot = tank_heavy_machine_gun
 			turret_type_slot = tank_light_one_man_tank_turret
@@ -383,6 +370,7 @@ if = {
 		name = "T-26TU mod. 1933"
 		type = light_tank_chassis_1
 		parent_version = 0
+		design_team = mio:SOV_okmo_organization
 		modules = {
 			main_armament_slot = tank_small_cannon_2
 			turret_type_slot = tank_light_two_man_tank_turret
@@ -401,6 +389,7 @@ if = {
 		name = "T-26TU mod. 1934"
 		type = light_tank_chassis_1
 		parent_version = 6
+		design_team = mio:SOV_okmo_organization
 		modules = {
 			main_armament_slot = tank_small_cannon_2
 			turret_type_slot = tank_light_two_man_tank_turret
@@ -419,6 +408,7 @@ if = {
 		name = "T-26TU mod. 1935"
 		type = light_tank_chassis_1
 		parent_version = 8
+		design_team = mio:SOV_okmo_organization
 		modules = {
 			main_armament_slot = tank_small_cannon_2
 			turret_type_slot = tank_light_two_man_tank_turret
@@ -548,6 +538,7 @@ if = {
 		name = "T-28"
 		type = medium_tank_chassis_0
 		parent_version = 0
+		design_team = mio:SOV_kirov_organization
 		modules = {
 			main_armament_slot = tank_close_support_gun
 			turret_type_slot = tank_medium_three_man_tank_turret
@@ -568,6 +559,7 @@ if = {
 		name = "T-28A"
 		type = medium_tank_chassis_0
 		parent_version = 1
+		design_team = mio:SOV_kirov_organization
 		modules = {
 			main_armament_slot = tank_close_support_gun
 			turret_type_slot = tank_medium_three_man_tank_turret
@@ -588,6 +580,7 @@ if = {
 		name = "T-35"
 		type = heavy_tank_chassis_0
 		parent_version = 0
+		design_team = mio:SOV_okmo_organization
 		modules = {
 			main_armament_slot = tank_close_support_gun
 			turret_type_slot = tank_medium_three_man_tank_turret
@@ -609,6 +602,7 @@ if = {
 		name = "T-35A"
 		type = heavy_tank_chassis_0
 		parent_version = 1
+		design_team = mio:SOV_okmo_organization
 		modules = {
 			main_armament_slot = tank_close_support_gun
 			turret_type_slot = tank_medium_three_man_tank_turret

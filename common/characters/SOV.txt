@@ -1,5 +1,23 @@
 characters = {
 	
+	SOV_nestor_makhno = {
+		name = SOV_nestor_makhno
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_SOV_nestor_makhno"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_NESTOR_MAKHNO_DESC"
+			ideology = anarcho_socialism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
 	SOV_nikolai_bukharin = {
 		name = SOV_nikolai_bukharin
 		
@@ -377,7 +395,7 @@ characters = {
 			}
 			
 			traits = {
-				
+				for_ideological_crusader
 			}
 		}
 	}
@@ -1076,6 +1094,52 @@ characters = {
 		}
 	}
 	
+	### High Command ###
+	
+	SOV_aleksandr_novikov = {
+		name = SOV_aleksandr_novikov
+		
+		portraits = {
+			army = {
+				small = "GFX_portrait_SOV_aleksandr_novikov"
+			}
+		}
+		
+		advisor = {
+			slot = air_chief
+			idea_token = SOV_aleksandr_novikov_air_chief
+			ledger = air
+			traits = { air_chief_reform_2 }
+			cost = 100
+		}
+		
+		advisor = {
+			slot = theorist
+			idea_token = SOV_aleksandr_novikov_theorist
+			ledger = air
+			traits = { air_warfare_theorist }
+			cost = 100
+		}
+	}
+	
+	SOV_aleksandr_samoylo = {
+		name = SOV_aleksandr_samoylo
+		
+		portraits = {
+			army = {
+				small = "GFX_portrait_SOV_aleksandr_samoylo"
+			}
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = SOV_aleksandr_samoylo
+			ledger = air
+			traits = { air_tactical_bombing_1 }
+			cost = 50
+		}
+	}
+	
 	### THEORISTS ###
 	
 	SOV_vladimir_triandafillov = {
@@ -1116,6 +1180,183 @@ characters = {
 			traits = {
 				grand_battle_plan_expert
 			}
+		}
+	}
+	
+	SOV_aleksandr_nemits = {
+		name = SOV_aleksandr_nemits
+		
+		portraits = {
+			army = {
+				small = "GFX_portrait_SOV_aleksandr_nemits"
+			}
+		}
+		
+		advisor = {
+			slot = theorist
+			idea_token = SOV_aleksandr_nemits
+			ledger = navy
+			traits = { naval_theorist }
+			cost = 100
+		}
+	}
+	
+	SOV_igor_kurchatov = {
+		name = SOV_igor_kurchatov
+		portraits = {
+			army = {
+				small = "GFX_portrait_SOV_igor_kurchatov"
+			}
+		}
+		advisor = {
+			slot = theorist
+			idea_token = SOV_igor_kurchatov
+			ledger = army
+			traits = { nuclear_scientist }
+			research_bonus = {
+				nuclear = 0.150
+			}
+			cost = 100
+		}
+	}
+	
+	### Admirals ###
+	
+	SOV_lev_galler = {
+		name = SOV_lev_galler
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_SOV_lev_galler"
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				navy_career_officer
+				superior_tactician
+				ironside
+			}
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			maneuvering_skill = 2
+			coordination_skill = 3
+		}
+	}
+	
+	SOV_gordey_levchenko = {
+		name = SOV_gordey_levchenko
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_SOV_gordey_levchenko"
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				green_water_expert 
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			maneuvering_skill = 1
+			coordination_skill = 2
+		}
+		
+		advisor = {
+			slot = navy_chief
+			idea_token = RUS_gordey_levchenko_navy_chief
+			available = {
+				not_already_hired_except_as = navy_chief
+			}
+			traits = { navy_chief_reform_1 }
+			cost = 50
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = RUS_gordey_levchenko_high_command
+			ledger = navy
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = { navy_anti_submarine_1 }
+			cost = 50
+		}
+	}
+	
+	SOV_vladimir_kasatonov = {
+		name = SOV_vladimir_kasatonov
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_SOV_vladimir_kasatonov"
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				seawolf
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			maneuvering_skill = 2
+			coordination_skill = 2
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = SOV_vladimir_kasatonov
+			ledger = navy
+			traits = {
+				navy_submarine_2
+			}
+			cost = 100
+		}
+	}
+	
+	SOV_neon_antonov = {
+		name = SOV_neon_antonov
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_SOV_neon_antonov"
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			maneuvering_skill = 1
+			coordination_skill = 1
+		}
+	}
+	
+	SOV_grigory_kireev = {
+		name = SOV_grigory_kireev
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_SOV_grigory_kireev"
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				chief_engineer
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			maneuvering_skill = 1
+			coordination_skill = 2
 		}
 	}
 }

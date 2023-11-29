@@ -114,7 +114,33 @@ SOV_war_communism_category = {
 
 SOV_factionalism_category = {
 	
-	
+	SOV_grant_makhno_command = {
+		icon = ger_mefo_bills
+
+		available = {
+			has_war = yes
+		}
+		
+		cost = 25
+		fire_only_once = yes
+		
+		complete_effect = {
+			add_to_variable = {
+				tooltip = SOV_decist_influence_gain
+				SOV_decist_influence = 1
+			}
+		
+			SOV_nestor_makhno = {
+				add_corps_commander_role = {
+					skill = 3
+					attack_skill = 3
+					defense_skill = 3
+					planning_skill = 2
+					logistics_skill = 2
+				}
+			}
+		}
+	}
 }
 
 SOV_revolution_category = {
