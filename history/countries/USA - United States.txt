@@ -39,6 +39,7 @@ USA_setup_party_faction_vars = yes
 set_research_slots = 4
 set_stability = 0.75
 set_war_support = 0.4
+add_political_power = 175
 
 set_convoys = 500
 starting_train_buffer = 2
@@ -47,12 +48,6 @@ add_equipment_to_stockpile = {
     amount = 200
     producer = USA
 }
-
-add_political_power = 175
-
-set_country_flag = revolutionary_socialism_coalition
-set_country_flag = democratic_socialism_coalition
-set_country_flag = social_democracy_coalition
 
 # Starting tech
 set_technology = {
@@ -193,6 +188,25 @@ if = {
 		}
 	}
 }
+if = {
+	limit = {
+		has_dlc_aat = yes
+	}
+	mio:USA_springfield_armory_organization = {
+		complete_mio_trait = generic_mio_trait_reinforced_stocks
+	}
+	create_equipment_variant = {
+		name = "M1903A1 Springfield"								
+		type = infantry_equipment_0
+		design_team = mio:USA_springfield_armory_organization
+	}
+	else = {
+		create_equipment_variant = {
+			name = "M1903A1 Springfield"								
+			type = infantry_equipment_0
+		}
+	}
+}
 
 set_politics = {
 	ruling_party = democratic_socialism
@@ -214,6 +228,10 @@ set_popularities = {
 	ultraconservatism = 4
 	fascism = 1
 }
+
+set_country_flag = revolutionary_socialism_coalition
+set_country_flag = democratic_socialism_coalition
+set_country_flag = social_democracy_coalition
 
 # DIPLOMACY
 set_autonomy = {
@@ -264,6 +282,7 @@ recruit_character = USA_frank_maxwell_andrews
 recruit_character = USA_oscar_westover
 recruit_character = USA_albert_jesse_bowley_sr
 recruit_character = USA_stuart_heintzelman
+recruit_character = USA_dennis_edward_nolan
 
 ### ADMIRALS ###
 recruit_character = USA_ernest_king
@@ -276,8 +295,10 @@ recruit_character = USA_arthur_hepburn
 ### HIGH COMMAND ###
 recruit_character = USA_thomas_charles_hart
 recruit_character = USA_henry_conger_pratt
+recruit_character = USA_leon_kromer
 
 ### THEORISTS ###
+recruit_character = USA_robert_olds
 recruit_character = USA_julius_robert_oppenheimer
 
 add_ideas = {
