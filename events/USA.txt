@@ -972,6 +972,32 @@ country_event = { # lindbergh returns to the US
 	}
 }
 
+country_event = { # united pacifist committee
+	id = united_states_flavor.13
+	title = united_states_flavor.13.title
+	desc = united_states_flavor.13.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_flavor.13.a
+		trigger = {
+			has_government = democratic_socialism
+		}
+		add_war_support = -0.01
+	}
+	
+	option = {
+		name = united_states_flavor.13.b
+		trigger = {
+			has_government = national_conservatism
+		}
+		add_war_support = -0.01
+	}
+}
+
 country_event = { # mexico ablaze
 	id = united_states_intervention.1
 	title = united_states_intervention.1.title
