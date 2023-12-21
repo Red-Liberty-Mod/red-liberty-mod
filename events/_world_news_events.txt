@@ -238,6 +238,7 @@ news_event = { # death of george v
 	id = worldnews.9
 	title = worldnews.9.title
 	desc = worldnews.9.desc
+	picture = GFX_news_event_ENG_george_v
 	
 	is_triggered_only = yes
 	
@@ -503,6 +504,15 @@ news_event = { # ww2 event - france vs germany
 	immediate = {
 		hidden_effect = {
 			scoped_sound_effect = "great_war"
+			
+			if = {
+				limit = {
+					NOT = {
+						has_global_flag = second_great_war_started
+					}
+				}
+				set_global_flag = second_great_war_started
+			}
 		}
 	}
 
