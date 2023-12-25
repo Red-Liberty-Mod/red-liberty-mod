@@ -259,7 +259,7 @@ country_event = { # mexico civil war demo event
 			}
 
 			MEX_setup_YUC = yes
-			MEX_setup_CRT = yes
+			MEX_setup_CRT = yes 
 		
 			MEX = {
 				declare_war_on = {
@@ -307,29 +307,9 @@ country_event = { # mexico civil war demo event
 	option = {
 		name = ""
 		
-		MEX_setup_CMS = yes
-		MEX_setup_MTC = yes
+		MEX_setup_CMS = yes		
+		MEX_setup_FRP = yes
 		
-		MEX = {
-			declare_war_on = {
-				target = CMS
-				type = annex_everything
-			}
-			declare_war_on = {
-				target = MTC
-				type = annex_everything
-			}
-		}
-		CRT = {
-			declare_war_on = {
-				target = CMS
-				type = annex_everything
-			}
-			declare_war_on = {
-				target = MTC
-				type = annex_everything
-			}
-		}
 	    hidden_effect = {
 			random_other_country = {
 				limit = { is_ai = yes }
@@ -356,58 +336,7 @@ country_event = { # mexico civil war demo event
 	option = {
 		name = ""
 
-		MEX_setup_FRP = yes
-		MEX = {
-			declare_war_on = {
-				target = FRP
-				type = annex_everything
-			}
-		}
-		
-		MTC = {
-			declare_war_on = {
-				target = CRT
-				type = annex_everything
-			}
-			declare_war_on = {
-				target = CMS
-				type = annex_everything
-			}
-		    declare_war_on = {
-				target = FRP
-				type = annex_everything
-			}
-		}
-		
-		CMS = {
-			declare_war_on = {
-				target = CRT
-				type = annex_everything
-			}
-			declare_war_on = {
-				target = MTC
-				type = annex_everything
-			}
-			declare_war_on = {
-				target = FRP
-				type = annex_everything
-			}
-		}
-		
-		CRT = {
-			declare_war_on = {
-				target = MTC
-				type = annex_everything
-			}
-			declare_war_on = {
-				target = CMS
-				type = annex_everything
-			}				
-			declare_war_on = {
-				target = FRP
-				type = annex_everything
-			}
-		}
+		MEX_setup_MTC = yes		
 	
 	    hidden_effect = {
 			random_other_country = {
@@ -611,6 +540,24 @@ country_event = { # MEX wins
 		name = demo_mex.9.a
 		MEX = {
 			remove_ideas = MEX_civil_war
+		}
+	}
+}
+
+country_event = { # battle of mexico city
+	id = demo_mex.10
+	title = demo_mex.10.title
+	desc = demo_mex.10.desc
+	
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = demo_mex.10.a		
+	    277 = {
+			set_demilitarized_zone = yes
+			
 		}
 	}
 }
