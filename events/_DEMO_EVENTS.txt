@@ -310,7 +310,28 @@ country_event = { # mexico civil war demo event
 		MEX_setup_CMS = yes		
 		MEX_setup_FRP = yes
 		
-	    hidden_effect = {
+	    MEX = {
+			declare_war_on = {
+					target = FRP
+					type = annex_everything
+				}
+			declare_war_on = {
+					target = CMS
+					type = annex_everything
+				}
+				
+				
+			add_named_threat = { 
+					threat = 2
+					name = MEX_civil_war
+			}												
+		}
+		
+		
+		
+		
+		
+		hidden_effect = {
 			random_other_country = {
 				limit = { is_ai = yes }
 				news_event = { id = worldnews_war.4 hours = 6 }
@@ -338,7 +359,22 @@ country_event = { # mexico civil war demo event
 
 		MEX_setup_MTC = yes		
 	
-	    hidden_effect = {
+	    
+		MEX = {
+			declare_war_on = {
+					target = MTC
+					type = annex_everything
+			}						
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		hidden_effect = {
 			random_other_country = {
 				limit = { is_ai = yes }
 				news_event = { id = worldnews_war.5 hours = 6 }
@@ -476,15 +512,18 @@ country_event = { # CMS wins
 		   476 = { is_owned_by = CMS }
 		   475 = { is_owned_by = CMS }
 		   904 = { is_owned_by = CMS }
-		}
+	}
 	
-	option = {
+	  option = {
 		name = ""
 		set_cosmetic_tag = CMS_mexico
 		
-	    CMS = {
+	    hidden_effect = {
+			CMS = {			  
+			  set_capital = { state = 277 } 
 			
-	    }
+			}
+		}
 	}
 }
 
@@ -549,6 +588,10 @@ country_event = { # battle of mexico city
 	title = demo_mex.10.title
 	desc = demo_mex.10.desc
 	
+    immediate = {
+		log = "event demo_mex.10"
+	}
+  
 
 	is_triggered_only = yes
 	fire_only_once = yes
