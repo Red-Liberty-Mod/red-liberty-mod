@@ -372,9 +372,9 @@ news_event = { # cristeros win civil war
 }
 
 news_event = { # la reclamacion
-	id = worldnews.12
-	title = worldnews.12.title
-	desc = worldnews.12.desc
+	id = worldnews_war.8
+	title = worldnews_war.8.title
+	desc = worldnews_war.8.desc
 	picture = GFX_news_event_CMS_USA_war
 	
 	is_triggered_only = yes
@@ -394,24 +394,48 @@ news_event = { # la reclamacion
 	}
 
 	option = {
-		name = worldnews.12.a
+		name = worldnews_war.8.a		
+	}
+	
+	option = {
+		name = worldnews_war.8.b
 		trigger = {
-			has_socialist_govt = yes
+			original_tag = USA
 		}
 	}
 	
 	option = {
-		name = worldnews.12.b
+		name = worldnews_war.8.c
 		trigger = {
-			has_democratic_govt = yes
+			original_tag = CMS
+		}
+	}
+}
+
+news_event = { # palacio nacional bombing
+	id = worldnews.13
+	title = worldnews.13.title
+	desc = worldnews.13.desc
+	picture = GFX_news_event_mexico_bombing
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	show_major = {
+		or = {
+			regional_europe_news = yes
+			regional_north_america_news = yes
+			regional_south_america_news = yes
 		}
 	}
 	
+	major = yes
+
 	option = {
-		name = worldnews.12.c
-		trigger = {
-			has_reactionary_govt = yes
-		}
+		name = worldnews.13.a
 	}
 }
 

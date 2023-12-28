@@ -554,6 +554,14 @@ country_event = { # FRP wins
 	
 	fire_only_once = yes
 	
+	immediate = {
+		log = "event demo_mex.8"
+	}
+	
+	
+	
+	
+	
 	trigger = {		
 		original_tag = FRP
 		484 = { is_owned_by = FRP }	
@@ -591,7 +599,7 @@ country_event = { # MEX wins
 	title = demo_mex.9.title
 	desc = demo_mex.9.desc
 	
-	is_triggered_only = yes
+	
 	fire_only_once = yes
 	
 	option = {
@@ -602,7 +610,7 @@ country_event = { # MEX wins
 	}
 }
 
-country_event = { # battle of mexico city
+country_event = { # palacio nacional bombing
 	id = demo_mex.10
 	title = demo_mex.10.title
 	desc = demo_mex.10.desc
@@ -621,6 +629,14 @@ country_event = { # battle of mexico city
 			set_demilitarized_zone = yes
 			
 		}
+	
+	    hidden_effect = {
+			random_other_country = {
+				limit = { is_ai = yes }
+				news_event = { id = worldnews.13 hours = 6 }
+			}
+		}		
+	
 	}
 }
 
