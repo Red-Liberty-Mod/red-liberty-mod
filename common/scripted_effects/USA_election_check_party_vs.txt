@@ -368,6 +368,27 @@ USA_check_election_margin = {
 		
 		#log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
 	}
+	else_if = {
+		limit = {
+			AND = {
+				has_state_flag = republican_first_place
+				has_state_flag = afp_second_place
+			}
+		}
+		set_variable = { USA_state_poll_pop_diff = republican_election_pop }
+		subtract_from_variable = { USA_state_poll_pop_diff = afp_election_pop }
+		
+		set_temp_variable = { error_margin_state_poll_pop = 1 }
+		randomize_temp_variable = {
+			var = error_margin_state_poll_pop
+			distribution = uniform
+			min = @ERROR_MARGIN_MIN
+			max = @ERROR_MARGIN_MAX
+		}
+		multiply_variable = { USA_state_poll_pop_diff = error_margin_state_poll_pop }
+		
+		#log = "[This.GetName] USA_state_poll_pop_diff = [?THIS.USA_state_poll_pop_diff]"
+	}
 	
 	### afp in first ###
 	if = {
