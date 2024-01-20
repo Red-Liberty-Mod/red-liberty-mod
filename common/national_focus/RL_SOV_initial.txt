@@ -2,7 +2,7 @@ shared_focus = {
     id = SOV_the_secretarys_woes
 	icon = GFX_SOV_the_secretarys_woes
 	
-    x = 5
+    x = 3
 	y = 0
 	cost = 5
 	
@@ -572,6 +572,241 @@ shared_focus = {
 	prerequisite = { focus = SOV_court_the_exiled_parties }
 	prerequisite = { focus = SOV_trial_of_the_whites }
 	prerequisite = { focus = SOV_mopping_up }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_future_of_the_union
+	icon = GFX_SOV_future_of_the_union
+	
+    x = 15
+	y = 0
+	cost = 6
+	
+	available = {
+		has_country_flag = SOV_bukharin_retired
+	}
+	
+	select_effect = {
+		country_event = {
+			id = sov_congress.1
+			days = 3
+		}
+		country_event = {
+			id = sov_congress.2
+			days = 7
+		}
+		country_event = {
+			id = sov_congress.3
+			days = 11
+		}
+		country_event = {
+			id = sov_congress.4
+			days = 15
+		}
+		country_event = {
+			id = sov_congress.5
+			days = 19
+		}
+		country_event = {
+			id = sov_congress.6
+			days = 23
+		}
+		country_event = {
+			id = sov_congress.7
+			days = 27
+		}
+	}
+	
+    completion_reward = {
+		custom_effect_tooltip = effect_upon_focus_start_tt
+		custom_effect_tooltip = SOV_future_of_the_union_tt
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_fate_of_the_nep
+	icon = GFX_SOV_fate_of_the_nep
+	
+    x = -3
+	y = 1
+	cost = 5
+	
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = focus_will_be_bypassed_tt
+			always = no
+		}
+	}
+	
+	relative_position_id = SOV_future_of_the_union
+	prerequisite = { focus = SOV_future_of_the_union }
+    completion_reward = {
+        custom_effect_tooltip = SOV_fate_of_the_nep_tt
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_the_secretarys_power
+	icon = GFX_SOV_the_secretarys_power
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = focus_will_be_bypassed_tt
+			always = no
+		}
+	}
+	
+	relative_position_id = SOV_future_of_the_union
+	prerequisite = { focus = SOV_future_of_the_union }
+    completion_reward = {
+        custom_effect_tooltip = SOV_the_secretarys_power_tt
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_review_party_unity
+	icon = GFX_SOV_review_party_unity
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = focus_will_be_bypassed_tt
+			always = no
+		}
+	}
+	
+	relative_position_id = SOV_future_of_the_union
+	prerequisite = { focus = SOV_future_of_the_union }
+    completion_reward = {
+        custom_effect_tooltip = SOV_review_party_unity_tt
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_eyes_on_the_army
+	icon = GFX_SOV_eyes_on_the_army
+	
+    x = 3
+	y = 1
+	cost = 5
+	
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = focus_will_be_bypassed_tt
+			always = no
+		}
+	}
+	
+	relative_position_id = SOV_future_of_the_union
+	prerequisite = { focus = SOV_future_of_the_union }
+    completion_reward = {
+        custom_effect_tooltip = SOV_eyes_on_the_army_tt
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_the_unions
+	icon = GFX_SOV_the_unions
+	
+    x = -2
+	y = 2
+	cost = 5
+	
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = focus_will_be_bypassed_tt
+			always = no
+		}
+	}
+	
+	relative_position_id = SOV_future_of_the_union
+	prerequisite = { focus = SOV_future_of_the_union }
+    completion_reward = {
+        custom_effect_tooltip = SOV_the_unions_tt
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_our_place_in_the_world
+	icon = GFX_SOV_our_place_in_the_world
+	
+    x = 2
+	y = 2
+	cost = 5
+	
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = focus_will_be_bypassed_tt
+			always = no
+		}
+	}
+	
+	relative_position_id = SOV_future_of_the_union
+	prerequisite = { focus = SOV_future_of_the_union }
+    completion_reward = {
+        custom_effect_tooltip = SOV_our_place_in_the_world_tt
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_the_new_secretary
+	icon = GFX_SOV_the_new_secretary
+	
+    x = 0
+	y = 3
+	cost = 5
+	
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = focus_will_be_bypassed_tt
+			always = no
+		}
+	}
+	
+	relative_position_id = SOV_future_of_the_union
+	prerequisite = { focus = SOV_future_of_the_union }
     completion_reward = {
         
     }
