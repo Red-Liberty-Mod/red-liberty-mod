@@ -2611,7 +2611,7 @@ defined_text = {
 	text = {
 		trigger = {
 			AND = {
-				check_variable = { USA_state_poll_pop_diff > 0.5 }
+				check_variable = { USA_state_poll_pop_diff > 0.2 }
 			}
 		}
 		localization_key = USA_margin_large
@@ -2619,14 +2619,14 @@ defined_text = {
 	text = {
 		trigger = {
 			AND = {
-				check_variable = { USA_state_poll_pop_diff > 0.3 }
+				check_variable = { USA_state_poll_pop_diff > 0.1 }
 			}
 		}
 		localization_key = USA_margin_medium
 	}
 	text = {
 		trigger = {
-			check_variable = { USA_state_poll_pop_diff > 0.10 }
+			check_variable = { USA_state_poll_pop_diff > 0.05 }
 		}
 		localization_key = USA_margin_small
 	}
@@ -2635,5 +2635,38 @@ defined_text = {
 			check_variable = { USA_state_poll_pop_diff > 0 }
 		}
 		localization_key = USA_margin_very_small
+	}
+}
+
+defined_text = {
+	name = GetStateMargin
+	text = {
+		trigger = {
+			check_variable = { USA_state_poll_pop_diff > 0.2 }
+		}
+		localization_key = PRESIDENT_ELECTION_LANDSLIDE_830
+	}
+	text = {
+		trigger = {
+			check_variable = { USA_state_poll_pop_diff > 0.1 }
+		}
+		localization_key = PRESIDENT_ELECTION_HEALTHY_830
+	}
+	text = {
+		trigger = {
+			check_variable = { USA_state_poll_pop_diff > 0.05 }
+		}
+		localization_key = PRESIDENT_ELECTION_SMALL_830
+	}
+	text = {
+		trigger = {
+			check_variable = { USA_state_poll_pop_diff > 0 }
+			set_temp_variable = { state_id_temp = THIS }
+			log = "state_id_temp = [?state_id_temp]"
+		}
+		localization_key = PRESIDENT_ELECTION_TOSSUP_830
+	}
+	text = {
+		localization_key = "get stickbugged lol"
 	}
 }

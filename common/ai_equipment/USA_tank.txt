@@ -1125,3 +1125,117 @@ USA_medium_tank_artillery = {
 		}
 	}
 }
+
+USA_heavy_tanks = {
+	category = land
+
+	available_for = { USA }
+
+	roles = {
+		land_heavy_tank
+	}
+
+	priority = {
+		factor = 2000
+	}
+	
+	basic_heavy_tank_1 = {
+		name = "Heavy Tank, M6"
+		
+		priority = {
+			factor = 100
+			modifier = { 
+				has_tech = improved_heavy_tank_chassis
+				factor = 0 #let's not waste XP here
+			}
+		}
+		
+		target_variant = {
+			match_value = 2000
+			type = heavy_tank_chassis_1
+			modules = {
+				main_armament_slot = {
+					any_of = {
+						tank_heavy_cannon
+						tank_heavy_cannon_2
+						tank_heavy_cannon_3
+					}
+				}
+				turret_type_slot = tank_heavy_three_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_cast_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = tank_radio_module
+				special_type_slot_2 = stabilizer
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 9
+				tank_nsb_armor_upgrade = 6
+			}
+		}
+
+		allowed_modules = {
+			tank_heavy_cannon
+			tank_heavy_cannon_2
+			tank_heavy_cannon_3
+			tank_heavy_three_man_tank_turret
+			tank_bogie_suspension
+			tank_cast_armor
+			tank_gasoline_engine
+			tank_radio_module
+			stabilizer
+		}
+	}
+	
+	basic_heavy_tank_2 = {
+		name = "Heavy Tank, M6A1"
+		
+		priority = {
+			factor = 100
+			modifier = { 
+				has_tech = improved_heavy_tank_chassis
+				factor = 0 #let's not waste XP here
+			}
+		}
+		
+		target_variant = {
+			match_value = 2000
+			type = heavy_tank_chassis_1
+			modules = {
+				main_armament_slot = {
+					any_of = {
+						tank_heavy_cannon
+						tank_heavy_cannon_2
+						tank_heavy_cannon_3
+					}
+				}
+				turret_type_slot = tank_heavy_three_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_welded_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = tank_radio_module
+				special_type_slot_2 = stabilizer
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 9
+				tank_nsb_armor_upgrade = 6
+			}
+		}
+
+		allowed_modules = {
+			tank_heavy_cannon
+			tank_heavy_cannon_2
+			tank_heavy_cannon_3
+			tank_heavy_three_man_tank_turret
+			tank_bogie_suspension
+			tank_welded_armor
+			tank_gasoline_engine
+			tank_radio_module
+			stabilizer
+		}
+	}
+}
