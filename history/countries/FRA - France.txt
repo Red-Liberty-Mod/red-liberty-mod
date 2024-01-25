@@ -3,7 +3,7 @@
 oob = "FRA"
 if = {
 	limit = { has_dlc = "Man the Guns" }
-		set_naval_oob = "FRA_1936_naval_mtg"
+		set_naval_oob = "FRA_naval_mtg"
 		set_war_support = 0.1
 	else = {
 		set_naval_oob = "FRA_1936_naval_legacy"
@@ -798,6 +798,23 @@ if = {
 		}
 	}
 	# Destroyers #
+	create_equipment_variant = {
+		name = "Arabe Class"
+		type = ship_hull_light_1
+		name_group = FRA_DE_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
+	}
 	create_equipment_variant = {
 		name = "Bourrasque Class"				# represents Bourrasque and L'Adroit classes
 		type = ship_hull_light_1
