@@ -1,12 +1,75 @@
 scripted_gui = {
 	
-	US_var_display = {
+	USA_state_var_display = {
 		window_name = us_popularities_container
 		parent_window_token = selected_state_view
 		context_type = selected_state_context
+		
 		visible = {
-			is_debug = yes
+			ROOT = {
+				has_country_flag = USA_state_full_info
+			}
 			can_have_elections_in_state = yes
+		}
+		
+		triggers = {
+			state_socialist_left_pop_visible = {
+				check_variable = {
+					v = token:socialist_group_popularity
+				}
+			}
+			state_socialist_center_pop_visible = {
+				check_variable = {
+					v = token:socialist_group_popularity
+				}
+			}
+			state_socialist_right_pop_visible = {
+				check_variable = {
+					v = token:socialist_group_popularity
+				}
+			}
+			state_democrat_liberal_pop_visible = {
+				check_variable = {
+					v = token:democrat_group_popularity
+				}
+			}
+			state_democrat_conservative_pop_visible = {
+				check_variable = {
+					v = token:democrat_group_popularity
+				}
+			}
+			state_democrat_paternalist_pop_visible = {
+				check_variable = {
+					v = token:democrat_group_popularity
+				}
+			}
+			state_republican_liberal_pop_visible = {
+				check_variable = {
+					v = token:republican_group_popularity
+				}
+			}
+			state_republican_conservative_pop_visible = {
+				check_variable = {
+					v = token:republican_group_popularity
+				}
+			}
+			state_commonwealth_longist_pop_visible = {
+				check_variable = {
+					v = token:commonwealth_group_popularity
+				}
+			}
+			state_commonwealth_christian_pop_visible = {
+				check_variable = {
+					v = token:commonwealth_group_popularity
+				}
+			}
+		}
+		
+		dynamic_lists = {
+			state_demographics_list = {
+				array = party_array
+				entry_container = state_demographics_container
+			}
 		}
 	}
 }

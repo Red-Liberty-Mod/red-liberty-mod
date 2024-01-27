@@ -508,6 +508,46 @@
  USA_1940_election_over:0 "The 1940 presidential election is over"
  
  ### DEBUG MENU STUFF ###
- USA_debug_pops_tooltip:0 "party_popularity:\nCommunist: [?THIS.communist_popularity]\nSocialist: [?THIS.socialist_popularity]\nRepublican: [?THIS.republican_popularity]\nDemocrat: [?THIS.democrat_popularity]\nCommonwealth: [?THIS.afp_popularity]\n\nparty_election_pop:\nCommunist: [?THIS.communist_election_pop]\nSocialist: [?THIS.socialist_election_pop]\nRepublican: [?THIS.republican_election_pop]\nDemocrat: [?THIS.democrat_election_pop]\nCommonwealth: [?THIS.afp_election_pop]\n\nelectoral_votes: [?THIS.electoral_votes]"
+ USA_debug_pops_tooltip:0 "party_popularity:\nCommunist: [?THIS.communist_popularity]\nSocialist: [?THIS.socialist_popularity]\nRepublican: [?THIS.republican_popularity]\nDemocrat: [?THIS.democrat_popularity]\nCommonwealth: [?THIS.commonwealth_popularity]\n\nparty_election_pop:\nCommunist: [?THIS.communist_election_pop]\nSocialist: [?THIS.socialist_election_pop]\nRepublican: [?THIS.republican_election_pop]\nDemocrat: [?THIS.democrat_election_pop]\nCommonwealth: [?THIS.commonwealth_election_pop]\n\nelectoral_votes: [?THIS.electoral_votes]\n\nPrev:\n[?communist_prev_election_pop]\n[?socialist_prev_election_pop]\n[?republican_prev_election_pop]\n[?democrat_prev_election_pop]\n[?commonwealth_prev_election_pop]"
+ 
+ state_demographics_party_name:0 "[?v.GetTokenLocalizedKey] - [GetPartyPop][GetPopChange]"
+ state_demographics_faction_pop:0 "[?v.GetTokenLocalizedKey] - [GetFactionPop]"
+ 
+ socialist_left_pop:0 "$socialist_left_popularity$ - [?percentage@token:socialist_left_popularity|0%]"
+ socialist_center_pop:0 "$socialist_center_popularity$ - [?percentage@token:socialist_center_popularity|0%]"
+ socialist_right_pop:0 "$socialist_right_popularity$ - [?percentage@token:socialist_right_popularity|0%]"
+ 
+ democrat_liberal_pop:0 "$democrat_liberal_popularity$ - [?percentage@token:democrat_liberal_popularity|0%]"
+ democrat_conservative_pop:0 "$democrat_conservative_popularity$ - [?percentage@token:democrat_conservative_popularity|0%]"
+ democrat_paternalist_pop:0 "$democrat_paternalist_popularity$ - [?percentage@token:democrat_paternalist_popularity|0%]"
+ 
+ republican_liberal_pop:0 "$republican_liberal_popularity$ - [?percentage@token:republican_liberal_popularity|0%]"
+ republican_conservative_pop:0 "$republican_conservative_popularity$ - [?percentage@token:republican_conservative_popularity|0%]"
+ 
+ commonwealth_longist_pop:0 ""
+ commonwealth_christian_pop:0 ""
+ 
+ ## Change in pop ##
+ communist_pop_change:0 "[?THIS.communist_prev_election_pop|%1+=]"
+ socialist_pop_change:0 "[?THIS.socialist_prev_election_pop|%1+=]"
+ democrat_pop_change:0 "[?THIS.democrat_prev_election_pop|%1+=]"
+ republican_pop_change:0 "[?THIS.republican_prev_election_pop|%1+=]"
+ commonwealth_pop_change:0 "[?THIS.commonwealth_prev_election_pop|%1+=]"
+ 
+ ## Factions ##
+ socialist_left_popularity:0 "Socialist - §hLeft§!"
+ socialist_center_popularity:0 "Socialist - §rCenter§!"
+ socialist_right_popularity:0 "Socialist - §pRight§!"
+ democrat_liberal_popularity:0 "Democrat - §LLiberal§!"
+ democrat_conservative_popularity:0 "Democrat - §3Conservative§!"
+ democrat_paternalist_popularity:0 "Democrat - §gPaternalist§!"
+ republican_liberal_popularity:0 "Republican - §7Liberal§!"
+ republican_conservative_popularity:0 "Republican - §GConservative§!"
+ 
+ communist_group_popularity:0 "$COMMUNIST_PARTY$"
+ socialist_group_popularity:0 "$SOCIALIST_PARTY$"
+ democrat_group_popularity:0 "$DEMOCRAT_PARTY$"
+ republican_group_popularity:0 "$REPUBLICAN_PARTY$"
+ commonwealth_group_popularity:0 "$AFP_PARTY$"
  
  
