@@ -3,16 +3,22 @@
 oob = "FRA"
 if = {
 	limit = { has_dlc = "Man the Guns" }
-		set_naval_oob = "FRA_naval_mtg"
-		set_war_support = 0.1
+	set_naval_oob = "FRA_naval_mtg"
 	else = {
 		set_naval_oob = "FRA_1936_naval_legacy"
-		set_war_support = 0.15
 	}
 }
 
 set_research_slots = 3
 set_stability = 0.5
+set_war_support = 0.1
+add_command_power = 20
+set_convoys = 300
+
+add_opinion_modifier = {
+    target = GER
+    modifier = FRA_the_vile_hun
+}
 
 if = {
 	limit = {
@@ -67,28 +73,14 @@ set_technology = {
 	motorised_infantry = 1
 	gw_artillery = 1
 	interwar_antiair = 1
-	
-	trench_warfare = 1
-	fleet_in_being = 1
 	fuel_silos = 1
 	fuel_refining = 1
-
 	basic_train = 1
 }
+
 if = {
 	limit = {
-		NOT = { has_dlc = "No Step Back" }
-	}
-	set_technology = {
-		gwtank = 1
-		basic_light_tank = 1
-		basic_heavy_tank = 1
-		improved_light_tank = 1
-	}
-}
-if = {
-	limit = {
-		has_dlc = "No Step Back"
+		has_dlc_nsb = yes
 	}
 	set_technology = {
 		gwtank_chassis = 1
@@ -97,6 +89,14 @@ if = {
 		improved_light_tank_chassis = 1
 		armor_tech_1 = 1
 		engine_tech_1 = 1
+	}
+	else = {
+		set_technology = {
+			gwtank = 1
+			basic_light_tank = 1
+			basic_heavy_tank = 1
+			improved_light_tank = 1
+		}
 	}
 }
 if = {
@@ -142,17 +142,44 @@ if = {
 }
 if = {
 	limit = {
-		has_dlc = "La Resistance"
+		has_dlc_lar = yes
 	}
 	set_technology = {
 		armored_car1 = 1
+	}
+}
+if = {
+	limit = { has_dlc = "By Blood Alone" }
+	set_technology = {
+		aa_lmg = 1
+		aa_cannon_1 = 1
+		engines_1 = 1
+		engines_2 = 1
+		early_bombs = 1
+		photo_reconnaisance = 1
+		aircraft_construction = 1
+		iw_small_airframe = 1
+		iw_carrier_airframe = 1
+		iw_medium_airframe = 1
+		iw_large_airframe = 1
+	}
+	else = {
+		set_technology = {
+			early_fighter = 1
+			naval_bomber1 = 1
+			cv_early_fighter = 1
+			cv_naval_bomber1 = 1
+			early_bomber = 1
+			tactical_bomber1 = 1
+			CAS1 = 1
+		}
 	}
 }
 
 set_convoys = 300
 
 set_politics = {
-	ruling_party = progressive_liberalism
+	ruling_party = liberal_conservatism
 	last_election = "1932.4.26"
 	election_frequency = 48
 	elections_allowed = yes
@@ -173,23 +200,21 @@ set_popularities = {
 }
 
 add_ideas = {
+	FRA_revanchisme
 	FRA_fallen_govt
 	FRA_rising_right
-	
-	semi_industrial_economy
+	FRA_pop_crisis_1
 }
 
-create_faction = FRA_continental_entente
-add_to_faction = FRA
-add_to_faction = MOR
-add_to_faction = TUN
-add_to_faction = FCA
-add_to_faction = FWA
+set_country_flag = progressive_liberalism_coalition
+set_country_flag = liberal_conservatism_coalition
+set_country_flag = national_conservatism_coalition
 
 ### LEADERS ###
 recruit_character = FRA_sebastian_faure
 recruit_character = FRA_maurice_thorez
 recruit_character = FRA_louis_sellier
+recruit_character = FRA_jacques_doriot
 recruit_character = FRA_andre_leon_blum
 recruit_character = FRA_marcel_deat
 recruit_character = FRA_edouard_daladier
@@ -200,216 +225,66 @@ recruit_character = FRA_charles_maurras
 recruit_character = FRA_pierre_taittinger
 recruit_character = FRA_marcel_bucard
 
-create_country_leader = {
-	name = "French Government"
-	desc = "POLITICS_FRENCH_REPUBLIC_DESC"
-	picture = "gfx/leaders/FRA/Portrait_FRA_French_Republic.png"
-	expire = "1965.1.1"
-	ideology = progressive_liberalism_subtype
-	traits = {
-		
-	}
-}
+### DEPUTY LEADERS ###
+recruit_character = FRA_marcel_cachin
+recruit_character = FRA_albert_bedouce
+recruit_character = FRA_paul_doumer
+recruit_character = FRA_albert_lebrun
+recruit_character = FRA_jean_de_orleans
+recruit_character = FRA_louis_napoleon
 
-create_corps_commander = {
-	name = "Jean de Lattre de Tassigny"
-	picture = "Portrait_France_Jean_de_Lattre_de_Tassigny.dds"
-	traits = { trickster brilliant_strategist cavalry_officer war_hero }
-	skill = 4
-	attack_skill = 4
-	defense_skill = 2
-	planning_skill = 4
-	logistics_skill = 3
-}
+activate_advisor = FRA_paul_doumer_hog
 
-create_corps_commander = {
-	name = "Alphonse Juin"
-	picture = "Portrait_France_Alphonse_Juin.dds"
-	traits = { armor_officer career_officer trait_cautious  }
-	skill = 4
-	attack_skill = 3
-	defense_skill = 2
-	planning_skill = 4
-	logistics_skill = 4
-}
+### MINISTERS ###
+recruit_character = FRA_pierre_monatte
+recruit_character = FRA_roger_salengro
+recruit_character = FRA_maurice_violette
+recruit_character = FRA_camille_chautemps
+recruit_character = FRA_joseph_paul_boncour
+recruit_character = FRA_louis_barthou
+recruit_character = FRA_jean_ybarnegaray
+recruit_character = FRA_paul_creyssel
+recruit_character = FRA_maurice_pujo
+recruit_character = FRA_paul_baudouin
+recruit_character = FRA_francois_coty
+recruit_character = FRA_xavier_vallat
 
-create_field_marshal = {
-	name = "Maurice Gamelin"
-	picture = "Portrait_France_Maurice_Gamelin.dds"
-	traits = { defensive_doctrine old_guard inflexible_strategist career_officer }
-	skill = 2
-	attack_skill = 1
-	defense_skill = 3
-	planning_skill = 2
-	logistics_skill = 1
-}
+### GENERALS ###
+recruit_character = FRA_maurice_gamelin
+recruit_character = FRA_antoine_marie_besson
+recruit_character = FRA_georges_catroux
+recruit_character = FRA_charles_delestraint
+recruit_character = FRA_rene_olry
+recruit_character = FRA_maxime_weygand
+recruit_character = FRA_georges_blanchard
+recruit_character = FRA_alphonse_georges
+recruit_character = FRA_gaston_henri_billote
+recruit_character = FRA_pierre_hering
+recruit_character = FRA_robert_touchon
+recruit_character = FRA_andre_corap
+recruit_character = FRA_henry_freydenberg
+recruit_character = FRA_charles_huntziger
+recruit_character = FRA_edouard_requin
+recruit_character = FRA_marcel_garchery
+recruit_character = FRA_rene_prioux
+recruit_character = FRA_andre_gaston_pretelat
 
-create_field_marshal = {
-	name = "Maxime Weygand"
-	picture = "Portrait_France_Maxime_Weygand.dds"
-	traits = { defensive_doctrine old_guard inflexible_strategist career_officer }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 3
-	planning_skill = 2
-	logistics_skill = 2
-}
+### ADMIRALS ###
+recruit_character = FRA_francois_darlan
+recruit_character = FRA_jean_marie_charles_abrial
+recruit_character = FRA_jean_de_laborde
+recruit_character = FRA_raoul_castex
+recruit_character = FRA_jean_pierre_esteva
+recruit_character = FRA_emile_muselier
+recruit_character = FRA_jean_decoux
 
-create_field_marshal = {
-	name = "Alphonse Georges"
-	picture = "Portrait_France_Alphonse_Joseph_Georges.dds"
-	traits = { defensive_doctrine old_guard trait_cautious }
-	skill = 3
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 4
-	logistics_skill = 2
-}
-
-create_field_marshal = {
-	name = "Antoine-Marie-Benoît Besson"
-	picture = "Portrait_France_Generic_land_2.dds"
-	traits = { defensive_doctrine old_guard }
-	skill = 2
-	attack_skill = 1
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Charles De Gaulle"
-	picture = "Portrait_France_Charles_De_Gaulle.dds"
-	traits = {  armor_officer harsh_leader media_personality }
-	id = 101
-	skill = 4
-	attack_skill = 4
-	defense_skill = 4
-	planning_skill = 3
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Philippe Leclerc"
-	picture = "portrait_france_philippe_leclerc.dds"
-	traits = {  armor_officer trait_reckless career_officer }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Henri Giraud"
-	picture = "portrait_france_henri_giraud.dds"
-	traits = {  trickster trait_cautious career_officer infantry_officer }
-	skill = 3
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 4
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Charles Huntziger"
-	picture = "portrait_france_charles_huntziger.dds"
-	traits = { old_guard infantry_officer }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 1
-	planning_skill = 3
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Gaston-Henri Billotte"
-	picture = "Portrait_France_Generic_land_1.dds"
-	traits = { old_guard trait_cautious infantry_officer }
-	skill = 2
-	attack_skill = 1
-	defense_skill = 3
-	planning_skill = 1
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Henry Freydenberg"
-	picture = "Portrait_France_Generic_land_3.dds"
-	traits = { old_guard infantry_officer }
-	skill = 2
-	attack_skill = 1
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "René Olry"
-	picture = "Portrait_France_Generic_land_5.dds"
-	traits = { old_guard infantry_officer trait_mountaineer }
-	skill = 3
-	attack_skill = 2
-	defense_skill = 4
-	planning_skill = 2
-	logistics_skill = 2
-}
-
-create_navy_leader = {
-	name = "François Darlan"
-	picture = "Portrait_France_Francois_Darlan.dds"
-	traits = { naval_lineage bold superior_tactician }
-	id = 102
-	skill = 3
-	attack_skill = 2
-	defense_skill = 2
-	maneuvering_skill = 3
-	coordination_skill = 3
-}
-
-create_navy_leader = {
-	name = "Jean-Marie Charles Abrial"
-	picture = "Portrait_France_Jean-Marie_Charles_Abrial.dds"
-	traits = { chief_engineer superior_tactician }
-	skill = 3
-	attack_skill = 2
-	defense_skill = 3
-	maneuvering_skill = 3
-	coordination_skill = 2
-}
-
-create_navy_leader = {
-	name = "Jean-Pierre Esteva"
-	picture = "Portrait_France_Jean-Pierre_Esteva.dds"
-	traits = { aviation_enthusiast }
-	skill = 2
-	attack_skill = 1
-	defense_skill = 2
-	maneuvering_skill = 2
-	coordination_skill = 2
-}
-
-create_navy_leader = {
-	name = "René-Émile Godfroy"
-	picture = "Portrait_France_Rene-Emile_Godfroy.dds"
-	traits = { gentlemanly battleship_adherent old_guard_navy spotter }
-	skill = 2
-	attack_skill = 2
-	defense_skill = 1
-	maneuvering_skill = 2
-	coordination_skill = 2
-}
-
-create_navy_leader = {
-	name = "Jean de Laborde"
-	picture = "Portrait_France_Jean_de_Laborde.dds"
-	traits = { naval_lineage aviation_enthusiast }
-	skill = 1
-	attack_skill = 1
-	defense_skill = 1
-	maneuvering_skill = 1
-	coordination_skill = 1
-}
+### HIGH COMMAND ###
+recruit_character = FRA_joseph_vuillemin
+recruit_character = FRA_robert_odic
+recruit_character = FRA_philippe_fequant
+recruit_character = FRA_martial_valin
+recruit_character = FRA_jean_francois_jannekeyn
+recruit_character = FRA_alfred_heurtaux
 
 if = {
 	limit = { has_dlc = "La Resistance" }
@@ -550,9 +425,10 @@ if = {
 	}
 	
 	create_equipment_variant = {
-		name = "D2"
+		name = "Char D2"
 		type = light_tank_chassis_1
 		parent_version = 1
+		design_team = mio:FRA_renault_organization
 		modules = {
 			main_armament_slot = tank_small_cannon
 			turret_type_slot = tank_light_one_man_tank_turret
@@ -571,6 +447,7 @@ if = {
 		name = "H-35"
 		type = light_tank_chassis_1
 		parent_version = 2
+		design_team = mio:FRA_hotchkiss_organization
 		modules = {
 			main_armament_slot = tank_small_cannon
 			turret_type_slot = tank_light_one_man_tank_turret
@@ -588,6 +465,7 @@ if = {
 		name = "R-35" 
 		type = light_tank_chassis_1
 		parent_version = 3
+		design_team = mio:FRA_renault_organization
 		modules = {
 			main_armament_slot = tank_small_cannon
 			turret_type_slot = tank_light_one_man_tank_turret
@@ -643,9 +521,10 @@ if = {
 		icon = "GFX_FRA_basic_heavy_tank_medium"
 	}
 	create_equipment_variant = {
-		name = "SOUMUA S35" 
+		name = "SOMUA S35" 
 		type = medium_tank_chassis_0
 		parent_version = 0
+		design_team = mio:FRA_somua_organization
 		modules = {
 			main_armament_slot = tank_small_cannon_2
 			turret_type_slot = tank_medium_one_man_tank_turret
@@ -1067,89 +946,208 @@ if = {
 	}
 }
 
-# 1939 Start #
-1939.1.1 = {
-	if = {
-		limit = { not = { has_dlc = "Man the Guns" } }
-		# Ship variants #
-		create_equipment_variant = {
-			name = "Aurore Class"
-			type = submarine_2
-			upgrades = {
-				ship_reliability_upgrade = 3
-				sub_engine_upgrade = 3
-				sub_stealth_upgrade = 3
-				sub_torpedo_upgrade = 3
-			}
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+	create_equipment_variant = {
+		name = "Nieuport-Delage NiD 62" #
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
 		}
-
-		create_equipment_variant = {
-			name = "Le Hardi Class"
-			type = destroyer_2
-			upgrades = {
-				ship_torpedo_upgrade = 1
-				destroyer_engine_upgrade = 1
-				ship_ASW_upgrade = 1
-				ship_anti_air_upgrade = 1
-			}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Dewoitine D.500" #
+		type = small_plane_airframe_0
+		design_team = mio:FRA_dewoitine_organization
+		modules = {
+			fixed_main_weapon_slot = light_mg_4x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
 		}
-
-		create_equipment_variant = {
-			name = "Mogador Class"
-			type = destroyer_2
-			upgrades = {
-				ship_torpedo_upgrade = 2
-				destroyer_engine_upgrade = 2
-				ship_ASW_upgrade = 2
-				ship_anti_air_upgrade = 2
-			}
+		icon = "GFX_FRA_light_plane_2_medium"
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Dewoitine D.371" #
+		type = cv_small_plane_airframe_0
+		design_team = mio:FRA_dewoitine_organization
+		modules = {
+			fixed_main_weapon_slot = light_mg_4x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+		icon = "GFX_FRA_light_plane_2_medium"
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Levasseur PL.7" #
+		type = cv_small_plane_naval_bomber_airframe_0
+		design_team = mio:FRA_levasseur_organization
+		modules = {
+			fixed_main_weapon_slot = torpedo_mounting
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = lmg_defense_turret
+		}
+		icon = "GFX_FRA_naval_bomber1_medium"
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Dewoitine D.510" #also covers D.501
+		type = small_plane_airframe_0
+		design_team = mio:FRA_dewoitine_organization
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_1x
+			engine_type_slot = engine_2_1x
+			special_type_slot_1 = empty
+		}
+		icon = "GFX_FRA_light_plane_2_medium"
+	}
+	create_equipment_variant = {
+		name = "Loire 46"
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = light_mg_4x
+			fixed_auxiliary_weapon_slot_1 = empty
+			engine_type_slot = engine_2_1x
+			special_type_slot_1 = empty
 		}
 	}
-	if = {
-		limit = { has_dlc = "Man the Guns" }
-		# Submarines #
-		create_equipment_variant = {
-			name = "Aurore Class"				
-			type = ship_hull_submarine_2
-			name_group = FRA_SS_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_torpedo_slot = ship_torpedo_sub_2
-				fixed_ship_engine_slot = sub_ship_engine_2
-				rear_1_custom_slot = ship_torpedo_sub_2
-			}
+	create_equipment_variant = {
+		name = "Latécoère 296" #
+		type = small_plane_naval_bomber_airframe_0
+		modules = {
+			fixed_main_weapon_slot = torpedo_mounting
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = floats
 		}
-		# Destroyers #
-		create_equipment_variant = {
-			name = "Le Hardi Class"
-			type = ship_hull_light_2
-			name_group = FRA_DE_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_battery_slot = ship_light_battery_3
-				fixed_ship_anti_air_slot = ship_anti_air_1
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-				fixed_ship_radar_slot = empty
-				fixed_ship_engine_slot = light_ship_engine_2
-				fixed_ship_torpedo_slot = ship_torpedo_2
-				mid_1_custom_slot = ship_torpedo_2
-				rear_1_custom_slot = ship_depth_charge_1
-			}
+		icon = "GFX_FRA_naval_bomber1_medium"
+	}
+	create_equipment_variant = {
+		name = "Amiot 143" #
+		type = medium_plane_airframe_0
+		design_team = mio:FRA_amiot_organization
+		modules = {
+			fixed_main_weapon_slot = medium_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = bomb_locks
+			engine_type_slot = engine_2_2x
+			special_type_slot_1 = lmg_defense_turret
 		}
-		create_equipment_variant = {
-			name = "Joffre Class"
-			type = ship_hull_carrier_1
-			name_group = FRA_CV_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_deck_slot_1 = ship_deck_space
-				fixed_ship_deck_slot_2 = ship_deck_space
-				fixed_ship_anti_air_slot = ship_anti_air_1
-				fixed_ship_radar_slot = empty
-				fixed_ship_engine_slot = carrier_ship_engine_2
-				fixed_ship_secondaries_slot = dp_ship_secondaries
-				front_1_custom_slot = empty
-			}
+		icon = "GFX_FRA_early_bomber_medium"
+	}
+	create_equipment_variant = {
+		name = "Farman F.222" #
+		type = large_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = large_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = empty
+			engine_type_slot = engine_2_4x
+			special_type_slot_1 = lmg_defense_turret
 		}
+		icon = "GFX_FRA_strategic_bomber1_medium"
+	}
+	create_equipment_variant = {
+		name = "Bloch MB.200" #
+		type = medium_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = medium_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = empty
+			engine_type_slot = engine_1_2x
+			special_type_slot_1 = lmg_defense_turret
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Bréguet 521 Bizerte"
+		type = medium_plane_scout_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = recon_camera
+			fixed_auxiliary_weapon_slot_1 = empty
+			engine_type_slot = engine_1_3x
+			special_type_slot_1 = flying_boat_medium
+			special_type_slot_2 = lmg_defense_turret
+		}
+		icon = "GFX_medium_plane_2_medium"
+	}
+	create_equipment_variant = {
+		name = "Latécoère 302"
+		type = medium_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = medium_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = empty
+			engine_type_slot = engine_1_2x
+			special_type_slot_1 = flying_boat_medium
+			special_type_slot_2 = lmg_defense_turret
+		}
+		icon = "GFX_medium_plane_2_medium"
+	}
+	
+	add_equipment_to_stockpile = {
+		type = small_plane_airframe_0
+		amount = 96
+		variant_name = "Dewoitine D.500"
+		producer = FRA
+	}
+	add_equipment_to_stockpile = {
+		type = small_plane_airframe_0
+		amount = 192
+		variant_name = "Dewoitine D.510"
+		producer = FRA
+	}
+	add_equipment_to_stockpile = {
+		type = small_plane_airframe_0
+		amount = 144
+		variant_name = "Nieuport-Delage NiD 62"
+		producer = FRA
+	}
+	add_equipment_to_stockpile = {
+		type = small_plane_naval_bomber_airframe_0
+		amount = 24
+		variant_name = "Latécoère 296"
+		producer = FRA
+	}
+	
+	add_equipment_to_stockpile = {
+		type = cv_small_plane_airframe_0
+		amount = 53
+		variant_name = "Dewoitine D.371"
+		producer = FRA
+	}
+	add_equipment_to_stockpile = {
+		type = cv_small_plane_naval_bomber_airframe_0
+		amount = 46
+		variant_name = "Levasseur PL.7"
+		producer = FRA
+	}
+	
+	add_equipment_to_stockpile = {
+		type = medium_plane_airframe_0
+		amount = 120
+		variant_name = "Amiot 143"
+		producer = FRA
+	}
+	add_equipment_to_stockpile = {
+		type = medium_plane_airframe_0
+		amount = 7
+		variant_name = "Latécoère 302"
+		producer = FRA
+	}
+	add_equipment_to_stockpile = {
+		type = medium_plane_scout_plane_airframe_0
+		amount = 10
+		variant_name = "Bréguet 521 Bizerte"
+		producer = FRA
+	}
+	
+	add_equipment_to_stockpile = {
+		type = large_plane_airframe_0
+		amount = 84
+		variant_name = "Farman F.222"
+		producer = FRA
 	}
 }

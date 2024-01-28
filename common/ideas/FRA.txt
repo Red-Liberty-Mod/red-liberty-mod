@@ -1,14 +1,40 @@
 ideas = {
 	
 	country = {
-	
-       	FRA_fallen_govt = {
 		
+		FRA_revanchisme = {
 			removal_cost = -1 
 			
 			allowed = {
 				always = no
-			} 
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				#offensive_war_stability_factor = 0.1
+				#defensive_war_stability_factor = 0.1
+			}
+			
+			targeted_modifier = {
+                tag = GER
+                attack_bonus_against = 0.1
+            }
+		}
+		
+       	FRA_fallen_govt = {
+			removal_cost = -1 
+			
+			allowed = {
+				always = no
+			}
+			
 			available = {
 				
 			}
@@ -20,7 +46,27 @@ ideas = {
 			modifier = {
 				stability_factor = -0.25
 				political_power_gain = -0.5
-				poverty_monthly_rate = -0.01
+			}
+		}
+		
+		FRA_unstable_govt = {
+			removal_cost = -1 
+			
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				stability_factor = -0.15
+				political_power_gain = -0.25
 			}
 		}
 		
@@ -60,6 +106,621 @@ ideas = {
 			modifier = {
 				political_power_gain = -0.15 
 			}
-		} 
+		}
+		
+		FRA_pop_crisis_1 = {
+			removal_cost = -1
+			
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				conscription_factor = -0.25
+				industrial_capacity_factory = -0.1
+			}
+		}
+		
+		FRA_pop_crisis_1a = {
+			name = FRA_pop_crisis_1
+			
+			removal_cost = -1
+			
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				conscription_factor = -0.2
+				industrial_capacity_factory = -0.1
+			}
+		}
+		
+		FRA_pop_crisis_1b = {
+			name = FRA_pop_crisis_1
+			
+			removal_cost = -1
+			
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				conscription_factor = -0.25
+				industrial_capacity_factory = -0.075
+			}
+		}
+		
+		FRA_pop_crisis_2 = {
+			name = FRA_pop_crisis_1
+		
+			removal_cost = -1
+			
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				conscription_factor = -0.15
+				industrial_capacity_factory = -0.075
+			}
+		}
+		
+		FRA_pop_crisis_3 = {
+			name = FRA_pop_crisis_1
+		
+			removal_cost = -1
+			
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				conscription_factor = -0.05
+				industrial_capacity_factory = -0.05
+			}
+		}
+		
+		FRA_catholic_corporatism_1 = {
+			removal_cost = -1
+			
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				industrial_capacity_factory = 0.05
+			}
+		}
+		
+		FRA_catholic_corporatism_2 = {
+			name = FRA_catholic_corporatism_1
+		
+			removal_cost = -1
+			
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				industrial_capacity_factory = 0.05
+				production_factory_start_efficiency_factor = 0.05
+			}
+		}
+		
+		FRA_preping_war_economy = {
+		
+			removal_cost = -1
+			
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				production_speed_arms_factory_factor = 0.15
+			}
+			
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.1
+					instant = yes
+				}
+			}
+		}
+		
+		FRA_integrated_dispos = {
+		
+			removal_cost = -1
+			
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				conscription_factor = 0.05
+				modifier_army_sub_unit_infantry_attack_factor = 0.05
+				modifier_army_sub_unit_infantry_max_org_factor = -0.05
+			}
+		}
+		
+		FRA_terror_bombing = {
+		
+			removal_cost = -1
+			
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				air_strategic_bomber_bombing_factor = 0.15
+				air_cas_efficiency = 0.15
+			}
+		}
+		
+		FRA_local_cooperatives = {
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				production_factory_start_efficiency_factor = 0.05
+				production_speed_buildings_factor = 0.1
+			}
+		}
+		
+		FRA_reformed_central_bank = {
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				political_power_gain = 0.1
+			}
+		}
+		
+		FRA_tout_est_possible = {
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				political_power_gain = 0.1
+				production_factory_start_efficiency_factor = 0.05
+				production_speed_buildings_factor = 0.1
+			}
+		}
+		FRA_paramilitary_integrations = {
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				stability_factor = -0.1
+				war_support_factor = 0.1
+				conscription_factor = 0.05
+			}
+		}
+		FRA_royalist_intellectualism = {
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				research_speed_factor = 0.05
+				political_power_gain = 0.10
+			}
+		}
+		FRA_constitutional_reconstruction = {
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				political_power_gain = -1
+				stability_factor = -0.1
+				despotism_drift = 0.1
+			}
+		}
+		FRA_kingdom_restored = {
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				political_power_gain = 0.05
+				stability_factor = 0.05
+				despotism_drift = 0.05
+			}
+		}
+		
+		FRA_counter_revolution = {
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				political_power_gain = 0.05
+				stability_factor = 0.1
+				despotism_drift = 0.05
+			}
+		}
+		
+		FRA_counter_revolution_2 = {
+			name = FRA_counter_revolution
+		
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				political_power_gain = 0.05
+				stability_factor = 0.1
+				army_core_attack_factor = 0.05
+				army_core_defence_factor = 0.05
+				despotism_drift = 0.1
+			}
+		}
+		
+		FRA_federal_kingdom = {
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = 0.1
+				despotism_drift = 0.15
+				consumer_goods_factor = -0.1
+				army_core_attack_factor = 0.05
+				army_core_defence_factor = 0.05
+			}
+		}
+
+		FRA_abolish_secularism = {
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				consumer_goods_factor = -0.1
+				conscription_factor = 0.025
+				political_power_gain = 0.05
+				war_support_factor = 0.05
+				stability_factor = 0.05
+			}
+		}
+		
+		FRA_laissez_faire = {
+		
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				consumer_goods_factor = 0.05
+				production_factory_max_efficiency_factor = 0.05
+			}
+		}
+		
+		FRA_indigenous_representation = {
+		
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				non_core_manpower = 0.05
+			}
+		}
+		
+		### Communist ###
+		
+		FRA_anti_socialist_resistance_1 = {
+			name = FRA_anti_socialist_resistance
+		
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				stability_factor = -0.15
+				fascism_drift = 0.05
+			}
+		}
+		
+		FRA_anti_socialist_resistance_2 = {
+			name = FRA_anti_socialist_resistance
+		
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				stability_factor = -0.1
+				fascism_drift = 0.03
+			}
+		}
+		
+		FRA_anti_socialist_resistance_3 = {
+			name = FRA_anti_socialist_resistance
+		
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				stability_factor = -0.05
+				fascism_drift = 0.01
+			}
+		}
+		FRA_europesreckoning = {
+			name = FRA_europesreckoning
+
+			allowed = {
+				always = no
+			}
+
+			available = {
+
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				army_attack_factor = 0.05
+				army_defence_factor = 0.05
+				army_morale_factor = 0.05
+			}
+		}
+		FRA_second_fiddle_no_longer = {
+			name = FRA_second_fiddle_no_longer
+
+			allowed = {
+				always = no
+			}
+
+			available = {
+
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				naval_damage_factor = 0.05
+				naval_defense_factor = 0.05
+				naval_morale_factor = 0.1
+			}
+		}
+		FRA_shriek_of_the_sky = {
+			name = FRA_shriek_of_the_sky
+
+			allowed = {
+				always = no
+			}
+
+			available = {
+
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				air_air_superiority_attack_factor = 0.05
+				air_air_superiority_defence_factor = 0.05
+				air_close_air_support_attack_factor = 0.05
+				air_close_air_support_defence_factor = 0.05
+			}
+		}
 	}
 }

@@ -1,0 +1,1808 @@
+shared_focus = {
+	id = FRA_army_reorganization
+	icon = GFX_FRA_army_reorganization
+	
+	x = 27
+	y = 0
+	cost = 3
+	
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = FRA_govt_stabilized
+			NOT = {
+				OR = {
+					has_idea = FRA_fallen_govt
+					has_idea = FRA_unstable_govt
+				}
+			}
+		}
+	}
+	
+	offset = {
+        x = 6
+        y = 0
+        trigger = {
+			OR = {
+				has_focus_tree = FRA_democratic_tree
+			}
+        }
+    }
+	
+	offset = {
+		x = -10
+		y = 0
+		trigger = {
+			OR = {
+				AND = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+					has_completed_focus = FRA_national_union
+				}
+			}
+		}
+	}
+	
+	completion_reward = {
+		army_experience = 25
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ARMY_XP
+	}
+}
+
+shared_focus = {
+	id = FRA_veteran_brigades
+	icon = GFX_FRA_veteran_brigades
+	
+	x = -2
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_army_reorganization
+	prerequisite = { focus = FRA_army_reorganization }
+	completion_reward = {
+		add_manpower = 50000
+		army_experience = 50
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_MANPOWER
+		FOCUS_FILTER_ARMY_XP
+	}
+}
+
+shared_focus = {
+	id = FRA_officers_of_the_great_war
+	icon = GFX_FRA_officers_of_the_great_war
+	
+	x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_army_reorganization
+	prerequisite = { focus = FRA_army_reorganization  }
+	completion_reward = {
+		add_doctrine_cost_reduction = {
+			cost_reduction = 0.25
+			uses = 2
+			category = land_doctrine
+		}
+	}
+	
+	search_filters = {
+		
+	}
+}
+
+shared_focus = {
+	id = FRA_equipment_modernization
+	icon = GFX_FRA_equipment_modernization
+	
+	x = 2
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_army_reorganization
+	prerequisite = { focus = FRA_army_reorganization  }
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = infantry_weapons
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
+}
+
+shared_focus = {
+	id = FRA_integrate_the_dispos
+	icon = GFX_FRA_integrate_the_dispos
+	
+	x = -1
+	y = 1
+	cost = 4
+	
+	allow_branch = {
+		has_government = authoritarian_democracy
+	}
+	
+	relative_position_id = FRA_veteran_brigades
+	prerequisite = { focus = FRA_veteran_brigades }
+	completion_reward = {
+		add_ideas = {
+			FRA_integrated_dispos
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_MANPOWER
+	}
+}
+
+shared_focus = {
+	id = FRA_old_dogs_new_tricks
+	icon = GFX_FRA_old_dogs_new_tricks
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_veteran_brigades
+	prerequisite = { focus = FRA_veteran_brigades }
+	prerequisite = { focus = FRA_officers_of_the_great_war }
+	completion_reward = {
+		every_army_leader = {
+			add_planning = 1
+		}
+	}
+	
+	search_filters = {
+		
+	}
+}
+	
+shared_focus = {
+	id = FRA_reeducational_service
+	icon = GFX_goal_unknown
+	
+	x = 1
+	y = 1
+	cost = 4
+
+	completion_reward = {
+		add_stability = 0.10
+		add_war_support = 0.05
+		add_political_power = 150
+	}
+	
+	relative_position_id = FRA_officers_of_the_great_war
+	prerequisite = { focus = FRA_officers_of_the_great_war }
+	prerequisite = { focus = FRA_equipment_modernization }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_WAR_SUPPORT
+		FOCUS_FILTER_STABILITY
+	}
+}
+
+shared_focus = {
+	id = FRA_no_more_mutiny
+	icon = GFX_FRA_no_more_mutiny
+	
+	x = 0
+	y = 2
+	cost = 4
+
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 1
+			uses = 2
+			category = military_police_tech
+		}
+	}
+	
+	relative_position_id = FRA_veteran_brigades
+	prerequisite = { focus = FRA_veteran_brigades }
+	
+	search_filters = {
+		FOCUS_FILTER_MANPOWER
+	}
+}
+
+shared_focus = {
+	id = FRA_bulwark_against_degeneracy
+	icon = GFX_FRA_bulwark_against_degeneracy
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_old_dogs_new_tricks
+	prerequisite = { focus = FRA_old_dogs_new_tricks }
+	prerequisite = { focus = FRA_reeducational_service }
+		
+	completion_reward = {
+		custom_effect_tooltip = FRA_bulwark_against_degeneracy_tt
+		
+		hidden_effect = {
+			create_intelligence_agency = {
+				name = "Direction Générale de la Sûreté Nationale"
+				icon = GFX_intelligence_agency_logo_fra
+			}
+		}
+	}
+		
+	search_filters = {
+		
+	}
+}
+	
+	shared_focus = {
+		id = FRA_artillery_modernization
+		icon = GFX_FRA_artillery_modernization
+		
+		x = 0
+		y = 2
+		cost = 4
+		
+		relative_position_id = FRA_equipment_modernization
+		prerequisite = { focus = FRA_equipment_modernization }
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = artillery
+			}
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+	}
+
+	shared_focus = {
+		id = FRA_europesreckoning
+		icon = GFX_FRA_europes_reckoning
+		
+		x = 1
+		y = 1
+		cost = 4
+
+		completion_reward = {
+			add_ideas = {
+				FRA_europesreckoning
+			}
+		}
+		
+		relative_position_id = FRA_no_more_mutiny
+		prerequisite = { focus = FRA_no_more_mutiny }
+		prerequisite = { focus = FRA_bulwark_against_degeneracy }
+		
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+	}
+
+shared_focus = {
+	id = FRA_naval_rearmaments
+	icon = GFX_FRA_naval_rearmaments
+	
+	x = 33
+	y = 0
+	cost = 3
+	
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = FRA_govt_stabilized
+			NOT = {
+				OR = {
+					has_idea = FRA_fallen_govt
+					has_idea = FRA_unstable_govt
+				}
+			}
+		}
+	}
+	
+	offset = {
+		x = 6
+		y = 0
+		trigger = {
+			OR = {
+				has_focus_tree = FRA_democratic_tree
+			}
+		}
+	}
+	
+	offset = {
+		x = -10
+		y = 0
+		trigger = {
+			OR = {
+				AND = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+					has_completed_focus = FRA_national_union
+				}
+			}
+		}
+	}
+	
+	completion_reward = {
+		navy_experience = 25
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_NAVY_XP
+	}
+}
+
+shared_focus = {
+	id = FRA_the_channel
+	icon = GFX_FRA_the_channel
+	
+	x = -2
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_naval_rearmaments
+	prerequisite = { focus = FRA_naval_rearmaments }
+	mutually_exclusive = {
+		focus = FRA_the_reich
+		focus = FRA_middling_approach
+	}
+	
+	completion_reward = {
+		add_doctrine_cost_reduction = {
+			cost_reduction = 0.25
+			uses = 2
+			category = cat_fleet_in_being
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_WAR_SUPPORT
+	}
+}
+
+shared_focus = {
+	id = FRA_the_reich
+	icon = GFX_FRA_the_reich
+	
+	x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_naval_rearmaments
+	prerequisite = { focus = FRA_naval_rearmaments }
+	mutually_exclusive = {
+		focus = FRA_the_channel
+		focus = FRA_middling_approach
+	}
+	
+	completion_reward = {
+		add_doctrine_cost_reduction = {
+			cost_reduction = 0.25
+			uses = 2
+			category = cat_trade_interdiction
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_WAR_SUPPORT
+	}
+}
+
+shared_focus = {
+	id = FRA_middling_approach
+	icon = GFX_FRA_middling_approach
+	
+	x = 2
+	y = 1
+	cost = 4
+		
+	relative_position_id = FRA_naval_rearmaments
+	prerequisite = { focus = FRA_naval_rearmaments  }
+	mutually_exclusive = {
+		focus = FRA_the_channel
+		focus = FRA_the_reich
+	}
+	completion_reward = {
+		add_doctrine_cost_reduction = {
+			cost_reduction = 0.25
+			uses = 2
+			category = cat_base_strike
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_WAR_SUPPORT
+	}
+}
+
+shared_focus = {
+	id = FRA_new_battleships
+	icon = GFX_FRA_new_battleships
+	
+	x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_the_channel
+	prerequisite = { focus = FRA_the_channel }
+	
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.75
+			uses = 1
+			category = bb_tech
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
+}
+
+shared_focus = {
+	id = FRA_industrial_drydocks
+	icon = GFX_FRA_industrial_drydocks
+	x = 0
+	
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_new_battleships
+	prerequisite = { focus = FRA_new_battleships }
+
+			completion_reward = {
+			15 = {
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 3
+			}
+			29 = {
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+	
+	search_filters = {
+		FOCUS_FILTER_WAR_SUPPORT
+	}
+}
+
+shared_focus = {
+	id = FRA_destroyer_fleets
+	icon = GFX_FRA_destroyer_fleets
+	
+	x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_the_reich
+	prerequisite = { focus = FRA_the_reich }
+	
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.75
+			uses = 1
+			category = dd_tech
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
+}
+
+shared_focus = {
+	id = FRA_study_foreign_designs
+	icon = GFX_FRA_study_foreign_designs
+	x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_destroyer_fleets
+	prerequisite = { focus = FRA_destroyer_fleets }
+
+	completion_reward = {
+		country_event = {
+			id = france_military.2
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_WAR_SUPPORT
+	}
+}
+
+shared_focus = {
+	id = FRA_cruiser_patrols
+	icon = GFX_FRA_cruiser_patrols
+	x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_middling_approach
+	prerequisite = { focus = FRA_middling_approach }
+	
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.75
+			uses = 1
+			category = cl_tech
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
+}
+
+	#Ocean Supremacy
+	shared_focus = {
+		id = FRA_ocean_supremacy
+		icon = GFX_FRA_ocean_supremacy
+		x = 0
+		y = 1
+		cost = 4
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		relative_position_id = FRA_cruiser_patrols
+		prerequisite = { focus = FRA_cruiser_patrols }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = cv_tech
+			}
+		}
+	}
+
+	shared_focus = {
+		id = FRA_channel_manufacturing
+		icon = GFX_FRA_channel_manufacturing
+		
+		x = 1
+		y = 1
+		cost = 4
+		
+		relative_position_id = FRA_industrial_drydocks
+		prerequisite = {
+			focus = FRA_industrial_drydocks
+			focus = FRA_study_foreign_designs
+		}
+		mutually_exclusive = { focus = FRA_mediterranean_shipbuilding }
+		
+		completion_reward = {
+			15 = {
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			29 = {
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+	}
+
+	shared_focus = {
+		id = FRA_mediterranean_shipbuilding
+		icon = GFX_FRA_mediterranean_shipbuilding
+		
+		x = 3
+		y = 1
+		cost = 4
+		
+		relative_position_id = FRA_industrial_drydocks
+		prerequisite = {
+			focus = FRA_study_foreign_designs
+			focus = FRA_ocean_supremacy
+		}
+		mutually_exclusive = { focus = FRA_channel_manufacturing }
+		
+		completion_reward = {
+			21 = {
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			735 = {
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			22 = {
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+	}
+
+shared_focus = {
+	id = FRA_second_fiddle_no_longer
+	icon = GFX_FRA_second_fiddle_no_longer
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_channel_manufacturing
+	prerequisite = {
+		focus = FRA_channel_manufacturing
+		focus = FRA_mediterranean_shipbuilding
+	}
+
+	completion_reward = {
+		add_ideas = {
+			FRA_second_fiddle_no_longer
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_WAR_SUPPORT
+	}
+}
+
+shared_focus = {
+	id = FRA_establish_independent_airforce
+	icon = GFX_FRA_establish_independent_airforce
+	
+	x = 39
+	y = 0
+	cost = 3
+	
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = FRA_govt_stabilized
+			NOT = {
+				OR = {
+					has_idea = FRA_fallen_govt
+					has_idea = FRA_unstable_govt
+				}
+			}
+		}
+	}
+	
+	offset = {
+		x = 6
+		y = 0
+		trigger = {
+			OR = {
+				has_focus_tree = FRA_democratic_tree
+			}
+		}
+	}
+	
+	offset = {
+		x = -10
+		y = 0
+		trigger = {
+			OR = {
+				AND = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+					has_completed_focus = FRA_national_union
+				}
+			}
+		}
+	}
+	
+	completion_reward = {
+		air_experience = 25
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_AIR_XP
+	}
+}
+
+shared_focus = {
+	id = FRA_skies_of_france
+	icon = GFX_FRA_skies_of_france
+	
+	x = -2
+	y = 1
+	cost = 4
+	
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 1
+			uses = 1
+			category = light_air
+		}
+	}
+	
+	relative_position_id = FRA_establish_independent_airforce
+	prerequisite = { focus = FRA_establish_independent_airforce }
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
+}
+
+	shared_focus = {
+		id = FRA_factories_of_our_enemies
+		icon = GFX_FRA_factories_of_our_enemies
+		
+		x = 0
+		y = 1
+		cost = 4
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = heavy_air
+			}
+		}
+		
+		relative_position_id = FRA_establish_independent_airforce
+		prerequisite = { focus = FRA_establish_independent_airforce }
+		
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+	}
+
+	shared_focus = {
+		id = FRA_naval_integration
+		icon = GFX_FRA_naval_integration
+		
+		x = 2
+		y = 1
+		cost = 4
+		
+		relative_position_id = FRA_establish_independent_airforce
+		prerequisite = { focus = FRA_establish_independent_airforce }
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = naval_bomber
+			}
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+	}
+
+	shared_focus = {
+		id = FRA_improve_doctrine
+		icon = GFX_FRA_improve_doctrine
+		
+		x = 1
+		y = 1
+		cost = 4
+		
+		relative_position_id = FRA_skies_of_france
+		prerequisite = { focus = FRA_skies_of_france }
+		prerequisite = { focus = FRA_factories_of_our_enemies }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.25
+				uses = 2
+				category = air_doctrine
+			}
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+	}
+
+	shared_focus = {
+		id = FRA_heroes_of_the_past
+		icon = GFX_FRA_heroes_of_the_past
+
+		completion_reward = {
+			air_experience = 50
+		}
+		
+		x = -1
+		y = 1
+		cost = 4
+		
+		relative_position_id = FRA_naval_integration
+		prerequisite = { focus = FRA_factories_of_our_enemies }
+		prerequisite = { focus = FRA_naval_integration }
+		
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+	}
+
+	shared_focus = {
+		id = FRA_foreign_studies
+		icon = GFX_FRA_foreign_studies
+
+		x = 0
+		y = 1
+		cost = 4
+
+		completion_reward = {
+			country_event = {
+				id = france_military.1
+			}
+		}
+		
+		relative_position_id = FRA_improve_doctrine
+		prerequisite = { focus = FRA_improve_doctrine }
+		
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+	}
+	
+	shared_focus = {
+		id = FRA_antiair_defenses
+		icon = GFX_FRA_antiair_defenses
+		
+		x = 0
+		y = 1
+		cost = 4
+		
+		relative_position_id = FRA_heroes_of_the_past
+		prerequisite = { focus = FRA_heroes_of_the_past }
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = cat_anti_air
+			}
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+	}
+
+	shared_focus = {
+		id = FRA_experimental_technology
+		icon = GFX_FRA_experimental_technology
+		
+		x = 0
+		y = 1
+		cost = 4
+		
+		relative_position_id = FRA_foreign_studies
+		prerequisite = { focus = FRA_foreign_studies }
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.25
+				uses = 1
+				category = jet_technology
+			}
+			add_tech_bonus = {
+				bonus = 0.25
+				uses = 1
+				category = rocketry
+			}
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+	}
+
+	shared_focus = {
+		id = FRA_terror_bombing
+		icon = GFX_FRA_terror_bombing
+		
+		x = 0
+		y = 1
+		cost = 4
+
+		completion_reward = {
+			add_ideas = {
+				FRA_terror_bombing
+			}
+		}
+		
+		relative_position_id = FRA_antiair_defenses
+		prerequisite = { focus = FRA_antiair_defenses }
+		
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+	}
+
+	shared_focus = {
+		id = FRA_shriek_of_the_sky
+		icon = GFX_FRA_shriek_of_the_sky
+		
+		x = 1
+		y = 1
+		cost = 4
+		
+		relative_position_id = FRA_experimental_technology
+		prerequisite = { focus = FRA_experimental_technology }
+		prerequisite = { focus = FRA_terror_bombing }
+
+		completion_reward = {
+			add_ideas = {
+				FRA_shriek_of_the_sky
+			}
+		}
+		
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+	}
+	
+shared_focus = {
+	id = FRA_foreign_relations
+	icon = GFX_FRA_foreign_relations
+	
+	x = 29
+	y = 6
+	cost = 3
+	
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = FRA_govt_stabilized
+			NOT = {
+				OR = {
+					has_idea = FRA_fallen_govt
+					has_idea = FRA_unstable_govt
+				}
+			}
+		}
+	}
+
+	completion_reward = {
+		add_political_power = 100
+	}
+	
+	offset = {
+		x = -10
+		y = 0
+		trigger = {
+			OR = {
+				AND = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+					has_completed_focus = FRA_national_union
+				}
+			}
+		}
+	}
+	
+	offset = {
+		x = 4
+		y = 0
+		trigger = {
+			has_focus_tree = FRA_democratic_tree
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			date > 1938.1.1
+		}
+	}
+}
+
+shared_focus = {
+	id = FRA_an_integralist_internationale
+	icon = GFX_FRA_an_integralist_internationale
+	
+	x = -6
+	y = 1
+	cost = 4
+	
+	available = {
+		has_country_leader = {
+			character = FRA_charles_maurras
+			ruling_only = yes
+		}
+	}
+	
+	relative_position_id = FRA_foreign_relations
+	prerequisite = { focus = FRA_foreign_relations }
+	mutually_exclusive = {
+		focus = FRA_maintain_flexibility
+		focus = FRA_reaffirm_old_ties
+	}
+	
+	completion_reward = {
+		create_faction = "Latin Union"
+		unlock_decision_category_tooltip = FRA_latin_entente_category
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 0
+			is_historical_focus_on = yes
+		}
+	}
+}
+
+shared_focus = {
+	id = FRA_maintain_flexibility
+	icon = GFX_FRA_maintain_flexibility
+	
+	x = -2
+	y = 1
+	cost = 4
+	
+	available = {
+		
+	}
+	
+	relative_position_id = FRA_foreign_relations
+	prerequisite = { focus = FRA_foreign_relations }
+	mutually_exclusive = {
+		focus = FRA_an_integralist_internationale
+		focus = FRA_reaffirm_old_ties
+	}
+	
+	completion_reward = {
+		create_faction = FRA_continental_entente
+		unlock_decision_category_tooltip = FRA_anti_german_pact_category
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 0
+			is_historical_focus_on = yes
+		}
+	}
+}
+
+shared_focus = {
+	id = FRA_reaffirm_old_ties
+	icon = GFX_FRA_reaffirm_old_ties
+	
+	x = 3
+	y = 1
+	cost = 4
+
+	completion_reward = {
+		create_faction = "Interim Pact"
+	}
+	
+	relative_position_id = FRA_foreign_relations
+	prerequisite = { focus = FRA_foreign_relations }
+	mutually_exclusive = {
+		focus = FRA_an_integralist_internationale
+		focus = FRA_maintain_flexibility
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+	id = FRA_promote_pan_latinism
+	icon = GFX_FRA_promote_pan_latinism
+	
+	x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_an_integralist_internationale
+	prerequisite = { focus = FRA_an_integralist_internationale }
+	
+	completion_reward = {
+		add_opinion_modifier = {
+			target = ITA
+			modifier = FRA_pan_latin_clubs
+		}
+		ITA = {
+			add_opinion_modifier = {
+				target = FRA
+				modifier = FRA_pan_latin_clubs
+			}
+		}
+		add_opinion_modifier = {
+			target = SPR
+			modifier = FRA_pan_latin_clubs
+		}
+		SPR = {
+			add_opinion_modifier = {
+				target = FRA
+				modifier = FRA_pan_latin_clubs
+			}
+		}
+	}
+	
+	search_filters = {
+		
+	}
+}
+
+shared_focus = {
+	id = FRA_supply_rebels
+	icon = GFX_FRA_supply_rebels
+	
+	x = -2
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_maintain_flexibility
+	prerequisite = { focus = FRA_maintain_flexibility }
+	
+	completion_reward = {
+		BAL = {
+			add_stability = -0.05
+		}
+		POL = {
+			add_stability = -0.05
+		}
+		UKR = {
+			add_stability = -0.05
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_isolating_the_germans
+	icon = GFX_FRA_isolating_the_germans
+	
+	x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_maintain_flexibility
+	prerequisite = { focus = FRA_maintain_flexibility }
+	
+	completion_reward = {
+		send_embargo = GER
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_the_russians
+	icon = GFX_FRA_the_russians
+	
+	x = 2
+	y = 1
+	cost = 4
+	
+	available = {
+		has_global_flag = russian_civil_war_ended
+	}
+	
+	relative_position_id = FRA_maintain_flexibility
+	prerequisite = {
+		focus = FRA_maintain_flexibility
+		focus = FRA_reaffirm_old_ties
+	}
+	
+	completion_reward = {
+		if = {
+			limit = {
+				SOV = {
+					exists = no
+				}
+			}
+			add_opinion_modifier = {
+				target = RUS
+				modifier = FRA_diplomatic_overtures
+			}
+			RUS = {
+				add_opinion_modifier = {
+					target = FRA
+					modifier = FRA_diplomatic_overtures
+				}
+			}
+		}
+		else = {
+			add_opinion_modifier = {
+				target = SOV
+				modifier = FRA_diplomatic_overtures
+			}
+			SOV = {
+				add_opinion_modifier = {
+					target = FRA
+					modifier = FRA_diplomatic_overtures
+				}
+			}
+		}
+	}
+	
+	search_filters = {
+		
+	}
+}
+
+shared_focus = {
+	id = FRA_renew_our_friendship_with_the_british
+	icon = GFX_FRA_renew_our_friendship_with_the_british
+	
+	x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_reaffirm_old_ties
+	prerequisite = { focus = FRA_reaffirm_old_ties }
+	
+	completion_reward = {
+		add_opinion_modifier = {
+			target = ENG
+			modifier = FRA_renewed_ties
+		}
+		ENG = {
+			add_opinion_modifier = {
+				target = FRA
+				modifier = FRA_renewed_ties
+			}
+		}
+	}
+	
+	search_filters = {
+		
+	}
+}
+
+shared_focus = {
+	id = FRA_the_belgian_question
+	icon = GFX_FRA_the_belgian_question
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_reaffirm_old_ties
+	prerequisite = { focus = FRA_reaffirm_old_ties }
+	
+	completion_reward = {
+		add_named_threat = {
+			threat = 5
+			name = FRA_the_belgian_question
+		}
+		BEL = {
+			country_event = {
+				id = france_FORPOL.8
+				hours = 6
+			}
+		}
+		custom_effect_tooltip = effect_if_they_accept_tt
+		event_option_tooltip = france_FORPOL.9.a
+	}
+	
+	search_filters = {
+		
+	}
+}
+
+shared_focus = {
+	id = FRA_align_the_norwegians
+	icon = GFX_FRA_align_the_norwegians
+	
+	x = 3
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_reaffirm_old_ties
+	prerequisite = { focus = FRA_reaffirm_old_ties }
+	completion_reward = {
+		add_opinion_modifier = {
+			target = NOR
+			modifier = FRA_diplomatic_overtures
+		}
+		NOR = {
+			add_opinion_modifier = {
+				target = FRA
+				modifier = FRA_diplomatic_overtures
+			}
+			country_event = france_FORPOL.17
+		}
+	}
+	
+	search_filters = {
+		
+	}
+}
+
+shared_focus = {
+	id = FRA_in_defense_of_tradition
+	icon = GFX_FRA_in_defense_of_tradition
+	
+	x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_promote_pan_latinism
+	prerequisite = { focus = FRA_promote_pan_latinism }
+	
+	completion_reward = {
+		
+	}
+	
+	search_filters = {
+		
+	}
+}
+
+shared_focus = {
+	id = FRA_recognize_italian_conquests
+	icon = GFX_FRA_recognize_italian_conquests
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_promote_pan_latinism
+	prerequisite = { focus = FRA_promote_pan_latinism }
+	
+	completion_reward = {
+		custom_effect_tooltip = FRA_recognize_italian_conquests_tt
+	}
+	
+	search_filters = {
+		
+	}
+}
+
+shared_focus = {
+	id = FRA_anti_german_pact
+	icon = GFX_FRA_anti_german_pact
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_supply_rebels
+	prerequisite = { focus = FRA_supply_rebels }
+	prerequisite = { focus = FRA_isolating_the_germans }
+	completion_reward = {
+		
+	}
+	
+	search_filters = {
+		
+	}
+}
+
+shared_focus = {
+	id = FRA_a_second_entente_cordiale
+	icon = GFX_FRA_second_entente_cordiale
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	#available = {
+	#	ENG = {
+	#		has_opinion = { target = FRA value > 74 }
+	#	}
+	#}
+	
+	relative_position_id = FRA_renew_our_friendship_with_the_british
+	prerequisite = { focus = FRA_renew_our_friendship_with_the_british }
+	prerequisite = {
+		focus = FRA_the_belgian_question
+		focus = FRA_align_the_norwegians
+	}
+	
+	completion_reward = {
+		ENG = {
+			country_event = {
+				id = france_FORPOL.14
+				hours = 6
+			}
+		}
+		custom_effect_tooltip = effect_if_they_accept_tt
+		effect_tooltip = {
+			ENG = {
+				set_faction_name = FRA_second_entente
+				add_to_faction = FRA
+			}
+		}
+	}
+	
+	search_filters = {
+		
+	}
+}
+
+shared_focus = {
+	id = FRA_catholic_network
+	icon = GFX_FRA_catholic_network
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_in_defense_of_tradition
+	prerequisite = { focus = FRA_in_defense_of_tradition }
+	prerequisite = { focus = FRA_recognize_italian_conquests }
+	
+	completion_reward = {
+		
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_dividing_up_europe
+	icon = GFX_FRA_dividing_up_europe
+	
+	x = 0
+	y = 2
+	cost = 4
+	
+	relative_position_id = FRA_the_russians
+	prerequisite = { focus = FRA_the_russians }
+	prerequisite = {
+		focus = FRA_anti_german_pact
+		focus = FRA_a_second_entente_cordiale
+	}
+	
+	completion_reward = {
+		custom_effect_tooltip = FRA_dividing_up_europe_tt
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_joint_naval_excercises
+	icon = GFX_FRA_joint_naval_excercises
+	
+	x = 0
+	y = 1
+	cost = 4
+	
+	available = {
+		FRA = {
+			is_in_faction_with = ENG
+		}
+	}
+	
+	relative_position_id = FRA_a_second_entente_cordiale
+	prerequisite = { focus = FRA_a_second_entente_cordiale }
+	
+	completion_reward = {
+		add_doctrine_cost_reduction = {
+			cost_reduction = 0.5
+			uses = 1
+			category = naval_doctrine
+		}
+		ENG = {
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 1
+				category = naval_doctrine
+			}
+		}
+	}
+	
+	search_filters = {
+		
+	}
+}
+
+shared_focus = {
+	id = FRA_natural_borders_of_france
+	icon = GFX_FRA_natural_borders_of_france
+	
+	x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_dividing_up_europe
+	prerequisite = {
+		focus = FRA_catholic_network
+		focus = FRA_dividing_up_europe
+	}
+	mutually_exclusive = { focus = FRA_our_lost_territories }
+	
+	completion_reward = {
+		FRA = {
+			add_state_claim = 8
+			add_state_claim = 42
+			add_state_claim = 51
+			add_state_claim = 877
+		}
+		add_named_threat = {
+			threat = 7.5
+			name = FRA_asserted_claims
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_our_lost_territories
+	icon = GFX_FRA_our_lost_territories
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_dividing_up_europe
+	prerequisite = { focus = FRA_dividing_up_europe }
+	mutually_exclusive = { focus = FRA_natural_borders_of_france }
+	
+	completion_reward = {
+		FRA = {
+			add_state_claim = 877
+		}
+		add_named_threat = {
+			threat = 5
+			name = FRA_asserted_claims
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_light_the_match
+	icon = GFX_FRA_light_the_match
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	available = {
+		OR = {
+			threat > 0.6
+			has_war_support > 0.8
+		}
+	}
+	
+	will_lead_to_war_with = GER
+	
+	relative_position_id = FRA_natural_borders_of_france
+	prerequisite = { focus = FRA_our_lost_territories focus = FRA_natural_borders_of_france }
+	
+	completion_reward = {
+		declare_war_on = {
+			target = GER
+			type = annex_everything
+		}
+		hidden_effect = {
+			news_event = {
+				id = worldnews_ww2.1
+				hours = 6
+			}
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_total_war
+	icon = GFX_goal_unknown
+	
+	x = -1
+	y = 1
+	cost = 4
+	
+	available = {
+		has_war = yes
+	}
+	
+	relative_position_id = FRA_light_the_match
+	prerequisite = { focus = FRA_light_the_match }
+	
+	completion_reward = {
+		increase_mobilisation = yes
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_a_modern_crusade
+	icon = GFX_goal_unknown
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_light_the_match
+	prerequisite = { focus = FRA_light_the_match }
+	
+	completion_reward = {
+		add_war_support = 0.05
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_WAR_SUPPORT
+	}
+}
+
+shared_focus = {
+	id = FRA_austrohungarian_collapse
+	icon = GFX_FRA_austro_hungarian_collapse
+	
+	x = 8
+	y = 1
+	cost = 4
+	
+	available = {
+		has_global_flag = austrian_civil_war_started
+	}
+	
+	relative_position_id = FRA_foreign_relations
+	prerequisite = { focus = FRA_foreign_relations }
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_old_enemy_new_possibilities
+	icon = GFX_goal_unknown
+	
+	x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_austrohungarian_collapse
+	prerequisite = { focus = FRA_austrohungarian_collapse }
+	completion_reward = {
+		
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_the_wrath_of_paris
+	icon = GFX_goal_unknown
+	
+	x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_old_enemy_new_possibilities
+	prerequisite = { focus = FRA_old_enemy_new_possibilities }
+	mutually_exclusive = { focus = FRA_the_grace_of_france }
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_the_grace_of_france
+	icon = GFX_goal_unknown
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_old_enemy_new_possibilities
+	prerequisite = { focus = FRA_old_enemy_new_possibilities }
+	mutually_exclusive = { focus = FRA_the_wrath_of_paris }
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_volunteer_battalions
+	icon = GFX_FRA_volunteer_battalions
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_the_wrath_of_paris
+	prerequisite = {
+		focus = FRA_the_wrath_of_paris
+		focus = FRA_the_grace_of_france
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_small_arms_donations
+	icon = GFX_goal_unknown
+	
+	x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_volunteer_battalions
+	prerequisite = { focus = FRA_volunteer_battalions }
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}

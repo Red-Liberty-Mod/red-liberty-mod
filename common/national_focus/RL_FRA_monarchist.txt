@@ -1,0 +1,422 @@
+#Appareil d'État
+shared_focus = {
+	id = FRA_appareildetat
+	icon = GFX_goal_unknown
+	x = 11
+	y = 0
+	cost = 6
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	completion_reward = {
+		country_event = {
+			id = france_monarchist.1
+			hours = 6
+		}
+		add_political_power = 100
+		unlock_decision_category_tooltip = FRA_republican_resistance_category
+	}
+}
+
+shared_focus = {
+	id = FRA_discredit_pacifists
+	icon = GFX_FRA_discredit_pacifists
+	
+	x = 13
+	y = 7
+	cost = 6
+	
+	prerequisite = { focus = FRA_the_counterrevolution }
+	
+	completion_reward = {
+		add_war_support = 0.1
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_WAR_SUPPORT
+	}
+}
+
+#The King's Government
+shared_focus = {
+	id = FRA_thekingsgovernment
+	icon = GFX_goal_unknown
+	x = 9
+	y = 5
+	cost = 6
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	completion_reward = {
+		country_event = france_monarchist.5
+	}
+	prerequisite = { focus = FRA_constitutional_reconstruction  }
+}
+
+#Local Democracy
+shared_focus = {
+	id = FRA_local_democracy
+	icon = GFX_goal_unknown
+	x = 9
+	y = 9
+	cost = 6
+	
+	completion_reward = {
+		add_stability = 0.05
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	prerequisite = { focus = FRA_exalt_the_national_interest  }
+}
+
+#Natural Inequality
+shared_focus = {
+	id = FRA_natural_inequality
+	icon = GFX_goal_unknown
+	x = 11
+	y = 9
+	cost = 6
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	prerequisite = { focus = FRA_exalt_the_national_interest  } prerequisite = { focus = FRA_expulserlameteque  }
+}
+
+#Decentralized Nationalism
+shared_focus = {
+	id = FRA_decentralized_nationalism
+	icon = GFX_goal_unknown
+	x = 9
+	y = 7
+	cost = 6
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	completion_reward = {
+		country_event = france_decentralized.1
+		
+	}
+	prerequisite = { focus = FRA_the_counterrevolution  }
+}
+
+#Urban Monarchist Rallies
+shared_focus = {
+	id = FRA_urban_monarchist_rallies
+	icon = GFX_goal_unknown
+	x = 10
+	y = 1
+	cost = 6
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	completion_reward = {
+		add_popularity = {
+			ideology = despotism
+			popularity = 0.1
+		}
+		add_stability = -0.05
+	}
+	prerequisite = { focus = FRA_appareildetat  }
+}
+
+#Assemble the Cabinet
+shared_focus = {
+	id = FRA_assemble_the_cabinet
+	icon = GFX_goal_unknown
+	x = 12
+	y = 1
+	cost = 6
+	
+	completion_reward = {
+		activate_advisor = FRA_francois_de_la_rocque_hog
+		activate_advisor = FRA_maurice_pujo
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	prerequisite = { focus = FRA_appareildetat  }
+}
+
+#Levez-vous, agriculteurs
+shared_focus = {
+	id = FRA_levezvousagriculteurs
+	icon = GFX_goal_unknown
+	x = 10
+	y = 3
+	cost = 6
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	completion_reward = {
+		33 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+		25 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+		add_popularity = {
+			ideology = despotism
+			popularity = 0.05
+		}
+		add_political_power = -50
+	}
+	prerequisite = { focus = FRA_urban_monarchist_rallies  }
+}
+
+#Paramilitary Integrations
+shared_focus = {
+	id = FRA_paramilitary_integrations
+	icon = GFX_goal_unknown
+	x = 9
+	y = 2
+	cost = 6
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	completion_reward = {
+		add_ideas = FRA_paramilitary_integrations
+		subtract_from_variable = { FRA_remove_resistance_state_cost = 5 }
+	}
+	prerequisite = { focus = FRA_urban_monarchist_rallies  }
+}
+
+#Royalist Intellectualism
+shared_focus = {
+	id = FRA_royalist_intellectualism
+	icon = GFX_goal_unknown
+	x = 13
+	y = 2
+	cost = 6
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
+	completion_reward = {
+		add_ideas = FRA_royalist_intellectualism
+	}
+	prerequisite = { focus = FRA_assemble_the_cabinet  }
+}
+
+#Reaffirm Oaths of Service
+shared_focus = {
+	id = FRA_reaffirm_oaths_of_service
+	icon = GFX_goal_unknown
+	x = 12
+	y = 3
+	cost = 6
+	search_filters = {
+		FOCUS_FILTER_WAR_SUPPORT
+	}
+	completion_reward = {
+		country_event = france_monarchist.2
+	}
+	prerequisite = { focus = FRA_assemble_the_cabinet  }
+}
+
+#Constitutional Reconstruction
+shared_focus = {
+	id = FRA_constitutional_reconstruction
+	icon = GFX_FRA_constitutional_reconstruction
+	x = 11
+	y = 4
+	cost = 6
+	
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = FRA_constitutional_reconstruction_tt
+			check_variable = { FRA_resisting_states < 11 }
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = FRA_fallen_govt
+			add_idea = FRA_constitutional_reconstruction
+		}
+		set_cosmetic_tag = FRA_kingdom
+	}
+	prerequisite = { focus = FRA_levezvousagriculteurs  } prerequisite = { focus = FRA_reaffirm_oaths_of_service  }
+}
+
+#End the Regency
+shared_focus = {
+	id = FRA_end_the_regency
+	icon = GFX_goal_unknown
+	x = 11
+	y = 5
+	cost = 10
+	
+	completion_reward = {
+		country_event = france_monarchist.3
+		
+		swap_ideas = {
+			remove_idea = FRA_constitutional_reconstruction
+			add_idea = FRA_kingdom_restored
+		}
+	}
+	prerequisite = { focus = FRA_constitutional_reconstruction  }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_STABILITY
+	}
+}
+
+#The Counter-Revolution
+shared_focus = {
+	id = FRA_the_counterrevolution
+	icon = GFX_goal_unknown
+	x = 11
+	y = 6
+	cost = 6
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	completion_reward = {
+		add_ideas = FRA_counter_revolution
+		upgrade_intelligence_agency = upgrade_passive_defense
+		upgrade_intelligence_agency = upgrade_anti_partisan
+	}
+	prerequisite = { focus = FRA_end_the_regency  }
+}
+
+#Divide the Left
+shared_focus = {
+	id = FRA_divide_the_left
+	icon = GFX_goal_unknown
+	x = 13
+	y = 6
+	cost = 6
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	completion_reward = {
+		country_event = france_monarchist.6
+		
+		set_temp_variable = { temp = party_popularity@democratic_socialism }
+		multiply_temp_variable = { temp = -1 }
+		multiply_temp_variable = { temp = 0.25 }
+		add_popularity = {
+			ideology = democratic_socialism
+			popularity = temp
+		}
+	}
+	prerequisite = { focus = FRA_end_the_regency  }
+}
+
+#Abolish Secularism
+shared_focus = {
+	id = FRA_abolish_secularism
+	icon = GFX_goal_unknown
+	x = 11
+	y = 7
+	cost = 6
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	completion_reward = {
+		add_ideas = FRA_abolish_secularism
+		country_event = france_monarchist.4
+	}
+	prerequisite = { focus = FRA_the_counterrevolution  }
+}
+
+#Exalt the National Interest
+shared_focus = {
+	id = FRA_exalt_the_national_interest
+	icon = GFX_goal_unknown
+	x = 10
+	y = 8
+	cost = 6
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = FRA_counter_revolution
+			add_idea = FRA_counter_revolution_2
+		}
+	}
+	
+	prerequisite = { focus = FRA_decentralized_nationalism  } prerequisite = { focus = FRA_abolish_secularism  }
+}
+
+#Expulser la métèque
+shared_focus = {
+	id = FRA_expulserlameteque
+	icon = GFX_goal_unknown
+	x = 12
+	y = 8
+	cost = 6
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	prerequisite = { focus = FRA_discredit_pacifists  } prerequisite = { focus = FRA_abolish_secularism  }
+	
+	completion_reward = {
+		add_manpower = -10000
+		add_political_power = 75
+	}
+}
+
+#Fédération nationale des Camelots du Roi
+shared_focus = {
+	id = FRA_federationnationaledescamelotsduroi
+	icon = GFX_goal_unknown
+	x = 14
+	y = 8
+	cost = 6
+	search_filters = {
+		FOCUS_FILTER_MANPOWER
+	}
+	prerequisite = { focus = FRA_discredit_pacifists  }
+}
+
+#France for the French
+shared_focus = {
+	id = FRA_france_for_the_french
+	icon = GFX_goal_unknown
+	x = 13
+	y = 9
+	cost = 6
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	prerequisite = { focus = FRA_expulserlameteque  } prerequisite = { focus = FRA_federationnationaledescamelotsduroi  }
+}
+
+#The Federal Monarchy
+shared_focus = {
+	id = FRA_the_federal_monarchy
+	icon = GFX_goal_unknown
+	x = 11
+	y = 10
+	cost = 6
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	prerequisite = { focus = FRA_local_democracy  } prerequisite = { focus = FRA_natural_inequality  } prerequisite = { focus = FRA_france_for_the_french  }
+	
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = FRA_counter_revolution_2
+			add_idea = FRA_federal_kingdom
+		}
+	}
+}

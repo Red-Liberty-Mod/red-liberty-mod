@@ -1,9 +1,16 @@
 add_namespace = france
 add_namespace = france_far_right
+add_namespace = france_far_left
+add_namespace = france_rocque
+add_namespace = france_monarchist
+add_namespace = france_decentralized
+add_namespace = france_military
 
-country_event = {
+add_namespace = france_FORPOL
+
+country_event = { # election event
 	id = france.1
-	title = ""
+	title = france.1.title
 	desc = france.1.desc
 	
 	is_triggered_only = yes
@@ -11,15 +18,66 @@ country_event = {
 	fire_only_once = yes
 
 	option = {
-		name = ""
+		name = france.1.a
+		set_country_flag = FRA_popular_front_victory
+		FRA_improve_govt_stability = yes
+		country_event = {
+			id = france.8
+			days = 3
+		}
+		
+		hidden_effect = {
+			country_event = {
+				id = france.9
+				days = 120
+			}
+		}
+		
+		ai_chance = {
+			base = 4
+		}
+	}
+	
+	option = {
+		name = france.1.b
+		set_country_flag = FRA_mouvement_social_victory
+		FRA_improve_govt_stability = yes
+		
+		country_event = {
+			id = france.13
+			days = 3
+		}
+		
+		hidden_effect = {
+			country_event = {
+				id = france.15
+				days = 90
+			}
+		}
+		
+		ai_chance = {
+			base = 5
+		}
+	}
+	
+	option = {
+		name = france.1.c
+		set_country_flag = FRA_national_union_victory
+		FRA_improve_govt_stability = yes
+		country_event = {
+			id = france.7
+			days = 3
+		}
+		
+		ai_chance = {
+			base = 1
+		}
 	}
 }
 
-### NATIONAL ASSEMBLY EVENT CHAIN ###
-
-country_event = { # choose a side
+country_event = { # everything sucks
 	id = france.2
-	title = ""
+	title = france.2.title
 	desc = france.2.desc
 	
 	is_triggered_only = yes
@@ -27,27 +85,13 @@ country_event = { # choose a side
 	fire_only_once = yes
 
 	option = {
-		name = "A popular front is what is needed!"
-		set_country_flag = FRA_popular_front
-		country_event = {
-			id = france.3
-			days = 5
-		}
-	}
-	
-	option = {
-		name = "The people demand stability through a national union!"
-		set_country_flag = FRA_national_union
-		country_event = {
-			id = france.6
-			days = 5
-		}
+		name = france.2.a
 	}
 }
 
-country_event = { # popular front - parti radical
+country_event = { # announcement of the popular front
 	id = france.3
-	title = "The Radicals"
+	title = france.3.title
 	desc = france.3.desc
 	
 	is_triggered_only = yes
@@ -55,17 +99,13 @@ country_event = { # popular front - parti radical
 	fire_only_once = yes
 
 	option = {
-		name = "Natural partners."
-		country_event = {
-			id = france.4
-			days = 6
-		}
+		name = france.3.a
 	}
 }
 
-country_event = { # popular front - approaching the communists
+country_event = { # radicals abondon the center
 	id = france.4
-	title = ""
+	title = france.4.title
 	desc = france.4.desc
 	
 	is_triggered_only = yes
@@ -73,23 +113,16 @@ country_event = { # popular front - approaching the communists
 	fire_only_once = yes
 
 	option = {
-		name = "They need us, and we need them."
-		set_country_flag = FRA_popular_front_found_coalition_partner
-		add_political_power = -50
-	}
-	
-	option = {
-		name = "We don't need them!"
-		country_event = {
-			id = france.5
-			days = 13
-		}
+		name = france.4.a
+		remove_proglib_coalition = yes
+		#set_country_flag = FRA_national_union_hidden
+		#mark_focus_tree_layout_dirty = yes
 	}
 }
 
-country_event = { # popular front - grand coalition?
+country_event = { # increasing violence - af vs communists
 	id = france.5
-	title = "Union Sacrée"
+	title = france.5.title
 	desc = france.5.desc
 	
 	is_triggered_only = yes
@@ -97,19 +130,14 @@ country_event = { # popular front - grand coalition?
 	fire_only_once = yes
 
 	option = {
-		name = "Yes!"
-		set_country_flag = FRA_popular_front_grand_coalition
-		add_political_power = -100
-	}
-	
-	option = {
-		name = "No!"
+		name = france.5.a
+		add_stability = -0.025
 	}
 }
 
-country_event = { # national union - democratic alliance
+country_event = { # la rocque gives a speech
 	id = france.6
-	title = ""
+	title = france.6.title
 	desc = france.6.desc
 	
 	is_triggered_only = yes
@@ -117,17 +145,14 @@ country_event = { # national union - democratic alliance
 	fire_only_once = yes
 
 	option = {
-		name = "Natural Allies!"
-		country_event = {
-			id = france.7
-			days = 6
-		}
+		name = france.6.a
+		add_political_power = -15
 	}
 }
 
-country_event = { # national union - croix de feu
+country_event = { # la rocque offers to support the government
 	id = france.7
-	title = ""
+	title = france.7.title
 	desc = france.7.desc
 	
 	is_triggered_only = yes
@@ -135,14 +160,240 @@ country_event = { # national union - croix de feu
 	fire_only_once = yes
 
 	option = {
-		name = ""
-		set_country_flag = FRA_national_union_found_coalition_partner
+		name = france.7.a
+		add_political_power = -15
+		add_authdem_coalition = yes
 	}
 	
 	option = {
-		name = "We will not bend to extremists!"
+		name = france.7.b
 	}
 }
+
+country_event = { # far right leagues protest the popular front
+	id = france.8
+	title = france.8.title
+	desc = france.8.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = france.8.a
+		add_stability = -0.025
+	}
+}
+
+country_event = { # infighting in the front
+	id = france.9
+	title = france.9.title
+	desc = france.9.desc
+	
+	trigger = {
+		NOT = {
+			has_completed_focus = FRA_dissolve_the_leagues
+			has_completed_focus = FRA_ban_paramilitary_organizations
+		}
+	}
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = france.9.a
+		add_political_power = -50
+	}
+}
+
+country_event = { # leagues unite
+	id = france.10
+	title = france.10.title
+	desc = france.10.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = france.10.a
+		add_political_power = -50
+		add_stability = -0.05
+		country_event = {
+			id = france.11
+			days = 14
+		}
+	}
+}
+
+country_event = { # degaulle defects
+	id = france.11
+	title = france.11.title
+	desc = france.11.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = france.11.a
+		country_event = {
+			id = france.12
+			days = 7
+		}
+	}
+}
+
+country_event = { # doumer dissolves the govt
+	id = france.12
+	title = france.12.title
+	desc = france.12.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = france.12.a
+		country_event = {
+			id = france_far_right.1
+			days = 3
+		}
+	}
+}
+
+country_event = { # anti govt commie riots
+	id = france.13
+	title = france.13.title
+	desc = france.13.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = france.13.a
+		add_stability = -0.05
+		country_event = {
+			id = france.14
+			days = 7
+		}
+	}
+}
+
+country_event = { # general strike
+	id = france.14
+	title = france.14.title
+	desc = france.14.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = france.14.a
+		add_political_power = -25
+	}
+}
+
+country_event = { # strike escalates
+	id = france.15
+	title = france.15.title
+	desc = france.15.desc
+	
+	trigger = {
+		NOT = {
+			has_completed_focus = FRA_ban_communist_party
+		}
+	}
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = france.15.a
+		add_stability = -0.05
+		add_political_power = -25
+		set_country_flag = FRA_death_is_coming
+		country_event = {
+			id = france.16
+			days = 7
+		}
+	}
+}
+
+country_event = { # communists start arming
+	id = france.16
+	title = france.16.title
+	desc = france.16.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = france.16.a
+		country_event = {
+			id = france.17
+			days = 7
+		}
+	}
+}
+
+country_event = { # sfio joins against the govt
+	id = france.17
+	title = france.17.title
+	desc = france.17.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = france.17.a
+		country_event = {
+			id = france_far_left.1
+			days = 7
+		}
+	}
+}
+
+country_event = { # assassination attempt on la rocque
+	id = france.18
+	
+	title = {
+		text = france.18.title_life
+		trigger = { NOT = { has_country_flag = FRA_death_is_coming } }
+	}
+	title = { 
+		text = france.18.title_death
+		trigger = { has_country_flag = FRA_death_is_coming }
+	}
+	desc = {
+		text = france.18.desc_life
+		trigger = { NOT = { has_country_flag = FRA_death_is_coming } }
+	}
+	desc = {
+		text = france.18.desc_death
+		trigger = { has_country_flag = FRA_death_is_coming }
+	}
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = france.18.a
+		trigger = { NOT = { has_country_flag = FRA_death_is_coming } }
+	}
+	
+	option = {
+		name = france.18.b
+		trigger = { has_country_flag = FRA_death_is_coming }
+	}
+}
+
+### FAR RIGHT ###
 
 country_event = {
 	id = france_far_right.1
@@ -156,10 +407,25 @@ country_event = {
 	option = {
 		name = "Montjoie Saint Denis!"
 		set_politics = {
-			ruling_party = autocratic_despotism
+			ruling_party = despotism
 			elections_allowed = no
-			last_election = "1932.11.8"
+			last_election = "1936.4.8"
 			election_frequency = 48
+		}
+		
+		load_focus_tree = FRA_monarchist_tree
+		
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					is_core_of = FRA
+				}
+				add_dynamic_modifier = {
+					modifier = FRA_republican_resistance_modifier
+				}
+			}
+			set_variable = { FRA_resisting_states = 22 }
+			set_variable = { FRA_remove_resistance_state_cost = 30 }
 		}
 	}
 }
@@ -178,8 +444,746 @@ country_event = {
 		set_politics = {
 			ruling_party = authoritarian_democracy
 			elections_allowed = no
-			last_election = "1932.11.8"
+			last_election = "1936.4.8"
 			election_frequency = 48
 		}
+		reset_coalition = yes
+		load_focus_tree = FRA_rocque_tree
+	}
+}
+
+### DE LA ROCQUE ###
+
+country_event = { # Beneath the Burning Cross
+	id = france_rocque.1
+	title = france_rocque.1.title
+	desc = france_rocque.1.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = france_rocque.1.a
+	}
+}
+
+country_event = { # Colonial Development
+	id = france_rocque.2
+	title = france_rocque.2.title
+	desc = france_rocque.2.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = france_rocque.2.a
+	}
+}
+
+### Far Left ###
+
+country_event = {
+	id = france_far_left.1
+	title = france_far_left.1.title
+	desc = france_far_left.1.desc
+	picture = GFX_report_event_revolution
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = france_far_left.1.a
+		set_politics = {
+			ruling_party = vanguard_socialism
+			elections_allowed = no
+			last_election = "1936.4.8"
+			election_frequency = 48
+		}
+		hidden_effect = {
+			reset_coalition = yes
+			add_anarchism_coalition = yes
+			add_revsoc_coalition = yes
+			
+			swap_ideas = {
+				remove_idea = FRA_rising_right
+				add_idea = FRA_anti_socialist_resistance_1
+			}
+			end_puppet = MOR
+			end_puppet = TUN
+			end_puppet = SYR
+			
+			TUN = {
+				drop_cosmetic_tag = yes
+			}
+		}
+		load_focus_tree = FRA_communist_tree
+	}
+}
+
+country_event = {
+	id = france_far_left.2
+	title = france_far_left.2.title
+	desc = france_far_left.2.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = france_far_left.2.a
+	}
+}
+
+country_event = {
+	id = france_far_left.3
+	title = france_far_left.3.title
+	desc = france_far_left.3.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = france_far_left.3.a
+	}
+}
+
+country_event = { #Appareil d'Etat
+	id = france_monarchist.1
+	title = france_monarchist.1.title
+	desc = france_monarchist.1.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = france_monarchist.1.a
+	}
+}
+
+country_event = { #Reaffirm oaths of service
+	id = france_monarchist.2
+	title = france_monarchist.2.title
+	desc = france_monarchist.2.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = france_monarchist.2.a
+	}
+	
+	option = {
+		name = france_monarchist.2.b
+	}
+	
+	option = {
+		name = france_monarchist.2.c
+	}
+}
+
+country_event = { # coronation of jean iii
+	id = france_monarchist.3
+	title = france_monarchist.3.title
+	desc = france_monarchist.3.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = france_monarchist.3.a
+		swap_ideas = {
+			remove_idea = FRA_constitutional_reconstruction
+			add_idea = FRA_kingdom_restored
+		}
+		promote_character = FRA_jean_de_orleans
+		FRA_jean_de_orleans = {
+			set_character_name = FRA_jean_iii
+		}
+	}
+}
+
+country_event = { 
+	id = france_monarchist.4
+	title = france_monarchist.4.title
+	desc = france_monarchist.4.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = france_monarchist.4.a
+	}
+}
+
+country_event = { # FRA_thekingsgovernment
+	id = france_monarchist.5
+	title = france_monarchist.5.title
+	desc = france_monarchist.5.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = france_monarchist.5.a
+	}
+}
+
+country_event = { # divide the left
+	id = france_monarchist.6
+	title = france_monarchist.6.title
+	desc = france_monarchist.6.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = france_monarchist.6.a
+	}
+}
+
+### Decentralized Nationalism Chain ###
+
+country_event = { # divide the left
+	id = france_decentralized.1
+	title = france_decentralized.1.title
+	desc = france_decentralized.1.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = france_decentralized.1.a
+	}
+}
+
+### FORPOL ###
+
+country_event = { # 
+	id = france_FORPOL.1
+	title = france_FORPOL.1.title
+	desc = france_FORPOL.1.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = france_FORPOL.1.a
+	}
+}
+
+country_event = { # invitation to anti-german pact
+	id = france_FORPOL.2
+	title = france_FORPOL.2.title
+	desc = france_FORPOL.2.desc
+	
+	is_triggered_only = yes
+
+	option = { # yes
+		name = france_FORPOL.2.a
+		FRA = {
+			country_event = {
+				id = france_FORPOL.3
+				hours = 6
+			}
+		}
+		set_country_flag = anti_german_pact_member
+		
+		ai_chance = {
+			base = 9
+			modifier = {
+				factor = 0
+				OR = {
+					tag = SWI
+				}
+			}
+		}
+	}
+	
+	option = { # no
+		name = france_FORPOL.2.b
+		FRA = {
+			country_event = {
+				id = france_FORPOL.4
+				hours = 6
+			}
+		}
+		
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				OR = {
+					tag = ITA
+				}
+			}
+		}
+	}
+}
+
+country_event = { # country accepts
+	id = france_FORPOL.3
+	title = france_FORPOL.3.title
+	desc = france_FORPOL.3.desc
+	
+	is_triggered_only = yes
+
+	option = {
+		name = france_FORPOL.3.a
+	}
+}
+
+country_event = { # country refuses
+	id = france_FORPOL.4
+	title = france_FORPOL.4.title
+	desc = france_FORPOL.4.desc
+	
+	is_triggered_only = yes
+
+	option = {
+		name = france_FORPOL.4.a
+	}
+}
+
+country_event = { # invitation to the continental entente
+	id = france_FORPOL.5
+	title = france_FORPOL.5.title
+	desc = france_FORPOL.5.desc
+	
+	is_triggered_only = yes
+
+	option = { # yes
+		name = france_FORPOL.5.a
+		FRA = {
+			country_event = {
+				id = france_FORPOL.6
+				hours = 6
+			}
+		}
+		
+		ai_chance = {
+			base = 9
+			modifier = {
+				factor = 0
+				OR = {
+					AND = {
+						tag = GRE
+						TUR = {
+							is_in_faction_with = FRA
+						}
+					}
+					AND = {
+						tag = TUR
+						GRE = {
+							is_in_faction_with = FRA
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	option = { # no
+		name = france_FORPOL.5.b
+		FRA = {
+			country_event = {
+				id = france_FORPOL.7
+				hours = 6
+			}
+		}
+		
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				OR = {
+					tag = ITA
+				}
+			}
+		}
+	}
+}
+
+country_event = { # country accepts
+	id = france_FORPOL.6
+	title = france_FORPOL.6.title
+	desc = france_FORPOL.6.desc
+	
+	is_triggered_only = yes
+
+	option = {
+		name = france_FORPOL.6.a
+		add_to_faction = FROM
+	}
+}
+
+country_event = { # country refuses
+	id = france_FORPOL.7
+	title = france_FORPOL.7.title
+	desc = france_FORPOL.7.desc
+	
+	is_triggered_only = yes
+
+	option = {
+		name = france_FORPOL.7.a
+	}
+}
+
+country_event = { # france pressures belgium to allow mil access
+	id = france_FORPOL.8
+	title = france_FORPOL.8.title
+	desc = france_FORPOL.8.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # accept
+		name = france_FORPOL.8.a
+		FRA = {
+			country_event = {
+				id = france_FORPOL.9
+				hours = 6
+			}
+		}
+		
+		ai_chance = {
+			base = 4
+		}
+	}
+	
+	option = { # appeal to the uk
+		name = france_FORPOL.8.b
+		ENG = {
+			country_event = {
+				id = france_FORPOL.10
+				hours = 6
+			}
+		}
+		
+		ai_chance = {
+			base = 5
+		}
+	}
+	
+	option = { # refuse
+		name = france_FORPOL.8.c
+		FRA = {
+			country_event = {
+				id = france_FORPOL.13
+				hours = 6
+			}
+		}
+		
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+
+country_event = { # belgium accepts
+	id = france_FORPOL.9
+	title = france_FORPOL.9.title
+	desc = france_FORPOL.9.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = france_FORPOL.9.a
+		BEL = {
+			give_military_access = FRA
+		}
+		add_political_power = 25
+		FRA = {
+			add_to_faction = BEL
+		}
+	}
+}
+
+country_event = { # belgium appeals to uk
+	id = france_FORPOL.10
+	title = france_FORPOL.10.title
+	desc = france_FORPOL.10.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # the treaty must be respected
+		name = france_FORPOL.10.a
+		BEL = {
+			country_event = {
+				id = france_FORPOL.11
+				hours = 6
+			}
+		}
+		set_global_flag = ENG_backs_belgium
+		
+		ai_chance = {
+			base = 4
+			modifier = {
+				factor = 0.5
+				FRA = {
+					has_completed_focus = FRA_renew_our_friendship_with_the_british
+				}
+			}
+		}
+	}
+	
+	option = { # the treaty is dead
+		name = france_FORPOL.10.b
+		BEL = {
+			country_event = {
+				id = france_FORPOL.12
+				hours = 6
+			}
+		}
+		
+		ai_chance = {
+			base = 6
+			modifier = {
+				factor = 0
+				has_government = democratic_socialism
+			}
+		}
+	}
+}
+
+country_event = { # uk response - good
+	id = france_FORPOL.11
+	title = france_FORPOL.11.title
+	desc = france_FORPOL.11.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # 
+		name = france_FORPOL.11.a
+		FRA = {
+			country_event = {
+				id = france_FORPOL.13
+				hours = 6
+			}
+		}
+	}
+}
+
+country_event = { # uk response - bad
+	id = france_FORPOL.12
+	title = france_FORPOL.12.title
+	desc = france_FORPOL.12.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # we must aquiesce
+		name = france_FORPOL.12.a
+		FRA = {
+			country_event = {
+				id = france_FORPOL.9
+				hours = 6
+			}
+		}
+		
+		ai_chance = {
+			base = 7
+		}
+	}
+	
+	option = { # fuck em
+		name = france_FORPOL.12.b
+		FRA = {
+			country_event = {
+				id = france_FORPOL.13
+				hours = 6
+			}
+		}
+		
+		ai_chance = {
+			base = 3
+		}
+	}
+}
+
+country_event = { # belgium refuses
+	id = france_FORPOL.13
+	
+	title = { # refuses backed by uk
+		text = france_FORPOL.13.title_1
+		trigger = { has_global_flag = ENG_backs_belgium }
+	}
+	title = {
+		text = france_FORPOL.13.title_2
+		trigger = { NOT = { has_global_flag = ENG_backs_belgium } }
+	}
+	desc = { # refuses backed by uk
+		text = france_FORPOL.13.desc_1
+		trigger = { has_country_flag = ENG_backs_belgium }
+	}
+	desc = {
+		text = france_FORPOL.13.desc_2
+		trigger = { NOT = { has_global_flag = ENG_backs_belgium } }
+	}
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # we'll have to cope
+		name = france_FORPOL.13.a
+		
+		ai_chance = {
+			base = 7
+		}
+	}
+	
+	option = { # guess we'll have to invade later
+		name = france_FORPOL.13.b
+		
+		ai_chance = {
+			base = 3
+			modifier = {
+				factor = 0
+				has_global_flag = ENG_backs_belgium
+			}
+		}
+	}
+}
+
+country_event = { # france wants to reform entente - uk
+	id = france_FORPOL.14
+	title = france_FORPOL.14.title
+	desc = france_FORPOL.14.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # we stand together
+		name = france_FORPOL.14.a
+		FRA = {
+			country_event = {
+				id = france_FORPOL.15
+				hours = 6
+			}
+		}
+		set_faction_name = FRA_second_entente
+		ai_chance = {
+			base = 10
+		}
+	}
+	
+	option = { # fuck em
+		name = france_FORPOL.14.b
+		FRA = {
+			country_event = {
+				id = france_FORPOL.16
+				hours = 6
+			}
+		}
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+country_event = { # accepted
+	id = france_FORPOL.15
+	title = france_FORPOL.15.title
+	desc = france_FORPOL.15.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # we stand together
+		name = france_FORPOL.15.a
+		ENG = {
+			add_to_faction = FRA
+		}
+		hidden_effect = {
+			random_other_country = {
+				limit = { is_ai = yes }
+				news_event = { id = worldnews_faction.1 hours = 6 }
+			}
+		}
+	}
+}
+
+country_event = { # refused
+	id = france_FORPOL.16
+	title = france_FORPOL.16.title
+	desc = france_FORPOL.16.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # we stand together
+		name = france_FORPOL.16.a
+	}
+}
+
+country_event = {
+	id = france_FORPOL.17
+	title = france_FORPOL.17.title
+	desc = france_FORPOL.17.desc
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = france_FORPOL.17.a
+		FRA = {
+			add_to_faction = NOR
+		}
+	}
+	option = {
+		name = france_FORPOL.17.b
+	}
+}
+
+country_event = {
+	id = france_military.1
+	title = france_military.1.title
+	desc = france_military.1.desc
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = france_military.1.a
+	}
+	option = {
+		name = france_military.1.b
+	}
+	option = {
+		name = france_military.1.c
+	}
+}
+
+country_event = {
+	id = france_military.2
+	title = france_military.2.title
+	desc = france_military.2.desc
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = france_military.2.a
+	}
+	option = {
+		name = france_military.2.b
+	}
+	option = {
+		name = france_military.2.c
 	}
 }

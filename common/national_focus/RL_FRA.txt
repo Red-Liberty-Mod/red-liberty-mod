@@ -1,10 +1,10 @@
 ###INITIAL TREE
 focus_tree = {
-	id = FRA_initial_tree
+	id = FRA_democratic_tree
 	country = {
 		factor = 0
 		modifier = {
-			add = 0
+			add = 10
 			tag = FRA
 		}
 	}
@@ -13,7 +13,11 @@ focus_tree = {
 		y = 125
 	}
 	default = no
-	shared_focus = FRA_convene_national_assembly
+	shared_focus = FRA_1936_election
+	shared_focus = FRA_foreign_relations
+	shared_focus = FRA_army_reorganization
+	shared_focus = FRA_establish_independent_airforce
+	shared_focus = FRA_naval_rearmaments
 }
 
 focus_tree = {
@@ -21,12 +25,8 @@ focus_tree = {
 	country = {
 		factor = 0
 		modifier = {
-			add = 0
+			add = 10
 			tag = FRA
-		}
-		modifier = {
-			add = 5
-			has_country_flag = FRA_far_left_force_on
 		}
 	}
 	continuous_focus_position = {
@@ -34,5 +34,42 @@ focus_tree = {
 		y = 125
 	}
 	default = no
-	shared_focus = FRA_the_revolution_begins
+	shared_focus = FRA_the_revolution_has_arrived
+}
+
+focus_tree = {
+	id = FRA_rocque_tree
+	continuous_focus_position = { x = 100 y = 850 } 
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = FRA
+		}
+	}
+	default = no
+	shared_focus = FRA_alliance_of_labour_and_capital
+	shared_focus = FRA_la_croix_brule_brulante
+	shared_focus = FRA_foreign_relations
+	shared_focus = FRA_army_reorganization
+	shared_focus = FRA_establish_independent_airforce
+	shared_focus = FRA_naval_rearmaments
+}
+
+focus_tree = {
+	id = FRA_monarchist_tree
+	continuous_focus_position = { x = 100 y = 1850 } 
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = FRA
+		}
+	}
+	default = no
+	shared_focus = FRA_appareildetat
+	shared_focus = FRA_foreign_relations
+	shared_focus = FRA_army_reorganization
+	shared_focus = FRA_establish_independent_airforce
+	shared_focus = FRA_naval_rearmaments
 }

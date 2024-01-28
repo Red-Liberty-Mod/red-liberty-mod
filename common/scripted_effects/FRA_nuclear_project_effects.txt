@@ -1,0 +1,116 @@
+
+FRA_project_monthly_pulse = {
+	
+	if = {
+		limit = {
+			check_variable = { FRA_project_phase = 1 }
+		}
+		add_to_variable = { FRA_project_phase_1_progress = FRA_project_monthly_progress }
+	}
+	else_if = {
+		limit = {
+			check_variable = { FRA_project_phase = 2 }
+		}
+		add_to_variable = { FRA_project_phase_2_progress = FRA_project_monthly_progress }
+	}
+	else_if = {
+		limit = {
+			check_variable = { FRA_project_phase = 3 }
+		}
+		add_to_variable = { FRA_project_phase_3_progress = FRA_project_monthly_progress }
+	}
+	else_if = {
+		limit = {
+			check_variable = { FRA_project_phase = 4 }
+		}
+		add_to_variable = { FRA_project_phase_4_progress = FRA_project_monthly_progress }
+	}
+	else_if = {
+		limit = {
+			check_variable = { FRA_project_phase = 5 }
+		}
+		add_to_variable = { FRA_project_phase_5_progress = FRA_project_monthly_progress }
+	}
+	
+	clamp_variable = {
+		var = FRA_project_phase_1_progress
+		min = 0
+		max = 100
+	}
+	clamp_variable = {
+		var = FRA_project_phase_2_progress
+		min = 0
+		max = 100
+	}
+	clamp_variable = {
+		var = FRA_project_phase_3_progress
+		min = 0
+		max = 100
+	}
+	clamp_variable = {
+		var = FRA_project_phase_4_progress
+		min = 0
+		max = 100
+	}
+	clamp_variable = {
+		var = FRA_project_phase_5_progress
+		min = 0
+		max = 100
+	}
+	
+	if = {
+		limit = {
+			check_variable = { FRA_project_phase = 1 }
+			check_variable = { FRA_project_phase_1_progress = 100 }
+		}
+		set_variable = { FRA_project_phase = 2 }
+		set_country_flag = FRA_project_phase_1_complete
+		
+		set_variable = { FRA_project_monthly_progress = 2 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { FRA_project_phase = 2 }
+			check_variable = { FRA_project_phase_2_progress = 100 }
+		}
+		set_variable = { FRA_project_phase = 3 }
+		set_country_flag = FRA_project_phase_2_complete
+		
+		set_variable = { FRA_project_monthly_progress = 2 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { FRA_project_phase = 3 }
+			check_variable = { FRA_project_phase_3_progress = 100 }
+		}
+		set_variable = { FRA_project_phase = 4 }
+		set_country_flag = FRA_project_phase_3_complete
+		
+		set_variable = { FRA_project_monthly_progress = 2 }
+		if = {
+			limit = {
+				has_completed_focus = FRA_uranium_fever
+			}
+			add_to_variable = { FRA_project_monthly_progress = 3 }
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { FRA_project_phase = 4 }
+			check_variable = { FRA_project_phase_4_progress = 100 }
+		}
+		set_variable = { FRA_project_phase = 5 }
+		set_country_flag = FRA_project_phase_4_complete
+		
+		set_variable = { FRA_project_monthly_progress = 8 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { FRA_project_phase = 5 }
+			check_variable = { FRA_project_phase_5_progress = 100 }
+		}
+		set_country_flag = FRA_project_phase_5_complete
+		
+		set_variable = { FRA_project_monthly_progress = 0 }
+	}
+}
