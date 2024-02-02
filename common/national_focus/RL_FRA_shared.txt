@@ -267,28 +267,80 @@ shared_focus = {
 		}
 	}
 
-	shared_focus = {
-		id = FRA_europesreckoning
-		icon = GFX_FRA_europes_reckoning
-		
-		x = 1
-		y = 1
-		cost = 4
+shared_focus = {
+	id = FRA_europes_reckoning
+	icon = GFX_FRA_europes_reckoning
+	
+	x = 1
+	y = 1
+	cost = 4
 
-		completion_reward = {
-			add_ideas = {
-				FRA_europesreckoning
-			}
-		}
-		
-		relative_position_id = FRA_no_more_mutiny
-		prerequisite = { focus = FRA_no_more_mutiny }
-		prerequisite = { focus = FRA_bulwark_against_degeneracy }
-		
-		search_filters = {
-			FOCUS_FILTER_MANPOWER
+	completion_reward = {
+		add_ideas = {
+			FRA_europesreckoning
 		}
 	}
+	
+	relative_position_id = FRA_no_more_mutiny
+	prerequisite = { focus = FRA_no_more_mutiny }
+	prerequisite = { focus = FRA_bulwark_against_degeneracy }
+	
+	search_filters = {
+		FOCUS_FILTER_MANPOWER
+	}
+}
+
+shared_focus = {
+	id = FRA_form_a_tank_division
+	icon = GFX_FRA_form_a_tank_division
+	
+	x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_europes_reckoning
+	prerequisite = { focus = FRA_europes_reckoning }
+	
+	completion_reward = {
+		custom_effect_tooltip = FRA_form_tank_division_tt
+		division_template = {
+			name = "Division Blindée"
+			division_names_group = FRA_ARM_01
+			regiments = {
+				light_armor = { x = 0 y = 0 }
+				light_armor = { x = 0 y = 1 }
+				medium_armor = { x = 0 y = 2 }
+				light_armor = { x = 1 y = 0 }
+				light_armor = { x = 1 y = 1 }
+				medium_armor = { x = 1 y = 2 }
+				motorized = { x = 2 y = 0 }
+				motorized = { x = 2 y = 1 }
+			}
+			support = {
+				mot_recon = { x = 0 y = 0 }
+				engineer = { x = 0 y = 1 }
+				maintenance_company = { x = 0 y = 2 }
+				anti_tank = { x = 0 y = 3 }
+			}
+		}
+		hidden_effect = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = FRA
+					valid_state_for_spawning_friendly_unit = yes
+				}
+				create_unit = {
+					division = "division_template = \"Division Blindée\" start_experience_factor = 0.5"
+					owner = FRA
+				}
+			}
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_MANPOWER
+	}
+}
 
 shared_focus = {
 	id = FRA_naval_rearmaments
