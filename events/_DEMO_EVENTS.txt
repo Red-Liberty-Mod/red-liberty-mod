@@ -21,6 +21,7 @@ add_namespace = demo_aus
 add_namespace = demo_nzl
 add_namespace = demo_ukr
 add_namespace = demo_ven
+add_namespace = demo_arg
 
 add_namespace = demo_usa_jap_peace
 add_namespace = demo_jap_usa_war
@@ -3876,7 +3877,7 @@ country_event = { # venezuelan revolution
 	}
 	
 	option = { # fails
-		name = demo_ven.2.a
+		name = demo_ven.1.b
 		ai_chance = {
 			base = 10
 		}
@@ -3897,3 +3898,48 @@ news_event = {
 	}
 }
 
+country_event = { # democratic coup
+	id = demo_arg.1
+	title = demo_arg.1.title
+	desc = demo_arg.1.desc
+	
+	is_triggered_only = yes
+	
+	option = { # succeeds
+		name = demo_arg.1.a
+		ARG = {
+			set_politics = {
+				ruling_party = progressive_liberalism
+			}
+			reset_coalition = yes
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_arg.2 hours = 6 }
+		}
+		ai_chance = {
+			base = 60
+		}
+	}
+	
+	option = { # fails
+		name = demo_arg.1.b
+		ai_chance = {
+			base = 40
+		}
+	}
+}
+
+news_event = {
+	id = demo_arg.2
+	title = demo_arg.2.title
+	desc = demo_arg.2.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = demo_arg.2.a
+	}
+}
