@@ -29,6 +29,7 @@ shared_focus = {
 	
 	search_filters = {
 		FOCUS_FILTER_INDUSTRY
+		FOCUS_FILTER_RESEARCH
 	}
 }
 
@@ -77,7 +78,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_urban_industrial_centers
-	icon = GFX_goal_unknown
+	icon = GFX_goal_generic_construct_civ_factory
 	x = 2
 	y = 1
 	cost = 5
@@ -125,25 +126,34 @@ shared_focus = {
 	}
 }
 
-	shared_focus = {
-		id = FRA_colonial_development
-		icon = GFX_goal_unknown
-		
-		x = 7
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_alliance_of_labour_and_capital
-		prerequisite = { focus = FRA_alliance_of_labour_and_capital }
-		
-		search_filters = {
-			FOCUS_FILTER_INDUSTRY
+shared_focus = {
+	id = FRA_colonial_development
+	icon = GFX_goal_generic_production
+	
+	x = 7
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_alliance_of_labour_and_capital
+	prerequisite = { focus = FRA_alliance_of_labour_and_capital }
+	
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.25
+			uses = 2
+			category = construction_tech
 		}
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
+		FOCUS_FILTER_RESEARCH
+	}
+}
 
 	shared_focus = {
 		id = FRA_christian_welfare
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_catholic_dominion
 		
 		x = 1
 		y = 1
@@ -163,7 +173,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_expand_the_arms_industry
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_construct_mil_factory
 		
 		x = 1
 		y = 1
@@ -215,7 +225,7 @@ shared_focus = {
 	
 	shared_focus = {
 		id = FRA_rural_revival
-		icon = GFX_goal_unknown
+		icon = GFX_focus_ITA_grande_rivolta_rurale
 		
 		x = 1
 		y = 1
@@ -235,7 +245,7 @@ shared_focus = {
 	
 	shared_focus = {
 		id = FRA_north_africa
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_industry_1
 		
 		x = -2
 		y = 1
@@ -263,7 +273,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_central_africa
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_industry_1
 		
 		x = 0
 		y = 1
@@ -291,7 +301,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_middle_east
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_industry_1
 		
 		x = 2
 		y = 1
@@ -312,7 +322,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_institute_a_minimum_wage
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_treaty
 		
 		x = -1
 		y = 1
@@ -325,7 +335,7 @@ shared_focus = {
 				remove_idea = FRA_catholic_corporatism_1
 				add_idea = FRA_catholic_corporatism_2
 			}
-			add_war_support = -0.05
+			add_war_support = -0.025
 		}
 		
 		search_filters = {
@@ -370,7 +380,7 @@ shared_focus = {
 		prerequisite = { focus = FRA_promote_motherhood }
 		
 		completion_reward = {
-			add_stability = 0.05
+			add_stability = 0.075
 		}
 		
 		search_filters = {
@@ -380,7 +390,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_rural_integration
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_energy
 		
 		x = 1
 		y = 1
@@ -438,7 +448,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_travail_famillie_patrie
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_total_war
 		
 		x = 1
 		y = 1
@@ -459,7 +469,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_the_northern_protectorates
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_industry_2
 		
 		x = -1
 		y = 1
@@ -483,7 +493,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_the_four_communes
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_industry_2
 		
 		x = 1
 		y = 1
@@ -511,7 +521,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_the_oil_must_flow
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_industry_2
 		
 		x = -1
 		y = 1
@@ -541,7 +551,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_our_loyal_syria
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_industry_2
 		
 		x = 1
 		y = 1
@@ -563,7 +573,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = FRA_finalize_the_investments
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_industry_3
 		
 		x = 1
 		y = 1
@@ -763,9 +773,12 @@ shared_focus = {
 	prerequisite = { focus = FRA_revise_the_constitution }
 	mutually_exclusive = { focus = FRA_placate_monarchists }
 	completion_reward = {
+		set_temp_variable = { temp = party_popularity@despotism }
+		multiply_temp_variable = { temp = -1 }
+		multiply_temp_variable = { temp = 0.75 }
 		add_popularity = {
 			ideology = despotism
-			popularity = -0.05
+			popularity = temp
 		}
 		remove_ideas = {
 			FRA_rising_right
@@ -777,20 +790,24 @@ shared_focus = {
 	}
 }
 
-	shared_focus = {
-		id = FRA_institutional_loyalty
-		icon = GFX_FRA_institutional_loyalty
-		x = -2
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_placate_monarchists
-		prerequisite = { focus = FRA_placate_monarchists }
-		
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
+shared_focus = {
+	id = FRA_institutional_loyalty
+	icon = GFX_FRA_institutional_loyalty
+	x = -2
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_placate_monarchists
+	prerequisite = { focus = FRA_placate_monarchists }
+	
+	completion_reward = {
+		add_stability = 0.05
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_STABILITY
+	}
+}
 
 	shared_focus = {
 		id = FRA_ally_the_farright_leagues
@@ -841,30 +858,35 @@ shared_focus = {
 		relative_position_id = FRA_ally_the_farright_leagues
 		prerequisite = { focus = FRA_ally_the_farright_leagues }
 		
+		completion_reward = {
+			add_stability = 0.075
+		}
+		
 		search_filters = {
-			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_STABILITY
 		}
 	}
 
-	shared_focus = {
-		id = FRA_suspend_elections
-		icon = GFX_FRA_suspend_elections
-		
-		x = 1
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_direct_control_of_courts
-		prerequisite = { focus = FRA_direct_control_of_courts }
-		prerequisite = { focus = FRA_party_police }
-		completion_reward = {
-			
-		}
-		
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
+shared_focus = {
+	id = FRA_suspend_elections
+	icon = GFX_FRA_suspend_elections
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_direct_control_of_courts
+	prerequisite = { focus = FRA_direct_control_of_courts }
+	prerequisite = { focus = FRA_party_police }
+	
+	completion_reward = {
+		add_war_support = 0.075
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_WAR_SUPPORT
+	}
+}
 
 	shared_focus = {
 		id = FRA_state_media
@@ -882,10 +904,12 @@ shared_focus = {
 				ideology = despotism
 				popularity = 0.0025
 			}
+			add_war_support = 0.075
 		}
 		
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_WAR_SUPPORT
 		}
 	}
 
@@ -946,10 +970,12 @@ shared_focus = {
 		completion_reward = {
 			add_libcon_coalition = yes
 			add_natcon_coalition = yes
+			add_stability = 0.025
 		}
 		
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_STABILITY
 		}
 	}
 
@@ -972,226 +998,258 @@ shared_focus = {
 		}
 	}
 
-	shared_focus = {
-		id = FRA_silence_for_stability
-		icon = GFX_FRA_silence_for_stability
-		
-		x = 1
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_le_front_patriotique
-		prerequisite = { focus = FRA_le_front_patriotique }
-		completion_reward = {
-			add_stability = 0.05
-		}
-		
-		search_filters = {
-			FOCUS_FILTER_STABILITY
-		}
+shared_focus = {
+	id = FRA_silence_for_stability
+	icon = GFX_FRA_silence_for_stability
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_le_front_patriotique
+	prerequisite = { focus = FRA_le_front_patriotique }
+	
+	completion_reward = {
+		add_stability = 0.05
 	}
-
-	shared_focus = {
-		id = FRA_the_silent_purge
-		icon = GFX_FRA_the_silent_purge
-		
-		x = 1
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_political_appointments
-		prerequisite = { focus = FRA_political_appointments }
-		prerequisite = { focus = FRA_silence_for_stability }
-		
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
+	
+	search_filters = {
+		FOCUS_FILTER_STABILITY
 	}
+}
 
-	shared_focus = {
-		id = FRA_veterans_above_all
-		icon = GFX_FRA_veterans_above_all
-		
-		x = 2
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_snuff_the_embers
-		prerequisite = { focus = FRA_snuff_the_embers }
-		
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
+shared_focus = {
+	id = FRA_the_silent_purge
+	icon = GFX_FRA_the_silent_purge
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_political_appointments
+	prerequisite = { focus = FRA_political_appointments }
+	prerequisite = { focus = FRA_silence_for_stability }
+	
+	completion_reward = {
+		add_stability = 0.075
 	}
-
-	shared_focus = {
-		id = FRA_bolster_the_mass_movement
-		icon = GFX_goal_unknown
-		
-		x = 0
-		y = 2
-		cost = 4
-		
-		relative_position_id = FRA_veterans_above_all
-		prerequisite = { focus = FRA_veterans_above_all }
-		
-		completion_reward = {
-			set_party_name = {
-				ideology = authoritarian_democracy
-				long_name = FRA_psf_party_long
-				name = FRA_psf_party
-			}
-			add_popularity = {
-				ideology = authoritarian_democracy
-				popularity = 0.0025
-			}
-		}
-		
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
+	
+	search_filters = {
+		FOCUS_FILTER_STABILITY
 	}
+}
 
-	shared_focus = {
-		id = FRA_womens_suffrage
-		icon = GFX_FRA_womens_suffrage
+shared_focus = {
+	id = FRA_veterans_above_all
+	icon = GFX_FRA_veterans_above_all
+	
+	x = 2
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_snuff_the_embers
+	prerequisite = { focus = FRA_snuff_the_embers }
+	
+	completion_reward = {
+		add_war_support = 0.075
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_WAR_SUPPORT
+	}
+}
+
+shared_focus = {
+	id = FRA_bolster_the_mass_movement
+	icon = GFX_FRA_bolster_the_mass_movement
 		
-		x = 0
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_bolster_the_mass_movement
-		prerequisite = { focus = FRA_bolster_the_mass_movement }
-		
-		completion_reward = {
-			add_stability = -0.05
-			add_political_power = 100
+	x = 0
+	y = 2
+	cost = 4
+	
+	relative_position_id = FRA_veterans_above_all
+	prerequisite = { focus = FRA_veterans_above_all }
+	
+	completion_reward = {
+		set_party_name = {
+			ideology = authoritarian_democracy
+			long_name = FRA_psf_party_long
+			name = FRA_psf_party
 		}
-		
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
+		add_popularity = {
+			ideology = authoritarian_democracy
+			popularity = 0.0025
 		}
 	}
 	
-	shared_focus = {
-		id = FRA_the_end_of_democracy
-		icon = GFX_FRA_the_end_of_democracy
-		
-		x = -1
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_model_citizens
-		prerequisite = { focus = FRA_state_media }
-		prerequisite = { focus = FRA_suspend_elections }
-		prerequisite = { focus = FRA_model_citizens }
-		mutually_exclusive = { focus = FRA_rally_to_the_republic }
-		
-		completion_reward = {
-			
-			set_politics = {
-				ruling_party = despotism
-				elections_allowed = no
-				last_election = "1936.1.1"
-				election_frequency = 48
-				long_name = FRA_authoritarian_democracy_party_long
-				name = FRA_authoritarian_democracy_party
-			}
-			
-			add_country_leader_role = {
-				character = FRA_francois_de_la_rocque
-				country_leader = {
-					ideology = despotism_subtype
-				}
-				promote_leader = yes
-			}
-		}
-		
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
+}
 
-	shared_focus = {
-		id = FRA_rally_to_the_republic
-		icon = GFX_FRA_rally_to_the_republic
-		
-		x = 1
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_model_citizens
-		prerequisite = { focus = FRA_model_citizens }
-		prerequisite = { focus = FRA_the_silent_purge }
-		prerequisite = { focus = FRA_bolster_the_mass_movement }
-		mutually_exclusive = { focus = FRA_the_end_of_democracy }
-		
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
+shared_focus = {
+	id = FRA_womens_suffrage
+	icon = GFX_FRA_womens_suffrage
+	
+	x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_bolster_the_mass_movement
+	prerequisite = { focus = FRA_bolster_the_mass_movement }
+	
+	completion_reward = {
+		add_stability = -0.05
+		add_political_power = 100
 	}
 	
-	shared_focus = {
-		id = FRA_the_restoration
-		icon = GFX_FRA_the_restoration
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_the_end_of_democracy
+	icon = GFX_FRA_the_end_of_democracy
+	
+	x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_model_citizens
+	prerequisite = { focus = FRA_state_media }
+	prerequisite = { focus = FRA_suspend_elections }
+	prerequisite = { focus = FRA_model_citizens }
+	mutually_exclusive = { focus = FRA_rally_to_the_republic }
+	
+	completion_reward = {
 		
-		x = -1
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_the_end_of_democracy
-		prerequisite = { focus = FRA_the_end_of_democracy  }
-		mutually_exclusive = {
-			focus = FRA_a_republic_without_democracy
-			focus = FRA_national_reconciliation
+		set_politics = {
+			ruling_party = despotism
+			elections_allowed = no
+			last_election = "1936.1.1"
+			election_frequency = 48
+			long_name = FRA_authoritarian_democracy_party_long
+			name = FRA_authoritarian_democracy_party
 		}
 		
-		completion_reward = {
-			add_ideas = {
-				FRA_jean_de_orleans_hog
+		add_country_leader_role = {
+			character = FRA_francois_de_la_rocque
+			country_leader = {
+				ideology = despotism_subtype
 			}
-			drop_cosmetic_tag = yes
-			set_cosmetic_tag = FRA_kingdom
-		}
-		
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
+			promote_leader = yes
 		}
 	}
 	
-	shared_focus = {
-		id = FRA_a_republic_without_democracy
-		icon = GFX_FRA_republic_without_democracy
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_rally_to_the_republic
+	icon = GFX_FRA_rally_to_the_republic
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_model_citizens
+	prerequisite = { focus = FRA_model_citizens }
+	prerequisite = { focus = FRA_the_silent_purge }
+	prerequisite = { focus = FRA_bolster_the_mass_movement }
+	mutually_exclusive = { focus = FRA_the_end_of_democracy }
+	
+	completion_reward = {
 		
-		x = 1
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_the_end_of_democracy
-		prerequisite = {
-			focus = FRA_the_end_of_democracy
-			focus = FRA_rally_to_the_republic
+		# GET OUT OF MY HOUSE #
+		set_temp_variable = { temp = party_popularity@despotism }
+		multiply_temp_variable = { temp = -1 }
+		multiply_temp_variable = { temp = 0.25 }
+		add_popularity = {
+			ideology = despotism
+			popularity = temp
 		}
-		mutually_exclusive = {
-			focus = FRA_the_restoration
-			focus = FRA_national_reconciliation
+		
+		set_temp_variable = { temp = party_popularity@ultraconservatism }
+		multiply_temp_variable = { temp = -1 }
+		multiply_temp_variable = { temp = 0.25 }
+		add_popularity = {
+			ideology = ultraconservatism
+			popularity = temp
 		}
 		
-		completion_reward = {
-			
-		}
-		
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
+		set_temp_variable = { temp = party_popularity@fascism }
+		multiply_temp_variable = { temp = -1 }
+		multiply_temp_variable = { temp = 0.25 }
+		add_popularity = {
+			ideology = fascism
+			popularity = temp
 		}
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+	
+shared_focus = {
+	id = FRA_the_restoration
+	icon = GFX_FRA_the_restoration
+	
+	x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_the_end_of_democracy
+	prerequisite = { focus = FRA_the_end_of_democracy  }
+	mutually_exclusive = {
+		focus = FRA_a_republic_without_democracy
+	}
+	
+	completion_reward = {
+		add_ideas = {
+			FRA_jean_de_orleans_hog
+		}
+		drop_cosmetic_tag = yes
+		set_cosmetic_tag = FRA_kingdom
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+	
+shared_focus = {
+	id = FRA_a_republic_without_democracy
+	icon = GFX_FRA_republic_without_democracy
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_the_end_of_democracy
+	prerequisite = { focus = FRA_the_end_of_democracy }
+	mutually_exclusive = {
+		focus = FRA_the_restoration
+	}
+	
+	completion_reward = {
+		
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
 
 shared_focus = {
 	id = FRA_national_reconciliation
 	icon = GFX_FRA_national_reconciliation
 	
-	x = 1
-	y = 1
+	x = 0
+	y = 2
 	cost = 4
 	
 	relative_position_id = FRA_rally_to_the_republic
@@ -1200,7 +1258,6 @@ shared_focus = {
 	}
 	mutually_exclusive = {
 		focus = FRA_the_restoration
-		focus = FRA_a_republic_without_democracy
 	}
 	
 	completion_reward = {

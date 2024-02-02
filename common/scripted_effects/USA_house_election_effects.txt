@@ -78,11 +78,11 @@ USA_recalc_house_state = { # call within state
 	
 	### AFP ###
 	set_variable = {
-		state_afp_reps = afp_election_pop
+		state_afp_reps = commonwealth_election_pop
 	}
 	if = {
 		limit = {
-			check_variable = { afp_election_pop < 0.15 }
+			check_variable = { commonwealth_election_pop < 0.15 }
 		}
 		multiply_variable = {
 			state_afp_reps = 0.75
@@ -90,7 +90,7 @@ USA_recalc_house_state = { # call within state
 	}
 	else_if = {
 		limit = {
-			check_variable = { afp_election_pop < 0.3 }
+			check_variable = { commonwealth_election_pop < 0.3 }
 		}
 		multiply_variable = {
 			state_afp_reps = 0.9
@@ -185,7 +185,7 @@ USA_recalc_house_state = { # call within state
 			limit = {
 				check_variable = { socialist_election_pop > democrat_election_pop }
 				check_variable = { socialist_election_pop > republican_election_pop }
-				check_variable = { socialist_election_pop > afp_election_pop }
+				check_variable = { socialist_election_pop > commonwealth_election_pop }
 			}
 			log = "[This.GetName] : discrepancy awarded to state_socialist_reps"
 			add_to_variable = {
@@ -196,7 +196,7 @@ USA_recalc_house_state = { # call within state
 			limit = {
 				check_variable = { republican_election_pop > socialist_election_pop }
 				check_variable = { republican_election_pop > democrat_election_pop }
-				check_variable = { republican_election_pop > afp_election_pop }
+				check_variable = { republican_election_pop > commonwealth_election_pop }
 			}
 			log = "[This.GetName] : discrepancy awarded to state_republican_reps"
 			add_to_variable = {
@@ -207,7 +207,7 @@ USA_recalc_house_state = { # call within state
 			limit = {
 				check_variable = { democrat_election_pop > socialist_election_pop }
 				check_variable = { democrat_election_pop > republican_election_pop }
-				check_variable = { democrat_election_pop > afp_election_pop }
+				check_variable = { democrat_election_pop > commonwealth_election_pop }
 			}
 			log = "[This.GetName] : discrepancy awarded to state_democrat_reps"
 			add_to_variable = {
@@ -216,9 +216,9 @@ USA_recalc_house_state = { # call within state
 		}
 		else_if = {
 			limit = {
-				check_variable = { afp_election_pop > socialist_election_pop }
-				check_variable = { afp_election_pop > republican_election_pop }
-				check_variable = { afp_election_pop > democrat_election_pop }
+				check_variable = { commonwealth_election_pop > socialist_election_pop }
+				check_variable = { commonwealth_election_pop > republican_election_pop }
+				check_variable = { commonwealth_election_pop > democrat_election_pop }
 			}
 			log = "[This.GetName] : discrepancy awarded to state_afp_reps"
 			add_to_variable = {

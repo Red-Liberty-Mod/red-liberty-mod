@@ -618,7 +618,6 @@ USA_debug_category = {
 FRA_debug_category = {
 
 	debug_load_FRA_far_left_tree = {
-	
 		icon = generic_political_discourse
 		
 		available = {
@@ -640,9 +639,8 @@ FRA_debug_category = {
 			load_focus_tree = FRA_communist_tree
 		}
 	}
-	
+
 	debug_load_FRA_democratic_tree = {
-	
 		icon = generic_political_discourse
 		
 		available = {
@@ -666,7 +664,6 @@ FRA_debug_category = {
 	}
 	
 	debug_load_FRA_far_right_tree = {
-	
 		icon = generic_political_discourse
 		
 		available = {
@@ -690,7 +687,6 @@ FRA_debug_category = {
 	}
 	
 	debug_load_FRA_monarchist_tree = {
-	
 		icon = generic_political_discourse
 		
 		available = {
@@ -710,6 +706,191 @@ FRA_debug_category = {
 		
 		complete_effect = {
 			load_focus_tree = FRA_monarchist_tree
+		}
+	}
+}
+
+SOV_debug_category = {
+
+	debug_kirov = {
+		icon = generic_political_discourse
+		
+		available = {
+			tag = SOV
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = SOV
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			set_politics = {
+				ruling_party = vanguard_socialism
+			}
+			promote_character = SOV_sergei_kirov
+			set_party_name = {
+				ideology = vanguard_socialism
+				long_name = SOV_kpr_industrialists_long
+				name = SOV_kpr_industrialists
+			}
+		}
+	}
+	
+	debug_trotsky = {
+		icon = generic_political_discourse
+		
+		available = {
+			tag = SOV
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = SOV
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			set_politics = {
+				ruling_party = vanguard_socialism
+			}
+			promote_character = SOV_lev_trotsky
+			set_party_name = {
+				ideology = vanguard_socialism
+				long_name = SOV_kpr_industrialists_long
+				name = SOV_kpr_industrialists
+			}
+		}
+	}
+	
+	debug_stalin = {
+		icon = generic_political_discourse
+		
+		available = {
+			tag = SOV
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = SOV
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			set_politics = {
+				ruling_party = vanguard_socialism
+			}
+			promote_character = SOV_joseph_stalin
+			set_party_name = {
+				ideology = vanguard_socialism
+				long_name = SOV_kpr_industrialists_long
+				name = SOV_kpr_industrialists
+			}
+		}
+	}
+	
+	debug_shliapnikov = {
+		icon = generic_political_discourse
+		
+		available = {
+			tag = SOV
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = SOV
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			set_politics = {
+				ruling_party = revolutionary_socialism
+			}
+			promote_character = SOV_alexander_shliapnikov
+			set_party_name = {
+				ideology = revolutionary_socialism
+				long_name = SOV_revolutionary_socialism_party_long
+				name = SOV_revolutionary_socialism_party
+			}
+		}
+	}
+	
+	debug_smirnov = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			tag = SOV
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = SOV
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			set_politics = {
+				ruling_party = revolutionary_socialism
+			}
+			promote_character = SOV_ivan_smirnov
+			set_party_name = {
+				ideology = revolutionary_socialism
+				long_name = SOV_kpr_neodecists_long
+				name = SOV_kpr_neodecists
+			}
+		}
+	}
+	
+	debug_kamenev = {
+	
+		icon = generic_political_discourse
+		
+		available = {
+			tag = SOV
+		}
+		
+		visible = {
+			is_debug = yes
+			tag = SOV
+		}
+		
+		cost = 0
+
+		ai_will_do = {
+			base = 0
+		}
+		
+		complete_effect = {
+			set_politics = {
+				ruling_party = democratic_socialism
+			}
 		}
 	}
 }

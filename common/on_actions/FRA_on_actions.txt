@@ -19,6 +19,36 @@ on_actions = {
 					modifier = FRA_iron_harvest_modifier
 				}
 			}
+			
+			FRA = {
+				country_event = {
+					id = france.3
+					days = 40
+				}
+				country_event = {
+					id = france.4
+					days = 47
+				}
+				country_event = {
+					id = france.5
+					days = 8
+				}
+				country_event = {
+					id = france.6
+					days = 56
+				}
+			}
+		}
+	}
+	
+	on_monthly_FRA = {
+		effect = {
+			if = {
+				limit = {
+					check_variable = { FRA_project_phase > 0 }
+				}
+				FRA_project_monthly_pulse = yes
+			}
 		}
 	}
 	

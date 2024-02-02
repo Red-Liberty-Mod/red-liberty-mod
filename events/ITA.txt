@@ -1,6 +1,7 @@
 add_namespace = italy
 add_namespace = italy_news
 add_namespace = italy_ethiopia_war
+add_namespace = italy_forpol
 
 country_event = { # intro event
 	id = italy.1
@@ -247,5 +248,190 @@ news_event = { # mussolini dismissed
 
 	option = {
 		name = italy_news.1.a
+	}
+}
+
+news_event = { # restoration of democracy
+	id = italy_news.2
+	title = italy_news.2.title
+	desc = italy_news.2.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = italy_news.2.a
+	}
+}
+
+news_event = { # italy joins france
+	id = italy_news.3
+	title = italy_news.3.title
+	desc = italy_news.3.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = italy_news.3.a
+	}
+}
+
+news_event = { # italy joins germany
+	id = italy_news.4
+	title = italy_news.4.title
+	desc = italy_news.4.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = italy_news.4.a
+	}
+}
+
+### FORPOL ###
+
+country_event = { # time to decide
+	id = italy_forpol.1
+	title = italy_forpol.1.title
+	desc = italy_forpol.1.desc
+	
+	trigger = {
+		original_tag = ITA
+		has_global_flag = second_great_war_started
+	}
+	
+	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			activate_mission = ITA_time_to_choose
+		}
+	}
+
+	option = { # i do like french cheese...
+		name = italy_forpol.1.a
+		set_country_flag = ITA_supporting_france
+		GER = {
+			country_event = {
+				id = italy_forpol.2
+				hours = 6
+			}
+		}
+	}
+	
+	option = { # mmm, german beer...
+		name = italy_forpol.2.b
+		set_country_flag = ITA_supporting_germany
+		FRA = {
+			country_event = {
+				id = italy_forpol.3
+				hours = 6
+			}
+		}
+	}
+}
+
+country_event = { # italy leans towards france
+	id = italy_forpol.2
+	title = italy_forpol.2.title
+	desc = italy_forpol.2.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # more effort
+		name = italy_forpol.2.a
+	}
+}
+
+country_event = { # italy leans towards germany
+	id = italy_forpol.3
+	title = italy_forpol.3.title
+	desc = italy_forpol.3.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # more effort
+		name = italy_forpol.3.a
+	}
+}
+
+country_event = { # time to decide
+	id = italy_forpol.4
+	title = italy_forpol.4.title
+	desc = italy_forpol.4.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # french win
+		name = italy_forpol.4.a
+		trigger = {
+			check_variable = { FRA.FRA_italian_influence > GER.GER_italian_influence }
+		}
+		FRA = {
+			country_event = {
+				id = italy_forpol.5
+				hours = 6
+			}
+		}
+		set_global_flag = italian_great_game_ended
+	}
+	
+	option = { # germans win
+		name = italy_forpol.4.b
+		trigger = {
+			check_variable = { GER.GER_italian_influence > FRA.FRA_italian_influence }
+		}
+		FRA = {
+			country_event = {
+				id = italy_forpol.6
+				hours = 6
+			}
+		}
+		set_global_flag = italian_great_game_ended
+	}
+}
+
+country_event = { # time to decide
+	id = italy_forpol.5
+	title = italy_forpol.5.title
+	desc = italy_forpol.5.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = italy_forpol.5.a
+		FRA = {
+			add_to_faction = ITA
+		}
+	}
+}
+
+country_event = { # time to decide
+	id = italy_forpol.6
+	title = italy_forpol.6.title
+	desc = italy_forpol.6.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = italy_forpol.6.a
+		GER = {
+			add_to_faction = ITA
+		}
 	}
 }

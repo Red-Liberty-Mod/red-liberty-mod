@@ -1,8 +1,8 @@
 guiTypes = {
 	containerWindowType = {
 		name = "us_popularities_container"
-		position = { x = 460 y = 80 }
-		size = { width = 200 height = 400 }
+		position = { x = 460 y = 20 }
+		size = { width = 624 height = 505 }
 		
 		background = {
 			name = "background"		
@@ -10,19 +10,170 @@ guiTypes = {
 		}
 		
 		instantTextboxType = {
-			name = "US_popularity_display_title"
-			position = { x = 10 y = 15 }
-			text = "DEBUG MENU"
+			name = "state_name"
+			position = { x = 0 y = 17 }
+			font = "hoi_24header"
+			text = "[THIS.GetName]"
 			format = center
-			maxWidth = 180
+			maxWidth = 400
+			maxHeight = 20
+			fixedsize = yes
 		}
+		
+		#instantTextboxType = {
+		#	name = "US_popularity_display_title"
+		#	position = { x = 10 y = 15 }
+		#	text = "DEBUG MENU"
+		#	format = center
+		#	maxWidth = 180
+		#}
 
 		instantTextboxType = {
 			name = "US_popularity_display_textbox"
-			position = { x = 10 y = 45 }
+			position = { x = 430 y = 55 }
 			text = "USA_debug_pops_tooltip"
-			format = center
+			format = left
 			maxWidth = 180
+		}
+		
+		containerWindowType = {
+			name = "state_demographics_list_container"
+			position = { x = 0 y = 40 }
+			size = { width = 425 height = 475 }
+			verticalScrollbar = "right_vertical_slider"
+			smooth_scrolling = no
+			margin = { top = 12 left = 12 bottom = 24 }
+			
+			#background = {
+			#	name = "background"		
+			#	quadTextureSprite = "GFX_tiled_window_thin_border2"
+			#}
+			
+			gridboxtype = {
+				name = "state_demographics_list"
+				slotsize = { width = 100%% height = 110 }
+				add_horizontal = no
+				format = "UPPER_LEFT"
+			}
+		}
+	}
+	
+	containerWindowType = {
+		name = "state_demographics_container"
+		position = { x = 5 y = 0 }
+		size = { width = 390 height = 110 }
+		
+		background = {
+			name = "background"		
+			quadTextureSprite = "GFX_tiled_window_thin_border2"
+		}
+		
+		instantTextboxType = {
+			name = "state_demographics_party"
+			position = { x = 24 y = 10 }
+			font = "hoi_24header"
+			text = "state_demographics_party_name"
+			maxWidth = 400
+			maxHeight = 20
+			fixedsize = yes
+		}
+		
+		### Socialist Factions ###
+		instantTextboxType = {
+			name = "state_socialist_left_pop"
+			position = { x = 24 y = 35 }
+			font = "hoi_18mbs"
+			text = "socialist_left_pop"
+			maxWidth = 400
+			maxHeight = 20
+			fixedsize = yes
+		}
+		instantTextboxType = {
+			name = "state_socialist_center_pop"
+			position = { x = 24 y = 50 }
+			font = "hoi_18mbs"
+			text = "socialist_center_pop"
+			maxWidth = 400
+			maxHeight = 20
+			fixedsize = yes
+		}
+		instantTextboxType = {
+			name = "state_socialist_right_pop"
+			position = { x = 24 y = 65 }
+			font = "hoi_18mbs"
+			text = "socialist_right_pop"
+			maxWidth = 400
+			maxHeight = 20
+			fixedsize = yes
+		}
+		
+		### Democrat Factions ###
+		instantTextboxType = {
+			name = "state_democrat_liberal_pop"
+			position = { x = 24 y = 35 }
+			font = "hoi_18mbs"
+			text = "democrat_liberal_pop"
+			maxWidth = 400
+			maxHeight = 20
+			fixedsize = yes
+		}
+		instantTextboxType = {
+			name = "state_democrat_conservative_pop"
+			position = { x = 24 y = 50 }
+			font = "hoi_18mbs"
+			text = "democrat_conservative_pop"
+			maxWidth = 400
+			maxHeight = 20
+			fixedsize = yes
+		}
+		instantTextboxType = {
+			name = "state_democrat_paternalist_pop"
+			position = { x = 24 y = 65 }
+			font = "hoi_18mbs"
+			text = "democrat_paternalist_pop"
+			maxWidth = 400
+			maxHeight = 20
+			fixedsize = yes
+		}
+		
+		### Republican Factions ###
+		instantTextboxType = {
+			name = "state_republican_liberal_pop"
+			position = { x = 24 y = 35 }
+			font = "hoi_18mbs"
+			text = "republican_liberal_pop"
+			maxWidth = 400
+			maxHeight = 20
+			fixedsize = yes
+		}
+		instantTextboxType = {
+			name = "state_republican_conservative_pop"
+			position = { x = 24 y = 50 }
+			font = "hoi_18mbs"
+			text = "republican_conservative_pop"
+			maxWidth = 400
+			maxHeight = 20
+			fixedsize = yes
+		}
+		
+		### Commonwealth Factions ###
+		instantTextboxType = {
+			name = "state_commonwealth_longist_pop"
+			position = { x = 24 y = 35 }
+			font = "hoi_18mbs"
+			text = "commonwealth_longist_pop"
+			maxWidth = 400
+			maxHeight = 20
+			fixedsize = yes
+		}
+		instantTextboxType = {
+			name = "state_commonwealth_christian_pop"
+			position = { x = 24 y = 50 }
+			font = "hoi_18mbs"
+			text = "commonwealth_christian_pop"
+			maxWidth = 400
+			maxHeight = 20
+			fixedsize = yes
 		}
 	}
 }

@@ -160,6 +160,31 @@ characters = {
 				the_colonel
 			}
 		}
+		
+		advisor = {
+			slot = head_of_government
+			idea_token = FRA_francois_de_la_rocque_hog
+			ledger = civilian
+			
+			cost = 0
+			can_be_fired = no
+			
+			allowed = {
+				original_tag = FRA
+			}
+			
+			visible = {
+				
+			}
+			
+			available = {
+				
+			}
+			
+			traits = {
+				hog_respected_war_hero
+			}
+		}
 	}
 	
 	FRA_charles_maurras = {
@@ -175,7 +200,7 @@ characters = {
 			desc = "POLITICS_CHARLES_MAURRAS_DESC"
 			ideology = despotism_subtype
 			traits = {
-				
+				FRA_charles_maurras_CHAR_T1
 			}
 		}
 	}
@@ -288,6 +313,41 @@ characters = {
 		}
 	}
 	
+	FRA_paul_doumer = {
+		name = FRA_paul_doumer
+		
+		portraits = {
+			civilian = {
+				small = "GFX_minister_FRA_paul_doumer"
+			}
+		}
+		
+		advisor = {
+			slot = head_of_government
+			idea_token = FRA_paul_doumer_hog
+			ledger = civilian
+			
+			cost = 0
+			can_be_fired = no
+			
+			allowed = {
+				original_tag = FRA
+			}
+			
+			visible = {
+				
+			}
+			
+			available = {
+				
+			}
+			
+			traits = {
+				hog_pragmatic_statesman
+			}
+		}
+	}
+	
 	FRA_albert_lebrun = {
 		name = FRA_albert_lebrun
 		
@@ -328,7 +388,16 @@ characters = {
 		
 		portraits = {
 			civilian = {
+				large = "GFX_portrait_FRA_jean_de_orleans"
 				small = "GFX_minister_FRA_jean_de_orleans"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_JEAN_III_DESC"
+			ideology = absolute_monarchy_subtype
+			traits = {
+				
 			}
 		}
 		
@@ -420,7 +489,10 @@ characters = {
 			}
 			
 			available = {
-				has_socialist_govt = yes
+				OR = {
+					has_government = vanguard_socialism
+					has_country_flag = vanguard_socialism_coalition
+				}
 			}
 			
 			traits = {
@@ -463,6 +535,80 @@ characters = {
 		}
 	}
 	
+	FRA_maurice_violette = {
+		name = FRA_maurice_violette
+		
+		portraits = {
+			civilian = {
+				small = "GFX_minister_FRA_maurice_violette"
+			}
+		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = FRA_maurice_violette
+			ledger = civilian
+			
+			cost = 100
+			
+			allowed = {
+				original_tag = FRA
+			}
+			
+			visible = {
+				
+			}
+			
+			available = {
+				OR = {
+					has_government = social_democracy
+					has_country_flag = social_democracy_coalition
+				}
+			}
+			
+			traits = {
+				edu_popular_advocate
+			}
+		}
+	}
+	
+	FRA_camille_chautemps = {
+		name = FRA_camille_chautemps
+		
+		portraits = {
+			civilian = {
+				small = "GFX_minister_FRA_camille_chautemps"
+			}
+		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = FRA_camille_chautemps
+			ledger = civilian
+			
+			cost = 100
+			
+			allowed = {
+				original_tag = FRA
+			}
+			
+			visible = {
+				
+			}
+			
+			available = {
+				OR = {
+					has_government = progressive_liberalism
+					has_country_flag = progressive_liberalism_coalition
+				}
+			}
+			
+			traits = {
+				eco_relief_coordinator
+			}
+		}
+	}
+	
 	FRA_joseph_paul_boncour = {
 		name = FRA_joseph_paul_boncour
 		
@@ -493,6 +639,40 @@ characters = {
 			
 			traits = {
 				sec_man_of_the_people
+			}
+		}
+	}
+	
+	FRA_louis_barthou = {
+		name = FRA_louis_barthou
+		
+		portraits = {
+			army = {
+				small = "GFX_minister_FRA_louis_barthou"
+			}
+		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = FRA_louis_barthou
+			ledger = civilian
+			
+			cost = 100
+			
+			allowed = {
+				original_tag = FRA
+			}
+			
+			visible = {
+				
+			}
+			
+			available = {
+				has_reactionary_govt = no
+			}
+			
+			traits = {
+				for_seasoned_ambassador
 			}
 		}
 	}
@@ -676,6 +856,47 @@ characters = {
 		}
 	}
 	
+	FRA_xavier_vallat = {
+		name = FRA_xavier_vallat
+		
+		portraits = {
+			civilian = {
+				small = "GFX_minister_FRA_xavier_vallat"
+			}
+		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = FRA_xavier_vallat
+			ledger = civilian
+			
+			cost = 100
+			
+			allowed = {
+				original_tag = FRA
+			}
+			
+			visible = {
+				
+			}
+			
+			available = {
+				OR = {
+					has_government = despotism
+					has_country_flag = despotism_coalition
+					has_government = ultraconservatism
+					has_country_flag = ultraconservatism_coalition
+					has_government = fascism
+					has_country_flag = fascism_coalition
+				}
+			}
+			
+			traits = {
+				for_ideological_crusader
+			}
+		}
+	}
+	
 	### Generals ###
 	
 	FRA_maurice_gamelin = {
@@ -683,8 +904,8 @@ characters = {
 		
 		portraits = {
 			army = {
-				large = ""
-				small = ""
+				large = "gfx/leaders/FRA/Portrait_FRA_Maurice_Gamelin.png"
+				small = "gfx/interface/ministers/FRA/FRA_Maurice_Gamelin.png"
 			}
 		}
 		
@@ -728,8 +949,7 @@ characters = {
 		
 		portraits = {
 			army = {
-				large = ""
-				small = ""
+				large = "GFX_portrait_FRA_antoine_marie_besson"
 			}
 		}
 		
@@ -751,8 +971,7 @@ characters = {
 		
 		portraits = {
 			army = {
-				large = ""
-				small = ""
+				large = "GFX_portrait_FRA_georges_catroux"
 			}
 		}
 		
@@ -773,8 +992,8 @@ characters = {
 		
 		portraits = {
 			army = {
-				large = ""
-				small = ""
+				large = "GFX_portrait_FRA_charles_delestraint"
+				small = "GFX_minister_FRA_charles_delestraint"
 			}
 		}
 		
@@ -817,8 +1036,8 @@ characters = {
 		
 		portraits = {
 			army = {
-				large = ""
-				small = ""
+				large = "GFX_portrait_FRA_rene_olry"
+				small = "GFX_minister_FRA_rene_olry"
 			}
 		}
 		
@@ -845,8 +1064,8 @@ characters = {
 		
 		portraits = {
 			army = {
-				large = ""
-				small = ""
+				large = "GFX_portrait_FRA_maxime_weygand"
+				small = "GFX_minister_FRA_maxime_weygand"
 			}
 		}
 		
@@ -916,8 +1135,7 @@ characters = {
 		
 		portraits = {
 			army = {
-				large = ""
-				small = ""
+				large = "gfx/leaders/FRA/Portrait_FRA_Alphonse_Georges.png"
 			}
 		}
 		
@@ -941,7 +1159,6 @@ characters = {
 		portraits = {
 			army = {
 				large = ""
-				small = ""
 			}
 		}
 		
@@ -965,7 +1182,6 @@ characters = {
 		portraits = {
 			army = {
 				large = ""
-				small = ""
 			}
 		}
 		
@@ -990,7 +1206,6 @@ characters = {
 		portraits = {
 			army = {
 				large = ""
-				small = ""
 			}
 		}
 		
@@ -1013,8 +1228,7 @@ characters = {
 		
 		portraits = {
 			army = {
-				large = ""
-				small = ""
+				large = "gfx/leaders/FRA/Portrait_FRA_Andre_Corap.png"
 			}
 		}
 		
@@ -1038,7 +1252,6 @@ characters = {
 		portraits = {
 			army = {
 				large = ""
-				small = ""
 			}
 		}
 		
@@ -1061,7 +1274,6 @@ characters = {
 		portraits = {
 			army = {
 				large = ""
-				small = ""
 			}
 		}
 		
@@ -1084,7 +1296,6 @@ characters = {
 		portraits = {
 			army = {
 				large = ""
-				small = ""
 			}
 		}
 		
@@ -1298,7 +1509,128 @@ characters = {
 			attack_skill = 3
 			defense_skill = 2
 			maneuvering_skill = 3
-			coordination_skill = 3
+			coordination_skill = 2
+		}
+	}
+	
+	FRA_raoul_castex = {
+		name = FRA_raoul_castex
+		
+		portraits = {
+			navy = {
+				large = "GFX_portrait_FRA_raoul_castex"
+				small = "GFX_minister_FRA_raoul_castex"
+			}
+		}
+		
+		advisor = {
+			slot = navy_chief
+			idea_token = FRA_raoul_castex
+			traits = {
+				navy_chief_maneuver_2
+			}
+			cost = 100
+		}
+		
+		navy_leader = {
+			traits = {
+				battleship_adherent
+				gunnery_expert
+				superior_tactician
+			}
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			maneuvering_skill = 3
+			coordination_skill = 2
+		}
+	}
+	
+	FRA_jean_pierre_esteva = {
+		name = FRA_jean_pierre_esteva
+		
+		portraits = {
+			navy = {
+				large = "GFX_portrait_FRA_jean_pierre_esteva"
+				small = "GFX_minister_FRA_jean_pierre_esteva"
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				navy_career_officer
+				aviation_enthusiast
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			maneuvering_skill = 3
+			coordination_skill = 2
+		}
+	}
+	
+	FRA_emile_muselier = {
+		name = FRA_emile_muselier
+		
+		portraits = {
+			navy = {
+				large = "GFX_portrait_FRA_emile_muselier"
+				small = "GFX_minister_FRA_emile_muselier"
+			}
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = FRA_emile_muselier
+			ledger = navy
+			traits = {
+				navy_fleet_logistics_2
+			}
+			cost = 100
+		}
+		
+		navy_leader = {
+			traits = {
+				navy_media_personality
+				aviation_enthusiast
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			maneuvering_skill = 1
+			coordination_skill = 2
+		}
+	}
+	
+	FRA_jean_decoux = {
+		name = FRA_jean_decoux
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_FRA_jean_decoux"
+				small = "GFX_minister_FRA_jean_decoux"
+			}
+		}
+		
+		advisor = {
+			slot = theorist
+			idea_token = FRA_jean_decoux
+			traits = {
+				naval_theorist
+			}
+			cost = 100
+		}
+
+		navy_leader = {
+			traits = {
+				bold
+				fly_swatter
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			maneuvering_skill = 2
+			coordination_skill = 2
 		}
 	}
 	
@@ -1414,8 +1746,8 @@ characters = {
 		
 		portraits = {
 			army = {
-				large = ""
-				small = ""
+				large = "GFX_portrait_FRA_alfred_heurtaux"
+				small = "GFX_minister_FRA_alfred_heurtaux"
 			}
 		}
 		
@@ -1436,7 +1768,7 @@ characters = {
 		name = FRA_victor_denain
 		portraits = {
 			army = {
-				small = ""
+				small = "GFX_minister_FRA_victor_denain"
 			}
 		}
 		advisor={

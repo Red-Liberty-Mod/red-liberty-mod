@@ -1,14 +1,24 @@
 ﻿capital = 16
 
-load_focus_tree = FRA_initial_tree
-
 oob = "FRA"
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	set_naval_oob = "FRA_naval_mtg"
+	else = {
+		set_naval_oob = "FRA_1936_naval_legacy"
+	}
+}
 
 set_research_slots = 3
 set_stability = 0.5
 set_war_support = 0.1
 add_command_power = 20
 set_convoys = 300
+
+add_opinion_modifier = {
+    target = GER
+    modifier = FRA_the_vile_hun
+}
 
 if = {
 	limit = {
@@ -37,13 +47,17 @@ if = {
 		target = FCA
 		autonomous_state = autonomy_RL_colonial_regime
 	}
+	set_autonomy = {
+		target = MAD
+		autonomous_state = autonomy_RL_colonial_regime
+	}
 	else = {
 		puppet = MOR
 		puppet = TUN
 		puppet = FWA
 		puppet = FCA
 		puppet = SYR
-
+		puppet = MAD
 	}
 }
 
@@ -51,21 +65,19 @@ if = {
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
-	tech_mountaineers = 1
-	motorised_infantry = 1
-	
 	tech_support = 1
 	tech_engineers = 1
 	tech_recon = 1
-	
+	tech_mountaineers = 1
+	tech_trucks = 1
+	motorised_infantry = 1
 	gw_artillery = 1
 	interwar_antiair = 1
-	
 	fuel_silos = 1
 	fuel_refining = 1
-
 	basic_train = 1
 }
+
 if = {
 	limit = {
 		has_dlc_nsb = yes
@@ -78,6 +90,9 @@ if = {
 		armor_tech_1 = 1
 		engine_tech_1 = 1
 	}
+	add_ideas = {
+		entrenched_old_guard_spirit
+	}
 	else = {
 		set_technology = {
 			gwtank = 1
@@ -85,6 +100,24 @@ if = {
 			basic_heavy_tank = 1
 			improved_light_tank = 1
 		}
+	}
+}
+if = {
+	limit = { not = { has_dlc = "Man the Guns" } }
+		set_technology = {
+		early_submarine = 1
+		basic_submarine = 1
+		early_destroyer = 1
+		basic_destroyer = 1
+		early_light_cruiser = 1
+		basic_light_cruiser = 1
+		early_heavy_cruiser = 1
+		basic_heavy_cruiser = 1
+		early_battleship = 1
+		early_battlecruiser = 1
+		basic_battlecruiser = 1
+		early_carrier = 1
+		transport = 1
 	}
 }
 if = {
@@ -107,41 +140,19 @@ if = {
 		basic_torpedo = 1
 		basic_depth_charges = 1
 		basic_heavy_armor_scheme = 1
-		basic_cruiser_armor_scheme = 1
 		mtg_transport = 1
-		basic_dp_light_battery = 1
-		cruiser_submarines = 1
-	}
-	set_naval_oob = "FRA_1936_naval_mtg"
-	else = {
-		set_technology = {
-			early_submarine = 1
-			basic_submarine = 1
-			early_destroyer = 1
-			basic_destroyer = 1
-			early_light_cruiser = 1
-			basic_light_cruiser = 1
-			early_heavy_cruiser = 1
-			basic_heavy_cruiser = 1
-			early_battleship = 1
-			early_battlecruiser = 1
-			basic_battlecruiser = 1
-			early_carrier = 1
-			transport = 1
-		}
-		set_naval_oob = "FRA_1936_naval_legacy"
 	}
 }
 if = {
 	limit = {
-		has_dlc = "La Resistance"
+		has_dlc_lar = yes
 	}
 	set_technology = {
 		armored_car1 = 1
 	}
 }
 if = {
-	limit = { has_dlc = "By Blood Alone" }
+	limit = { has_dlc_bba = yes }
 	set_technology = {
 		aa_lmg = 1
 		aa_cannon_1 = 1
@@ -168,8 +179,10 @@ if = {
 	}
 }
 
+set_convoys = 300
+
 set_politics = {
-	ruling_party = progressive_liberalism
+	ruling_party = liberal_conservatism
 	last_election = "1932.4.26"
 	election_frequency = 48
 	elections_allowed = yes
@@ -189,6 +202,17 @@ set_popularities = {
 	fascism = 1
 }
 
+add_ideas = {
+	FRA_revanchisme
+	FRA_fallen_govt
+	FRA_rising_right
+	FRA_pop_crisis_1
+}
+
+set_country_flag = progressive_liberalism_coalition
+set_country_flag = liberal_conservatism_coalition
+set_country_flag = national_conservatism_coalition
+
 ### LEADERS ###
 recruit_character = FRA_sebastian_faure
 recruit_character = FRA_maurice_thorez
@@ -204,23 +228,29 @@ recruit_character = FRA_charles_maurras
 recruit_character = FRA_pierre_taittinger
 recruit_character = FRA_marcel_bucard
 
-### MINISTERS ###
+### DEPUTY LEADERS ###
 recruit_character = FRA_marcel_cachin
 recruit_character = FRA_albert_bedouce
+recruit_character = FRA_paul_doumer
 recruit_character = FRA_albert_lebrun
 recruit_character = FRA_jean_de_orleans
 recruit_character = FRA_louis_napoleon
 
-activate_advisor = FRA_albert_lebrun_hog
+activate_advisor = FRA_paul_doumer_hog
 
+### MINISTERS ###
 recruit_character = FRA_pierre_monatte
-recruit_character = FRA_joseph_paul_boncour
-recruit_character = FRA_jean_ybarnegaray
 recruit_character = FRA_roger_salengro
+recruit_character = FRA_maurice_violette
+recruit_character = FRA_camille_chautemps
+recruit_character = FRA_joseph_paul_boncour
+recruit_character = FRA_louis_barthou
+recruit_character = FRA_jean_ybarnegaray
 recruit_character = FRA_paul_creyssel
 recruit_character = FRA_maurice_pujo
 recruit_character = FRA_paul_baudouin
 recruit_character = FRA_francois_coty
+recruit_character = FRA_xavier_vallat
 
 ### GENERALS ###
 recruit_character = FRA_maurice_gamelin
@@ -246,6 +276,10 @@ recruit_character = FRA_andre_gaston_pretelat
 recruit_character = FRA_francois_darlan
 recruit_character = FRA_jean_marie_charles_abrial
 recruit_character = FRA_jean_de_laborde
+recruit_character = FRA_raoul_castex
+recruit_character = FRA_jean_pierre_esteva
+recruit_character = FRA_emile_muselier
+recruit_character = FRA_jean_decoux
 
 ### HIGH COMMAND ###
 recruit_character = FRA_joseph_vuillemin
@@ -254,27 +288,6 @@ recruit_character = FRA_philippe_fequant
 recruit_character = FRA_martial_valin
 recruit_character = FRA_jean_francois_jannekeyn
 recruit_character = FRA_alfred_heurtaux
-
-### THEORISTS ###
-recruit_character = FRA_victor_denain
-
-add_ideas = {
-	FRA_revanchisme
-	FRA_fallen_govt
-	FRA_rising_right
-	FRA_pop_crisis_1
-}
-
-create_country_leader = {
-	name = "French Government"
-	desc = "POLITICS_FRENCH_REPUBLIC_DESC"
-	picture = "gfx/leaders/FRA/Portrait_FRA_French_Republic.png"
-	expire = "1965.1.1"
-	ideology = progressive_liberalism_subtype
-	traits = {
-		
-	}
-}
 
 if = {
 	limit = { has_dlc = "La Resistance" }
@@ -415,9 +428,10 @@ if = {
 	}
 	
 	create_equipment_variant = {
-		name = "D2"
+		name = "Char D2"
 		type = light_tank_chassis_1
 		parent_version = 1
+		design_team = mio:FRA_renault_organization
 		modules = {
 			main_armament_slot = tank_small_cannon
 			turret_type_slot = tank_light_one_man_tank_turret
@@ -436,6 +450,7 @@ if = {
 		name = "H-35"
 		type = light_tank_chassis_1
 		parent_version = 2
+		design_team = mio:FRA_hotchkiss_organization
 		modules = {
 			main_armament_slot = tank_small_cannon
 			turret_type_slot = tank_light_one_man_tank_turret
@@ -453,6 +468,7 @@ if = {
 		name = "R-35" 
 		type = light_tank_chassis_1
 		parent_version = 3
+		design_team = mio:FRA_renault_organization
 		modules = {
 			main_armament_slot = tank_small_cannon
 			turret_type_slot = tank_light_one_man_tank_turret
@@ -508,9 +524,10 @@ if = {
 		icon = "GFX_FRA_basic_heavy_tank_medium"
 	}
 	create_equipment_variant = {
-		name = "SOUMUA S35" 
+		name = "SOMUA S35" 
 		type = medium_tank_chassis_0
 		parent_version = 0
+		design_team = mio:FRA_somua_organization
 		modules = {
 			main_armament_slot = tank_small_cannon_2
 			turret_type_slot = tank_medium_one_man_tank_turret
@@ -663,6 +680,23 @@ if = {
 		}
 	}
 	# Destroyers #
+	create_equipment_variant = {
+		name = "Arabe Class"
+		type = ship_hull_light_1
+		name_group = FRA_DE_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
+	}
 	create_equipment_variant = {
 		name = "Bourrasque Class"				# represents Bourrasque and L'Adroit classes
 		type = ship_hull_light_1
@@ -932,6 +966,7 @@ if = {
 	create_equipment_variant = {
 		name = "Dewoitine D.500" #
 		type = small_plane_airframe_0
+		design_team = mio:FRA_dewoitine_organization
 		modules = {
 			fixed_main_weapon_slot = light_mg_4x
 			engine_type_slot = engine_1_1x
@@ -943,6 +978,7 @@ if = {
 	create_equipment_variant = {
 		name = "Dewoitine D.371" #
 		type = cv_small_plane_airframe_0
+		design_team = mio:FRA_dewoitine_organization
 		modules = {
 			fixed_main_weapon_slot = light_mg_4x
 			engine_type_slot = engine_1_1x
@@ -954,6 +990,7 @@ if = {
 	create_equipment_variant = {
 		name = "Levasseur PL.7" #
 		type = cv_small_plane_naval_bomber_airframe_0
+		design_team = mio:FRA_levasseur_organization
 		modules = {
 			fixed_main_weapon_slot = torpedo_mounting
 			engine_type_slot = engine_1_1x
@@ -965,6 +1002,7 @@ if = {
 	create_equipment_variant = {
 		name = "Dewoitine D.510" #also covers D.501
 		type = small_plane_airframe_0
+		design_team = mio:FRA_dewoitine_organization
 		modules = {
 			fixed_main_weapon_slot = light_mg_2x
 			fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_1x
@@ -996,6 +1034,7 @@ if = {
 	create_equipment_variant = {
 		name = "Amiot 143" #
 		type = medium_plane_airframe_0
+		design_team = mio:FRA_amiot_organization
 		modules = {
 			fixed_main_weapon_slot = medium_bomb_bay
 			fixed_auxiliary_weapon_slot_1 = bomb_locks

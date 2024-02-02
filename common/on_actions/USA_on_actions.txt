@@ -1,6 +1,15 @@
 on_actions = {
 	on_startup = {
 		effect = {
+			USA = {
+				if = {
+					limit = {
+						is_debug = yes
+					}
+					set_country_flag = USA_state_full_info
+				}
+			}
+			
 			### POLITICAL SETUP ###
 			USA = {
 				add_to_array = { country_info_array = 1 }
@@ -204,12 +213,17 @@ on_actions = {
 				country_event = { # the pale poison
 					id = united_states_flavor.11
 					days = 900
-					random_days = 30
+					random_days = 30 # early to mid 1938
 				}
 				country_event = {  # charles lindbergh returns
 					id = united_states_flavor.12
 					days = 1100
-					random_days = 30
+					random_days = 30 # late 1938
+				}
+				country_event = {  # formation of the upc
+					id = united_states_flavor.13
+					days = 900
+					random_days = 60 # early to mid 1938
 				}
 			}
 			
@@ -245,6 +259,48 @@ on_actions = {
 			852 = {
 				add_dynamic_modifier = {
 					modifier = USA_dust_bowl_modifier
+				}
+			}
+			
+			### DRY STATES ###
+			363 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
+			368 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
+			370 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
+			374 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
+			377 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
+			383 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
+			390 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
+			832 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
 				}
 			}
 		}
