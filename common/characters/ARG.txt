@@ -60,6 +60,7 @@ characters = {
 		portraits = {
 			civilian = {
 				large = "GFX_portrait_unknown"
+				large = "GFX_idea_unknown"
 			}
 		}
 		
@@ -69,6 +70,16 @@ characters = {
 			traits = {
 				
 			}
+		}
+		
+		advisor = {
+			cost = 0
+			slot = head_of_govt
+			idea_token = ARG_julio_argentino_pascual_roca
+			traits = {
+				hog_pragmatic_statesman
+			}
+			can_be_fired = no
 		}
 	}
 	
@@ -112,12 +123,31 @@ characters = {
 		}
 	}
 	
-	ARG_pedro_pablo_ramirez = {
-		name = ARG_pedro_pablo_ramirez
+	ARG_roberto_marcelino_ortiz = {
+		name = ARG_roberto_marcelino_ortiz
 		
 		portraits = {
 			civilian = {
 				large = "GFX_portrait_unknown"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_ROBERTO_ORTIZ_DESC"
+			ideology = authoritarian_democracy_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	ARG_pedro_pablo_ramirez = {
+		name = ARG_pedro_pablo_ramirez
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_unknown"
+				small = "GFX_idea_unknown"
 			}
 		}
 		
@@ -139,6 +169,13 @@ characters = {
 			defense_skill = 1
 			planning_skill = 4
 			logistics_skill = 1
+		}
+		
+		advisor = {
+			cost = 100
+			slot = high_command
+			idea_token = ARG_pedro_pablo_ramirez
+			traits = { army_regrouping_2 }
 		}
 	}
 	
@@ -172,11 +209,12 @@ characters = {
 		}
 		
 		advisor = {
+			cost = 0
 			slot = head_of_government
 			idea_token = ARG_arturo_orgaz_hog
 			ledger = civilian
 			
-			cost = 0
+			
 			can_be_fired = no
 			
 			traits = {
@@ -205,6 +243,76 @@ characters = {
 			traits = {
 				hog_happy_amateur
 			}
+		}
+	}
+	
+	### Generals ###
+	
+	ARG_nicolas_accame = {
+		name = ARG_nicolas_accame
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_unknown"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	
+	ARG_juan_pistarini = { # promoted to brig. general in 1937
+		name = ARG_juan_pistarini
+	}
+	
+	ARG_arturo_rawson = { # promoted to brig. general in ???
+		name = ARG_arturo_rawson
+	}
+	
+	ARG_edelmiro_julian_farrell = { # promoted to brig. general in 1941
+		name = ARG_edelmiro_julian_farrell
+	}
+	
+	ARG_luis_cesar_perlinger = { # fascist, promoted to brig. general in ???
+		name = ARG_luis_cesar_perlinger
+	}
+	
+	### Admirals ###
+	
+	ARG_eleazar_videla = {
+		name = ARG_eleazar_videla
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_unknown"
+				small = "GFX_idea_unknown"
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			maneuvering_skill = 1
+			coordination_skill = 2
+		}
+		
+		advisor = {
+			cost = 100
+			slot = navy_chief
+			idea_token = ARG_eleazar_videla
+			traits = { navy_chief_reform_2 }
 		}
 	}
 }
