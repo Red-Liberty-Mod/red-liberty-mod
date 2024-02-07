@@ -385,6 +385,7 @@ country_event = { # time to decide
 			}
 		}
 		set_global_flag = italian_great_game_ended
+		set_global_flag = ITA_joined_FRA
 	}
 	
 	option = { # germans win
@@ -392,17 +393,18 @@ country_event = { # time to decide
 		trigger = {
 			check_variable = { GER.GER_italian_influence > FRA.FRA_italian_influence }
 		}
-		FRA = {
+		GER = {
 			country_event = {
 				id = italy_forpol.6
 				hours = 6
 			}
 		}
 		set_global_flag = italian_great_game_ended
+		set_global_flag = ITA_joined_GER
 	}
 }
 
-country_event = { # time to decide
+country_event = { # italy reaches out
 	id = italy_forpol.5
 	title = italy_forpol.5.title
 	desc = italy_forpol.5.desc
@@ -416,10 +418,16 @@ country_event = { # time to decide
 		FRA = {
 			add_to_faction = ITA
 		}
+		hidden_effect = {
+			random_other_country = {
+				limit = { is_ai = yes }
+				news_event = { id = worldnews_ww2.3 hours = 6 }
+			}
+		}
 	}
 }
 
-country_event = { # time to decide
+country_event = { # italy reaches out
 	id = italy_forpol.6
 	title = italy_forpol.6.title
 	desc = italy_forpol.6.desc
@@ -432,6 +440,12 @@ country_event = { # time to decide
 		name = italy_forpol.6.a
 		GER = {
 			add_to_faction = ITA
+		}
+		hidden_effect = {
+			random_other_country = {
+				limit = { is_ai = yes }
+				news_event = { id = worldnews_ww2.3 hours = 6 }
+			}
 		}
 	}
 }

@@ -611,15 +611,84 @@ news_event = { # ww2 event - russia vs germany
 		name = worldnews_ww2.2.a
 		trigger = {
 			NOT = {
-				original_tag = SOV
+				OR = {
+					original_tag = SOV
+					original_tag = GER
+				}
 			}
 		}
 	}
 	
 	option = {
-		name = worldnews_ww2.2.b
+		name = worldnews_ww2.2.a
 		trigger = {
 			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = worldnews_ww2.2.c
+		trigger = {
+			original_tag = GER
+		}
+	}
+}
+
+news_event = { # ww2 event - italy joins a faction
+	id = worldnews_ww2.3
+	picture = GFX_report_event_second_great_war
+	
+	title = worldnews_ww2.3.title
+	desc = {
+		text = worldnews_ww2.2.desc_joins_FRA_peace
+		trigger = {
+			has_global_flag = ITA_joined_FRA
+			NOT = {
+				has_global_flag = second_great_war_started
+			}
+		}
+	}
+	desc = {
+		text = worldnews_ww2.2.desc_joins_FRA_war
+		trigger = {
+			has_global_flag = ITA_joined_FRA
+			has_global_flag = second_great_war_started
+		}
+	}
+	desc = {
+		text = worldnews_ww2.2.desc_joins_GER_peace
+		trigger = {
+			has_global_flag = ITA_joined_GER
+			NOT = {
+				has_global_flag = second_great_war_started
+			}
+		}
+	}
+	desc = {
+		text = worldnews_ww2.2.desc_joins_GER_war
+		trigger = {
+			has_global_flag = ITA_joined_GER
+			has_global_flag = second_great_war_started
+		}
+	}
+
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = {
+		name = worldnews_ww2.3.a
+		trigger = {
+			NOT = {
+				original_tag = ITA
+			}
+		}
+	}
+	
+	option = {
+		name = worldnews_ww2.3.b
+		trigger = {
+			original_tag = ITA
 		}
 	}
 }
