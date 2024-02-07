@@ -1,0 +1,92 @@
+defined_text = {
+	name = GetPartyPop
+	text = {
+		trigger = {
+			set_temp_variable = {
+				popularity = percentage@var:v
+			}
+		}
+		localization_key = "[?popularity|1%]"
+	}
+}
+
+defined_text = {
+	name = GetFactionPop
+	text = {
+		trigger = {
+			set_temp_variable = {
+				faction_popularity = percentage@var:v
+			}
+		}
+		localization_key = "[?faction_popularity|1%]"
+	}
+}
+
+defined_text = {
+	name = GetPopChange
+	text = {
+		trigger = {
+			check_variable = {
+				v = token:communist_group_popularity
+			}
+			check_variable = {
+				var = communist_prev_election_pop
+				value = 0
+				compare = not_equals
+			}
+		}
+		localization_key = "communist_pop_change"
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				v = token:socialist_group_popularity
+			}
+			check_variable = {
+				var = socialist_prev_election_pop
+				value = 0
+				compare = not_equals
+			}
+		}
+		localization_key = "socialist_pop_change"
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				v = token:democrat_group_popularity
+			}
+			check_variable = {
+				var = democrat_prev_election_pop
+				value = 0
+				compare = not_equals
+			}
+		}
+		localization_key = "democrat_pop_change"
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				v = token:republican_group_popularity
+			}
+			check_variable = {
+				var = republican_prev_election_pop
+				value = 0
+				compare = not_equals
+			}
+		}
+		localization_key = "republican_pop_change"
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				v = token:commonwealth_group_popularity
+			}
+			check_variable = {
+				var = commonwealth_prev_election_pop
+				value = 0
+				compare = not_equals
+			}
+		}
+		localization_key = "commonwealth_pop_change"
+	}
+}

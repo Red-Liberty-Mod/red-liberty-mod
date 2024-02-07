@@ -1,13 +1,6 @@
 ﻿capital = 300
 
 oob = "URG_1936"
-if = {
-	limit = { has_dlc = "Man the Guns" }
-		set_naval_oob = "URG_1936_naval_mtg"
-	else = {
-		set_naval_oob = "URG_1936_naval_legacy"
-	}
-}
 
 # Starting tech
 set_technology = {
@@ -16,13 +9,7 @@ set_technology = {
 	interwar_antiair = 1
 	early_fighter = 1
 }
-if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
-	set_technology = {
-		early_destroyer = 1
-		early_light_cruiser = 1
-	}
-}
+
 if = {
 	limit = { has_dlc = "Man the Guns" }
 	set_technology = {
@@ -31,7 +18,16 @@ if = {
 		basic_battery = 1
 		basic_torpedo = 1
 	}
+	set_naval_oob = "URG_naval_mtg"
+	else = {
+		set_technology = {
+			early_destroyer = 1
+			early_light_cruiser = 1
+		}
+		set_naval_oob = "URG_naval_legacy"
+	}
 }
+
 set_country_flag = monroe_doctrine
 
 set_convoys = 15
@@ -75,31 +71,3 @@ recruit_character = URG_martin_martinez
 recruit_character = URG_luis_herrera
 recruit_character = URG_gabriel_terra_leivas
 recruit_character = URG_adolfo_agorio
-
-
-### VARIANTS ###
-# 1936 Start #
-if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
-	### Ship Variants ###
-}
-if = {
-	limit = { has_dlc = "Man the Guns" }
-	# Destroyers #
-	create_equipment_variant = {
-		name = "Uruguay Class"				
-		type = ship_hull_light_1
-		name_group = URG_DD_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_light_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = light_ship_engine_1
-			fixed_ship_torpedo_slot = ship_torpedo_1
-			mid_1_custom_slot = empty
-			rear_1_custom_slot = empty
-		}
-	}
-}

@@ -1,0 +1,52 @@
+ENG_battleships = {
+	category = naval
+	
+	available_for = {
+		ENG
+	}
+	
+	roles = {
+		naval_capital_bb
+	}
+
+	priority = {
+		factor = 500
+		modifier = {
+			factor = 1
+		}
+	}
+
+	ship_hull_heavy_3 = {
+		name = "Lion Class"
+	
+		priority = {
+			base = 10
+		}
+		role_icon_index = 1
+
+		target_variant = {
+			type = ship_hull_heavy_3
+			match_value = 1000.0
+
+			modules = {
+				fixed_ship_battery_slot = ship_heavy_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = heavy_ship_engine
+				fixed_ship_secondaries_slot = ship_dp_secondaries
+				fixed_ship_armor_slot = ship_armor_bb
+				front_1_custom_slot = ship_heavy_battery
+				front_2_custom_slot = ship_anti_air
+				mid_1_custom_slot = ship_dp_secondaries
+				mid_2_custom_slot = ship_dp_secondaries
+				mid_3_custom_slot = ship_dp_secondaries
+				rear_1_custom_slot = ship_heavy_battery
+				rear_2_custom_slot = ship_heavy_battery
+			}
+		}
+		requirements = {
+			module = ship_armor_bb
+		}
+	}
+}

@@ -1,486 +1,806 @@
+
 shared_focus = {
-    id = FRA_the_revolution_begins
-	icon = GFX_FRA_the_revolution_begins
+	id = FRA_the_revolution_has_arrived
+	icon = GFX_FRA_the_revolution_has_arrived
 	
-    x = 8
+	x = 8
 	y = 0
+	cost = 2
 	
-	cost = 5
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
+	completion_reward = {
+		add_political_power = 20
+		add_stability = -0.5
+		add_popularity = {
+			ideology = national_conservatism
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = authoritarian_democracy
+			popularity = -0.18
+		}
+		add_popularity = {
+			ideology = despotism
+			popularity = -0.03
+		}
+		add_popularity = {
+			ideology = ultraconservatism
+			popularity = -0.02
+		}
+		FRA = { country_event = france_far_left.2 }
+	}
+			
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
 }
 
 shared_focus = {
-    id = FRA_committee_of_public_safety
-	icon = GFX_FRA_committee_of_public_safety
+	id = FRA_purge_the_anarchists
+	icon = GFX_FRA_purge_the_anarchists
 	
-    x = -3
+	x = -2
 	y = 1
+	cost = 2
 	
-	cost = 5
-	relative_position_id = FRA_the_revolution_begins
-	prerequisite = { focus = FRA_the_revolution_begins }
-	mutually_exclusive = {
-		focus = FRA_revolutionary_masses
+	relative_position_id = FRA_the_revolution_has_arrived
+	prerequisite = { focus = FRA_the_revolution_has_arrived }
+	
+	completion_reward = {
+		remove_anarchism_coalition = yes
+		add_stability = 0.05
+		FRA = {country_event = france_far_left.3}
 	}
-    completion_reward = {
-        
-    }
 	
-	ai_will_do = {
-		factor = 10
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
 }
 
 shared_focus = {
-    id = FRA_reign_of_terror
-	icon = GFX_FRA_reign_of_terror
+	id = FRA_control_the_cgt
+	icon = GFX_FRA_control_the_cgt
 	
-    x = -1
+	x = 2
 	y = 1
+	cost = 2
 	
-	cost = 5
-	relative_position_id = FRA_committee_of_public_safety
-	prerequisite = { focus = FRA_committee_of_public_safety }
-    completion_reward = {
-        
-    }
+	relative_position_id = FRA_the_revolution_has_arrived
+	prerequisite = { focus = FRA_the_revolution_has_arrived }
 	
-	ai_will_do = {
-		factor = 10
+	completion_reward = {
+		add_popularity = {
+			ideology = vanguard_socialism
+			popularity = 0.025
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
 }
 
 shared_focus = {
-    id = FRA_fate_of_enemies
-	icon = GFX_FRA_fate_of_enemies
+	id = FRA_an_era_of_anticolonialism
+	icon = GFX_FRA_era_of_anti_colonialism
 	
-    x = 0
+	x = 0
 	y = 1
+	cost = 2
 	
-	cost = 5
-	relative_position_id = FRA_reign_of_terror
-	prerequisite = { focus = FRA_reign_of_terror }
-    completion_reward = {
-        
-    }
+	relative_position_id = FRA_purge_the_anarchists
+	prerequisite = { focus = FRA_purge_the_anarchists }
+
+	completion_reward = {
+		FRA = {
+			annex_country = {target = FCA transfer troops = yes}
+			annex_country = {target = FWA transfer troops = yes}
+			annex_country = {target = MOR transfer troops = yes}
+			annex_country = {target = TUN transfer troops = yes}
+		}
+	}
 	
-	ai_will_do = {
-		factor = 10
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
 }
 
 shared_focus = {
-    id = FRA_fate_of_allies
-	icon = GFX_FRA_fate_of_allies
+	id = FRA_preparing_the_party_congress
+	icon = GFX_FRA_preparing_the_party_congress
 	
-    x = 0
+	x = 2
 	y = 1
+	cost = 2
 	
-	cost = 5
-	relative_position_id = FRA_fate_of_enemies
-	prerequisite = { focus = FRA_fate_of_enemies }
-    completion_reward = {
-        
-    }
+	relative_position_id = FRA_purge_the_anarchists
+	prerequisite = { focus = FRA_purge_the_anarchists }
+	prerequisite = { focus = FRA_control_the_cgt }
 	
-	ai_will_do = {
-		factor = 10
+	completion_reward = {
+		activate_advisor = FRA_marcel_cachin_hog
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
 }
 
 shared_focus = {
-    id = FRA_cult_of_reason
-	icon = GFX_FRA_cult_of_reason
+	id = FRA_implement_racial_equality
+	icon = GFX_FRA_implement_racial_equality
 	
-    x = 0
+	x = 0
 	y = 1
+	cost = 2
 	
-	cost = 5
-	relative_position_id = FRA_fate_of_allies
-	prerequisite = { focus = FRA_fate_of_allies }
-    completion_reward = {
-        
-    }
+	relative_position_id = FRA_control_the_cgt
+	prerequisite = { focus = FRA_control_the_cgt }
 	
-	ai_will_do = {
-		factor = 10
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = FRA_pop_crisis_1
+			add_idea = FRA_pop_crisis_2
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
 }
 
 shared_focus = {
-    id = FRA_petit_livre_rouge
-	icon = GFX_FRA_petit_livre_rouge
+	id = FRA_party_for_the_masses
+	icon = GFX_FRA_party_for_the_masses
 	
-    x = 1
+	x = 1
 	y = 1
+	cost = 2
 	
-	cost = 5
-	relative_position_id = FRA_committee_of_public_safety
-	prerequisite = { focus = FRA_committee_of_public_safety }
-    completion_reward = {
-        
-    }
+	relative_position_id = FRA_an_era_of_anticolonialism
+	prerequisite = { focus = FRA_an_era_of_anticolonialism }
+	prerequisite = { focus = FRA_preparing_the_party_congress }
+	mutually_exclusive = { focus = FRA_party_for_the_nation }
 	
-	ai_will_do = {
-		factor = 10
+	completion_reward = {
+		add_popularity = {
+			ideology = revolutionary_socialism
+			popularity = 0.05
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
 }
 
 shared_focus = {
-    id = FRA_free_the_masses
-	icon = GFX_FRA_free_the_masses
-	
-    x = 0
+	id = FRA_party_for_the_nation
+	icon = GFX_FRA_party_for_the_nation
+	x = -1
 	y = 1
+	cost = 2
 	
-	cost = 5
-	relative_position_id = FRA_petit_livre_rouge
-	prerequisite = { focus = FRA_petit_livre_rouge }
-    completion_reward = {
-        
-    }
+	relative_position_id = FRA_implement_racial_equality
+	prerequisite = { focus = FRA_preparing_the_party_congress }
+	prerequisite = { focus = FRA_implement_racial_equality }
+	mutually_exclusive = { focus = FRA_party_for_the_masses }
 	
-	ai_will_do = {
-		factor = 10
+	completion_reward = {
+		add_popularity = {
+			ideology = vanguard_socialism
+			popularity = 0.05
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
 }
 
 shared_focus = {
-    id = FRA_export_socialism
-	icon = GFX_FRA_export_socialism
+	id = FRA_the_pcf_national_congress
+	icon = GFX_FRA_the_pcf_national_congress
 	
-    x = 0
+	x = 1
 	y = 1
+	cost = 2
 	
-	cost = 5
-	relative_position_id = FRA_free_the_masses
-	prerequisite = { focus = FRA_free_the_masses }
-    completion_reward = {
-        
-    }
+	relative_position_id = FRA_party_for_the_masses
+	prerequisite = {
+		focus = FRA_party_for_the_masses
+		focus = FRA_party_for_the_nation
+	}
 	
-	ai_will_do = {
-		factor = 10
+	completion_reward = {
+		set_cosmetic_tag = FRA_socialist_republic
+		set_party_name = {
+			ideology = vanguard_socialism
+			long_name = FRA_pcf_party_long
+			name = FRA_pcf_party
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
 }
 
 shared_focus = {
-    id = FRA_erect_barricades
-	icon = GFX_FRA_erect_barricades
+	id = FRA_national_communism_rises
+	icon = GFX_FRA_national_communism_rises
 	
-    x = 0
+	x = -4
 	y = 1
+	cost = 2
 	
-	cost = 5
-	relative_position_id = FRA_export_socialism
-	prerequisite = { focus = FRA_export_socialism }
-    completion_reward = {
-        
-    }
+	relative_position_id = FRA_the_pcf_national_congress
+	prerequisite = { focus = FRA_the_pcf_national_congress }
+	mutually_exclusive = { focus = FRA_the_jacobin_faction }
 	
-	ai_will_do = {
-		factor = 10
+	completion_reward = {
+		promote_character = FRA_jacques_doriot
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
 }
 
 shared_focus = {
-    id = FRA_eternal_terror
-	icon = GFX_FRA_eternal_terror
+	id = FRA_the_jacobin_faction
+	icon = GFX_FRA_the_jacobin_faction
 	
-    x = 1
+	x = 4
 	y = 1
+	cost = 2
 	
-	cost = 5
-	relative_position_id = FRA_cult_of_reason
-	prerequisite = { focus = FRA_cult_of_reason }
-	prerequisite = { focus = FRA_erect_barricades }
-    completion_reward = {
-        
-    }
+	relative_position_id = FRA_the_pcf_national_congress
+	prerequisite = { focus = FRA_the_pcf_national_congress }
+	mutually_exclusive = { focus = FRA_national_communism_rises }
 	
-	ai_will_do = {
-		factor = 10
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
 }
 
 shared_focus = {
-    id = FRA_revolutionary_masses
-	icon = GFX_FRA_revolutionary_masses
+	id = FRA_workers_and_peasants_unite
+	icon = GFX_FRA_workers_and_peasants_unite
 	
-    x = 3
+	x = -1
 	y = 1
+	cost = 2
 	
-	cost = 5
-	relative_position_id = FRA_the_revolution_begins
-	prerequisite = { focus = FRA_the_revolution_begins }
-	mutually_exclusive = {
-		focus = FRA_committee_of_public_safety
-	}
-    completion_reward = {
-        
-    }
+	relative_position_id = FRA_national_communism_rises
+	prerequisite = { focus = FRA_national_communism_rises }
 	
-	ai_will_do = {
-		factor = 10
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
 }
 
 shared_focus = {
-    id = FRA_mob_justice
-	icon = GFX_FRA_mob_justice
+	id = FRA_loyalty_to_the_motherland
+	icon = GFX_FRA_loyalty_to_the_fatherland
 	
-    x = -1
+	x = 1
 	y = 1
+	cost = 2
 	
-	cost = 5
-	relative_position_id = FRA_revolutionary_masses
-	prerequisite = { focus = FRA_revolutionary_masses }
-    completion_reward = {
-        
-    }
+	relative_position_id = FRA_national_communism_rises
+	prerequisite = { focus = FRA_national_communism_rises }
 	
-	ai_will_do = {
-		factor = 10
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
 }
 
 shared_focus = {
-    id = FRA_french_marxism
-	icon = GFX_FRA_french_marxism
+	id = FRA_review_the_economic_policy
+	icon = GFX_FRA_review_of_economic_policy
 	
-    x = 0
+	x = 0
 	y = 1
+	cost = 2
 	
-	cost = 5
-	relative_position_id = FRA_mob_justice
-	prerequisite = { focus = FRA_mob_justice }
-    completion_reward = {
-        
-    }
+	relative_position_id = FRA_workers_and_peasants_unite
+	prerequisite = {
+		focus = FRA_workers_and_peasants_unite
+		focus = FRA_loyalty_to_the_motherland
+	}
 	
-	ai_will_do = {
-		factor = 10
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
 }
 
 shared_focus = {
-    id = FRA_expand_public_works
-	icon = GFX_FRA_expand_public_works
+	id = FRA_expand_the_communist_youth_movement
+	icon = GFX_FRA_expand_the_communist_youth_movement
 	
-    x = 0
+	x = 0
 	y = 1
+	cost = 2
 	
-	cost = 5
-	relative_position_id = FRA_french_marxism
-	prerequisite = { focus = FRA_french_marxism }
-    completion_reward = {
-        
-    }
+	relative_position_id = FRA_loyalty_to_the_motherland
+	prerequisite = {
+		focus = FRA_workers_and_peasants_unite
+		focus = FRA_loyalty_to_the_motherland
+	}
 	
-	ai_will_do = {
-		factor = 10
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
 }
 
 shared_focus = {
-    id = FRA_think_mark_think
-	icon = GFX_FRA_think_mark_think
+	id = FRA_the_deat_model
+	icon = GFX_FRA_the_deat_model
 	
-    x = 0
+	x = -1
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_review_the_economic_policy
+	prerequisite = { focus = FRA_review_the_economic_policy }
+	prerequisite = { focus = FRA_expand_the_communist_youth_movement }
+	mutually_exclusive = { focus = FRA_the_leninist_model }
+	
+	completion_reward = {
+		add_socdem_coalition = yes
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+	
+shared_focus = {
+	id = FRA_the_leninist_model
+	icon = GFX_FRA_the_leninist_model
+	
+	x = -1
 	y = 1
 	
-	cost = 5
-	relative_position_id = FRA_expand_public_works
-	prerequisite = { focus = FRA_expand_public_works }
-    completion_reward = {
-        
-    }
+	relative_position_id = FRA_expand_the_communist_youth_movement
+	prerequisite = { focus = FRA_review_the_economic_policy }
+	prerequisite = { focus = FRA_expand_the_communist_youth_movement }
 	
-	ai_will_do = {
-		factor = 10
+	cost = 2
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
 }
 
 shared_focus = {
-    id = FRA_colonial_indoctrination
-	icon = GFX_FRA_colonial_indoctrination
+	id = FRA_hire_technocrats
+	icon = GFX_FRA_hire_technocrats
 	
-    x = 1
+	x = 0
 	y = 1
+	cost = 2
 	
-	cost = 5
-	relative_position_id = FRA_revolutionary_masses
-	prerequisite = { focus = FRA_revolutionary_masses }
-    completion_reward = {
-        
-    }
+	relative_position_id = FRA_the_deat_model
+	prerequisite = { focus = FRA_the_deat_model }
 	
-	ai_will_do = {
-		factor = 10
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
 }
 
 shared_focus = {
-    id = FRA_revolutionary_colonies
-	icon = GFX_FRA_revolutionary_colonies
+	id = FRA_denounce_soviet_influence
+	icon = GFX_FRA_denounce_soviet_influence
 	
-    x = 0
+	x = 0
 	y = 1
+	cost = 2
 	
-	cost = 5
-	mutually_exclusive = {
-		focus = FRA_communal_union
-	}
-	relative_position_id = FRA_colonial_indoctrination
-	prerequisite = { focus = FRA_colonial_indoctrination }
-    completion_reward = {
-        
-    }
+	relative_position_id = FRA_the_leninist_model
+	prerequisite = { focus = FRA_the_leninist_model }
 	
-	ai_will_do = {
-		factor = 10
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
 }
 
 shared_focus = {
-    id = FRA_some_more_equal
-	icon = GFX_FRA_some_more_equal
+	id = FRA_red_legionaries
+	icon = GFX_FRA_red_legionaries
 	
-    x = 0
+	x = -1
 	y = 1
+	cost = 2
 	
-	cost = 5
-	relative_position_id = FRA_revolutionary_colonies
-	prerequisite = { focus = FRA_revolutionary_colonies }
-    completion_reward = {
-        
-    }
+	relative_position_id = FRA_hire_technocrats
+	prerequisite = { focus = FRA_hire_technocrats }
 	
-	ai_will_do = {
-		factor = 10
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
 }
 
 shared_focus = {
-    id = FRA_council_of_minorities
-	icon = GFX_FRA_council_of_minorities
+	id = FRA_in_the_embrace_of_national_communism
+	icon = GFX_FRA_in_the_embrace_of_national_communism
 	
-    x = 0
+	x = 1
 	y = 1
+	cost = 2
 	
-	cost = 5
-	relative_position_id = FRA_some_more_equal
-	prerequisite = { focus = FRA_some_more_equal }
-    completion_reward = {
-        
-    }
+	relative_position_id = FRA_hire_technocrats
+	prerequisite = {
+		focus = FRA_hire_technocrats
+		focus = FRA_denounce_soviet_influence
+	}
 	
-	ai_will_do = {
-		factor = 10
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
 }
 
 shared_focus = {
-    id = FRA_france_reborn
-	icon = GFX_FRA_france_reborn
+	id = FRA_age_of_the_french_proletariat
+	icon = GFX_FRA_age_of_the_french_proletariat
 	
-    x = 1
+	x = 1
 	y = 1
+	cost = 2
 	
-	cost = 5
-	relative_position_id = FRA_think_mark_think
-	prerequisite = { focus = FRA_think_mark_think }
-	prerequisite = { focus = FRA_council_of_minorities }
-    completion_reward = {
-        
-    }
+	relative_position_id = FRA_denounce_soviet_influence
+	prerequisite = { focus = FRA_denounce_soviet_influence }
 	
-	ai_will_do = {
-		factor = 10
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
 }
 
 shared_focus = {
-    id = FRA_communal_union
-	icon = GFX_FRA_communal_union
+	id = FRA_vive_la_france
+	icon = GFX_FRA_vive_la_france
 	
-    x = 2
+	x = 1
 	y = 1
+	cost = 2
 	
-	cost = 5
-	mutually_exclusive = {
-		focus = FRA_revolutionary_colonies
-	}
-	relative_position_id = FRA_colonial_indoctrination
-	prerequisite = { focus = FRA_colonial_indoctrination }
-    completion_reward = {
-        
-    }
+	relative_position_id = FRA_red_legionaries
+	prerequisite = { focus = FRA_red_legionaries }
+	prerequisite = { focus = FRA_in_the_embrace_of_national_communism }
 	
-	ai_will_do = {
-		factor = 10
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
 }
 
 shared_focus = {
-    id = FRA_representation_for_all
-	icon = GFX_FRA_representation_for_all
+	id = FRA_beyond_the_paris_revolution
+	icon = GFX_FRA_beyond_the_paris_revolution
 	
-    x = 0
+	x = -1
 	y = 1
+	cost = 2
 	
-	cost = 5
-	relative_position_id = FRA_communal_union
-	prerequisite = { focus = FRA_communal_union }
-    completion_reward = {
-        
-    }
+	relative_position_id = FRA_age_of_the_french_proletariat
+	prerequisite = { focus = FRA_in_the_embrace_of_national_communism }
+	prerequisite = { focus = FRA_age_of_the_french_proletariat }
 	
-	ai_will_do = {
-		factor = 10
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
 }
 
 shared_focus = {
-    id = FRA_one_people
-	icon = GFX_FRA_one_people
+	id = FRA_anticapitalist_terror
+	icon = GFX_FRA_anti_capitalist_terror
 	
-    x = 0
+	x = 4
 	y = 1
+	cost = 2
 	
-	cost = 5
-	relative_position_id = FRA_representation_for_all
-	prerequisite = { focus = FRA_representation_for_all }
-    completion_reward = {
-        
-    }
+	relative_position_id = FRA_national_communism_rises
+	prerequisite = {
+		focus = FRA_national_communism_rises
+		focus = FRA_the_jacobin_faction
+	}
 	
-	ai_will_do = {
-		factor = 10
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = FRA_anti_socialist_resistance_1
+			add_idea = FRA_anti_socialist_resistance_2
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
 	}
 }
 
 shared_focus = {
-    id = FRA_one_state
-	icon = GFX_FRA_one_state
+	id = FRA_socialist_reconstruction
+	icon = GFX_FRA_socialist_reconstruction
 	
-    x = 0
+	x = 0
 	y = 1
+	cost = 2
 	
-	cost = 5
-	relative_position_id = FRA_one_people
-	prerequisite = { focus = FRA_one_people }
-    completion_reward = {
-        
-    }
+	relative_position_id = FRA_anticapitalist_terror
+	prerequisite = { focus = FRA_anticapitalist_terror }
 	
-	ai_will_do = {
-		factor = 10
+	completion_reward = {
+		FRA_improve_govt_stability = yes
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
+	}
+}
+
+shared_focus = {
+	id = FRA_planned_economy
+	icon = GFX_FRA_planned_economy
+	
+	x = -1
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_socialist_reconstruction
+	prerequisite = { focus = FRA_socialist_reconstruction }
+	
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = FRA_pop_crisis_1
+			add_idea = FRA_pop_crisis_2
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
+	}
+}
+
+shared_focus = {
+	id = FRA_revolutionary_communes
+	icon = GFX_FRA_revolutionary_communes
+	
+	x = 1
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_socialist_reconstruction
+	prerequisite = { focus = FRA_socialist_reconstruction  }
+	
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
+	}
+}
+
+shared_focus = {
+	id = FRA_teaching_the_masses
+	icon = GFX_FRA_teaching_the_masses
+	
+	x = 0
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_planned_economy
+	prerequisite = {
+		focus = FRA_planned_economy
+		focus = FRA_revolutionary_communes
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
+}
+
+shared_focus = {
+	id = FRA_collectivization
+	icon = GFX_FRA_collectivization
+	
+	x = 0
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_revolutionary_communes
+	prerequisite = {
+		focus = FRA_planned_economy
+		focus = FRA_revolutionary_communes
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
+	}
+}
+
+shared_focus = {
+	id = FRA_socialist_economy_strengthened
+	icon = GFX_FRA_socialist_economy_strengthened
+	
+	x = 1
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_teaching_the_masses
+	prerequisite = { focus = FRA_teaching_the_masses }
+	prerequisite = { focus = FRA_collectivization }
+	
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
+	}
+}
+
+shared_focus = {
+	id = FRA_alliance_with_blum
+	icon = GFX_FRA_alliance_with_blum
+	
+	x = -1
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_the_jacobin_faction
+	prerequisite = { focus = FRA_the_jacobin_faction }
+	
+	completion_reward = {
+		add_demsoc_coalition = yes
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_mass_wealth_redistribution
+	icon = GFX_FRA_mass_wealth_redistribution
+	
+	x = 1
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_the_jacobin_faction
+	prerequisite = { focus = FRA_the_jacobin_faction }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_behead_the_old
+	icon = GFX_FRA_behead_the_old
+	
+	x = 1
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_alliance_with_blum
+	prerequisite = { focus = FRA_alliance_with_blum }
+	prerequisite = { focus = FRA_mass_wealth_redistribution }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_upholding_lenin
+	icon = GFX_FRA_upholding_lenin
+	
+	x = -1
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_behead_the_old
+	prerequisite = { focus = FRA_behead_the_old }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_avantgardism
+	icon = GFX_FRA_avant_gardism
+	
+	x = 1
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_behead_the_old
+	prerequisite = { focus = FRA_behead_the_old }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_approach_moscow
+	icon = GFX_FRA_approach_moscow
+	
+	x = 0
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_upholding_lenin
+	prerequisite = { focus = FRA_upholding_lenin }
+	prerequisite = { focus = FRA_avantgardism }
+	mutually_exclusive = { focus = FRA_denounce_soviet_revisionism }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_denounce_soviet_revisionism
+	icon = GFX_FRA_denounce_soviet_revisionism
+	
+	x = 0
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_avantgardism
+	prerequisite = { focus = FRA_upholding_lenin }
+	prerequisite = { focus = FRA_avantgardism }
+	mutually_exclusive = { focus = FRA_approach_moscow }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+	
+shared_focus = {
+	id = FRA_our_cult_of_reason
+	icon = GFX_FRA_our_cult_of_reason
+	
+	x = 0
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_approach_moscow
+	prerequisite = {
+		focus = FRA_approach_moscow
+		focus = FRA_denounce_soviet_revisionism
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_caira
+	icon = GFX_FRA_ca_ira
+	
+	x = 0
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_denounce_soviet_revisionism
+	prerequisite = {
+		focus = FRA_approach_moscow
+		focus = FRA_denounce_soviet_revisionism
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_communism_with_french_characteristics
+	icon = GFX_FRA_communism_with_french_characteristics
+	
+	x = 1
+	y = 1
+	cost = 2
+	
+	relative_position_id = FRA_our_cult_of_reason
+	prerequisite = { focus = FRA_our_cult_of_reason }
+	prerequisite = { focus = FRA_caira }
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
 }

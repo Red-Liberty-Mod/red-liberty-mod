@@ -63,6 +63,12 @@ country_event = { # 1936 spa convention - choosing veep
 	
 	fire_only_once = yes
 	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = USA_thomas_renominated
+		}
+	}
+	
 	option = {
 		name = united_states.4.a
 		custom_effect_tooltip = USA_henry_wallace_veep_tt
@@ -969,6 +975,32 @@ country_event = { # lindbergh returns to the US
 
 	option = {
 		name = united_states_flavor.12.a
+	}
+}
+
+country_event = { # united pacifist committee
+	id = united_states_flavor.13
+	title = united_states_flavor.13.title
+	desc = united_states_flavor.13.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_flavor.13.a
+		trigger = {
+			has_government = democratic_socialism
+		}
+		add_war_support = -0.01
+	}
+	
+	option = {
+		name = united_states_flavor.13.b
+		trigger = {
+			has_government = national_conservatism
+		}
+		add_war_support = -0.01
 	}
 }
 

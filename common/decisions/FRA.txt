@@ -29,10 +29,18 @@ FRA_industrialization_category = {
 		
 		days_remove = 30
 		
+		complete_effect = {
+			subtract_from_variable = { FRA_industry_points = 1 }
+		}
+		
 		remove_effect = {
 			FROM = {
 				improve_state_category = yes
 			}
+		}
+		
+		ai_will_do = {
+			base = 15
 		}
 	}
 	
@@ -58,6 +66,10 @@ FRA_industrialization_category = {
 				tooltip = FRA_gain_industry_points
 			}
 		}
+		
+		ai_will_do = {
+			base = 10
+		}
 	}
 	
 	FRA_sell_ammunition = {
@@ -82,11 +94,15 @@ FRA_industrialization_category = {
 				tooltip = FRA_gain_industry_points
 			}
 		}
+		
+		ai_will_do = {
+			base = 10
+		}
 	}
 	
 	FRA_invest_in_construction = {
 	
-		icon = ger_mefo_bills
+		icon = GFX_decision_generic_construction
 		
 		visible = {
 			
@@ -112,11 +128,15 @@ FRA_industrialization_category = {
 		remove_effect = {
 			
 		}
+		
+		ai_will_do = {
+			base = 5
+		}
 	}
 	
 	FRA_invest_in_production = {
 	
-		icon = ger_mefo_bills
+		icon = GFX_decision_generic_industry
 		
 		visible = {
 			
@@ -141,6 +161,654 @@ FRA_industrialization_category = {
 		
 		remove_effect = {
 			
+		}
+		
+		ai_will_do = {
+			base = 5
+		}
+	}
+	
+	FRA_invest_in_naval_production = {
+	
+		icon = GFX_decision_generic_naval
+		
+		visible = {
+			
+		}
+		
+		custom_cost_trigger = {
+			check_variable = { FRA_industry_points > 0 }
+		}
+		custom_cost_text = decision_cost_1_industry_point
+		
+		days_remove = 30
+		
+		days_re_enable = 30
+		
+		complete_effect = {
+			subtract_from_variable = { FRA_industry_points = 1 }
+		}
+		
+		modifier = {
+			industrial_capacity_dockyard = 0.075
+		}
+		
+		remove_effect = {
+			
+		}
+		
+		ai_will_do = {
+			base = 5
+		}
+	}
+	
+	FRA_drill_for_oil_pyrenees = {
+		icon = GFX_decision_oil
+		
+		highlight_states = {
+			highlight_state_targets = { state = 31 }
+		}
+		
+		available = {
+			has_completed_focus = FRA_the_oil_must_flow
+		}
+		
+		visible = {
+			
+		}
+		
+		custom_cost_trigger = {
+			check_variable = { FRA_industry_points > 1 }
+		}
+		custom_cost_text = decision_cost_2_industry_point
+		
+		days_remove = 30
+		
+		fire_only_once = yes
+		
+		complete_effect = {
+			subtract_from_variable = { FRA_industry_points = 2 }
+		}
+		
+		remove_effect = {
+			31 = {
+				add_resource = {
+					type = oil
+					amount = 5
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 15
+		}
+	}
+}
+
+FRA_republican_resistance_category = {
+	
+	FRA_remove_resistance_state = {
+		
+		target_trigger = {
+			FROM = {
+				is_owned_by = ROOT
+				is_core_of = ROOT
+				has_modifier = FRA_republican_resistance_modifier
+			}
+		}
+		
+		available = {
+			
+		}
+		
+		state_target = yes
+		
+		on_map_mode = map_only
+		
+		cost = FRA_remove_resistance_state_cost?30
+		fire_only_once = yes
+		
+		days_remove = 30
+		
+		complete_effect = {
+			
+		}
+		
+		remove_effect = {
+			remove_dynamic_modifier = {
+				modifier = FRA_republican_resistance_modifier
+			}
+			subtract_from_variable = { FRA_resisting_states = 1 }
+		}
+	}
+}
+
+FRA_local_development_category = {
+	
+	FRA_local_dev_state = {
+		
+		target_trigger = {
+			FROM = {
+				is_owned_by = ROOT
+				is_core_of = ROOT
+			}
+		}
+		
+		available = {
+			NOT = {
+				FROM = {
+					has_modifier = FRA_republican_resistance_modifier
+				}
+			}
+		}
+		
+		state_target = yes
+		
+		on_map_mode = map_only
+		
+		cost = 30
+		fire_only_once = yes
+		
+		days_remove = 30
+		
+		complete_effect = {
+			
+		}
+		
+		remove_effect = {
+			
+		}
+	}
+}
+
+FRA_latin_entente_category = {
+
+	FRA_latin_entente_research_group = {
+		icon = ger_mefo_bills
+		
+		available = {
+			FRA = {
+				is_faction_leader = yes
+			}
+		}
+		
+		visible = {
+			tag = FRA
+		}
+		
+		fire_only_once = yes
+		
+		cost = 25
+		
+		complete_effect = {
+			add_to_tech_sharing_group = latin_entente_research
+			set_country_flag = latin_entente_research_formed
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	FRA_latin_entente_join_research_group = {
+		icon = ger_mefo_bills
+		
+		available = {
+			FRA = {
+				has_country_flag = latin_entente_research_formed
+			}
+		}
+		
+		visible = {
+			NOT = {
+				tag = FRA
+			}
+		}
+		
+		fire_only_once = yes
+		
+		cost = 25
+		
+		complete_effect = {
+			add_to_tech_sharing_group = latin_entente_research
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	FRA_latin_entente_monetary_union = {
+		icon = ger_mefo_bills
+		
+		available = {
+			FRA = {
+				is_faction_leader = yes
+			}
+		}
+		
+		visible = {
+			tag = FRA
+		}
+		
+		fire_only_once = yes
+		
+		cost = 25
+		
+		complete_effect = {
+			
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+
+	FRA_invite_to_latin_entente = {
+		
+		targets = {
+			SPR POR SWI ROM BRA
+		}
+		
+		available = {
+			FROM = {
+				has_war = no
+			}
+			if = {
+				limit = {
+					FROM = {
+						original_tag = BRA
+					}
+				}
+				has_completed_focus = FRA_catholic_network
+			}
+		}
+		
+		visible = {
+			tag = FRA
+		}
+		
+		cost = 25
+		fire_only_once = yes
+		
+		complete_effect = {
+			FROM = {
+				
+			}
+		}
+	}
+}
+
+FRA_anti_german_pact_category = {
+	
+	FRA_invite_to_anti_german_pact = {
+		
+		targets = {
+			BEL GRE ITA SPR POR NOR SWE DEN TUR ROM SER BUL ALB IRE CRO ENG SWI
+		}
+		
+		available = {
+			FROM = {
+				has_war = no
+			}
+		}
+		
+		visible = {
+			FROM = {
+				NOT = {
+					has_country_flag = anti_german_pact_member
+				}
+			}
+		}
+		
+		on_map_mode = map_only
+		
+		cost = 15
+		fire_only_once = yes
+		
+		complete_effect = {
+			FROM = {
+				country_event = {
+					id = france_FORPOL.2
+					hours = 6
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+	}
+	
+	FRA_invite_to_continental_entente = {
+		
+		targets = {
+			BEL GRE SPR POR NOR SWE DEN TUR ROM SER BUL ALB IRE CRO
+		}
+		
+		available = {
+			FROM = {
+				has_country_flag = anti_german_pact_member
+				NOT = {
+					is_in_faction = yes
+				}
+			}
+		}
+		
+		visible = {
+			FROM = {
+				has_country_flag = anti_german_pact_member
+				NOT = {
+					is_in_faction = yes
+				}
+			}
+		}
+		
+		on_map_mode = map_only
+		
+		cost = 30
+		fire_only_once = yes
+		
+		complete_effect = {
+			FROM = {
+				country_event = {
+					id = france_FORPOL.5
+					hours = 6
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+	}
+}
+
+FRA_balance_of_power_category = {
+	
+	FRA_collectivist_propaganda = {
+		icon = GFX_decision_generic_nationalism
+		
+		available = {
+			
+		}
+		
+		visible = {
+			
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+			
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	FRA_deify_gensec = {
+		icon = ger_mefo_bills
+		
+		available = {
+			
+		}
+		
+		visible = {
+			
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+			
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	FRA_redirect_industry = {
+		icon = GFX_decision_eng_trade_unions_support
+		
+		available = {
+			
+		}
+		
+		visible = {
+			
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+			
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	FRA_discourage_caesarism = {
+		icon = generic_political_discourse
+		
+		available = {
+			
+		}
+		
+		visible = {
+			
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+			
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	FRA_purge_something = {
+		icon = GFX_decision_generic_police_action
+		
+		available = {
+			
+		}
+		
+		visible = {
+			
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+			
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+}
+
+FRA_italian_great_game_category = {
+	
+	FRA_make_territorial_promises = {
+		icon = ger_mefo_bills
+		
+		available = {
+			
+		}
+		
+		visible = {
+			
+		}
+		
+		cost = 10
+		days_re_enable = 60
+		
+		complete_effect = {
+			if = {
+				limit = {
+					has_completed_focus = FRA_recognize_italian_conquests
+				}
+				add_to_variable = {
+					tooltip = FRA_italian_influence_gain
+					FRA_italian_influence = 10
+				}
+			}
+			else = {
+				add_to_variable = {
+					tooltip = FRA_italian_influence_gain
+					FRA_italian_influence = 5
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 0
+				date < 1938.1.1
+			}
+			modifier = {
+				factor = 0.5
+				check_variable = { FRA_italian_influence > 60 }
+			}
+			modifier = {
+				factor = 0
+				check_variable = { FRA_italian_influence > 100 }
+			}
+		}
+	}
+	
+	FRA_offer_industrial_investments = {
+		icon = ger_mefo_bills
+		
+		available = {
+			
+		}
+		
+		visible = {
+			
+		}
+		
+		cost = 10
+		days_re_enable = 60
+		
+		#modifier = {
+		#	civilian_factory_use = 1
+		#}
+		
+		complete_effect = {
+			add_to_variable = {
+				tooltip = FRA_italian_influence_gain
+				FRA_italian_influence = 5
+			}
+		}
+		
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 0
+				date < 1938.1.1
+			}
+			modifier = {
+				factor = 0.5
+				check_variable = { FRA_italian_influence > 60 }
+			}
+			modifier = {
+				factor = 0
+				check_variable = { FRA_italian_influence > 100 }
+			}
+		}
+	}
+	
+	FRA_officer_exchange_program = {
+		icon = ger_mefo_bills
+		
+		available = {
+			
+		}
+		
+		visible = {
+			
+		}
+		
+		cost = 10
+		days_re_enable = 60
+		
+		complete_effect = {
+			add_to_variable = {
+				tooltip = FRA_italian_influence_gain
+				FRA_italian_influence = 5
+			}
+		}
+		
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 0
+				date < 1938.1.1
+			}
+			modifier = {
+				factor = 0.5
+				check_variable = { FRA_italian_influence > 60 }
+			}
+			modifier = {
+				factor = 0
+				check_variable = { FRA_italian_influence > 100 }
+			}
+		}
+	}
+	
+	FRA_slander_german_diplomats = {
+		icon = ger_mefo_bills
+		
+		available = {
+			
+		}
+		
+		visible = {
+			
+		}
+		
+		cost = 10
+		days_re_enable = 60
+		
+		complete_effect = {
+			GER = {
+				add_to_variable = {
+					tooltip = GER_italian_influence_lose
+					GER.GER_italian_influence = -5
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 0
+				date < 1938.1.1
+			}
+			modifier = {
+				factor = 0.5
+				check_variable = { FRA_italian_influence > 60 }
+			}
+			modifier = {
+				factor = 0
+				check_variable = { FRA_italian_influence > 100 }
+			}
+			modifier = {
+				factor = 2
+				check_variable = { GER.GER_italian_influence > 60 }
+			}
 		}
 	}
 }
