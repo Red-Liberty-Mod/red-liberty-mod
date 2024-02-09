@@ -22,6 +22,9 @@ add_namespace = demo_nzl
 add_namespace = demo_ukr
 add_namespace = demo_ven
 add_namespace = demo_arg
+add_namespace = demo_pru
+add_namespace = demo_bol
+add_namespace = demo_chl
 
 add_namespace = demo_usa_jap_peace
 add_namespace = demo_jap_usa_war
@@ -3912,20 +3915,43 @@ country_event = { # democratic coup
 				ruling_party = progressive_liberalism
 			}
 			reset_coalition = yes
+			
+			country_event = {
+				id = demo_arg.3
+				days = 35
+				random_days = 15
+			}
 		}
 		random_other_country = {
 			limit = { is_ai = yes }
 			news_event = { id = demo_arg.2 hours = 6 }
 		}
 		ai_chance = {
-			base = 60
+			base = 40
 		}
 	}
 	
 	option = { # fails
 		name = demo_arg.1.b
 		ai_chance = {
-			base = 40
+			base = 30
+		}
+	}
+	
+	option = { # nationalist counter-coup
+		name = demo_arg.1.c
+		ARG = {
+			set_politics = {
+				ruling_party = ultraconservatism
+			}
+			reset_coalition = yes
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_arg.3 hours = 6 }
+		}
+		ai_chance = {
+			base = 30
 		}
 	}
 }
@@ -3941,5 +3967,155 @@ news_event = {
 	
 	option = {
 		name = demo_arg.2.a
+	}
+}
+
+news_event = {
+	id = demo_arg.3
+	title = demo_arg.3.title
+	desc = demo_arg.3.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = demo_arg.3.a
+	}
+}
+
+country_event = { # military coup
+	id = demo_bol.1
+	title = demo_bol.1.title
+	desc = demo_bol.1.desc
+	
+	is_triggered_only = yes
+	
+	option = { # succeeds
+		name = demo_bol.1.a
+		BOL = {
+			set_politics = {
+				ruling_party = despotism
+				elections_allowed = no
+			}
+			add_popularity = {
+				ideology = despotism
+				popularity = 0.1
+			}
+			reset_coalition = yes
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_bol.2 hours = 6 }
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+news_event = {
+	id = demo_bol.2
+	title = demo_bol.2.title
+	desc = demo_bol.2.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = demo_bol.2.a
+	}
+}
+
+country_event = { # apra-led civil war
+	id = demo_pru.1
+	title = demo_pru.1.title
+	desc = demo_pru.1.desc
+	
+	is_triggered_only = yes
+	
+	option = { # succeeds
+		name = demo_pru.1.a
+		PRU = {
+			remove_ideas = PRU_growing_aprista_movement
+			start_civil_war = {
+				ideology = democratic_socialism
+				size = 0.1
+				army_ratio = 0.5
+				navy_ratio = 0
+				air_ratio = 1
+				
+				save_global_event_target_as = socialist_peru
+				set_cosmetic_tag = PRU_socialist
+			}
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_pru.2 hours = 6 }
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+news_event = {
+	id = demo_pru.2
+	title = demo_pru.2.title
+	desc = demo_pru.2.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = demo_pru.2.a
+	}
+}
+
+country_event = { # mevement for the liberation of the
+	id = demo_chl.1
+	title = demo_chl.1.title
+	desc = demo_chl.1.desc
+	
+	is_triggered_only = yes
+	
+	option = { # succeeds
+		name = demo_chl.1.a
+		CHL = {
+			create_faction = "Movement for Liberation"
+		}
+		every_other_country = {
+			limit = {
+				is_in_south_america = yes
+				has_war = no
+				has_socialist_govt = yes
+			}
+			CHL = {
+				add_to_faction = PREV
+			}
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_chl.2 hours = 6 }
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+news_event = {
+	id = demo_chl.2
+	title = demo_chl.2.title
+	desc = demo_chl.2.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = demo_chl.2.a
 	}
 }
