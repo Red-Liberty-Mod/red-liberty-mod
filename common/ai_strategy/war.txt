@@ -300,3 +300,58 @@ CMS_crush_TAG = {
 		execute_order = yes
 	}
 }
+
+TAG_support_PRU = {
+	allowed = {
+		OR = {
+			original_tag = JAP
+			original_tag = BRA
+			original_tag = ARG
+			original_tag = GER
+		}
+	}
+	enable = {
+		PRU = {
+			has_war_with = SRP
+		}
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = PRU
+		value = 150
+	}
+}
+
+TAG_support_SRP = {
+	allowed = {
+		OR = {
+			original_tag = CHL
+			original_tag = UOB
+			original_tag = NIC
+			AND = {
+				original_tag = BOL
+				has_government = despotism
+			}
+			AND = {
+				original_tag = ARG
+				has_government = ultraconservatism
+			}
+		}
+	}
+	enable = {
+		PRU = {
+			has_war_with = SRP
+		}
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = SRP
+		value = 150
+	}
+}
