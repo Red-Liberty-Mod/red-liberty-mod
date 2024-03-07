@@ -228,6 +228,50 @@ USA_destroyers = {
 			ship_radar
 		}
 	}
+	
+	modern_ship_hull_light = {
+		name = "Gearing Class"
+		
+		priority = {
+			factor = 10
+			modifier = {
+				factor = 10
+			}
+		}
+		role_icon_index = 4
+		enable = { 
+			has_tech = advanced_dp_light_battery
+			has_tech = modern_ship_hull_light
+		}
+		
+		target_variant = {
+			match_value = 2000.0
+			
+			type = ship_hull_light_5
+			modules = {
+				fixed_ship_battery_slot = dp_light_battery_4
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = light_ship_engine_4
+				fixed_ship_torpedo_slot = ship_torpedo
+				front_1_custom_slot = dp_light_battery_4
+				mid_1_custom_slot = ship_torpedo
+				mid_2_custom_slot = ship_depth_charge
+				rear_1_custom_slot = dp_light_battery_4
+			}
+		}
+		
+		allowed_modules = {
+			ship_anti_air
+			ship_depth_charge
+			ship_torpedo
+			dp_light_battery
+			light_ship_engine
+			ship_fire_control_system
+			ship_radar
+		}
+	}
 }
 
 USA_battleships = {
