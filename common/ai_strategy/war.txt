@@ -225,7 +225,7 @@ AUS_focus_on_AHE = {
 	}
 }
 
-MEX_crush_tag = {
+MEX_crush_TAG = {
 	allowed = {
 		original_tag = MEX
 	}
@@ -335,10 +335,6 @@ TAG_support_SRP = {
 				original_tag = BOL
 				has_government = despotism
 			}
-			AND = {
-				original_tag = ARG
-				has_government = ultraconservatism
-			}
 		}
 	}
 	enable = {
@@ -352,6 +348,27 @@ TAG_support_SRP = {
 	ai_strategy = {
 		type = send_lend_lease_desire
 		id = SRP
+		value = 150
+	}
+}
+
+TAG_support_HUN = {
+	allowed = {
+		OR = {
+			original_tag = BUL
+		}
+	}
+	enable = {
+		HUN = {
+			has_war_with = ROM
+		}
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = HUN
 		value = 150
 	}
 }

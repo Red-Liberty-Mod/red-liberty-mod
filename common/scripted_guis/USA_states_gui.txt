@@ -35,6 +35,7 @@ scripted_gui = {
 	USA_states_map = {
 		context_type = player_context
 		window_name = "USA_states_map_window"
+		dirty = USA_states_map_dirty
 
 		ai_check = {
 			always = no
@@ -45,10 +46,26 @@ scripted_gui = {
 		}
 		
 		triggers = {
-			
+			#USA_states_hide_checkbox_click_enabled = {
+			#	USA = {
+			#		has_active_election = yes
+			#	}
+			#}
 		}
 
 		effects = {
+			#USA_states_hide_checkbox_click = {
+			#	if = {
+			#		limit = {
+			#			check_variable = { hide_non_election_states = 0 }
+			#		}
+			#		set_variable = { hide_non_election_states = 1 }
+			#	}
+			#	else = {
+			#		set_variable = { hide_non_election_states = 0 }
+			#	}
+			#	add_to_variable = { USA_states_map_dirty = 0.01 }
+			#}
 			button_close_click = {
 				clr_country_flag = USA_states_map_open
 			}

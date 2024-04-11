@@ -967,6 +967,8 @@ country_event = { # rom-hun war
 			country_lock_all_division_template = no
 			
 			load_oob = ROM_danubian_war
+			
+			set_country_flag = declared_war_on_HUN
 		}
 		80 = {
 			set_state_owner_to = ROM
@@ -980,6 +982,7 @@ country_event = { # rom-hun war
 				election_frequency = 48
 				elections_allowed = no
 			}
+			set_country_flag = declared_war_on_HUN
 		}
 		HUN = {
 			declare_war_on = {
@@ -1175,20 +1178,11 @@ country_event = {
 
 country_event = {
 	id = demo.sov_fin_war.2
-	title = ""
+	title = demo.sov_fin_war.2.title
 	desc = demo.sov_fin_war.2.desc
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
-
-    mean_time_to_happen = {
-		days = 1095
-		modifier = {
-		  factor = 200
-		  country_exists = RUS 
-		}
-    }
 	
 	option = {
 		name = ""

@@ -589,7 +589,6 @@ defined_text = {
 		}
 		localization_key = "GFX_USA_states_gui_IN_republican"
 	}
-	
 	text = {
 		trigger = {
 			OR = {
@@ -604,6 +603,21 @@ defined_text = {
 			}
 		}
 		localization_key = "GFX_USA_states_gui_IN_republican_democrat_split"
+	}
+	text = {
+		trigger = {
+			OR = {
+				AND = {
+					check_variable = { 396.senator_1 = 1 }
+					check_variable = { 396.senator_2 = 3 }
+				}
+				AND = {
+					check_variable = { 396.senator_1 = 3 }
+					check_variable = { 396.senator_2 = 1 }
+				}
+			}
+		}
+		localization_key = "GFX_USA_states_gui_IN_socialist_democrat_split"
 	}
 }
 
