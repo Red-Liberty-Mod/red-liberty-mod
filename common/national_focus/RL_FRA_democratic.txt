@@ -236,7 +236,7 @@ shared_focus = {
 	}
 	mutually_exclusive = {
 		focus = FRA_popular_front
-		focus = FRA_national_coalition
+		focus = FRA_national_union
 	}
 	
     completion_reward = {
@@ -869,26 +869,6 @@ shared_focus = {
 }
 
 shared_focus = {
-	id = FRA_local_cooperatives
-	icon = GFX_FRA_local_cooperatives
-	
-	x = -1
-	y = 1
-	cost = 4
-	
-	relative_position_id = FRA_expand_the_welfare_system
-	prerequisite = { focus = FRA_expand_the_welfare_system }
-	
-	completion_reward = {
-		add_ideas = FRA_local_cooperatives
-	}
-	
-	search_filters = {
-		FOCUS_FILTER_POLITICAL
-	}
-}
-
-shared_focus = {
 	id = FRA_expand_the_welfare_system
 	icon = GFX_goal_unknown
 	
@@ -905,6 +885,26 @@ shared_focus = {
 			remove_idea = FRA_pop_crisis_1
 			add_idea = FRA_pop_crisis_2
 		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_local_cooperatives
+	icon = GFX_FRA_local_cooperatives
+	
+	x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_expand_the_welfare_system
+	prerequisite = { focus = FRA_expand_the_welfare_system }
+	
+	completion_reward = {
+		add_ideas = FRA_local_cooperatives
 	}
 	
 	search_filters = {

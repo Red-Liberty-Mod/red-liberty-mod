@@ -378,6 +378,7 @@ focus_tree = {
 			}
 		}
 	}
+	
 	focus = {
 		id = ITA_revive_the_italian_peoples_party
 		icon = GFX_goal_unknown
@@ -564,6 +565,9 @@ focus_tree = {
 		prerequisite = {
 			focus = ITA_begin_to_weaken_fascism
 		}
+		mutually_exclusive = {
+			focus = ITA_invite_the_moderates_in
+		}
 		x = 37
 		y = 3
 		available_if_capitulated = yes
@@ -573,7 +577,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_popularity = {
-    			ideology = proletarian_dictatorship
+    			ideology = vanguard_socialism
     			popularity = 0.05
 			}
 		}
@@ -596,7 +600,7 @@ focus_tree = {
 		completion_reward = {
 			add_stability = -0.5
 			add_popularity = {
-    			ideology = proletarian_dictatorship
+    			ideology = vanguard_socialism
     			popularity = 0.05
 			}			
 		}
@@ -986,10 +990,9 @@ focus_tree = {
 					IF = {
 						limit = {
 							NOT = {
-								has_government = autocratic_despotism
+								has_government = despotism
 
 							}
-												
 						}
 						country_event = {
 							id = italy_events.76
@@ -1058,7 +1061,7 @@ focus_tree = {
 		completion_reward = {
 			FRA = {
 				add_popularity = {
-					ideology = autocratic_despotism
+					ideology = despotism
 					popularity = 0.1
 				}
 			}
@@ -1277,7 +1280,7 @@ focus_tree = {
 					factor = 1
 				} 
 		completion_reward = {
-			unlock_decision_category_tooltip = ITA_support_the_nazis
+			#unlock_decision_category_tooltip = ITA_support_the_nazis
 		}
 
 	}
@@ -1831,12 +1834,12 @@ focus_tree = {
 		x = 36
 		y = 16
 		completion_reward = {
-			FRA = {
-				add_timed_idea = {
-					idea = ITA_communist_funded_rebels
-					days = 75
-				}
-			}
+			#FRA = {
+			#	add_timed_idea = {
+			#		idea = ITA_communist_funded_rebels
+			#		days = 75
+			#	}
+			#}
 		}
 	}
 	focus = {
@@ -1947,7 +1950,7 @@ focus_tree = {
 				target = HSR
 			}
 			send_equipment = {
-				equipment = armor
+				equipment = light_tank
 				amount = 10
 				target = HSR
 			}
@@ -2285,10 +2288,10 @@ focus_tree = {
 		y = 3
 		completion_reward = {
 			#Add timed idea for 100 days "Industrial works"
-			add_timed_idea = {
-				idea = ITA_industrial_works
-				days = 100
-			}
+			#add_timed_idea = {
+			#	idea = ITA_industrial_works
+			#	days = 100
+			#}
 		}
 	}
 	focus = {
