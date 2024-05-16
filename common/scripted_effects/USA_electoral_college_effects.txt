@@ -1194,7 +1194,7 @@ USA_convert_party_pop_percentage = {
 	add_to_temp_variable = { afp_temp_pop = afp_popularity_special }
 	
 	### various bonuses/maluses
-	USA_gerrymandering_bonus = yes
+	#USA_gerrymandering_bonus = yes # temporarily disabled
 	USA_party_unity_bonus = yes
 	
 	### final calculations
@@ -1230,6 +1230,7 @@ USA_convert_party_pop_percentage = {
 	add_to_variable = { total_election_pop = commonwealth_election_pop }
 	
 	add_to_variable = { total_election_pop = -1 }
+	#log = "[This.GetName] : total_election_pop - [?total_election_pop]"
 	
 	### discrepancy check
 	if = {
@@ -1238,45 +1239,21 @@ USA_convert_party_pop_percentage = {
 				check_variable = { total_election_pop = 0 }
 			}
 		}
+		log = "[This.GetName] : total_election_pop discrepancy found - [?total_election_pop]"
 		
 		if = {
 			limit = {
-				check_variable = { total_election_pop > 0 }
+				check_variable = { total_election_pop < 0 }
 			}
 			multiply_variable = { total_election_pop = -1 }
 		}
-		
-		#log = "[This.GetName] : total_election_pop discrepancy found - [?total_election_pop]"
-		
-		if = {
-			limit = {
-				check_variable = { communist_election_pop > 0 }
+		random_list = {
+			50 = {
+				add_to_variable = { socialist_election_pop = total_election_pop }
 			}
-			add_to_variable = { communist_election_pop = total_election_pop }
-		}
-		else_if = {
-			limit = {
-				check_variable = { commonwealth_election_pop > 0 }
+			50 = {
+				add_to_variable = { democrat_election_pop = total_election_pop }
 			}
-			add_to_variable = { commonwealth_election_pop = total_election_pop }
-		}
-		else_if = {
-			limit = {
-				check_variable = { democrat_election_pop > 0 }
-			}
-			add_to_variable = { democrat_election_pop = total_election_pop }
-		}
-		else_if = {
-			limit = {
-				check_variable = { republican_election_pop > 0 }
-			}
-			add_to_variable = { republican_election_pop = total_election_pop }
-		}
-		else_if = {
-			limit = {
-				check_variable = { socialist_election_pop > 0 }
-			}
-			add_to_variable = { socialist_election_pop = total_election_pop }
 		}
 	}
 	
@@ -1294,11 +1271,11 @@ USA_convert_party_pop_percentage = {
 	multiply_variable = { democrat_prev_election_pop = -1 }
 	multiply_variable = { commonwealth_prev_election_pop = -1 }
 	
-	log = "[This.GetName] : communist_prev_election_pop - [?communist_prev_election_pop]"
-	log = "[This.GetName] : socialist_prev_election_pop - [?socialist_prev_election_pop]"
-	log = "[This.GetName] : republican_prev_election_pop - [?republican_prev_election_pop]"
-	log = "[This.GetName] : democrat_prev_election_pop - [?democrat_prev_election_pop]"
-	log = "[This.GetName] : commonwealth_prev_election_pop - [?commonwealth_prev_election_pop]"
+	#log = "[This.GetName] : communist_prev_election_pop - [?communist_prev_election_pop]"
+	#log = "[This.GetName] : socialist_prev_election_pop - [?socialist_prev_election_pop]"
+	#log = "[This.GetName] : republican_prev_election_pop - [?republican_prev_election_pop]"
+	#log = "[This.GetName] : democrat_prev_election_pop - [?democrat_prev_election_pop]"
+	#log = "[This.GetName] : commonwealth_prev_election_pop - [?commonwealth_prev_election_pop]"
 	
 	USA_state_generate_list = yes
 }
