@@ -38,6 +38,34 @@ USA_clamp_supreme_court = {
 	}
 }
 
+USA_calc_sc_nomination_cost = {
+	if = {
+		limit = {
+			check_variable = { # reformist court
+				supreme_court_lean > 0
+			}
+		}
+		set_variable = { USA_reformist_cost = -250 }
+		set_variable = { USA_centrist_cost = -50 }
+		set_variable = { USA_conservative_cost = -150 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { # conservative court
+				supreme_court_lean < 0
+			}
+		}
+		set_variable = { USA_reformist_cost = -150 }
+		set_variable = { USA_centrist_cost = -50 }
+		set_variable = { USA_conservative_cost = -250 }
+	}
+	else = { # court is perfectly balanced
+		set_variable = { USA_reformist_cost = -50 }
+		set_variable = { USA_centrist_cost = -50 }
+		set_variable = { USA_conservative_cost = -50 }
+	}
+}
+
 USA_calc_congress_control = {
 	
 	### SENATE ###

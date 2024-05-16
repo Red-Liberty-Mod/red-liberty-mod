@@ -1463,40 +1463,40 @@ USA_gerrymandering_bonus = {
 }
 
 USA_party_unity_bonus = {
+	
+	### Socialists ###
 	clamp_variable = {
 		var = USA.USA_socialist_unity
 		min = @MINIMUM_UNITY
 		max = @MAXIMUM_UNITY
 	}
-
-	if = {
-		limit = {
-			check_variable = { USA.USA_socialist_unity < 5 }
-		}
-		subtract_from_temp_variable = { socialist_temp_pop = 0.1 }
-		#log = "[This.GetName] : added USA_party_unity_bonus -0.1"
+	set_temp_variable = {
+		socialist_unity_temp = USA.USA_socialist_unity
 	}
-	else_if = {
-		limit = {
-			check_variable = { USA.USA_socialist_unity < 10 }
-		}
-		subtract_from_temp_variable = { socialist_temp_pop = 0.075 }
-		#log = "[This.GetName] : added USA_party_unity_bonus -0.075"
+	divide_temp_variable = { # convert into percentage of max unity
+		socialist_unity_temp = @MAXIMUM_UNITY
 	}
-	else_if = {
-		limit = {
-			check_variable = { USA.USA_socialist_unity < 15 }
-		}
-		subtract_from_temp_variable = { socialist_temp_pop = 0.05 }
-		#log = "[This.GetName] : added USA_party_unity_bonus -0.05"
+	multiply_temp_variable = {
+		socialist_unity_temp = 0.1 # the maximum penalty
 	}
-	else_if = {
-		limit = {
-			check_variable = { USA.USA_socialist_unity > 25 }
-		}
-		add_to_temp_variable = { socialist_temp_pop = 0.05 }
-		#log = "[This.GetName] : added USA_party_unity_bonus +0.05"
+	subtract_from_temp_variable = { socialist_temp_pop = socialist_unity_temp }
+	
+	### Democrats ###
+	clamp_variable = {
+		var = USA.USA_democrat_unity
+		min = @MINIMUM_UNITY
+		max = @MAXIMUM_UNITY
 	}
+	set_temp_variable = {
+		democrat_unity_temp = USA.USA_democrat_unity
+	}
+	divide_temp_variable = {
+		democrat_unity_temp = @MAXIMUM_UNITY
+	}
+	multiply_temp_variable = {
+		democrat_unity_temp = 0.1
+	}
+	subtract_from_temp_variable = { democrat_temp_pop = democrat_unity_temp }
 }
 
 USA_setup_candidate_popularity = {

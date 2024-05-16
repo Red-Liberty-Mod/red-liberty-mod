@@ -1203,9 +1203,16 @@ country_event = { # generic justice retires
 			date < 1937.1.1
 		}
 	}
+	
+	immediate = {
+		hidden_effect = {
+			USA_calc_sc_nomination_cost = yes
+		}
+	}
 
 	option = { # nominate reformist
 		name = united_states_supreme_court.1.a
+		add_political_power = var:USA_reformist_cost
 		add_to_variable = {
 			tooltip = USA_court_lean_more_reformist
 			var = supreme_court_lean
@@ -1221,6 +1228,7 @@ country_event = { # generic justice retires
 				check_variable = { supreme_court_lean = 0 }
 			}
 		}
+		add_political_power = var:USA_centrist_cost
 		if = {
 			limit = {
 				check_variable = { supreme_court_lean < 0 }
@@ -1246,6 +1254,7 @@ country_event = { # generic justice retires
 	
 	option = { # nominate conservative
 		name = united_states_supreme_court.1.c
+		add_political_power = var:USA_conservative_cost
 		add_to_variable = {
 			tooltip = USA_court_lean_more_conservative
 			var = supreme_court_lean
@@ -1261,11 +1270,17 @@ country_event = { # chief justice devanter retires
 	desc = united_states_supreme_court.2.desc
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			USA_calc_sc_nomination_cost = yes
+		}
+	}
 
 	option = { # nominate reformist
 		name = united_states_supreme_court.2.a
+		add_political_power = var:USA_reformist_cost
 		add_to_variable = {
 			tooltip = USA_court_lean_more_reformist
 			var = supreme_court_lean
@@ -1281,6 +1296,7 @@ country_event = { # chief justice devanter retires
 				check_variable = { supreme_court_lean = 0 }
 			}
 		}
+		add_political_power = var:USA_centrist_cost
 		if = {
 			limit = {
 				check_variable = { supreme_court_lean < 0 }
@@ -1306,6 +1322,7 @@ country_event = { # chief justice devanter retires
 	
 	option = { # nominate conservative
 		name = united_states_supreme_court.2.c
+		add_political_power = var:USA_conservative_cost
 		add_to_variable = {
 			tooltip = USA_court_lean_more_conservative
 			var = supreme_court_lean
@@ -1332,12 +1349,14 @@ country_event = { # chief justice devanter dies ~1941
 	
 	immediate = {
 		hidden_effect = {
+			USA_calc_sc_nomination_cost = yes
 			set_country_flag = USA_van_devanter_retired
 		}
 	}
 
 	option = { # nominate reformist
 		name = united_states_supreme_court.3.a
+		add_political_power = var:USA_reformist_cost
 		add_to_variable = {
 			tooltip = USA_court_lean_more_reformist
 			var = supreme_court_lean
@@ -1353,6 +1372,7 @@ country_event = { # chief justice devanter dies ~1941
 				check_variable = { supreme_court_lean = 0 }
 			}
 		}
+		add_political_power = var:USA_centrist_cost
 		if = {
 			limit = {
 				check_variable = { supreme_court_lean < 0 }
@@ -1378,6 +1398,7 @@ country_event = { # chief justice devanter dies ~1941
 	
 	option = { # nominate conservative
 		name = united_states_supreme_court.3.c
+		add_political_power = var:USA_conservative_cost
 		add_to_variable = {
 			tooltip = USA_court_lean_more_conservative
 			var = supreme_court_lean

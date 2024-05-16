@@ -1,42 +1,34 @@
 defined_text = {
 	name = GetSPAUnity
-	
-	text = { 
-        trigger = {
-			check_variable = { USA_socialist_unity > 25 }
-        }
-        localization_key = "USA_spa_party_unity_very_high"
-    }
-	
-	text = { 
-        trigger = {
-			check_variable = { USA_socialist_unity < 26 }
-			check_variable = { USA_socialist_unity > 20 }
-        }
-        localization_key = "USA_spa_party_unity_high"
-    }
-	
-	text = { 
-        trigger = {
-			check_variable = { USA_socialist_unity < 21 }
-			check_variable = { USA_socialist_unity > 15 }
-        }
-        localization_key = "USA_spa_party_unity_middling"
-    }
-	
 	text = {
 		trigger = {
-			check_variable = { USA_socialist_unity < 16 }
-			check_variable = { USA_socialist_unity > 10 }
+			check_variable = { USA_socialist_unity < 7 }
+        }
+        localization_key = "USA_spa_party_unity_very_low"
+    }
+	text = {
+		trigger = {
+			check_variable = { USA_socialist_unity < 13 }
         }
         localization_key = "USA_spa_party_unity_low"
     }
-	
-	text = {
-		trigger = {
-			check_variable = { USA_socialist_unity < 11 }
+	text = { 
+        trigger = {
+			check_variable = { USA_socialist_unity < 17 }
         }
-        localization_key = "USA_spa_party_unity_very_low"
+        localization_key = "USA_spa_party_unity_middling"
+    }
+	text = { 
+        trigger = {
+			check_variable = { USA_socialist_unity < 25 }
+        }
+        localization_key = "USA_spa_party_unity_high"
+    }
+	text = { 
+		#trigger = {
+		#	check_variable = { USA_socialist_unity > 25 }
+        #}
+        localization_key = "USA_spa_party_unity_very_high"
     }
 }
 

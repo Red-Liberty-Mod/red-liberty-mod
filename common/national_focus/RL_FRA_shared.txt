@@ -1344,7 +1344,7 @@ shared_focus = {
 	id = FRA_renew_our_friendship_with_the_british
 	icon = GFX_FRA_renew_our_friendship_with_the_british
 	
-	x = -1
+	x = 1
 	y = 1
 	cost = 4
 	
@@ -1373,12 +1373,15 @@ shared_focus = {
 	id = FRA_the_belgian_question
 	icon = GFX_FRA_the_belgian_question
 	
-	x = 1
+	x = -1
 	y = 1
 	cost = 4
 	
 	relative_position_id = FRA_reaffirm_old_ties
-	prerequisite = { focus = FRA_reaffirm_old_ties }
+	prerequisite = {
+		focus = FRA_maintain_flexibility
+		focus = FRA_reaffirm_old_ties
+	}
 	
 	completion_reward = {
 		add_named_threat = {
@@ -1493,7 +1496,7 @@ shared_focus = {
 	id = FRA_a_second_entente_cordiale
 	icon = GFX_FRA_second_entente_cordiale
 	
-	x = 1
+	x = -1
 	y = 1
 	cost = 4
 	
