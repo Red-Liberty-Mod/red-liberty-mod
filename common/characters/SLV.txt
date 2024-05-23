@@ -1,5 +1,41 @@
 characters = {
-
+	
+	SLV_edvard_kardelj = {
+		name = SLV_edvard_kardelj
+		
+		portraits = {
+			civilian = {
+				#large = "gfx/leaders/SLV/"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_EDVARD_KARDELJ_DESC"
+			ideology = vanguard_socialism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	SLV_franc_leskosek = {
+		name = SLV_franc_leskosek
+		
+		portraits = {
+			civilian = {
+				#large = "gfx/leaders/SLV/"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_FRANC_LESKOSEK_DESC"
+			ideology = syndicalism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
 	SLV_etbin_kristan = {
 		name = SLV_etbin_kristan
 		
@@ -18,12 +54,30 @@ characters = {
 		}
 	}
 	
+	SLV_albert_kramer = {
+		name = SLV_albert_kramer
+		
+		portraits = {
+			civilian = {
+				#large = ""
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_ALBERT_KRAMER_DESC"
+			ideology = liberal_radicalism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
 	SLV_ivan_hribar = {
 		name = SLV_ivan_hribar
 		
 		portraits = {
 			civilian = {
-				large = "GFX_portrait_SLV_ivan_hribar"
+				large = "gfx/leaders/SLV/Portrait_SLV_Ivan_Hribar.png"
 			}
 		}
 		
@@ -51,6 +105,119 @@ characters = {
 			traits = {
 				
 			}
+		}
+	}
+	
+	### Generals ###
+	
+	SLV_leon_rupnik = {
+		name = SLV_leon_rupnik
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				career_officer
+				inflexible_strategist
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		
+		advisor = {
+			slot = army_chief
+			idea_token = SLV_leon_rupnik
+			traits = { army_chief_defensive_1 }
+			cost = 50
+		}
+	}
+	
+	SLV_jaka_avsic = {
+		name = SLV_jaka_avsic
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				guerilla_fighter
+				hill_fighter
+				career_officer
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+		
+		advisor = {
+			slot = army_chief
+			idea_token = SLV_jaka_avsic
+			traits = { army_chief_organizational_1 }
+			cost = 50
+		}
+	}
+	
+	### High Command ###
+	
+	SLV_edvard_kocbek = {
+		name = SLV_edvard_kocbek
+		
+		portraits = {
+			army = {
+				small = ""
+			}
+		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = SLV_edvard_kocbek_political
+			available = {
+				not_already_hired_except_as = political_advisor
+			}
+			traits = { KR_naive_optimist }
+		}
+		
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = SLV_edvard_kocbek_high_command
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = { army_concealment_1 }
+			cost = 50
+		}
+	}
+	
+	SLV_karl_novak = {
+		name = SLV_karl_novak
+		
+		portraits = {
+			army = {
+				small = ""
+			}
+		}
+		
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = SLV_karl_novak
+			traits = { army_infantry_1 }
+			cost = 50
 		}
 	}
 }
