@@ -25,6 +25,7 @@ add_namespace = demo_arg
 add_namespace = demo_pru
 add_namespace = demo_bol
 add_namespace = demo_chl
+add_namespace = demo_crt
 
 add_namespace = demo_usa_jap_peace
 add_namespace = demo_jap_usa_war
@@ -1209,21 +1210,11 @@ country_event = { # far eastern revolt
 		896 = {
 			set_demilitarized_zone = no
 		}
-		FER = {
-			add_state_core = 408
-			add_state_core = 409
-			add_state_core = 560
-			add_state_core = 561
-			add_state_core = 562
-			add_state_core = 657
-			add_state_core = 896
-			
-			transfer_state = 896
-			
-			load_oob = FER
-			
+		RUS = {
+			remove_ideas = RUS_new_years_strike
+			RUS_setup_FER = yes
 			declare_war_on = {
-				target = RUS
+				target = FER
 				type = annex_everything
 			}
 		}
@@ -3943,6 +3934,15 @@ country_event = { # democratic coup
 		}
 		ai_chance = {
 			base = 30
+			modifier = { # commies won the brazil civil war
+				factor = 1.5
+				UOB = {
+					exists = yes
+				}
+				BRA = {
+					exists = no
+				}
+			}
 		}
 	}
 }
@@ -4065,7 +4065,7 @@ news_event = {
 	}
 }
 
-country_event = { # mevement for the liberation of the
+country_event = { # movement for the liberation of the
 	id = demo_chl.1
 	title = demo_chl.1.title
 	desc = demo_chl.1.desc
@@ -4076,6 +4076,10 @@ country_event = { # mevement for the liberation of the
 		name = demo_chl.1.a
 		CHL = {
 			create_faction = "Movement for Liberation"
+			add_named_threat = { 
+				threat = 3
+				name = CHL_liberation_movement
+			}
 		}
 		every_other_country = {
 			limit = {
@@ -4108,5 +4112,46 @@ news_event = {
 	
 	option = {
 		name = demo_chl.2.a
+	}
+}
+
+country_event = { # crt takes mexico city
+	id = demo_crt.1
+	title = demo_crt.1.title
+	desc = demo_crt.1.desc
+	
+	fire_only_once = yes
+	trigger = {
+		CRT = {
+			controls_state = 277
+		}
+	}
+	
+	option = { # succeeds
+		name = demo_crt.1.a
+		CRT = {
+			set_cosmetic_tag = CRT_mexico
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_crt.2 hours = 6 }
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+news_event = {
+	id = demo_crt.2
+	title = demo_crt.2.title
+	desc = demo_crt.2.desc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = demo_crt.2.a
 	}
 }

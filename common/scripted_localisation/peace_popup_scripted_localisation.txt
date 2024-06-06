@@ -188,6 +188,30 @@ defined_text = {
 		localization_key = PEACE_POPUP_WAR_CONTINUING_DANUBIAN_WALTZ
 	}
 	
+	text = { # mexican civil war
+		trigger = {
+			event_target:winning_country = {
+				OR = {
+					original_tag = MEX
+					original_tag = CRT
+					original_tag = YUC
+					original_tag = MTC
+					original_tag = FRP
+				}
+			}
+			event_target:losing_country = {
+				OR = {
+					original_tag = MEX
+					original_tag = CRT
+					original_tag = YUC
+					original_tag = MTC
+					original_tag = FRP
+				}
+			}
+		}
+		localization_key = PEACE_POPUP_WAR_CONTINUING_MEXICAN_CW
+	}
+	
 	text = {
 		localization_key = PEACE_POPUP_WAR_CONTINUING_DEFAULT
 	}
@@ -252,6 +276,15 @@ defined_text = {
 			}
 		}
 		localization_key = PEACE_POPUP_FLAVOR_IRE
+	}
+	
+	text = {
+		trigger = {
+			event_target:losing_country = {
+				original_tag = MTC
+			}
+		}
+		localization_key = PEACE_POPUP_FLAVOR_MTC
 	}
 
 	text = {
