@@ -40,11 +40,7 @@ AHE_create_demilitarized_zones = {
 				limit = {
 					NOT = {
 						state = 4
-						state = 39
 						state = 152
-						state = 153
-						state = 963
-						state = 985
 					}
 				}
 				set_demilitarized_zone = yes
@@ -61,6 +57,7 @@ AHE_setup_AUS = {
 			add_state_core = 875
 			add_state_core = 963
 			add_state_core = 985
+			add_state_core = 994
 			
 			add_ideas = {
 				AUS_last_chance
@@ -69,7 +66,6 @@ AHE_setup_AUS = {
 			inherit_technology = AHE
 			add_to_array = { global.danubian_war_participants = THIS.id }
 			
-			set_capital = { state = 963 }
 			set_party_name = {
 				ideology = authoritarian_democracy
 				long_name = AUS_emergency_govt
@@ -116,6 +112,7 @@ AHE_setup_AUS = {
 			add_state_core = 815
 			AHE_remove_templates = yes
 			load_oob = AUS_danubian_war
+			set_capital = { state = 963 }
 		}
 	}
 }
