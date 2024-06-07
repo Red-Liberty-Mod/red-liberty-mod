@@ -1,4 +1,4 @@
-﻿capital = 500
+﻿capital = 498
 
 oob = "UOB"
 set_convoys = 20
@@ -10,10 +10,6 @@ set_technology = {
 	tech_engineers = 1
 	gw_artillery = 1
 	interwar_antiair = 1
-	gwtank = 1
-	early_fighter = 1
-	CAS1 = 1
-	
 }
 
 set_cosmetic_tag = UOB_nla
@@ -25,13 +21,13 @@ set_politics = {
 	elections_allowed = no
 }
 set_popularities = {
-	anarchism = 10
-	vanguard_socialism = 5
-	revolutionary_socialism = 24
-	democratic_socialism = 34
+	anarchism = 7
+	vanguard_socialism = 13
+	revolutionary_socialism = 34
+	democratic_socialism = 14
 	social_democracy = 10
 	progressive_liberalism = 17
-	liberal_conservatism = 0
+	liberal_conservatism = 5
 	national_conservatism = 0
 	ultraconservatism = 0
 	authoritarian_democracy = 0
@@ -46,6 +42,9 @@ set_country_flag = democratic_socialism_coalition
 add_ideas = {
 	UOB_civil_war
 	UOB_left_wing_coalition
+	
+	closed_economy
+	low_economic_mobilisation
 }
 
 declare_war_on = {
@@ -53,24 +52,25 @@ declare_war_on = {
     type = annex_everything
 }
 
-create_country_leader = {
-	name = "Luís Carlos Prestes"
-	desc = "POLITICS_LUIS_CARLOS_PRESTES_DESC"
-	picture = "gfx/leaders/UOB/Portrait_UOB_Luis_Carlos_Prestes.png"
-	expire = "1965.1.1"
-	ideology = leninism_subtype
-	traits = {
-		#
-	}
-}
+### LEADERS ###
+recruit_character = UOB_luis_carlos_prestes
+recruit_character = UOB_pedro_ernesto
 
-create_country_leader = {
-	name = "Luís Carlos Prestes"
-	desc = "POLITICS_LUIS_CARLOS_PRESTES_DESC"
-	picture = "gfx/leaders/UOB/Portrait_UOB_Luis_Carlos_Prestes.png"
-	expire = "1965.1.1"
-	ideology = revolutionary_socialism_subtype
-	traits = {
-		#
-	}
-}
+### MINISTERS ###
+recruit_character = UOB_antonio_candeias_duarte
+recruit_character = UOB_filipe_moreira_lima
+recruit_character = UOB_carlos_lacerda
+recruit_character = UOB_domingos_bras
+recruit_character = UOB_minervino_de_oliviera
+recruit_character = UOB_joao_jorge_costa_pimenta
+
+activate_advisor = UOB_filipe_moreira_lima
+
+### GENERALS ###
+recruit_character = BRA_isidoro_dias_lopes
+recruit_character = BRA_joao_cabanas
+recruit_character = BRA_agildo_barata
+recruit_character = BRA_jefferson_cardim_de_alencar_osorio
+
+### HIGH COMMAND ###
+recruit_character = BRA_mauricio_grabois

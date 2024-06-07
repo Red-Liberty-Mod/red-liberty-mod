@@ -202,7 +202,7 @@ shared_focus = {
 
 	completion_reward = {
 		add_tech_bonus = {
-			bonus = 1
+			bonus = 0.75
 			uses = 2
 			category = military_police_tech
 		}
@@ -212,7 +212,7 @@ shared_focus = {
 	prerequisite = { focus = FRA_veteran_brigades }
 	
 	search_filters = {
-		FOCUS_FILTER_MANPOWER
+		FOCUS_FILTER_RESEARCH
 	}
 }
 
@@ -1646,10 +1646,12 @@ shared_focus = {
 			threat = 7.5
 			name = FRA_asserted_claims
 		}
+		add_war_support = 0.05
 	}
 	
 	search_filters = {
 		FOCUS_FILTER_ANNEXATION
+		FOCUS_FILTER_WAR_SUPPORT
 	}
 }
 
@@ -1673,10 +1675,12 @@ shared_focus = {
 			threat = 5
 			name = FRA_asserted_claims
 		}
+		add_war_support = 0.05
 	}
 	
 	search_filters = {
 		FOCUS_FILTER_ANNEXATION
+		FOCUS_FILTER_WAR_SUPPORT
 	}
 }
 
@@ -1710,6 +1714,14 @@ shared_focus = {
 				id = worldnews_ww2.1
 				hours = 6
 			}
+		}
+	}
+	
+	ai_will_do = {
+		base = 1
+		modifier = {
+			factor = 2
+			date > 1940.1.1
 		}
 	}
 	

@@ -1,0 +1,477 @@
+shared_focus = {
+    id = BRA_the_civil_war
+	icon = GFX_focus_generic_attack_brazil
+	
+    x = 8
+	y = 0
+	
+	cost = 3
+    completion_reward = {
+        add_political_power = 100
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = BRA_align_with_the_democrats
+	icon = GFX_focus_BRA_rio_protocol
+	
+    x = -3
+	y = 1
+	cost = 5
+	
+	relative_position_id = BRA_the_civil_war
+	prerequisite = { focus = BRA_the_civil_war }
+    completion_reward = {
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = BRA_lindolfo_collor
+		show_ideas_tooltip = BRA_anisio_teixeira
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = BRA_lay_the_groundwork
+	icon = GFX_focus_BRA_third_republic
+	
+    x = 0
+	y = 1
+	cost = 5
+	
+	relative_position_id = BRA_the_civil_war
+	prerequisite = { focus = BRA_the_civil_war }
+    completion_reward = {
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = BRA_francisco_campos
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = BRA_align_with_the_right
+	icon = GFX_focus_BRA_work_with_the_integralists
+	
+    x = 3
+	y = 1
+	cost = 5
+	
+	relative_position_id = BRA_the_civil_war
+	prerequisite = { focus = BRA_the_civil_war }
+	completion_reward = {
+        custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = BRA_gustavo_barroso
+		show_ideas_tooltip = BRA_miguel_reale
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = BRA_approach_the_regionalists
+	icon = GFX_focus_BRA_us_of_south_america
+	
+    x = 0
+	y = 1
+	cost = 5
+	
+	relative_position_id = BRA_align_with_the_democrats
+	prerequisite = { focus = BRA_align_with_the_democrats }
+    completion_reward = {
+        add_popularity = {
+			ideology = liberal_conservatism
+			popularity = 0.025
+		}
+		add_popularity = {
+			ideology = national_conservatism
+			popularity = 0.025
+		}
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = BRA_the_march_forwards
+	icon = GFX_focus_BRA_national_steel_company
+	
+    x = 0
+	y = 1
+	cost = 5
+	
+	relative_position_id = BRA_lay_the_groundwork
+	prerequisite = { focus = BRA_lay_the_groundwork }
+    completion_reward = {
+        add_popularity = {
+			ideology = despotism
+			popularity = 0.025
+		}
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = BRA_integrate_the_white_shirts
+	icon = GFX_focus_BRA_restore_brazilian_honor
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = BRA_align_with_the_right
+	prerequisite = { focus = BRA_align_with_the_right }
+	mutually_exclusive = { focus = BRA_integrate_the_green_shirts }
+    completion_reward = {
+        add_popularity = {
+			ideology = ultraconservatism
+			popularity = 0.025
+		}
+		custom_effect_tooltip = BRA_integrate_the_white_shirts_tt
+		hidden_effect = {
+			load_oob = BRA_white_shirts
+		}
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = BRA_integrate_the_green_shirts
+	icon = GFX_focus_BRA_anaue
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = BRA_align_with_the_right
+	prerequisite = { focus = BRA_align_with_the_right }
+	mutually_exclusive = { focus = BRA_integrate_the_white_shirts }
+    completion_reward = {
+        add_popularity = {
+			ideology = fascism
+			popularity = 0.025
+		}
+		custom_effect_tooltip = BRA_integrate_the_green_shirts_tt
+		hidden_effect = {
+			load_oob = BRA_green_shirts
+		}
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = BRA_utilize_state_militias
+	icon = GFX_focus_BRA_national_guard
+	
+    x = 0
+	y = 1
+	cost = 5
+	
+	relative_position_id = BRA_approach_the_regionalists
+	prerequisite = { focus = BRA_approach_the_regionalists }
+	mutually_exclusive = { focus = BRA_disband_state_militias }
+    completion_reward = {
+		custom_effect_tooltip = BRA_utilize_state_militias_tt
+        hidden_effect = {
+			load_oob = BRA_state_militias
+		}
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = BRA_disband_state_militias
+	icon = GFX_focus_BRA_end_the_state_of_emergency
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = BRA_the_march_forwards
+	prerequisite = { focus = BRA_the_march_forwards }
+	mutually_exclusive = { focus = BRA_utilize_state_militias }
+    completion_reward = {
+        add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 2500
+			producer = BRA
+		}
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = BRA_voice_of_brazil
+	icon = GFX_focus_BRA_department_of_propaganda
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = BRA_the_march_forwards
+	prerequisite = { focus = BRA_the_march_forwards }
+    completion_reward = {
+        add_stability = 0.1
+		add_war_support = 0.05
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = BRA_navy_support
+	icon = GFX_focus_ARG_study_the_battle_of_the_river_plate
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = BRA_integrate_the_white_shirts
+	prerequisite = {
+		focus = BRA_integrate_the_white_shirts
+		focus = BRA_integrate_the_green_shirts
+	}
+    completion_reward = {
+        add_ideas = BRA_naval_support
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = BRA_promises_of_autonomy
+	icon = GFX_focus_BRA_greater_federalism
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = BRA_utilize_state_militias
+	prerequisite = { focus = BRA_utilize_state_militias }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = BRA_appeal_to_freedom
+	icon = GFX_focus_BRA_banco_do_brasil
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = BRA_utilize_state_militias
+	prerequisite = {
+		focus = BRA_utilize_state_militias
+		focus = BRA_disband_state_militias
+	}
+    completion_reward = {
+        add_stability = 0.1
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = BRA_reduce_state_powers
+	icon = GFX_focus_BRA_nationalize_banks
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = BRA_disband_state_militias
+	prerequisite = {
+		focus = BRA_disband_state_militias
+		focus = BRA_voice_of_brazil
+	}
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = BRA_appeal_to_nationalism
+	icon = GFX_focus_BRA_secure_our_borders
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = BRA_voice_of_brazil
+	prerequisite = {
+		focus = BRA_voice_of_brazil
+		focus = BRA_navy_support
+	}
+    completion_reward = {
+        add_war_support = 0.1
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = BRA_shared_spiritual_identity
+	icon = GFX_focus_BRA_reach_out_to_military_dem
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = BRA_navy_support
+	prerequisite = { focus = BRA_navy_support }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = BRA_purge_the_rightists
+	icon = GFX_focus_SOV_military_purge
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = BRA_promises_of_autonomy
+	prerequisite = { focus = BRA_promises_of_autonomy }
+	prerequisite = { focus = BRA_appeal_to_freedom }
+	mutually_exclusive = {
+		focus = BRA_establish_the_estado_novo
+		focus = BRA_integralists_take_action
+	}
+    completion_reward = {
+		country_event = {
+			id = brazil.6
+			hours = 6
+		}
+        add_popularity = {
+			ideology = despotism
+			popularity = -0.025
+		}
+		add_popularity = {
+			ideology = ultraconservatism
+			popularity = -0.025
+		}
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.025
+		}
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = BRA_establish_the_estado_novo
+	icon = GFX_focus_BRA_estado_novo
+	
+    x = 0
+	y = 1
+	cost = 5
+	
+	relative_position_id = BRA_reduce_state_powers
+	prerequisite = { focus = BRA_reduce_state_powers }
+	mutually_exclusive = {
+		focus = BRA_purge_the_rightists
+		focus = BRA_integralists_take_action
+	}
+    completion_reward = {
+        country_event = {
+			id = brazil.7
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = BRA_integralists_take_action
+	icon = GFX_focus_BRA_brazil_integral
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = BRA_appeal_to_nationalism
+	prerequisite = { focus = BRA_appeal_to_nationalism }
+	prerequisite = { focus = BRA_shared_spiritual_identity }
+	mutually_exclusive = {
+		focus = BRA_purge_the_rightists
+		focus = BRA_establish_the_estado_novo
+	}
+    completion_reward = {
+		country_event = {
+			id = brazil.8
+			hours = 6
+		}
+        add_popularity = {
+			ideology = liberal_conservatism
+			popularity = -0.025
+		}
+		add_popularity = {
+			ideology = national_conservatism
+			popularity = -0.025
+		}
+		add_popularity = {
+			ideology = authoritarian_democracy
+			popularity = -0.025
+		}
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
