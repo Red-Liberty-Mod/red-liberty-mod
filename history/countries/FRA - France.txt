@@ -271,6 +271,7 @@ recruit_character = FRA_edouard_requin
 recruit_character = FRA_marcel_garchery
 recruit_character = FRA_rene_prioux
 recruit_character = FRA_andre_gaston_pretelat
+recruit_character = FRA_charles_nogues
 
 ## COMMUNIST GENERALS ##
 recruit_character = FRA_pierre_villon
@@ -642,6 +643,30 @@ if = {
 		obsolete = yes
 	}
 	create_equipment_variant = {
+		name = "Morane-Saulnier M.S.225"
+		type = small_plane_airframe_0
+		design_team = mio:FRA_morane_saulnier_organization
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+		icon = "GFX_FRA_light_plane_2_medium"
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Bréguet 19 CN.2"
+		type = small_plane_cas_airframe_0
+		design_team = mio:FRA_breguet_organization
+		modules = {
+			fixed_main_weapon_slot = bomb_locks
+			fixed_auxiliary_weapon_slot_1 = light_mg_2x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = lmg_defense_turret
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
 		name = "Dewoitine D.371" #
 		type = cv_small_plane_airframe_0
 		design_team = mio:FRA_dewoitine_organization
@@ -705,7 +730,7 @@ if = {
 			fixed_main_weapon_slot = medium_bomb_bay
 			fixed_auxiliary_weapon_slot_1 = bomb_locks
 			engine_type_slot = engine_2_2x
-			special_type_slot_1 = lmg_defense_turret
+			special_type_slot_1 = lmg_defense_turret_2x
 		}
 		icon = "GFX_FRA_early_bomber_medium"
 	}
@@ -716,18 +741,21 @@ if = {
 			fixed_main_weapon_slot = large_bomb_bay
 			fixed_auxiliary_weapon_slot_1 = empty
 			engine_type_slot = engine_2_4x
-			special_type_slot_1 = lmg_defense_turret
+			special_type_slot_1 = lmg_defense_turret_2x
+			special_type_slot_2 = lmg_defense_turret
 		}
 		icon = "GFX_FRA_strategic_bomber1_medium"
 	}
 	create_equipment_variant = {
 		name = "Bloch MB.200" #
 		type = medium_plane_airframe_0
+		design_team = mio:FRA_bloch_organization
 		modules = {
 			fixed_main_weapon_slot = medium_bomb_bay
 			fixed_auxiliary_weapon_slot_1 = empty
 			engine_type_slot = engine_1_2x
-			special_type_slot_1 = lmg_defense_turret
+			special_type_slot_1 = lmg_defense_turret_2x
+			special_type_slot_2 = lmg_defense_turret
 		}
 		obsolete = yes
 	}
@@ -756,6 +784,12 @@ if = {
 		icon = "GFX_medium_plane_2_medium"
 	}
 	
+	add_equipment_to_stockpile = {
+		type = small_plane_airframe_0
+		amount = 75
+		variant_name = "Morane-Saulnier M.S.225"
+		producer = FRA
+	}
 	add_equipment_to_stockpile = {
 		type = small_plane_airframe_0
 		amount = 96

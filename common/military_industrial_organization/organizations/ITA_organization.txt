@@ -33,7 +33,7 @@ ITA_fiat_organization = {
 }
 
 ITA_ansaldo_organization = {
-	include = generic_medium_tank_organization
+	include = generic_infantry_tank_organization
 	icon = GFX_idea_ITA_ansaldo
 	allowed = {
 		tag = ITA
@@ -44,9 +44,10 @@ ITA_ansaldo_organization = {
 		name = ITA_mio_trait_brealthrough_tanks
 		icon = GFX_generic_mio_trait_icon_breakthrough
 		special_trait_background = yes
-		any_parent = { generic_mio_trait_power_traverse }
-
-		position = { x=2 y=1 }
+		any_parent = { generic_mio_trait_heavy_tank_improvements }
+		relative_position_id = generic_mio_trait_heavy_tank_improvements
+		
+		position = { x=0 y=1 }
 
 		equipment_bonus = {
 			breakthrough = 0.07
@@ -59,8 +60,9 @@ ITA_ansaldo_organization = {
 		icon = GFX_generic_mio_department_icon_tank_medium_tank_weapons
 		special_trait_background = yes
 		any_parent = { ITA_mio_trait_brealthrough_tanks }
+		relative_position_id = ITA_mio_trait_brealthrough_tanks
 
-		position = { x=2 y=2 }
+		position = { x=0 y=2 }
 
 		equipment_bonus = {
 			soft_attack = 0.07
