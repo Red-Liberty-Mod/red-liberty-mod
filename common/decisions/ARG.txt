@@ -1,0 +1,321 @@
+ARG_territorial_nationalism_category = {
+	
+	ARG_claim_uruguay = {
+
+		cost = 25
+		fire_only_once = yes
+
+		complete_effect = {
+			ARG = {
+				add_state_claim = 300
+			}
+			add_named_threat = {
+				threat = 3
+				name = ARG_claimed_URG
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	ARG_claim_chile = {
+
+		cost = 50
+		fire_only_once = yes
+
+		complete_effect = {
+			ARG = {
+				add_state_claim = 279
+				add_state_claim = 507
+				add_state_claim = 506
+				add_state_claim = 992
+			}
+			add_named_threat = {
+				threat = 5
+				name = ARG_claimed_CHL
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	ARG_claim_paraguay = {
+
+		cost = 50
+		fire_only_once = yes
+
+		complete_effect = {
+			ARG = {
+				add_state_claim = 301
+				add_state_claim = 688
+			}
+			add_named_threat = {
+				threat = 3
+				name = ARG_claimed_PAR
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	ARG_claim_bolivia = {
+
+		cost = 50
+		fire_only_once = yes
+		
+		available = {
+			NOT = {
+				has_country_flag = ARG_alliance_with_bolivia_flag
+			}
+		}
+
+		complete_effect = {
+			ARG = {
+				add_state_claim = 302
+				add_state_claim = 487
+				add_state_claim = 854
+				set_country_flag = ARG_claim_bolivia_flag
+			}
+			add_named_threat = {
+				threat = 3
+				name = ARG_claimed_BOL
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	ARG_alliance_with_bolivia = {
+
+		cost = 50
+		fire_only_once = yes
+		
+		available = {
+			NOT = {
+				has_country_flag = ARG_claim_bolivia_flag
+			}
+		}
+
+		complete_effect = {
+			BOL = {
+				country_event = {
+					id = argentina_forpol.1
+					hours = 6
+				}
+				set_country_flag = ARG_alliance_with_bolivia_flag
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	ARG_proclaim_a_great_argentina = {
+
+		cost = 50
+		fire_only_once = yes
+		
+		available = {
+			owns_state = 300
+			owns_state = 301
+			owns_state = 507
+		}
+
+		complete_effect = {
+			add_ideas = ARG_great_argentina
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
+
+ARG_rebuilding_officer_corps_category = {
+	
+	ARG_promote_pistarini = {
+
+		custom_cost_trigger = {
+			command_power > 14
+		}
+		custom_cost_text = CP_15
+		fire_only_once = yes
+		
+		available = {
+			
+		}
+
+		complete_effect = {
+			ARG_juan_pistarini = {
+				add_corps_commander_role = {
+					skill = 2
+					attack_skill = 2
+					defense_skill = 2
+					planning_skill = 2
+					logistics_skill = 1
+				}
+			}
+			ARG_improve_officer_corps_spirit = yes
+			hidden_effect = {
+				add_command_power = -15
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	ARG_promote_rawson = {
+
+		custom_cost_trigger = {
+			command_power > 14
+		}
+		custom_cost_text = CP_15
+		fire_only_once = yes
+		
+		available = {
+			
+		}
+
+		complete_effect = {
+			ARG_arturo_rawson = {
+				add_corps_commander_role = {
+					skill = 2
+					traits = {
+						cavalry_officer
+						career_officer
+					}
+					attack_skill = 2
+					defense_skill = 2
+					planning_skill = 2
+					logistics_skill = 1
+				}
+			}
+			ARG_improve_officer_corps_spirit = yes
+			hidden_effect = {
+				add_command_power = -15
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	ARG_promote_perlinger = {
+
+		custom_cost_trigger = {
+			command_power > 14
+		}
+		custom_cost_text = CP_15
+		fire_only_once = yes
+		
+		available = {
+			has_government = ultraconservatism
+		}
+
+		complete_effect = {
+			ARG_luis_cesar_perlinger = {
+				add_corps_commander_role = {
+					skill = 2
+					attack_skill = 2
+					defense_skill = 2
+					planning_skill = 1
+					logistics_skill = 2
+				}
+			}
+			ARG_improve_officer_corps_spirit = yes
+			hidden_effect = {
+				add_command_power = -15
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	ARG_promote_farrell = {
+		
+		custom_cost_trigger = {
+			command_power > 14
+		}
+		custom_cost_text = CP_15
+		fire_only_once = yes
+		
+		available = {
+			has_government = ultraconservatism
+		}
+
+		complete_effect = {
+			ARG_edelmiro_julian_farrell = {
+				add_corps_commander_role = {
+					skill = 3
+					traits = {
+						infantry_officer
+						trait_mountaineer
+						trickster
+					}
+					attack_skill = 2
+					defense_skill = 3
+					planning_skill = 2
+					logistics_skill = 3
+				}
+			}
+			ARG_improve_officer_corps_spirit = yes
+			hidden_effect = {
+				add_command_power = -15
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	ARG_promote_peron = {
+		
+		custom_cost_trigger = {
+			command_power > 14
+		}
+		custom_cost_text = CP_15
+		fire_only_once = yes
+		
+		available = {
+			has_government = ultraconservatism
+		}
+
+		complete_effect = {
+			ARG_juan_peron = {
+				add_corps_commander_role = {
+					skill = 3
+					traits = {
+						infantry_officer
+					}
+					attack_skill = 3
+					defense_skill = 3
+					planning_skill = 2
+					logistics_skill = 2
+				}
+			}
+			ARG_improve_officer_corps_spirit = yes
+			hidden_effect = {
+				add_command_power = -15
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
