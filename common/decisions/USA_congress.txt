@@ -1200,6 +1200,74 @@ USA_congress = {
 		}
 	}
 	
+	USA_backroom_dealing = {
+		
+		visible = {
+			AND = {
+				original_tag = USA
+				check_variable = { bill_id > 0 }
+			}
+			NOT = {
+				has_country_flag = USA_backroom_dealing_flag
+			}
+        }
+		
+		cost = 50
+       	
+		available = {
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = reps_fully_support
+					NOT = { check_variable = { USA_republican_bill_support = 1 } }
+				}
+				custom_trigger_tooltip = {
+					tooltip = dems_fully_support
+					NOT = { check_variable = { USA_democrat_bill_support = 1 } }
+				}
+			}
+		}
+		
+    	complete_effect = {
+			custom_effect_tooltip = USA_backroom_dealing_tt
+			set_country_flag = USA_backroom_dealing_flag
+			if = {
+				limit = {
+					has_country_flag = USA_bill_house_phase
+				}
+				random_list = {
+					50 = {
+						modifier = {
+							factor = 0
+							check_variable = { USA_republican_bill_support = 1 }
+						}
+						set_temp_variable_to_random = {
+							var = rand
+							min = 1
+							max = 4
+						}
+						round_temp_variable = rand
+						add_to_variable = { republican_supporting_reps = rand }
+						custom_effect_tooltip = USA_random_republican_support
+					}
+					50 = {
+						modifier = {
+							factor = 0
+							check_variable = { USA_democrat_bill_support = 1 }
+						}
+						set_temp_variable_to_random = {
+							var = rand
+							min = 1
+							max = 4
+						}
+						round_temp_variable = rand
+						add_to_variable = { democrat_supporting_reps = rand }
+						custom_effect_tooltip = USA_random_democrat_support
+					}
+				}
+			}
+		}
+	}
+	
 	USA_bill_executive_order = {
 		visible = {
 			original_tag = USA

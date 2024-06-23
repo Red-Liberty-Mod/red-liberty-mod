@@ -70,6 +70,7 @@ TAG_support_UOB = {
 		OR = {
 			original_tag = CHL
 			original_tag = SOV
+			original_tag = NIC
 		}
 	}
 	enable = {
@@ -93,6 +94,8 @@ TAG_support_BRA = {
 			original_tag = GER
 			original_tag = FRA
 			original_tag = ITA
+			original_tag = POR
+			original_tag = JAP
 		}
 	}
 	enable = {
@@ -225,7 +228,7 @@ AUS_focus_on_AHE = {
 	}
 }
 
-MEX_crush_tag = {
+MEX_crush_TAG = {
 	allowed = {
 		original_tag = MEX
 	}
@@ -298,5 +301,77 @@ CMS_crush_TAG = {
 		tag = FRP
 		execution_type = rush
 		execute_order = yes
+	}
+}
+
+TAG_support_PRU = {
+	allowed = {
+		OR = {
+			original_tag = JAP
+			original_tag = BRA
+			original_tag = ARG
+			original_tag = GER
+		}
+	}
+	enable = {
+		PRU = {
+			has_war_with = SRP
+		}
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = PRU
+		value = 150
+	}
+}
+
+TAG_support_SRP = {
+	allowed = {
+		OR = {
+			original_tag = CHL
+			original_tag = UOB
+			original_tag = NIC
+			AND = {
+				original_tag = BOL
+				has_government = despotism
+			}
+		}
+	}
+	enable = {
+		PRU = {
+			has_war_with = SRP
+		}
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = SRP
+		value = 150
+	}
+}
+
+TAG_support_HUN = {
+	allowed = {
+		OR = {
+			original_tag = BUL
+		}
+	}
+	enable = {
+		HUN = {
+			has_war_with = ROM
+		}
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = HUN
+		value = 150
 	}
 }

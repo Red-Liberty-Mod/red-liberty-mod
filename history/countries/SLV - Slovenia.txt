@@ -2,24 +2,12 @@
 
 set_research_slots = 1
 
-# Starting tech
-# clone of Yugoslavia
 set_technology = {
-	tech_support = 1
-	tech_engineers = 1
-	tech_mountaineers = 1
-	early_fighter = 1
-	gwtank = 1
-	basic_light_tank = 1
-	infantry_weapons = 1
-	infantry_weapons1 = 1
-	early_destroyer = 1
-	early_light_cruiser = 1
-	early_submarine = 1
+	# inherit from AHE
 }
 
 set_politics = {
-	ruling_party = social_democracy
+	ruling_party = liberal_conservatism
 	last_election = "1936.1.1"
 	election_frequency = 48
 	elections_allowed = no
@@ -27,25 +15,36 @@ set_politics = {
 
 set_popularities = {
 	anarchism = 0
-	vanguard_socialism = 0
+	vanguard_socialism = 5
 	revolutionary_socialism = 0
 	democratic_socialism = 7
-	social_democracy = 36
-	progressive_liberalism = 26
-	liberal_conservatism = 17
-	national_conservatism = 14
-	authoritarian_democracy = 0
+	social_democracy = 14
+	progressive_liberalism = 16
+	liberal_conservatism = 19
+	national_conservatism = 24
+	authoritarian_democracy = 4
 	despotism = 0
 	ultraconservatism = 0
-	fascism = 0
+	fascism = 11
 }
+
+add_socdem_coalition = yes
+add_proglib_coalition = yes
+add_libcon_coalition = yes
+add_natcon_coalition = yes
 
 add_ideas = {
 	SLV_slavic_progressivism
-	SLV_outlawed_radicalism
 }
 
 ### LEADERS ###
+recruit_character = SLV_edvard_kardelj
+recruit_character = SLV_franc_leskosek
 recruit_character = SLV_etbin_kristan
+recruit_character = SLV_albert_kramer
 recruit_character = SLV_ivan_hribar
 recruit_character = SLV_anton_korosec
+
+### GENERALS ###
+recruit_character = SLV_leon_rupnik
+recruit_character = SLV_jaka_avsic

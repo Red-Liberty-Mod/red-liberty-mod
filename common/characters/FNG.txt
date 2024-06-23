@@ -33,7 +33,7 @@ characters = {
 		advisor = {
 			cost = 100
 			slot = army_chief
-			idea_token = FNG_gou_songling_army_chief
+			idea_token = FNG_zhang_xueliang_army_chief
 			
 			traits = {
 				army_chief_morale_2
@@ -64,11 +64,11 @@ characters = {
 				skilled_staffer
 				expert_delegator
 			}
-			skill = 2
-			attack_skill = 2
+			skill = 3
+			attack_skill = 3
 			defense_skill = 2
-			planning_skill = 1
-			logistics_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
 		}
 		
 		advisor = {
@@ -79,6 +79,84 @@ characters = {
 			traits = {
 				army_chief_drill_2
 			}
+		}
+	}
+	
+	### Generals ###
+	
+	FNG_yang_yuting = {
+		name = FNG_yang_yuting
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				career_officer
+				politically_connected
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
+		}
+		
+		advisor = {
+			slot = army_chief
+			idea_token = FNG_yang_yuting_army_chief
+			available = {
+				not_already_hired_except_as = army_chief
+			}
+			traits = { army_chief_organizational_2 }
+			cost = 100
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = FNG_yang_yuting_high_command
+			ledger = army
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = { army_logistics_2 }
+			cost = 100
+		}
+	}
+	
+	FNG_wu_junsheng = {
+		name = FNG_wu_junsheng
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				old_guard
+				cavalry_officer
+				substance_abuser
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = FNG_wu_junsheng
+			ledger = army
+			traits = { army_cavalry_2 }
+			cost = 100
 		}
 	}
 }

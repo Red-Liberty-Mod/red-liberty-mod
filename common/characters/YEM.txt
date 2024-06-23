@@ -1,5 +1,75 @@
 characters = {
 	
+	YEM_ali_nassar_al_qadari = {
+		name = YEM_ali_nassar_al_qadari
+		portraits = {
+		
+			civilian = {
+				#large = ""
+			}
+		}
+		
+		country_leader = {
+			ideology = left_wing_populism_subtype
+		}
+	}
+	
+	YEM_ahmad_muhammad_numan = {
+		name = YEM_ahmad_muhammad_numan
+		
+		portraits = {
+			civilian = {
+				#large = ""
+			}
+		}
+		
+		country_leader = {
+			ideology = progressive_liberalism_subtype
+		}
+	}
+	
+	YEM_abdul_rahman_al_eryani = {
+		name = YEM_abdul_rahman_al_eryani
+		
+		portraits = {
+			civilian = {
+				#large = ""
+			}
+		}
+		
+		country_leader = {
+			ideology = national_liberalism_subtype
+		}
+	}
+	
+	YEM_abdullah_bin_ahmed_al_wazir = { # commanded the army against the saudis in 1926, participated in the failed consitutional revolt in 1948
+		name = YEM_abdullah_bin_ahmed_al_wazir
+		
+		portraits = {
+			civilian = {
+				#large = ""
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_ABDULLAH_AL_WAZIR_DESC"
+			ideology = semi_constitutional_monarchy_subtype
+		}
+		
+		corps_commander = {
+			traits = {
+				politically_connected
+				cavalry_officer
+				irregulars_officer
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+		}		
+	}
+	
 	YEM_yahya_al_hamid = {
 		name = YEM_yahya_al_hamid
 		
@@ -14,6 +84,147 @@ characters = {
 			ideology = absolute_monarchy_subtype
 			traits = {
 				
+			}
+		}
+		
+		field_marshal={
+			traits = {
+				politically_connected
+				old_guard
+				inspirational_leader
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+			visible = {
+				has_country_leader = {
+					character = YEM_yahya_al_hamid
+					ruling_only = yes
+				}
+			}
+		}
+	}
+	
+	YEM_ahmad_bin_yahya = {
+		name = YEM_ahmad_bin_yahya
+		
+		portraits = {
+			civilian = {
+				#large = ""
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_AHMAD_BIN_YAHYA_DESC"
+			ideology = absolute_monarchy_subtype
+			traits = {
+				
+			}
+		}
+		
+		corps_commander={
+			traits = {
+				politically_connected
+				trait_cautious
+				irregulars_officer
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+			visible = {
+				has_country_leader = {
+					character = YEM_yahya_al_hamid
+					ruling_only = yes
+				}
+			}
+		}
+	}
+	
+	### Advisors ###
+	
+	YEM_muhammad_al_zubairi = {
+		name = YEM_muhammad_al_zubairi
+		
+		portraits = {
+			civilian = {
+				#small = ""
+			}
+		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = YEM_muhammad_al_zubairi
+			ledger = civilian
+			available = {
+				NOT = {
+					has_government = despotism
+				}
+			}
+			traits = {
+				
+			}
+			cost = 100
+		}
+	}
+	
+	### Generals ###
+	
+	YEM_ahmed_yahya_al_thalaya = {
+		name = YEM_ahmed_yahya_al_thalaya
+		
+		portraits = {
+			army = {
+				#large = ""
+				#small = ""
+			}
+		}
+		
+		corps_commander = { # trained in iraq until 1936, came back and taught infantry, was involved in 1955 coup
+			traits = {
+				
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+			visible = {
+				NOT = {
+					has_government = despotism
+				}
+			}
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = YEM_ahmed_yahya_al_thalaya_high_command
+			ledger = army
+			visible = {
+				NOT = {
+					has_government = despotism
+				}
+			}
+			traits = {
+				army_infantry_2
+			}
+			cost = 100
+		}
+		advisor = {
+			cost = 100
+			slot = theorist
+			idea_token = YEM_ahmed_yahya_al_thalaya_theorist
+			ledger = army
+			visible = {
+				NOT = {
+					has_government = despotism
+				}
+			}
+			traits = {
+				military_theorist
 			}
 		}
 	}

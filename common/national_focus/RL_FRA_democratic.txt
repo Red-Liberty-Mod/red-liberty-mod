@@ -236,7 +236,7 @@ shared_focus = {
 	}
 	mutually_exclusive = {
 		focus = FRA_popular_front
-		focus = FRA_national_coalition
+		focus = FRA_national_union
 	}
 	
     completion_reward = {
@@ -300,7 +300,9 @@ shared_focus = {
 	prerequisite = { focus = FRA_mouvement_social }
 	
     completion_reward = {
-		
+		add_autdes_coalition = yes
+		add_ultracon_coalition = yes
+		add_fash_coalition = yes
     }
 	
 	ai_will_do = {
@@ -736,7 +738,7 @@ shared_focus = {
 	}
 	
 	search_filters = {
-		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_STABILITY
 	}
 }
 
@@ -835,8 +837,14 @@ shared_focus = {
 	relative_position_id = FRA_alliance_with_the_rocquists
 	prerequisite = { focus = FRA_alliance_with_the_rocquists }
 	
+	completion_reward = {
+		add_political_power = 25
+		add_stability = 0.05
+	}
+	
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_STABILITY
 	}
 }
 
@@ -853,26 +861,6 @@ shared_focus = {
 	
 	completion_reward = {
 		add_autdes_coalition = yes
-	}
-	
-	search_filters = {
-		FOCUS_FILTER_POLITICAL
-	}
-}
-
-shared_focus = {
-	id = FRA_local_cooperatives
-	icon = GFX_FRA_local_cooperatives
-	
-	x = -1
-	y = 1
-	cost = 4
-	
-	relative_position_id = FRA_expand_the_welfare_system
-	prerequisite = { focus = FRA_expand_the_welfare_system }
-	
-	completion_reward = {
-		add_ideas = FRA_local_cooperatives
 	}
 	
 	search_filters = {
@@ -905,6 +893,26 @@ shared_focus = {
 }
 
 shared_focus = {
+	id = FRA_local_cooperatives
+	icon = GFX_FRA_local_cooperatives
+	
+	x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_expand_the_welfare_system
+	prerequisite = { focus = FRA_expand_the_welfare_system }
+	
+	completion_reward = {
+		add_ideas = FRA_local_cooperatives
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
 	id = FRA_reform_the_banque_de_france
 	icon = GFX_FRA_reform_the_banque_de_france
 	
@@ -916,11 +924,13 @@ shared_focus = {
 	prerequisite = { focus = FRA_reinforce_secularism }
 	
 	completion_reward = {
+		add_stability = 0.05
 		add_ideas = FRA_reformed_central_bank
 	}
 	
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_STABILITY
 	}
 }
 
@@ -953,8 +963,12 @@ shared_focus = {
 	prerequisite = { focus = FRA_dissolve_the_leagues }
 	prerequisite = { focus = FRA_ban_paramilitary_organizations }
 	
+	completion_reward = {
+		add_stability = 0.05
+	}
+	
 	search_filters = {
-		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_STABILITY
 	}
 }
 
@@ -970,8 +984,12 @@ shared_focus = {
 	prerequisite = { focus = FRA_reinstate_free_press }
 	prerequisite = { focus = FRA_shuffle_naysayers }
 	
+	completion_reward = {
+		add_stability = 0.075
+	}
+	
 	search_filters = {
-		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_STABILITY
 	}
 }
 
@@ -1006,8 +1024,12 @@ shared_focus = {
 	relative_position_id = FRA_support_the_free_market
 	prerequisite = { focus = FRA_support_the_free_market }
 	
+	completion_reward = {
+		add_stability = 0.05
+	}
+	
 	search_filters = {
-		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_STABILITY
 	}
 }
 
@@ -1164,6 +1186,32 @@ shared_focus = {
 	
 	relative_position_id = FRA_national_coalition
 	prerequisite = { focus = FRA_national_coalition }
+	
+	completion_reward = {
+		set_temp_variable = { temp = party_popularity@despotism }
+		multiply_temp_variable = { temp = -1 }
+		multiply_temp_variable = { temp = 0.5 }
+		add_popularity = {
+			ideology = despotism
+			popularity = temp
+		}
+		
+		set_temp_variable = { temp = party_popularity@ultraconservatism }
+		multiply_temp_variable = { temp = -1 }
+		multiply_temp_variable = { temp = 0.5 }
+		add_popularity = {
+			ideology = ultraconservatism
+			popularity = temp
+		}
+		
+		set_temp_variable = { temp = party_popularity@fascism }
+		multiply_temp_variable = { temp = -1 }
+		multiply_temp_variable = { temp = 0.5 }
+		add_popularity = {
+			ideology = fascism
+			popularity = temp
+		}
+	}
 	
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
@@ -1394,6 +1442,26 @@ shared_focus = {
 }
 
 shared_focus = {
+	id = FRA_further_resource_extraction
+	icon = GFX_FRA_further_resource_extraction
+	
+	x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_maintain_the_system
+	prerequisite = { focus = FRA_maintain_the_system }
+	
+	completion_reward = {
+		
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
 	id = FRA_continue_the_civilizing_mission
 	icon = GFX_FRA_continue_the_civilizing_mission
 	
@@ -1405,6 +1473,38 @@ shared_focus = {
 	prerequisite = {
 		focus = FRA_enact_the_blum_viollette_proposal
 		focus = FRA_maintain_the_system
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+	id = FRA_suppress_dissent
+	icon = GFX_FRA_suppress_dissent
+	
+	x = 0
+	y = 2
+	cost = 4
+	
+	relative_position_id = FRA_maintain_the_system
+	prerequisite = { focus = FRA_maintain_the_system }
+	
+	completion_reward = {
+		every_state = {
+			limit = {
+				OR = {
+					is_owned_by = FRA
+					is_owned_by = FWA
+					is_owned_by = FCA
+				}
+				NOT = {
+					is_core_of = FRA
+				}
+			}
+			add_resistance = -5
+		}
 	}
 	
 	search_filters = {

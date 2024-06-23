@@ -11,11 +11,23 @@ instant_effect = {
 		obsolete = yes
 	}
 	create_equipment_variant = {
+		name = "P-12"
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			fixed_auxiliary_weapon_slot_1 = bomb_locks
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
 		name = "P-26A Peashooter"
 		type = small_plane_airframe_0
 		design_team = mio:USA_boeing_organization
 		modules = {
 			fixed_main_weapon_slot = light_mg_2x
+			fixed_auxiliary_weapon_slot_1 = bomb_locks
 			engine_type_slot = engine_1_1x
 			special_type_slot_1 = empty
 		}
@@ -62,6 +74,18 @@ instant_effect = {
 			special_type_slot_1 = empty
 		}
 		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "A-3 Falcon" #
+		type = small_plane_cas_airframe_0
+		modules = {
+			fixed_main_weapon_slot = small_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = light_mg_4x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+		obsolete = yes
+		icon = "GFX_USA_CAS1_medium"
 	}
 	create_equipment_variant = {
 		name = "A-12" #
@@ -197,7 +221,13 @@ instant_effect = {
 	add_equipment_to_stockpile = {
 		type = small_plane_airframe_0
 		amount = 202
-		variant_name = "P-1 Hawk"
+		variant_name = "P-6 Hawk"
+		producer = USA
+	}
+	add_equipment_to_stockpile = {
+		type = small_plane_airframe_0
+		amount = 366
+		variant_name = "P-12"
 		producer = USA
 	}
 	add_equipment_to_stockpile = {
@@ -212,6 +242,8 @@ instant_effect = {
 		variant_name = "PB-2A"
 		producer = USA
 	}
+	
+	## Bombers ##
 	add_equipment_to_stockpile = {
 		type = medium_plane_airframe_0
 		amount = 39

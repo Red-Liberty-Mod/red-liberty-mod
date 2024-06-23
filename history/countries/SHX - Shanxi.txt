@@ -1,12 +1,16 @@
 ﻿capital = 615
 
-oob = "empty"
+oob = "SHX"
 
 set_stability = 0.7
 set_war_support = 0.4
 
 set_technology = {
 	infantry_weapons = 1
+	tech_mountaineers = 1
+	tech_support = 1
+	tech_recon = 1
+	gw_artillery = 1
 }
 
 set_politics = {
@@ -20,41 +24,23 @@ set_popularities = {
 	vanguard_socialism = 0
 	revolutionary_socialism = 0
 	democratic_socialism = 0
-	social_democracy = 24
-	progressive_liberalism = 14
-	liberal_conservatism = 0
+	social_democracy = 14
+	progressive_liberalism = 0
+	liberal_conservatism = 24
 	national_conservatism = 16
-	ultraconservatism = 0
 	authoritarian_democracy = 6
 	despotism = 40
+	ultraconservatism = 0
 	fascism = 0
 }
 
 add_ideas = {
-	SHX_yan_xishan_thought
 	SHX_popular_land_reform
 	
 	warlord_conscription
 }
 
-create_country_leader = {
-	name = "Feng Yuxiang"
-	desc = "POLITICS_FENG_YUXIANG_DESC"
-	picture = "gfx/leaders/SHX/Portrait_SHX_Feng_Yuxiang.png"
-	expire = "1965.1.1"
-	ideology = christian_socialism_subtype
-	traits = {
-		#
-	}
-}
-
-create_country_leader = {
-	name = "Yan Xishan"
-	desc = "POLITICS_YAN_XISHAN_DESC"
-	picture = "gfx/leaders/SHX/Portrait_CHI_Yan_Xishan.png"
-	expire = "1965.1.1"
-	ideology = warlordism_subtype
-	traits = {
-		model_governor
-	}
-}
+### LEADERS ###
+recruit_character = SHX_yu_youren
+recruit_character = SHX_shang_zhen
+recruit_character = SHX_yan_xishan

@@ -910,53 +910,6 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = USA_long_range_escorts
-	icon = GFX_USA_recon_aircraft
-	
-    x = -1
-	y = 1
-	
-	cost = 3
-	relative_position_id = USA_strat_destruction
-	prerequisite = { focus = USA_strat_destruction }
-    completion_reward = {
-        swap_ideas = {
-			add_idea = USA_usaaf_2
-			remove_idea = USA_usaaf
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_control_the_sky
-	icon = GFX_USA_control_the_sky
-	
-    x = 1
-	y = 1
-	
-	cost = 3
-	relative_position_id = USA_strat_destruction
-	prerequisite = { focus = USA_strat_destruction }
-    completion_reward = {
-        add_tech_bonus = {
-			bonus = 0.5
-			uses = 2
-			category = light_fighter
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-	
-	search_filters = { FOCUS_FILTER_RESEARCH }
-}
-
-shared_focus = {
     id = USA_modernize_naval_bombers
 	icon = GFX_USA_modernize_naval_bombers
 	
@@ -1129,6 +1082,53 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+}
+
+shared_focus = {
+    id = USA_long_range_escorts
+	icon = GFX_USA_recon_aircraft
+	
+    x = -1
+	y = 1
+	
+	cost = 3
+	relative_position_id = USA_strat_destruction
+	prerequisite = { focus = USA_strat_destruction }
+    completion_reward = {
+        swap_ideas = {
+			add_idea = USA_usaaf_2
+			remove_idea = USA_usaaf
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_control_the_sky
+	icon = GFX_USA_control_the_sky
+	
+    x = 1
+	y = 1
+	
+	cost = 3
+	relative_position_id = USA_strat_destruction
+	prerequisite = { focus = USA_strat_destruction }
+    completion_reward = {
+        add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = light_fighter
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {

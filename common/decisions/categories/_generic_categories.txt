@@ -11,6 +11,22 @@ propaganda_efforts = {
 	}
 }
 
+foreign_policy_category = {
+	icon = generic_propaganda
+
+	visible = {
+		NOT = {
+			is_in_faction = yes
+		}
+		OR = {
+			has_country_flag = can_join_entente
+			has_country_flag = can_join_pakt
+		}
+	}
+	
+	visible_when_empty = yes
+}
+
 lar_local_recruitment = {
 	allowed = { has_dlc = "La Resistance" }
 

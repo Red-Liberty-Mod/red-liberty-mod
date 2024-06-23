@@ -12,21 +12,7 @@ set_technology = {
 	interwar_antiair = 1
 }
 if = {
-	limit = {
-		not = { has_dlc = "Man the Guns"}
-	}
-	set_technology = {
-		early_submarine = 1
-		early_destroyer = 1
-		early_light_cruiser = 1
-		early_heavy_cruiser = 1
-		early_battleship = 1
-		transport = 1
-	}
-	set_naval_oob = "BRA_1936_naval_legacy"
-}
-if = {
-	limit = { has_dlc = "Man the Guns"}
+	limit = { has_dlc_mtg = yes }
 	set_technology = {
 		basic_naval_mines = 1
 		submarine_mine_laying = 1
@@ -39,7 +25,18 @@ if = {
 		basic_torpedo = 1
 		mtg_transport = 1
 	}
-	set_naval_oob = "BRA_1936_naval"	
+	set_naval_oob = "BRA_naval_mtg"	
+	else = {
+		set_technology = {
+			early_submarine = 1
+			early_destroyer = 1
+			early_light_cruiser = 1
+			early_heavy_cruiser = 1
+			early_battleship = 1
+			transport = 1
+		}
+		set_naval_oob = "BRA_naval_legacy"
+	}
 }
 
 
@@ -73,6 +70,9 @@ set_country_flag = fascism_coalition
 add_ideas = {
 	BRA_civil_war
 	BRA_right_wing_coalition
+	
+	limited_exports
+	low_economic_mobilisation
 }
 
 ### LEADERS ###
@@ -82,71 +82,19 @@ recruit_character = BRA_arlindo_veiga_dos_santos
 recruit_character = BRA_plinio_salgado
 recruit_character = BRA_various_leaders
 
-if = {
-	limit = {
-		has_dlc = "Man the Guns"
-	}
-	create_equipment_variant = {
-		name = "Minas Geras Class"
-		type = ship_hull_heavy_1
-		name_group = BRA_BB_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_heavy_battery_1
-			fixed_ship_anti_air_slot = empty
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = heavy_ship_engine_1
-			fixed_ship_secondaries_slot = ship_secondaries_1
-			fixed_ship_armor_slot = ship_armor_bb_1
-			front_1_custom_slot = empty
-			mid_1_custom_slot = ship_secondaries_1
-			mid_2_custom_slot = ship_secondaries_1
-			rear_1_custom_slot = ship_heavy_battery_1
-		}
-	}
-	create_equipment_variant = {
-		name = "Bahia Class"
-		type = ship_hull_cruiser_1
-		name_group = BRA_CL_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_light_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = cruiser_ship_engine_1
-			mid_1_custom_slot = empty
-			mid_2_custom_slot = ship_light_battery_1
-			rear_1_custom_slot = empty
-		}
-	}
-	create_equipment_variant = {
-		name = "Para Class"
-		type = ship_hull_light_1
-		name_group = BRA_DD_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_light_battery_1
-			fixed_ship_anti_air_slot = empty
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = light_ship_engine_1
-			fixed_ship_torpedo_slot = ship_torpedo_1
-			mid_1_custom_slot = empty
-			rear_1_custom_slot = empty
-		}
-		obsolete = yes
-	}
-	create_equipment_variant = {
-		name = "Humaytá Class"
-		type = ship_hull_submarine_2
-		name_group = BRA_SS_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_torpedo_slot = ship_torpedo_sub_1
-			fixed_ship_engine_slot = sub_ship_engine_2
-			rear_1_custom_slot = ship_mine_layer_sub
-		}
-	}
-}
+### MINISTERS ###
+recruit_character = BRA_artur_de_sousa_cousta
+recruit_character = BRA_oswaldo_aranha
+recruit_character = BRA_antonio_ramos_caiado
+recruit_character = BRA_francisco_campos
+recruit_character = BRA_lindolfo_collor
+recruit_character = BRA_anisio_teixeira
+recruit_character = BRA_gustavo_barroso
+recruit_character = BRA_miguel_reale
+
+### GENERALS ###
+recruit_character = BRA_candido_mariano_da_silva_rondon
+recruit_character = BRA_nestor_sezefredo_dos_passos
+
+### HIGH COMMAND ###
+recruit_character = BRA_euclides_zenobio_da_costa

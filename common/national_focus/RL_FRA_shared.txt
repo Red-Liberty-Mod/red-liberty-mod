@@ -202,7 +202,7 @@ shared_focus = {
 
 	completion_reward = {
 		add_tech_bonus = {
-			bonus = 1
+			bonus = 0.75
 			uses = 2
 			category = military_police_tech
 		}
@@ -212,7 +212,7 @@ shared_focus = {
 	prerequisite = { focus = FRA_veteran_brigades }
 	
 	search_filters = {
-		FOCUS_FILTER_MANPOWER
+		FOCUS_FILTER_RESEARCH
 	}
 }
 
@@ -277,7 +277,7 @@ shared_focus = {
 
 	completion_reward = {
 		add_ideas = {
-			FRA_europesreckoning
+			FRA_europes_reckoning
 		}
 	}
 	
@@ -1293,6 +1293,10 @@ shared_focus = {
 		has_global_flag = russian_civil_war_ended
 	}
 	
+	bypass = {
+		date > 1938.1.1
+	}
+	
 	relative_position_id = FRA_maintain_flexibility
 	prerequisite = {
 		focus = FRA_maintain_flexibility
@@ -1340,7 +1344,7 @@ shared_focus = {
 	id = FRA_renew_our_friendship_with_the_british
 	icon = GFX_FRA_renew_our_friendship_with_the_british
 	
-	x = -1
+	x = 1
 	y = 1
 	cost = 4
 	
@@ -1369,12 +1373,15 @@ shared_focus = {
 	id = FRA_the_belgian_question
 	icon = GFX_FRA_the_belgian_question
 	
-	x = 1
+	x = -1
 	y = 1
 	cost = 4
 	
 	relative_position_id = FRA_reaffirm_old_ties
-	prerequisite = { focus = FRA_reaffirm_old_ties }
+	prerequisite = {
+		focus = FRA_maintain_flexibility
+		focus = FRA_reaffirm_old_ties
+	}
 	
 	completion_reward = {
 		add_named_threat = {
@@ -1489,7 +1496,7 @@ shared_focus = {
 	id = FRA_a_second_entente_cordiale
 	icon = GFX_FRA_second_entente_cordiale
 	
-	x = 1
+	x = -1
 	y = 1
 	cost = 4
 	
@@ -1639,10 +1646,12 @@ shared_focus = {
 			threat = 7.5
 			name = FRA_asserted_claims
 		}
+		add_war_support = 0.05
 	}
 	
 	search_filters = {
 		FOCUS_FILTER_ANNEXATION
+		FOCUS_FILTER_WAR_SUPPORT
 	}
 }
 
@@ -1666,10 +1675,12 @@ shared_focus = {
 			threat = 5
 			name = FRA_asserted_claims
 		}
+		add_war_support = 0.05
 	}
 	
 	search_filters = {
 		FOCUS_FILTER_ANNEXATION
+		FOCUS_FILTER_WAR_SUPPORT
 	}
 }
 
@@ -1703,6 +1714,14 @@ shared_focus = {
 				id = worldnews_ww2.1
 				hours = 6
 			}
+		}
+	}
+	
+	ai_will_do = {
+		base = 1
+		modifier = {
+			factor = 2
+			date > 1940.1.1
 		}
 	}
 	
@@ -1857,6 +1876,365 @@ shared_focus = {
 	
 	relative_position_id = FRA_volunteer_battalions
 	prerequisite = { focus = FRA_volunteer_battalions }
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+### POST-WAR ###
+
+shared_focus = {
+	id = FRA_germania_delenda_est
+	icon = GFX_FRA_germania_delenda_est
+	
+	x = 0
+	y = 0
+	cost = 4
+	
+	offset = {
+        x = 8
+        y = 9
+        trigger = {
+			OR = {
+				has_focus_tree = FRA_democratic_tree
+			}
+        }
+    }
+	
+	offset = {
+        x = 11
+        y = 9
+        trigger = {
+			OR = {
+				has_focus_tree = FRA_rocque_tree
+			}
+        }
+    }
+	
+	offset = {
+        x = 20
+        y = 0
+        trigger = {
+			OR = {
+				has_focus_tree = FRA_communist_tree
+			}
+        }
+    }
+	
+	available = {
+		always = no
+	}
+	
+	completion_reward = {
+		custom_effect_tooltip = FRA_germania_delenda_est_tt
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_the_occupation
+	icon = GFX_FRA_the_occupation
+	
+	x = -4
+	y = 1
+	cost = 4
+	
+	available = {
+		
+	}
+	
+	relative_position_id = FRA_germania_delenda_est
+	prerequisite = { focus = FRA_germania_delenda_est }
+	
+	completion_reward = {
+		
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_a_europe_safe_for_democracy
+	icon = GFX_FRA_a_europe_safe_for_democracy
+	
+	x = -1
+	y = 1
+	cost = 4
+	
+	available = {
+		OR = {
+			has_government = democratic_socialism
+			has_democratic_govt = yes
+			has_government = authoritarian_democracy
+		}
+	}
+	
+	mutually_exclusive = {
+		focus = FRA_frances_position_secure
+		focus = FRA_the_growing_revolution
+	}
+	relative_position_id = FRA_germania_delenda_est
+	prerequisite = { focus = FRA_germania_delenda_est }
+	
+	completion_reward = {
+		
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_frances_position_secure
+	icon = GFX_FRA_frances_position_secure
+	
+	x = 2
+	y = 1
+	cost = 4
+	
+	available = {
+		has_reactionary_govt = yes
+	}
+	
+	mutually_exclusive = {
+		focus = FRA_a_europe_safe_for_democracy
+		focus = FRA_the_growing_revolution
+	}
+	relative_position_id = FRA_germania_delenda_est
+	prerequisite = { focus = FRA_germania_delenda_est }
+	
+	completion_reward = {
+		
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_the_growing_revolution
+	icon = GFX_FRA_the_growing_revolution
+	
+	x = 5
+	y = 1
+	cost = 4
+	
+	available = {
+		OR = {
+			has_government = vanguard_socialism
+			has_government = revolutionary_socialism
+		}
+	}
+	
+	mutually_exclusive = {
+		focus = FRA_a_europe_safe_for_democracy
+		focus = FRA_frances_position_secure
+	}
+	relative_position_id = FRA_germania_delenda_est
+	prerequisite = { focus = FRA_germania_delenda_est }
+	
+	completion_reward = {
+		
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_bulwark_against_the_east
+	icon = GFX_FRA_bulwark_against_the_east
+	
+	x = -1
+	y = 1
+	cost = 4
+	
+	mutually_exclusive = { focus = FRA_total_disarmament }
+	relative_position_id = FRA_the_occupation
+	prerequisite = { focus = FRA_the_occupation }
+	
+	completion_reward = {
+		
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_total_disarmament
+	icon = GFX_FRA_total_disarmament
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	mutually_exclusive = { focus = FRA_bulwark_against_the_east }
+	relative_position_id = FRA_the_occupation
+	prerequisite = { focus = FRA_the_occupation }
+	
+	completion_reward = {
+		
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_entrench_the_party
+	icon = GFX_FRA_entrench_the_party
+	
+	x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_a_europe_safe_for_democracy
+	prerequisite = { focus = FRA_a_europe_safe_for_democracy }
+	
+	completion_reward = {
+		
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_consolidate_our_gains
+	icon = GFX_FRA_consolidate_our_gains
+	
+	x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_frances_position_secure
+	prerequisite = { focus = FRA_frances_position_secure }
+	
+	completion_reward = {
+		
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_reward_the_veterans
+	icon = GFX_FRA_reward_the_veterans
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_frances_position_secure
+	prerequisite = { focus = FRA_frances_position_secure }
+	
+	completion_reward = {
+		
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_unite_the_internationale
+	icon = GFX_FRA_unite_the_internationale
+	
+	x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_the_growing_revolution
+	prerequisite = { focus = FRA_the_growing_revolution }
+	
+	completion_reward = {
+		
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_crush_resistance
+	icon = GFX_FRA_unite_the_internationale
+	
+	x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_bulwark_against_the_east
+	prerequisite = {
+		focus = FRA_bulwark_against_the_east
+		focus = FRA_total_disarmament
+	}
+	
+	completion_reward = {
+		
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_local_collaborators
+	icon = GFX_FRA_local_collaborators
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_bulwark_against_the_east
+	prerequisite = {
+		focus = FRA_bulwark_against_the_east
+		focus = FRA_total_disarmament
+	}
+	
+	completion_reward = {
+		
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_the_navy_question
+	icon = GFX_FRA_the_navy_question
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_total_disarmament
+	prerequisite = {
+		focus = FRA_bulwark_against_the_east
+		focus = FRA_total_disarmament
+	}
+	
+	completion_reward = {
+		
+	}
 	
 	search_filters = {
 		FOCUS_FILTER_ANNEXATION

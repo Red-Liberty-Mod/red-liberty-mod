@@ -396,7 +396,7 @@ IRE_paramilitary_orgs_category = {
 				tooltip = IRE_ira_strength_change
 				IRE_ira_strength = ira_change
 			}
-			clamp_var = {
+			clamp_variable = {
 				var = IRE_ira_strength
 				min = 0
 				max = 100
@@ -412,7 +412,7 @@ IRE_paramilitary_orgs_category = {
 				tooltip = IRE_ica_strength_change
 				IRE_ica_strength = ica_change
 			}
-			clamp_var = {
+			clamp_variable = {
 				var = IRE_ica_strength
 				min = 0
 				max = 100
@@ -493,6 +493,83 @@ IRE_paramilitary_orgs_category = {
 		
 		timeout_effect = {
 			add_political_power = -100
+		}
+	}
+}
+
+IRE_foreign_investment_category = {
+	
+	IRE_seek_investments_from_USA = {
+		icon = GFX_decision_generic_operation
+		
+		visible = {
+			tag = IRE
+		}
+		
+		cost = 10
+		
+		remove_effect = {
+			
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	IRE_convert_investments_from_USA = {
+		icon = GFX_decision_generic_operation
+		
+		visible = {
+			tag = IRE
+		}
+		
+		available = {
+			check_variable = { IRE_USA_investments > 0 }
+		}
+		
+		cost = 10
+		days_remove = 14
+		
+		remove_effect = {
+			add_to_variable = { IRE_USA_investments_total = 1 }
+			add_offsite_building = { type = industrial_complex level = 1 }
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	IRE_invest_in_IRE = {
+		icon = GFX_decision_generic_operation
+		
+		visible = {
+			OR = {
+				tag = USA
+				tag = ENG
+				tag = GER
+			}
+		}
+		
+		available = {
+			
+		}
+		
+		cost = 10
+		days_remove = 14
+		
+		remove_effect = {
+			if = {
+				limit = {
+					tag = USA
+				}
+				add_to_variable = { IRE.IRE_USA_investments = 1 }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
 		}
 	}
 }

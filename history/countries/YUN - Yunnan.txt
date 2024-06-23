@@ -20,10 +20,15 @@ set_popularities = {
 	progressive_liberalism = 20
 	liberal_conservatism = 0
 	national_conservatism = 15
-	ultraconservatism = 0
 	authoritarian_democracy = 22
 	despotism = 15
+	ultraconservatism = 0
 	fascism = 0
+}
+
+add_ideas = {
+	YUN_opium
+	warlord_conscription
 }
 
 add_offsite_building = {
@@ -34,14 +39,15 @@ add_offsite_building = {
 	type = industrial_complex
 	level = 3
 }
-
-create_country_leader = {
-	name = "Tang Jiyao"
-	desc = "POLITICS_TANG_JIYAO_DESC"
-	picture = "gfx/leaders/YUN/Portrait_YUN_Tang_Jiyao.png"
-	expire = "1965.1.1"
-	ideology = authoritarian_democracy_subtype
-	traits = {
-		#
-	}
+add_equipment_to_stockpile = {
+	type = infantry_equipment_0
+	amount = 7000
+	producer = FRA
 }
+
+### LEADERS ###
+recruit_character = YUN_miao_yuntai
+recruit_character = YUN_tang_jiyao
+
+### GENERALS ###
+recruit_character = YUN_long_yun

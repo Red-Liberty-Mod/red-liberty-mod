@@ -6,6 +6,7 @@ instant_effect = {
 		name = "S Class"
 		type = ship_hull_submarine_1
 		name_group = USA_SS_HISTORICAL
+		design_team = mio:USA_electric_boat_company_organization
 		parent_version = 0
 		modules = {
 			fixed_ship_torpedo_slot = ship_torpedo_sub_1
@@ -15,9 +16,10 @@ instant_effect = {
 		obsolete = yes
 	}
 	create_equipment_variant = {
-		name = "Barracuda Class"			# represents Barracuda, Dolphin, Cachalot classes
+		name = "Barracuda Class"			# represents Barracuda, Narwhal, Dolphin, Cachalot classes
 		type = ship_hull_submarine_2
 		name_group = USA_SS_HISTORICAL
+		design_team = mio:USA_electric_boat_company_organization
 		parent_version = 0
 		modules = {
 			fixed_ship_torpedo_slot = ship_torpedo_sub_1
@@ -58,12 +60,44 @@ instant_effect = {
 		obsolete = yes
 	}
 	create_equipment_variant = {
-		name = "Farragut Class"				# represents Farragut, Porter, Mahan classes
+		name = "Farragut Class"
 		type = ship_hull_light_2
 		name_group = USA_DD_HISTORICAL
 		parent_version = 0
 		modules = {
-			fixed_ship_battery_slot = ship_light_battery_2
+			fixed_ship_battery_slot = dp_light_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = ship_sonar_1
+			fixed_ship_engine_slot = light_ship_engine_2
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+	}
+	create_equipment_variant = {
+		name = "Porter Class"
+		type = ship_hull_light_2
+		name_group = USA_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = dp_light_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = ship_sonar_1
+			fixed_ship_engine_slot = light_ship_engine_2
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+	}
+	create_equipment_variant = {
+		name = "Mahan Class"
+		type = ship_hull_light_2
+		name_group = USA_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = dp_light_battery_2
 			fixed_ship_anti_air_slot = ship_anti_air_1
 			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
 			fixed_ship_radar_slot = ship_sonar_1
@@ -151,7 +185,7 @@ instant_effect = {
 		obsolete = yes
 	}
 	create_equipment_variant = {
-		name = "Portland Class"				# Portland and New Orleans classes
+		name = "Portland Class"
 		type = ship_hull_cruiser_1
 		name_group = USA_CA_HISTORICAL
 		parent_version = 0
@@ -170,7 +204,7 @@ instant_effect = {
 		obsolete = yes
 	}
 	create_equipment_variant = {
-		name = "New Orleans Class"
+		name = "Astoria Class"
 		type = ship_hull_cruiser_1
 		name_group = USA_CA_HISTORICAL
 		parent_version = 0
@@ -384,7 +418,6 @@ instant_effect = {
 			fixed_ship_radar_slot = empty
 			fixed_ship_engine_slot = cruiser_ship_engine_1
 			fixed_ship_secondaries_slot = ship_secondaries_1
-			mid_1_custom_slot = ship_deck_space
 		}
 		obsolete = yes
 	}
@@ -464,7 +497,7 @@ units= {
 			location = 9814 # Los Angeles
 			
 			# Cruiser Division 1 #			
-			ship = { name = "USS Lexington" definition = battle_cruiser start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Lexington Class" } } }				
+			ship = { name = "USS Lexington" definition = battle_cruiser start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Lexington Class" } } }
 			ship = { name = "USS Constellation" definition = battle_cruiser start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Lexington Class" } } }
 			ship = { name = "USS Saratoga" definition = battle_cruiser start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Lexington Class" } } }
 			ship = { name = "USS Ranger" definition = battle_cruiser start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Lexington Class" } } }
@@ -477,9 +510,9 @@ units= {
 			ship = { name = "USS Cincinnati" definition = light_cruiser start_experience_factor = 0.25 equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "Omaha Class" } } }
 			
 			# Cruiser Division 6 #		
-			ship = { name = "USS New Orleans" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "New Orleans Class" } } }				
-			ship = { name = "USS Astoria" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "New Orleans Class" } } }				
-			ship = { name = "USS Minneapolis" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "New Orleans Class" } } }				
+			ship = { name = "USS New Orleans" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "Astoria Class" } } }				
+			ship = { name = "USS Astoria" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "Astoria Class" } } }				
+			ship = { name = "USS Minneapolis" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "Astoria Class" } } }				
 			ship = { name = "USS Indianapolis" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "Portland Class" } } }				
 		}					
 		task_force = {					
@@ -605,8 +638,8 @@ units= {
 			ship = { name = "USS Chester" definition = heavy_cruiser start_experience_factor = 0.25 equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "Pensacola Class" } } }				
 			ship = { name = "USS Louisville" definition = heavy_cruiser start_experience_factor = 0.25 equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "Pensacola Class" } } }					
 			# Cruiser Division 7 #
-			ship = { name = "USS Tuscaloosa" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "New Orleans Class" } } }				
-			ship = { name = "USS San Francisco" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "New Orleans Class" } } }				
+			ship = { name = "USS Tuscaloosa" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "Astoria Class" } } }				
+			ship = { name = "USS San Francisco" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "Astoria Class" } } }				
 			ship = { name = "USS Portland" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "Portland Class" } } }				
 			### Destroyer Squadron 10 ###
 			ship = { name = "USS Decatur" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Clemson Class" } } }		
@@ -969,28 +1002,30 @@ instant_effect = {
 		industrial_manufacturer = mio:USA_brooklyn_naval_yard_organization
 	}
 	
-	# CA: Quincy (New Orleans class, Comm. 9-Jun, 1936)
+	# CA: Quincy (Astoria Class, Comm. 9-Jun, 1936)
 	add_equipment_production = {
 		equipment = {
 			type = ship_hull_cruiser_1
 			creator = "USA"
-			version_name = "New Orleans Class"
+			version_name = "Astoria Class"
 		}
 		name = "USS Quincy" 
 		requested_factories = 2
 		progress = 0.60
 		amount = 1
+		industrial_manufacturer = mio:USA_bethlehem_shipbuilding_organization
 	}
 	add_equipment_production = {
 		equipment = {
 			type = ship_hull_cruiser_1
 			creator = "USA"
-			version_name = "New Orleans Class"
+			version_name = "Astoria Class"
 		}
 		name = "USS Vincennes"
 		requested_factories = 1
 		progress = 0.50
 		amount = 1
+		industrial_manufacturer = mio:USA_bethlehem_shipbuilding_organization
 	}
 	# CA: Wichita (Wichita class
 	add_equipment_production = {
@@ -1009,7 +1044,7 @@ instant_effect = {
 		equipment = {
 			type = ship_hull_light_2
 			creator = "USA"
-			version_name = "Farragut Class"
+			version_name = "Porter Class"
 		}
 		name = "USS Porter" 
 		requested_factories = 1
@@ -1021,7 +1056,41 @@ instant_effect = {
 		equipment = {
 			type = ship_hull_light_2
 			creator = "USA"
-			version_name = "Farragut Class"
+			version_name = "Porter Class"
+		}
+		name = "USS Selfridge" 
+		requested_factories = 1
+		progress = 0.20
+		amount = 1
+		industrial_manufacturer = mio:USA_new_york_shipbuilding_organization
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "USA"
+			version_name = "Porter Class"
+		}
+		name = "USS McDougal" 
+		requested_factories = 1
+		progress = 0.20
+		amount = 1
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "USA"
+			version_name = "Porter Class"
+		}
+		name = "USS Winslow" 
+		requested_factories = 1
+		progress = 0.20
+		amount = 1
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "USA"
+			version_name = "Porter Class"
 		}
 		name = "USS Phelps" 
 		requested_factories = 1
@@ -1032,7 +1101,7 @@ instant_effect = {
 		equipment = {
 			type = ship_hull_light_2
 			creator = "USA"
-			version_name = "Farragut Class"
+			version_name = "Porter Class"
 		}
 		name = "USS Clark" 
 		requested_factories = 1
@@ -1043,9 +1112,20 @@ instant_effect = {
 		equipment = {
 			type = ship_hull_light_2
 			creator = "USA"
-			version_name = "Farragut Class"
+			version_name = "Porter Class"
 		}
 		name = "USS Moffett" 
+		requested_factories = 1
+		progress = 0.20
+		amount = 1
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "USA"
+			version_name = "Porter Class"
+		}
+		name = "USS Balch" 
 		requested_factories = 1
 		progress = 0.20
 		amount = 1
@@ -1055,7 +1135,7 @@ instant_effect = {
 		equipment = {
 			type = ship_hull_light_2
 			creator = "USA"
-			version_name = "Farragut Class"
+			version_name = "Mahan Class"
 		}
 		name = "USS Mahan" 
 		requested_factories = 1
@@ -1066,7 +1146,7 @@ instant_effect = {
 		equipment = {
 			type = ship_hull_light_2
 			creator = "USA"
-			version_name = "Farragut Class"
+			version_name = "Mahan Class"
 		}
 		name = "USS Cummings" 
 		requested_factories = 1
@@ -1077,7 +1157,29 @@ instant_effect = {
 		equipment = {
 			type = ship_hull_light_2
 			creator = "USA"
-			version_name = "Farragut Class"
+			version_name = "Mahan Class"
+		}
+		name = "USS Drayton" 
+		requested_factories = 1
+		progress = 0.10
+		amount = 1
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "USA"
+			version_name = "Mahan Class"
+		}
+		name = "USS Lamson" 
+		requested_factories = 1
+		progress = 0.10
+		amount = 1
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "USA"
+			version_name = "Mahan Class"
 		}
 		name = "USS Flusser" 
 		requested_factories = 1
@@ -1088,7 +1190,18 @@ instant_effect = {
 		equipment = {
 			type = ship_hull_light_2
 			creator = "USA"
-			version_name = "Farragut Class"
+			version_name = "Mahan Class"
+		}
+		name = "USS Reid" 
+		requested_factories = 1
+		progress = 0.20
+		amount = 1
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "USA"
+			version_name = "Mahan Class"
 		}
 		name = "USS Case" 
 		requested_factories = 1
@@ -1099,7 +1212,7 @@ instant_effect = {
 		equipment = {
 			type = ship_hull_light_2
 			creator = "USA"
-			version_name = "Farragut Class"
+			version_name = "Mahan Class"
 		}
 		name = "USS Conyngham" 
 		requested_factories = 1
@@ -1110,7 +1223,7 @@ instant_effect = {
 		equipment = {
 			type = ship_hull_light_2
 			creator = "USA"
-			version_name = "Farragut Class"
+			version_name = "Mahan Class"
 		}
 		name = "USS Cassin" 
 		requested_factories = 1
@@ -1121,7 +1234,7 @@ instant_effect = {
 		equipment = {
 			type = ship_hull_light_2
 			creator = "USA"
-			version_name = "Farragut Class"
+			version_name = "Mahan Class"
 		}
 		name = "USS Shaw" 
 		requested_factories = 1
@@ -1132,7 +1245,31 @@ instant_effect = {
 		equipment = {
 			type = ship_hull_light_2
 			creator = "USA"
-			version_name = "Farragut Class"
+			version_name = "Mahan Class"
+		}
+		name = "USS Tucker" 
+		requested_factories = 1
+		progress = 0.30
+		amount = 1
+		#industrial_manufacturer = mio:USA_norfolk_naval_yard_organization
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "USA"
+			version_name = "Mahan Class"
+		}
+		name = "USS Downes" 
+		requested_factories = 1
+		progress = 0.30
+		amount = 1
+		#industrial_manufacturer = mio:USA_norfolk_naval_yard_organization
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "USA"
+			version_name = "Mahan Class"
 		}
 		name = "USS Cushing" 
 		requested_factories = 1
@@ -1143,11 +1280,55 @@ instant_effect = {
 		equipment = {
 			type = ship_hull_light_2
 			creator = "USA"
-			version_name = "Farragut Class"
+			version_name = "Mahan Class"
 		}
 		name = "USS Perkins" 
 		requested_factories = 1
 		progress = 0.30
+		amount = 1
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "USA"
+			version_name = "Mahan Class"
+		}
+		name = "USS Smith" 
+		requested_factories = 1
+		progress = 0.1
+		amount = 1
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "USA"
+			version_name = "Mahan Class"
+		}
+		name = "USS Preston" 
+		requested_factories = 1
+		progress = 0.1
+		amount = 1
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "USA"
+			version_name = "Mahan Class"
+		}
+		name = "USS Dunlap" 
+		requested_factories = 1
+		progress = 0.1
+		amount = 1
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "USA"
+			version_name = "Mahan Class"
+		}
+		name = "USS Fanning" 
+		requested_factories = 1
+		progress = 0.1
 		amount = 1
 	}
 	

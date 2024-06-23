@@ -1,0 +1,381 @@
+shared_focus = {
+    id = UOB_our_intent
+	icon = GFX_focus_generic_attack_brazil
+	
+    x = 8
+	y = 0
+	
+	cost = 3
+    completion_reward = {
+        add_political_power = 100
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = UOB_seek_soviet_support
+	icon = GFX_focus_BRA_seek_soviet_support
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = UOB_our_intent
+	prerequisite = { focus = UOB_our_intent }
+    completion_reward = {
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 1500
+			producer = SOV
+		}
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = UOB_seek_american_sympathy
+	icon = GFX_focus_generic_befriend_usa
+	
+    x = 2
+	y = 1
+	cost = 5
+	
+	relative_position_id = UOB_our_intent
+	prerequisite = { focus = UOB_our_intent }
+    completion_reward = {
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 750
+			producer = USA
+		}
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = UOB_call_for_international_brigades
+	icon = GFX_focus_SOV_builder_of_the_red_army
+	
+    x = 0
+	y = 1
+	cost = 5
+	
+	relative_position_id = UOB_seek_soviet_support
+	prerequisite = { focus = UOB_seek_soviet_support }
+    completion_reward = {
+		custom_effect_tooltip = UOB_call_for_international_brigades_tt
+		hidden_effect = {
+			load_oob = UOB_international_brigades
+		}
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = UOB_expropriate_foreign_assets
+	icon = GFX_focus_DEN_heavy_regulations
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = UOB_seek_american_sympathy
+	prerequisite = { focus = UOB_seek_american_sympathy }
+	mutually_exclusive = { focus = UOB_offer_of_amnesty }
+    completion_reward = {
+		add_timed_idea = {
+			idea = UOB_expropriated_assets
+			days = 180
+		}
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = UOB_offer_of_amnesty
+	icon = GFX_goal_continuous_boost_freedom
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = UOB_seek_american_sympathy
+	prerequisite = { focus = UOB_seek_american_sympathy }
+	mutually_exclusive = { focus = UOB_expropriate_foreign_assets }
+    completion_reward = {
+		add_popularity = {
+			ideology = social_democracy
+			popularity = 0.025
+		}
+		add_popularity = {
+			ideology = progressive_liberalism
+			popularity = 0.025
+		}
+		add_popularity = {
+			ideology = liberal_conservatism
+			popularity = 0.025
+		}
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = UOB_fighting_women
+	icon = GFX_focus_ARG_women_in_industry
+	
+    x = -3
+	y = 1
+	cost = 5
+	
+	relative_position_id = UOB_call_for_international_brigades
+	prerequisite = { focus = UOB_call_for_international_brigades }
+    completion_reward = {
+		add_ideas = UOB_fighting_women
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = UOB_emulate_soviet_successes
+	icon = GFX_focus_generic_communist_industry
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = UOB_call_for_international_brigades
+	prerequisite = { focus = UOB_call_for_international_brigades }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = UOB_militarize_the_unions
+	icon = GFX_focus_ARG_no_gods_no_masters
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = UOB_call_for_international_brigades
+	prerequisite = { focus = UOB_call_for_international_brigades }
+	prerequisite = {
+		focus = UOB_expropriate_foreign_assets
+		focus = UOB_offer_of_amnesty
+	}
+    completion_reward = {
+		add_popularity = {
+			ideology = anarchism
+			popularity = 0.025
+		}
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = UOB_break_the_oligarchies
+	icon = GFX_focus_BRA_cafe_com_leite_politics
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = UOB_expropriate_foreign_assets
+	prerequisite = {
+		focus = UOB_expropriate_foreign_assets
+		focus = UOB_offer_of_amnesty
+	}
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = UOB_liberate_the_camps
+	icon = GFX_focus_SWE_refuge_from_war
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = UOB_offer_of_amnesty
+	prerequisite = {
+		focus = UOB_expropriate_foreign_assets
+		focus = UOB_offer_of_amnesty
+	}
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = UOB_empower_the_security_service
+	icon = GFX_focus_BRA_kgbrazil
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = UOB_emulate_soviet_successes
+	prerequisite = { focus = UOB_emulate_soviet_successes }
+    completion_reward = {
+		add_ideas = UOB_empowered_security_service
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = UOB_enforce_ideological_consistency
+	icon = GFX_focus_SWE_refuge_for_revolutionaries
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = UOB_emulate_soviet_successes
+	prerequisite = { focus = UOB_emulate_soviet_successes }
+    completion_reward = {
+		add_popularity = {
+			ideology = vanguard_socialism
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = revolutionary_socialism
+			popularity = -0.025
+		}
+		add_popularity = {
+			ideology = democratic_socialism
+			popularity = -0.025
+		}
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = UOB_invite_latin_american_exiles
+	icon = GFX_focus_BRA_create_faction
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = UOB_break_the_oligarchies
+	prerequisite = { focus = UOB_break_the_oligarchies }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = UOB_collectivize_the_coffee_fields
+	icon = GFX_focus_BRA_coffee_crisis
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = UOB_break_the_oligarchies
+	prerequisite = { focus = UOB_break_the_oligarchies }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = UOB_purge_the_revisionists
+	icon = GFX_focus_SOV_the_last_purge
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = UOB_empower_the_security_service
+	prerequisite = { focus = UOB_empower_the_security_service }
+	prerequisite = { focus = UOB_enforce_ideological_consistency }
+	mutually_exclusive = { focus = UOB_forces_prestes_resignation }
+    completion_reward = {
+		country_event = {
+			id = red_brazil.6
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}
+
+shared_focus = {
+    id = UOB_forces_prestes_resignation
+	icon = GFX_focus_BRA_free_prestes
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = UOB_invite_latin_american_exiles
+	prerequisite = { focus = UOB_invite_latin_american_exiles }
+	prerequisite = { focus = UOB_collectivize_the_coffee_fields }
+	mutually_exclusive = { focus = UOB_purge_the_revisionists }
+    completion_reward = {
+		country_event = {
+			id = red_brazil.7
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		base = 1
+	}
+}

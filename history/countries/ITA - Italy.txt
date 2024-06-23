@@ -72,6 +72,7 @@ if = {
 		early_ship_hull_heavy = 1
 		basic_ship_hull_heavy = 1
 		early_ship_hull_carrier = 1
+		coastal_defense_ships = 1
 
 		### Modules ###
 		basic_naval_mines = 1
@@ -112,10 +113,9 @@ if = {
 	set_naval_oob = "ITA_naval_legacy"
 }
 
-### Planes - BBA ###
+### Planes ###
 if = {
 	limit = { has_dlc_bba = yes }
-	set_air_oob = "ITA_air_bba"
 	set_technology = {
 		aa_lmg = 1
 		early_bombs = 1
@@ -127,17 +127,15 @@ if = {
 		basic_small_airframe = 1
 		basic_medium_airframe = 1
 	}
-}
-
-### Planes - non BBA ###
-if = {
-	limit = { has_dlc_bba = no }
-	set_air_oob = "ITA_air_legacy"
-	set_technology = {
-		early_fighter = 1
-		early_bomber = 1
-		naval_bomber1 = 1
-		CAS1 = 1
+	set_air_oob = "ITA_air_bba"
+	else = {
+		set_technology = {
+			early_fighter = 1
+			early_bomber = 1
+			naval_bomber1 = 1
+			CAS1 = 1
+		}
+		set_air_oob = "ITA_air_legacy"
 	}
 }
 

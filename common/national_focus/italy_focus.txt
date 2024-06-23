@@ -158,31 +158,14 @@ focus_tree = {
 		}
 		x = 17
 		y = 7
-			available_if_capitulated = yes
-			search_filters = { FOCUS_FILTER_WAR_SUPPORT }
-			ai_will_do = {
-					factor = 1
-				}
-			completion_reward = {
-					start_border_war = {
-							change_state_after_war = no
-							attacker = {
-									state = 550
-									num_provinces = 1
-									on_win = italy_events.2
-									on_lose = italy_events.3
-									on_cancel = italy_events.3
-								}
-							defender = {
-									state = 271
-									num_provinces = 1
-									on_win = ethiopia_events.1
-									on_lose = ethiopia_events.2
-									on_cancel = ethiopia_events.2
-								}
-						}
-				}
-
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = ITA_claim_austrian_land
@@ -395,6 +378,7 @@ focus_tree = {
 			}
 		}
 	}
+	
 	focus = {
 		id = ITA_revive_the_italian_peoples_party
 		icon = GFX_goal_unknown
@@ -581,6 +565,9 @@ focus_tree = {
 		prerequisite = {
 			focus = ITA_begin_to_weaken_fascism
 		}
+		mutually_exclusive = {
+			focus = ITA_invite_the_moderates_in
+		}
 		x = 37
 		y = 3
 		available_if_capitulated = yes
@@ -590,7 +577,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_popularity = {
-    			ideology = proletarian_dictatorship
+    			ideology = vanguard_socialism
     			popularity = 0.05
 			}
 		}
@@ -613,7 +600,7 @@ focus_tree = {
 		completion_reward = {
 			add_stability = -0.5
 			add_popularity = {
-    			ideology = proletarian_dictatorship
+    			ideology = vanguard_socialism
     			popularity = 0.05
 			}			
 		}
@@ -1003,10 +990,9 @@ focus_tree = {
 					IF = {
 						limit = {
 							NOT = {
-								has_government = autocratic_despotism
+								has_government = despotism
 
 							}
-												
 						}
 						country_event = {
 							id = italy_events.76
@@ -1075,7 +1061,7 @@ focus_tree = {
 		completion_reward = {
 			FRA = {
 				add_popularity = {
-					ideology = autocratic_despotism
+					ideology = despotism
 					popularity = 0.1
 				}
 			}
@@ -1294,7 +1280,7 @@ focus_tree = {
 					factor = 1
 				} 
 		completion_reward = {
-			unlock_decision_category_tooltip = ITA_support_the_nazis
+			#unlock_decision_category_tooltip = ITA_support_the_nazis
 		}
 
 	}
@@ -1848,12 +1834,12 @@ focus_tree = {
 		x = 36
 		y = 16
 		completion_reward = {
-			FRA = {
-				add_timed_idea = {
-					idea = ITA_communist_funded_rebels
-					days = 75
-				}
-			}
+			#FRA = {
+			#	add_timed_idea = {
+			#		idea = ITA_communist_funded_rebels
+			#		days = 75
+			#	}
+			#}
 		}
 	}
 	focus = {
@@ -1866,24 +1852,7 @@ focus_tree = {
 		x = 38
 		y = 16
 		completion_reward = {
-			start_border_war = {
-				change_state_after_war = no
-				attacker = {
-					state = 158
-					num_provinces = 5
-					on_win = italy_events.53
-					on_lose = italy_events.54
-					on_cancel = italy_events.55
-				}
-							
-				defender = {
-					state = 735
-					num_provinces = 7
-					on_win = italy_events.56
-					on_lose = italy_events.57
-					on_cancel = italy_events.58
-				}
-			}
+			
 		}
 
 	}
@@ -1981,7 +1950,7 @@ focus_tree = {
 				target = HSR
 			}
 			send_equipment = {
-				equipment = armor
+				equipment = light_tank
 				amount = 10
 				target = HSR
 			}
@@ -2319,10 +2288,10 @@ focus_tree = {
 		y = 3
 		completion_reward = {
 			#Add timed idea for 100 days "Industrial works"
-			add_timed_idea = {
-				idea = ITA_industrial_works
-				days = 100
-			}
+			#add_timed_idea = {
+			#	idea = ITA_industrial_works
+			#	days = 100
+			#}
 		}
 	}
 	focus = {

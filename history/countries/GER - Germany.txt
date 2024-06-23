@@ -5,7 +5,7 @@ oob = "GER"
 starting_train_buffer = 2
 set_fuel_ratio = 0.8
 add_equipment_to_stockpile = {
-    type = motorized_equipment
+    type = motorized_equipment_1
     amount = 200
     producer = GER
 }
@@ -13,8 +13,8 @@ add_equipment_to_stockpile = {
 if = {
 	limit = {
 		OR = {
-			has_dlc = "Together for Victory"
-			has_dlc = "Man the Guns"
+			has_dlc_tfv = yes
+			has_dlc_mtg = yes
 		}
 	}
 	set_autonomy = {

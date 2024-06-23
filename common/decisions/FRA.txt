@@ -253,7 +253,9 @@ FRA_republican_resistance_category = {
 			FROM = {
 				is_owned_by = ROOT
 				is_core_of = ROOT
-				has_modifier = FRA_republican_resistance_modifier
+				has_dynamic_modifier = {
+					modifier = FRA_republican_resistance_modifier
+				}
 			}
 		}
 		
@@ -297,7 +299,9 @@ FRA_local_development_category = {
 		available = {
 			NOT = {
 				FROM = {
-					has_modifier = FRA_republican_resistance_modifier
+					has_dynamic_modifier = {
+						modifier = FRA_republican_resistance_modifier
+					}
 				}
 			}
 		}

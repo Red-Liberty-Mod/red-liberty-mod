@@ -1,0 +1,105 @@
+add_namespace = argentina
+add_namespace = argentina_forpol
+
+country_event = { # 
+	id = argentina.1
+	title = argentina.1.title
+	desc = argentina.1.desc
+
+	is_triggered_only = yes
+
+	fire_only_once = yes 
+
+	option = { 
+		name = argentina.1.a
+	}
+}
+
+country_event = { # amadeo sabattini elected in cordoba, ucr wins federal capital elections
+	id = argentina.2
+	title = argentina.2.title
+	desc = argentina.2.desc
+
+	is_triggered_only = yes
+
+	fire_only_once = yes 
+
+	option = { 
+		name = argentina.2.a
+		add_popularity = {
+			ideology = progressive_liberalism
+			popularity = 0.01
+		}
+	}
+}
+
+country_event = { # gentlemans agreement
+	id = argentina.3
+	title = argentina.3.title
+	desc = argentina.3.desc
+
+	is_triggered_only = yes
+
+	fire_only_once = yes 
+
+	option = { 
+		name = argentina.3.a
+		add_popularity = {
+			ideology = progressive_liberalism
+			popularity = 0.01
+		}
+	}
+	
+	option = { 
+		name = argentina.3.b
+	}
+}
+
+country_event = { # invitation to alliance
+	id = argentina_forpol.1
+	title = argentina_forpol.1.title
+	desc = argentina_forpol.1.desc
+
+	is_triggered_only = yes
+
+	fire_only_once = yes 
+
+	option = { 
+		name = argentina_forpol.1.a
+		give_guarantee = ARG
+		ARG = {
+			give_guarantee = BOL
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	
+	option = { 
+		name = argentina_forpol.1.b
+		ARG = {
+			country_event = {
+				id = argentina_forpol.2
+				hours = 6
+			}
+		}
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+country_event = { # rejection
+	id = argentina_forpol.2
+	title = argentina_forpol.2.title
+	desc = argentina_forpol.2.desc
+
+	is_triggered_only = yes
+
+	fire_only_once = yes 
+
+	option = { 
+		name = argentina_forpol.2.a
+		clr_country_flag = ARG_alliance_with_bolivia_flag
+	}
+}
