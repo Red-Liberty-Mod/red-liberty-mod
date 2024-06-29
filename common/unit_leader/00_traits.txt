@@ -575,10 +575,6 @@ leader_traits = {
 				division_has_majority_template = irregular_infantry
 			}
 			owner = {
-				OR = {
-					original_tag = ITA
-					original_tag = ETH
-				}
 				NOT = {
 					OR = {
 						has_idea = best_of_the_best_spirit
@@ -600,15 +596,6 @@ leader_traits = {
 
 		new_commander_weight = {
 			base = 0
-			modifier = {
-				add = 0.5
-				FROM = { #Looks like the allowed parameter is doing NOTHING :D 
-					OR = {
-						original_tag = ITA
-						original_tag = ETH
-					}
-				}
-			}
 		}
 
 		attack_skill_factor = 1
@@ -628,12 +615,14 @@ leader_traits = {
 
 		unit_type = {
 			type = infantry
+			type = irregular_infantry
+			type = cavalry
+			type = camelry
 		}
 
 		unit_trigger = {
 			division_has_majority_template = infantry
 			owner = {
-				original_tag = ITA
 				NOT = {
 					OR = {
 						has_idea = best_of_the_best_spirit
@@ -654,12 +643,6 @@ leader_traits = {
 
 		new_commander_weight = {
 			base = 0
-			modifier = {
-				add = 0.5
-				FROM = { #Looks like the allowed parameter is doing NOTHING :D 
-					original_tag = ITA
-				}
-			}
 		}
 
 		defense_skill_factor = 1
@@ -670,15 +653,6 @@ leader_traits = {
 		type = corps_commander
 
 		trait_type = personality_trait
-
-		allowed = {
-			FROM = {
-				OR = {
-					original_tag = ITA
-					original_tag = SWI
-				}
-			}
-		}
 
 		unit_type = {
 			type = militia
@@ -704,15 +678,6 @@ leader_traits = {
 
 		new_commander_weight = {
 			base = 0
-			modifier = {
-				add = 0.5
-				FROM = { #Looks like the allowed parameter is doing NOTHING :D 
-					OR = {
-						original_tag = ITA
-						original_tag = SWI
-					}
-				}
-			}
 		}
 
 		defense_skill_factor = 1
@@ -722,11 +687,7 @@ leader_traits = {
 	jaeger = { 
 		type = land
 		trait_type = personality_trait 
-
-		allowed = {
-			FROM = { original_tag = FIN }
-		}
-				
+		
 		trait_xp_factor = {
 			trickster = 1     #+100%
 			winter_specialist = 1     #+100%
