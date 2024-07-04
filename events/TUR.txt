@@ -4,6 +4,7 @@
 
 add_namespace = anatolia
 add_namespace = anatalia_flavour
+add_namespace = anatalia_conference
 
 country_event = { # intro event
 	id = anatolia.1
@@ -169,5 +170,215 @@ country_event = { # adnans homesickness
 	option = {
 		name = anatolia.11.a
 		load_focus_tree = TUR_adivar_crisis_tree
+	}
+}
+
+country_event = { # response from the commission
+	id = anatolia.12
+	title = anatolia.12.title
+	desc = anatolia.12.desc
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = anatolia.12.a
+	}
+}
+
+### CONSTANTINOPLE CONFERENCE
+
+country_event = { # conference opens
+	id = anatalia_conference.1
+	title = anatalia_conference.1.title
+	desc = anatalia_conference.1.desc
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = anatalia_conference.1.a
+		ENG = {
+			country_event = {
+				id = anatalia_conference.2
+				hours = 6
+			}
+		}
+	}
+}
+
+country_event = { # deal presented to angloids and frogs
+	id = anatalia_conference.2
+	title = anatalia_conference.2.title
+	desc = anatalia_conference.2.desc
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { # accept
+		name = anatalia_conference.2.a
+		FRA = {
+			country_event = {
+				id = anatalia_conference.3
+				hours = 6
+			}
+		}
+		
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+				check_variable = { TUR.TUR_demand_val > TUR.TUR_concession_val }
+			}
+		}
+	}
+	
+	option = { # reject
+		name = anatalia_conference.2.b
+		TUR = {
+			set_country_flag = TUR_british_rejected_deal
+			country_event = {
+				id = anatalia_conference.5
+				hours = 6
+			}
+		}
+		
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+				check_variable = {
+					var = TUR.TUR_demand_val
+					value = TUR.TUR_concession_val
+					compare = less_than_or_equals
+				}
+			}
+		}
+	}
+}
+
+country_event = { # deal presented to frogs
+	id = anatalia_conference.3
+	title = anatalia_conference.3.title
+	desc = anatalia_conference.3.desc
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { # accept
+		name = anatalia_conference.2.a
+		TUR = {
+			country_event = {
+				id = anatalia_conference.4
+				hours = 6
+			}
+		}
+		
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+				check_variable = { TUR.TUR_demand_val > TUR.TUR_concession_val }
+			}
+		}
+	}
+	
+	option = { # reject
+		name = anatalia_conference.2.b
+		TUR = {
+			set_country_flag = TUR_french_rejected_deal
+			country_event = {
+				id = anatalia_conference.5
+				hours = 6
+			}
+		}
+		
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+				check_variable = {
+					var = TUR.TUR_demand_val
+					value = TUR.TUR_concession_val
+					compare = less_than_or_equals
+				}
+			}
+		}
+	}
+}
+
+country_event = { # conference successful
+	id = anatalia_conference.4
+	title = anatalia_conference.4.title
+	desc = anatalia_conference.4.desc
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = anatalia_conference.4.a
+		TUR = {
+			annex_country = {
+				target = SCM
+				transfer_troops = no
+			}
+			if = {
+				limit = {
+					has_country_flag = TUR_demanded_manisa
+				}
+				339 = {
+					set_demilitarized_zone = no
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = TUR_renegotiated_debt
+				}
+				add_timed_idea = {
+					idea = TUR_renegotiated_debt
+					days = 360
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = TUR_claimed_thrace
+				}
+				add_state_claim = 821
+			}
+			if = {
+				limit = {
+					has_country_flag = TUR_remil_lemnos
+				}
+				993 = {
+					set_demilitarized_zone = no
+				}
+			}
+		}
+		hidden_effect = {
+			set_global_flag = straits_conference_over
+			SCM = {
+				remove_state_core = 341
+				remove_state_core = 345
+			}
+			news_event = {
+				id = worldnews.14
+				hours = 6
+			}
+		}
+	}
+}
+
+country_event = { # conference failed
+	id = anatalia_conference.5
+	title = anatalia_conference.5.title
+	desc = anatalia_conference.5.desc
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = anatalia_conference.5.a
+		add_political_power = -100
 	}
 }

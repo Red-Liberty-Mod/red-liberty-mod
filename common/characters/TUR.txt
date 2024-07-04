@@ -81,11 +81,11 @@ characters = {
 			}
 		}
 		
-		country_leader = {
-			desc = "POLITICS_SEVKET_SUREYYA_AYDEMIR_DESC"
-			ideology = democratic_socialism_subtype
-			traits = {  }
-		}
+		#country_leader = {
+		#	desc = "POLITICS_SEVKET_SUREYYA_AYDEMIR_DESC"
+		#	ideology = democratic_socialism_subtype
+		#	traits = {  }
+		#}
 		
 		advisor = {
 			cost = 100
@@ -147,41 +147,6 @@ characters = {
 		}
 	}
 	
-	TUR_adnan_adivar = {
-		name = TUR_adnan_adivar
-		
-		portraits = {
-			civilian = {
-				large = "GFX_portrait_TUR_adnan_adivar"
-			}
-		}
-		
-		country_leader = {
-			desc = "POLITICS_ADNAN_ADIVAR_DESC"
-			ideology = national_liberalism_subtype
-			traits = {  }
-		}
-	}
-	
-	TUR_fethi_okyar = {
-		name = TUR_fethi_okyar
-		
-		portraits = {
-			civilian = {
-				large = "GFX_portrait_TUR_fethi_okyar"
-				small = "GFX_minister_TUR_fethi_okyar"
-			}
-		}
-		
-		country_leader = {
-			desc = "POLITICS_FETHI_OKYAR_DESC"
-			ideology = liberal_conservatism_subtype
-			traits = {
-				TUR_pragmatist
-			}
-		}
-	}
-	
 	TUR_kazim_karabekir = {
 		name = TUR_kazim_karabekir
 		
@@ -197,7 +162,7 @@ characters = {
 		
 		country_leader = {
 			desc = "POLITICS_KAZIM_KARABEKIR_DESC"
-			ideology = right_wing_populism_subtype
+			ideology = progressive_liberalism_subtype
 			traits = {
 				TUR_liberal_generallisimo
 			}
@@ -238,6 +203,43 @@ characters = {
 		}
 	}
 	
+	TUR_adnan_adivar = {
+		name = TUR_adnan_adivar
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_TUR_adnan_adivar"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_ADNAN_ADIVAR_DESC"
+			ideology = national_liberalism_subtype
+			traits = {
+				TUR_doctor_for_the_sick_man
+			}
+		}
+	}
+	
+	TUR_fethi_okyar = {
+		name = TUR_fethi_okyar
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_TUR_fethi_okyar"
+				small = "GFX_minister_TUR_fethi_okyar"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_FETHI_OKYAR_DESC"
+			ideology = liberal_conservatism_subtype
+			traits = {
+				TUR_pragmatist
+			}
+		}
+	}
+	
 	TUR_necip_fazil_kisakurek = {
 		name = TUR_necip_fazil_kisakurek
 		
@@ -250,6 +252,24 @@ characters = {
 		country_leader = {
 			desc = "POLITICS_NECIP_FAZIL_KISAKUREK_DESC"
 			ideology = despotism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	TUR_halil_kut_pasha = {
+		name = TUR_halil_kut_pasha
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_TUR_halil_kut_pasha"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_HALIL_KUT_PASHA_DESC"
+			ideology = ultraconservatism_subtype
 			traits = {
 				
 			}
@@ -349,22 +369,31 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
 			slot = political_advisor
-			idea_token = TUR_rauf_orbay
+			idea_token = TUR_rauf_orbay_political_advisor
 			ledger = civilian
-			
-			allowed = {
-				original_tag = TUR
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
 				eco_naval_proponent
 			}
+		}
+		
+		advisor = {
+			slot = theorist
+			idea_token = TUR_rauf_orbay_theorist
+			ledger = navy
+			traits = { naval_theorist }
+			cost = 100
+		}
+		
+		navy_leader = {
+			traits = {
+				superior_tactician
+			}
+			skill = 3
+			attack_skill = 2
+			defense_skill = 4
+			maneuvering_skill = 2
+			coordination_skill = 2
 		}
 	}
 	
@@ -794,6 +823,53 @@ characters = {
 			defense_skill = 1
 			planning_skill = 1
 			logistics_skill = 1
+		}
+	}
+	
+	### Admirals ###
+	
+	TUR_sukru_okan = {
+		name = TUR_sukru_okan
+		
+		portraits = {
+			army = {
+				#large = ""
+				#small = ""
+			}
+		}
+		
+		navy_leader = {
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			maneuvering_skill = 2
+			coordination_skill = 1
+		}
+	}
+	
+	TUR_mehmet_ali_ulgen = {
+		name = TUR_mehmet_ali_ulgen
+		
+		portraits = {
+			army = {
+				#large = ""
+				#small = ""
+			}
+		}
+		
+		navy_leader = {
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			maneuvering_skill = 1
+			coordination_skill = 1
+		}
+		
+		advisor = {
+			slot = navy_chief
+			idea_token = TUR_mehmet_ali_ulgen
+			traits = { navy_chief_maneuver_2 }
+			cost = 100
 		}
 	}
 }

@@ -371,11 +371,10 @@ news_event = { # cristeros win civil war
 	}
 }
 
-news_event = { # la reclamacion
-	id = worldnews_war.8
-	title = worldnews_war.8.title
-	desc = worldnews_war.8.desc
-	picture = GFX_news_event_CMS_USA_war
+news_event = { # 
+	id = worldnews.12
+	title = worldnews.12.title
+	desc = worldnews.12.desc
 	
 	is_triggered_only = yes
 	
@@ -389,25 +388,31 @@ news_event = { # la reclamacion
 		or = {
 			regional_europe_news = yes
 			regional_north_america_news = yes
-			regional_south_america_news = yes
 		}
+	}
+	
+	immediate = {
+		log = "event worldnews.12"
 	}
 
 	option = {
-		name = worldnews_war.8.a		
-	}
-	
-	option = {
-		name = worldnews_war.8.b
+		name = worldnews.12.a
 		trigger = {
-			original_tag = USA
+			has_socialist_govt = yes
 		}
 	}
 	
 	option = {
-		name = worldnews_war.8.c
+		name = worldnews.12.b
 		trigger = {
-			original_tag = CMS
+			has_democratic_govt = yes
+		}
+	}
+	
+	option = {
+		name = worldnews.12.c
+		trigger = {
+			has_reactionary_govt = yes
 		}
 	}
 }
@@ -438,6 +443,57 @@ news_event = { # palacio nacional bombing
 		name = worldnews.13.a
 	}
 }
+
+news_event = { # succesful straits conference
+	id = worldnews.14
+	title = worldnews.14.title
+	desc = worldnews.14.desc
+	picture = GFX_news_event_TUR_parade
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	show_major = {
+		or = {
+			regional_europe_news = yes
+			regional_north_america_news = yes
+		}
+	}
+	
+	immediate = {
+		log = "event worldnews.14"
+	}
+
+	option = {
+		name = worldnews.14.a
+		trigger = {
+			has_socialist_govt = yes
+		}
+	}
+	
+	option = {
+		name = worldnews.14.b
+		trigger = {
+			has_democratic_govt = yes
+		}
+	}
+	
+	option = {
+		name = worldnews.14.c
+		trigger = {
+			has_reactionary_govt = yes
+		}
+	}
+}
+
+###########
+### WAR ###
+###########
 
 news_event = { # brazilian civil war
 	id = worldnews_war.1
@@ -493,6 +549,47 @@ news_event = { # russian civil war
 	option = {
 		name = worldnews_war.3.a
 		set_global_flag = russian_civil_war_started
+	}
+}
+
+news_event = { # la reclamacion
+	id = worldnews_war.8
+	title = worldnews_war.8.title
+	desc = worldnews_war.8.desc
+	picture = GFX_news_event_CMS_USA_war
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	show_major = {
+		or = {
+			regional_europe_news = yes
+			regional_north_america_news = yes
+			regional_south_america_news = yes
+		}
+	}
+
+	option = {
+		name = worldnews_war.8.a		
+	}
+	
+	option = {
+		name = worldnews_war.8.b
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = worldnews_war.8.c
+		trigger = {
+			original_tag = CMS
+		}
 	}
 }
 
