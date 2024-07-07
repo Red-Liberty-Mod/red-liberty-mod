@@ -1,0 +1,221 @@
+defined_text = {
+	name = GetCouncilMemberStatus
+	
+	text = {
+		trigger = {
+			OR = {
+				tag = TUR
+				tag = ENG
+				tag = FRA
+				tag = GER
+			}
+		}
+		localization_key = "TUR_straits_council_member"
+	}
+	
+	text = {
+		localization_key = "TUR_straits_council_observer"
+    }
+}
+
+defined_text = {
+	name = GetRemilManisa
+	
+	text = {
+		trigger = {
+			has_country_flag = TUR_demanded_manisa
+		}
+		localization_key = "TUR_demanded_manisa_green"
+	}
+	
+	text = {
+		trigger = {
+			NOT = {
+				has_country_flag = TUR_demanded_manisa
+			}
+		}
+		localization_key = "TUR_demanded_manisa_grey"
+    }
+}
+
+defined_text = {
+	name = GetDebtRenegotiation
+	
+	text = {
+		trigger = {
+			has_country_flag = TUR_renegotiated_debt
+		}
+		localization_key = "TUR_debt_renegotiation_green"
+	}
+	
+	text = {
+		trigger = {
+			NOT = {
+				has_country_flag = TUR_renegotiated_debt
+			}
+		}
+		localization_key = "TUR_debt_renegotiation_grey"
+    }
+}
+
+defined_text = {
+	name = GetThraceClaim
+	
+	text = {
+		trigger = {
+			has_country_flag = TUR_claimed_thrace
+		}
+		localization_key = "TUR_claimed_thrace_green"
+	}
+	
+	text = {
+		trigger = {
+			NOT = {
+				has_country_flag = TUR_claimed_thrace
+			}
+		}
+		localization_key = "TUR_claimed_thrace_grey"
+    }
+}
+
+defined_text = {
+	name = GetRemilLemnos
+	
+	text = {
+		trigger = {
+			has_country_flag = TUR_remil_lemnos
+		}
+		localization_key = "TUR_remil_lemnos_red"
+	}
+	
+	text = {
+		trigger = {
+			NOT = {
+				has_country_flag = TUR_remil_lemnos
+			}
+		}
+		localization_key = "TUR_remil_lemnos_grey"
+    }
+}
+defined_text = {
+	name = GetEconLiberalization
+	
+	text = {
+		trigger = {
+			has_country_flag = TUR_econ_liberalization
+		}
+		localization_key = "TUR_econ_liberal_red"
+	}
+	
+	text = {
+		trigger = {
+			NOT = {
+				has_country_flag = TUR_econ_liberalization
+			}
+		}
+		localization_key = "TUR_econ_liberal_grey"
+    }
+}
+defined_text = {
+	name = GetPolDemocratization
+	
+	text = {
+		trigger = {
+			has_country_flag = TUR_pol_democratization
+		}
+		localization_key = "TUR_pol_democratization_red"
+	}
+	
+	text = {
+		trigger = {
+			NOT = {
+				has_country_flag = TUR_pol_democratization
+			}
+		}
+		localization_key = "TUR_pol_democratization_grey"
+    }
+}
+defined_text = {
+	name = GetFreePassage
+	
+	text = {
+		trigger = {
+			has_country_flag = TUR_free_passage
+		}
+		localization_key = "TUR_free_passage_red"
+	}
+	
+	text = {
+		trigger = {
+			NOT = {
+				has_country_flag = TUR_free_passage
+			}
+		}
+		localization_key = "TUR_free_passage_grey"
+    }
+}
+
+defined_text = {
+	name = GetGermanOutreach
+	
+	text = {
+		trigger = {
+			has_country_flag = TUR_german_outreach
+		}
+		localization_key = "TUR_german_outreach_yellow"
+	}
+	
+	text = {
+		trigger = {
+			NOT = {
+				has_country_flag = TUR_german_outreach
+			}
+		}
+		localization_key = "TUR_german_outreach_grey"
+    }
+}
+
+defined_text = {
+	name = GetUnstableCommission
+	
+	text = {
+		trigger = {
+			has_country_flag = TUR_unstable_commission
+		}
+		localization_key = "TUR_unstable_commission_yellow"
+	}
+	
+	text = {
+		trigger = {
+			NOT = {
+				has_country_flag = TUR_unstable_commission
+			}
+		}
+		localization_key = "TUR_unstable_commission_grey"
+    }
+}
+
+defined_text = {
+	name = GetEntenteAgreement
+	
+	text = {
+		trigger = {
+			check_variable = {
+				var = TUR.TUR_demand_val
+				value = TUR.TUR_concession_val
+				compare = less_than_or_equals
+			}
+		}
+		localization_key = "TUR_entente_will_accept"
+	}
+	
+	text = {
+		trigger = {
+			check_variable = {
+				TUR.TUR_demand_val > TUR.TUR_concession_val
+			}
+		}
+		localization_key = "TUR_entente_will_refuse"
+    }
+}
+
