@@ -37,6 +37,7 @@ leader_traits = {
 		stability_factor = 0.05
 		political_power_gain = -0.05
 		random = no
+		sprite = 13
 	}
 
 	hog_happy_amateur = {
@@ -64,12 +65,14 @@ leader_traits = {
 		production_speed_dockyard_factor = 0.1
 		experience_gain_navy = 0.05
 		random = no
+		sprite = 3
 	}
 
 	hog_old_air_marshal = {
 		production_speed_air_base_factor = 0.1
 		experience_gain_air = 0.05
 		random = no
+		sprite = 1
 	}
 
 	hog_old_general = {
@@ -77,17 +80,20 @@ leader_traits = {
 		max_planning = 0.1
 		experience_gain_army = 0.05
 		random = no
+		sprite = 9
 	}
 
 	hog_political_protege = {
 		consumer_goods_factor = 0.07
 		political_power_gain = 0.1
 		random = no
+		sprite = 13
 	}
 
 	hog_pragmatic_statesman = {
 		political_power_gain = 0.2
 		random = no
+		sprite = 13
 	}
 
 	hog_reformist_soldier = {
@@ -102,7 +108,7 @@ leader_traits = {
 		training_time_factor = -0.05
 		army_morale_factor = 0.1
 		random = no
-		sprite = 5
+		sprite = 12
 	}
 
 	hog_silent_workhorse = {
@@ -132,12 +138,14 @@ leader_traits = {
 	hog_national_figurehead = {
 		stability_factor = 0.15
 		random = no
+		sprite = 12
 	}
 
 	hog_generalissimo = {
 		industrial_capacity_factory = 0.05
 		army_org_factor = 0.05
 		random = no
+		sprite = 18
 	}
 	
 	########################################
@@ -185,6 +193,7 @@ leader_traits = {
 		research_speed_factor = 0.02
 		industrial_capacity_factory = 0.1
 		random = no
+		sprite = 13
 	}
 
 	eco_balanced_budget_economy = {
@@ -193,6 +202,7 @@ leader_traits = {
 		production_speed_buildings_factor = 0.07
 		production_factory_max_efficiency_factor = 0.07
 		random = no
+		sprite = 13
 	}
 
 	eco_bank_president = {
@@ -200,6 +210,7 @@ leader_traits = {
 		political_power_gain = 0.15
 		production_factory_max_efficiency_factor = 0.05
 		random = no
+		sprite = 13
 	}
 
 	eco_construction_magnate = {
@@ -209,6 +220,7 @@ leader_traits = {
 		production_speed_radar_station_factor = 0.15
 		production_speed_nuclear_reactor_factor = 0.15
 		random = no
+		sprite = 10
 	}
 
 	eco_corrupt_kleptocrat = {
@@ -242,6 +254,7 @@ leader_traits = {
 		consumer_goods_factor = -0.1
 		political_power_gain = 0.1
 		random = no
+		sprite = 13
 	}
 
 	eco_laissez_faire_capitalist = {
@@ -249,6 +262,7 @@ leader_traits = {
 		local_resources_factor = 0.05
 		consumer_goods_factor = 0.05
 		random = no
+		sprite = 13
 	}
 
 	eco_military_entrepreneur = {
@@ -392,6 +406,7 @@ leader_traits = {
 		ai_focus_naval_factor = 0.5
 		production_speed_dockyard_factor = 0.1
 		random = no
+		sprite = 3
 	}
 
 	eco_air_superiority_proponent = {
@@ -405,6 +420,7 @@ leader_traits = {
 			}
 		}
 		random = no
+		sprite = 1
 	}
 
 	eco_battlefield_support_proponent = {
@@ -452,6 +468,7 @@ leader_traits = {
 			}
 		}
 		random = no
+		sprite = 5
 	}
 
 	eco_naval_aviation_proponent = {
@@ -478,6 +495,7 @@ leader_traits = {
 			}
 		}
 		random = no
+		sprite = 4
 	}
 
 	eco_tank_proponent = {
@@ -488,6 +506,7 @@ leader_traits = {
 			}
 		}
 		random = no
+		sprite = 8
 	}
 
 	eco_strategic_destruction_proponent = {
@@ -599,7 +618,7 @@ leader_traits = {
 	
 	edu_educational_reformer = {
 		political_power_gain = -0.1
-		research_speed_factor = 0.05
+		research_speed_factor = 0.075
 		random = no
 	}
 	
@@ -637,8 +656,9 @@ leader_traits = {
 	}
 	
 	edu_experienced_physician = {
-		research_speed_factor = 0.025
-		local_resources_factor = 0.05
+		research_speed_factor = 0.01
+		experience_loss_factor = -0.05
+		attrition = -0.05
 		random = no
 	}
 	
@@ -672,15 +692,14 @@ leader_traits = {
 
 	sec_compassionate_gentleman = {
 		stability_factor = 0.05
-		local_resources_factor = 0.1
-		conscription_factor = 0.05
-		industrial_capacity_factory = 0.1
+		compliance_gain = 0.01
 		random = no
 	}
 
 	sec_crime_fighter = {
-		political_power_gain = 0.15
+		stability_weekly = 0.001
 		conscription_factor = -0.03
+		resistance_target = -0.05
 		random = no
 	}
 
@@ -712,22 +731,22 @@ leader_traits = {
 	}
 
 	sec_media_magnate = {
-		consumer_goods_factor = -0.05
-		political_power_gain = 0.1
+		political_power_factor = 0.05
+		party_popularity_stability_factor = 0.25
 		random = no
 	}
 
 	sec_prince_of_terror = {
 		political_power_gain = 0.1
-		foreign_subversive_activites = -0.3
-		non_core_manpower = 0.02
+		resistance_damage_to_garrison = -0.25
+		foreign_subversive_activites = -0.25
+		non_core_manpower = 0.025
 		random = no
 	}
 
 	sec_secret_police_chief = {
-		political_power_gain = 0.1
-		encryption = 0.5
-		decryption = 0.5
+		resistance_target = -0.1
+		resistance_activity = -0.15
 		random = no
 		sprite = 15
 	}
@@ -777,7 +796,7 @@ leader_traits = {
 	
 	fbi_director = { # John Edgar Hoover
 		political_power_gain = -0.08
-		foreign_subversive_activites = -0.1
+		foreign_subversive_activites = -0.25
 		enemy_operative_capture_chance_factor = 0.1
 		random = no
 		sprite = 9
