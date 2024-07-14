@@ -618,6 +618,7 @@ characters = {
 			
 			available = {
 				not_already_hired_except_as = theorist
+				has_completed_focus = SOV_tukhachevsky_doctrine
 			}
 			
 			traits = {
@@ -1117,6 +1118,44 @@ characters = {
 	
 	### High Command ###
 	
+	SOV_boris_feldman = {
+		name = SOV_boris_feldman
+		
+		portraits = {
+			army = {
+				#small= "GFX_portrait_SOV_boris_feldman"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = high_command
+			idea_token = SOV_boris_feldman
+			ledger = army
+			traits = {
+				army_infantry_2
+			}
+		}
+	}
+	
+	SOV_yakov_alksnis = {
+		name = SOV_yakov_alksnis
+		
+		portraits = {
+			army = {
+				small = "GFX_portrait_SOV_yakov_alksnis"
+			}
+		}
+		
+		advisor = {
+			slot = air_chief
+			idea_token = SOV_yakov_alksnis_air_chief
+			ledger = air
+			traits = { air_chief_safety_2 }
+			cost = 100
+		}
+	}
+	
 	SOV_aleksandr_novikov = {
 		name = SOV_aleksandr_novikov
 		
@@ -1143,6 +1182,24 @@ characters = {
 		}
 	}
 	
+	SOV_vladimir_orlov = {
+		name = SOV_vladimir_orlov
+		
+		portraits = {
+			army = {
+				small = "GFX_portrait_SOV_vladimir_orlov"
+			}
+		}
+		
+		advisor = {
+			slot = navy_chief
+			idea_token = SOV_vladimir_orlov_navy_chief
+			ledger = air
+			traits = { navy_chief_decisive_battle_2 }
+			cost = 100
+		}
+	}
+	
 	SOV_aleksandr_samoylo = {
 		name = SOV_aleksandr_samoylo
 		
@@ -1158,6 +1215,26 @@ characters = {
 			ledger = air
 			traits = { air_tactical_bombing_1 }
 			cost = 50
+		}
+	}
+	
+	SOV_sergey_khudyakov = {
+		name = SOV_sergey_khudyakov
+		
+		portraits = {
+			army = {
+				#small = "GFX_portrait_SOV_sergey_khudyakov"
+			}
+		}
+
+		advisor = {
+			cost = 100
+			slot = high_command
+			idea_token = SOV_sergey_khudyakov
+			ledger = air
+			traits = {
+				air_close_air_support_2
+			}
 		}
 	}
 	
@@ -1197,7 +1274,9 @@ characters = {
 			slot = theorist
 			idea_token = SOV_alexander_svechin
 			ledger = army
-			
+			available = {
+				has_completed_focus = SOV_svechin_doctrine
+			}
 			traits = {
 				grand_battle_plan_expert
 			}
