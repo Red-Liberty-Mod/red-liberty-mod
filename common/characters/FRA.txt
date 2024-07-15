@@ -150,6 +150,7 @@ characters = {
 		portraits = {
 			civilian = {
 				large = "GFX_portrait_FRA_francois_de_la_rocque"
+				small = "gfx/interface/ministers/FRA/FRA_Francois_de_La_Rocque.png"
 			}
 		}
 		
@@ -248,7 +249,7 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				small = "GFX_minister_FRA_marcel_cachin"
+				small = "gfx/interface/ministers/FRA/FRA_Marcel_Cachin.png"
 			}
 		}
 		
@@ -283,7 +284,7 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				small = "GFX_minister_FRA_albert_bedouce"
+				small = "gfx/interface/ministers/FRA/FRA_Albert_Bedouce.png"
 			}
 		}
 		
@@ -318,7 +319,7 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				small = "GFX_minister_FRA_paul_doumer"
+				small = "gfx/interface/ministers/FRA/FRA_Paul_Doumer.png"
 			}
 		}
 		
@@ -353,7 +354,7 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				small = "GFX_minister_FRA_albert_lebrun"
+				small = "gfx/interface/ministers/FRA/FRA_Albert_Lebrun.png"
 			}
 		}
 		
@@ -389,7 +390,7 @@ characters = {
 		portraits = {
 			civilian = {
 				large = "GFX_portrait_FRA_jean_de_orleans"
-				small = "GFX_minister_FRA_jean_de_orleans"
+				small = "gfx/interface/ministers/FRA/FRA_Jean_de_Orleans.png"
 			}
 		}
 		
@@ -469,7 +470,7 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				small = "GFX_minister_FRA_pierre_monatte"
+				small = "gfx/interface/ministers/FRA/FRA_Pierre_Monatte.png"
 			}
 		}
 		
@@ -614,7 +615,7 @@ characters = {
 		
 		portraits = {
 			army = {
-				small = "GFX_minister_FRA_joseph_paul_boncour"
+				small = "gfx/interface/ministers/FRA/FRA_Joseph_Paul_Boncour.png"
 			}
 		}
 		
@@ -648,7 +649,7 @@ characters = {
 		
 		portraits = {
 			army = {
-				small = "GFX_minister_FRA_louis_barthou"
+				small = "gfx/interface/ministers/FRA/FRA_Louis_Barthou.png"
 			}
 		}
 		
@@ -682,7 +683,7 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				small = "GFX_minister_FRA_jean_ybarnegaray"
+				small = "gfx/interface/ministers/FRA/FRA_Jean_Ybarnegaray.png"
 			}
 		}
 		
@@ -719,7 +720,7 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				small = "GFX_minister_FRA_paul_creyssel"
+				small = "gfx/interface/ministers/FRA/FRA_Paul_Creyssel.png"
 			}
 		}
 		
@@ -753,7 +754,7 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				small = "GFX_minister_FRA_maurice_pujo"
+				small = "gfx/interface/ministers/FRA/FRA_Maurice_Pujo.png"
 			}
 		}
 		
@@ -790,7 +791,7 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				small = "GFX_minister_FRA_paul_baudouin"
+				small = "gfx/interface/ministers/FRA/FRA_Paul_Baudouin.png"
 			}
 		}
 		
@@ -827,7 +828,7 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				small = "GFX_minister_FRA_francois_coty"
+				small = "gfx/interface/ministers/FRA/FRA_Francois_Coty.png"
 			}
 		}
 		
@@ -905,7 +906,7 @@ characters = {
 		portraits = {
 			army = {
 				large = "gfx/leaders/FRA/Portrait_FRA_Maurice_Gamelin.png"
-				small = "gfx/interface/ministers/FRA/FRA_Maurice_Gamelin.png"
+				small = "gfx/interface/ministers/FRA/military/FRA_Maurice_Gamelin.png"
 			}
 		}
 		
@@ -1025,6 +1026,7 @@ characters = {
 			ledger = army
 			available = {
 				not_already_hired_except_as = theorist
+				has_completed_focus = FRA_war_of_movement
 			}
 			traits = { mobile_warfare_expert }
 			cost = 150
@@ -1916,5 +1918,38 @@ characters = {
 				assault_avaition
 			}
 		}
+	}
+	
+	FRA_frederic_irene_joliot_curie = {
+		name = FRA_frederic_irene_joliot_curie
+		
+		portraits = {
+			army = {
+				#small="GFX_idea_frederic_irene_joliot_curie"
+			}
+		}
+		
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = frederic_irene_joliot_curie
+			ledger = army
+			research_bonus = {
+				nuclear = 0.150
+			}
+			traits = {
+				nuclear_scientist
+			}
+		}
+	}
+	
+	### NOT AVAILABLE AT GAMESTART ###
+	
+	FRA_charles_degaulle = { # added by decision
+		name = FRA_charles_degaulle
+	}
+	
+	FRA_jean_de_lattre_de_tassigny = { # added by decision
+		name = FRA_jean_de_lattre_de_tassigny
 	}
 }
