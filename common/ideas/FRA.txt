@@ -109,14 +109,10 @@ ideas = {
 		}
 		
 		FRA_pop_crisis_1 = {
-			removal_cost = -1
+			picture = prc_low_popular_support2
 			
 			allowed = {
 				always = no
-			}
-			
-			available = {
-				
 			}
 			
 			allowed_civil_war = { 
@@ -131,15 +127,10 @@ ideas = {
 		
 		FRA_pop_crisis_1a = {
 			name = FRA_pop_crisis_1
-			
-			removal_cost = -1
+			picture = prc_low_popular_support2
 			
 			allowed = {
 				always = no
-			}
-			
-			available = {
-				
 			}
 			
 			allowed_civil_war = { 
@@ -154,15 +145,10 @@ ideas = {
 		
 		FRA_pop_crisis_1b = {
 			name = FRA_pop_crisis_1
-			
-			removal_cost = -1
+			picture = prc_low_popular_support2
 			
 			allowed = {
 				always = no
-			}
-			
-			available = {
-				
 			}
 			
 			allowed_civil_war = { 
@@ -177,15 +163,10 @@ ideas = {
 		
 		FRA_pop_crisis_2 = {
 			name = FRA_pop_crisis_1
-		
-			removal_cost = -1
+			picture = prc_low_popular_support2
 			
 			allowed = {
 				always = no
-			}
-			
-			available = {
-				
 			}
 			
 			allowed_civil_war = { 
@@ -200,15 +181,10 @@ ideas = {
 		
 		FRA_pop_crisis_3 = {
 			name = FRA_pop_crisis_1
-		
-			removal_cost = -1
+			picture = prc_low_popular_support2
 			
 			allowed = {
 				always = no
-			}
-			
-			available = {
-				
 			}
 			
 			allowed_civil_war = { 
@@ -718,6 +694,62 @@ ideas = {
 			modifier = {
 				air_superiority_efficiency = 0.05
 				air_cas_efficiency = 0.05
+			}
+		}
+		
+		### Military ###
+		
+		FRA_strict_chain_of_command_idea = {
+			picture = eng_imperial_conscription
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				max_command_power = 30
+				breakthrough_factor = 0.05
+				experience_loss_factor = -0.15
+				army_org_factor = 0.05
+			}
+		}
+		
+		FRA_flexible_chain_of_command_idea = {
+			picture = SWE_varnplikt
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				command_power_gain_mult = 0.25
+				command_abilities_cost_factor = -0.15
+				experience_gain_army_factor = 0.05
+				planning_speed = 0.1
+			}
+		}
+		
+		FRA_levee_en_masse_idea = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				conscription_factor = 0.03
+				training_time_army_factor = -0.2
 			}
 		}
 	}

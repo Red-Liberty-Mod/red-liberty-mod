@@ -1,3 +1,94 @@
+FRA_promote_officers_category = {
+	
+	FRA_promote_degaulle = {
+		icon = ger_mefo_bills
+		
+		custom_cost_trigger = {
+			command_power > 14
+		}
+		custom_cost_text = CP_15
+		fire_only_once = yes
+		
+		available = {
+			
+		}
+
+		complete_effect = {
+			FRA_charles_degaulle = {
+				add_corps_commander_role = {
+					traits = {
+						career_officer
+						armor_officer
+						panzer_leader
+					}
+					skill = 3
+					attack_skill = 4
+					defense_skill = 2
+					planning_skill = 2
+					logistics_skill = 2
+				}
+				
+				add_advisor_role = {
+					advisor = {
+						slot = high_command
+						cost = 100
+						idea_token = FRA_charles_degaulle_theorist
+						traits = {
+							army_armored_2
+						}
+					}
+				}
+			}
+			hidden_effect = {
+				add_command_power = -15
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	FRA_promote_de_tassigny = {
+		icon = ger_mefo_bills
+		
+		custom_cost_trigger = {
+			command_power > 14
+		}
+		custom_cost_text = CP_15
+		fire_only_once = yes
+		
+		available = {
+			
+		}
+
+		complete_effect = {
+			FRA_jean_de_lattre_de_tassigny = {
+				add_corps_commander_role = {
+					traits = {
+						war_hero
+						infantry_officer
+						infantry_leader
+						organizer
+					}
+					skill = 4
+					attack_skill = 3
+					defense_skill = 3
+					planning_skill = 3
+					logistics_skill = 4
+				}
+			}
+			hidden_effect = {
+				add_command_power = -15
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
+
 FRA_industrialization_category = {
 
 	FRA_industrialize_state = {

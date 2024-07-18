@@ -393,6 +393,49 @@ country_event = { # assassination attempt on la rocque
 	}
 }
 
+country_event = { # president doumer passes away
+	id = france.20
+	title = france.20.title
+	desc = france.20.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = france.20.a
+		activate_advisor = FRA_albert_bedouce_hog
+		add_popularity = {
+			ideology = democratic_socialism
+			popularity = 0.025
+		}
+	}
+	
+	option = {
+		name = france.20.b
+		activate_advisor = FRA_albert_lebrun_hog
+		add_popularity = {
+			ideology = liberal_conservatism
+			popularity = 0.025
+		}
+	}
+	
+	option = {
+		name = france.20.c
+		trigger = {
+			NOT = {
+				has_government = authoritarian_democracy
+			}
+		}
+		activate_advisor = FRA_francois_de_la_rocque_hog
+		add_popularity = {
+			ideology = authoritarian_democracy
+			popularity = 0.025
+		}
+	}
+}
+
+
 ### FAR RIGHT ###
 
 country_event = {
@@ -1151,7 +1194,7 @@ country_event = {
 	}
 }
 
-country_event = {
+country_event = { # the petain question
 	id = france_military.1
 	title = france_military.1.title
 	desc = france_military.1.desc
@@ -1162,29 +1205,9 @@ country_event = {
 	option = {
 		name = france_military.1.a
 	}
+	
 	option = {
 		name = france_military.1.b
-	}
-	option = {
-		name = france_military.1.c
-	}
-}
-
-country_event = {
-	id = france_military.2
-	title = france_military.2.title
-	desc = france_military.2.desc
-
-	is_triggered_only = yes
-	fire_only_once = yes
-
-	option = {
-		name = france_military.2.a
-	}
-	option = {
-		name = france_military.2.b
-	}
-	option = {
-		name = france_military.2.c
+		add_political_power = -100
 	}
 }

@@ -1,0 +1,48 @@
+FRA_fighter = {
+	category = air
+
+	available_for = { FRA }
+
+	roles = {
+		air_fighter
+	}
+
+	priority = {
+		factor = 1000
+		modifier = {
+			has_War = yes
+			factor = 2
+		}
+	}
+	
+	basic_fighter_1 = {
+		name = "Morane-Saulnier M.S.406"
+		
+		priority = {
+			factor = 100
+			modifier = { 
+				has_tech = improved_small_airframe
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		target_variant = {
+			match_value = 2000
+			type = small_plane_airframe_1
+			modules = {
+				fixed_main_weapon_slot = light_mg_2x
+				fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_1x
+				engine_type_slot = engine_2_1x
+				special_type_slot_1 = empty
+				special_type_slot_2 = empty	
+			}
+		}
+
+		allowed_modules = {
+			light_mg_4x
+			light_mg_2x
+			engine_2_1x
+			armor_plate_small
+		}
+	}
+}

@@ -1,10 +1,10 @@
 shared_focus = {
-	id = FRA_army_reorganization
-	icon = GFX_FRA_army_reorganization
+	id = FRA_military_reorganization
+	icon = GFX_goal_generic_army_doctrines
 	
-	x = 27
+	x = 0
 	y = 0
-	cost = 3
+	cost = 5
 	
 	available = {
 		custom_trigger_tooltip = {
@@ -19,7 +19,7 @@ shared_focus = {
 	}
 	
 	offset = {
-        x = 6
+        x = 40
         y = 0
         trigger = {
 			OR = {
@@ -29,20 +29,48 @@ shared_focus = {
     }
 	
 	offset = {
-		x = -10
-		y = 0
-		trigger = {
+        x = 35
+        y = 0
+        trigger = {
 			OR = {
-				AND = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-					has_completed_focus = FRA_national_union
-				}
+				has_focus_tree = FRA_rocque_tree
 			}
-		}
+        }
+    }
+	
+	offset = {
+        x = 24
+        y = 0
+        trigger = {
+			OR = {
+				has_focus_tree = FRA_monarchist_tree
+			}
+        }
+    }
+	
+	completion_reward = {
+		army_experience = 5
+		navy_experience = 5
+		air_experience = 5
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_ARMY_XP
+		FOCUS_FILTER_NAVY_XP
+		FOCUS_FILTER_AIR_XP
+	}
+}
+
+shared_focus = {
+	id = FRA_armee_de_terre
+	icon = GFX_FRA_army_reorganization
+	
+	x = -5
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_military_reorganization
+	prerequisite = { focus = FRA_military_reorganization }
 	
 	completion_reward = {
 		army_experience = 25
@@ -54,36 +82,17 @@ shared_focus = {
 }
 
 shared_focus = {
-	id = FRA_veteran_brigades
-	icon = GFX_FRA_veteran_brigades
+	id = FRA_trust_in_the_old_guard
+	icon = GFX_FRA_army_reorganization
 	
-	x = -2
+	x = -3
 	y = 1
-	cost = 4
+	cost = 5
 	
-	relative_position_id = FRA_army_reorganization
-	prerequisite = { focus = FRA_army_reorganization }
-	completion_reward = {
-		add_manpower = 50000
-		army_experience = 50
-	}
+	relative_position_id = FRA_armee_de_terre
+	mutually_exclusive = { focus = FRA_sweep_out_the_old_guard }
+	prerequisite = { focus = FRA_armee_de_terre }
 	
-	search_filters = {
-		FOCUS_FILTER_MANPOWER
-		FOCUS_FILTER_ARMY_XP
-	}
-}
-
-shared_focus = {
-	id = FRA_officers_of_the_great_war
-	icon = GFX_FRA_officers_of_the_great_war
-	
-	x = 0
-	y = 1
-	cost = 4
-	
-	relative_position_id = FRA_army_reorganization
-	prerequisite = { focus = FRA_army_reorganization  }
 	completion_reward = {
 		add_doctrine_cost_reduction = {
 			cost_reduction = 0.25
@@ -92,8 +101,103 @@ shared_focus = {
 		}
 	}
 	
+	ai_will_do = {
+		base = 1
+	}
+	
 	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
+}
+
+shared_focus = {
+	id = FRA_sweep_out_the_old_guard
+	icon = GFX_FRA_army_reorganization
+	
+	x = 3
+	y = 1
+	cost = 5
+	
+	relative_position_id = FRA_armee_de_terre
+	mutually_exclusive = { focus = FRA_trust_in_the_old_guard }
+	prerequisite = { focus = FRA_armee_de_terre }
+	
+	completion_reward = {
+		custom_effect_tooltip = FRA_sweep_out_the_old_guard_tt
+		add_political_power = -100
+		add_doctrine_cost_reduction = {
+			cost_reduction = 0.25
+			uses = 2
+			category = land_doctrine
+		}
+		hidden_effect = {
+			retire_character = FRA_maurice_gamelin
+			retire_character = FRA_alphonse_georges
+			retire_character = FRA_henry_freydenberg
+		}
+		unlock_decision_category_tooltip = FRA_promote_officers_category
+		hidden_effect = {
+			country_event = {
+				id = france_military.1
+				days = 21
+			}
+		}
+	}
+	
+	ai_will_do = {
+		base = 1
+		modifier = {
+			factor = 2
+			has_government = authoritarian_democracy
+		}
+		modifier = {
+			factor = 2
+			has_government = despotism
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
+}
+
+shared_focus = {
+	id = FRA_war_of_position
+	icon = GFX_FRA_old_dogs_new_tricks
+	
+	x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_trust_in_the_old_guard
+	prerequisite = { focus = FRA_trust_in_the_old_guard }
+	
+	completion_reward = {
 		
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ARMY_XP
+	}
+}
+
+shared_focus = {
+	id = FRA_strengthen_the_chain_of_command
+	icon = GFX_FRA_army_reorganization
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_trust_in_the_old_guard
+	prerequisite = { focus = FRA_trust_in_the_old_guard }
+	
+	completion_reward = {
+		add_ideas = FRA_strict_chain_of_command_idea
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ARMY_XP
 	}
 }
 
@@ -101,189 +205,115 @@ shared_focus = {
 	id = FRA_equipment_modernization
 	icon = GFX_FRA_equipment_modernization
 	
-	x = 2
+	x = 3
 	y = 1
 	cost = 4
 	
-	relative_position_id = FRA_army_reorganization
-	prerequisite = { focus = FRA_army_reorganization  }
+	relative_position_id = FRA_trust_in_the_old_guard
+	prerequisite = {
+		focus = FRA_trust_in_the_old_guard
+		focus = FRA_sweep_out_the_old_guard
+	}
+	
 	completion_reward = {
+		army_experience = 5
 		add_tech_bonus = {
 			bonus = 0.5
 			uses = 2
 			category = infantry_weapons
 		}
+		if = {
+			limit = {
+				has_dlc_aat = yes
+			}
+			mio:FRA_mas_organization = {
+				add_mio_size = 1
+				add_mio_research_bonus = 0.05
+			}
+		}
 	}
 	
 	search_filters = {
+		FOCUS_FILTER_ARMY_XP
 		FOCUS_FILTER_RESEARCH
 	}
 }
 
 shared_focus = {
-	id = FRA_integrate_the_dispos
-	icon = GFX_FRA_integrate_the_dispos
+	id = FRA_flexible_the_chain_of_command
+	icon = GFX_FRA_army_reorganization
 	
 	x = -1
 	y = 1
 	cost = 4
 	
-	allow_branch = {
-		has_government = authoritarian_democracy
-	}
+	relative_position_id = FRA_sweep_out_the_old_guard
+	prerequisite = { focus = FRA_sweep_out_the_old_guard }
 	
-	relative_position_id = FRA_veteran_brigades
-	prerequisite = { focus = FRA_veteran_brigades }
 	completion_reward = {
-		add_ideas = {
-			FRA_integrated_dispos
-		}
+		add_ideas = FRA_flexible_chain_of_command_idea
 	}
 	
 	search_filters = {
-		FOCUS_FILTER_MANPOWER
+		FOCUS_FILTER_ARMY_XP
 	}
 }
 
 shared_focus = {
-	id = FRA_old_dogs_new_tricks
-	icon = GFX_FRA_old_dogs_new_tricks
+	id = FRA_war_of_movement
+	icon = GFX_focus_generic_license_production
 	
 	x = 1
 	y = 1
 	cost = 4
 	
-	relative_position_id = FRA_veteran_brigades
-	prerequisite = { focus = FRA_veteran_brigades }
-	prerequisite = { focus = FRA_officers_of_the_great_war }
+	relative_position_id = FRA_sweep_out_the_old_guard
+	prerequisite = { focus = FRA_sweep_out_the_old_guard }
+	
 	completion_reward = {
-		every_army_leader = {
-			add_planning = 1
-		}
+		custom_effect_tooltip = available_theorist
+		show_ideas_tooltip = FRA_charles_delestraint_theorist
 	}
 	
 	search_filters = {
-		
+		FOCUS_FILTER_ARMY_XP
 	}
 }
-	
+
 shared_focus = {
-	id = FRA_reeducational_service
-	icon = GFX_goal_unknown
+	id = FRA_extend_the_painleve_line
+	icon = GFX_goal_generic_fortify_city
 	
-	x = 1
+	x = -1
 	y = 1
 	cost = 4
-
+	
+	relative_position_id = FRA_war_of_position
+	prerequisite = { focus = FRA_war_of_position }
+	
 	completion_reward = {
-		add_stability = 0.10
-		add_war_support = 0.05
-		add_political_power = 150
+		army_experience = 5
 	}
 	
-	relative_position_id = FRA_officers_of_the_great_war
-	prerequisite = { focus = FRA_officers_of_the_great_war }
-	prerequisite = { focus = FRA_equipment_modernization }
-	
 	search_filters = {
-		FOCUS_FILTER_POLITICAL
-		FOCUS_FILTER_WAR_SUPPORT
-		FOCUS_FILTER_STABILITY
+		FOCUS_FILTER_ARMY_XP
 	}
 }
 
 shared_focus = {
-	id = FRA_no_more_mutiny
-	icon = GFX_FRA_no_more_mutiny
-	
-	x = 0
-	y = 2
-	cost = 4
-
-	completion_reward = {
-		add_tech_bonus = {
-			bonus = 0.75
-			uses = 2
-			category = military_police_tech
-		}
-	}
-	
-	relative_position_id = FRA_veteran_brigades
-	prerequisite = { focus = FRA_veteran_brigades }
-	
-	search_filters = {
-		FOCUS_FILTER_RESEARCH
-	}
-}
-
-shared_focus = {
-	id = FRA_bulwark_against_degeneracy
+	id = FRA_levee_en_masse
 	icon = GFX_FRA_bulwark_against_degeneracy
 	
 	x = 1
 	y = 1
 	cost = 4
 	
-	relative_position_id = FRA_old_dogs_new_tricks
-	prerequisite = { focus = FRA_old_dogs_new_tricks }
-	prerequisite = { focus = FRA_reeducational_service }
-		
+	relative_position_id = FRA_war_of_position
+	prerequisite = { focus = FRA_war_of_position }
+	
 	completion_reward = {
-		custom_effect_tooltip = FRA_bulwark_against_degeneracy_tt
-		
-		hidden_effect = {
-			create_intelligence_agency = {
-				name = "Direction Générale de la Sûreté Nationale"
-				icon = GFX_intelligence_agency_logo_fra
-			}
-		}
+		add_ideas = FRA_levee_en_masse_idea
 	}
-		
-	search_filters = {
-		
-	}
-}
-	
-	shared_focus = {
-		id = FRA_artillery_modernization
-		icon = GFX_FRA_artillery_modernization
-		
-		x = 0
-		y = 2
-		cost = 4
-		
-		relative_position_id = FRA_equipment_modernization
-		prerequisite = { focus = FRA_equipment_modernization }
-		completion_reward = {
-			add_tech_bonus = {
-				bonus = 0.5
-				uses = 1
-				category = artillery
-			}
-		}
-		
-		search_filters = {
-			FOCUS_FILTER_RESEARCH
-		}
-	}
-
-shared_focus = {
-	id = FRA_europes_reckoning
-	icon = GFX_FRA_europes_reckoning
-	
-	x = 1
-	y = 1
-	cost = 4
-
-	completion_reward = {
-		add_ideas = {
-			FRA_europes_reckoning
-		}
-	}
-	
-	relative_position_id = FRA_no_more_mutiny
-	prerequisite = { focus = FRA_no_more_mutiny }
-	prerequisite = { focus = FRA_bulwark_against_degeneracy }
 	
 	search_filters = {
 		FOCUS_FILTER_MANPOWER
@@ -291,15 +321,161 @@ shared_focus = {
 }
 
 shared_focus = {
-	id = FRA_form_a_tank_division
-	icon = GFX_FRA_form_a_tank_division
+	id = FRA_artillery_modernization
+	icon = GFX_FRA_artillery_modernization
 	
 	x = 0
 	y = 1
 	cost = 4
 	
-	relative_position_id = FRA_europes_reckoning
-	prerequisite = { focus = FRA_europes_reckoning }
+	relative_position_id = FRA_equipment_modernization
+	prerequisite = { focus = FRA_equipment_modernization }
+	
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = artillery
+		}
+		if = {
+			limit = {
+				has_dlc_aat = yes
+			}
+			mio:FRA_schneider_organization = {
+				add_mio_size = 1
+				add_mio_research_bonus = 0.05
+			}
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
+}
+
+shared_focus = {
+	id = FRA_army_motorisation
+	icon = GFX_goal_generic_army_motorized
+	
+	x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_war_of_movement
+	prerequisite = { focus = FRA_war_of_movement }
+	
+	completion_reward = {
+		army_experience = 5
+		add_tech_bonus = {
+			bonus = 0.25
+			uses = 2
+			category = motorized_equipment
+			category = cat_mechanized_equipment
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ARMY_XP
+		FOCUS_FILTER_RESEARCH
+	}
+}
+
+shared_focus = {
+	id = FRA_emulate_german_successes
+	icon = GFX_focus_POL_beck_ribbentrop
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_war_of_movement
+	prerequisite = { focus = FRA_war_of_movement }
+	
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.25
+			uses = 2
+			category = armor
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
+}
+
+shared_focus = {
+	id = FRA_deepen_the_defenses
+	icon = GFX_goal_generic_military_sphere
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_extend_the_painleve_line
+	prerequisite = { focus = FRA_extend_the_painleve_line }
+	prerequisite = { focus = FRA_levee_en_masse }
+	
+	completion_reward = {
+		add_war_support = 0.05
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_WAR_SUPPORT
+	}
+}
+
+shared_focus = {
+	id = FRA_lessons_of_the_great_war
+	icon = GFX_FRA_officers_of_the_great_war
+	
+	x = -1
+	y = 2
+	cost = 4
+	
+	relative_position_id = FRA_equipment_modernization
+	prerequisite = { focus = FRA_equipment_modernization }
+	
+	completion_reward = {
+		
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ARMY_XP
+	}
+}
+
+shared_focus = {
+	id = FRA_veteran_training
+	icon = GFX_FRA_veteran_brigades
+	
+	x = 1
+	y = 2
+	cost = 4
+	
+	relative_position_id = FRA_equipment_modernization
+	prerequisite = { focus = FRA_equipment_modernization }
+	
+	completion_reward = {
+		add_potential_special_forces_tree = yes
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ARMY_XP
+	}
+}
+
+shared_focus = {
+	id = FRA_form_a_tank_division
+	icon = GFX_focus_generic_army_tanks2
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_army_motorisation
+	prerequisite = { focus = FRA_army_motorisation }
+	prerequisite = { focus = FRA_emulate_german_successes }
 	
 	completion_reward = {
 		custom_effect_tooltip = FRA_form_tank_division_tt
@@ -343,50 +519,59 @@ shared_focus = {
 }
 
 shared_focus = {
+	id = FRA_never_another_mutiny
+	icon = GFX_FRA_no_more_mutiny
+	
+	x = 2
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_deepen_the_defenses
+	prerequisite = { focus = FRA_deepen_the_defenses }
+	prerequisite = { focus = FRA_strengthen_the_chain_of_command }
+	
+	completion_reward = {
+		
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ARMY_XP
+	}
+}
+
+shared_focus = {
+	id = FRA_the_new_generation
+	icon = GFX_FRA_europes_reckoning
+	
+	x = -2
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_form_a_tank_division
+	prerequisite = { focus = FRA_flexible_the_chain_of_command }
+	prerequisite = { focus = FRA_form_a_tank_division }
+	
+	completion_reward = {
+		
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ARMY_XP
+	}
+}
+
+######## NAVY ########
+
+shared_focus = {
 	id = FRA_naval_rearmaments
 	icon = GFX_FRA_naval_rearmaments
 	
-	x = 33
-	y = 0
-	cost = 3
+	x = 9
+	y = 1
+	cost = 4
 	
-	available = {
-		custom_trigger_tooltip = {
-			tooltip = FRA_govt_stabilized
-			NOT = {
-				OR = {
-					has_idea = FRA_fallen_govt
-					has_idea = FRA_unstable_govt
-				}
-			}
-		}
-	}
-	
-	offset = {
-		x = 6
-		y = 0
-		trigger = {
-			OR = {
-				has_focus_tree = FRA_democratic_tree
-			}
-		}
-	}
-	
-	offset = {
-		x = -10
-		y = 0
-		trigger = {
-			OR = {
-				AND = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-					has_completed_focus = FRA_national_union
-				}
-			}
-		}
-	}
+	relative_position_id = FRA_military_reorganization
+	prerequisite = { focus = FRA_military_reorganization }
 	
 	completion_reward = {
 		navy_experience = 25
@@ -743,47 +928,12 @@ shared_focus = {
 	id = FRA_establish_independent_airforce
 	icon = GFX_FRA_establish_independent_airforce
 	
-	x = 39
-	y = 0
-	cost = 3
+	x = 3
+	y = 1
+	cost = 4
 	
-	available = {
-		custom_trigger_tooltip = {
-			tooltip = FRA_govt_stabilized
-			NOT = {
-				OR = {
-					has_idea = FRA_fallen_govt
-					has_idea = FRA_unstable_govt
-				}
-			}
-		}
-	}
-	
-	offset = {
-		x = 6
-		y = 0
-		trigger = {
-			OR = {
-				has_focus_tree = FRA_democratic_tree
-			}
-		}
-	}
-	
-	offset = {
-		x = -10
-		y = 0
-		trigger = {
-			OR = {
-				AND = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-					has_completed_focus = FRA_national_union
-				}
-			}
-		}
-	}
+	relative_position_id = FRA_military_reorganization
+	prerequisite = { focus = FRA_military_reorganization }
 	
 	completion_reward = {
 		air_experience = 25
@@ -1032,9 +1182,9 @@ shared_focus = {
 	id = FRA_foreign_relations
 	icon = GFX_FRA_foreign_relations
 	
-	x = 29
-	y = 6
-	cost = 3
+	x = 31
+	y = 7
+	cost = 4
 	
 	available = {
 		custom_trigger_tooltip = {
@@ -1047,26 +1197,16 @@ shared_focus = {
 			}
 		}
 	}
-
-	completion_reward = {
-		add_political_power = 100
-	}
 	
 	offset = {
-		x = -10
-		y = 0
-		trigger = {
+        x = -6
+        y = 0
+        trigger = {
 			OR = {
-				AND = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-					has_completed_focus = FRA_national_union
-				}
+				has_focus_tree = FRA_monarchist_tree
 			}
-		}
-	}
+        }
+    }
 	
 	offset = {
 		x = 4
@@ -1074,6 +1214,10 @@ shared_focus = {
 		trigger = {
 			has_focus_tree = FRA_democratic_tree
 		}
+	}
+	
+	completion_reward = {
+		add_political_power = 100
 	}
 	
 	search_filters = {
