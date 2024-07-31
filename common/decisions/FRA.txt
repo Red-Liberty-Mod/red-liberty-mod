@@ -87,6 +87,96 @@ FRA_promote_officers_category = {
 			factor = 1
 		}
 	}
+	
+	FRA_promote_koenig = {
+		icon = ger_mefo_bills
+		
+		custom_cost_trigger = {
+			command_power > 14
+		}
+		custom_cost_text = CP_15
+		fire_only_once = yes
+		
+		available = {
+			
+		}
+
+		complete_effect = {
+			FRA_marie_pierre_koenig = {
+				add_corps_commander_role = {
+					traits = {
+						organizer
+						brilliant_strategist
+					}
+					skill = 3
+					attack_skill = 2
+					defense_skill = 2
+					planning_skill = 3
+					logistics_skill = 3
+				}
+				add_advisor_role = {
+					advisor = {
+						slot = army_chief
+						idea_token = FRA_marie_pierre_koenig_army_chief
+						traits = { army_chief_organizational_2 }
+						cost = 100
+					}
+				}
+			}
+			hidden_effect = {
+				add_command_power = -15
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	FRA_promote_de_hauteclocque = {
+		icon = ger_mefo_bills
+		
+		custom_cost_trigger = {
+			command_power > 14
+		}
+		custom_cost_text = CP_15
+		fire_only_once = yes
+		
+		available = {
+			
+		}
+
+		complete_effect = {
+			FRA_philippe_leclerc_de_hauteclocque = {
+				add_corps_commander_role = {
+					traits = {
+						cavalry_officer
+						desert_fox
+					}
+					skill = 2
+					attack_skill = 2
+					defense_skill = 1
+					planning_skill = 3
+					logistics_skill = 1
+				}
+				#add_advisor_role = {
+				#	advisor = {
+				#		slot = army_chief
+				#		idea_token = NFA_philippe_de_hauteclocque_army_chief
+				#		traits = { army_chief_maneuver_2 }
+				#		cost = 100
+				#	}
+				#}
+			}
+			hidden_effect = {
+				add_command_power = -15
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
 }
 
 FRA_industrialization_category = {
