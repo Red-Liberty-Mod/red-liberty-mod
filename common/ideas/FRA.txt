@@ -388,13 +388,11 @@ ideas = {
 				conscription_factor = 0.05
 			}
 		}
+		
 		FRA_royalist_intellectualism = {
+			
 			allowed = {
 				always = no
-			}
-			
-			available = {
-				
 			}
 			
 			allowed_civil_war = { 
@@ -406,6 +404,24 @@ ideas = {
 				political_power_gain = 0.10
 			}
 		}
+		FRA_royalist_corporatism = {
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				research_speed_factor = 0.05
+				political_power_gain = 0.10
+				production_factory_max_efficiency_factor = 0.05
+			}
+		}
+
+		
 		FRA_constitutional_reconstruction = {
 			allowed = {
 				always = no
@@ -512,7 +528,7 @@ ideas = {
 			}
 		}
 
-		FRA_abolish_secularism = {
+		FRA_abolished_secularism = {
 			allowed = {
 				always = no
 			}
@@ -750,6 +766,109 @@ ideas = {
 			modifier = {
 				conscription_factor = 0.03
 				training_time_army_factor = -0.2
+			}
+		}
+		
+		FRA_spartan_discipline = {
+			picture = SPA_la_division_azul
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				army_org_factor = 0.15
+				army_org_regain = 0.05
+				army_core_defence_factor = 0.05
+			}
+		}
+		
+		FRA_expanded_foreign_legion = {
+			picture = FRA_scw_intervention_nationalists_focus
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				non_core_manpower = 0.03
+			}
+		}
+		
+		FRA_fight_for_the_king = {
+			picture = ast_abandon_the_westminster_system
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				army_attack_factor = 0.05
+				army_morale_factor = 0.1
+			}
+		}
+		
+		FRA_fight_for_your_strength = {
+			picture = generic_intel_bonus
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				army_attack_factor = 0.05
+				army_morale_factor = 0.1
+			}
+		}
+		
+		FRA_fight_for_democracy = {
+			picture = generic_victors_of_ww1
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				army_attack_factor = 0.05
+				army_morale_factor = 0.1
+			}
+		}
+		
+		FRA_pursuit_groups = {
+			#picture = generic_victors_of_ww1
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				air_ace_generation_chance_factor = 0.15
+				ace_effectiveness_factor = 0.25
+				air_interception_detect_factor = 0.1
 			}
 		}
 	}

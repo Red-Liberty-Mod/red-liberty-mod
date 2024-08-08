@@ -29,7 +29,7 @@ shared_focus = {
     }
 	
 	offset = {
-        x = 35
+        x = 36
         y = 0
         trigger = {
 			OR = {
@@ -62,6 +62,26 @@ shared_focus = {
 }
 
 shared_focus = {
+	id = FRA_reform_military_intelligence
+	icon = GFX_FRA_integrate_the_dispos
+	
+	x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_military_reorganization
+	prerequisite = { focus = FRA_military_reorganization }
+	
+	completion_reward = {
+		custom_effect_tooltip = FRA_reform_military_intelligence_tt
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ARMY_XP
+	}
+}
+
+shared_focus = {
 	id = FRA_armee_de_terre
 	icon = GFX_FRA_army_reorganization
 	
@@ -83,7 +103,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_trust_in_the_old_guard
-	icon = GFX_FRA_army_reorganization
+	icon = GFX_FRA_trust_in_the_old_guard
 	
 	x = -3
 	y = 1
@@ -112,7 +132,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_sweep_out_the_old_guard
-	icon = GFX_FRA_army_reorganization
+	icon = GFX_FRA_force_gamelins_retirement
 	
 	x = 3
 	y = 1
@@ -183,7 +203,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_strengthen_the_chain_of_command
-	icon = GFX_FRA_army_reorganization
+	icon = GFX_focus_generic_self_management
 	
 	x = 1
 	y = 1
@@ -241,7 +261,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_flexible_the_chain_of_command
-	icon = GFX_FRA_army_reorganization
+	icon = GFX_focus_chi_army_reform
 	
 	x = -1
 	y = 1
@@ -417,7 +437,7 @@ shared_focus = {
 	prerequisite = { focus = FRA_levee_en_masse }
 	
 	completion_reward = {
-		add_war_support = 0.05
+		add_war_support = 0.1
 	}
 	
 	search_filters = {
@@ -437,7 +457,24 @@ shared_focus = {
 	prerequisite = { focus = FRA_equipment_modernization }
 	
 	completion_reward = {
-		
+		if = {
+			limit = {
+				has_dlc_aat = yes
+			}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.25
+				uses = 2
+				category = special_forces_doctrine
+			}
+			add_potential_special_forces_tree = yes
+		}
+		else = {
+			add_tech_bonus = {
+				bonus = 0.25
+				uses = 2
+				category = special_forces
+			}
+		}
 	}
 	
 	search_filters = {
@@ -446,7 +483,7 @@ shared_focus = {
 }
 
 shared_focus = {
-	id = FRA_veteran_training
+	id = FRA_expand_the_foreign_legion
 	icon = GFX_FRA_veteran_brigades
 	
 	x = 1
@@ -457,11 +494,11 @@ shared_focus = {
 	prerequisite = { focus = FRA_equipment_modernization }
 	
 	completion_reward = {
-		add_potential_special_forces_tree = yes
+		add_ideas = FRA_expanded_foreign_legion
 	}
 	
 	search_filters = {
-		FOCUS_FILTER_ARMY_XP
+		FOCUS_FILTER_MANPOWER
 	}
 }
 
@@ -531,7 +568,7 @@ shared_focus = {
 	prerequisite = { focus = FRA_strengthen_the_chain_of_command }
 	
 	completion_reward = {
-		
+		add_ideas = FRA_spartan_discipline
 	}
 	
 	search_filters = {
@@ -552,7 +589,21 @@ shared_focus = {
 	prerequisite = { focus = FRA_form_a_tank_division }
 	
 	completion_reward = {
-		
+		if = {
+			limit = {
+				has_government = authoritarian_democracy
+			}
+			add_ideas = FRA_fight_for_your_strength
+		}
+		else_if = {
+			limit = {
+				has_government = despotism
+			}
+			add_ideas = FRA_fight_for_the_king
+		}
+		else = {
+			add_ideas = FRA_fight_for_democracy
+		}
 	}
 	
 	search_filters = {
@@ -566,7 +617,7 @@ shared_focus = {
 	id = FRA_naval_rearmaments
 	icon = GFX_FRA_naval_rearmaments
 	
-	x = 9
+	x = 13
 	y = 1
 	cost = 4
 	
@@ -925,10 +976,10 @@ shared_focus = {
 }
 
 shared_focus = {
-	id = FRA_establish_independent_airforce
+	id = FRA_armee_de_lair
 	icon = GFX_FRA_establish_independent_airforce
 	
-	x = 3
+	x = 5
 	y = 1
 	cost = 4
 	
@@ -945,239 +996,453 @@ shared_focus = {
 }
 
 shared_focus = {
-	id = FRA_skies_of_france
-	icon = GFX_FRA_skies_of_france
+	id = FRA_nationalize_aircraft_companies
+	icon = GFX_focus_generic_aircraft_production
 	
 	x = -2
 	y = 1
 	cost = 4
 	
+	relative_position_id = FRA_armee_de_lair
+	prerequisite = { focus = FRA_armee_de_lair }
+	mutually_exclusive = { focus = FRA_unlimited_purchase_budget }
+	
 	completion_reward = {
-		add_tech_bonus = {
-			bonus = 1
-			uses = 1
-			category = light_air
+		random_owned_state = {
+				limit = { 
+					OR = {
+						state = 24
+						state = 33
+						state = 27
+						state = 26
+						state = 25
+					}
+					is_fully_controlled_by = ROOT 
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		if = {
+			limit = {
+				has_dlc_aat = yes
+			}
+			custom_effect_tooltip = invites_mio_tt
+			show_mio_tooltip = FRA_SNCAC_organization
 		}
 	}
 	
-	relative_position_id = FRA_establish_independent_airforce
-	prerequisite = { focus = FRA_establish_independent_airforce }
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
+	}
+}
+
+shared_focus = {
+	id = FRA_unlimited_purchase_budget
+	icon = GFX_focus_SMB_purchase_aircraft
+	
+	x = 2
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_armee_de_lair
+	prerequisite = { focus = FRA_armee_de_lair }
+	mutually_exclusive = { focus = FRA_nationalize_aircraft_companies }
+	
+	completion_reward = {
+		air_experience = 25
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_AIR_XP
+	}
+}
+
+shared_focus = {
+	id = FRA_modernize_fighters
+	icon = GFX_USA_cas_development
+	
+	x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_nationalize_aircraft_companies
+	prerequisite = {
+		focus = FRA_nationalize_aircraft_companies
+		focus = FRA_unlimited_purchase_budget
+	}
+	
+	completion_reward = {
+		if = {
+			limit = {
+				has_dlc_bba = yes
+			}
+			add_tech_bonus = {
+				name = FRA_modernize_fighters
+				bonus = 0.5
+				uses = 1
+				category = light_air
+			}
+		}
+		else = {
+			add_tech_bonus = {
+				name = FRA_modernize_fighters
+				bonus = 0.5
+				uses = 1
+				category = light_fighter
+			}
+		}
+	}
 	
 	search_filters = {
 		FOCUS_FILTER_RESEARCH
 	}
 }
 
-	shared_focus = {
-		id = FRA_factories_of_our_enemies
-		icon = GFX_FRA_factories_of_our_enemies
-		
-		x = 0
-		y = 1
-		cost = 4
-
-		completion_reward = {
-			add_tech_bonus = {
-				bonus = 1
-				uses = 1
-				category = heavy_air
-			}
-		}
-		
-		relative_position_id = FRA_establish_independent_airforce
-		prerequisite = { focus = FRA_establish_independent_airforce }
-		
-		search_filters = {
-			FOCUS_FILTER_WAR_SUPPORT
+shared_focus = {
+	id = FRA_establish_the_ecole_de_lair
+	icon = GFX_goal_generic_air_doctrine
+	
+	x = 2
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_nationalize_aircraft_companies
+	prerequisite = {
+		focus = FRA_nationalize_aircraft_companies
+		focus = FRA_unlimited_purchase_budget
+	}
+	
+	completion_reward = {
+		add_doctrine_cost_reduction = {
+			name = FRA_establish_the_ecole_de_lair
+			cost_reduction = 0.25
+			uses = 2
+			category = air_doctrine
 		}
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
+}
 
-	shared_focus = {
-		id = FRA_naval_integration
-		icon = GFX_FRA_naval_integration
-		
-		x = 2
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_establish_independent_airforce
-		prerequisite = { focus = FRA_establish_independent_airforce }
-		completion_reward = {
+shared_focus = {
+	id = FRA_modernize_bombers
+	icon = GFX_USA_bomber_development
+	
+	x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_unlimited_purchase_budget
+	prerequisite = {
+		focus = FRA_nationalize_aircraft_companies
+		focus = FRA_unlimited_purchase_budget
+	}
+	
+	completion_reward = {
+		if = {
+			limit = {
+				has_dlc_bba = yes
+			}
 			add_tech_bonus = {
+				name = FRA_modernize_bombers
+				bonus = 0.5
+				uses = 1
+				category = medium_air
+			}
+		}
+		else = {
+			add_tech_bonus = {
+				name = FRA_modernize_bombers
+				bonus = 0.5
+				uses = 1
+				category = tactical_bomber
+			}
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
+}
+
+shared_focus = {
+	id = FRA_groupes_de_chasse
+	icon = GFX_goal_generic_air_fighter2
+	
+	x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_modernize_fighters
+	prerequisite = { focus = FRA_modernize_fighters }
+	
+	completion_reward = {
+		add_ideas = FRA_pursuit_groups
+	}
+	
+	search_filters = {
+		
+	}
+}
+
+shared_focus = {
+	id = FRA_operational_independence
+	icon = GFX_goal_generic_build_airforce
+	
+	x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_establish_the_ecole_de_lair
+	prerequisite = { focus = FRA_establish_the_ecole_de_lair }
+	mutually_exclusive = { focus = FRA_ground_support }
+	
+	completion_reward = {
+		air_experience = 25
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_AIR_XP
+	}
+}
+
+shared_focus = {
+	id = FRA_ground_support
+	icon = GFX_focus_generic_tank_air_support
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_establish_the_ecole_de_lair
+	prerequisite = { focus = FRA_establish_the_ecole_de_lair }
+	mutually_exclusive = { focus = FRA_operational_independence }
+	
+	completion_reward = {
+		air_experience = 25
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_AIR_XP
+	}
+}
+
+shared_focus = {
+	id = FRA_invest_in_radar
+	icon = GFX_goal_generic_radar
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_modernize_bombers
+	prerequisite = { focus = FRA_modernize_bombers }
+	
+	completion_reward = {
+		add_tech_bonus = {
+			name = FRA_invest_in_radar
+			bonus = 0.25
+			uses = 2
+			category = radar_tech
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
+}
+
+shared_focus = {
+	id = FRA_invest_in_heavy_fighters
+	icon = GFX_focus_usa_escort_fighters
+	
+	x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_operational_independence
+	prerequisite = { focus = FRA_operational_independence }
+	
+	completion_reward = {
+		add_tech_bonus = {
+			name = FRA_invest_in_heavy_fighters
+			bonus = 0.5
+			uses = 1
+			category = cat_heavy_fighter
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
+}
+
+shared_focus = {
+	id = FRA_ensure_a_steady_supply
+	icon = GFX_goal_generic_construct_mil_factory
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_operational_independence
+	prerequisite = {
+		focus = FRA_operational_independence
+		focus = FRA_ground_support
+	}
+	
+	completion_reward = {
+		random_core_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				free_building_slots = {
+					building = arms_factory
+					size > 0
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
+	}
+}
+
+shared_focus = {
+	id = FRA_multi_role_aircraft
+	icon = GFX_focus_generic_multi_role_aircraft
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = FRA_ground_support
+	prerequisite = { focus = FRA_ground_support }
+	
+	completion_reward = {
+		if = {
+			limit = {
+				has_dlc_bba = yes
+			}
+			add_tech_bonus = {
+				name = FRA_multi_role_aircraft
+				bonus = 0.5
+				uses = 2
+				category = plane_modules_tech
+			}
+		}
+		else = {
+			add_tech_bonus = {
+				name = FRA_multi_role_aircraft
+				bonus = 0.5
+				uses = 1
+				category = cas_bomber
+			}
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
+}
+
+shared_focus = {
+	id = FRA_expand_the_parachute_corps
+	icon = GFX_focus_generic_paratrooper
+	
+	x = 0
+	y = 2
+	cost = 4
+	
+	relative_position_id = FRA_operational_independence
+	prerequisite = {
+		focus = FRA_operational_independence
+		focus = FRA_ground_support
+	}
+	
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 1
+			category = para_tech
+		}
+		if = {
+			limit = {
+				has_dlc_aat = yes
+			}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.25
+				uses = 2
+				category = cat_paratroopers_doctrine
+			}
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
+}
+
+shared_focus = {
+	id = FRA_naval_air_arm
+	icon = GFX_goal_generic_air_naval_bomber
+	
+	x = 0
+	y = 2
+	cost = 4
+	
+	relative_position_id = FRA_ground_support
+	prerequisite = {
+		focus = FRA_operational_independence
+		focus = FRA_ground_support
+	}
+	
+	completion_reward = {
+		if = {
+			limit = {
+				has_dlc_bba = yes
+			}
+			add_tech_bonus = {
+				name = FRA_naval_air_arm
+				bonus = 0.5
+				uses = 1
+				technology = air_torpedoe_1
+				technology = air_torpedoe_2
+				technology = air_torpedoe_3
+			}
+		}
+		else = {
+			add_tech_bonus = {
+				name = FRA_naval_air_arm
 				bonus = 0.5
 				uses = 1
 				category = naval_bomber
 			}
 		}
-		
-		search_filters = {
-			FOCUS_FILTER_RESEARCH
-		}
-	}
-
-	shared_focus = {
-		id = FRA_improve_doctrine
-		icon = GFX_FRA_improve_doctrine
-		
-		x = 1
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_skies_of_france
-		prerequisite = { focus = FRA_skies_of_france }
-		prerequisite = { focus = FRA_factories_of_our_enemies }
-		completion_reward = {
-			add_doctrine_cost_reduction = {
-				cost_reduction = 0.25
-				uses = 2
-				category = air_doctrine
-			}
-		}
-		
-		search_filters = {
-			FOCUS_FILTER_WAR_SUPPORT
-		}
-	}
-
-	shared_focus = {
-		id = FRA_heroes_of_the_past
-		icon = GFX_FRA_heroes_of_the_past
-
-		completion_reward = {
-			air_experience = 50
-		}
-		
-		x = -1
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_naval_integration
-		prerequisite = { focus = FRA_factories_of_our_enemies }
-		prerequisite = { focus = FRA_naval_integration }
-		
-		search_filters = {
-			FOCUS_FILTER_WAR_SUPPORT
-		}
-	}
-
-	shared_focus = {
-		id = FRA_foreign_studies
-		icon = GFX_FRA_foreign_studies
-
-		x = 0
-		y = 1
-		cost = 4
-
-		completion_reward = {
-			country_event = {
-				id = france_military.1
-			}
-		}
-		
-		relative_position_id = FRA_improve_doctrine
-		prerequisite = { focus = FRA_improve_doctrine }
-		
-		search_filters = {
-			FOCUS_FILTER_WAR_SUPPORT
-		}
 	}
 	
-	shared_focus = {
-		id = FRA_antiair_defenses
-		icon = GFX_FRA_antiair_defenses
-		
-		x = 0
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_heroes_of_the_past
-		prerequisite = { focus = FRA_heroes_of_the_past }
-		completion_reward = {
-			add_tech_bonus = {
-				bonus = 0.5
-				uses = 2
-				category = cat_anti_air
-			}
-		}
-		
-		search_filters = {
-			FOCUS_FILTER_RESEARCH
-		}
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
 	}
+}
 
-	shared_focus = {
-		id = FRA_experimental_technology
-		icon = GFX_FRA_experimental_technology
-		
-		x = 0
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_foreign_studies
-		prerequisite = { focus = FRA_foreign_studies }
-		completion_reward = {
-			add_tech_bonus = {
-				bonus = 0.25
-				uses = 1
-				category = jet_technology
-			}
-			add_tech_bonus = {
-				bonus = 0.25
-				uses = 1
-				category = rocketry
-			}
-		}
-		
-		search_filters = {
-			FOCUS_FILTER_RESEARCH
-		}
-	}
-
-	shared_focus = {
-		id = FRA_terror_bombing
-		icon = GFX_FRA_terror_bombing
-		
-		x = 0
-		y = 1
-		cost = 4
-
-		completion_reward = {
-			add_ideas = {
-				FRA_terror_bombing
-			}
-		}
-		
-		relative_position_id = FRA_antiair_defenses
-		prerequisite = { focus = FRA_antiair_defenses }
-		
-		search_filters = {
-			FOCUS_FILTER_WAR_SUPPORT
-		}
-	}
-
-	shared_focus = {
-		id = FRA_shriek_of_the_sky
-		icon = GFX_FRA_shriek_of_the_sky
-		
-		x = 1
-		y = 1
-		cost = 4
-		
-		relative_position_id = FRA_experimental_technology
-		prerequisite = { focus = FRA_experimental_technology }
-		prerequisite = { focus = FRA_terror_bombing }
-
-		completion_reward = {
-			add_ideas = {
-				FRA_shriek_of_the_sky
-			}
-		}
-		
-		search_filters = {
-			FOCUS_FILTER_WAR_SUPPORT
-		}
-	}
-	
 shared_focus = {
 	id = FRA_foreign_relations
 	icon = GFX_FRA_foreign_relations
@@ -2033,7 +2298,7 @@ shared_focus = {
 	icon = GFX_FRA_germania_delenda_est
 	
 	x = 0
-	y = 0
+	y = 10
 	cost = 4
 	
 	offset = {
@@ -2105,7 +2370,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_a_europe_safe_for_democracy
-	icon = GFX_FRA_a_europe_safe_for_democracy
+	icon = GFX_goal_support_democracy
 	
 	x = -1
 	y = 1
@@ -2137,7 +2402,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_frances_position_secure
-	icon = GFX_FRA_frances_position_secure
+	icon = GFX_focus_attack_france
 	
 	x = 2
 	y = 1
@@ -2165,7 +2430,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_the_growing_revolution
-	icon = GFX_FRA_the_growing_revolution
+	icon = GFX_focus_SWE_refuge_for_revolutionaries
 	
 	x = 5
 	y = 1
@@ -2196,11 +2461,15 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_bulwark_against_the_east
-	icon = GFX_FRA_bulwark_against_the_east
+	icon = GFX_focus_ger_bulwark_against_bolshevism
 	
 	x = -1
 	y = 1
 	cost = 4
+	
+	available = {
+		has_socialist_govt = no
+	}
 	
 	mutually_exclusive = { focus = FRA_total_disarmament }
 	relative_position_id = FRA_the_occupation
@@ -2278,7 +2547,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_reward_the_veterans
-	icon = GFX_FRA_reward_the_veterans
+	icon = GFX_focus_generic_military_mission
 	
 	x = 1
 	y = 1
@@ -2341,7 +2610,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_local_collaborators
-	icon = GFX_FRA_local_collaborators
+	icon = GFX_goal_generic_intelligence_exchange
 	
 	x = 1
 	y = 1
@@ -2364,7 +2633,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_the_navy_question
-	icon = GFX_FRA_the_navy_question
+	icon = GFX_goal_generic_construct_naval_dockyard
 	
 	x = 1
 	y = 1
@@ -2375,6 +2644,26 @@ shared_focus = {
 		focus = FRA_bulwark_against_the_east
 		focus = FRA_total_disarmament
 	}
+	
+	completion_reward = {
+		
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_coal_and_steel_community
+	icon = GFX_focus_generic_resource_extraction
+	
+	x = 1
+	y = 2
+	cost = 4
+	
+	relative_position_id = FRA_a_europe_safe_for_democracy
+	prerequisite = { focus = FRA_a_europe_safe_for_democracy }
 	
 	completion_reward = {
 		
