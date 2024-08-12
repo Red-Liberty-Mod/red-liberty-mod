@@ -1,0 +1,338 @@
+FRA_fighter = {
+	category = air
+
+	available_for = { FRA }
+
+	roles = {
+		air_fighter
+	}
+
+	priority = {
+		factor = 1000
+		modifier = {
+			has_war = yes
+			factor = 2
+		}
+	}
+	
+	basic_fighter_1 = {
+		name = "Morane-Saulnier M.S.406"
+		
+		priority = {
+			factor = 100
+			modifier = { 
+				has_tech = improved_small_airframe
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		target_variant = {
+			match_value = 2000
+			type = small_plane_airframe_1
+			modules = {
+				fixed_main_weapon_slot = light_mg_2x
+				fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_1x
+				engine_type_slot = engine_2_1x
+				special_type_slot_1 = empty
+				special_type_slot_2 = empty	
+			}
+		}
+	}
+	
+	basic_fighter_2 = {
+		name = "Bloch MB.150"
+		
+		priority = {
+			factor = 100
+			modifier = { 
+				has_tech = improved_small_airframe
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		target_variant = {
+			match_value = 2000
+			type = small_plane_airframe_1
+			modules = {
+				fixed_main_weapon_slot = light_mg_2x
+				fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_2x
+				engine_type_slot = engine_2_1x
+				special_type_slot_1 = empty
+				special_type_slot_2 = empty	
+			}
+		}
+	}
+	
+	basic_fighter_3 = {
+		name = "Arsenal VG-33"
+		
+		priority = {
+			factor = 100
+			modifier = { 
+				has_tech = improved_small_airframe
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		target_variant = {
+			match_value = 2000
+			type = small_plane_airframe_1
+			modules = {
+				fixed_main_weapon_slot = light_mg_4x
+				fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_1x
+				engine_type_slot = engine_2_1x
+				special_type_slot_1 = empty
+				special_type_slot_2 = empty	
+			}
+		}
+	}
+	
+	basic_fighter_4 = {
+		name = "SNCASE SE.100"
+		
+		priority = {
+			factor = 100
+			modifier = { 
+				has_tech = improved_small_airframe
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		target_variant = {
+			match_value = 2000
+			type = small_plane_airframe_1
+			modules = {
+				fixed_main_weapon_slot = aircraft_cannon_1_2x
+				fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_2x
+				engine_type_slot = engine_2_2x
+				special_type_slot_1 = cannon_defense_turret
+				special_type_slot_2 = empty	
+			}
+		}
+	}
+	
+	improved_fighter_1 = {
+		name = "Dewoitine D.520"
+		
+		priority = {
+			factor = 100
+			modifier = { 
+				has_tech = advanced_small_airframe
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		target_variant = {
+			match_value = 2000
+			type = small_plane_airframe_2
+			modules = {
+				fixed_main_weapon_slot = light_mg_4x
+				fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_1x
+				engine_type_slot = engine_2_1x
+				special_type_slot_1 = empty
+				special_type_slot_2 = empty	
+			}
+		}
+	}
+}
+
+FRA_cv_cas = {
+	category = air
+
+	available_for = { FRA }
+
+	roles = {
+		air_cas
+	}
+
+	priority = {
+		factor = 1000
+		modifier = {
+			has_war = yes
+			factor = 2
+		}
+	}
+	
+	basic_cv_cas_1 = {
+		name = "Loire-Nieuport LN.40"
+		
+		priority = {
+			factor = 100
+			modifier = { 
+				has_tech = improved_small_airframe
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		target_variant = {
+			match_value = 2000
+			type = cv_small_plane_cas_airframe_1
+			modules = {
+				fixed_main_weapon_slot = bomb_locks
+				fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_1x
+				engine_type_slot = engine_2_1x
+				special_type_slot_1 = empty
+				special_type_slot_2 = empty	
+			}
+		}
+	}
+}
+
+FRA_tactical_bomber = {
+	
+	category = air
+
+	available_for = { FRA }
+
+	roles = {
+		air_tactical_bomber
+	}
+
+	priority = {
+		factor = 1000
+		modifier = {
+			has_war = yes
+			factor = 2
+		}
+	}
+	
+	basic_tactical_bomber_1 = {
+		name = "Lioré et Olivier LeO 45"
+		
+		priority = {
+			factor = 80
+			modifier = { 
+				has_tech = improved_medium_airframe
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		target_variant = {
+			match_value = 2000
+			type = medium_plane_airframe_1
+			modules = {
+				fixed_main_weapon_slot = medium_bomb_bay
+				fixed_auxiliary_weapon_slot_1 = light_mg_2x
+				engine_type_slot = engine_2_2x
+				special_type_slot_1 = lmg_defense_turret
+				special_type_slot_2 = cannon_defense_turret
+			}
+		}
+	}
+	
+	basic_tactical_bomber_2 = {
+		name = "Amiot 354"
+		
+		priority = {
+			factor = 80
+			modifier = { 
+				has_tech = improved_medium_airframe
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		target_variant = {
+			match_value = 2000
+			type = medium_plane_airframe_1
+			modules = {
+				fixed_main_weapon_slot = medium_bomb_bay
+				fixed_auxiliary_weapon_slot_1 = light_mg_2x
+				fixed_auxiliary_weapon_slot_2 = aircraft_cannon_1_1x
+				engine_type_slot = engine_2_2x
+				special_type_slot_1 = lmg_defense_turret
+				special_type_slot_2 = empty	
+			}
+		}
+	}
+}
+
+FRA_heavy_fighter = {
+	category = air
+
+	available_for = { FRA }
+
+	roles = {
+		air_heavy_fighter
+	}
+
+	priority = {
+		factor = 1000
+		modifier = {
+			has_war = yes
+			factor = 2
+		}
+	}
+	
+	basic_heavy_fighter_1 = {
+		name = "Potez 630"
+		
+		priority = {
+			factor = 80
+			modifier = { 
+				has_tech = improved_medium_airframe
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		target_variant = {
+			match_value = 2000
+			type = medium_plane_fighter_airframe_1
+			modules = {
+				fixed_main_weapon_slot = light_mg_2x
+				fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_1x
+				engine_type_slot = engine_2_2x
+				special_type_slot_1 = lmg_defense_turret
+				special_type_slot_2 = empty	
+			}
+		}
+	}
+	
+	basic_heavy_fighter_2 = {
+		name = "Potez 633 B2"
+		
+		priority = {
+			factor = 20
+			modifier = { 
+				has_tech = improved_medium_airframe
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		target_variant = {
+			match_value = 2000
+			type = medium_plane_fighter_airframe_1
+			modules = {
+				fixed_main_weapon_slot = light_mg_2x
+				fixed_auxiliary_weapon_slot_1 = small_bomb_bay
+				engine_type_slot = engine_2_2x
+				special_type_slot_1 = lmg_defense_turret
+				special_type_slot_2 = empty	
+			}
+		}
+	}
+	
+	basic_scout_plane_1 = {
+		name = "Bloch MB.131"
+		
+		priority = {
+			factor = 20
+			modifier = { 
+				has_tech = improved_medium_airframe
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		target_variant = {
+			match_value = 2000
+			type = medium_plane_scout_plane_airframe_1
+			modules = {
+				fixed_main_weapon_slot = recon_camera
+				fixed_auxiliary_weapon_slot_1 = empty
+				fixed_auxiliary_weapon_slot_2 = empty
+				engine_type_slot = engine_2_2x
+				special_type_slot_1 = lmg_defense_turret
+				special_type_slot_2 = empty
+			}
+		}
+	}
+}
