@@ -195,7 +195,7 @@ shared_focus = {
 
 shared_focus = {
     id = USA_doctors_orders
-	icon = GFX_USA_doctors_orders
+	icon = GFX_focus_generic_treaty
 	
     x = 1
 	y = 1
@@ -248,6 +248,428 @@ shared_focus = {
 		focus = USA_inject_stimulus
 		focus = USA_amputate_regulation
 	}
+    completion_reward = {
+        custom_effect_tooltip = USA_DP_better_nationwide
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					can_have_elections_in_state = yes
+				}
+				add_to_variable = { democrat_popularity = 0.01 }
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_for_a_healthy_economy
+	icon = GFX_USA_for_a_healthy_economy
+	
+    x = -2
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_back_to_normalcy
+	prerequisite = { focus = USA_back_to_normalcy }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_expand_the_state_department
+	icon = GFX_USA_expand_the_state_department
+	
+    x = 3
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_back_to_normalcy
+	prerequisite = { focus = USA_back_to_normalcy }
+	
+    completion_reward = {
+        add_political_power = 50
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_a_sound_currency
+	icon = GFX_USA_a_sound_currency
+	
+    x = -3
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_for_a_healthy_economy
+	prerequisite = { focus = USA_for_a_healthy_economy }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_a_solid_foundation
+	icon = GFX_USA_a_solid_foundation
+	
+    x = 2
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_for_a_healthy_economy
+	prerequisite = { focus = USA_for_a_healthy_economy }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_reciprocal_tariff_reductions
+	icon = GFX_USA_reciprocal_tariff_reductions
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_expand_the_state_department
+	prerequisite = { focus = USA_expand_the_state_department }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_promote_the_oas
+	icon = GFX_USA_promote_the_oas
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_expand_the_state_department
+	prerequisite = { focus = USA_expand_the_state_department }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_business_in_europe
+	icon = GFX_USA_business_in_europe
+	
+    x = 3
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_expand_the_state_department
+	prerequisite = { focus = USA_expand_the_state_department }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_balance_the_budget
+	icon = GFX_USA_balance_the_budget
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_a_sound_currency
+	prerequisite = { focus = USA_a_sound_currency }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_funding_for_libraries
+	icon = GFX_USA_funding_for_libraries
+	
+    x = -3
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_a_solid_foundation
+	prerequisite = { focus = USA_a_solid_foundation }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_continue_electrification
+	icon = GFX_USA_continue_electrification
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_a_solid_foundation
+	prerequisite = { focus = USA_a_solid_foundation }
+	
+    completion_reward = {
+        custom_effect_tooltip = USA_DP_better_rural
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					can_have_elections_in_state = yes
+					is_rural_state = yes
+				}
+				add_to_variable = { democrat_popularity = 0.01 }
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_alphabet_soup
+	icon = GFX_USA_alphabet_soup
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_a_solid_foundation
+	prerequisite = { focus = USA_a_solid_foundation }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_tour_latin_america
+	icon = GFX_USA_tour_latin_america
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_reciprocal_tariff_reductions
+	prerequisite = { focus = USA_reciprocal_tariff_reductions }
+	prerequisite = { focus = USA_promote_the_oas }
+	
+    completion_reward = {
+        every_other_country = {
+			limit = {
+				capital_scope = {
+					OR = {
+						is_on_continent = south_america
+						is_on_continent = central_america
+					}
+				}
+			}
+			add_opinion_modifier = {
+				target = USA
+				modifier = small_increase
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_our_oldest_alliance
+	icon = GFX_USA_our_oldest_alliance
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_business_in_europe
+	prerequisite = { focus = USA_business_in_europe }
+	
+    completion_reward = {
+        FRA = {
+			add_opinion_modifier = {
+				target = USA
+				modifier = small_increase
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_our_special_relationship
+	icon = GFX_USA_our_special_relationship
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_business_in_europe
+	prerequisite = { focus = USA_business_in_europe }
+	
+    completion_reward = {
+        ENG = {
+			add_opinion_modifier = {
+				target = USA
+				modifier = small_increase
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_silver_purchase_act
+	icon = GFX_USA_silver_purchase_act
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_balance_the_budget
+	prerequisite = { focus = USA_balance_the_budget }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_slash_taxes
+	icon = GFX_USA_slash_taxes
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_balance_the_budget
+	prerequisite = { focus = USA_balance_the_budget }
+	prerequisite = { focus = USA_funding_for_libraries }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_small_business_loans
+	icon = GFX_USA_small_business_loans
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_continue_electrification
+	prerequisite = { focus = USA_continue_electrification }
+	
+    completion_reward = {
+        improve_great_depression = yes
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_rural_housing_act
+	icon = GFX_USA_rural_housing_act
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_continue_electrification
+	prerequisite = { focus = USA_continue_electrification }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_lister_reorg_act
+	icon = GFX_USA_lister_reorg_act
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_alphabet_soup
+	prerequisite = { focus = USA_alphabet_soup }
+	
     completion_reward = {
         
     }

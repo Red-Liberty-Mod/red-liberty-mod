@@ -238,3 +238,39 @@ defined_text = {
         localization_key = "USA_party_approval_very_low"
     }
 }
+
+### DEMOCRATS ###
+
+defined_text = {
+	name = GetDPUnity
+	text = {
+		trigger = {
+			check_variable = { USA_democrat_unity < 7 }
+        }
+        localization_key = "USA_spa_party_unity_very_low"
+    }
+	text = {
+		trigger = {
+			check_variable = { USA_democrat_unity < 13 }
+        }
+        localization_key = "USA_spa_party_unity_low"
+    }
+	text = { 
+        trigger = {
+			check_variable = { USA_democrat_unity < 17 }
+        }
+        localization_key = "USA_spa_party_unity_middling"
+    }
+	text = { 
+        trigger = {
+			check_variable = { USA_democrat_unity < 25 }
+        }
+        localization_key = "USA_spa_party_unity_high"
+    }
+	text = { 
+		#trigger = {
+		#	check_variable = { USA_democrat_unity > 25 }
+        #}
+        localization_key = "USA_spa_party_unity_very_high"
+    }
+}
