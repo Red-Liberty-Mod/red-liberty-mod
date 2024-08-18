@@ -47,7 +47,7 @@ on_actions = {
 			log = "[GetDateText]: FROM: [From.GetName] ROOT: [Root.GetName] on_capitulation"
 			
 			### PEACE POPUP ###
-			set_global_flag = show_peace_popup_alert
+			#set_global_flag = show_peace_popup_alert
 			FROM = {
 				save_global_event_target_as = winning_country
 			}
@@ -374,9 +374,6 @@ on_actions = {
 							original_tag = HUN
 						}
 					}
-					FROM = {
-						white_peace = ROOT
-					}
 					
 					HUN = {
 						leave_faction = yes
@@ -390,6 +387,8 @@ on_actions = {
 						TRS = {
 							add_state_core = 885
 							transfer_state = 885
+							
+							white_peace = ROOT
 						}
 					}
 					if = {
@@ -409,6 +408,8 @@ on_actions = {
 								add_core_of = ROM
 								remove_core_of = TRS
 							}
+							
+							white_peace = ROOT
 						}
 					}
 					if = {
@@ -420,6 +421,8 @@ on_actions = {
 						SLO = {
 							transfer_state = 73
 							transfer_state = 664
+							
+							white_peace = ROOT
 						}
 					}
 					set_global_flag = skip_default_capitulation
@@ -441,7 +444,7 @@ on_actions = {
 					ROOT = {
 						diplomatic_relation = { country = FROM relation = war_relation active = no }
 					}
-					HUN = {
+					ROM = {
 						81 = {
 							set_demilitarized_zone = yes
 						}
