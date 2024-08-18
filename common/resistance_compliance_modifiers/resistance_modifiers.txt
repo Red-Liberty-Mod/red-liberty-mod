@@ -100,32 +100,73 @@ resistance_90 = {
 
 ### Special Rules ###
 
-resistance_AFG_tenuous_rule = {
-	type = state_resistance_modifier
-	icon = "GFX_resistance_AFG_tenuous_rule"
-	small_icon = "GFX_resistance_AFG_tenuous_rule"
-	threshold = -1
-	margin = 2
-	
-	visible = { 
+FWA_resistance_25 = {
+	type = core_resistance_modifier
+	icon = "GFX_occupation_resistance_modifier_strip:3"
+	small_icon = "GFX_occupation_resistance_modifier_small_strip:3"
+	threshold = 25
+	margin = 1
+
+	visible = {
+		tag = FWA
+		NOT = { has_country_flag = FWA_rebelled_@FROM }
 		FROM = {
-			tag = AFG
-		} 
-	}
-	
-	enabled = {
-		FROM = {
-			tag = AFG
-			has_idea = AFG_tenuous_rule
+			OR = {
+				original_tag = GNA
+				original_tag = IVO
+				original_tag = SEN
+				original_tag = VOL
+				original_tag = MRT
+				original_tag = TOG
+				original_tag = DAH
+				original_tag = NGR
+				original_tag = MLI
+			}
 		}
-		always = no
 	}
 	
 	state_modifier = {
-		resistance_target = -0.05
-		resistance_growth = -0.05
+		resistance_growth = 0.05
 		compliance_gain = -0.04
-		local_factories = -0.4
-		local_resources = -0.4
+	}
+
+	on_enable = {
+		
+	}
+}
+
+FWA_resistance_80 = {
+	type = core_resistance_modifier
+	icon = "GFX_occupation_resistance_modifier_strip:4"
+	small_icon = "GFX_occupation_resistance_modifier_small_strip:4"
+	threshold = 80
+	margin = 1
+
+	alert_level = high
+	alert_margin = 15
+
+	visible = {
+		tag = FWA
+		NOT = { has_country_flag = FWA_rebelled_@FROM }
+		FROM = {
+			OR = {
+				original_tag = GNA
+				original_tag = IVO
+				original_tag = SEN
+				original_tag = VOL
+				original_tag = MRT
+				original_tag = TOG
+				original_tag = DAH
+				original_tag = NGR
+				original_tag = MLI
+			}
+		}
+	}
+
+	on_enable = {
+		FROM = { save_event_target_as = revolter }
+		set_temp_variable = { revolter_var = FROM }
+		custom_effect_tooltip = FRA_gets_event_revolt_tt
+		hidden_effect = { country_event = { id = fwa_revolts.1 days = 1 random_days = 2 } }
 	}
 }

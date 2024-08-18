@@ -23,9 +23,11 @@
  FRA_empire_DEF:0 "the French Empire"
  FRA_empire_ADJ:0 "French"
  
+ ### Factions ###
  FRA_continental_entente:0 "Continental Entente"
  FRA_second_entente:0 "Entente Cordiale"
  
+ ### Parties ###
  FRA_anarchism_party:0 "UA"
  FRA_anarchism_party_long:0 "Union Anarchiste"
  FRA_vanguard_socialism_party:0 "SFIC"
@@ -37,15 +39,15 @@
  FRA_social_democracy_party:0 "USR"
  FRA_social_democracy_party_long:0 "Union Socialiste Républicaine"
  FRA_progressive_liberalism_party:0 "PRRRS"
- FRA_progressive_liberalism_party_long:0 "Parti Républicain, Radical et Radical-Socialiste"
- FRA_liberal_conservatism_party:0 "AD"
- FRA_liberal_conservatism_party_long:0 "Alliance Démocratique"
+ FRA_progressive_liberalism_party_long:0 "Parti Républicain, Radical et Radical-Socialiste\n§gFounded in 1901, the Republican, Radical and Radical-Socialist Party is anything but socialist; descended from the radicals under the July Monarchy, it stongly supports private property rights, free trade, and the separation of church and state. Due to its unique position, it has become an intermediate party between the left and the right, capable of allying itself with socialists or conservatives depending on the circumstances.§!\n"
+ FRA_liberal_conservatism_party:0 "AD/PDP"
+ FRA_liberal_conservatism_party_long:0 "Alliance Démocratique - Parti Démocrate Populaire"
  FRA_national_conservatism_party:0 "FR"
- FRA_national_conservatism_party_long:0 "Fédération Républicaine"
+ FRA_national_conservatism_party_long:0 "Fédération Républicaine\n§gFounded in 1903 by conservative republicans opposed to the Left Bloc ministry of Pierre Waldeck-Rousseau, the Republican Federation has come to be the party of the republican bourgeosie. Ideologically heir to the Girondin Republicans of the French Revolution, the party stands opposed to most social reforms and supports laissez-faire economics. Since the end of the war, the party has hardened its right-wing stance, becoming a link between the parliamentary and anti-parliamentary right through some of its members' ties to the AF and JP.§!\n"
  FRA_authoritarian_democracy_party:0 "MSFCF"
- FRA_authoritarian_democracy_party_long:0 "Mouvement Social Français des Croix de Feu"
+ FRA_authoritarian_democracy_party_long:0 "Mouvement Social Français des Croix de Feu\n§gA relative newcomer to the French political scene, the French Social Movement transformed the Croix de Feu and its sister organizations from a paramilitary into a mass political party. Ideologically inseparable from its leader, 'Le Colonel' François de La Rocque, the party supports his vision of a strong, executive-led government, and an economy based on Social Catholicism.§!\n"
  FRA_despotism_party:0 "AF"
- FRA_despotism_party_long:0 "Action Française"
+ FRA_despotism_party_long:0 "Action Française\n§gFounded in 1899, the French Action is a nationalist, royalist, and integralist group opposed to parliamentary democracy. Openly calling for a coup, the organization's goal is to install an absolute, reactionary, and Catholic monarchy based upon the traditions and aesthetics of the Ancien Regime. Though it refuses to participate in elections, it maintains a level of influence in government through its ties to mainstream conservative parties.§!\n"
  FRA_ultraconservatism_party:0 "JP"
  FRA_ultraconservatism_party_long:0 "Jeunesses Patriotes"
  FRA_fascism_party:0 "MF"
@@ -528,7 +530,7 @@
  FRA_form_a_tank_division:0 "Form a Tank Division"
  FRA_form_a_tank_division_desc:0 ""
  FRA_never_another_mutiny:0 "Never Another Mutiny"
- FRA_never_another_mutiny_desc:0 "Large-scale reforms will be undertaken to solidify the political unity of our armed forces. Our soldiers will fight and kill and die for France."
+ FRA_never_another_mutiny_desc:0 "The mutinies of 1917 and 1918 almost destroyed us, and we very well could have won the war had we not been held back by cowards and traitors. Large-scale reforms will be undertaken to solidify the political unity of our armed forces; our soldiers will fight and kill and die for France."
  FRA_the_new_generation:0 "The New Generation"
  FRA_the_new_generation_desc:0 "Our soldiers will fight, not because they have to, but because their cause is right, and just, and noble."
  
@@ -823,6 +825,37 @@
  france_military.1.b:0 "He must go."
  
  ### DESCISIONS ###
+ FRA_1936_elections_category:0 "Legislative Elections of 1936"
+ FRA_1936_elections_category_desc:0 "Elections are scheduled for the 26th of April. Given the fragmented nature of French politics, it is exceedingly unlikely for any one party to take an outright majority of seats.\n\n§Y305§! seats are required to form a government. The projected results are as follows:\n\n§rSFIC§! - [?FRA_communist_seats]\n§RInd. Socialists§! - [?FRA_ind_socialist_seats]\n§PPSR§! - [?FRA_socialist_seats]\n§3PRRRS§! - [?FRA_radical_seats]\n§YInd. Radicals§! - [?FRA_ind_radical_seats]\n§7AD§! - [?FRA_democrat_seats]\n§4PDP§! - [?FRA_popular_seats]\n§2FR§! - [?FRA_republican_seats]\n§1Ind. Conservatives§! - [?FRA_ind_conservative_seats]\n§gMSF§! - [?FRA_rocquist_seats]\n§fInd. Far-Right§! - [?FRA_far_right_seats]"
+ 
+ FRA_popular_front_seats:0 "The §rPopular Front§! controls [?FRA_popular_front_seats] seats."
+ FRA_patriotic_front_seats:0 "The §gPatriotic Front§! controls [?FRA_patriotic_front_seats] seats."
+ 
+ FRA_available_actions_tt:0 "We can take 3 actions (Remaining: [?FRA_available_actions])"
+ 
+ FRA_communist_change_tt:0 "£GFX_pol_idea The §rSFIC§! gains/loses $RIGHT|=+0$ seats\n"
+ FRA_socialist_change_tt:0 "£GFX_pol_idea The §PPSR§! gains/loses $RIGHT|=+0$ seats\n"
+ FRA_ind_socialist_change_tt:0 "£GFX_pol_idea The §RInd. Socialists§! gains/loses $RIGHT|=0$ seats\n"
+ FRA_radical_change_tt:0 "£GFX_pol_idea The §3PRRRS§! gains/loses $RIGHT|=+0$ seats\n"
+ FRA_ind_radical_change_tt:0 "£GFX_pol_idea The §YInd. Radicals§! gains/loses $RIGHT|=+0$ seats\n"
+ FRA_democrat_change_tt:0 "£GFX_pol_idea The §7AD§! gains/loses $RIGHT|=+0$ seats\n"
+ FRA_popular_change_tt:0 "£GFX_pol_idea The §4PDP§! gains/loses $RIGHT|=+0$ seats\n"
+ FRA_republican_change_tt:0 "£GFX_pol_idea The §2FR§! gains/loses $RIGHT|=+0$ seats\n"
+ FRA_ind_conservative_change_tt:0 "£GFX_pol_idea The §1Ind. Conservatives§! gains/loses $RIGHT|=+0$ seats\n"
+ FRA_rocquist_change_tt:0 "£GFX_pol_idea The §gMSF§! gains/loses $RIGHT|=+0$ seats\n"
+ 
+ FRA_msf_consolidate_strongholds:0 "Reach Out to Rural Conservatives"
+ FRA_msf_consolidate_strongholds_desc:0 "As it happens, the rural areas of France are also some of the most conservative. While the MSF's traditional base is among the middle class and white collar workers, reaching out to farm workers is a political necessity."
+ FRA_msf_threaten_violence:0 "Threaten Campaign Violence"
+ FRA_msf_threaten_violence_desc:0 "A socialist victory will no doubt lead to violence and instablility; perhaps the people need to be reminded of this fact."
+ FRA_msf_cooperation_with_radicals:0 "Cooperate with Anti-Socialist Radicals"
+ FRA_msf_cooperation_with_radicals_desc:0 "There are those in the PRRRS that are against cooperating with the socialists. We shall refrain from running against them, to ensure that they remain in their seats. Perhaps this could even be the basis of a future alliance."
+ FRA_msf_cooperation_with_popular_democrats:0 "Stand Joint Candidates with the PDP"
+ FRA_msf_cooperation_with_popular_democrats_desc:0 "As a self-described christian democratic party, the Popular Democrats share many of our social positions. They can be an invaluable ally, so we shall arrange joint tickets in strategic seats."
+ FRA_msf_court_independent_conservatives:0 "Court Independent Conservatives"
+ FRA_msf_court_independent_conservatives_desc:0 "There are various independents of a conservative lean running in this election. We shall negotiate their integration into our voting bloc, before anyone else does."
+ 
+ ## Officer Promotions ##
  FRA_promote_officers_category:0 "Promoting New Officers"
  
  FRA_industrialization_category:0 "Industrialization Program"

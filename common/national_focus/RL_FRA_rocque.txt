@@ -1019,18 +1019,24 @@ shared_focus = {
 }
 
 shared_focus = {
-	id = FRA_the_silent_purge
+	id = FRA_absorb_the_fr
 	icon = GFX_FRA_the_silent_purge
 	
-	x = 1
+	x = 2
 	y = 1
 	cost = 4
 	
 	relative_position_id = FRA_political_appointments
 	prerequisite = { focus = FRA_political_appointments }
 	prerequisite = { focus = FRA_silence_for_stability }
+	prerequisite = { focus = FRA_bolster_the_mass_movement }
 	
 	completion_reward = {
+		set_party_name = {
+			ideology = national_conservatism
+			long_name = FRA_psf_party_natcon_long
+			name = FRA_psf_party_natcon
+		}
 		add_stability = 0.075
 	}
 	
@@ -1062,9 +1068,9 @@ shared_focus = {
 shared_focus = {
 	id = FRA_bolster_the_mass_movement
 	icon = GFX_FRA_bolster_the_mass_movement
-		
-	x = 0
-	y = 2
+	
+	x = 1
+	y = 1
 	cost = 4
 	
 	relative_position_id = FRA_veterans_above_all
@@ -1073,8 +1079,13 @@ shared_focus = {
 	completion_reward = {
 		set_party_name = {
 			ideology = authoritarian_democracy
-			long_name = FRA_psf_party_long
-			name = FRA_psf_party
+			long_name = FRA_psf_party_authdem_long
+			name = FRA_psf_party_authdem
+		}
+		set_party_name = {
+			ideology = despotism
+			long_name = FRA_psf_party_desp_long
+			name = FRA_psf_party_desp
 		}
 		add_popularity = {
 			ideology = authoritarian_democracy
@@ -1092,7 +1103,7 @@ shared_focus = {
 	icon = GFX_FRA_womens_suffrage
 	
 	x = 0
-	y = 1
+	y = 2
 	cost = 4
 	
 	relative_position_id = FRA_bolster_the_mass_movement
@@ -1157,8 +1168,7 @@ shared_focus = {
 	
 	relative_position_id = FRA_model_citizens
 	prerequisite = { focus = FRA_model_citizens }
-	prerequisite = { focus = FRA_the_silent_purge }
-	prerequisite = { focus = FRA_bolster_the_mass_movement }
+	prerequisite = { focus = FRA_absorb_the_fr }
 	mutually_exclusive = { focus = FRA_the_end_of_democracy }
 	
 	completion_reward = {
@@ -1187,10 +1197,15 @@ shared_focus = {
 			ideology = fascism
 			popularity = temp
 		}
+		
+		add_stability = 0.075
+		add_war_support = 0.075
 	}
 	
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_STABILITY
+		FOCUS_FILTER_WAR_SUPPORT
 	}
 }
 	
@@ -1258,6 +1273,16 @@ shared_focus = {
 	}
 	
 	completion_reward = {
+		add_country_leader_role = {
+			character = FRA_francois_de_la_rocque
+			promote_leader = yes
+			country_leader = {
+				ideology = christian_democracy_subtype
+			}
+		}
+		set_politics = {
+			ruling_party = national_conservatism
+		}
 		add_stability = 0.075
 	}
 	
