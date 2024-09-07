@@ -1,17 +1,17 @@
 characters = {
 
-	FRA_sebastian_faure = {
-		name = FRA_sebastian_faure
+	FRA_pierre_semard = {
+		name = FRA_pierre_semard
 		
 		portraits = {
 			civilian = {
-				large = "GFX_portrait_FRA_sebastian_faure"
+				large = "GFX_portrait_FRA_pierre_semard"
 			}
 		}
 		
 		country_leader = {
-			desc = "POLITICS_SEBASTIAN_FAURE_DESC"
-			ideology = anarcho_socialism_subtype
+			desc = "POLITICS_PIERRE_SEMARD_DESC"
+			ideology = anarcho_syndicalism_subtype
 			traits = {  }
 		}
 	}
@@ -606,6 +606,34 @@ characters = {
 			
 			traits = {
 				eco_relief_coordinator
+			}
+		}
+	}
+	
+	FRA_paul_reynaud = {
+		name = FRA_paul_reynaud
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/FRA/FRA_Paul_Reynaud.png"
+			}
+		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = FRA_paul_reynaud
+			ledger = civilian
+			cost = 100
+			
+			available = {
+				OR = {
+					has_government = liberal_conservatism
+					has_country_flag = liberal_conservatism_coalition
+				}
+			}
+			
+			traits = {
+				eco_balanced_budget_economy
 			}
 		}
 	}
