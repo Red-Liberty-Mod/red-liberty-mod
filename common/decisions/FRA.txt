@@ -215,7 +215,7 @@ FRA_promote_officers_category = {
 					advisor = {
 						slot = high_command
 						cost = 100
-						idea_token = FRA_charles_degaulle_theorist
+						idea_token = FRA_charles_degaulle_high_command
 						traits = {
 							army_armored_2
 						}
@@ -371,6 +371,11 @@ FRA_build_defenses_category = {
 		fire_only_once = yes
 		days_remove = 120
 		
+		available = {
+			controls_state = 29
+			controls_state = 785
+		}
+		
 		modifier = {
 			civilian_factory_use = 7
 		}
@@ -431,6 +436,10 @@ FRA_build_defenses_category = {
 		fire_only_once = yes
 		days_remove = 120
 		
+		available = {
+			controls_state = 735
+		}
+		
 		modifier = {
 			civilian_factory_use = 7
 		}
@@ -446,6 +455,12 @@ FRA_build_defenses_category = {
 				add_building_construction = {
 					type = bunker
 					province = 3764
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					province = 9745
 					level = 1
 					instant_build = yes
 				}
@@ -487,7 +502,7 @@ FRA_build_defenses_category = {
 				add_building_construction = {
 					type = bunker
 					province = 9745
-					level = 3
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -571,6 +586,10 @@ FRA_build_defenses_category = {
 		fire_only_once = yes
 		days_remove = 70
 		
+		available = {
+			controls_state = 17
+		}
+		
 		modifier = {
 			civilian_factory_use = 2
 		}
@@ -615,6 +634,7 @@ FRA_build_defenses_category = {
 		
 		cost = 20
 		fire_only_once = yes
+		days_remove = 70
 		
 		available = {
 			OR = {
@@ -626,7 +646,6 @@ FRA_build_defenses_category = {
 			}
 		}
 		
-		days_remove = 100
 		modifier = {
 			civilian_factory_use = 2
 		}
@@ -647,6 +666,51 @@ FRA_build_defenses_category = {
 					type = bunker
 					province = 11957
 					level = 3
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	FRA_fortify_corsica = {
+		icon = generic_construction
+		
+		cost = 20
+		fire_only_once = yes
+		
+		available = {
+			controls_state = 1
+		}
+		
+		days_remove = 30
+		modifier = {
+			civilian_factory_use = 1
+		}
+		
+		complete_effect = {
+			1 = {
+				add_building_construction = {
+					type = coastal_bunker
+					province = 3838
+					level = 1
+				}
+			}
+		}
+		
+		remove_effect = {
+			1 = {
+				add_building_construction = {
+					type = coastal_bunker
+					province = 3838
+					level = 1
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					province = 9851
+					level = 1
 				}
 			}
 		}
