@@ -19,6 +19,7 @@ add_namespace = demo_bul
 add_namespace = demo_man
 add_namespace = demo_aus
 add_namespace = demo_nzl
+add_namespace = demo_pol
 add_namespace = demo_ukr
 add_namespace = demo_ven
 add_namespace = demo_arg
@@ -788,11 +789,11 @@ country_event = { # september constitution - september 26, 1936
 			}
 			country_event = { # november 1
 				id = demo_ahe.12
-				days = 45
+				days = 35
 			}
 			country_event = { # november 8
 				id = demo_ahe.13
-				days = 52
+				days = 42
 			}
 			country_event = { # october 10 - italian occupation
 				id = demo_ahe.14
@@ -1096,6 +1097,12 @@ country_event = { # poland and ukraine occupations
 			add_core_of = POL
 			remove_core_of = AHE
 			set_demilitarized_zone = no
+		}
+		POL = {
+			country_event = {
+				id = demo_pol.1
+				days = 22
+			}
 		}
 		
 		AHE_setup_WUK = yes
@@ -3697,43 +3704,150 @@ country_event = {
 	}
 }
 
-country_event = {
-	id = demo_ukr.1
-	title = demo_ukr.1.title
-	desc = demo_ukr.1.desc
+country_event = { # 
+	id = demo_pol.1
+	title = demo_pol.1.title
+	desc = demo_pol.1.desc
 	
 	is_triggered_only = yes
 	
-	option = {
-		name = demo_ukr.1.a
-		country_event = {
-			id = demo_ukr.2
-			days = 10
+	option = { # 
+		name = demo_pol.1.a
+		POL = {
+			declare_war_on = {
+				target = WUK
+				type = annex_everything
+			}
+			set_country_flag = cannot_call_allies
 		}
-		hidden_effect = {
-			93 = {
-				set_demilitarized_zone = yes
+		GER = {
+			country_event = {
+				id = demo_pol.2
+				days = 14
 			}
-			192 = {
-				set_demilitarized_zone = yes
-			}
-			201 = {
-				set_demilitarized_zone = yes
-			}
-			226 = {
-				set_demilitarized_zone = yes
-			}
-			902 = {
-				set_demilitarized_zone = yes
+		}
+		news_event = {
+			id = demo_pol.3
+			hours = 6
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+country_event = { # 
+	id = demo_pol.2
+	title = demo_pol.2.title
+	desc = demo_pol.2.desc
+	
+	is_triggered_only = yes
+	
+	option = { # support poland
+		name = demo_pol.2.a
+		set_global_flag = GER_galicia_crisis_supported_poland
+		UKR = {
+			country_event = {
+				id = demo_pol.4
+				days = 10
 			}
 		}
 		ai_chance = {
-			base = 90
+			base = 10
 		}
 	}
+	
+	option = { # support ukraine
+		name = demo_pol.2.b
+		set_global_flag = GER_galicia_crisis_supported_ukraine
+		POL = {
+			country_event = {
+				id = demo_pol.5
+				days = 14
+			}
+		}
+		ai_chance = {
+			base = 0
+		}
+	}
+}
 
-	option = {
-		name = demo_ukr.1.b
+news_event = { # galician crisis
+	id = demo_pol.3
+	title = demo_pol.3.title
+	desc = demo_pol.3.desc
+	
+	is_triggered_only = yes
+	major = yes
+	
+	option = { # 
+		name = demo_pol.3.a
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+country_event = { # 
+	id = demo_pol.4
+	title = demo_pol.4.title
+	desc = demo_pol.4.desc
+	
+	is_triggered_only = yes
+	
+	option = { # support poland
+		name = demo_pol.4.a
+		UKR = {
+			add_to_war = {
+				targeted_alliance = WUK
+				enemy = POL
+				hostility_reason = asked_to_join
+			}
+			#puppet = WUK
+			give_guarantee = WUK
+		}
+		POL = {
+			clr_country_flag = cannot_call_allies
+		}
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+				has_global_flag = GER_galicia_crisis_supported_ukraine
+			}
+		}
+	}
+	
+	option = { # support ukraine
+		name = demo_pol.4.b
+		trigger = {
+			has_global_flag = GER_galicia_crisis_supported_ukraine
+		}
+		UKR = {
+			puppet = WUK
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				factor = 0
+				has_global_flag = GER_galicia_crisis_supported_poland
+			}
+		}
+	}
+}
+
+country_event = { # 
+	id = demo_pol.5
+	title = demo_pol.5.title
+	desc = demo_pol.5.desc
+	
+	is_triggered_only = yes
+	
+	option = { # support ukraine
+		name = demo_pol.5.a
+		POL = {
+			white_peace = WUK
+		}
 		ai_chance = {
 			base = 10
 		}
@@ -3741,14 +3855,14 @@ country_event = {
 }
 
 country_event = { # ukrainian revolution
-	id = demo_ukr.2
-	title = demo_ukr.2.title
-	desc = demo_ukr.2.desc
+	id = demo_ukr.1
+	title = demo_ukr.1.title
+	desc = demo_ukr.1.desc
 	
 	is_triggered_only = yes
 	
 	option = { # succeeds
-		name = demo_ukr.2.a
+		name = demo_ukr.1.a
 		UKR = {
 			set_politics = {
 				ruling_party = democratic_socialism
@@ -3757,26 +3871,18 @@ country_event = { # ukrainian revolution
 				elections_allowed = no
 			}
 			remove_ideas = UKR_unpopular_govt
-			leave_faction = yes
-			every_owned_state = {
-				set_demilitarized_zone = no
-			}
-			country_event = {
-				id = demo_ukr.4
-				days = 14
+		}
+		GER = {
+			diplomatic_relation = {
+				country = UKR
+				relation = guarantee
+				active = no
 			}
 		}
 		random_other_country = {
 			limit = { is_ai = yes }
-			news_event = { id = demo_ukr.3 hours = 6 }
+			news_event = { id = demo_ukr.2 hours = 6 }
 		}
-		ai_chance = {
-			base = 90
-		}
-	}
-	
-	option = { # fails
-		name = demo_ukr.2.b
 		ai_chance = {
 			base = 10
 		}
@@ -3784,47 +3890,17 @@ country_event = { # ukrainian revolution
 }
 
 news_event = {
-	id = demo_ukr.3
-	title = demo_ukr.3.title
-	desc = demo_ukr.3.desc
+	id = demo_ukr.2
+	title = demo_ukr.2.title
+	desc = demo_ukr.2.desc
+	picture = GFX_news_event_UKR_vynnechenko
 	
 	major = yes
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = demo_ukr.3.a
-	}
-}
-
-country_event = { # ukrainian revolution - aftermath
-	id = demo_ukr.4
-	title = demo_ukr.4.title
-	desc = demo_ukr.4.desc
-	
-	is_triggered_only = yes
-	
-	option = { # rejoins pakt
-		name = demo_ukr.4.a
-		GER = {
-			add_to_faction = UKR
-		}
-		ai_chance = {
-			base = 9
-		}
-	}
-	
-	option = { # german-ukrainian war
-		name = demo_ukr.4.b
-		GER = {
-			declare_war_on = {
-				target = UKR
-				type = annex_everything
-			}
-		}
-		ai_chance = {
-			base = 1
-		}
+		name = demo_ukr.2.a
 	}
 }
 
@@ -3995,6 +4071,10 @@ country_event = { # military coup
 			add_popularity = {
 				ideology = despotism
 				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
 			}
 			reset_coalition = yes
 		}
