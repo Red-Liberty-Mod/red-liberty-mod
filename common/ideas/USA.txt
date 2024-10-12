@@ -1314,8 +1314,23 @@ ideas = {
 				always = no
 			}
 				
-			modifier = {
-				send_volunteer_size = 2
+			targeted_modifier = {
+				tag = MEX
+				custom_modifier_tooltip = volunteer_limit_plus_one_tt
+			}
+			
+			on_add = {
+				add_relation_modifier = {
+					target = MEX
+					modifier = volunteer_limit_plus_one
+				}
+			}
+			
+			on_remove = {
+				remove_relation_modifier = {
+					target = MEX
+					modifier = volunteer_limit_plus_one
+				}
 			}
 		}
 		
@@ -1537,6 +1552,55 @@ ideas = {
 
 			modifier = {
 				industrial_capacity_dockyard = 0.2
+			}
+		}
+		
+		USA_european_volunteers = {
+		
+			removal_cost = -1 
+			
+			allowed_civil_war = {	 
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed = {
+				always = no
+			}
+				
+			targeted_modifier = {
+				tag = ENG
+				custom_modifier_tooltip = volunteer_limit_plus_two_tt
+			}
+			
+			targeted_modifier = {
+				tag = FRA
+				custom_modifier_tooltip = volunteer_limit_plus_two_tt
+			}
+			
+			on_add = {
+				add_relation_modifier = {
+					target = ENG
+					modifier = volunteer_limit_plus_two
+				}
+				add_relation_modifier = {
+					target = FRA
+					modifier = volunteer_limit_plus_two
+				}
+			}
+			
+			on_remove = {
+				remove_relation_modifier = {
+					target = ENG
+					modifier = volunteer_limit_plus_two
+				}
+				remove_relation_modifier = {
+					target = FRA
+					modifier = volunteer_limit_plus_two
+				}
 			}
 		}
 		
