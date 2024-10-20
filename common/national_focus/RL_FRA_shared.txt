@@ -19,7 +19,7 @@ shared_focus = {
 	}
 	
 	offset = {
-        x = 40
+        x = 42
         y = 0
         trigger = {
 			OR = {
@@ -1061,6 +1061,16 @@ shared_focus = {
 	
 	completion_reward = {
 		air_experience = 25
+		add_equipment_subsidy = {
+			cic = 1000
+			equipment_type = small_plane_airframe
+			seller_tags = { USA ENG JAP }
+		}
+		add_equipment_subsidy = {
+			cic = 1000
+			equipment_type = medium_plane_airframe
+			seller_tags = { USA ENG JAP }
+		}
 	}
 	
 	search_filters = {
@@ -2106,7 +2116,7 @@ shared_focus = {
 	available = {
 		OR = {
 			threat > 0.6
-			has_war_support > 0.8
+			has_war_support > 0.7
 		}
 	}
 	
@@ -2143,7 +2153,7 @@ shared_focus = {
 
 shared_focus = {
 	id = FRA_total_war
-	icon = GFX_goal_unknown
+	icon = GFX_FRA_total_war
 	
 	x = -1
 	y = 1
@@ -2262,7 +2272,7 @@ shared_focus = {
 	id = FRA_volunteer_battalions
 	icon = GFX_FRA_volunteer_battalions
 	
-	x = 1
+	x = 0
 	y = 1
 	cost = 4
 	
@@ -2285,8 +2295,74 @@ shared_focus = {
 	y = 1
 	cost = 4
 	
-	relative_position_id = FRA_volunteer_battalions
-	prerequisite = { focus = FRA_volunteer_battalions }
+	relative_position_id = FRA_the_grace_of_france
+	prerequisite = {
+		focus = FRA_the_wrath_of_paris
+		focus = FRA_the_grace_of_france
+	}
+	
+	completion_reward = {
+		if = {
+			limit = {
+				has_completed_focus = FRA_the_wrath_of_paris
+			}
+			CRO = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 3000
+					producer = FRA
+				}
+			}
+			SLV = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 2000
+					producer = FRA
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_completed_focus = FRA_the_grace_of_france
+			}
+			AUS = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 5000
+					producer = FRA
+				}
+			}
+		}
+		else = {
+			custom_effect_tooltip = FRA_small_arms_donations_wrath_tt
+			effect_tooltip = {
+				CRO = {
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 3000
+						producer = FRA
+					}
+				}
+				SLV = {
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 2000
+						producer = FRA
+					}
+				}
+			}
+			custom_effect_tooltip = FRA_small_arms_donations_grace_tt
+			effect_tooltip = {
+				AUS = {
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 5000
+						producer = FRA
+					}
+				}
+			}
+		}
+	}
 	
 	search_filters = {
 		FOCUS_FILTER_ANNEXATION

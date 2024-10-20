@@ -42,3 +42,38 @@ FRA_defend_belgian_border = {
 		value = 50
 	}
 }
+
+FRA_endsieg = { # if losing, focus everything on defence
+	
+	allowed = {
+		original_tag = FRA
+	}
+	enable = {
+		surrender_progress > 0.25
+		stockpile_ratio = { archetype = infantry_equipment ratio < 0.1 }
+		GER = {
+			has_war_with = ROOT
+			has_capitulated = no
+			surrender_progress < 0.1
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		tag = GER
+		priority = 150
+		ordertype = front
+		execute_order = no
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		area = globally
+		value = -500
+	}
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		id = BEL
+		value = 100
+	}
+}

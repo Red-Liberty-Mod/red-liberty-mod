@@ -349,13 +349,14 @@ shared_focus = {
     id = FRA_alliance_with_patriotic_socialists
 	icon = GFX_FRA_alliance_with_patriotic_socialists
 	
-    x = -2
+    x = -1
 	y = 1
 	
 	cost = 3
-	relative_position_id = FRA_ban_communist_party
+	relative_position_id = FRA_ally_conservatives
 	prerequisite = {
-		focus = FRA_ban_communist_party
+		focus = FRA_ally_conservatives
+		focus = FRA_ally_far_right
 	}
 	
     completion_reward = {
@@ -371,13 +372,14 @@ shared_focus = {
     id = FRA_suppress_the_violence
 	icon = GFX_FRA_suppress_the_violence
 	
-    x = 0
+    x = 1
 	y = 1
 	
 	cost = 3
-	relative_position_id = FRA_ban_communist_party
+	relative_position_id = FRA_ally_far_right
 	prerequisite = {
-		focus = FRA_ban_communist_party
+		focus = FRA_ally_conservatives
+		focus = FRA_ally_far_right
 	}
 	
     completion_reward = {
@@ -393,12 +395,13 @@ shared_focus = {
     id = FRA_million_cross_march
 	icon = GFX_FRA_million_cross_march
 	
-    x = 0
+    x = 2
 	y = 1
 	
 	cost = 3
-	relative_position_id = FRA_suppress_the_violence
+	relative_position_id = FRA_alliance_with_patriotic_socialists
 	prerequisite = { focus = FRA_alliance_with_patriotic_socialists }
+	prerequisite = { focus = FRA_ban_communist_party }
 	prerequisite = { focus = FRA_suppress_the_violence }
 	
     completion_reward = {

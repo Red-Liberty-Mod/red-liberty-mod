@@ -3,10 +3,13 @@ shared_focus = {
 	icon = GFX_ARG_reverse_the_economic_downturn
 	
     x = 4
+	cost = 5
 	
-	cost = 4
     completion_reward = {
-		
+		swap_ideas = {
+			remove_idea = ARG_crippled_industry_1
+			add_idea = ARG_crippled_industry_2
+		}
     }
 	
 	ai_will_do = {
@@ -58,8 +61,8 @@ shared_focus = {
 	
     x = -1
 	y = 1
+	cost = 5
 	
-	cost = 4
 	relative_position_id = ARG_stabilizing_the_budget
 	prerequisite = { focus = ARG_stabilizing_the_budget }
     completion_reward = {
@@ -80,8 +83,8 @@ shared_focus = {
 	
     x = 1
 	y = 1
+	cost = 5
 	
-	cost = 4
 	relative_position_id = ARG_stabilizing_the_budget
 	prerequisite = { focus = ARG_stabilizing_the_budget }
     completion_reward = {
@@ -140,8 +143,8 @@ shared_focus = {
 	
     x = 1
 	y = 1
-	
 	cost = 4
+	
 	relative_position_id = ARG_budget_cuts
 	prerequisite = { focus = ARG_budget_cuts }
 	prerequisite = { focus = ARG_tax_reform }
@@ -156,17 +159,17 @@ shared_focus = {
 
 shared_focus = {
     id = ARG_rescind_british_treaties
-	icon = GFX_ARG_rescind_british_treaties
+	icon = GFX_focus_ARG_cut_ties_with_britain
 	
     x = -1
 	y = 1
-	
 	cost = 4
+	
 	relative_position_id = ARG_seek_new_markets
 	prerequisite = { focus = ARG_seek_new_markets }
 	mutually_exclusive = { focus = ARG_renegotiate_terms }
     completion_reward = {
-        
+        remove_ideas = ARG_british_monopoly_1
     }
 	
 	ai_will_do = {
@@ -180,13 +183,16 @@ shared_focus = {
 	
     x = 1
 	y = 1
-	
 	cost = 4
+	
 	relative_position_id = ARG_seek_new_markets
 	prerequisite = { focus = ARG_seek_new_markets }
 	mutually_exclusive = { focus = ARG_rescind_british_treaties }
     completion_reward = {
-        
+        swap_ideas = {
+			remove_idea = ARG_british_monopoly_1
+			add_idea = ARG_british_monopoly_2
+		}
     }
 	
 	ai_will_do = {
@@ -200,8 +206,8 @@ shared_focus = {
 	
     x = -1
 	y = 1
-	
 	cost = 4
+	
 	relative_position_id = ARG_plan_pinedo
 	prerequisite = { focus = ARG_plan_pinedo }
     completion_reward = {
@@ -274,7 +280,7 @@ shared_focus = {
     x = 1
 	y = 1
 	
-	cost = 4
+	cost = 6
 	relative_position_id = ARG_rescind_british_treaties
 	prerequisite = {
 		focus = ARG_rescind_british_treaties
@@ -337,7 +343,7 @@ shared_focus = {
 
 shared_focus = {
     id = ARG_drill_for_black_gold
-	icon = GFX_goal_generic_oil_refinery
+	icon = GFX_focus_generic_resource_extraction
 	
     x = -1
 	y = 1

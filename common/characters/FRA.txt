@@ -108,7 +108,9 @@ characters = {
 		country_leader = {
 			desc = "POLITICS_EDOUARD_DALADIER_DESC"
 			ideology = liberal_radicalism_subtype
-			traits = {  }
+			traits = {
+				FRA_the_bull
+			}
 		}
 	}
 	
@@ -124,7 +126,9 @@ characters = {
 		country_leader = {
 			desc = "POLITICS_PIERRE_ETTIENE_FLANDIN_DESC"
 			ideology = liberal_conservatism_subtype
-			traits = {  }
+			traits = {
+				FRA_the_pilot
+			}
 		}
 	}
 	
@@ -158,7 +162,7 @@ characters = {
 			desc = "POLITICS_FRANCOIS_DE_LA_ROCQUE_DESC"
 			ideology = right_wing_populism_subtype
 			traits = {
-				the_colonel
+				FRA_the_colonel
 			}
 		}
 		
@@ -166,22 +170,8 @@ characters = {
 			slot = head_of_government
 			idea_token = FRA_francois_de_la_rocque_hog
 			ledger = civilian
-			
 			cost = 0
 			can_be_fired = no
-			
-			allowed = {
-				original_tag = FRA
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
 				hog_respected_war_hero
 			}
@@ -201,7 +191,7 @@ characters = {
 			desc = "POLITICS_CHARLES_MAURRAS_DESC"
 			ideology = despotism_subtype
 			traits = {
-				FRA_charles_maurras_CHAR_T1
+				FRA_the_master
 			}
 		}
 	}
@@ -257,22 +247,8 @@ characters = {
 			slot = head_of_government
 			idea_token = FRA_marcel_cachin_hog
 			ledger = civilian
-			
 			cost = 0
 			can_be_fired = no
-			
-			allowed = {
-				original_tag = FRA
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
 				hog_ambitious_union_boss
 			}
@@ -292,22 +268,8 @@ characters = {
 			slot = head_of_government
 			idea_token = FRA_albert_bedouce_hog
 			ledger = civilian
-			
 			cost = 0
 			can_be_fired = no
-			
-			allowed = {
-				original_tag = FRA
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
 				hog_naive_optimist
 			}
@@ -327,22 +289,8 @@ characters = {
 			slot = head_of_government
 			idea_token = FRA_paul_doumer_hog
 			ledger = civilian
-			
 			cost = 0
 			can_be_fired = no
-			
-			allowed = {
-				original_tag = FRA
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
 				hog_pragmatic_statesman
 			}
@@ -362,22 +310,8 @@ characters = {
 			slot = head_of_government
 			idea_token = FRA_albert_lebrun_hog
 			ledger = civilian
-			
 			cost = 0
 			can_be_fired = no
-			
-			allowed = {
-				original_tag = FRA
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
 				hog_happy_amateur
 			}
@@ -406,22 +340,8 @@ characters = {
 			slot = head_of_government
 			idea_token = FRA_jean_de_orleans_hog
 			ledger = civilian
-			
 			cost = 0
 			can_be_fired = no
-			
-			allowed = {
-				original_tag = FRA
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
 				hog_intelligentsia
 			}
@@ -441,22 +361,8 @@ characters = {
 			slot = head_of_government
 			idea_token = FRA_louis_napoleon_hog
 			ledger = civilian
-			
 			cost = 0
 			can_be_fired = no
-			
-			allowed = {
-				original_tag = FRA
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
 				
 			}
@@ -478,26 +384,41 @@ characters = {
 			slot = political_advisor
 			idea_token = FRA_pierre_monatte
 			ledger = civilian
-			
 			cost = 100
-			
-			allowed = {
-				original_tag = FRA
-			}
-			
-			visible = {
-				
-			}
-			
 			available = {
 				OR = {
 					has_government = vanguard_socialism
 					has_country_flag = vanguard_socialism_coalition
 				}
 			}
-			
 			traits = {
 				eco_union_man
+			}
+		}
+	}
+	
+	FRA_charles_rappoport = {
+		name = FRA_charles_rappoport
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/FRA/FRA_Charles_Rappoport.png"
+			}
+		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = FRA_charles_rappoport
+			ledger = civilian
+			cost = 100
+			available = {
+				OR = {
+					has_government = revolutionary_socialism
+					has_country_flag = revolutionary_socialism_coalition
+				}
+			}
+			traits = {
+				for_fierce_negotiator
 			}
 		}
 	}

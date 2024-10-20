@@ -114,9 +114,9 @@ shared_focus = {
 		focus = USA_preparing_our_agenda
 	}
     completion_reward = {
-        add_ideas = {
-			USA_emerging_civil_rights_1
-		}
+        #add_ideas = {
+		#	USA_emerging_civil_rights_1
+		#}
     }
 	
 	ai_will_do = {
@@ -172,12 +172,12 @@ shared_focus = {
     x = 1
 	y = 1
 	
-	cost = 2
+	cost = 3
 	relative_position_id = USA_renewed_enforcement
 	prerequisite = { focus = USA_renewed_enforcement }
 	prerequisite = { focus = USA_encourage_minority_voting }
     completion_reward = {
-		
+		improve_great_depression = yes
     }
 	
 	ai_will_do = {
@@ -192,7 +192,7 @@ shared_focus = {
     x = -2
 	y = 1
 	
-	cost = 2
+	cost = 3
 	relative_position_id = USA_expanding_new_liberty
 	prerequisite = { focus = USA_expanding_new_liberty }
 	
@@ -212,7 +212,7 @@ shared_focus = {
     x = 1
 	y = 1
 	
-	cost = 2
+	cost = 3
 	relative_position_id = USA_expanding_new_liberty
 	prerequisite = { focus = USA_expanding_new_liberty }
 	
@@ -232,7 +232,7 @@ shared_focus = {
     x = 0
 	y = 1
 	
-	cost = 2
+	cost = 3
 	relative_position_id = USA_the_report
 	prerequisite = { focus = USA_the_report }
 	
@@ -252,17 +252,20 @@ shared_focus = {
     x = -1
 	y = 1
 	
-	cost = 2
+	cost = 5
 	relative_position_id = USA_justice_for_all
 	prerequisite = { focus = USA_justice_for_all }
 	
     completion_reward = {
-        
+        add_political_power = 50
+		add_stability = 0.03
     }
 	
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = { FOCUS_FILTER_STABILITY }
 }
 
 shared_focus = {
@@ -272,12 +275,13 @@ shared_focus = {
     x = 1
 	y = 1
 	
-	cost = 2
+	cost = 5
 	relative_position_id = USA_justice_for_all
 	prerequisite = { focus = USA_justice_for_all }
 	
     completion_reward = {
         add_political_power = -25
+		improve_great_depression = yes
     }
 	
 	ai_will_do = {
@@ -292,7 +296,7 @@ shared_focus = {
     x = -1
 	y = 1
 	
-	cost = 2
+	cost = 3
 	relative_position_id = USA_expose_their_crimes
 	prerequisite = { focus = USA_expose_their_crimes }
 	
@@ -312,7 +316,7 @@ shared_focus = {
     x = 1
 	y = 1
 	
-	cost = 2
+	cost = 5
 	relative_position_id = USA_expose_their_crimes
 	prerequisite = { focus = USA_expose_their_crimes }
 	mutually_exclusive = { focus = USA_strengthen_the_justice_department }
@@ -337,7 +341,7 @@ shared_focus = {
     x = 1
 	y = 1
 	
-	cost = 2
+	cost = 5
 	relative_position_id = USA_enforce_the_norris_decision
 	prerequisite = { focus = USA_enforce_the_norris_decision }
 	prerequisite = { focus = USA_equality_of_opportunity }
@@ -359,7 +363,7 @@ shared_focus = {
     x = -1
 	y = 1
 	
-	cost = 2
+	cost = 5
 	relative_position_id = USA_unleash_the_fbi
 	prerequisite = { focus = USA_unleash_the_fbi }
 	
@@ -379,7 +383,7 @@ shared_focus = {
     x = 1
 	y = 1
 	
-	cost = 2
+	cost = 5
 	relative_position_id = USA_unleash_the_fbi
 	prerequisite = {
 		focus = USA_unleash_the_fbi

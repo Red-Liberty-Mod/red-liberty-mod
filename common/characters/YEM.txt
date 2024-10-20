@@ -12,6 +12,33 @@ characters = {
 		country_leader = {
 			ideology = left_wing_populism_subtype
 		}
+		
+		advisor = {
+			cost = 0
+			can_be_fired = no
+			slot = head_of_government
+			idea_token = YEM_ali_nassar_al_qadari_hog
+			ledger = civilian
+			traits = {
+				hog_reformist_soldier
+			}
+		}
+		
+		corps_commander = { # participated in the alwaziri coup of 1948
+			traits = {
+				irregulars_officer
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+			visible = {
+				NOT = {
+					has_government = despotism
+				}
+			}
+		}
 	}
 	
 	YEM_ahmad_muhammad_numan = {
@@ -24,7 +51,7 @@ characters = {
 		}
 		
 		country_leader = {
-			ideology = progressive_liberalism_subtype
+			ideology = national_liberalism_subtype
 		}
 	}
 	
@@ -38,7 +65,7 @@ characters = {
 		}
 		
 		country_leader = {
-			ideology = national_liberalism_subtype
+			ideology = national_conservatism_subtype
 		}
 	}
 	
@@ -67,7 +94,7 @@ characters = {
 			defense_skill = 2
 			planning_skill = 2
 			logistics_skill = 3
-		}		
+		}
 	}
 	
 	YEM_yahya_al_hamid = {
@@ -83,7 +110,18 @@ characters = {
 			desc = "POLITICS_YAHYA_AL_HAMID_DESC"
 			ideology = absolute_monarchy_subtype
 			traits = {
-				
+				YEM_ultraconservative_isolationist
+			}
+		}
+		
+		advisor = {
+			cost = 0
+			can_be_fired = no
+			slot = head_of_government
+			idea_token = YEM_yahya_al_hamid_hog
+			ledger = civilian
+			traits = {
+				hog_local_tyrant
 			}
 		}
 		
@@ -116,15 +154,7 @@ characters = {
 			}
 		}
 		
-		country_leader = {
-			desc = "POLITICS_AHMAD_BIN_YAHYA_DESC"
-			ideology = absolute_monarchy_subtype
-			traits = {
-				
-			}
-		}
-		
-		corps_commander={
+		corps_commander = {
 			traits = {
 				politically_connected
 				trait_cautious
@@ -135,11 +165,125 @@ characters = {
 			defense_skill = 1
 			planning_skill = 1
 			logistics_skill = 1
-			visible = {
-				has_country_leader = {
-					character = YEM_yahya_al_hamid
-					ruling_only = yes
-				}
+			#visible = {
+			#	has_country_leader = {
+			#		character = YEM_yahya_al_hamid
+			#		ruling_only = yes
+			#	}
+			#}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = high_command
+			idea_token = YEM_ahmad_bin_yahya_high_command
+			ledger = army
+			traits = {
+				army_logistics_2
+			}
+		}
+	}
+	
+	YEM_ibrahim_bin_yahya = {
+		name = YEM_ibrahim_bin_yahya
+		
+		portraits = {
+			civilian = {
+				#large = ""
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_IBRAHIM_BIN_YAHYA_DESC"
+			ideology = absolute_monarchy_subtype
+			traits = {
+				YEM_sword_of_truth
+			}
+		}
+		
+		advisor = {
+			cost = 0
+			can_be_fired = no
+			slot = head_of_government
+			idea_token = YEM_ibrahim_bin_yahya_hog
+			ledger = civilian
+			traits = {
+				hog_constitutionalist
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				politically_connected
+				trait_reckless
+				infantry_officer
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+			#visible = {
+			#	has_country_leader = {
+			#		character = YEM_yahya_al_hamid
+			#		ruling_only = yes
+			#	}
+			#}
+		}
+	}
+	
+	YEM_hassan_bin_yahya = {
+		name = YEM_hassan_bin_yahya
+		
+		portraits = {
+			civilian = {
+				#large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				politically_connected
+				cavalry_officer
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 3
+			planning_skill = 1
+			logistics_skill = 2
+		}
+	}
+	
+	YEM_ali_bin_yahya = {
+		name = YEM_ali_bin_yahya
+		
+		portraits = {
+			civilian = {
+				#large = ""
+				#small = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				politically_connected
+				cavalry_officer
+				trait_cautious
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+		
+		advisor = {
+			cost = 100
+			slot = high_command
+			idea_token = YEM_ali_bin_yahya_high_command
+			ledger = army
+			traits = {
+				army_cavalry_2 
 			}
 		}
 	}
@@ -165,7 +309,7 @@ characters = {
 				}
 			}
 			traits = {
-				
+				for_biased_intellectual
 			}
 			cost = 100
 		}
@@ -185,7 +329,7 @@ characters = {
 		
 		corps_commander = { # trained in iraq until 1936, came back and taught infantry, was involved in 1955 coup
 			traits = {
-				
+				infantry_officer
 			}
 			skill = 1
 			attack_skill = 1
@@ -193,38 +337,81 @@ characters = {
 			planning_skill = 1
 			logistics_skill = 1
 			visible = {
-				NOT = {
-					has_government = despotism
-				}
+				has_country_flag = YEM_students_returned
 			}
 		}
 		
 		advisor = {
+			cost = 100
 			slot = high_command
 			idea_token = YEM_ahmed_yahya_al_thalaya_high_command
 			ledger = army
-			visible = {
-				NOT = {
-					has_government = despotism
-				}
+			available = {
+				has_country_flag = YEM_students_returned
 			}
 			traits = {
 				army_infantry_2
 			}
-			cost = 100
 		}
+		
 		advisor = {
 			cost = 100
 			slot = theorist
 			idea_token = YEM_ahmed_yahya_al_thalaya_theorist
 			ledger = army
-			visible = {
-				NOT = {
-					has_government = despotism
-				}
+			available = {
+				has_country_flag = YEM_students_returned
 			}
 			traits = {
 				military_theorist
+			}
+		}
+	}
+	
+	### High Command ###
+	
+	YEM_hamoud_al_jaifi = {
+		name = YEM_hamoud_al_jaifi
+		
+		portraits = {
+			civilian = {
+				#small = ""
+			}
+		}
+		
+		advisor = {
+			cost = 50
+			slot = army_chief
+			idea_token = YEM_hamoud_al_jaifi_army_chief
+			ledger = army
+			available = {
+				has_country_flag = YEM_students_returned
+			}
+			traits = {
+				army_chief_defensive_1
+			}
+		}
+	}
+	
+	YEM_hassan_al_amri = {
+		name = YEM_hassan_al_amri
+		
+		portraits = {
+			civilian = {
+				#small = ""
+			}
+		}
+		
+		advisor = {
+			cost = 50
+			slot = high_command
+			idea_token = YEM_hassan_al_amri_high_command
+			ledger = army
+			available = {
+				has_country_flag = YEM_students_returned
+			}
+			traits = {
+				army_commando_1
 			}
 		}
 	}
