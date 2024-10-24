@@ -1,3 +1,726 @@
+FRA_1936_elections_category = {
+	
+	FRA_msf_consolidate_strongholds = {
+		icon = GFX_decision_eng_propaganda_campaigns
+
+		allowed = { always = no } #activated by effect
+
+		available = {
+			check_variable = {
+				tooltip = FRA_available_actions_tt
+				FRA_available_actions > 0
+			}
+		}
+
+		fire_only_once = yes
+
+		ai_will_do = { factor = 50 }
+
+		complete_effect = {
+			subtract_from_variable = { FRA_available_actions = 1 }
+			add_to_variable = {
+				FRA_democrat_seats = -2
+				tooltip = FRA_democrat_change_tt
+			}
+			add_to_variable = {
+				FRA_republican_seats = -3
+				tooltip = FRA_republican_change_tt
+			}
+			add_to_variable = {
+				FRA_rocquist_seats = 5
+				tooltip = FRA_rocquist_change_tt
+			}
+		}
+	}
+	
+	FRA_msf_threaten_violence = {
+		icon = GFX_decision_eng_propaganda_campaigns
+
+		allowed = { always = no } #activated by effect
+
+		available = {
+			check_variable = {
+				tooltip = FRA_available_actions_tt
+				FRA_available_actions > 0
+			}
+		}
+
+		fire_only_once = yes
+
+		ai_will_do = { factor = 50 }
+
+		complete_effect = {
+			subtract_from_variable = { FRA_available_actions = 1 }
+			add_to_variable = {
+				FRA_socialist_seats = -3
+				tooltip = FRA_socialist_change_tt
+			}
+			add_to_variable = {
+				FRA_radical_seats = -2
+				tooltip = FRA_radical_change_tt
+			}
+			add_to_variable = {
+				FRA_rocquist_seats = 5
+				tooltip = FRA_rocquist_change_tt
+			}
+		}
+	}
+	
+	FRA_msf_cooperation_with_radicals = {
+		icon = GFX_decision_eng_propaganda_campaigns
+
+		allowed = { always = no } #activated by effect
+
+		available = {
+			check_variable = {
+				tooltip = FRA_available_actions_tt
+				FRA_available_actions > 0
+			}
+		}
+
+		fire_only_once = yes
+
+		ai_will_do = { factor = 50 }
+
+		complete_effect = {
+			subtract_from_variable = { FRA_available_actions = 1 }
+			
+			add_to_variable = {
+				FRA_socialist_seats = -3
+				tooltip = FRA_socialist_change_tt
+			}
+			add_to_variable = {
+				FRA_radical_seats = 2
+				tooltip = FRA_radical_change_tt
+			}
+			add_to_variable = {
+				FRA_ind_radical_seats = 1
+				tooltip = FRA_ind_radical_change_tt
+			}
+			add_to_variable = {
+				FRA_democrat_seats = -2
+				tooltip = FRA_democrat_change_tt
+			}
+			add_to_variable = {
+				FRA_rocquist_seats = 2
+				tooltip = FRA_rocquist_change_tt
+			}
+		}
+	}
+	
+	FRA_msf_cooperation_with_popular_democrats = {
+		icon = GFX_decision_eng_propaganda_campaigns
+
+		allowed = { always = no } #activated by effect
+
+		available = {
+			check_variable = {
+				tooltip = FRA_available_actions_tt
+				FRA_available_actions > 0
+			}
+		}
+
+		fire_only_once = yes
+
+		ai_will_do = { factor = 50 }
+
+		complete_effect = {
+			subtract_from_variable = { FRA_available_actions = 1 }
+			
+			add_to_variable = {
+				FRA_socialist_seats = -2
+				tooltip = FRA_socialist_change_tt
+			}
+			add_to_variable = {
+				FRA_democrat_seats = -2
+				tooltip = FRA_democrat_change_tt
+			}
+			add_to_variable = {
+				FRA_popular_seats = 2
+				tooltip = FRA_popular_change_tt
+			}
+			add_to_variable = {
+				FRA_republican_seats = -1
+				tooltip = FRA_republican_change_tt
+			}
+			add_to_variable = {
+				FRA_rocquist_seats = 3
+				tooltip = FRA_rocquist_change_tt
+			}
+		}
+	}
+	
+	FRA_msf_court_independent_conservatives = {
+		icon = GFX_decision_eng_propaganda_campaigns
+
+		allowed = { always = no } #activated by effect
+
+		available = {
+			check_variable = {
+				tooltip = FRA_available_actions_tt
+				FRA_available_actions > 0
+			}
+		}
+
+		fire_only_once = yes
+
+		ai_will_do = { factor = 50 }
+
+		complete_effect = {
+			subtract_from_variable = { FRA_available_actions = 1 }
+			
+			add_to_variable = {
+				FRA_republican_seats = -3
+				tooltip = FRA_republican_change_tt
+			}
+			add_to_variable = {
+				FRA_ind_conservative_seats = 3
+				tooltip = FRA_ind_conservative_change_tt
+			}
+		}
+	}
+}
+
+FRA_promote_officers_category = {
+	
+	FRA_promote_degaulle = {
+		icon = ger_mefo_bills
+		
+		custom_cost_trigger = {
+			command_power > 14
+		}
+		custom_cost_text = CP_15
+		fire_only_once = yes
+		
+		available = {
+			
+		}
+
+		complete_effect = {
+			FRA_charles_degaulle = {
+				add_corps_commander_role = {
+					traits = {
+						career_officer
+						armor_officer
+						panzer_leader
+					}
+					skill = 3
+					attack_skill = 4
+					defense_skill = 2
+					planning_skill = 2
+					logistics_skill = 2
+				}
+				
+				add_advisor_role = {
+					advisor = {
+						slot = high_command
+						cost = 100
+						idea_token = FRA_charles_degaulle_high_command
+						traits = {
+							army_armored_2
+						}
+					}
+				}
+			}
+			hidden_effect = {
+				add_command_power = -15
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	FRA_promote_de_tassigny = {
+		icon = ger_mefo_bills
+		
+		custom_cost_trigger = {
+			command_power > 14
+		}
+		custom_cost_text = CP_15
+		fire_only_once = yes
+		
+		available = {
+			
+		}
+
+		complete_effect = {
+			FRA_jean_de_lattre_de_tassigny = {
+				add_corps_commander_role = {
+					traits = {
+						war_hero
+						infantry_officer
+						infantry_leader
+						organizer
+					}
+					skill = 4
+					attack_skill = 3
+					defense_skill = 3
+					planning_skill = 3
+					logistics_skill = 4
+				}
+			}
+			hidden_effect = {
+				add_command_power = -15
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	FRA_promote_koenig = {
+		icon = ger_mefo_bills
+		
+		custom_cost_trigger = {
+			command_power > 14
+		}
+		custom_cost_text = CP_15
+		fire_only_once = yes
+		
+		available = {
+			
+		}
+
+		complete_effect = {
+			FRA_marie_pierre_koenig = {
+				add_corps_commander_role = {
+					traits = {
+						organizer
+						brilliant_strategist
+					}
+					skill = 3
+					attack_skill = 2
+					defense_skill = 2
+					planning_skill = 3
+					logistics_skill = 3
+				}
+				add_advisor_role = {
+					advisor = {
+						slot = army_chief
+						idea_token = FRA_marie_pierre_koenig_army_chief
+						traits = { army_chief_organizational_2 }
+						cost = 100
+					}
+				}
+			}
+			hidden_effect = {
+				add_command_power = -15
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	FRA_promote_de_hauteclocque = {
+		icon = ger_mefo_bills
+		
+		custom_cost_trigger = {
+			command_power > 14
+		}
+		custom_cost_text = CP_15
+		fire_only_once = yes
+		
+		available = {
+			
+		}
+
+		complete_effect = {
+			FRA_philippe_leclerc_de_hauteclocque = {
+				add_corps_commander_role = {
+					traits = {
+						cavalry_officer
+						desert_fox
+					}
+					skill = 2
+					attack_skill = 2
+					defense_skill = 1
+					planning_skill = 3
+					logistics_skill = 1
+				}
+				#add_advisor_role = {
+				#	advisor = {
+				#		slot = army_chief
+				#		idea_token = NFA_philippe_de_hauteclocque_army_chief
+				#		traits = { army_chief_maneuver_2 }
+				#		cost = 100
+				#	}
+				#}
+			}
+			hidden_effect = {
+				add_command_power = -15
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
+
+FRA_build_defenses_category = {
+	
+	FRA_construct_north_line = {
+		icon = generic_construction
+		
+		cost = 25
+		fire_only_once = yes
+		days_remove = 120
+		
+		available = {
+			controls_state = 29
+			controls_state = 785
+		}
+		
+		modifier = {
+			civilian_factory_use = 7
+		}
+		
+		complete_effect = {
+			29 = {
+				add_building_construction = {
+					type = bunker
+					province = 11606
+					level = 1
+				}
+			}
+			785 = {
+				add_building_construction = {
+					type = bunker
+					province = 3447
+					level = 1
+				}
+			}
+		}
+		
+		remove_effect = {
+			29 = {
+				add_building_construction = {
+					type = bunker
+					province = 11606
+					level = 2
+				}
+				add_building_construction = {
+					type = bunker
+					province = 11483
+					level = 1
+				}
+				add_building_construction = {
+					type = bunker
+					province = 575
+					level = 1
+				}
+			}
+			785 = {
+				add_building_construction = {
+					type = bunker
+					province = 3447
+					level = 1
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	FRA_construct_south_line = {
+		icon = generic_construction
+		
+		cost = 25
+		fire_only_once = yes
+		days_remove = 120
+		
+		available = {
+			controls_state = 735
+		}
+		
+		modifier = {
+			civilian_factory_use = 7
+		}
+		
+		complete_effect = {
+			735 = {
+				add_building_construction = {
+					type = bunker
+					province = 9909
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					province = 3764
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					province = 9745
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		
+		remove_effect = {
+			735 = {
+				add_building_construction = {
+					type = bunker
+					province = 9909
+					level = 4
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					province = 3959
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					province = 6975
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					province = 3764
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					province = 764
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					province = 9745
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	FRA_construct_chauvineau_line = {
+		icon = generic_construction
+		
+		cost = 25
+		fire_only_once = yes
+		days_remove = 100
+		
+		modifier = {
+			civilian_factory_use = 3
+		}
+		
+		complete_effect = {
+			785 = {
+				add_building_construction = {
+					type = bunker
+					province = 6585
+					level = 1
+				}
+				add_building_construction = {
+					type = bunker
+					province = 9561
+					level = 1
+				}
+				add_building_construction = {
+					type = bunker
+					province = 11549
+					level = 1
+				}
+			}
+			15 = {
+				add_building_construction = {
+					type = bunker
+					province = 6569
+					level = 1
+				}
+			}
+		}
+		
+		remove_effect = {
+			785 = {
+				add_building_construction = {
+					type = bunker
+					province = 6585
+					level = 1
+				}
+				add_building_construction = {
+					type = bunker
+					province = 9561
+					level = 1
+				}
+				add_building_construction = {
+					type = bunker
+					province = 11549
+					level = 1
+				}
+			}
+			15 = {
+				add_building_construction = {
+					type = bunker
+					province = 6569
+					level = 1
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	FRA_construct_swiss_line = {
+		icon = generic_construction
+		
+		cost = 50
+		fire_only_once = yes
+		days_remove = 70
+		
+		available = {
+			controls_state = 17
+		}
+		
+		modifier = {
+			civilian_factory_use = 2
+		}
+		
+		complete_effect = {
+			17 = {
+				add_building_construction = {
+					type = bunker
+					province = 3666
+					level = 1
+				}
+				add_building_construction = {
+					type = bunker
+					province = 3646
+					level = 1
+				}
+			}
+		}
+		
+		remove_effect = {
+			17 = {
+				add_building_construction = {
+					type = bunker
+					province = 3666
+					level = 1
+				}
+				add_building_construction = {
+					type = bunker
+					province = 3646
+					level = 1
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	FRA_construct_mareth_line = {
+		icon = generic_construction
+		
+		cost = 20
+		fire_only_once = yes
+		days_remove = 70
+		
+		available = {
+			OR = {
+				controls_state = 665
+				TUN = {
+					is_puppet_of = FRA
+					controls_state = 665
+				}
+			}
+		}
+		
+		modifier = {
+			civilian_factory_use = 2
+		}
+		
+		complete_effect = {
+			665 = {
+				add_building_construction = {
+					type = bunker
+					province = 11957
+					level = 1
+				}
+			}
+		}
+		
+		remove_effect = {
+			665 = {
+				add_building_construction = {
+					type = bunker
+					province = 11957
+					level = 3
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	FRA_fortify_corsica = {
+		icon = generic_construction
+		
+		cost = 20
+		fire_only_once = yes
+		
+		available = {
+			controls_state = 1
+		}
+		
+		days_remove = 30
+		modifier = {
+			civilian_factory_use = 1
+		}
+		
+		complete_effect = {
+			1 = {
+				add_building_construction = {
+					type = coastal_bunker
+					province = 3838
+					level = 1
+				}
+			}
+		}
+		
+		remove_effect = {
+			1 = {
+				add_building_construction = {
+					type = coastal_bunker
+					province = 3838
+					level = 1
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					province = 9851
+					level = 1
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+}
+
 FRA_industrialization_category = {
 
 	FRA_industrialize_state = {
@@ -682,12 +1405,8 @@ FRA_italian_great_game_category = {
 				date < 1938.1.1
 			}
 			modifier = {
-				factor = 0.5
-				check_variable = { FRA_italian_influence > 60 }
-			}
-			modifier = {
-				factor = 0
-				check_variable = { FRA_italian_influence > 100 }
+				factor = 2
+				check_variable = { GER_italian_influence > FRA_italian_influence }
 			}
 		}
 	}
@@ -724,12 +1443,8 @@ FRA_italian_great_game_category = {
 				date < 1938.1.1
 			}
 			modifier = {
-				factor = 0.5
-				check_variable = { FRA_italian_influence > 60 }
-			}
-			modifier = {
-				factor = 0
-				check_variable = { FRA_italian_influence > 100 }
+				factor = 2
+				check_variable = { GER_italian_influence > FRA_italian_influence }
 			}
 		}
 	}
@@ -762,12 +1477,8 @@ FRA_italian_great_game_category = {
 				date < 1938.1.1
 			}
 			modifier = {
-				factor = 0.5
-				check_variable = { FRA_italian_influence > 60 }
-			}
-			modifier = {
-				factor = 0
-				check_variable = { FRA_italian_influence > 100 }
+				factor = 2
+				check_variable = { GER_italian_influence > FRA_italian_influence }
 			}
 		}
 	}
@@ -802,16 +1513,8 @@ FRA_italian_great_game_category = {
 				date < 1938.1.1
 			}
 			modifier = {
-				factor = 0.5
-				check_variable = { FRA_italian_influence > 60 }
-			}
-			modifier = {
-				factor = 0
-				check_variable = { FRA_italian_influence > 100 }
-			}
-			modifier = {
 				factor = 2
-				check_variable = { GER.GER_italian_influence > 60 }
+				check_variable = { GER_italian_influence > FRA_italian_influence }
 			}
 		}
 	}

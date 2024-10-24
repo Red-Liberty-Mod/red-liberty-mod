@@ -134,6 +134,14 @@ TUR_straits_council_category ={
 			set_country_flag = TUR_remil_lemnos
 			add_to_variable = { TUR_concession_val = 1 }
 		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 2
+				check_variable = { TUR.TUR_demand_val > TUR.TUR_concession_val }
+			}
+		}
 	}
 	
 	TUR_offer_econ_liberalization = {
@@ -148,6 +156,14 @@ TUR_straits_council_category ={
 		complete_effect = {
 			set_country_flag = TUR_econ_liberalization
 			add_to_variable = { TUR_concession_val = 1 }
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 2
+				check_variable = { TUR.TUR_demand_val > TUR.TUR_concession_val }
+			}
 		}
 	}
 	
@@ -164,6 +180,14 @@ TUR_straits_council_category ={
 			set_country_flag = TUR_pol_democratization
 			add_to_variable = { TUR_concession_val = 1 }
 		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 2
+				check_variable = { TUR.TUR_demand_val > TUR.TUR_concession_val }
+			}
+		}
 	}
 	
 	TUR_offer_free_passage = {
@@ -178,6 +202,14 @@ TUR_straits_council_category ={
 		complete_effect = {
 			set_country_flag = TUR_free_passage
 			add_to_variable = { TUR_concession_val = 1 }
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 2
+				check_variable = { TUR.TUR_demand_val > TUR.TUR_concession_val }
+			}
 		}
 	}
 	

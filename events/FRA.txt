@@ -3,7 +3,6 @@ add_namespace = france_far_right
 add_namespace = france_far_left
 add_namespace = france_rocque
 add_namespace = france_monarchist
-add_namespace = france_decentralized
 add_namespace = france_military
 
 add_namespace = france_FORPOL
@@ -100,6 +99,24 @@ country_event = { # announcement of the popular front
 
 	option = {
 		name = france.3.a
+		FRA = {
+			#add_to_variable = {
+			#	FRA_communist_seats = 6
+			#	tooltip = FRA_communist_change_tt
+			#}
+			#add_to_variable = {
+			#	FRA_socialist_seats = 4
+			#	tooltip = FRA_socialist_change_tt
+			#}
+			#add_to_variable = {
+			#	FRA_democrat_seats = -4
+			#	tooltip = FRA_democrat_change_tt
+			#}
+			#add_to_variable = {
+			#	FRA_republican_seats = -6
+			#	tooltip = FRA_republican_change_tt
+			#}
+		}
 	}
 }
 
@@ -146,6 +163,28 @@ country_event = { # la rocque gives a speech
 
 	option = {
 		name = france.6.a
+		FRA = {
+			#add_to_variable = {
+			#	FRA_socialist_seats = -2
+			#	tooltip = FRA_socialist_change_tt
+			#}
+			#add_to_variable = {
+			#	FRA_democrat_seats = -3
+			#	tooltip = FRA_democrat_change_tt
+			#}
+			#add_to_variable = {
+			#	FRA_popular_seats = -2
+			#	tooltip = FRA_popular_change_tt
+			#}
+			#add_to_variable = {
+			#	FRA_republican_seats = -3
+			#	tooltip = FRA_republican_change_tt
+			#}
+			#add_to_variable = {
+			#	FRA_rocquist_seats = 10
+			#	tooltip = FRA_rocquist_change_tt
+			#}
+		}
 		add_political_power = -15
 	}
 }
@@ -393,6 +432,80 @@ country_event = { # assassination attempt on la rocque
 	}
 }
 
+country_event = { # president doumer passes away
+	id = france.20
+	title = france.20.title
+	desc = france.20.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = france.20.a
+		activate_advisor = FRA_albert_bedouce_hog
+		add_popularity = {
+			ideology = democratic_socialism
+			popularity = 0.025
+		}
+	}
+	
+	option = {
+		name = france.20.b
+		activate_advisor = FRA_albert_lebrun_hog
+		add_popularity = {
+			ideology = liberal_conservatism
+			popularity = 0.025
+		}
+	}
+	
+	option = {
+		name = france.20.c
+		trigger = {
+			NOT = {
+				has_government = authoritarian_democracy
+			}
+		}
+		activate_advisor = FRA_francois_de_la_rocque_hog
+		add_popularity = {
+			ideology = authoritarian_democracy
+			popularity = 0.025
+		}
+	}
+}
+
+country_event = { # second union sacree
+	id = france.21
+	title = france.21.title
+	desc = france.21.desc
+	
+	trigger = {
+		FRA = {
+			has_war_with = GER
+		}
+	}
+	
+	fire_only_once = yes
+
+	option = {
+		name = france.21.a
+		add_authsoc_coalition = yes
+		add_revsoc_coalition = yes
+		add_demsoc_coalition = yes
+		add_socdem_coalition = yes
+		add_proglib_coalition = yes
+		add_libcon_coalition = yes
+		add_natcon_coalition = yes
+		add_authdem_coalition = yes
+		add_stability = 0.05
+	}
+	
+	option = {
+		name = france.21.b
+		add_stability = -0.05
+	}
+}
+
 ### FAR RIGHT ###
 
 country_event = {
@@ -602,7 +715,7 @@ country_event = { # coronation of jean iii
 			remove_idea = FRA_constitutional_reconstruction
 			add_idea = FRA_kingdom_restored
 		}
-		promote_character = FRA_jean_de_orleans
+		activate_advisor = FRA_jean_de_orleans_hog
 		FRA_jean_de_orleans = {
 			set_character_name = FRA_jean_iii
 		}
@@ -651,19 +764,17 @@ country_event = { # divide the left
 	}
 }
 
-### Decentralized Nationalism Chain ###
-
 country_event = { # divide the left
-	id = france_decentralized.1
-	title = france_decentralized.1.title
-	desc = france_decentralized.1.desc
+	id = france_monarchist.7
+	title = france_monarchist.7.title
+	desc = france_monarchist.7.desc
 	
 	is_triggered_only = yes
 	
 	fire_only_once = yes
 
 	option = {
-		name = france_decentralized.1.a
+		name = france_monarchist.7.a
 	}
 }
 
@@ -858,7 +969,7 @@ country_event = { # france pressures belgium to allow mil access
 		}
 		
 		ai_chance = {
-			base = 4
+			base = 6
 		}
 	}
 	
@@ -872,7 +983,7 @@ country_event = { # france pressures belgium to allow mil access
 		}
 		
 		ai_chance = {
-			base = 5
+			base = 3
 		}
 	}
 	
@@ -929,7 +1040,7 @@ country_event = { # belgium appeals to uk
 		ai_chance = {
 			base = 4
 			modifier = {
-				factor = 0.5
+				factor = 0
 				FRA = {
 					has_completed_focus = FRA_renew_our_friendship_with_the_british
 				}
@@ -993,7 +1104,7 @@ country_event = { # uk response - bad
 		}
 		
 		ai_chance = {
-			base = 7
+			base = 9
 		}
 	}
 	
@@ -1007,7 +1118,7 @@ country_event = { # uk response - bad
 		}
 		
 		ai_chance = {
-			base = 3
+			base = 1
 		}
 	}
 }
@@ -1151,7 +1262,7 @@ country_event = {
 	}
 }
 
-country_event = {
+country_event = { # the petain question
 	id = france_military.1
 	title = france_military.1.title
 	desc = france_military.1.desc
@@ -1162,29 +1273,9 @@ country_event = {
 	option = {
 		name = france_military.1.a
 	}
+	
 	option = {
 		name = france_military.1.b
-	}
-	option = {
-		name = france_military.1.c
-	}
-}
-
-country_event = {
-	id = france_military.2
-	title = france_military.2.title
-	desc = france_military.2.desc
-
-	is_triggered_only = yes
-	fire_only_once = yes
-
-	option = {
-		name = france_military.2.a
-	}
-	option = {
-		name = france_military.2.b
-	}
-	option = {
-		name = france_military.2.c
+		add_political_power = -100
 	}
 }

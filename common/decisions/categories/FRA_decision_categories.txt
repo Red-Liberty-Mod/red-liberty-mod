@@ -1,3 +1,22 @@
+FRA_1936_elections_category = {
+	icon = usa_congress
+
+	allowed = {
+		original_tag = FRA
+	}
+	
+	visible = {
+		OR = {
+			has_country_flag = FRA_playing_as_psr
+			has_country_flag = FRA_playing_as_msf
+		}
+	}
+	
+	visible_when_empty = yes
+	
+	priority = 100
+}
+
 FRA_foreign_policy_category = {
 	icon = usa_congress
 
@@ -14,6 +33,28 @@ FRA_foreign_policy_category = {
 	scripted_gui = foreign_conflicts_container
 }
 
+FRA_promote_officers_category = {
+	
+	allowed = {
+		tag = FRA
+	}
+
+	visible = {
+		has_completed_focus = FRA_sweep_out_the_old_guard
+	}
+}
+
+FRA_build_defenses_category = {
+	
+	allowed = {
+		tag = FRA
+	}
+
+	visible = {
+		has_completed_focus = FRA_extend_the_painleve_line
+	}
+}
+
 FRA_industrialization_category = {
 
 	allowed = {
@@ -23,8 +64,6 @@ FRA_industrialization_category = {
 	visible = {
 		has_completed_focus = FRA_alliance_of_labour_and_capital
 	}
-	
-	priority = 100
 }
 
 FRA_republican_resistance_category = {
@@ -42,8 +81,6 @@ FRA_republican_resistance_category = {
 		target_array = core_states
 		name = FRA_republican_resistance_map_area
 	}
-	
-	priority = 100
 }
 
 FRA_local_development_category = {
@@ -55,8 +92,6 @@ FRA_local_development_category = {
 	visible = {
 		always = no
 	}
-	
-	priority = 100
 }
 
 FRA_latin_entente_category = {

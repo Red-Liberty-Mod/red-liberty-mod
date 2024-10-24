@@ -90,9 +90,6 @@ if = {
 		armor_tech_1 = 1
 		engine_tech_1 = 1
 	}
-	add_ideas = {
-		entrenched_old_guard_spirit
-	}
 	else = {
 		set_technology = {
 			gwtank = 1
@@ -216,7 +213,7 @@ set_country_flag = liberal_conservatism_coalition
 set_country_flag = national_conservatism_coalition
 
 ### LEADERS ###
-recruit_character = FRA_sebastian_faure
+recruit_character = FRA_pierre_semard
 recruit_character = FRA_maurice_thorez
 recruit_character = FRA_louis_sellier
 recruit_character = FRA_jacques_doriot
@@ -236,15 +233,17 @@ recruit_character = FRA_albert_bedouce
 recruit_character = FRA_paul_doumer
 recruit_character = FRA_albert_lebrun
 recruit_character = FRA_jean_de_orleans
-recruit_character = FRA_louis_napoleon
+#recruit_character = FRA_louis_napoleon
 
 activate_advisor = FRA_paul_doumer_hog
 
 ### MINISTERS ###
 recruit_character = FRA_pierre_monatte
+recruit_character = FRA_charles_rappoport
 recruit_character = FRA_roger_salengro
 recruit_character = FRA_maurice_violette
 recruit_character = FRA_camille_chautemps
+recruit_character = FRA_paul_reynaud
 recruit_character = FRA_joseph_paul_boncour
 recruit_character = FRA_louis_barthou
 recruit_character = FRA_jean_ybarnegaray
@@ -255,6 +254,7 @@ recruit_character = FRA_francois_coty
 recruit_character = FRA_xavier_vallat
 
 ### GENERALS ###
+recruit_character = FRA_philippe_petain
 recruit_character = FRA_maurice_gamelin
 recruit_character = FRA_antoine_marie_besson
 recruit_character = FRA_georges_catroux
@@ -275,6 +275,7 @@ recruit_character = FRA_rene_prioux
 recruit_character = FRA_andre_gaston_pretelat
 recruit_character = FRA_charles_nogues
 recruit_character = FRA_victor_bourret
+recruit_character = FRA_henri_gouraud
 
 ## COMMUNIST GENERALS ##
 recruit_character = FRA_pierre_villon
@@ -301,6 +302,13 @@ recruit_character = FRA_alfred_heurtaux
 
 ### THEORISTS ###
 recruit_character = FRA_victor_denain
+recruit_character = FRA_frederic_irene_joliot_curie
+
+### UNAVAILABLE AT GAMESTART ###
+recruit_character = FRA_charles_degaulle
+recruit_character = FRA_jean_de_lattre_de_tassigny
+recruit_character = FRA_philippe_leclerc_de_hauteclocque
+recruit_character = FRA_marie_pierre_koenig
 
 if = {
 	limit = { has_dlc = "La Resistance" }
@@ -353,6 +361,7 @@ if = {
 		name = "Renault UE"
 		type = light_tank_chassis_0
 		parent_version = 0
+		design_team = mio:FRA_renault_organization
 		modules = {
 			main_armament_slot = tank_heavy_machine_gun
 			turret_type_slot = tank_light_fixed_superstructure_turret
@@ -371,6 +380,7 @@ if = {
 		name = "FT mod. 31"
 		type = light_tank_chassis_0
 		parent_version = 1
+		design_team = mio:FRA_renault_organization
 		modules = {
 			main_armament_slot = tank_heavy_machine_gun
 			turret_type_slot = tank_light_one_man_tank_turret
@@ -388,6 +398,7 @@ if = {
 		name = "FT Char Cannon"
 		type = light_tank_chassis_0
 		parent_version = 2
+		design_team = mio:FRA_renault_organization
 		modules = {
 			main_armament_slot = tank_small_cannon
 			turret_type_slot = tank_light_one_man_tank_turret
@@ -506,8 +517,8 @@ if = {
 			suspension_type_slot = tank_bogie_suspension
 			armor_type_slot = tank_riveted_armor
 			engine_type_slot = tank_gasoline_engine
-			special_type_slot_1 = tank_radio_1
-			special_type_slot_2 = secondary_turret_small_cannon
+			radio_slot = tank_radio_1
+			special_type_slot_1 = secondary_turret_small_cannon
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 6
@@ -525,16 +536,34 @@ if = {
 			suspension_type_slot = tank_bogie_suspension
 			armor_type_slot = tank_riveted_armor
 			engine_type_slot = tank_gasoline_engine
-			special_type_slot_1 = tank_radio_1
-			special_type_slot_2 = secondary_turret_small_cannon
-			special_type_slot_3 = additional_machine_guns
-			
+			radio_slot = tank_radio_1
+			special_type_slot_1 = secondary_turret_small_cannon
+			special_type_slot_2 = additional_machine_guns
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 6
 			tank_nsb_armor_upgrade = 6
 		}
 		icon = "GFX_FRA_basic_heavy_tank_medium"
+	}
+	create_equipment_variant = {
+		name = "Char B1 ter" 
+		type = heavy_tank_chassis_1
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_medium_howitzer
+			turret_type_slot = tank_heavy_fixed_superstructure_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+			radio_slot = tank_radio_1
+			special_type_slot_1 = secondary_turret_small_cannon
+			special_type_slot_2 = additional_machine_guns
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 6
+			tank_nsb_armor_upgrade = 7
+		}
 	}
 	create_equipment_variant = {
 		name = "SOMUA S35" 
@@ -547,7 +576,7 @@ if = {
 			suspension_type_slot = tank_bogie_suspension
 			armor_type_slot = tank_welded_armor
 			engine_type_slot = tank_gasoline_engine
-			special_type_slot_1 = tank_radio_1
+			radio_slot = tank_radio_1
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 4
@@ -783,6 +812,18 @@ if = {
 			engine_type_slot = engine_1_2x
 			special_type_slot_1 = flying_boat_medium
 			special_type_slot_2 = lmg_defense_turret
+		}
+		icon = "GFX_medium_plane_2_medium"
+	}
+	create_equipment_variant = {
+		name = "Potez 540"
+		type = medium_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = medium_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = empty
+			engine_type_slot = engine_1_2x
+			special_type_slot_1 = lmg_defense_turret_2x
+			special_type_slot_2 = empty
 		}
 		icon = "GFX_medium_plane_2_medium"
 	}

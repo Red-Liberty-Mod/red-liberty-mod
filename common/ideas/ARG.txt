@@ -24,7 +24,10 @@ ideas = {
 			}
 		}
 		
-		ARG_crippled_industry = {
+		ARG_crippled_industry_1 = {
+			name = ARG_crippled_industry
+			picture = ARG_crippled_industry
+			
 			removal_cost = -1
 			
 			allowed = {
@@ -42,11 +45,39 @@ ideas = {
 			modifier = {
 				stability_factor = -0.2
 				poverty_monthly_rate = -0.06
-				political_power_gain = -0.3
+				political_power_factor = -0.3
 			}
 		}
 		
-		ARG_british_monopoly = {
+		ARG_crippled_industry_2 = {
+			name = ARG_crippled_industry
+			picture = ARG_crippled_industry
+			
+			removal_cost = -1
+			
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = no
+			}
+			
+			modifier = {
+				stability_factor = -0.15
+				poverty_monthly_rate = -0.05
+				political_power_factor = -0.25
+			}
+		}
+		
+		ARG_british_monopoly_1 = {
+			name = ARG_british_monopoly
+			picture = ARG_british_monopoly
+			
 			removal_cost = -1
 			
 			allowed = {
@@ -68,6 +99,47 @@ ideas = {
 			targeted_modifier = {
 				tag = ENG
 				trade_cost_for_target_factor = -0.1
+			}
+		}
+		
+		ARG_british_monopoly_2 = {
+			name = ARG_british_monopoly
+			picture = ARG_british_monopoly
+			
+			removal_cost = -1
+			
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = no
+			}
+			
+			modifier = {
+				stability_factor = -0.05
+			}
+			
+			targeted_modifier = {
+				tag = ENG
+				trade_cost_for_target_factor = -0.15
+			}
+		}
+		
+		ARG_political_corruption_1 = {
+			name = ARG_political_corruption
+			
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = -0.2
 			}
 		}
 		
@@ -194,6 +266,30 @@ ideas = {
 				consumer_goods_factor = -0.05
 				production_speed_industrial_complex_factor = 0.05
 				production_speed_arms_factory_factor = 0.05
+			}
+		}
+		
+		### UCR tree ###
+		
+		ARG_public_works_programme = {
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				production_speed_buildings_factor = 0.1
+			}
+		}
+		
+		ARG_welfare_fund = {
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				consumer_goods_factor = 0.02
+				production_factory_max_efficiency_factor = 0.05
+				production_factory_efficiency_gain_factor = 0.05
 			}
 		}
 	}

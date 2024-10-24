@@ -678,7 +678,6 @@ USA_start_elections_system = {
 	
 	390 = { # South Dakota, North Dakota part 2
 		set_state_flag = US_election_state
-		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.6 }
 		set_variable = { republican_popularity = 0.35 }
 		set_variable = { commonwealth_popularity = 0.05 }
@@ -694,7 +693,6 @@ USA_start_elections_system = {
 	
 	368 = { # Tennessee
 		set_state_flag = US_election_state
-		set_variable = { communist_popularity = 0.001 }
 		set_variable = { republican_popularity = 0.15 }
 		set_variable = { democrat_popularity = 0.55 }
 		set_variable = { commonwealth_popularity = 0.3 }
@@ -711,7 +709,6 @@ USA_start_elections_system = {
 	
 	375 = { # Texas, Southern but not too Southern
 		set_state_flag = US_election_state
-		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.05 }
 		set_variable = { republican_popularity = 0.1 }
 		set_variable = { democrat_popularity = 0.45 }
@@ -729,12 +726,12 @@ USA_start_elections_system = {
 		set_variable = { electoral_votes = 23 } # no change
 	}
 	
-	380 = { # Utah, MORMON GANG
+	380 = { # Utah, christian socialism suprisingly strong here
 		set_state_flag = US_election_state
-		set_variable = { socialist_popularity = 0.13 }
-		set_variable = { republican_popularity = 0.25 }
-		set_variable = { democrat_popularity = 0.67 }
-		set_variable = { commonwealth_popularity = 0.05 }
+		set_variable = { socialist_popularity = 0.37 }
+		set_variable = { republican_popularity = 0.13 }
+		set_variable = { democrat_popularity = 0.47 }
+		set_variable = { commonwealth_popularity = 0.03 }
 		
 		set_variable = { senator_1 = 2 }
 		set_variable = { senator_2 = 3 }
@@ -762,7 +759,6 @@ USA_start_elections_system = {
 	
 	362 = { # Virginia
 		set_state_flag = US_election_state
-		set_variable = { communist_popularity = 0.001 }
 		set_variable = { republican_popularity = 0.35 }
 		set_variable = { democrat_popularity = 0.55 }
 		set_variable = { socialist_popularity = 0.1 }
@@ -811,7 +807,6 @@ USA_start_elections_system = {
 	
 	394 = { # Wisconsin, cheese and socialism
 		set_state_flag = US_election_state
-		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.9 }
 		set_variable = { democrat_popularity = 0.2 }
 		set_variable = { republican_popularity = 0.15 }
@@ -827,7 +822,6 @@ USA_start_elections_system = {
 	
 	381 = { # Wyoming
 		set_state_flag = US_election_state
-		set_variable = { communist_popularity = 0.001 }
 		set_variable = { socialist_popularity = 0.7 }
 		set_variable = { republican_popularity = 0.1 }
 		set_variable = { democrat_popularity = 0.2 }
@@ -844,6 +838,11 @@ USA_start_elections_system = {
 	USA_calculate_senators = yes
 	USA_calculate_reps = yes
 	log = "US Presidential Election System Initialization Complete"
+	
+	#every_owned_state = {
+	#	add_to_variable = { USA.total_ec_votes = electoral_votes }
+	#}
+	#log = "total_ec_votes = [?USA.total_ec_votes]"
 }
 
 USA_puerto_rico_create_state = {
@@ -855,10 +854,8 @@ USA_puerto_rico_create_state = {
 	hidden_effect = {
 		686 = { # Puerto Rico, swing state
 			set_state_flag = US_election_state
-			set_variable = { socialist_popularity = 0.55 }
-			set_variable = { republican_popularity = 0 }
+			set_variable = { socialist_popularity = 0.5 }
 			set_variable = { democrat_popularity = 0.5 }
-			set_variable = { commonwealth_popularity = 0.1 }
 			
 			set_variable = { senator_1 = 1 } # socialist
 			set_variable = { senator_2 = 3 } # democrat
@@ -985,7 +982,7 @@ USA_calculate_senators = {
 	log = "######### SENATOR TOTALS #########"
 	log = "[This.GetName] : senators_communist - [?senators_communist]"
 	log = "[This.GetName] : senators_republican - [?senators_republican]"
-	log = "[This.GetName] : senators_democrat - [?senators_democrat]"
+	log = "[This.GetName] : senators_socialist - [?senators_socialist]"
 	log = "[This.GetName] : senators_democrat - [?senators_democrat]"
 	log = "[This.GetName] : senators_fascist - [?senators_fascist]"
 	log = "[This.GetName] : senators_total - [?senators_total]"

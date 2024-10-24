@@ -121,7 +121,7 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				#small = ""
+				small = "gfx/interface/ministers/BRA/BRA_Artur_de_Sousa_Costa.png"
 			}
 		}
 		
@@ -139,7 +139,7 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				#small = ""
+				small = "gfx/interface/ministers/BRA/BRA_Oswaldo_Aranha.png"
 			}
 		}
 		
@@ -157,7 +157,7 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				#small = ""
+				small = "gfx/interface/ministers/BRA/BRA_Antonio_Ramos_Caiado.png"
 			}
 		}
 		
@@ -173,7 +173,7 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				#small=""
+				small="gfx/interface/ministers/BRA/BRA_Francisco_Campos.png"
 			}
 		}
 		
@@ -185,6 +185,9 @@ characters = {
 			}
 			traits  = {
 				for_ideological_crusader
+			}
+			modifier = {
+				despotism_drift = 0.03
 			}
 		}		
 	}
@@ -205,7 +208,7 @@ characters = {
 				has_completed_focus = BRA_align_with_the_democrats
 			}
 			traits  = {
-				
+				eco_reformer
 			}
 		}		
 	}
@@ -228,6 +231,9 @@ characters = {
 			traits  = {
 				edu_educational_reformer
 			}
+			modifier = {
+				liberal_conservatism_drift = 0.03
+			}
 		}		
 	}
 	
@@ -248,6 +254,9 @@ characters = {
 			}
 			traits  = {
 				edu_propagandist
+			}
+			modifier = {
+				fascism_drift = 0.03
 			}
 		}	
 	}
@@ -280,8 +289,8 @@ characters = {
 		
 		portraits = {
 			army = {
-				#small = ""
 				#large = ""
+				small = "gfx/interface/ministers/BRA/BRA_Candido_Rondon.png"
 			}
 		}
 		
@@ -403,6 +412,136 @@ characters = {
 			attack_skill = 1
 			defense_skill = 1
 			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	
+	BRA_olimpio_mourao_filho = {
+		name = BRA_olimpio_mourao_filho
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				harsh_leader
+				war_hero
+				organizer
+				trait_engineer
+				BRA_integralist_officer
+			}
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 2
+		}
+	}
+	
+	BRA_newton_de_andrade_cavalcanti = {
+		name = BRA_newton_de_andrade_cavalcanti
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				career_officer
+				trait_cautious
+				desert_fox
+				BRA_integralist_officer
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 3
+		}
+	}
+	
+	BRA_julio_caetano_horta_barbosa = {
+		name = BRA_julio_caetano_horta_barbosa
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				politically_connected
+				organizer
+				jungle_rat
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	
+	BRA_pedro_aurelio_de_gois_monteiro = {
+		name = BRA_pedro_aurelio_de_gois_monteiro
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				politically_connected
+				war_hero
+				panzer_leader
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+	}
+	
+	BRA_jose_fernandes_leite_de_castro = {
+		name = BRA_jose_fernandes_leite_de_castro
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		advisor = {
+			slot = army_chief
+			idea_token = BRA_jose_fernandes_leite_de_castro_army_chief
+			traits = { army_chief_planning_1 }
+			cost = 50
+		}
+		
+		corps_commander = {
+			traits = {
+				old_guard
+				trait_cautious
+				skilled_staffer
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 3
+			planning_skill = 2
 			logistics_skill = 1
 		}
 	}

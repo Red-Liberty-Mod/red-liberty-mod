@@ -31,10 +31,13 @@ division_template = {
 		infantry = { x = 2 y = 1 }
 		infantry = { x = 2 y = 2 }
 	}
+	support = {
+		artillery = { x = 0 y = 0 }
+	}
 }
 
 division_template = {
-	name = "Infanterie-Division mit Artillerie"
+	name = "Infanterie-Division mit Panzer-Abteilung"
 	division_names_group = GER_INF_01
 
 	regiments = {
@@ -47,6 +50,7 @@ division_template = {
 		infantry = { x = 2 y = 0 }
 		infantry = { x = 2 y = 1 }
 		infantry = { x = 2 y = 2 }
+		light_armor = { x = 3 y = 0 }
 	}
 	support = {
 		artillery = { x = 0 y = 0 }
@@ -77,22 +81,20 @@ division_template = {
 }
 
 division_template = {
-	name = "Panzer-Division"
+	name = "Panzer-Brigade"
 
-	division_names_group = GER_ARM_01
+	division_names_group = GER_ARM_02
 
 	regiments = {
 		light_armor = { x = 0 y = 0 }
 		light_armor = { x = 0 y = 1 }
-        	light_armor = { x = 1 y = 0 }
-		light_armor = { x = 1 y = 1 }
-		motorized = { x = 2 y = 0 }
-      		motorized = { x = 2 y = 1 }
+        light_armor = { x = 0 y = 2 }
+		light_armor = { x = 0 y = 3 }
+		medium_armor = { x = 1 y = 0 }
+      	medium_armor = { x = 1 y = 1 }
 	}
 	support = {
-        	mot_recon = { x = 0 y = 0 }
-        	engineer = { x = 0 y = 1 }
-        	artillery = { x = 0 y = 2 }
+        light_tank_recon = { x = 0 y = 0 }
 	}
 }
 
@@ -124,9 +126,13 @@ division_template = {
 		cavalry = { x = 1 y = 0 }
 		cavalry = { x = 1 y = 1 }
 		cavalry = { x = 1 y = 2 }
+		cavalry = { x = 2 y = 0 }
+		cavalry = { x = 2 y = 1 }
+		mot_artillery_brigade = { x = 3 y = 0 }
 	}
 	support = {
-		armored_car_recon = { x = 0 y = 0 }
+		mot_recon = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 }
 	}
 }
 
@@ -182,21 +188,21 @@ units = {
 	division = {
 		#name ="1. Infanterie-Division"
 		location = 6332
-		division_template = "Infanterie-Division mit Artillerie"
+		division_template = "Infanterie-Division"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
 	division = {
 		#name ="2. Infanterie-Division"
 		location = 395
-		division_template = "Infanterie-Division mit Artillerie"
+		division_template = "Infanterie-Division"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
 	division = {
 		#name ="3. Infanterie-Division"
 		location = 6282
-		division_template = "Infanterie-Division mit Artillerie"
+		division_template = "Infanterie-Division"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
@@ -210,14 +216,14 @@ units = {
 	division = {
 		#name ="5. Infanterie-Division"
 		location = 9496
-		division_template = "Infanterie-Division mit Artillerie"
+		division_template = "Infanterie-Division"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
 	division = {
 		#name ="6. Infanterie-Division"
 		location = 3499 # HQ is Brandenburg, according to Wikipedia. Set it to Potsdam.
-		division_template = "Infanterie-Division mit Artillerie"
+		division_template = "Infanterie-Division"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
@@ -231,7 +237,7 @@ units = {
 	division = {
 		#name ="8. Infanterie-Division"
 		location = 9560
-		division_template = "Infanterie-Division mit Artillerie"
+		division_template = "Infanterie-Division"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
@@ -252,7 +258,7 @@ units = {
 	division = {
 		#name ="11. Infanterie-Division"
 		location = 9570
-		division_template = "Infanterie-Division mit Artillerie"
+		division_template = "Infanterie-Division"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
@@ -273,28 +279,28 @@ units = {
 	division = {
 		#name ="14. Infanterie-Division"
 		location = 6570
-		division_template = "Infanterie-Division mit Artillerie"
+		division_template = "Infanterie-Division"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
 	division = {
 		#name ="15. Infanterie-Division"
 		location = 587
-		division_template = "Infanterie-Division mit Artillerie"
+		division_template = "Infanterie-Division"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
 	division = {
 		#name ="16. Infanterie-Division"
 		location = 9575
-		division_template = "Infanterie-Division mit Artillerie"
+		division_template = "Infanterie-Division"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
 		division = {
 		#name ="17. Infanterie-Division"
 		location = 11276
-		division_template = "Infanterie-Division mit Artillerie"
+		division_template = "Infanterie-Division"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
@@ -322,28 +328,28 @@ units = {
 	division = {
 		#name ="18. Infanterie-Division"
 		location = 11366
-		division_template = "Infanterie-Division mit Artillerie"
+		division_template = "Infanterie-Division"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
 	division = {
 		#name ="19. Infanterie-Division"
 		location = 6377
-		division_template = "Infanterie-Division mit Artillerie"
+		division_template = "Infanterie-Division"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
 	division = {
 		#name ="20. Infanterie-Division"
 		location = 6377
-		division_template = "Infanterie-Division mit Artillerie"
+		division_template = "Infanterie-Division"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
 	division = {
 		#name ="21. Infanterie-Division"
 		location = 6488
-		division_template = "Infanterie-Division mit Artillerie"
+		division_template = "Infanterie-Division"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
@@ -357,7 +363,7 @@ units = {
 	division = {
 		#name ="23. Infanterie-Division (1. Kgl. Sächs.)"
 		location = 6559
-		division_template = "Infanterie-Division mit Artillerie"
+		division_template = "Infanterie-Division"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
@@ -378,7 +384,7 @@ units = {
 	division = {
 		#name ="26. Infanterie-Division (1. Kgl. Württ.)"
 		location = 9517
-		division_template = "Infanterie-Division mit Artillerie"
+		division_template = "Infanterie-Division"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
@@ -392,7 +398,7 @@ units = {
 	division = {
 		#name ="28. Infanterie-Division (1. Großherz. Bad.)"
 		location = 3530
-		division_template = "Infanterie-Division mit Artillerie"
+		division_template = "Infanterie-Division"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
@@ -406,7 +412,7 @@ units = {
 	division = {
 		#name ="30. Infanterie-Division"
 		location = 9503
-		division_template = "Infanterie-Division mit Artillerie"
+		division_template = "Infanterie-Division"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
@@ -420,7 +426,7 @@ units = {
 	division = {
 		#name ="32. Infanterie-Division (3. Kgl. Sächs.)"
 		location = 6559
-		division_template = "Infanterie-Division mit Artillerie"
+		division_template = "Infanterie-Division"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
@@ -434,7 +440,7 @@ units = {
 	division = {
 		#name ="34. Infanterie-Division"
 		location = 9559
-		division_template = "Infanterie-Division mit Artillerie"
+		division_template = "Infanterie-Division"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
@@ -455,7 +461,7 @@ units = {
 	division = {
 		#name ="37. Infanterie-Division"
 		location = 3351
-		division_template = "Infanterie-Division mit Artillerie"
+		division_template = "Infanterie-Division"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
@@ -469,7 +475,7 @@ units = {
 	division = {
 		#name ="39. Infanterie-Division"
 		location = 6529
-		division_template = "Infanterie-Division mit Artillerie"
+		division_template = "Infanterie-Division"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
@@ -483,7 +489,7 @@ units = {
 	division = {
 		#name ="41. Infanterie-Division"
 		location = 3351
-		division_template = "Infanterie-Division mit Artillerie"
+		division_template = "Infanterie-Division"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
@@ -497,14 +503,14 @@ units = {
 	division = {
 		#name ="1. Kgl. Bayer. Infanterie-Division"
 		location = 692
-		division_template = "Infanterie-Division mit Artillerie"
+		division_template = "Infanterie-Division"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
 	division = {
 		#name ="2. Kgl. Bayer. Infanterie-Division"
 		location = 708
-		division_template = "Infanterie-Division mit Artillerie"
+		division_template = "Infanterie-Division"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
@@ -518,14 +524,14 @@ units = {
 	division = {
 		#name ="4. Kgl. Bayer. Infanterie-Division"
 		location = 11417
-		division_template = "Infanterie-Division mit Artillerie"
+		division_template = "Infanterie-Division"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
 	division = {
 		#name ="5. Kgl. Bayer. Infanterie-Division"
 		location = 11544
-		division_template = "Infanterie-Division mit Artillerie"
+		division_template = "Infanterie-Division"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
@@ -546,7 +552,7 @@ units = {
 	division = {
 		#name ="44. Infanterie-Division"
 		location = 3522
-		division_template = "Infanterie-Division mit Artillerie"
+		division_template = "Infanterie-Division"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
@@ -710,12 +716,12 @@ units = {
 			name_order = 1
 		}
 		location = 6521
-		division_template = "Panzer-Division"
+		division_template = "Panzer-Brigade"
 		start_experience_factor = 0.3
 		force_equipment_variants = {
 			light_tank_chassis_1 = {
 				owner = "GER"
-				version_name = "Sp.Pzw. I Ausf. b"
+				version_name = "le.Pz.Kpfw. I"
 			}
 		}
 	}
@@ -725,12 +731,12 @@ units = {
 			name_order = 2
 		}
 		location = 514
-		division_template = "Panzer-Division"
+		division_template = "Panzer-Brigade"
 		start_experience_factor = 0.3
 		force_equipment_variants = {
 			light_tank_chassis_1 = {
 				owner = "GER"
-				version_name = "Sp.Pzw. I Ausf. b"
+				version_name = "le.Pz.Kpfw. I"
 			}
 		}
 	}
@@ -740,12 +746,12 @@ units = {
 			name_order = 3
 		}
 		location = 9503
-		division_template = "Panzer-Division"
+		division_template = "Panzer-Brigade"
 		start_experience_factor = 0.3
 		force_equipment_variants = {
 			light_tank_chassis_1 = {
 				owner = "GER"
-				version_name = "Sp.Pzw. I Ausf. a"
+				version_name = "le.Pz.Kpfw. I"
 			}
 		}
 	}
@@ -766,6 +772,7 @@ instant_effect = {
 		equipment = {
 			type = infantry_equipment_1
 		}
+		industrial_manufacturer = mio:GER_mauser_organization
 		requested_factories = 5
 		progress = 0.82
 		efficiency = 100
@@ -774,6 +781,7 @@ instant_effect = {
 		equipment = {
 			type = artillery_equipment_1
 		}
+		industrial_manufacturer = mio:GER_rheinmetall_organization
 		requested_factories = 3
 		progress = 0.83
 		efficiency = 100
@@ -786,15 +794,24 @@ instant_effect = {
 		progress = 0.3
 		efficiency = 100
 	}
+	add_equipment_production = {
+		equipment = {
+			type = motorized_equipment_1
+		}
+		industrial_manufacturer = mio:GER_opel_organization
+		requested_factories = 2
+		progress = 0.51
+		efficiency = 100
+	}
 	if = {
 		limit = {
-			has_dlc = "No Step Back"
+			has_dlc_nsb = yes
 		}
 		add_equipment_production = {
 			equipment = {
 				type = light_tank_chassis_2
 				creator = "GER" 
-				version_name = "Panzer II Ausf. a"
+				version_name = "le.Pz.Kpfw. II"
 			}
 			requested_factories = 2
 			progress = 0.4
@@ -809,6 +826,33 @@ instant_effect = {
 			}
 			requested_factories = 2
 			progress = 0.4
+			efficiency = 50
+		}
+	}
+	if = {
+		limit = {
+			has_dlc_bba = yes
+		}
+		add_equipment_production = {
+			equipment = {
+				type = small_plane_airframe_1
+				creator = "GER" 
+				version_name = "Bf 109"
+			}
+			industrial_manufacturer = mio:GER_messerschmitt_organization
+			requested_factories = 1
+			progress = 0.25
+			efficiency = 50
+		}
+	}
+	else = {
+		add_equipment_production = {
+			equipment = {
+				type = fighter_equipment_1
+				creator = "GER" 
+			}
+			requested_factories = 1
+			progress = 0.25
 			efficiency = 50
 		}
 	}
