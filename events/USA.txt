@@ -406,6 +406,23 @@ country_event = { # poverty threshold met, improve gd spirit
 	}
 }
 
+country_event = { # florida senator dies, both seats up for election
+	id = united_states.16
+	title = united_states.16.title
+	desc = united_states.16.desc
+	
+	is_triggered_only = yes
+
+	option = {
+		name = united_states.16.a
+		366 = {
+			custom_effect_tooltip = special_election_both_tt
+			set_state_flag = elections_senator_1
+			set_state_flag = elections_senator_2
+		}
+	}
+}
+
 country_event = { # we beat japan, set up occupation tag
 	id = united_states.200
 	title = united_states.200.title

@@ -463,6 +463,9 @@ defined_text = {
 		trigger = {
 			366 = {
 				has_state_flag = elections_senator_1
+				NOT = {
+					has_state_flag = elections_senator_2
+				}
 			}
 		}
 		localization_key = SENATE_ELECTION_FLORIDA_1
@@ -470,10 +473,24 @@ defined_text = {
 	text = {
 		trigger = {
 			366 = {
+				NOT = {
+					has_state_flag = elections_senator_1
+				}
 				has_state_flag = elections_senator_2
 			}
 		}
 		localization_key = SENATE_ELECTION_FLORIDA_2
+	}
+	text = {
+		trigger = {
+			366 = {
+				AND = {
+					has_state_flag = elections_senator_1
+					has_state_flag = elections_senator_2
+				}
+			}
+		}
+		localization_key = SENATE_ELECTION_FLORIDA_SPECIAL
 	}
 	text = {
 		localization_key = USA_nothing
