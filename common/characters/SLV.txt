@@ -1,5 +1,23 @@
 characters = {
 	
+	SLV_rudolf_golouh = {
+		name = SLV_rudolf_golouh
+		
+		portraits = {
+			civilian = {
+				#large = "gfx/leaders/SLV/"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_RUDOLF_GOLOUH_DESC"
+			ideology = anarchism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
 	SLV_edvard_kardelj = {
 		name = SLV_edvard_kardelj
 		
@@ -124,6 +142,132 @@ characters = {
 				
 			}
 		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = SLV_anton_korosec_political_advisor
+			available = {
+				is_country_leader = no
+			}
+			traits = {
+				pragmatic_statesman
+			}
+		}
+	}
+	
+	SLV_marko_natlacen = {
+		name = SLV_marko_natlacen
+		
+		portraits = {
+			civilian = {
+				#large = ""
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_MARKO_NATLACEN_DESC"
+			ideology = authoritarian_democracy_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	### Ministers ###
+	
+	SLV_dragotin_gustincic = {
+		name = SLV_dragotin_gustincic
+		
+		portraits = {
+			civilian = {
+				#small = ""
+			}
+		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = SLV_dragotin_gustincic_political_advisor
+			traits = {
+				industrializer
+			}
+			cost = 100
+		}
+	}
+	
+	SLV_drago_marusic = {
+		name = SLV_drago_marusic
+		
+		portraits = {
+			civilian = {
+				#small = ""
+			}
+		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = SLV_drago_marusic_political_advisor
+			traits = {
+				agricultural_economist
+			}
+			cost = 100
+		}
+	}
+	
+	SLV_boris_furlan = {
+		name = SLV_boris_furlan
+		
+		portraits = {
+			civilian = {
+				#small = ""
+			}
+		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = SLV_boris_furlan_political_advisor
+			traits = {
+				respected_jurist
+			}
+			cost = 100
+		}
+	}
+	
+	SLV_miha_krek = {
+		name = SLV_miha_krek
+		
+		portraits = {
+			civilian = {
+				#small = ""
+			}
+		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = SLV_miha_krek_political_advisor
+			traits = {
+				
+			}
+			cost = 100
+		}
+	}
+	
+	SLV_gregorij_rozman = {
+		name = SLV_gregorij_rozman
+		
+		portraits = {
+			civilian = {
+				#small = ""
+			}
+		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = SLV_gregorij_rozman_political_advisor
+			traits = {
+				ultranationalist_agitator
+			}
+			cost = 100
+		}
 	}
 	
 	### Generals ###
@@ -201,21 +345,9 @@ characters = {
 		}
 		
 		advisor = {
-			slot = political_advisor
-			idea_token = SLV_edvard_kocbek_political
-			available = {
-				not_already_hired_except_as = political_advisor
-			}
-			traits = { KR_naive_optimist }
-		}
-		
-		advisor = {
 			slot = high_command
 			ledger = army
 			idea_token = SLV_edvard_kocbek_high_command
-			available = {
-				not_already_hired_except_as = high_command
-			}
 			traits = { army_concealment_1 }
 			cost = 50
 		}
