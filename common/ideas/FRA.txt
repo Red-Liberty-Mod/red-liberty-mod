@@ -239,6 +239,7 @@ ideas = {
 		}
 		
 		FRA_preping_war_economy = {
+			picture = ARG_rapid_militarization
 		
 			removal_cost = -1
 			
@@ -286,28 +287,6 @@ ideas = {
 				conscription_factor = 0.05
 				modifier_army_sub_unit_infantry_attack_factor = 0.05
 				modifier_army_sub_unit_infantry_max_org_factor = -0.05
-			}
-		}
-		
-		FRA_terror_bombing = {
-		
-			removal_cost = -1
-			
-			allowed = {
-				always = no
-			}
-			
-			available = {
-				
-			}
-			
-			allowed_civil_war = { 
-				always = yes
-			}
-			
-			modifier = {
-				air_strategic_bomber_bombing_factor = 0.15
-				air_cas_efficiency = 0.15
 			}
 		}
 		
@@ -367,6 +346,7 @@ ideas = {
 				production_speed_buildings_factor = 0.1
 			}
 		}
+		
 		FRA_paramilitary_integrations = {
 			allowed = {
 				always = no
@@ -402,6 +382,7 @@ ideas = {
 				political_power_gain = 0.10
 			}
 		}
+		
 		FRA_royalist_corporatism = {
 			
 			allowed = {
@@ -439,6 +420,7 @@ ideas = {
 				despotism_drift = 0.1
 			}
 		}
+		
 		FRA_kingdom_restored = {
 			allowed = {
 				always = no
@@ -651,68 +633,10 @@ ideas = {
 				fascism_drift = 0.01
 			}
 		}
-		FRA_europes_reckoning = {
-			name = FRA_europes_reckoning
-
-			allowed = {
-				always = no
-			}
-
-			available = {
-
-			}
-			allowed_civil_war = {
-				always = yes
-			}
-			
-			modifier = {
-				army_attack_factor = 0.05
-				army_defence_factor = 0.05
-				army_morale_factor = 0.05
-			}
-		}
-		FRA_second_fiddle_no_longer = {
-			name = FRA_second_fiddle_no_longer
-
-			allowed = {
-				always = no
-			}
-
-			available = {
-
-			}
-			allowed_civil_war = {
-				always = yes
-			}
-			
-			modifier = {
-				naval_damage_factor = 0.05
-				naval_defense_factor = 0.05
-				naval_morale_factor = 0.1
-			}
-		}
-		FRA_shriek_of_the_sky = {
-			name = FRA_shriek_of_the_sky
-
-			allowed = {
-				always = no
-			}
-
-			available = {
-
-			}
-			allowed_civil_war = {
-				always = yes
-			}
-			
-			modifier = {
-				air_superiority_efficiency = 0.05
-				air_cas_efficiency = 0.05
-			}
-		}
 		
 		### Military ###
 		
+		## Army ##
 		FRA_strict_chain_of_command_idea = {
 			picture = eng_imperial_conscription
 			
@@ -752,6 +676,7 @@ ideas = {
 		}
 		
 		FRA_levee_en_masse_idea = {
+			picture = generic_manpower_bonus
 			
 			allowed = {
 				always = no
@@ -852,6 +777,28 @@ ideas = {
 			}
 		}
 		
+		FRA_europes_reckoning = {
+			name = FRA_europes_reckoning
+
+			allowed = {
+				always = no
+			}
+
+			available = {
+
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				army_attack_factor = 0.05
+				army_defence_factor = 0.05
+				army_morale_factor = 0.05
+			}
+		}
+		
+		## Air ##
 		FRA_pursuit_groups = {
 			#picture = generic_victors_of_ww1
 			
@@ -867,6 +814,61 @@ ideas = {
 				air_ace_generation_chance_factor = 0.15
 				ace_effectiveness_factor = 0.25
 				air_interception_detect_factor = 0.1
+			}
+		}
+		
+		FRA_shriek_of_the_sky = {
+			name = FRA_shriek_of_the_sky
+
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				air_superiority_efficiency = 0.05
+				air_cas_efficiency = 0.05
+			}
+		}
+		
+		FRA_terror_bombing = {
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				air_strategic_bomber_bombing_factor = 0.15
+				air_cas_efficiency = 0.15
+			}
+		}
+		
+		## Navy ##
+		FRA_second_fiddle_no_longer = {
+			name = FRA_second_fiddle_no_longer
+
+			allowed = {
+				always = no
+			}
+
+			available = {
+
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				naval_damage_factor = 0.05
+				naval_defense_factor = 0.05
+				naval_morale_factor = 0.1
 			}
 		}
 	}
