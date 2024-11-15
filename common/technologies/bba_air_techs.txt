@@ -1,5 +1,106 @@
 technologies = {
 	
+	@transport_plane_x = 1
+	@mothership_x_bba = 3
+	@mothership_x = 3
+	
+	bba_early_transport_plane = {
+
+		enable_equipments = {
+			transport_plane_equipment_1
+		}
+	
+		path = {
+			leads_to_tech = bba_improved_transport_plane
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 1933
+
+		folder = {
+			name = bba_air_techs_folder
+			position = { x = @transport_plane_x y = 2 } 
+		}
+		
+		categories = {
+			air_equipment
+			transport_planes_cat
+		}
+		special_project_specialization = { specialization_air }
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 2
+				is_major = yes
+			}
+		}
+	}
+
+	bba_improved_transport_plane = {
+
+		enable_equipments = {
+			transport_plane_equipment_2
+		}
+	
+		path = {
+			leads_to_tech = bba_strategic_airlifter
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 1940
+		
+		folder = {
+			name = bba_air_techs_folder
+			position = { x = @transport_plane_x y = 6 } 
+		}
+		
+		categories = {
+			air_equipment
+			transport_planes_cat
+		}
+		special_project_specialization = { specialization_air }
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 2
+				is_major = yes
+			}
+		}
+	}
+
+	bba_strategic_airlifter = {
+
+		enable_equipments = {
+			transport_plane_equipment_3
+		}
+		
+		research_cost = 2
+		start_year = 1945
+		
+		folder = {
+			name = bba_air_techs_folder
+			position = { x = @transport_plane_x y = 12 } 
+		}
+		
+		categories = {
+			air_equipment
+			transport_planes_cat
+		}
+		special_project_specialization = { specialization_air }
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 2
+				is_major = yes
+			}
+		}
+	}
+	
 	iw_small_airframe = {
 
 		enable_equipments = {
@@ -485,15 +586,19 @@ technologies = {
 	
 	modern_small_airframe = {
 
+		allow = { 	 		
+			ROOT = {
+				is_special_project_completed = sp:sp_air_axial_jet_engine
+			} 
+		}
+
+		is_special_project_tech = yes
+
 		enable_equipments = {
 			small_plane_airframe_4
 			small_plane_cas_airframe_4
 			small_plane_naval_bomber_airframe_4
 			small_plane_suicide_airframe_4
-		}
-
-		dependencies = {
-			jet_engines = 1
 		}
 		
 		research_cost = 2
@@ -521,6 +626,7 @@ technologies = {
 			mio_cat_all_naval_bomber_and_modules
 			mio_cat_all_light_aircraft_and_modules
 		}
+		special_project_specialization = { specialization_air }
 
 		ai_will_do = {
 			factor = 1
@@ -534,6 +640,28 @@ technologies = {
 			}
 		}
 	}
+
+	supersonic_small_airframe = { #supersonic
+
+		allow = { always = no }
+
+		enable_equipments = {
+			small_plane_airframe_5
+		}
+		
+		research_cost = 2
+		start_year = 1950
+		
+		categories = {
+			light_air
+			light_fighter
+		}
+		special_project_specialization = { specialization_air }
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
 	
 	modern_carrier_airframe = {
 
@@ -542,10 +670,6 @@ technologies = {
 			cv_small_plane_cas_airframe_4
 			cv_small_plane_naval_bomber_airframe_4
 			cv_small_plane_suicide_airframe_4
-		}
-
-		dependencies = {
-			jet_engines = 1
 		}
 		
 		research_cost = 1
@@ -564,6 +688,7 @@ technologies = {
 			mio_cat_all_naval_bomber_and_modules
 			mio_cat_all_light_aircraft_and_modules
 		}
+		special_project_specialization = { specialization_air }
 
 		ai_will_do = {
 			factor = 1
