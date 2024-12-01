@@ -2765,3 +2765,297 @@ shared_focus = {
 		FOCUS_FILTER_ANNEXATION
 	}
 }
+
+### EXILE TREE ###
+
+shared_focus = {
+	id = FRA_in_exile
+	icon = GFX_focus_attack_france
+	
+	x = 0
+	y = 0
+	cost = 5
+	
+	offset = {
+        x = 8
+        y = 8
+        trigger = {
+			has_focus_tree = FRA_democratic_tree
+        }
+    }
+	
+	offset = {
+        x = 12
+        y = 8
+        trigger = {
+			has_focus_tree = FRA_rocque_tree
+        }
+    }
+	
+	offset = {
+        x = 4
+        y = 0
+        trigger = {
+			has_focus_tree = FRA_monarchist_tree
+        }
+    }
+	
+	available = {
+		has_country_flag = FRA_has_gone_in_exile
+	}
+	
+	completion_reward = {
+		add_stability = 0.05
+		add_political_power = 25
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_STABILITY
+	}
+}
+
+shared_focus = {
+	id = FRA_build_up_local_industry
+	icon = GFX_focus_generic_africa_factory
+	
+	x = -3
+	y = 1
+	cost = 7
+	
+	available = {
+		has_country_flag = FRA_has_gone_in_exile
+	}
+	
+	relative_position_id = FRA_in_exile
+	prerequisite = { focus = FRA_in_exile }
+	
+	completion_reward = {
+		459 = {
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
+	}
+}
+
+shared_focus = {
+	id = FRA_local_conscription
+	icon = GFX_focus_generic_manpower
+	
+	x = -1
+	y = 1
+	cost = 7
+	
+	available = {
+		has_country_flag = FRA_has_gone_in_exile
+	}
+	
+	relative_position_id = FRA_in_exile
+	prerequisite = { focus = FRA_in_exile }
+	
+	completion_reward = {
+		add_ideas = FRA_african_conscription
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_MANPOWER
+	}
+}
+
+shared_focus = {
+	id = FRA_restructure_the_budget
+	icon = GFX_focus_usa_reestablish_the_gold_standard
+	
+	x = 1
+	y = 1
+	cost = 7
+	
+	available = {
+		has_country_flag = FRA_has_gone_in_exile
+	}
+	
+	relative_position_id = FRA_in_exile
+	prerequisite = { focus = FRA_in_exile }
+	
+	completion_reward = {
+		add_timed_idea = {
+			idea = FRA_restructured_budget
+			days = 365
+		}
+	}
+	
+	search_filters = {
+		
+	}
+}
+
+shared_focus = {
+	id = FRA_rein_in_the_protectorates
+	icon = GFX_focus_generic_self_management
+	
+	x = 3
+	y = 1
+	cost = 7
+	
+	available = {
+		has_country_flag = FRA_has_gone_in_exile
+	}
+	
+	relative_position_id = FRA_in_exile
+	prerequisite = { focus = FRA_in_exile }
+	
+	completion_reward = {
+		MOR = {
+			add_autonomy_score = {
+				value = -100
+				localization = FRA_rein_in_the_protectorates
+			}
+		}
+		TUN = {
+			add_autonomy_score = {
+				value = -100
+				localization = FRA_rein_in_the_protectorates
+			}
+		}
+	}
+	
+	search_filters = {
+		
+	}
+}
+
+shared_focus = {
+	id = FRA_expand_naval_facilities
+	icon = GFX_goal_generic_construct_naval_dockyard
+	
+	x = -1
+	y = 1
+	cost = 7
+	
+	available = {
+		has_country_flag = FRA_has_gone_in_exile
+	}
+	
+	relative_position_id = FRA_build_up_local_industry
+	prerequisite = { focus = FRA_build_up_local_industry }
+	
+	completion_reward = {
+		459 = {
+			add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
+	}
+}
+
+shared_focus = {
+	id = FRA_local_arms_production
+	icon = GFX_goal_generic_construct_mil_factory
+	
+	x = 1
+	y = 1
+	cost = 7
+	
+	available = {
+		has_country_flag = FRA_has_gone_in_exile
+	}
+	
+	relative_position_id = FRA_build_up_local_industry
+	prerequisite = { focus = FRA_build_up_local_industry }
+	
+	completion_reward = {
+		459 = {
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
+	}
+}
+
+shared_focus = {
+	id = FRA_direct_rule_from_algiers
+	icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+	
+	x = 1
+	y = 1
+	cost = 7
+	
+	available = {
+		has_country_flag = FRA_has_gone_in_exile
+	}
+	
+	relative_position_id = FRA_local_conscription
+	prerequisite = { focus = FRA_local_conscription }
+	prerequisite = { focus = FRA_restructure_the_budget }
+	
+	completion_reward = {
+		FRA = {
+			annex_country = {
+				target = FWA
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = FCA
+				transfer_troops = yes
+			}
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_arms_to_the_resistance
+	icon = GFX_focus_focus_fra_maquis
+	
+	x = 2
+	y = 2
+	cost = 7
+	
+	available = {
+		has_country_flag = FRA_has_gone_in_exile
+	}
+	
+	relative_position_id = FRA_in_exile
+	prerequisite = { focus = FRA_in_exile }
+	
+	completion_reward = {
+		every_owned_state = {
+			limit = {
+				has_core_of = FRA
+				NOT = {
+					 is_controlled_by = FRA
+				}
+			}
+			add_resistance = 10
+		}
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
+	}
+}

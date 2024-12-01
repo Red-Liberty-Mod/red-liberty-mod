@@ -4,6 +4,7 @@ add_namespace = france_far_left
 add_namespace = france_rocque
 add_namespace = france_monarchist
 add_namespace = france_military
+add_namespace = france_exile
 
 add_namespace = france_FORPOL
 
@@ -1277,5 +1278,35 @@ country_event = { # the petain question
 	option = {
 		name = france_military.1.b
 		add_political_power = -100
+	}
+}
+
+country_event = { # 
+	id = france_exile.1
+	title = france_exile.1.title
+	desc = france_exile.1.desc
+	
+	trigger = {
+		has_war_with_major = yes
+		has_capitulated = no
+		OR = {
+			surrender_progress > 0.4
+			NOT = {
+				controls_state = 16
+			}
+		}
+	}
+	
+	fire_only_once = yes
+
+	option = {
+		name = france_exile.1.a
+		set_capital = { state = 459 }
+		set_country_flag = FRA_has_gone_in_exile
+	}
+	
+	option = {
+		name = france_exile.1.b
+		add_war_support = 0.05
 	}
 }
