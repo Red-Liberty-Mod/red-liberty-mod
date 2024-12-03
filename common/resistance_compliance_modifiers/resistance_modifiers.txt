@@ -170,3 +170,86 @@ FWA_resistance_80 = {
 		hidden_effect = { country_event = { id = fwa_revolts.1 days = 1 random_days = 2 } }
 	}
 }
+
+ALG_resistance_15 = {
+	type = core_resistance_modifier
+	icon = "GFX_occupation_resistance_modifier_strip:2"
+	small_icon = "GFX_occupation_resistance_modifier_small_strip:2"
+	threshold = 25
+	margin = 1
+
+	visible = {
+		tag = FRA
+		NOT = { has_country_flag = FRA_rebelled_@FROM }
+		FROM = {
+			original_tag = ALG
+		}
+	}
+	
+	state_modifier = {
+		resistance_target = 0.05
+		compliance_gain = -0.01
+	}
+
+	on_enable = {
+		hidden_effect = { country_event = { id = france_algeria.1 days = 1 random_days = 2 } }
+	}
+}
+
+ALG_resistance_45 = {
+	type = core_resistance_modifier
+	icon = "GFX_occupation_resistance_modifier_strip:3"
+	small_icon = "GFX_occupation_resistance_modifier_small_strip:3"
+	threshold = 45
+	margin = 1
+
+	visible = {
+		tag = FRA
+		NOT = { has_country_flag = FRA_rebelled_@FROM }
+		FROM = {
+			original_tag = ALG
+		}
+	}
+	
+	state_modifier = {
+		resistance_growth = 0.05
+		compliance_gain = -0.04
+	}
+
+	on_enable = {
+		hidden_effect = {
+			ALG = {
+				drop_cosmetic_tag = yes
+				set_cosmetic_tag = ALG_provisional_govt
+			}
+		}
+		custom_effect_tooltip = ALG_form_provisional_govt
+		hidden_effect = { country_event = { id = france_algeria.2 days = 1 random_days = 2 } }
+	}
+}
+
+ALG_resistance_80 = {
+	type = core_resistance_modifier
+	icon = "GFX_occupation_resistance_modifier_strip:4"
+	small_icon = "GFX_occupation_resistance_modifier_small_strip:4"
+	threshold = 80
+	margin = 1
+
+	alert_level = high
+	alert_margin = 15
+
+	visible = {
+		tag = FRA
+		NOT = { has_country_flag = FRA_rebelled_@FROM }
+		FROM = {
+			original_tag = ALG
+		}
+	}
+
+	on_enable = {
+		FROM = { save_event_target_as = revolter }
+		set_temp_variable = { revolter_var = FROM }
+		custom_effect_tooltip = FRA_gets_event_revolt_tt
+		hidden_effect = { country_event = { id = france_algeria.3 days = 1 random_days = 2 } }
+	}
+}

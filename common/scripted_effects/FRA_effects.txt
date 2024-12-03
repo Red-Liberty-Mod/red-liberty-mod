@@ -53,3 +53,39 @@ FRA_setup_election_vars = {
 	activate_targeted_decision = { target = THIS decision = FRA_msf_cooperation_with_popular_democrats }
 	activate_targeted_decision = { target = THIS decision = FRA_msf_court_independent_conservatives }
 }
+
+FRA_algerian_revolution = {
+	hidden_effect = {
+		FRA = {
+			set_country_flag = FRA_rebelled_ALG
+			every_owned_state = {
+				limit = {
+					is_core_of = ALG
+				}
+				remove_core_of = FRA
+				ALG = { transfer_state = PREV }
+				#teleport_armies = {
+				#	limit = { tag = FRA }
+				#	to_state_array = owned_controlled_states
+				#}
+			}
+			set_state_controller = 459
+		}
+		ALG = {
+			load_oob = ALG_revolution
+			inherit_technology = FRA
+		}
+		MOR = {
+			country_event = {
+				id = france_algeria.4
+				days = 3
+			}
+		}
+		TUN = {
+			country_event = {
+				id = france_algeria.4
+				days = 3
+			}
+		}
+	}
+}
