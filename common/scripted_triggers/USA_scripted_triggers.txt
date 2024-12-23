@@ -48,9 +48,28 @@ has_active_election_in_state = {
 	}
 }
 
+has_socialist_president = {
+	OR = {
+		norman_thomas_is_president = yes
+	}
+}
+
+has_democratic_president = {
+	OR = {
+		lister_hill_is_president = yes
+	}
+}
+
 norman_thomas_is_president = {
 	has_country_leader = {
 		character = USA_norman_thomas
+		ruling_only = yes
+	}
+}
+
+lister_hill_is_president = {
+	has_country_leader = {
+		character = USA_joseph_lister_hill
 		ruling_only = yes
 	}
 }

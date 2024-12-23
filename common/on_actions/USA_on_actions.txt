@@ -27,7 +27,11 @@ on_actions = {
 					USA_convert_party_pop_percentage = yes
 				}
 			}
-			USA = { # Congress
+			USA = {
+				# President
+				set_variable = { USA_president_popularity = 23 }
+				
+				# Congress
 				set_variable = { senators_total = 96 }
 				set_variable = { representatives_total = 483 }
 				USA_congress_quorum = yes
@@ -61,8 +65,8 @@ on_actions = {
 					modifier = USA_house_control_modifier
 				}
 				USA_calc_congress_control = yes
-			}
-			USA = { # Supreme Court
+				
+				# Supreme Court
 				set_variable = { supreme_court_lean = -6 } # LEAN
 				
 				country_event = { # Chief Justice Devanter Dies
@@ -284,6 +288,11 @@ on_actions = {
 					modifier = USA_dry_state
 				}
 			}
+			369 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
 			370 = {
 				add_dynamic_modifier = {
 					modifier = USA_dry_state
@@ -304,7 +313,22 @@ on_actions = {
 					modifier = USA_dry_state
 				}
 			}
+			385 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
+			388 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
 			390 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
+			393 = {
 				add_dynamic_modifier = {
 					modifier = USA_dry_state
 				}
