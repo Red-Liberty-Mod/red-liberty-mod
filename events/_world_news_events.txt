@@ -238,6 +238,7 @@ news_event = { # death of george v
 	id = worldnews.9
 	title = worldnews.9.title
 	desc = worldnews.9.desc
+	picture = GFX_news_event_ENG_george_v
 	
 	is_triggered_only = yes
 	
@@ -370,11 +371,10 @@ news_event = { # cristeros win civil war
 	}
 }
 
-news_event = { # la reclamacion
+news_event = { # 
 	id = worldnews.12
 	title = worldnews.12.title
 	desc = worldnews.12.desc
-	picture = GFX_news_event_CMS_USA_war
 	
 	is_triggered_only = yes
 	
@@ -388,8 +388,11 @@ news_event = { # la reclamacion
 		or = {
 			regional_europe_news = yes
 			regional_north_america_news = yes
-			regional_south_america_news = yes
 		}
+	}
+	
+	immediate = {
+		log = "event worldnews.12"
 	}
 
 	option = {
@@ -413,6 +416,84 @@ news_event = { # la reclamacion
 		}
 	}
 }
+
+news_event = { # palacio nacional bombing
+	id = worldnews.13
+	title = worldnews.13.title
+	desc = worldnews.13.desc
+	picture = GFX_news_event_MEX_congress_bombing
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	show_major = {
+		or = {
+			regional_europe_news = yes
+			regional_north_america_news = yes
+			regional_south_america_news = yes
+		}
+	}
+	
+	major = yes
+
+	option = {
+		name = worldnews.13.a
+	}
+}
+
+news_event = { # succesful straits conference
+	id = worldnews.14
+	title = worldnews.14.title
+	desc = worldnews.14.desc
+	picture = GFX_news_event_TUR_parade
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	show_major = {
+		or = {
+			regional_europe_news = yes
+			regional_north_america_news = yes
+		}
+	}
+	
+	immediate = {
+		log = "event worldnews.14"
+	}
+
+	option = {
+		name = worldnews.14.a
+		trigger = {
+			has_socialist_govt = yes
+		}
+	}
+	
+	option = {
+		name = worldnews.14.b
+		trigger = {
+			has_democratic_govt = yes
+		}
+	}
+	
+	option = {
+		name = worldnews.14.c
+		trigger = {
+			has_reactionary_govt = yes
+		}
+	}
+}
+
+###########
+### WAR ###
+###########
 
 news_event = { # brazilian civil war
 	id = worldnews_war.1
@@ -471,6 +552,47 @@ news_event = { # russian civil war
 	}
 }
 
+news_event = { # la reclamacion
+	id = worldnews_war.8
+	title = worldnews_war.8.title
+	desc = worldnews_war.8.desc
+	picture = GFX_news_event_CMS_USA_war
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	show_major = {
+		or = {
+			regional_europe_news = yes
+			regional_north_america_news = yes
+			regional_south_america_news = yes
+		}
+	}
+
+	option = {
+		name = worldnews_war.8.a		
+	}
+	
+	option = {
+		name = worldnews_war.8.b
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = worldnews_war.8.c
+		trigger = {
+			original_tag = CMS
+		}
+	}
+}
+
 news_event = { # ww2 event - france vs germany
 	id = worldnews_ww2.1
 	picture = GFX_report_event_second_great_war
@@ -503,6 +625,15 @@ news_event = { # ww2 event - france vs germany
 	immediate = {
 		hidden_effect = {
 			scoped_sound_effect = "great_war"
+			
+			if = {
+				limit = {
+					NOT = {
+						has_global_flag = second_great_war_started
+					}
+				}
+				set_global_flag = second_great_war_started
+			}
 		}
 	}
 
@@ -577,15 +708,84 @@ news_event = { # ww2 event - russia vs germany
 		name = worldnews_ww2.2.a
 		trigger = {
 			NOT = {
-				original_tag = SOV
+				OR = {
+					original_tag = SOV
+					original_tag = GER
+				}
 			}
 		}
 	}
 	
 	option = {
-		name = worldnews_ww2.2.b
+		name = worldnews_ww2.2.a
 		trigger = {
 			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = worldnews_ww2.2.c
+		trigger = {
+			original_tag = GER
+		}
+	}
+}
+
+news_event = { # ww2 event - italy joins a faction
+	id = worldnews_ww2.3
+	picture = GFX_report_event_second_great_war
+	
+	title = worldnews_ww2.3.title
+	desc = {
+		text = worldnews_ww2.2.desc_joins_FRA_peace
+		trigger = {
+			has_global_flag = ITA_joined_FRA
+			NOT = {
+				has_global_flag = second_great_war_started
+			}
+		}
+	}
+	desc = {
+		text = worldnews_ww2.2.desc_joins_FRA_war
+		trigger = {
+			has_global_flag = ITA_joined_FRA
+			has_global_flag = second_great_war_started
+		}
+	}
+	desc = {
+		text = worldnews_ww2.2.desc_joins_GER_peace
+		trigger = {
+			has_global_flag = ITA_joined_GER
+			NOT = {
+				has_global_flag = second_great_war_started
+			}
+		}
+	}
+	desc = {
+		text = worldnews_ww2.2.desc_joins_GER_war
+		trigger = {
+			has_global_flag = ITA_joined_GER
+			has_global_flag = second_great_war_started
+		}
+	}
+
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = {
+		name = worldnews_ww2.3.a
+		trigger = {
+			NOT = {
+				original_tag = ITA
+			}
+		}
+	}
+	
+	option = {
+		name = worldnews_ww2.3.b
+		trigger = {
+			original_tag = ITA
 		}
 	}
 }

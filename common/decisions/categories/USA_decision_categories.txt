@@ -86,6 +86,20 @@ USA_election_season_category = {
 	priority = 98
 }
 
+USA_election_season_president_category = {
+	icon = usa_congress
+	allowed = {
+		original_tag = USA
+	}
+	
+	visible = {
+		has_country_flag = USA_presidential_elections
+	}
+	visible_when_empty = yes
+	
+	priority = 97
+}
+
 USA_managing_spa = {
 	icon = usa_spa
 	
@@ -95,9 +109,30 @@ USA_managing_spa = {
 	
 	visible = {
 		OR = {
-			has_government = libertarian_socialism
+			has_government = democratic_socialism
 			has_government = social_democracy
 		}
+		always = no
+	}
+
+	visible_when_empty = yes
+
+	priority = 90
+}
+
+USA_managing_democrats = {
+	icon = usa_spa
+	
+	allowed = {
+		original_tag = USA
+	}
+	
+	visible = {
+		OR = {
+			has_government = progressive_liberalism
+			has_government = national_conservatism
+		}
+		always = no
 	}
 
 	visible_when_empty = yes

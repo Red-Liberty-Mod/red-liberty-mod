@@ -11,6 +11,9 @@ NDefines.NMilitary.MAX_DIVISION_BRIGADE_HEIGHT = 5		-- Max height of regiments i
 NDefines.NMilitary.MAX_DIVISION_SUPPORT_WIDTH = 2		-- Max width of support in division designer.
 NDefines.NMilitary.MAX_DIVISION_SUPPORT_HEIGHT = 5		-- Max height of support in division designer.
 
+-- Air
+NDefines.NAir.CARRIER_SIZE_STAT_INCREMENT = 12			-- Each Point of carrier_size state adds capacity for this many planes
+
 -- Buildings
 NDefines.NBuildings.MAX_SHARED_SLOTS = 56				-- Max slots shared by factories
 
@@ -82,11 +85,16 @@ NDefines.NResistance.GARRISON_MANPOWER_LOST_BY_ATTACK = 0.012				-- Vanilla is 0
 NDefines.NTrade.BASE_TRADE_FACTOR = 100										-- Vanilla is 150
 
 -- MIOs
--- NDefines.NIndustrialOrganisation.ENABLE_TASK_CAPACITY = true,				-- Enable limited task capacity for MIOs
--- NDefines.NIndustrialOrganisation.DEFAULT_INITIAL_TASK_CAPACITY = 3,				-- Default start task capacity for each MIO (may be overriden in DB)
+NDefines.NIndustrialOrganisation.ASSIGN_DESIGN_TEAM_PP_COST_PER_DAY = 0.1	-- Cost in Political Power daily generation when one MIO is assigned to a research slot. If 0, cost is entirely disabled.
+NDefines.NIndustrialOrganisation.ENABLE_TASK_CAPACITY = true				-- Enable limited task capacity for MIOs
+NDefines.NIndustrialOrganisation.DEFAULT_INITIAL_TASK_CAPACITY = 5			-- Default start task capacity for each MIO (may be overriden in DB)
+NDefines.NIndustrialOrganisation.DESIGN_TEAM_CHANGE_XP_COST = 0				-- Flat cost added to the XP cost of a new equipment design. If 0, cost is entirely disabled. Vanilla is 5
 
 -- Visual
 NDefines_Graphics.NGraphics.VICTORY_POINT_MAP_ICON_TEXT_CUTOFF = {300, 500, 1500}
 
 -- General AI
-NDefines.NAI.BASE_RELUCTANCE = 10										-- Vanilla is 20
+NDefines.NAI.BASE_RELUCTANCE = 10											-- Vanilla is 20
+
+-- Graphics
+NDefines_Graphics.NGraphics.RAILWAY_BRIDGE_Y_OFFSET = 0.1					-- Railway bridges are offset by this amount vertically from the map. Vanilla is 0.6

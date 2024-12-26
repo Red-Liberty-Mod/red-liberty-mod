@@ -1,6 +1,138 @@
 ﻿
-units= {
+instant_effect = {
+	### Submarines ###
+	create_equipment_variant = {
+		name = "Birinci Inönü Class"				
+		type = ship_hull_submarine_1
+		name_group = TUR_SS_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_1
+			fixed_ship_engine_slot = sub_ship_engine_1
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Dumlupinar Class"				
+		type = ship_hull_submarine_2
+		name_group = TUR_SS_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_1
+			fixed_ship_engine_slot = sub_ship_engine_2
+			rear_1_custom_slot = ship_mine_layer_sub
+		}
+	}
+	create_equipment_variant = {
+		name = "Sakarya Class"								# represents Sakarya and Gur classes
+		type = ship_hull_submarine_1
+		name_group = TUR_SS_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_2
+			fixed_ship_engine_slot = sub_ship_engine_2
+			rear_1_custom_slot = empty
+		}
+	}
+	
+	### Destroyers ###
+	create_equipment_variant = {
+		name = "Muavenet-i Milliye Class"
+		type = ship_hull_light_1
+		name_group = TUR_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = empty
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Kocatepe Class"								# represents Kocatepe, Zafer and Tinaztepe classes
+		type = ship_hull_light_2
+		name_group = TUR_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_2
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = empty
+			rear_1_custom_slot = empty
+		}
+	}
+	
+	### Cruisers ###
+	create_equipment_variant = {
+		name = "Peyk-i Sevket Class"
+		type = ship_hull_torpedo_cruiser
+		name_group = TUR_CL_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			front_1_custom_slot = ship_torpedo_1
+			fixed_ship_armor_slot = empty
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			mid_1_custom_slot = empty
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = ship_torpedo_1
+		}
+	}
+	create_equipment_variant = {
+		name = "Mecidiye Class"
+		type = ship_hull_cruiser_coastal_defense_ship
+		name_group = TUR_CL_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_armor_slot = empty
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			mid_1_custom_slot = empty
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = ship_torpedo_1
+		}
+	}
+	
+	### Battlecruisers ###
+	create_equipment_variant = {
+		name = "Yavuz Class"	
+		type = ship_hull_heavy_1
+		name_group = TUR_BC_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_heavy_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = heavy_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			fixed_ship_armor_slot = ship_armor_bc_1
+			front_1_custom_slot = ship_heavy_battery_1
+			mid_1_custom_slot = ship_secondaries_1
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = empty
+		}
+	}
+}
 
+units= {
 	##### NAVAL UNITS #####
 	### Türk Donanmasi ###
 	fleet = {
@@ -9,24 +141,44 @@ units= {
 		task_force = {				
 			name = "Türk Donanmasi"			
 			location = 1005 # Antalya
-			ship = { name = "TCG Yavuz" pride_of_the_fleet = yes definition = battle_cruiser equipment = { ship_hull_heavy_1 = { amount = 1 owner = TUR version_name = "Yavuz Class" } } }			
-			ship = { name = "TCG Mecidiye" definition = light_cruiser equipment = { ship_hull_cruiser_coastal_defense_ship = { amount = 1 owner = TUR version_name = "Mecidiye Class" } } }
-			ship = { name = "TCG Hamidiye" definition = light_cruiser equipment = { ship_hull_cruiser_coastal_defense_ship = { amount = 1 owner = TUR version_name = "Mecidiye Class" } } }
-			ship = { name = "TCG Peyk" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = TUR version_name = "Peyk Class" } } }
-			ship = { name = "TCG Berk" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = TUR version_name = "Peyk Class" } } }
-			ship = { name = "TCG Kocatepe" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = TUR version_name = "Kocatepe Class" } } }
-			ship = { name = "TCG Adatepe" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = TUR version_name = "Kocatepe Class" } } }
-			ship = { name = "TCG Zafer" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = TUR version_name = "Kocatepe Class" } } }
-			ship = { name = "TCG Tinaztepe" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = TUR version_name = "Kocatepe Class" } } }
+			ship = { name = "OHG Yavuz Sultan Selim" pride_of_the_fleet = yes definition = battle_cruiser equipment = { ship_hull_heavy_1 = { amount = 1 owner = TUR version_name = "Yavuz Class" } } }
+			
+			ship = { name = "OHG Mecidiye" definition = light_cruiser equipment = { ship_hull_cruiser_coastal_defense_ship = { amount = 1 owner = TUR version_name = "Mecidiye Class" } } }
+			ship = { name = "OHG Hamidiye" definition = light_cruiser equipment = { ship_hull_cruiser_coastal_defense_ship = { amount = 1 owner = TUR version_name = "Mecidiye Class" } } }
+			
+			#ship = {
+			#	name = "OHG Peyk-i Sevket"
+			#	definition = torpedo_cruiser
+			#	equipment = {
+			#		ship_hull_torpedo_cruiser = { amount = 1 owner = TUR version_name = "Peyk-i Sevket Class" }
+			#	}
+			#}
+			#ship = {
+			#	name = "OHG Berk-i Satvet"
+			#	definition = torpedo_cruiser
+			#	equipment = {
+			#		ship_hull_torpedo_cruiser = { amount = 1 owner = TUR version_name = "Peyk-i Sevket Class" }
+			#	}
+			#}
+			
+			ship = { name = "OHG Kocatepe" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = TUR version_name = "Kocatepe Class" } } }
+			ship = { name = "OHG Adatepe" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = TUR version_name = "Kocatepe Class" } } }
+			ship = { name = "OHG Zafer" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = TUR version_name = "Kocatepe Class" } } }
+			ship = { name = "OHG Tinaztepe" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = TUR version_name = "Kocatepe Class" } } }
+			
+			ship = { name = "OHG Muavenet-i Milliye" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = TUR version_name = "Muavenet-i Milliye Class" } } }
+			ship = { name = "OHG Nümune-i Hamiyet" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = TUR version_name = "Muavenet-i Milliye Class" } } }
 		}				
 		task_force = {				
 			name = "Filotilla Denizalti Kücük"			
 			location = 11881 # Samsun
-			ship = { name = "TCG Birinci Inönü" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = TUR version_name = "Birinci Inönü Class" } } }		
-			ship = { name = "TCG Ikinci Inönü" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = TUR version_name = "Birinci Inönü Class" } } }		
-			ship = { name = "TCG Dumlupinar" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = TUR version_name = "Dumlupinar Class" } } }
-			ship = { name = "TCG Sakarya" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = TUR version_name = "Sakarya Class" } } }
-			ship = { name = "TCG Gür" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = TUR version_name = "Sakarya Class" } } }
+			ship = { name = "OHG Birinci Inönü" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = TUR version_name = "Birinci Inönü Class" } } }		
+			ship = { name = "OHG Ikinci Inönü" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = TUR version_name = "Birinci Inönü Class" } } }
+			
+			ship = { name = "OHG Dumlupinar" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = TUR version_name = "Dumlupinar Class" } } }
+			
+			ship = { name = "OHG Sakarya" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = TUR version_name = "Sakarya Class" } } }
+			ship = { name = "OHG Gür" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = TUR version_name = "Sakarya Class" } } }
 		}				
 	}
 } 

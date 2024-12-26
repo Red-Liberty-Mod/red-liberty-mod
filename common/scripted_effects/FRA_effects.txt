@@ -1,0 +1,95 @@
+FRA_improve_govt_stability = {
+	
+	if = {
+		limit = {
+			has_idea = FRA_fallen_govt
+		}
+		swap_ideas = {
+			remove_idea = FRA_fallen_govt
+			add_idea = FRA_unstable_govt
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = FRA_unstable_govt
+		}
+		remove_ideas = FRA_unstable_govt
+	}
+}
+
+FRA_setup_election_vars = {
+	
+	set_country_flag = FRA_playing_as_msf
+	set_variable = { FRA_available_actions = 3 }
+	
+	set_variable = { FRA_communist_seats = 35 }
+	set_variable = { FRA_ind_socialist_seats = 3 }
+	set_variable = { FRA_socialist_seats = 94 }
+	set_variable = { FRA_radical_seats = 115 }
+	set_variable = { FRA_ind_radical_seats = 16 }
+	set_variable = { FRA_democrat_seats = 112 }
+	set_variable = { FRA_popular_seats = 42 }
+	set_variable = { FRA_republican_seats = 100 }
+	set_variable = { FRA_ind_conservative_seats = 5 }
+	set_variable = { FRA_rocquist_seats = 85 }
+	set_variable = { FRA_far_right_seats = 3 }
+	
+	set_variable = { FRA_total_seats = 0 }
+	add_to_variable = { FRA_total_seats = FRA_communist_seats }
+	add_to_variable = { FRA_total_seats = FRA_ind_socialist_seats }
+	add_to_variable = { FRA_total_seats = FRA_socialist_seats }
+	add_to_variable = { FRA_total_seats = FRA_radical_seats }
+	add_to_variable = { FRA_total_seats = FRA_ind_radical_seats }
+	add_to_variable = { FRA_total_seats = FRA_democrat_seats }
+	add_to_variable = { FRA_total_seats = FRA_popular_seats }
+	add_to_variable = { FRA_total_seats = FRA_republican_seats }
+	add_to_variable = { FRA_total_seats = FRA_ind_conservative_seats }
+	add_to_variable = { FRA_total_seats = FRA_rocquist_seats }
+	add_to_variable = { FRA_total_seats = FRA_far_right_seats }
+	
+	activate_targeted_decision = { target = THIS decision = FRA_msf_consolidate_strongholds }
+	activate_targeted_decision = { target = THIS decision = FRA_msf_threaten_violence }
+	activate_targeted_decision = { target = THIS decision = FRA_msf_cooperation_with_radicals }
+	activate_targeted_decision = { target = THIS decision = FRA_msf_cooperation_with_popular_democrats }
+	activate_targeted_decision = { target = THIS decision = FRA_msf_court_independent_conservatives }
+}
+
+FRA_algerian_revolution = {
+	hidden_effect = {
+		FRA = {
+			set_country_flag = FRA_rebelled_ALG
+			every_owned_state = {
+				limit = {
+					is_core_of = ALG
+				}
+				remove_core_of = FRA
+				ALG = { transfer_state = PREV }
+				#teleport_armies = {
+				#	limit = { tag = FRA }
+				#	to_state_array = owned_controlled_states
+				#}
+			}
+			set_state_controller = 459
+			set_province_controller = 4150
+			set_province_controller = 7166
+		}
+		ALG = {
+			set_province_controller = 1013
+			set_province_controller = 12760
+			load_oob = ALG_revolution
+			inherit_technology = FRA
+		}
+		MOR = {
+			country_event = {
+				id = france_algeria.4
+				days = 3
+			}
+		}
+		TUN = {
+			country_event = {
+				id = france_algeria.4
+				days = 3
+			}
+		}
+	}
+}

@@ -1,0 +1,68 @@
+add_namespace = fwa_revolts
+
+country_event = { # colonial revolts
+	id = fwa_revolts.1
+	title = fwa_revolts.1.title
+	desc = fwa_revolts.1.desc
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = FWA_active_rebellion
+			set_country_flag = FWA_rebelled_@event_target:revolter
+			#activate_targeted_decision = { decision = NFA_crush_resistance target = event_target:revolter }
+			event_target:revolter = {
+				every_core_state = {
+					limit = { is_owned_by = ROOT }
+					teleport_armies = { limit = { is_ally_with = ROOT } }
+					transfer_state_to = event_target:revolter
+				}
+				#NFA_spawn_revolt_armies = yes
+				every_controlled_state = {
+					every_neighbor_state = {
+						limit = {
+							is_owned_and_controlled_by = ROOT
+							has_resistance = yes
+						}
+						add_resistance = 8
+						add_compliance = -4
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = fwa_revolts.1.a
+		declare_war_on = {
+			target = event_target:revolter
+			type = annex_everything
+		}
+	}
+
+	option = {
+		name = fwa_revolts.1.b
+		ai_chance = { base = 0 }
+		add_stability = -0.1
+		add_political_power = -75
+		every_owned_state = {
+			add_resistance = 12
+		}
+	}
+}
+
+country_event = { #Colony Revolts (donotlog)
+	id = fwa_revolts.2
+	title = fwa_revolts.1.title
+	desc = fwa_revolts.1.desc
+
+	is_triggered_only = yes
+
+	option = {
+		name = fwa_revolts.1.a
+		every_owned_state = {
+			add_resistance = 80
+		}
+	}
+}

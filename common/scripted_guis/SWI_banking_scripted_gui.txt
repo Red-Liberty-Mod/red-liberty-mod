@@ -1,0 +1,35 @@
+scripted_gui = {
+	
+	SWI_banking_scripted_gui = {
+		window_name = "SWI_banking_gui"
+		context_type = decision_category
+		
+		triggers = {
+			SWI_banking_mils_button_click_enabled = {
+				check_variable = { SWI_banking_civs > 0 }
+			}
+			SWI_banking_civs_button_click_enabled = {
+				check_variable = { SWI_banking_mils > 0 }
+			}
+		}
+
+		dynamic_lists = {
+			
+		}
+
+		properties = {
+			
+		}
+		
+		effects = {
+			SWI_banking_mils_button_click = {
+				subtract_from_variable = { SWI_banking_civs = 1 }
+				add_to_variable = { SWI_banking_mils = 1 }
+			}
+			SWI_banking_civs_button_click = {
+				subtract_from_variable = { SWI_banking_mils = 1 }
+				add_to_variable = { SWI_banking_civs = 1 }
+			}
+		}
+	}
+}

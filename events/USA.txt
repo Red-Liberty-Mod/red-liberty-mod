@@ -63,6 +63,12 @@ country_event = { # 1936 spa convention - choosing veep
 	
 	fire_only_once = yes
 	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = USA_thomas_renominated
+		}
+	}
+	
 	option = {
 		name = united_states.4.a
 		custom_effect_tooltip = USA_henry_wallace_veep_tt
@@ -400,6 +406,23 @@ country_event = { # poverty threshold met, improve gd spirit
 	}
 }
 
+country_event = { # florida senator dies, both seats up for election
+	id = united_states.16
+	title = united_states.16.title
+	desc = united_states.16.desc
+	
+	is_triggered_only = yes
+
+	option = {
+		name = united_states.16.a
+		366 = {
+			custom_effect_tooltip = special_election_both_tt
+			set_state_flag = elections_senator_1
+			set_state_flag = elections_senator_2
+		}
+	}
+}
+
 country_event = { # we beat japan, set up occupation tag
 	id = united_states.200
 	title = united_states.200.title
@@ -693,7 +716,16 @@ country_event = { # boulder dam
 	option = {
 		name = united_states_flavor.1.a
 		379 = {
-			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = dam_mountain
+				level = 1
+				province = 4799
+				instant_build = yes
+			}
+			custom_effect_tooltip = {
+				localization_key = building_state_modifier|dam_mountain
+				INDENT = "    "
+			}
 			add_to_variable = { socialist_popularity = 0.05 }
 		}
 	}
@@ -972,6 +1004,34 @@ country_event = { # lindbergh returns to the US
 	}
 }
 
+country_event = { # united pacifist committee
+	id = united_states_flavor.13
+	title = united_states_flavor.13.title
+	desc = united_states_flavor.13.desc
+	
+	trigger = {
+		threat > 0.4 # fire when world tension starts getting high
+	}
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_flavor.13.a
+		trigger = {
+			has_government = democratic_socialism
+		}
+		add_war_support = -0.01
+	}
+	
+	option = {
+		name = united_states_flavor.13.b
+		trigger = {
+			has_government = national_conservatism
+		}
+		add_war_support = -0.01
+	}
+}
+
 country_event = { # mexico ablaze
 	id = united_states_intervention.1
 	title = united_states_intervention.1.title
@@ -1171,9 +1231,16 @@ country_event = { # generic justice retires
 			date < 1937.1.1
 		}
 	}
+	
+	immediate = {
+		hidden_effect = {
+			USA_calc_sc_nomination_cost = yes
+		}
+	}
 
 	option = { # nominate reformist
 		name = united_states_supreme_court.1.a
+		add_political_power = var:USA_reformist_cost
 		add_to_variable = {
 			tooltip = USA_court_lean_more_reformist
 			var = supreme_court_lean
@@ -1189,6 +1256,7 @@ country_event = { # generic justice retires
 				check_variable = { supreme_court_lean = 0 }
 			}
 		}
+		add_political_power = var:USA_centrist_cost
 		if = {
 			limit = {
 				check_variable = { supreme_court_lean < 0 }
@@ -1214,6 +1282,7 @@ country_event = { # generic justice retires
 	
 	option = { # nominate conservative
 		name = united_states_supreme_court.1.c
+		add_political_power = var:USA_conservative_cost
 		add_to_variable = {
 			tooltip = USA_court_lean_more_conservative
 			var = supreme_court_lean
@@ -1229,11 +1298,17 @@ country_event = { # chief justice devanter retires
 	desc = united_states_supreme_court.2.desc
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			USA_calc_sc_nomination_cost = yes
+		}
+	}
 
 	option = { # nominate reformist
 		name = united_states_supreme_court.2.a
+		add_political_power = var:USA_reformist_cost
 		add_to_variable = {
 			tooltip = USA_court_lean_more_reformist
 			var = supreme_court_lean
@@ -1249,6 +1324,7 @@ country_event = { # chief justice devanter retires
 				check_variable = { supreme_court_lean = 0 }
 			}
 		}
+		add_political_power = var:USA_centrist_cost
 		if = {
 			limit = {
 				check_variable = { supreme_court_lean < 0 }
@@ -1274,6 +1350,7 @@ country_event = { # chief justice devanter retires
 	
 	option = { # nominate conservative
 		name = united_states_supreme_court.2.c
+		add_political_power = var:USA_conservative_cost
 		add_to_variable = {
 			tooltip = USA_court_lean_more_conservative
 			var = supreme_court_lean
@@ -1300,12 +1377,14 @@ country_event = { # chief justice devanter dies ~1941
 	
 	immediate = {
 		hidden_effect = {
+			USA_calc_sc_nomination_cost = yes
 			set_country_flag = USA_van_devanter_retired
 		}
 	}
 
 	option = { # nominate reformist
 		name = united_states_supreme_court.3.a
+		add_political_power = var:USA_reformist_cost
 		add_to_variable = {
 			tooltip = USA_court_lean_more_reformist
 			var = supreme_court_lean
@@ -1321,6 +1400,7 @@ country_event = { # chief justice devanter dies ~1941
 				check_variable = { supreme_court_lean = 0 }
 			}
 		}
+		add_political_power = var:USA_centrist_cost
 		if = {
 			limit = {
 				check_variable = { supreme_court_lean < 0 }
@@ -1346,6 +1426,7 @@ country_event = { # chief justice devanter dies ~1941
 	
 	option = { # nominate conservative
 		name = united_states_supreme_court.3.c
+		add_political_power = var:USA_conservative_cost
 		add_to_variable = {
 			tooltip = USA_court_lean_more_conservative
 			var = supreme_court_lean

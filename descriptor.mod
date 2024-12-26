@@ -6,6 +6,7 @@ tags={
 	"National Focuses"
 }
 replace_path = "common/abilities"
+replace_path = "common/ai_equipment"
 replace_path = "common/ai_strategy"
 replace_path = "common/ai_strategy_plans"
 replace_path = "common/ai_focuses"
@@ -55,4 +56,4 @@ replace_path = "map/strategicregions"
 replace_path = "portraits"
 name="Red Liberty - DEV"
 picture="thumbnail.png"
-supported_version="1.13.*"
+supported_version="1.15.*"

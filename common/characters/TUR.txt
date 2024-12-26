@@ -19,19 +19,9 @@ characters = {
 		advisor = {
 			cost = 0
 			can_be_fired = no
-			
 			slot = head_of_government
 			idea_token = TUR_sehzade_mehmed_selim_hog
 			ledger = army
-			
-			allowed = {
-				original_tag = TUR
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
 				hog_national_figurehead
 			}
@@ -39,22 +29,6 @@ characters = {
 	}
 	
 	### Leaders ###
-	
-	TUR_ethem_nejat = {
-		name = TUR_ethem_nejat
-		
-		portraits = {
-			civilian = {
-				small = "GFX_minister_TUR_ethem_nejat"
-			}
-		}
-		
-		country_leader = {
-			desc = "POLITICS_ETHEM_NEJAT_DESC"
-			ideology = leninism_subtype
-			traits = {  }
-		}
-	}
 	
 	TUR_mustafa_subhi = {
 		name = TUR_mustafa_subhi
@@ -67,7 +41,23 @@ characters = {
 		
 		country_leader = {
 			desc = "POLITICS_MUSTAFA_SUBHI_DESC"
-			ideology = syndicalism_subtype
+			ideology = right_communism_subtype
+			traits = {  }
+		}
+	}
+	
+	TUR_ethem_nejat = {
+		name = TUR_ethem_nejat
+		
+		portraits = {
+			civilian = {
+				small = "GFX_minister_TUR_ethem_nejat"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_ETHEM_NEJAT_DESC"
+			ideology = left_communism_subtype
 			traits = {  }
 		}
 	}
@@ -81,33 +71,19 @@ characters = {
 			}
 		}
 		
-		country_leader = {
-			desc = "POLITICS_SEVKET_SUREYYA_AYDEMIR_DESC"
-			ideology = democratic_socialism_subtype
-			traits = {  }
-		}
+		#country_leader = {
+		#	desc = "POLITICS_SEVKET_SUREYYA_AYDEMIR_DESC"
+		#	ideology = democratic_socialism_subtype
+		#	traits = {  }
+		#}
 		
 		advisor = {
 			cost = 100
-			
 			slot = political_advisor
 			idea_token = TUR_sevket_sureyya_aydemir
 			ledger = civilian
-			
-			allowed = {
-				original_tag = TUR
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				has_socialist_govt = yes
-			}
-			
 			traits = {
-				edu_influential_intellectual
+				
 			}
 		}
 	}
@@ -133,7 +109,7 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				large = "GFX_portrait_TUR_riza_tevfik"
+				large = "gfx/leaders/TUR/Portrait_TUR_Riza_Tevfik.png"
 				small = "GFX_minister_TUR_riza_tevfik"
 			}
 		}
@@ -144,6 +120,52 @@ characters = {
 			traits = {
 				TUR_literary_genius
 			}
+		}
+	}
+	
+	TUR_kazim_karabekir = {
+		name = TUR_kazim_karabekir
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_TUR_kazim_karabekir"
+			}
+			army = {
+				large = ""
+				small = ""
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_KAZIM_KARABEKIR_DESC"
+			ideology = progressive_liberalism_subtype
+			traits = {
+				TUR_liberal_generallisimo
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			can_be_fired = no
+			slot = army_chief
+			idea_token = TUR_kazim_karabekir_army_chief
+			ledger = army
+			traits = {
+				army_chief_organizational_2
+			}
+		}
+		
+		field_marshal = {
+			traits = {
+				politically_connected
+				war_hero
+				infantry_leader
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
 		}
 	}
 	
@@ -159,7 +181,9 @@ characters = {
 		country_leader = {
 			desc = "POLITICS_ADNAN_ADIVAR_DESC"
 			ideology = national_liberalism_subtype
-			traits = {  }
+			traits = {
+				TUR_doctor_for_the_sick_man
+			}
 		}
 	}
 	
@@ -182,59 +206,21 @@ characters = {
 		}
 	}
 	
-	TUR_kazim_karabekir = {
-		name = TUR_kazim_karabekir
+	TUR_cemal_azmi = {
+		name = TUR_cemal_azmi
 		
 		portraits = {
 			civilian = {
-				large = "GFX_portrait_TUR_kazim_karabekir"
-			}
-			army = {
-				large = ""
-				small = ""
+				large = "GFX_portrait_TUR_cemal_azmi"
 			}
 		}
 		
 		country_leader = {
-			desc = "POLITICS_KAZIM_KARABEKIR_DESC"
-			ideology = right_wing_populism_subtype
+			desc = "POLITICS_CEMAL_AZMI_DESC"
+			ideology = authoritarian_democracy_subtype
 			traits = {
-				TUR_liberal_generallisimo
-			}
-		}
-		
-		advisor = {
-			cost = 100
-			can_be_fired = no
-			
-			slot = army_chief
-			idea_token = TUR_kazim_karabekir_army_chief
-			ledger = army
-			
-			allowed = {
-				original_tag = TUR
-			}
-			
-			available = {
 				
 			}
-			
-			traits = {
-				army_chief_organizational_2
-			}
-		}
-		
-		field_marshal = {
-			traits = {
-				politically_connected
-				war_hero
-				infantry_leader
-			}
-			skill = 3
-			attack_skill = 3
-			defense_skill = 2
-			planning_skill = 3
-			logistics_skill = 2
 		}
 	}
 	
@@ -249,7 +235,25 @@ characters = {
 		
 		country_leader = {
 			desc = "POLITICS_NECIP_FAZIL_KISAKUREK_DESC"
-			ideology = fundamentalist_theocracy_subtype
+			ideology = despotism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	TUR_halil_kut_pasha = {
+		name = TUR_halil_kut_pasha
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_TUR_halil_kut_pasha"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_HALIL_KUT_PASHA_DESC"
+			ideology = ultraconservatism_subtype
 			traits = {
 				
 			}
@@ -267,7 +271,25 @@ characters = {
 		
 		country_leader = {
 			desc = "POLITICS_ENVER_PASHA_DESC"
-			ideology = far_right_authoritarianism_subtype
+			ideology = ultraconservatism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	TUR_various_leaders = {
+		name = TUR_various_leaders
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_TUR_various_leaders"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_VARIOUS_LEADERS_DESC"
+			ideology = fascism_subtype
 			traits = {
 				
 			}
@@ -287,23 +309,11 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
 			slot = political_advisor
-			idea_token = TUR_adnan_menderes_eco
+			idea_token = TUR_adnan_menderes
 			ledger = civilian
-			
-			removal_cost = -1
-			
-			allowed = {
-				original_tag = TUR
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
-				eco_industrialiser
+				industrializer
 			}
 		}
 	}
@@ -349,21 +359,56 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
 			slot = political_advisor
-			idea_token = TUR_rauf_orbay
+			idea_token = TUR_rauf_orbay_political_advisor
 			ledger = civilian
-			
-			allowed = {
-				original_tag = TUR
-			}
-			
 			available = {
-				
+				OR = {
+					has_government = social_democracy
+					has_country_flag = social_democracy_coalition
+				}
 			}
-			
 			traits = {
-				eco_naval_proponent
+				naval_proponent
+			}
+		}
+		
+		advisor = {
+			slot = theorist
+			idea_token = TUR_rauf_orbay_theorist
+			ledger = navy
+			traits = { naval_theorist }
+			cost = 100
+		}
+		
+		navy_leader = {
+			traits = {
+				superior_tactician
+			}
+			skill = 3
+			attack_skill = 2
+			defense_skill = 4
+			maneuvering_skill = 2
+			coordination_skill = 2
+		}
+	}
+	
+	TUR_refet_bele_pasha = {
+		name = TUR_refet_bele_pasha
+		
+		portraits = {
+			civilian = {
+				small = "GFX_minister_TUR_refet_bele_pasha"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = TUR_refet_bele_pasha
+			ledger = civilian
+			traits = {
+				retired_general
 			}
 		}
 	}
@@ -379,21 +424,14 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
 			slot = political_advisor
 			idea_token = TUR_mazhar_german
 			ledger = civilian
-			
-			allowed = {
-				original_tag = TUR
-			}
-			
 			available = {
 				has_reactionary_govt = no
 			}
-			
 			traits = {
-				edu_experienced_physician
+				experienced_physician
 			}
 		}
 	}
@@ -429,21 +467,14 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
 			slot = political_advisor
 			idea_token = TUR_riza_nur
 			ledger = civilian
-			
-			allowed = {
-				original_tag = TUR
-			}
-			
 			available = {
 				has_socialist_govt = no
 			}
-			
 			traits = {
-				edu_educational_reformer
+				educational_reformer
 			}
 		}
 	}
@@ -459,25 +490,14 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
 			slot = political_advisor
 			idea_token = TUR_mehmed_cavid
 			ledger = civilian
-			
-			allowed = {
-				original_tag = TUR
-			}
-			
-			visible = {
-				
-			}
-			
 			available = {
 				has_democratic_govt = yes
 			}
-			
 			traits = {
-				eco_balanced_budget_economy
+				balanced_budget_advocate
 			}
 		}
 	}
@@ -493,25 +513,14 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
 			slot = political_advisor
 			idea_token = TUR_hasan_ali_yucel
 			ledger = civilian
-			
-			allowed = {
-				original_tag = TUR
-			}
-			
-			visible = {
-				
-			}
-			
 			available = {
 				has_reactionary_govt = no
 			}
-			
 			traits = {
-				edu_educational_reformer
+				TUR_architect_of_the_village_institutes
 			}
 		}
 	}
@@ -527,25 +536,14 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
 			slot = political_advisor
 			idea_token = TUR_nuri_demirag
 			ledger = civilian
-			
-			allowed = {
-				original_tag = TUR
-			}
-			
-			visible = {
-				
-			}
-			
 			available = {
 				has_socialist_govt = no
 			}
-			
 			traits = {
-				eco_construction_magnate
+				construction_magnate
 			}
 		}
 	}
@@ -579,7 +577,7 @@ characters = {
 			}
 			
 			traits = {
-				for_great_compromiser
+				financial_expert
 			}
 		}
 	}
@@ -613,7 +611,7 @@ characters = {
 			}
 			
 			traits = {
-				sec_spymaster
+				spymaster
 			}
 		}
 	}
@@ -794,6 +792,53 @@ characters = {
 			defense_skill = 1
 			planning_skill = 1
 			logistics_skill = 1
+		}
+	}
+	
+	### Admirals ###
+	
+	TUR_sukru_okan = {
+		name = TUR_sukru_okan
+		
+		portraits = {
+			army = {
+				#large = ""
+				#small = ""
+			}
+		}
+		
+		navy_leader = {
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			maneuvering_skill = 2
+			coordination_skill = 1
+		}
+	}
+	
+	TUR_mehmet_ali_ulgen = {
+		name = TUR_mehmet_ali_ulgen
+		
+		portraits = {
+			army = {
+				#large = ""
+				#small = ""
+			}
+		}
+		
+		navy_leader = {
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			maneuvering_skill = 1
+			coordination_skill = 1
+		}
+		
+		advisor = {
+			slot = navy_chief
+			idea_token = TUR_mehmet_ali_ulgen
+			traits = { navy_chief_maneuver_2 }
+			cost = 100
 		}
 	}
 }

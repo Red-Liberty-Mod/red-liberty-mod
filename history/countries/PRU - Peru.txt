@@ -1,34 +1,17 @@
 ﻿capital = 303
 
-oob = "PRU_1936"
-if = {
-	limit = { has_dlc = "Man the Guns" }
-		set_naval_oob = "PRU_1936_naval_mtg"
-	else = {
-		set_naval_oob = "PRU_1936_naval_legacy"
-	}
-}
+oob = "PRU"
+set_convoys = 30
 
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
+	tech_trucks = 1
 	gw_artillery = 1
 	interwar_antiair = 1
-	early_fighter = 1
-	cv_early_fighter = 1
-	early_bomber = 1
-	CAS1 = 1
 }
 if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
-	set_technology = {
-		early_submarine = 1
-		early_destroyer = 1
-		early_light_cruiser = 1
-	}
-}
-if = {
-	limit = { has_dlc = "Man the Guns" }
+	limit = { has_dlc_mtg = yes }
 	set_technology = {
 		basic_naval_mines = 1
 		early_ship_hull_light = 1
@@ -39,11 +22,31 @@ if = {
 		basic_depth_charges = 1
 		coastal_defense_ships = 1
 	}
+	set_naval_oob = "PRU_naval_mtg"
+	else = {
+		set_technology = {
+			early_submarine = 1
+			early_destroyer = 1
+			early_light_cruiser = 1
+		}
+		set_naval_oob = "PRU_1936_naval_legacy"
+	}
 }
-
-set_country_flag = monroe_doctrine
-
-set_convoys = 5
+if = {
+	limit = { has_dlc_bba = yes }
+	set_technology = {
+		iw_small_airframe = 1
+		aa_lmg = 1
+		engines_1 = 1
+		early_bombs = 1
+	}
+	else = {
+		set_technology = {
+			early_fighter = 1
+			early_bomber = 1
+		}
+	}
+}
 
 set_politics = {
 	ruling_party = authoritarian_democracy
@@ -57,75 +60,37 @@ set_popularities = {
 	revolutionary_socialism = 0
 	democratic_socialism = 17
 	social_democracy = 23
-	progressive_liberalism = 3
-	liberal_conservatism = 8
-	national_conservatism = 17
+	progressive_liberalism = 0
+	liberal_conservatism = 17
+	national_conservatism = 11
 	authoritarian_democracy = 14
 	despotism = 0
 	ultraconservatism = 9
 	fascism = 7
 }
 
+add_ideas = {
+	PRU_growing_aprista_movement
+}
+
+diplomatic_relation = {
+	country = CHL
+	relation = embargo
+	active = yes
+}
+
 ### LEADERS ###
 recruit_character = PRU_luciano_castillo_colonna
 recruit_character = PRU_victor_raul_haya_de_la_torre
 recruit_character = PRU_luis_antonio_escudero
+recruit_character = PRU_jorge_prado_ugarteche
 recruit_character = PRU_manuel_vicente_villaran
 recruit_character = PRU_oscar_raimundo_benavides
+recruit_character = PRU_luis_alberto_flores_medina
 
-### VARIANTS ###
-# 1936 Start #
-if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
-	### Ship Variants ###
-}
-if = {
-	limit = { has_dlc = "Man the Guns" }
-	# Submarines #
-	create_equipment_variant = {
-		name = "R1 Class"				
-		type = ship_hull_submarine_1
-		parent_version = 0
-		modules = {
-			fixed_ship_torpedo_slot = ship_torpedo_sub_1
-			fixed_ship_engine_slot = sub_ship_engine_1
-			rear_1_custom_slot = empty
-		}
-	}
-	# Destroyers #
-	create_equipment_variant = {
-		name = "Almirante Villar Class"				
-		type = ship_hull_light_1
-		name_group = PRU_DD_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_light_battery_1
-			fixed_ship_anti_air_slot = empty
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = light_ship_engine_1
-			fixed_ship_torpedo_slot = ship_torpedo_1
-			mid_1_custom_slot = ship_mine_layer_1
-			rear_1_custom_slot = ship_torpedo_1
-		}
-	}
-	# Heavy Cruisers #
-	create_equipment_variant = {
-		name = "Almirante Grau Class"				
-		type = ship_hull_cruiser_coastal_defense_ship
-		name_group = PRU_CA_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_light_medium_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = cruiser_ship_engine_1
-			fixed_ship_armor_slot = empty
-			fixed_ship_secondaries_slot = empty
-			mid_1_custom_slot = empty
-			mid_2_custom_slot = empty
-			rear_1_custom_slot = empty
-		}
-	}
-}
+### GENERALS ###
+recruit_character = PRU_ernesto_montagne_markholz
+recruit_character = PRU_antonio_rodriguez_ramirez
+
+### ADMIRALS ###
+recruit_character = PRU_carlos_rotalde_gonzales_del_valle

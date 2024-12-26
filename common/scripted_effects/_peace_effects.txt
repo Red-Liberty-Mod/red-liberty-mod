@@ -33,12 +33,17 @@ FRA_wins_great_war = {
 	}
 	
 	FRA = {
-		transfer_state = 8
 		transfer_state = 28
-		transfer_state = 42
-		transfer_state = 51
 		transfer_state = 877
-		transfer_state = 878
+		
+		if = {
+			limit = {
+				has_completed_focus = FRA_natural_borders_of_france
+			}
+			transfer_state = 8
+			transfer_state = 42
+			transfer_state = 51
+		}
 	}
 	
 	WGR = {
@@ -55,7 +60,21 @@ FRA_wins_great_war = {
 		add_state_core = 65
 		add_state_core = 797
 		add_state_core = 819
+		add_state_core = 878
 		add_state_core = 937
+		
+		if = {
+			limit = {
+				FRA = {
+					NOT = {
+						has_completed_focus = FRA_natural_borders_of_france
+					}
+				}
+			}
+			add_state_core = 8
+			add_state_core = 42
+			add_state_core = 51
+		}
 		
 		GER = {
 			every_owned_state = {
@@ -78,8 +97,10 @@ FRA_wins_great_war = {
 			elections_allowed = no
 		}
 		set_popularities = {
+			social_democracy = 33
 			national_conservatism = 20
-			despotism = 80
+			despotism = 44
+			fascism = 3
 		}
 	}
 	DDR = {

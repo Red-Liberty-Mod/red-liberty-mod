@@ -89,3 +89,29 @@ should_initiate_resistance_415_941_942_943_944_945 = {
 		should_initiate_resistance = yes
 	}
 }
+
+should_initiate_resistance_272_556_557_700_776_777_778_779_780_781_1005 = {
+	if = { 
+		limit = {
+			FROM = {
+				original_tag = FWA
+			}
+			FROM.FROM = {
+				OR = {
+					original_tag = GNA
+					original_tag = IVO
+					original_tag = SEN
+					original_tag = VOL
+					original_tag = MRT
+					original_tag = TOG
+					original_tag = DAH
+					original_tag = NGR
+					original_tag = MLI
+				}
+			}
+		}
+	}
+	else = {
+		should_initiate_resistance = yes
+	}
+}

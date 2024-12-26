@@ -261,3 +261,62 @@ propaganda_efforts = {
 		}
 	}
 }
+
+foreign_policy_category = {
+	
+	foreign_policy_join_pakt = {
+		icon = eng_propaganda_campaigns
+
+		available = {
+			has_global_flag = second_great_war_started
+		}
+
+		cost = 0
+		fire_only_once = yes
+
+		complete_effect = {
+			GER = {
+				country_event = {
+					id = generic.1
+					hours = 6
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				#add = 201
+				#has_war_support < 0.6
+			}
+		}
+	}
+	
+	foreign_policy_join_entente = {
+		icon = eng_propaganda_campaigns
+
+		available = {
+			has_global_flag = second_great_war_started
+		}
+
+		cost = 50
+		fire_only_once = yes
+
+		complete_effect = {
+			ENG = {
+				country_event = {
+					id = generic.1
+					hours = 6
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				#add = 201
+				#has_war_support < 0.6
+			}
+		}
+	}
+}

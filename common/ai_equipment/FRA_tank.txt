@@ -1,0 +1,135 @@
+# AI tank design for testing
+
+FRA_light_tanks = {
+	category = land
+
+	available_for = { FRA }
+
+	roles = {
+		land_light_tank
+	}
+
+	priority = {
+		factor = 1000
+	}
+	
+	### Improved Tank Chassis ###
+	
+	improved_light_tank_1 = { # 
+		name = "FCM 36"
+		
+		priority = {
+			factor = 10
+			modifier = { 
+				has_tech = advanced_light_tank_chassis 
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		target_variant = {
+			match_value = 3000
+			type = light_tank_chassis_2
+			modules = {
+				main_armament_slot = {
+					any_of = {
+						tank_small_cannon_2
+						tank_small_cannon
+					} 
+				}
+				turret_type_slot = tank_light_one_man_tank_turret 
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_welded_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = additional_machine_guns
+				special_type_slot_2 = empty
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 5
+				tank_nsb_armor_upgrade = {
+					base = 4
+				}
+			}
+		}
+	}
+	
+	improved_light_tank_2 = { # 
+		name = "AMC 35"
+		
+		priority = {
+			factor = 10
+			modifier = { 
+				has_tech = advanced_light_tank_chassis 
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		target_variant = {
+			match_value = 3000
+			type = light_tank_chassis_2
+			modules = {
+				main_armament_slot = {
+					any_of = {
+						tank_small_cannon_2
+						tank_small_cannon
+					} 
+				}
+				turret_type_slot = tank_light_two_man_tank_turret 
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_welded_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = additional_machine_guns
+				special_type_slot_2 = empty
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 5
+				tank_nsb_armor_upgrade = {
+					base = 4
+				}
+			}
+		}
+	}
+	
+	improved_light_tank_2 = { # 
+		name = "R-40"
+		
+		priority = {
+			factor = 10
+			modifier = { 
+				has_tech = advanced_light_tank_chassis 
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		target_variant = {
+			match_value = 3000
+			type = light_tank_chassis_2
+			modules = {
+				main_armament_slot = {
+					any_of = {
+						tank_small_cannon_2
+						tank_small_cannon
+					} 
+				}
+				turret_type_slot = tank_light_one_man_tank_turret 
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_cast_armor
+				engine_type_slot = tank_gasoline_engine
+				radio_slot = tank_radio_module
+				special_type_slot_1 = additional_machine_guns
+				special_type_slot_2 = empty
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 6
+				tank_nsb_armor_upgrade = {
+					base = 4
+				}
+			}
+		}
+	}
+}
