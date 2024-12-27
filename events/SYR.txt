@@ -14,3 +14,336 @@ country_event = {
 		name = syria.0.a
 	}
 }
+
+country_event = {
+	id = syria.1
+	title = syria.1.t
+	desc = syria.1.d
+	picture = GFX_news_event_iraqirevolt
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = syria.1.a
+		random_list = {
+			75 = {
+				SYR={
+					country_event = {
+						id = syria.2
+						days = 20
+					}
+				}
+			}
+			25 = {
+				SYR={
+					country_event = {
+						id = syria.3
+						days = 20
+					}
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = syria.2
+	title = syria.2.t
+	desc = syria.2.d
+	picture = GFX_news_event_iraqirevolt
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = syria.2.a
+		set_party_name = {
+			ideology = social_democracy
+			long_name = SYR_peoples_party
+			name = SYR_peoples_party
+		}
+		set_party_name = {
+			ideology = progressive_liberalism
+			long_name = SYR_peoples_party
+			name = SYR_peoples_party
+		}
+		hidden_effect = {
+			country_event = {
+				id = syria.4
+				days = 15
+			}
+		}
+	}
+}
+country_event = {
+	id = syria.3
+	title = syria.3.t
+	desc = syria.3.d
+	picture = GFX_news_event_iraqirevolt
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = syria.3.a
+		hidden_effect = {
+			create_country_leader = {
+				name = "Hashim Al Atassi"  
+				picture = "gfx/leaders/SYR/SYR_hashim_al_atassi.png"
+				ideology = conservative_populism_subtype
+				
+			}
+			country_event = {
+				id = syria.8
+				days = 1095
+			}
+		}
+	}
+}
+country_event = {
+	id = syria.4
+	title = syria.4.t
+	desc = syria.4.d
+	picture = GFX_news_event_iraqirevolt
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = syria.4.a
+		455 = {
+			set_demilitarized_zone = yes
+		}
+		553 = {
+			set_demilitarized_zone = yes
+		}
+		554 = {
+			set_demilitarized_zone = yes
+		}
+		680 = {
+			set_demilitarized_zone = yes
+		}
+		892 = {
+			set_demilitarized_zone = yes
+		}
+		hidden_effect = {
+			FRA={
+				country_event = {
+					id = syria.5
+					days = 30
+				}
+				
+			}
+		}
+	}
+}
+country_event = {
+	id = syria.5
+	title = syria.5.t
+	desc = syria.5.d
+	picture = GFX_news_event_iraqirevolt
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = syria.5.a
+		ai_chance = {
+			base = 75
+		}
+		hidden_effect = {
+			SYR={
+				country_event = {
+					id = syria.7
+					days = 30
+				}
+				
+			}
+		}
+	}
+	option = {
+		name = syria.5.b
+		ai_chance = {
+			base = 25
+		}
+		hidden_effect = {
+			SYR={
+				country_event = {
+					id = syria.6
+					days = 90
+				}
+				
+			}
+		}
+	}
+}
+country_event = {
+	id = syria.6
+	title = syria.6.t
+	desc = syria.6.d
+	picture = GFX_news_event_iraqirevolt
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = syria.6.a
+		end_puppet = SYR
+		set_politics = {
+			ruling_party = authoritarian_democracy
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = authoritarian_democracy
+			popularity = 0.4
+		}
+		remove_ideas = {
+			SYR_flawed_democracy
+			
+		}
+		swap_ideas = {
+			remove_idea = SYR_seperated_coast
+			add_idea = SYR_seperated_coast2
+		}
+		892={
+			transfer_state_to = SYR
+			set_demilitarized_zone = no
+		}
+		455 = {
+			set_demilitarized_zone = no
+		}
+		554 = {
+			set_demilitarized_zone = no
+		}
+		680 = {
+			set_demilitarized_zone = no
+		}
+	}
+}
+country_event = {
+	id = syria.7
+	title = syria.7.t
+	desc = syria.7.d
+	picture = GFX_news_event_iraqirevolt
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = syria.7.a
+		set_politics = {
+			ruling_party = progressive_liberalism
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = progressive_liberalism
+			popularity = 0.3
+		}
+		set_country_flag = progressive_liberalism_coalition
+		set_country_flag = social_democracy_coalition
+		clr_country_flag = liberal_conservatism_coalition
+		clr_country_flag = national_conservatism_coalition
+
+		swap_ideas = {
+			remove_idea = SYR_flawed_democracy
+			add_idea = SYR_good_enough_democracy
+		}
+		892={
+			set_demilitarized_zone = no
+		}
+		455 = {
+			set_demilitarized_zone = no
+		}
+		553 = {
+			set_demilitarized_zone = no
+		}
+		554 = {
+			set_demilitarized_zone = no
+		}
+		680 = {
+			set_demilitarized_zone = no
+		}
+		hidden_effect = {
+			country_event = {
+				id = syria.8
+				days = 182
+			}
+		}
+	}
+}
+country_event = {
+	id = syria.8
+	title = syria.8.t
+	desc = syria.8.d
+	picture = GFX_news_event_iraqirevolt
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = syria.8.a
+		end_puppet = SYR
+		drop_cosmetic_tag = yes
+	}
+	option = {
+		name = syria.8.b
+		end_puppet = SYR
+		give_military_access = FRA
+		give_market_access = FRA
+		FRA={
+			give_guarantee = SYR
+		}
+		transfer_state = 892
+		swap_ideas = {
+			remove_idea = SYR_seperated_coast
+			add_idea = SYR_seperated_coast2
+		}
+		drop_cosmetic_tag = yes
+	}
+	option = {
+		name = syria.8.c
+		transfer_state = 892
+		transfer_state = 553
+		remove_ideas = {
+			SYR_seperated_coast
+		}
+		drop_cosmetic_tag = yes
+		country_event = {
+			id = syria.9
+			days = 2191
+		}
+		hidden_effect = {
+			remove_ideas = {
+				SYR_seperated_coast
+			}
+		}
+	}
+}
+country_event = {
+	id = syria.9
+	title = syria.9.t
+	desc = syria.9.d
+	picture = GFX_news_event_iraqirevolt
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = syria.9.a
+		end_puppet = SYR
+		give_military_access = FRA
+		give_market_access = FRA
+		FRA={
+			give_guarantee = SYR
+		}
+	}
+}

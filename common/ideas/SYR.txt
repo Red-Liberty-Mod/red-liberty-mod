@@ -42,11 +42,11 @@ ideas = {
 			}
 			targeted_modifier = {
 				tag = HEZ
-				defense_bonus_against = -0.1
+				defense_bonus_against = -0.2
 			}
 			targeted_modifier = {
 				tag = FRA
-				defense_bonus_against = 0.1
+				defense_bonus_against = 0.2
 			}
 		}
 		
@@ -66,6 +66,23 @@ ideas = {
 				autonomy_gain = -0.01
 				naval_doctrine_cost_factor = 0.1
 				stability_factor = -0.1
+			}
+		}
+		SYR_seperated_coast2 = { #Under direct french occupation
+		picture = EST_democratic_opposition
+			removal_cost = -1 
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				naval_doctrine_cost_factor = 0.05
+				stability_factor = -0.05
 			}
 		}
 		SYR_corruption = {
@@ -97,6 +114,23 @@ ideas = {
 				liberal_conservatism_drift = 0.01
 				party_popularity_stability_factor = 0.05
 				stability_weekly_factor = 0.01
+			}
+		}
+		SYR_good_enough_democracy = {
+			picture = CHL_liberal_party_in_power
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				national_conservatism_drift = 0.01
+				liberal_conservatism_drift = 0.01
+				progressive_liberalism_drift = 0.01
+				social_democracy_drift = 0.01
+				party_popularity_stability_factor = 0.1
 			}
 		}
 	}
