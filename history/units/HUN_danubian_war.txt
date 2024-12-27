@@ -11,6 +11,76 @@ division_template = {
 		infantry = { x = 1 y = 0 }
 		infantry = { x = 1 y = 1 }
 		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+}
+
+division_template = {
+	name = "Határőrség"
+	division_names_group = HUN_GAR_01
+	regiments = {
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 }
+		light_infantry = { x = 0 y = 2 }
+		light_infantry = { x = 1 y = 0 }
+		light_infantry = { x = 1 y = 1 }
+		light_infantry = { x = 1 y = 2 }
+	}
+	priority = 0
+}
+
+division_template = {
+	name = "Hegyivadász Hadosztály"
+	division_names_group = HUN_MTN_01
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+	}
+	priority = 2
+}
+
+division_template = {
+	name = "Lovashadosztály"
+	division_names_group = HUN_CAV_01
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 0 y = 3 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+	}
+}
+
+division_template = {
+	name = "Gépkocsizó Hadosztály"
+	division_names_group = HUN_CAV_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Harckocsizó Hadosztály"
+	division_names_group = HUN_ARM_01
+	regiments = {
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
 	}
 }
 
@@ -31,53 +101,87 @@ division_template = {
 
 ###### OOB ######
 units = {
-	division= {
-		location = 9660
+	
+	### National Army ###
+	division = {
+		location = 9692
 		division_template = "Gyaloghadosztály"
-		start_experience_factor = 0.3
-		start_equipment_factor = 0.8
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
 	}
-	division= {
-		location = 9660
+	division = {
+		location = 9692
 		division_template = "Gyaloghadosztály"
-		start_experience_factor = 0.3
-		start_equipment_factor = 0.8
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
 	}
-	division= {
-		location = 9660
+	division = {
+		location = 6711
 		division_template = "Gyaloghadosztály"
-		start_experience_factor = 0.3
-		start_equipment_factor = 0.8
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
 	}
-	division= {
-		location = 9660
+	division = {
+		location = 6711
 		division_template = "Gyaloghadosztály"
-		start_experience_factor = 0.3
-		start_equipment_factor = 0.8
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
 	}
-	division= {
-		location = 9660
+	division = {
+		location = 6751
 		division_template = "Gyaloghadosztály"
-		start_experience_factor = 0.3
-		start_equipment_factor = 0.8
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
 	}
-	division= {
+	division = {
 		location = 9660
 		division_template = "Gyaloghadosztály"
-		start_experience_factor = 0.3
-		start_equipment_factor = 0.8
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
 	}
-	division= {
-		location = 9660
+	division = {
+		location = 11610
 		division_template = "Gyaloghadosztály"
-		start_experience_factor = 0.3
-		start_equipment_factor = 0.8
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
 	}
-	division= {
-		location = 9660
+	division = {
+		location = 9606
 		division_template = "Gyaloghadosztály"
-		start_experience_factor = 0.3
-		start_equipment_factor = 0.8
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	
+	division = {
+		location = 6720
+		division_template = "Lovashadosztály"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		location = 3617
+		division_template = "Lovashadosztály"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		location = 727
+		division_template = "Lovashadosztály"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		location = 9660
+		division_template = "Lovashadosztály"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	
+	division = {
+		location = 9660
+		division_template = "Harckocsizó Hadosztály"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
 	}
 	
 	division= {
@@ -100,30 +204,6 @@ units = {
 	}
 	division= {
 		location = 619
-		division_template = "Milícia Osztály"
-		start_experience_factor = 0.15
-		start_equipment_factor = 0.5
-	}
-	division= {
-		location = 11659
-		division_template = "Milícia Osztály"
-		start_experience_factor = 0.15
-		start_equipment_factor = 0.5
-	}
-	division= {
-		location = 3548
-		division_template = "Milícia Osztály"
-		start_experience_factor = 0.15
-		start_equipment_factor = 0.5
-	}
-	division= {
-		location = 9606
-		division_template = "Milícia Osztály"
-		start_experience_factor = 0.15
-		start_equipment_factor = 0.5
-	}
-	division= {
-		location = 9606
 		division_template = "Milícia Osztály"
 		start_experience_factor = 0.15
 		start_equipment_factor = 0.5

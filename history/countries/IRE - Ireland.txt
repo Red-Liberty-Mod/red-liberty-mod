@@ -3,7 +3,6 @@
 oob = "IRE"
 set_research_slots = 2
 set_convoys = 10
-set_country_flag = semi_industrialized_nation
 
 set_technology = {
 	infantry_weapons = 1
@@ -26,12 +25,10 @@ if = {
 	}
 	set_technology = {
 		gwtank_chassis = 1
-		basic_light_tank_chassis = 1
 	}
 	else = {
 		set_technology = {
 			gwtank = 1
-			basic_light_tank = 1
 		}
 	}
 }
@@ -80,6 +77,15 @@ set_popularities = {
 	fascism = 2
 }
 
+add_opinion_modifier = {
+    target = ENG
+    modifier = IRE_trade_war
+}
+reverse_add_opinion_modifier = {
+    target = ENG
+    modifier = IRE_trade_war
+}
+
 set_country_flag = liberal_conservatism_coalition
 set_country_flag = national_conservatism_coalition
 
@@ -94,8 +100,11 @@ set_variable = { authoritarian_tds = 14 }
 IRE_init_parliament = yes
 
 # Paramilitary stuff #
-set_variable = { IRE_ira_strength = 55 }
-set_variable = { IRE_ica_strength = 45 }
+set_variable = { IRE_ira_strength = 45 }
+set_variable = { IRE_ica_strength = 35 }
+
+set_variable = { IRE_ira_leader = 0 }
+set_variable = { IRE_ica_leader = 0 }
 
 ### Leaders ###
 recruit_character = IRE_jack_white

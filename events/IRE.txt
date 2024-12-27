@@ -31,6 +31,7 @@ country_event = { # cathal brugha released
 	option = {
 		name = ireland.2.a
 		promote_character = IRE_cathal_brugha
+		set_variable = { IRE_ira_leader = 1 }
 	}
 }
 
@@ -79,7 +80,10 @@ country_event = { # austerity act
 		name = ireland.4.a
 		add_political_power = -50
 		set_country_flag = IRE_financial_austerity_act_passed
-		
+		add_timed_idea = {
+			idea = IRE_financial_austerity
+			days = 180
+		}
 		ai_chance = {
 			base = 5
 		}
@@ -188,7 +192,6 @@ country_event = { # cancel elections
 
 	option = {
 		name = ireland.7.a
-		unlock_national_focus = IRE_1937_elections
 		set_country_flag = IRE_canceled_elections
 		
 		ai_chance = {
@@ -215,10 +218,14 @@ country_event = { # 1937 election
 			has_country_flag = IRE_canceled_elections
 		}
 	}
-	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			complete_national_focus = IRE_1937_elections
+		}
+	}
 
 	option = { # socdem
 		name = ireland.8.a
@@ -230,8 +237,9 @@ country_event = { # 1937 election
 			ruling_party = social_democracy
 			elections_allowed = yes
 		}
-		
+		set_country_flag = IRE_labour_victory
 		add_ideas = IRE_william_norton_hog
+		reset_coalition = yes
 		
 		hidden_effect = {
 			random_other_country = {
@@ -255,6 +263,8 @@ country_event = { # 1937 election
 			ruling_party = progressive_liberalism
 			elections_allowed = yes
 		}
+		set_country_flag = IRE_dile_saor_victory
+		reset_coalition = yes
 		
 		hidden_effect = {
 			random_other_country = {
@@ -270,7 +280,7 @@ country_event = { # 1937 election
 	
 	option = { # natcon
 		name = ireland.8.c
-		
+		set_country_flag = IRE_laochra_victory
 		hidden_effect = {
 			random_other_country = {
 				limit = { is_ai = yes }
@@ -280,25 +290,6 @@ country_event = { # 1937 election
 		
 		ai_chance = {
 			base = 4
-		}
-	}
-	
-	option = { # authdem
-		name = ireland.8.d
-		set_politics = {
-			ruling_party = authoritarian_democracy
-			elections_allowed = yes
-		}
-		
-		hidden_effect = {
-			random_other_country = {
-				limit = { is_ai = yes }
-				news_event = { id = ireland_news.6 hours = 6 }
-			}
-		}
-		
-		ai_chance = {
-			base = 1
 		}
 	}
 }
@@ -438,6 +429,68 @@ country_event = { # impending violence
 	}
 }
 
+country_event = { # mairtin o cadhain gives a speech denouncing the establishment
+	id = ireland.18
+	title = ireland.18.title
+	desc = ireland.18.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ireland.18.a
+		add_popularity = {
+			ideology = vanguard_socialism
+			popularity = 0.005
+		}
+	}
+}
+
+country_event = { # jim larkin revealed as leader of the ica
+	id = ireland.19
+	title = ireland.19.title
+	desc = ireland.19.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ireland.19.a
+		set_variable = { IRE_ica_leader = 1 }
+	}
+}
+
+country_event = { # larkin rearrested, jack white takes over as leader of ica
+	id = ireland.20
+	title = ireland.20.title
+	desc = ireland.20.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ireland.20.a
+		set_variable = { IRE_ica_leader = 2 }
+	}
+}
+
+country_event = { # neither king nor kaiser
+	id = ireland.21
+	title = ireland.21.title
+	desc = ireland.21.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = ireland.21.a
+	}
+}
+
 ### Meme ###
 country_event = { # intro event
 	id = ireland.1918
@@ -453,7 +506,7 @@ country_event = { # intro event
 		hidden_effect = {
 			IRE = {
 				set_politics = {
-					ruling_party = despotism
+					ruling_party = ultraconservatism
 					last_election = "1930.11.24"
 					election_frequency = 84
 					elections_allowed = no
@@ -468,8 +521,8 @@ country_event = { # intro event
 					liberal_conservatism = 0
 					national_conservatism = 0
 					authoritarian_democracy = 0
-					despotism = 77
-					ultraconservatism = 0
+					despotism = 0
+					ultraconservatism = 77
 					fascism = 0
 				}
 				
@@ -493,7 +546,7 @@ country_event = { # intro event
 					desc = ""
 					picture = "gfx/leaders/IRE/Portrait_IRE_Alex_Kolchak.png"
 					expire = "1965.1.1"
-					ideology = fundamentalist_theocracy_subtype
+					ideology = fundamentalism_subtype
 					traits = {
 						#
 					}
@@ -776,6 +829,11 @@ country_event = { # ica turns on govt
 		hidden_effect = {
 			start_irish_civil_war_ICA = yes
 			set_global_flag = IRE_civil_war_started
+			
+			add_named_threat = { 
+				threat = 5
+				name = IRE_civil_war
+			}
 		}
 	}
 

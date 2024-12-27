@@ -436,6 +436,7 @@ country_event = { # reed retires as vp
 	option = {
 		name = united_states_thomas.23.a
 		custom_effect_tooltip = USA_reed_will_remember_tt
+		promote_character = USA_earl_russell_browder
 	}
 }
 
@@ -558,7 +559,7 @@ country_event = { # right to democracy
 	}
 }
 
-country_event = { # social security draft chain - pensions
+country_event = { # social security draft - moderate vs radical draft
 	id = united_states_thomas.32
 	title = united_states_thomas.32.title
 	desc = united_states_thomas.32.desc
@@ -569,74 +570,12 @@ country_event = { # social security draft chain - pensions
 
 	option = {
 		name = united_states_thomas.32.a
-		set_variable = { USA_bill_strength = 5 }
-		
-		country_event = {
-			id = united_states_thomas.33
-			days = 3
-		}
-	}
-}
-
-country_event = { # social security draft chain - medical benefits
-	id = united_states_thomas.33
-	title = united_states_thomas.33.title
-	desc = united_states_thomas.33.desc
-	
-	is_triggered_only = yes
-	
-	fire_only_once = yes
-
-	option = {
-		name = united_states_thomas.33.a
-		add_to_variable = { USA_bill_strength = 10 }
-		
-		country_event = {
-			id = united_states_thomas.34
-			days = 4
-		}
+		set_country_flag = USA_social_security_moderate
 	}
 	
 	option = {
-		name = united_states_thomas.33.b
-		country_event = {
-			id = united_states_thomas.35
-			days = 5
-		}
-	}
-}
-
-country_event = { # social security draft chain - unemployment benefits
-	id = united_states_thomas.34
-	title = united_states_thomas.34.title
-	desc = united_states_thomas.34.desc
-	
-	is_triggered_only = yes
-	
-	fire_only_once = yes
-
-	option = {
-		name = united_states_thomas.34.a
-		add_to_variable = { USA_bill_strength = 10 }
-	}
-	
-	option = {
-		name = united_states_thomas.34.b
-	}
-}
-
-country_event = { # social security draft chain - too conservative
-	id = united_states_thomas.35
-	title = united_states_thomas.35.title
-	desc = united_states_thomas.35.desc
-	
-	is_triggered_only = yes
-	
-	fire_only_once = yes
-
-	option = {
-		name = united_states_thomas.35.a
-		add_political_power = -25
+		name = united_states_thomas.32.b
+		set_country_flag = USA_social_security_radical
 	}
 }
 
@@ -657,6 +596,62 @@ country_event = { # we lost the election
 			days = 150
 		}
 		add_political_power = -25
+	}
+}
+
+country_event = { # civil rights commission report
+	id = united_states_thomas.37
+	title = united_states_thomas.37.title
+	desc = united_states_thomas.37.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_thomas.37.a
+	}
+}
+
+country_event = { # 
+	id = united_states_thomas.38
+	title = united_states_thomas.38.title
+	desc = united_states_thomas.38.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_thomas.38.a
+	}
+}
+
+country_event = { # 
+	id = united_states_thomas.39
+	title = united_states_thomas.39.title
+	desc = united_states_thomas.39.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_thomas.39.a
+	}
+}
+
+country_event = { # a senators ties to the KKK are revealed
+	id = united_states_thomas.40
+	title = united_states_thomas.40.title
+	desc = united_states_thomas.40.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_thomas.40.a
 	}
 }
 

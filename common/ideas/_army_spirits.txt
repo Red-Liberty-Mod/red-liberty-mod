@@ -299,10 +299,16 @@ ideas = {
 		ideological_loyalty_spirit = {
 			ledger = army
 			visible = {
-				has_socialist_govt = yes
+				OR = {
+					has_government = vanguard_socialism
+					has_government = revolutionary_socialism
+				}
 			}
 			available = {
-				has_socialist_govt = yes
+				OR = {
+					has_government = vanguard_socialism
+					has_government = revolutionary_socialism
+				}
 			}
 			modifier = {
 				pocket_penalty = -0.2
@@ -495,8 +501,8 @@ ideas = {
 		static_warfare_spirit = {
 			ledger = army
 			modifier = {
-				tactic_elastic_defense_preferred_weight_base = 1
-				tactic_overwhelming_fire_preferred_weight_base = 1
+				tactic_elastic_defense_preferred_weight_factor = 1
+				tactic_overwhelming_fire_preferred_weight_factor = 1
 				max_dig_in_factor = 0.1
 				dig_in_speed_factor = 0.1
 			}
@@ -508,8 +514,8 @@ ideas = {
 		expeditionary_spirit = {
 			ledger = army
 			modifier = {
-				tactic_breakthrough_preferred_weight_base = 1
-				tactic_blitz_preferred_weight_base = 1
+				tactic_breakthrough_preferred_weight_factor = 1
+				tactic_blitz_preferred_weight_factor = 1
 				terrain_penalty_reduction = 0.1
 				org_loss_when_moving = -0.05
 			}
@@ -533,7 +539,7 @@ ideas = {
 		aggressive_reconnaisance_spirit = {
 			ledger = army
 			modifier = {
-				tactic_infantry_charge_preferred_weight_base = 1
+				tactic_infantry_charge_preferred_weight_factor = 1
 				intel_from_combat_factor = 0.15
 				recon_factor = 0.15
 			}
@@ -545,7 +551,7 @@ ideas = {
 		reserve_officers_spirit = {
 			ledger = army
 			modifier = {
-				tactic_delay_preferred_weight_base = 1
+				tactic_delay_preferred_weight_factor = 1
 				training_time_army_factor = -0.15
 			}
 			ai_will_do = {
@@ -569,7 +575,7 @@ ideas = {
 		victory_or_death_spirit = {
 			ledger = army
 			modifier = {
-				tactic_human_wave_tactics_preferred_weight_base = 1
+				tactic_human_wave_tactics_preferred_weight_factor = 1
 				org_loss_at_low_org_factor = -0.15
 			}
 			ai_will_do = {
@@ -582,7 +588,7 @@ ideas = {
 				has_tech = mobile_warfare
 			}
 			modifier = {
-				tactic_unexpected_thrust_preferred_weight_base = 1
+				tactic_unexpected_thrust_preferred_weight_factor = 1
 				army_speed_factor = 0.05
 				coordination_bonus = 0.05
 			}
@@ -597,7 +603,7 @@ ideas = {
 				has_tech = superior_firepower
 			}
 			modifier = {
-				tactic_barrage_preferred_weight_base = 1
+				tactic_barrage_preferred_weight_factor = 1
 				breakthrough_factor = 0.05
 			}
 			ai_will_do = {
@@ -611,7 +617,7 @@ ideas = {
 				has_tech = trench_warfare
 			}
 			modifier = {
-				tactic_planned_attack_preferred_weight_base = 1
+				tactic_planned_attack_preferred_weight_factor = 1
 				supply_consumption_factor = -0.05
 				air_fuel_consumption_factor = -0.05
 				navy_fuel_consumption_factor = -0.05
@@ -627,7 +633,7 @@ ideas = {
 				has_tech = mass_assault
 			}
 			modifier = {
-				tactic_relentless_assault_preferred_weight_base = 1
+				tactic_relentless_assault_preferred_weight_factor = 1
 				army_strength_factor = 0.1
 			}
 			ai_will_do = {

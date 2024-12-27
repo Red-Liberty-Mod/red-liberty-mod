@@ -1,0 +1,206 @@
+
+naval_unit_role_ratios_GER = {
+	allowed = {
+		has_dlc_mtg = yes
+		tag = GER
+	}
+	enable = { always = yes }
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_submarine
+		value = 10
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_screen
+		value = 75
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_cruiser_light
+		value = 50
+	}
+}
+
+naval_unit_role_ratios_ENG = {
+	allowed = {
+		has_dlc_mtg = yes
+		tag = ENG
+	}
+	enable = { always = yes }
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_submarine
+		value = 10
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_screen
+		value = 75
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_cruiser_light
+		value = 50
+	}
+}
+
+naval_unit_role_ratios_FRA = {
+	allowed = {
+		has_dlc_mtg = yes
+		tag = FRA
+	}
+	enable = { always = yes }
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_submarine
+		value = 70
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = naval_cruiser_light
+		value = 20
+	}
+}
+
+naval_unit_role_ratios_JAP = {
+	allowed = {
+		has_dlc_mtg = yes
+		tag = JAP
+	}
+	enable = { always = yes }
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_submarine
+		value = 10
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_screen
+		value = 30
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_cruiser_light
+		value = 35
+	}
+}
+
+naval_unit_role_ratios_USA = {
+	allowed = {
+		has_dlc_mtg = yes
+		tag = USA
+	}
+	enable = { always = yes }
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_capital_bb
+		value = 10
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_carrier
+		value = 15
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_submarine
+		value = 25
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_screen
+		value = 120
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_cruiser_light
+		value = 40
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_cruiser_heavy
+		value = 10
+	}
+}
+
+high_mine_threat = {
+	allowed = {
+		has_dlc_mtg = yes
+	}
+	enable = {
+		mine_threat > 0.2
+	}
+	abort = {
+		mine_threat < 0.2
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_mine_sweeper
+		value = 25
+	}
+}
+
+need_convoys_major = {
+	allowed = {
+		is_major = yes
+	}
+	enable = { stockpile_ratio = { archetype = convoy ratio < 75 } }
+	abort = { stockpile_ratio = { archetype = convoy ratio > 125 } }
+
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = convoy
+		value = 5
+	}
+}
+
+need_convoys_minor = {
+	allowed = {
+		is_major = no
+	}
+	enable = { stockpile_ratio = { archetype = convoy ratio < 75 } }
+	abort = { stockpile_ratio = { archetype = convoy ratio > 100 } }
+
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = convoy
+		value = 5
+	}
+}
+
+dont_need_convoys = {
+	allowed = {
+		always = yes
+	}
+	enable = { stockpile_ratio = { archetype = convoy ratio > 150 } }
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = equipment_variant_production_factor
+		id = convoy
+		value = -500
+	}
+}

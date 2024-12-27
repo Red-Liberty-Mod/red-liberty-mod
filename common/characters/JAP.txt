@@ -283,23 +283,30 @@ characters = {
 		
 		advisor = {
 			slot = political_advisor
-			idea_token = JAP_inejiro_asanuma
-			
-			allowed = {
-				original_tag = JAP
-			}
-			
-			visible = {
-				
-			}
-			
+			idea_token = JAP_inejiro_asanuma_political_advisor
 			available = {
 				has_socialist_govt = yes
 			}
 			
 			traits = {
-				for_ideological_crusader
+				
 			}
+		}
+	}
+	
+	JAP_matsuoka_yosuke = {
+		name = JAP_matsuoka_yosuke
+		
+		portraits = {
+			civilian = {
+				small = GFX_portrait_JAP_matsuoka_yosuke_army_small
+			}
+		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = JAP_matsuoka_yosuke_political_advisor
+			traits = { railway_magnate }
 		}
 	}
 	
@@ -315,21 +322,12 @@ characters = {
 		advisor = {
 			slot = political_advisor
 			idea_token = JAP_fujiwara_ginjiro
-			
-			allowed = {
-				original_tag = JAP
-			}
-			
-			visible = {
-				
-			}
-			
 			available = {
 				has_reactionary_govt = yes
 			}
 			
 			traits = {
-				eco_resource_industrialist
+				resource_industrialist
 			}
 		}
 	}
@@ -395,7 +393,7 @@ characters = {
 			}
 			
 			traits = {
-				sec_man_of_the_people
+				
 			}
 		}
 	}
@@ -419,7 +417,7 @@ characters = {
 			}
 			
 			traits = {
-				edu_propagandist
+				war_propagandist
 			}
 		}
 	}
@@ -517,7 +515,7 @@ characters = {
 			slot = army_chief
 			idea_token = JAP_yamashita_tomoyuki_army_chief
 			traits = { army_chief_morale_3 }
-			cost = 200
+			cost = 150
 		}
 	}
 	
@@ -550,7 +548,7 @@ characters = {
 			traits = {
 				army_artillery_3
 			}
-			cost = 200
+			cost = 150
 		}
 	}
 	
@@ -764,6 +762,309 @@ characters = {
 			defense_skill = 2
 			planning_skill = 2
 			logistics_skill = 1
+		}
+	}
+	
+	### Admirals ###
+	
+	JAP_isoroku_yamamoto = {
+		name = JAP_isoroku_yamamoto
+		
+		portraits = {
+			navy = {
+				#large = ""
+				#small = ""
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				aviation_enthusiast
+				bold
+				air_controller
+				flight_deck_manager
+				superior_tactician
+				spotter
+			}
+			skill = 5
+			attack_skill = 5
+			defense_skill = 2
+			maneuvering_skill = 3
+			coordination_skill = 6
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = JAP_isoroku_yamamoto_high_command
+			ledger = navy
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = { navy_carrier_3 }
+			cost = 150
+		}
+		
+		advisor = {
+			slot = theorist
+			idea_token = JAP_isoroku_yamamoto_theorist
+			ledger = navy
+			available = {
+				not_already_hired_except_as = theorist
+			}
+			traits = { naval_aviation_pioneer }
+			cost = 150
+		}
+	}
+	
+	JAP_mineichi_koga = {
+		name = JAP_isoroku_yamamoto
+		
+		portraits = {
+			navy = {
+				#large = ""
+				#small = ""
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				bold
+				battleship_adherent
+				superior_tactician
+				spotter
+			}
+			skill = 4
+			attack_skill = 4
+			defense_skill = 2
+			maneuvering_skill = 4
+			coordination_skill = 3
+		}
+		
+		advisor = {
+			slot = theorist
+			idea_token = JAP_koga_mineichi_theorist
+			ledger = navy
+			traits = { grand_fleet_proponent }
+			cost = 150
+		}
+	}
+	
+	JAP_kiyoshi_hasegawa = {
+		name = JAP_isoroku_yamamoto
+		
+		portraits = {
+			navy = {
+				#large = ""
+				#small = ""
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				gentlemanly
+				gunnery_expert
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			maneuvering_skill = 1
+			coordination_skill = 2
+		}
+	}
+	
+	JAP_shigeyoshi_inoue = {
+		name = JAP_shigeyoshi_inoue
+		
+		portraits = {
+			navy = {
+				#large = ""
+				#small = ""
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				aviation_enthusiast
+				navy_career_officer
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			maneuvering_skill = 1
+			coordination_skill = 3
+		}
+	}
+	
+	JAP_nobutake_kondo = {
+		name = JAP_nobutake_kondo
+		
+		portraits = {
+			navy = {
+				#large = ""
+				#small = ""
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				battleship_adherent
+				naval_lineage
+				fly_swatter
+			}
+			skill = 3
+			attack_skill = 4
+			defense_skill = 2
+			maneuvering_skill = 2
+			coordination_skill = 2
+		}
+	}
+	
+	JAP_tadashige_daigo = {
+		name = JAP_tadashige_daigo
+		
+		portraits = {
+			navy = {
+				#large = ""
+				#small = ""
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				seawolf
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			maneuvering_skill = 2
+			coordination_skill = 2
+		}
+		
+		advisor = {
+			slot = navy_chief
+			idea_token = JAP_tadashige_daigo_navy_chief
+			traits = { navy_chief_commerce_raiding_1 }
+			cost = 50
+		}
+	}
+	
+	JAP_takeo_takagi = {
+		name = JAP_takeo_takagi
+		
+		portraits = {
+			navy = {
+				#large = ""
+				#small = ""
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				spotter
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
+			maneuvering_skill = 1
+			coordination_skill = 1
+		}
+	}
+	
+	JAP_hyakutake_gengo = {
+		name = JAP_hyakutake_gengo
+		
+		portraits = {
+			navy = {
+				#large = ""
+				#small = ""
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				gentlemanly
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			maneuvering_skill = 2
+			coordination_skill = 2
+		}
+	}
+	
+	JAP_soemu_toyoda = {
+		name = JAP_soemu_toyoda
+		
+		portraits = {
+			army = {
+				#large = ""
+				#small = ""
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				old_guard_navy
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			maneuvering_skill = 1
+			coordination_skill = 2
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = JAP_soemu_toyoda_high_command
+			ledger = navy
+			traits = { navy_capital_ship_1 }
+			cost = 50
+		}
+	}
+	
+	JAP_jisaburo_ozawa = {
+		name = JAP_jisaburo_ozawa
+		
+		portraits = {
+			army = {
+				#large = ""
+				#small = ""
+			}
+		}
+		
+		navy_leader = {
+			traits = { aviation_enthusiast blockade_runner superior_tactician }
+			skill = 4
+			attack_skill = 3
+			defense_skill = 4
+			maneuvering_skill = 3
+			coordination_skill = 3
+		}
+		
+		advisor = {
+			slot = air_chief
+			idea_token = JAP_jisaburo_ozawa_air_chief
+			traits = { air_chief_safety_3 }
+			cost = 150
+		}
+	}
+	
+	JAP_zengo_yoshida = {
+		name = JAP_zengo_yoshida
+		
+		portraits = {
+			army = {
+				large = ""
+				small = ""
+			}
+		}
+		
+		navy_leader = {
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			maneuvering_skill = 2
+			coordination_skill = 1
 		}
 	}
 }

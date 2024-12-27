@@ -1,0 +1,450 @@
+shared_focus = {
+    id = ARG_reverse_the_economic_downturn
+	icon = GFX_ARG_reverse_the_economic_downturn
+	
+    x = 4
+	cost = 5
+	
+    completion_reward = {
+		swap_ideas = {
+			remove_idea = ARG_crippled_industry_1
+			add_idea = ARG_crippled_industry_2
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_stabilizing_the_budget
+	icon = GFX_focus_ARG_economic_reactivation_act
+	
+    x = -2
+	y = 1
+	
+	cost = 4
+	relative_position_id = ARG_reverse_the_economic_downturn
+	prerequisite = { focus = ARG_reverse_the_economic_downturn }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_capitalize_on_beef
+	icon = GFX_focus_ARG_capitalize_the_beef_industry
+	
+    x = 3
+	y = 1
+	
+	cost = 4
+	relative_position_id = ARG_reverse_the_economic_downturn
+	prerequisite = { focus = ARG_reverse_the_economic_downturn }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_budget_cuts
+	icon = GFX_ARG_budget_cuts
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = ARG_stabilizing_the_budget
+	prerequisite = { focus = ARG_stabilizing_the_budget }
+    completion_reward = {
+        add_timed_idea = {
+			idea = ARG_slashed_budget
+			days = 180
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_tax_reform
+	icon = GFX_ARG_tax_reform
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = ARG_stabilizing_the_budget
+	prerequisite = { focus = ARG_stabilizing_the_budget }
+    completion_reward = {
+		add_timed_idea = {
+			idea = ARG_reformed_tax_code
+			days = 365
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_patriotic_loan
+	icon = GFX_ARG_patriotic_loan
+	
+    x = 3
+	y = 1
+	
+	cost = 4
+	relative_position_id = ARG_stabilizing_the_budget
+	prerequisite = { focus = ARG_stabilizing_the_budget }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_seek_new_markets
+	icon = GFX_ARG_seek_new_markets
+	
+    x = 0
+	y = 1
+	
+	cost = 4
+	relative_position_id = ARG_capitalize_on_beef
+	prerequisite = { focus = ARG_capitalize_on_beef }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_plan_pinedo
+	icon = GFX_focus_generic_industry_3
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = ARG_budget_cuts
+	prerequisite = { focus = ARG_budget_cuts }
+	prerequisite = { focus = ARG_tax_reform }
+    completion_reward = {
+        add_ideas = ARG_plan_pinedo
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_rescind_british_treaties
+	icon = GFX_focus_ARG_cut_ties_with_britain
+	
+    x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = ARG_seek_new_markets
+	prerequisite = { focus = ARG_seek_new_markets }
+	mutually_exclusive = { focus = ARG_renegotiate_terms }
+    completion_reward = {
+        remove_ideas = ARG_british_monopoly_1
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_renegotiate_terms
+	icon = GFX_focus_ARG_revisit_the_roca_runciman_treaty
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = ARG_seek_new_markets
+	prerequisite = { focus = ARG_seek_new_markets }
+	mutually_exclusive = { focus = ARG_rescind_british_treaties }
+    completion_reward = {
+        swap_ideas = {
+			remove_idea = ARG_british_monopoly_1
+			add_idea = ARG_british_monopoly_2
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_import_industrial_technology
+	icon = GFX_ARG_import_industrial_technology
+	
+    x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = ARG_plan_pinedo
+	prerequisite = { focus = ARG_plan_pinedo }
+    completion_reward = {
+        add_tech_bonus = {
+			bonus = 0.25
+			uses = 2
+			category = industry
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_expand_military_industry
+	icon = GFX_ARG_expand_military_industry
+	
+    x = 1
+	y = 1
+	
+	cost = 4
+	relative_position_id = ARG_plan_pinedo
+	prerequisite = { focus = ARG_plan_pinedo }
+    completion_reward = {
+        custom_effect_tooltip = available_mio_tt
+		show_mio_tooltip = ARG_fabricaciones_militares_organization
+		random_owned_state = {
+			limit = {
+				is_urban_state = yes
+			}
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_national_office_of_public_highways
+	icon = GFX_focus_generic_truck
+	
+    x = 0
+	y = 2
+	
+	cost = 4
+	relative_position_id = ARG_patriotic_loan
+	prerequisite = { focus = ARG_patriotic_loan }
+    completion_reward = {
+        add_ideas = ARG_infrastructure_investments
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_diversify_the_economy
+	icon = GFX_goal_generic_positive_trade_relations
+	
+    x = 1
+	y = 1
+	
+	cost = 6
+	relative_position_id = ARG_rescind_british_treaties
+	prerequisite = {
+		focus = ARG_rescind_british_treaties
+		focus = ARG_renegotiate_terms
+	}
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_continue_civilian_investments
+	icon = GFX_ARG_continue_civilian_investments
+	
+    x = -1
+	y = 1
+	
+	cost = 4
+	relative_position_id = ARG_import_industrial_technology
+	prerequisite = { focus = ARG_import_industrial_technology }
+	mutually_exclusive = { focus = ARG_five_year_plan }
+    completion_reward = {
+        swap_ideas = {
+			remove_idea = ARG_plan_pinedo
+			add_idea = ARG_plan_pinedo_civ
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_five_year_plan
+	icon = GFX_ARG_five_year_plan
+	
+    x = 1
+	y = 1
+	
+	cost = 4
+	relative_position_id = ARG_import_industrial_technology
+	prerequisite = { focus = ARG_import_industrial_technology }
+	mutually_exclusive = { focus = ARG_continue_civilian_investments }
+    completion_reward = {
+        swap_ideas = {
+			remove_idea = ARG_plan_pinedo
+			add_idea = ARG_plan_pinedo_mil
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_drill_for_black_gold
+	icon = GFX_focus_generic_resource_extraction
+	
+    x = -1
+	y = 1
+	
+	cost = 4
+	relative_position_id = ARG_national_office_of_public_highways
+	prerequisite = {
+		focus = ARG_national_office_of_public_highways
+		focus = ARG_diversify_the_economy
+	}
+    completion_reward = {
+        512 = {
+			add_resource = {
+				type = oil
+				amount = 4
+			}
+		}
+		987 = {
+			add_resource = {
+				type = oil
+				amount = 3
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_invest_in_hydro_power
+	icon = GFX_focus_generic_hydroelectric_energy
+	
+    x = 1
+	y = 1
+	
+	cost = 4
+	relative_position_id = ARG_national_office_of_public_highways
+	prerequisite = {
+		focus = ARG_national_office_of_public_highways
+		focus = ARG_diversify_the_economy
+	}
+    completion_reward = {
+        510 = {
+			add_extra_state_shared_building_slots = 1
+		}
+		870 = {
+			add_extra_state_shared_building_slots = 1
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_develop_the_capital_region
+	icon = GFX_focus_ARG_rapid_urbanization
+	
+    x = 3
+	y = 1
+	
+	cost = 4
+	relative_position_id = ARG_national_office_of_public_highways
+	prerequisite = {
+		focus = ARG_national_office_of_public_highways
+		focus = ARG_diversify_the_economy
+	}
+    completion_reward = {
+        278 = {
+			add_extra_state_shared_building_slots = 1
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_develop_patagonia
+	icon = GFX_focus_ARG_improve_patagonia
+	
+    x = 0
+	y = 1
+	
+	cost = 4
+	relative_position_id = ARG_drill_for_black_gold
+	prerequisite = { focus = ARG_drill_for_black_gold }
+    completion_reward = {
+        512 = {
+			add_extra_state_shared_building_slots = 1
+		}
+		987 = {
+			add_extra_state_shared_building_slots = 1
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}

@@ -1,6 +1,7 @@
 shared_focus = {
     id = USA_the_thomas_admin
 	icon = GFX_USA_the_thomas_admin
+	text_icon = joint_focus_style
 	
     x = 6
 	
@@ -113,9 +114,9 @@ shared_focus = {
 		focus = USA_preparing_our_agenda
 	}
     completion_reward = {
-        add_ideas = {
-			USA_emerging_civil_rights_1
-		}
+        #add_ideas = {
+		#	USA_emerging_civil_rights_1
+		#}
     }
 	
 	ai_will_do = {
@@ -124,8 +125,8 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = USA_anti_lynching_legislation
-	icon = GFX_USA_anti_lynching_legislation
+    id = USA_renewed_enforcement
+	icon = GFX_USA_take_on_the_klan
 	
     x = -1
 	y = 1
@@ -135,6 +136,14 @@ shared_focus = {
 	prerequisite = { focus = USA_the_forgotten }
     completion_reward = {
         add_stability = 0.075
+		every_owned_state = {
+			limit = {
+				can_have_elections_in_state = yes
+				is_great_lakes_state = yes
+			}
+			custom_effect_tooltip = USA_decrease_DP_popularity_low
+			add_to_variable = { democrat_popularity = -0.01 }
+		}
     }
 	
 	ai_will_do = {
@@ -155,6 +164,7 @@ shared_focus = {
 	relative_position_id = USA_the_forgotten
 	prerequisite = { focus = USA_the_forgotten }
     completion_reward = {
+		add_political_power = -75
 		custom_effect_tooltip = USA_SPA_better_south
     }
 	
@@ -164,18 +174,18 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = USA_take_on_the_klan
-	icon = GFX_USA_take_on_the_klan
+    id = USA_expanding_new_liberty
+	icon = GFX_focus_generic_support_the_left_right
 	
     x = 1
 	y = 1
 	
-	cost = 2
-	relative_position_id = USA_anti_lynching_legislation
-	prerequisite = { focus = USA_anti_lynching_legislation }
+	cost = 3
+	relative_position_id = USA_renewed_enforcement
+	prerequisite = { focus = USA_renewed_enforcement }
 	prerequisite = { focus = USA_encourage_minority_voting }
     completion_reward = {
-        custom_effect_tooltip = USA_break_the_klan_tt
+		improve_great_depression = yes
     }
 	
 	ai_will_do = {
@@ -183,21 +193,46 @@ shared_focus = {
 	}
 }
 
-shared_focus = { # how ya like them apples?
-    id = USA_unleash_the_fbi
-	icon = GFX_USA_unleash_the_fbi
+shared_focus = {
+    id = USA_the_report
+	icon = GFX_focus_hol_the_foundations_of_defense
 	
-    x = -1
+    x = -2
 	y = 1
 	
-	cost = 4
-	relative_position_id = USA_take_on_the_klan
-	prerequisite = { focus = USA_take_on_the_klan }
+	cost = 3
+	relative_position_id = USA_expanding_new_liberty
+	prerequisite = { focus = USA_expanding_new_liberty }
+	
     completion_reward = {
         country_event = {
-			id = united_states_thomas.24
-			days = 1
+			id = united_states_thomas.37
+			hours = 6
 		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_justice_for_all
+	icon = GFX_goal_generic_national_unity
+	
+    x = 1
+	y = 1
+	
+	cost = 3
+	relative_position_id = USA_expanding_new_liberty
+	prerequisite = { focus = USA_expanding_new_liberty }
+	
+    completion_reward = {
+        country_event = {
+			id = united_states_thomas.38
+			hours = 6
+		}
+		ECON_poverty_change_small = yes
     }
 	
 	ai_will_do = {
@@ -209,14 +244,15 @@ shared_focus = {
     id = USA_expose_their_crimes
 	icon = GFX_USA_expose_their_crimes
 	
-    x = 1
+    x = 0
 	y = 1
 	
-	cost = 4
-	relative_position_id = USA_take_on_the_klan
-	prerequisite = { focus = USA_take_on_the_klan }
+	cost = 3
+	relative_position_id = USA_the_report
+	prerequisite = { focus = USA_the_report }
+	
     completion_reward = {
-        custom_effect_tooltip = USA_exposing_kkk
+        
     }
 	
 	ai_will_do = {
@@ -225,18 +261,42 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = USA_arrest_their_leaders
-	icon = GFX_USA_arrest_their_leaders
+    id = USA_enforce_the_norris_decision
+	icon = GFX_focus_generic_treaty
 	
     x = -1
 	y = 1
 	
-	cost = 4
-	relative_position_id = USA_unleash_the_fbi
-	prerequisite = { focus = USA_unleash_the_fbi }
+	cost = 5
+	relative_position_id = USA_justice_for_all
+	prerequisite = { focus = USA_justice_for_all }
+	
     completion_reward = {
-        # add event about major kkk figures being arrested
-		add_stability = -0.025
+        add_political_power = 50
+		add_stability = 0.03
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = { FOCUS_FILTER_STABILITY }
+}
+
+shared_focus = {
+    id = USA_equality_of_opportunity
+	icon = GFX_focus_generic_workers
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_justice_for_all
+	prerequisite = { focus = USA_justice_for_all }
+	
+    completion_reward = {
+        add_political_power = -25
+		improve_great_depression = yes
     }
 	
 	ai_will_do = {
@@ -245,41 +305,68 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = USA_raid_their_headquarters
-	icon = GFX_USA_raid_their_headquarters
+    id = USA_unstack_the_courts
+	icon = GFX_focus_generic_improve_the_administration
 	
-    x = 1
+    x = -1
 	y = 1
 	
-	cost = 4
-	relative_position_id = USA_unleash_the_fbi
-	prerequisite = { focus = USA_unleash_the_fbi }
-	prerequisite = { focus = USA_expose_their_crimes }
-    completion_reward = {
-        add_stability = -0.075
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_take_down_statues
-	icon = GFX_USA_take_down_statues
-	
-    x = 1
-	y = 1
-	
-	cost = 4
+	cost = 3
 	relative_position_id = USA_expose_their_crimes
 	prerequisite = { focus = USA_expose_their_crimes }
+	
     completion_reward = {
-        country_event = {
-			id = united_states_thomas.25
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_unleash_the_fbi
+	icon = GFX_USA_unleash_the_fbi
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_expose_their_crimes
+	prerequisite = { focus = USA_expose_their_crimes }
+	mutually_exclusive = { focus = USA_strengthen_the_justice_department }
+	
+    completion_reward = {
+		add_political_power = 25
+		country_event = {
+			id = united_states_thomas.24
 			days = 1
 		}
-		add_stability = -0.05
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_strengthen_the_justice_department
+	icon = GFX_focus_ARG_defense_and_democracy
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_enforce_the_norris_decision
+	prerequisite = { focus = USA_enforce_the_norris_decision }
+	prerequisite = { focus = USA_equality_of_opportunity }
+	mutually_exclusive = { focus = USA_unleash_the_fbi }
+	
+    completion_reward = {
+        country_event = {
+			id = united_states_thomas.39
+			hours = 6
+		}
     }
 	
 	ai_will_do = {
@@ -291,69 +378,55 @@ shared_focus = {
     id = USA_investigate_the_afp
 	icon = GFX_USA_investigate_the_afp
 	
-    x = 1
-	y = 1
-	
-	cost = 4
-	relative_position_id = USA_arrest_their_leaders
-	prerequisite = { focus = USA_arrest_their_leaders }
-    completion_reward = {
-        add_political_power = 25
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_erase_their_legacy
-	icon = GFX_USA_erase_their_legacy
-	
     x = -1
 	y = 1
 	
-	cost = 4
-	relative_position_id = USA_take_down_statues
-	prerequisite = { focus = USA_take_down_statues }
+	cost = 5
+	relative_position_id = USA_unleash_the_fbi
+	prerequisite = { focus = USA_unleash_the_fbi }
+	
     completion_reward = {
-        add_stability = -0.05
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_itll_never_happen_here
-	icon = GFX_USA_itll_never_happen_here
-	
-    x = 1
-	y = 1
-	
-	cost = 4
-	relative_position_id = USA_investigate_the_afp
-	prerequisite = { focus = USA_investigate_the_afp }
-	prerequisite = { focus = USA_raid_their_headquarters }
-	prerequisite = { focus = USA_erase_their_legacy }
-    completion_reward = {
-        unlock_decision_tooltip = start_USA_ban_kkk_act
-		custom_effect_tooltip = USA_bill_pass_req_tt
-		effect_tooltip = {
-			add_stability = 0.1
-			swap_ideas = {
-				remove_idea = USA_emerging_civil_rights_1
-				add_idea = USA_emerging_civil_rights_2
+		add_political_power = -75
+        every_owned_state = {
+			limit = {
+				can_have_elections_in_state = yes
+				is_deep_south_state = yes
 			}
+			custom_effect_tooltip = USA_decrease_DP_popularity_low
+			add_to_variable = { democrat_popularity = -0.01 }
+		}
+		country_event = {
+			id = united_states_thomas.40
+			hours = 6
 		}
     }
 	
 	ai_will_do = {
 		factor = 10
 	}
+}
+
+shared_focus = {
+    id = USA_target_government_corruption
+	icon = GFX_focus_ARG_crackdown_on_corruption
 	
-	search_filters = { FOCUS_FILTER_USA_CONGRESS }
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_unleash_the_fbi
+	prerequisite = {
+		focus = USA_unleash_the_fbi
+		focus = USA_strengthen_the_justice_department
+	}
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
 }
 
 shared_focus = {
@@ -722,7 +795,10 @@ shared_focus = {
 	prerequisite = { focus = USA_federal_aid_commission }
 	prerequisite = { focus = USA_strengthen_labor_regs }
     completion_reward = {
-        
+		country_event = {
+			id = united_states_thomas.32
+			hours = 6
+		}
     }
 	
 	ai_will_do = {
@@ -745,7 +821,7 @@ shared_focus = {
 		}
 	}
 	
-	cost = 5
+	cost = 4
 	relative_position_id = USA_of_poverty
 	prerequisite = { focus = USA_of_poverty }
     completion_reward = {
@@ -773,7 +849,7 @@ shared_focus = {
 		}
 	}
 	
-	cost = 5
+	cost = 4
 	relative_position_id = USA_of_poverty
 	prerequisite = { focus = USA_of_poverty }
     completion_reward = {
@@ -800,7 +876,7 @@ shared_focus = {
 		}
 	}
 	
-	cost = 5
+	cost = 4
 	relative_position_id = USA_of_poverty
 	prerequisite = { focus = USA_of_poverty }
     completion_reward = {
@@ -827,7 +903,7 @@ shared_focus = {
 		}
 	}
 	
-	cost = 5
+	cost = 4
 	relative_position_id = USA_of_poverty
 	prerequisite = { focus = USA_of_poverty }
     completion_reward = {
@@ -900,76 +976,6 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = USA_reorganization
-	icon = GFX_USA_reorganization
-	
-    x = 0
-	y = 1
-	
-	cost = 4
-	relative_position_id = USA_of_politics
-	prerequisite = { focus = USA_of_politics }
-    completion_reward = {
-        country_event = {
-			id = united_states_thomas.20
-			days = 1
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_totally_not_brownlow_commitee
-	icon = GFX_USA_totally_not_brownlow_commitee
-	
-    x = -1
-	y = 1
-	
-	cost = 5
-	relative_position_id = USA_reorganization
-	prerequisite = { focus = USA_reorganization }
-    completion_reward = {
-        add_political_power = 25
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-	
-	search_filters = { FOCUS_FILTER_POLITICAL }
-}
-
-shared_focus = {
-    id = USA_reorg_act
-	icon = GFX_USA_reorg_act
-	
-    x = 0
-	y = 2
-	
-	cost = 5
-	relative_position_id = USA_totally_not_brownlow_commitee
-	prerequisite = { focus = USA_totally_not_brownlow_commitee }
-    completion_reward = {
-		unlock_decision_tooltip = start_USA_reorg_act
-		custom_effect_tooltip = USA_bill_pass_req_tt
-        effect_tooltip = {
-			add_ideas = {
-				USA_reorg_act
-			}
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-	
-	search_filters = { FOCUS_FILTER_USA_CONGRESS FOCUS_FILTER_POLITICAL }
-}
-
-shared_focus = {
     id = USA_strengthen_executive_branch
 	icon = GFX_USA_strengthen_executive_branch
 	
@@ -992,12 +998,12 @@ shared_focus = {
 		}
 	}
 	
-    x = 1
+    x = 0
 	y = 1
 	
 	cost = 8
-	relative_position_id = USA_reorganization
-	prerequisite = { focus = USA_reorganization }
+	relative_position_id = USA_of_politics
+	prerequisite = { focus = USA_of_politics }
     completion_reward = {
 		custom_effect_tooltip = USA_strengthen_executive_branch_tt
     }
@@ -1064,6 +1070,33 @@ shared_focus = {
 }
 
 shared_focus = {
+    id = USA_reorg_act
+	icon = GFX_USA_reorg_act
+	
+    x = 3
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_strengthen_executive_branch
+	prerequisite = { focus = USA_strengthen_executive_branch }
+    completion_reward = {
+		unlock_decision_tooltip = start_USA_reorg_act
+		custom_effect_tooltip = USA_bill_pass_req_tt
+        effect_tooltip = {
+			add_ideas = {
+				USA_reorg_act
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = { FOCUS_FILTER_USA_CONGRESS FOCUS_FILTER_POLITICAL }
+}
+
+shared_focus = {
     id = USA_court_tamed
 	icon = GFX_USA_court_tamed
 	
@@ -1073,7 +1106,10 @@ shared_focus = {
 	available = {
 		custom_trigger_tooltip = {
 			tooltip = USA_court_tamed_trigger_tt
-			check_variable = { supreme_court_lean > 0 }
+			check_variable = {
+				#tooltip = USA_court_tamed_trigger_tt
+				supreme_court_lean > 0
+			}
 		}
 	}
 	
@@ -1110,59 +1146,18 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = USA_spqa
+    id = USA_form_senate_ethics_committee
 	icon = GFX_USA_spqa
 	
-    x = 1
-	y = 1
+    x = 2
+	y = 2
 	
 	cost = 5
-	relative_position_id = USA_reorg_act
-	prerequisite = { focus = USA_reorg_act }
-	prerequisite = { focus = USA_court_tamed }
+	relative_position_id = USA_strengthen_executive_branch
+	prerequisite = { focus = USA_strengthen_executive_branch }
+	
     completion_reward = {
-        country_event = {
-			id = united_states_thomas.21
-			days = 1
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_legislative_reorg_act
-	icon = GFX_USA_legislative_reorg_act
-	
-    x = -1
-	y = 1
-	
-	cost = 5
-	relative_position_id = USA_spqa
-	prerequisite = { focus = USA_spqa }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_form_senate_ethics_committee
-	icon = GFX_USA_form_senate_ethics_committee
-	
-    x = 1
-	y = 1
-	
-	cost = 5
-	relative_position_id = USA_spqa
-	prerequisite = { focus = USA_spqa }
-    completion_reward = {
-        
+        add_political_power = 100
     }
 	
 	ai_will_do = {

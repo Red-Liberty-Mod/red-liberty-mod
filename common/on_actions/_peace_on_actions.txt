@@ -47,7 +47,7 @@ on_actions = {
 			log = "[GetDateText]: FROM: [From.GetName] ROOT: [Root.GetName] on_capitulation"
 			
 			### PEACE POPUP ###
-			set_global_flag = show_peace_popup_alert
+			#set_global_flag = show_peace_popup_alert
 			FROM = {
 				save_global_event_target_as = winning_country
 			}
@@ -225,6 +225,12 @@ on_actions = {
 						annex_country = {
 							target = FER
 						}
+						annex_country = {
+							target = TMS
+						}
+						annex_country = {
+							target = KHV
+						}
 						country_event = {
 							id = demo_sov.2
 							days = 15
@@ -374,9 +380,6 @@ on_actions = {
 							original_tag = HUN
 						}
 					}
-					FROM = {
-						white_peace = ROOT
-					}
 					
 					HUN = {
 						leave_faction = yes
@@ -390,6 +393,8 @@ on_actions = {
 						TRS = {
 							add_state_core = 885
 							transfer_state = 885
+							
+							white_peace = ROOT
 						}
 					}
 					if = {
@@ -404,11 +409,13 @@ on_actions = {
 							}
 							every_owned_state = {
 								limit = {
-									has_core_of = TRS
+									is_core_of = TRS
 								}
 								add_core_of = ROM
 								remove_core_of = TRS
 							}
+							
+							white_peace = ROOT
 						}
 					}
 					if = {
@@ -420,6 +427,8 @@ on_actions = {
 						SLO = {
 							transfer_state = 73
 							transfer_state = 664
+							
+							white_peace = ROOT
 						}
 					}
 					set_global_flag = skip_default_capitulation
@@ -441,7 +450,7 @@ on_actions = {
 					ROOT = {
 						diplomatic_relation = { country = FROM relation = war_relation active = no }
 					}
-					HUN = {
+					ROM = {
 						81 = {
 							set_demilitarized_zone = yes
 						}
@@ -625,6 +634,39 @@ on_actions = {
 						set_cosmetic_tag = ROM_republic
 						set_capital = { state = 46 }
 						set_country_flag = can_integrate_ROM
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				
+				### GERMAN-UKRAINIAN WAR ###
+				else_if = {
+					limit = {
+						FROM = {
+							OR = {
+								tag = GER
+								tag = POL
+							}
+						}
+						ROOT = {
+							tag = UKR
+						}
+					}
+					FROM = {
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
+					FROM = {
+						GER_create_ukraine_occupation = yes
+					}
+					POL = {
+						transfer_state = 93
+						transfer_state = 902
+					}
+					BLR = {
+						transfer_state = 94
+						transfer_state = 194
 					}
 					set_global_flag = skip_default_capitulation
 				}
@@ -881,7 +923,7 @@ on_actions = {
 							}
 							#set_cosmetic_tag = FRP_mexico
 							#set_capital = { state = 227 }
-						}`
+						}
 					}
 					#random_other_country = {
 					#	limit = { is_ai = yes }

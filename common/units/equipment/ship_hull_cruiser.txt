@@ -130,6 +130,9 @@ equipments = {
 		manpower = 600
 
 		naval_supremacy_factor = 2.3
+		naval_weather_penalty_factor = 1 #this value gets -1 before its used so 1.5 will increase the effects of weather penalties by 0.5. this is base value is required for MIO stat modifiers
+		#MIO stat modifers will factory by the unmodified stat value so here a 0.5 mio stat modifier would make this ships naval_weather_penalty_factor stat 1.5.
+		# change this from 1 at your own risk
 	}
 
 	ship_hull_cruiser_1 = {
@@ -1011,16 +1014,7 @@ equipments = {
 			}
 		}
 		default_modules = {
-			fixed_ship_battery_slot = ship_light_medium_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = cruiser_ship_engine_2
-			front_1_custom_slot = ship_anti_air_1
-			mid_1_custom_slot = ship_torpedo_1
-			mid_2_custom_slot = ship_torpedo_1
-			rear_1_custom_slot = ship_torpedo_1
-			rear_2_custom_slot = ship_anti_air_1
+			fixed_ship_engine_slot = cruiser_ship_engine_1
 		}
 		lg_armor_piercing = 0
 		lg_attack = 0

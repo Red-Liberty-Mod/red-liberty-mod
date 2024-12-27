@@ -1,10 +1,23 @@
 uses_generic_mios = {
 	
-	### North America ###
+	### Majors ###
 	NOT = { original_tag = USA }
 	NOT = { original_tag = FRA }
+	NOT = { original_tag = GER }
+	NOT = { original_tag = SOV }
+	NOT = { original_tag = JAP }
+	NOT = { original_tag = AHE }
+	NOT = { original_tag = ITA }
+	NOT = { original_tag = CHI }
 	
+	### Minors ###
+	NOT = { original_tag = ARG }
 	NOT = { original_tag = SWE }
+	NOT = { original_tag = DEN }
+	NOT = { original_tag = BRA }
+	NOT = { original_tag = UOB }
+	NOT = { original_tag = SWI }
+	NOT = { original_tag = TUR }
 }
 
 uses_generic_armor_mio = {
@@ -49,4 +62,12 @@ major_arms_producer = {
 			}
 		}
 	}
+}
+
+GER_export_mio_trigger = {
+	NOT = { FROM = { has_war_with = GER } }
+}
+
+FRA_export_mio_trigger = {
+	NOT = { FROM = { has_war_with = FRA } }
 }

@@ -1,18 +1,18 @@
 
-USA_labor_capital_balance = {
-	initial_value = -0.25
-	left_side = USA_labor_side
-	right_side = USA_capital_side
+USA_socialist_party_balance = {
+	initial_value = 0.07
+	left_side = USA_left_side
+	right_side = USA_right_side
 	decision_category = USA_balance_of_power_category
 	
 	side = {
-		id = USA_labor_side
-		icon = GFX_idea_USA_union_representation_act
+		id = USA_left_side
+		icon = GFX_ideology_revolutionary_socialism_group
 		
 		range = {
-			id = USA_labor_dominant
+			id = USA_left_dominant
 			min = -1
-			max = -0.75
+			max = -0.85
 			
 			modifier = {
 				production_lack_of_resource_penalty_factor = -0.1
@@ -23,9 +23,9 @@ USA_labor_capital_balance = {
 		}
 		
 		range = {
-			id = USA_labor_strong
-			min = -0.75
-			max = -0.4
+			id = USA_left_strong
+			min = -0.85
+			max = -0.45
 			
 			modifier = {
 				production_lack_of_resource_penalty_factor = -0.05
@@ -36,20 +36,21 @@ USA_labor_capital_balance = {
 		}
 		
 		range = {
-			id = USA_labor_influential
-			min = -0.4
-			max = -0.1
+			id = USA_left_influential
+			min = -0.45
+			max = -0.15
 			
 			modifier = {
 				production_factory_max_efficiency_factor = 0.05
+				custom_modifier_tooltip = USA_left_influential_tt
 			}
 		}
 	}
 	
 	range = { ### Middle Ground ###
-		id = USA_labor_capital_balanced
-		min = -0.1
-		max = 0.1
+		id = USA_thomas_balanced
+		min = -0.15
+		max = 0.15
 		
 		modifier = {
 			
@@ -65,13 +66,13 @@ USA_labor_capital_balance = {
 	}
 	
 	side = {
-		id = USA_capital_side
-		icon = GFX_idea_USA_economic_equality_act
+		id = USA_right_side
+		icon = GFX_ideology_social_democracy_group
 		
 		range = {
-			id = USA_capital_influential
-			min = 0.1
-			max = 0.4
+			id = USA_right_influential
+			min = 0.15
+			max = 0.45
 			
 			modifier = {
 				production_factory_efficiency_gain_factor = 0.05
@@ -79,24 +80,26 @@ USA_labor_capital_balance = {
 		}
 		
 		range = {
-			id = USA_capital_strong
-			min = 0.4
-			max = 0.75
+			id = USA_right_strong
+			min = 0.45
+			max = 0.85
 			
 			modifier = {
 				production_factory_efficiency_gain_factor = 0.05
 				production_speed_buildings_factor = 0.075
+				local_resources_factor = 0.05
 			}
 		}
 		
 		range = {
-			id = USA_capital_dominant
-			min = 0.75
+			id = USA_right_dominant
+			min = 0.85
 			max = 1
 			
 			modifier = {
 				production_factory_efficiency_gain_factor = 0.05
 				production_speed_buildings_factor = 0.15
+				local_resources_factor = 0.1
 			}
 		}
 	}

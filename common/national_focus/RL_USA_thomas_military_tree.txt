@@ -13,7 +13,7 @@ shared_focus = {
 		custom_effect_tooltip = USA_reforming_the_military_tt
 		if = {
 			limit = {
-				has_government = libertarian_socialism
+				has_government = democratic_socialism
 			}
 			country_event = {
 				id = united_states_butler.1
@@ -48,7 +48,7 @@ shared_focus = {
     completion_reward = {
 		custom_effect_tooltip = USA_found_the_oci_tt
 		custom_effect_tooltip = available_political_advisor
-		show_ideas_tooltip = USA_william_donovan_sec
+		show_ideas_tooltip = USA_william_donovan_political_advisor
 		
 		hidden_effect = {
 			create_intelligence_agency = {
@@ -82,7 +82,7 @@ shared_focus = {
     completion_reward = {
         army_experience = 25
 		custom_effect_tooltip = available_political_advisor
-		show_ideas_tooltip = USA_smedley_butler_sec
+		show_ideas_tooltip = USA_smedley_butler_political_advisor
     }
 	
 	ai_will_do = {
@@ -204,7 +204,7 @@ shared_focus = {
 		}
 		add_equipment_to_stockpile = {
 			type = infantry_equipment
-			amount = 2000
+			amount = 5000
 			producer = USA
 		}
     }
@@ -678,10 +678,16 @@ shared_focus = {
 	relative_position_id = USA_under_the_army
 	prerequisite = { focus = USA_under_the_army }
     completion_reward = {
-        add_tech_bonus = {
-			bonus = 0.75
-			uses = 1
-			category = cas_bomber
+        #add_tech_bonus = {
+		#	bonus = 0.75
+		#	uses = 1
+		#	category = cas_bomber
+		#}
+		add_design_template_bonus = {
+			uses = 2
+			cost_factor = 0.4
+			equipment = small_plane_airframe
+			name = air_equipment_cas
 		}
     }
 	
@@ -910,53 +916,6 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = USA_long_range_escorts
-	icon = GFX_USA_recon_aircraft
-	
-    x = -1
-	y = 1
-	
-	cost = 3
-	relative_position_id = USA_strat_destruction
-	prerequisite = { focus = USA_strat_destruction }
-    completion_reward = {
-        swap_ideas = {
-			add_idea = USA_usaaf_2
-			remove_idea = USA_usaaf
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_control_the_sky
-	icon = GFX_USA_control_the_sky
-	
-    x = 1
-	y = 1
-	
-	cost = 3
-	relative_position_id = USA_strat_destruction
-	prerequisite = { focus = USA_strat_destruction }
-    completion_reward = {
-        add_tech_bonus = {
-			bonus = 0.5
-			uses = 2
-			category = light_fighter
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-	
-	search_filters = { FOCUS_FILTER_RESEARCH }
-}
-
-shared_focus = {
     id = USA_modernize_naval_bombers
 	icon = GFX_USA_modernize_naval_bombers
 	
@@ -1074,7 +1033,7 @@ shared_focus = {
 	prerequisite = { focus = USA_the_air_corps }
     completion_reward = {
         add_ideas = {
-			USA_usaaf
+			USA_usaaf_1
 		}
 		custom_effect_tooltip = available_chief_of_airforce
 		show_ideas_tooltip = USA_frank_maxwell_andrews_air_chief
@@ -1129,6 +1088,53 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+}
+
+shared_focus = {
+    id = USA_long_range_escorts
+	icon = GFX_USA_recon_aircraft
+	
+    x = -1
+	y = 1
+	
+	cost = 3
+	relative_position_id = USA_strat_destruction
+	prerequisite = { focus = USA_strat_destruction }
+    completion_reward = {
+        swap_ideas = {
+			add_idea = USA_usaaf_2
+			remove_idea = USA_usaaf_1
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_control_the_sky
+	icon = GFX_USA_control_the_sky
+	
+    x = 1
+	y = 1
+	
+	cost = 3
+	relative_position_id = USA_strat_destruction
+	prerequisite = { focus = USA_strat_destruction }
+    completion_reward = {
+        add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = light_fighter
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -1519,6 +1525,17 @@ shared_focus = {
 				instant_build = yes
 			}
 			add_extra_state_shared_building_slots = 1
+		}
+		if = {
+			limit = {
+				has_dlc_aat = yes
+			}
+			mio:USA_norfolk_naval_yard_organization = {
+				add_mio_size = 1
+			}
+			mio:USA_brooklyn_naval_yard_organization = {
+				add_mio_size = 1
+			}
 		}
     }
 	

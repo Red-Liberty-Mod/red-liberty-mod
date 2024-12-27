@@ -1,0 +1,108 @@
+# Government Arsenal - based of of the Detroit Arsenal
+generic_government_arsenal_organization = {
+	icon = GFX_idea_generic_tank_manufacturer_1
+
+	allowed = {
+		always = no #only used as archetype
+	}
+
+	equipment_type = {
+		armor
+		infantry_equipment
+		artillery_equipment
+		anti_tank_equipment
+		anti_air_equipment
+		rocket_artillery_equipment
+	}
+	research_categories = {
+		armor
+		infantry_weapons
+		mio_cat_all_artillery_equipment
+	}
+
+	tree_header_text = {
+		text = mio_header_infantry_department
+		x = 1
+	}
+
+	tree_header_text = {
+		text = mio_header_artillery_department
+		x = 4
+	}
+	
+	tree_header_text = {
+		text = mio_header_armor_department
+		x = 7
+	}
+	
+	initial_trait = {
+		name = generic_mio_initial_trait_government_arsenal
+
+		limit_to_equipment_type = {
+			armor
+			infantry_weapons
+			mio_cat_all_artillery_equipment
+		}
+
+		equipment_bonus = {
+			
+		}
+	}
+	
+	trait = {
+		token = generic_mio_trait_light_focus
+		name = generic_mio_trait_light_focus
+		icon = GFX_generic_mio_department_icon_tank_light_tank_weapons
+
+		position = { x = 6 y = 0 }
+		
+		mutually_exclusive = {
+			generic_mio_trait_medium_focus
+			generic_mio_trait_heavy_focus
+		}
+		
+		limit_to_equipment_type = { mio_cat_eq_all_light_tank }
+
+		production_bonus = {
+			production_cost_factor = -0.05
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_medium_focus
+		name = generic_mio_trait_medium_focus
+		icon = GFX_generic_mio_department_icon_tank_medium_tank_weapons
+
+		position = { x = 7 y = 0 }
+		
+		mutually_exclusive = {
+			generic_mio_trait_light_focus
+			generic_mio_trait_heavy_focus
+		}
+		
+		limit_to_equipment_type = { mio_cat_eq_all_medium_tank }
+
+		production_bonus = {
+			production_cost_factor = -0.05
+		}
+	}
+	
+	trait = {
+		token = generic_mio_trait_heavy_focus
+		name = generic_mio_trait_heavy_focus
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_weapons
+
+		position = { x = 8 y = 0 }
+		
+		mutually_exclusive = {
+			generic_mio_trait_light_focus
+			generic_mio_trait_medium_focus
+		}
+		
+		limit_to_equipment_type = { mio_cat_eq_all_heavy_tank }
+
+		production_bonus = {
+			production_cost_factor = -0.05
+		}
+	}
+}

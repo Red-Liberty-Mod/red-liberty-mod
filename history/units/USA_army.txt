@@ -293,6 +293,12 @@ units = {
 		}
 		officer = {
 			name = "Roy Dee Keehn"
+			portraits = {
+				army = {
+					large = GFX_Portrait_America_Generic_land_4
+					small = GFX_Portrait_America_Generic_land_4_small
+				}
+			}
 		}
 		location = 9450 # Chicago, IL
 		division_template = "National Guard"
@@ -581,6 +587,7 @@ instant_effect = {
 		equipment = {
 			type = infantry_equipment_0
 			creator = "USA"
+			version_name = "M1903A1 Springfield"
 		}
 		requested_factories = 2
 		progress = 0.1
@@ -607,5 +614,15 @@ instant_effect = {
 		progress = 0.3
 		efficiency = 50
 		industrial_manufacturer = mio:USA_rock_island_arsenal_organization
+	}
+	add_equipment_production = {
+		equipment = {
+			type = light_tank_chassis_1
+			creator = "USA"
+			version_name = "Light Tank, M2A2"
+		}
+		requested_factories = 1
+		progress = 0.4
+		efficiency = 50
 	}
 }
