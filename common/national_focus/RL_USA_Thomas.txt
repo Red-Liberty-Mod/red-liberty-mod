@@ -136,6 +136,14 @@ shared_focus = {
 	prerequisite = { focus = USA_the_forgotten }
     completion_reward = {
         add_stability = 0.075
+		every_owned_state = {
+			limit = {
+				can_have_elections_in_state = yes
+				is_great_lakes_state = yes
+			}
+			custom_effect_tooltip = USA_decrease_DP_popularity_low
+			add_to_variable = { democrat_popularity = -0.01 }
+		}
     }
 	
 	ai_will_do = {
@@ -167,7 +175,7 @@ shared_focus = {
 
 shared_focus = {
     id = USA_expanding_new_liberty
-	icon = GFX_USA_expanding_new_liberty
+	icon = GFX_focus_generic_support_the_left_right
 	
     x = 1
 	y = 1
@@ -187,7 +195,7 @@ shared_focus = {
 
 shared_focus = {
     id = USA_the_report
-	icon = GFX_USA_the_report
+	icon = GFX_focus_hol_the_foundations_of_defense
 	
     x = -2
 	y = 1
@@ -197,7 +205,10 @@ shared_focus = {
 	prerequisite = { focus = USA_expanding_new_liberty }
 	
     completion_reward = {
-        
+        country_event = {
+			id = united_states_thomas.37
+			hours = 6
+		}
     }
 	
 	ai_will_do = {
@@ -207,7 +218,7 @@ shared_focus = {
 
 shared_focus = {
     id = USA_justice_for_all
-	icon = GFX_USA_justice_for_all
+	icon = GFX_goal_generic_national_unity
 	
     x = 1
 	y = 1
@@ -217,7 +228,11 @@ shared_focus = {
 	prerequisite = { focus = USA_expanding_new_liberty }
 	
     completion_reward = {
-        
+        country_event = {
+			id = united_states_thomas.38
+			hours = 6
+		}
+		ECON_poverty_change_small = yes
     }
 	
 	ai_will_do = {
@@ -247,7 +262,7 @@ shared_focus = {
 
 shared_focus = {
     id = USA_enforce_the_norris_decision
-	icon = GFX_USA_enforce_the_norris_decision
+	icon = GFX_focus_generic_treaty
 	
     x = -1
 	y = 1
@@ -270,7 +285,7 @@ shared_focus = {
 
 shared_focus = {
     id = USA_equality_of_opportunity
-	icon = GFX_USA_equality_of_opportunity
+	icon = GFX_focus_generic_workers
 	
     x = 1
 	y = 1
@@ -291,7 +306,7 @@ shared_focus = {
 
 shared_focus = {
     id = USA_unstack_the_courts
-	icon = GFX_USA_unstack_the_courts
+	icon = GFX_focus_generic_improve_the_administration
 	
     x = -1
 	y = 1
@@ -336,7 +351,7 @@ shared_focus = {
 
 shared_focus = {
     id = USA_strengthen_the_justice_department
-	icon = GFX_USA_strengthen_the_justice_department
+	icon = GFX_focus_ARG_defense_and_democracy
 	
     x = 1
 	y = 1
@@ -348,7 +363,10 @@ shared_focus = {
 	mutually_exclusive = { focus = USA_unleash_the_fbi }
 	
     completion_reward = {
-        
+        country_event = {
+			id = united_states_thomas.39
+			hours = 6
+		}
     }
 	
 	ai_will_do = {
@@ -368,7 +386,19 @@ shared_focus = {
 	prerequisite = { focus = USA_unleash_the_fbi }
 	
     completion_reward = {
-        
+		add_political_power = -75
+        every_owned_state = {
+			limit = {
+				can_have_elections_in_state = yes
+				is_deep_south_state = yes
+			}
+			custom_effect_tooltip = USA_decrease_DP_popularity_low
+			add_to_variable = { democrat_popularity = -0.01 }
+		}
+		country_event = {
+			id = united_states_thomas.40
+			hours = 6
+		}
     }
 	
 	ai_will_do = {
@@ -378,7 +408,7 @@ shared_focus = {
 
 shared_focus = {
     id = USA_target_government_corruption
-	icon = GFX_USA_target_government_corruption
+	icon = GFX_focus_ARG_crackdown_on_corruption
 	
     x = 1
 	y = 1
