@@ -92,6 +92,12 @@ if = {
 	}
 }
 
+complete_special_project = {
+	project = sp:sp_land_flamethrower_tank
+	#scientist = USA_andrew_mckee
+	state = 219
+}
+
 add_equipment_to_stockpile = {
     type = heavy_tank_equipment
     amount = 10
@@ -374,6 +380,26 @@ if = {
 		}
 		obsolete = yes
 		icon = "GFX_SOV_basic_light_tank_medium"
+	}
+	create_equipment_variant = {
+		name = "KhT-26"
+		type = light_tank_flame_chassis_1
+		parent_version = 0
+		modules = {
+			main_armament_slot = flamethrower
+			turret_type_slot = tank_light_one_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_gasoline_engine
+			radio_slot = tank_radio_1
+			special_type_slot_1 = empty
+			special_type_slot_2 = empty
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 2
+			tank_nsb_armor_upgrade = 2
+		}
+		icon = "GFX_SOV_light_flame_tank_medium"
 	}
 	create_equipment_variant = {
 		name = "T-26TU mod. 1933"
