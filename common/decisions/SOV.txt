@@ -114,7 +114,7 @@ SOV_war_communism_category = {
 
 SOV_factionalism_category = {
 	
-	SOV_grant_makhno_command = {
+	SOV_organize_anarchist_veterans = {
 		icon = ger_mefo_bills
 
 		available = {
@@ -125,18 +125,26 @@ SOV_factionalism_category = {
 		fire_only_once = yes
 		
 		complete_effect = {
-			add_to_variable = {
-				tooltip = SOV_decist_influence_gain
-				SOV_decist_influence = 1
-			}
-		
-			SOV_nestor_makhno = {
-				add_corps_commander_role = {
-					skill = 3
-					attack_skill = 3
-					defense_skill = 3
-					planning_skill = 2
-					logistics_skill = 2
+			#add_to_variable = {
+			#	tooltip = SOV_decist_influence_gain
+			#	SOV_decist_influence = 1
+			#}
+			custom_effect_tooltip = SOV_organize_anarchist_veterans_tt
+			hidden_effect = {
+				load_oob = "SOV_anarchist_veterans"
+				random_country_division = {
+					limit = {
+						AND = {
+							division_has_majority_template = cavalry
+							division_has_battalion_in_template = motorized
+						}
+					}
+					add_divisional_commander_xp = 500
+					#add_history_entry = {
+					#	key = my_history_entry
+					#	subject = "Test entry"
+					#	allow = no
+					#}
 				}
 			}
 		}

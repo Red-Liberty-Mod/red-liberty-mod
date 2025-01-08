@@ -76,6 +76,20 @@ country_event = {
 	}
 }
 
+country_event = { # bukharin retires
+	id = soviet_union.50
+	title = soviet_union.50.title
+	desc = soviet_union.50.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # later bitches
+		name = soviet_union.50.a
+	}
+}
+
 country_event = {
 	id = soviet_union.100
 	title = soviet_union.100.title
@@ -117,10 +131,30 @@ country_event = { # fate of the nep
 
 	option = { # kept
 		name = sov_congress.2.a
+		add_to_variable = {
+			tooltip = SOV_rightist_influence_gain
+			SOV_industrialist_influence = 3
+		}
 	}
 	
 	option = { # abolished
 		name = sov_congress.2.b
+		add_to_variable = {
+			tooltip = SOV_industrialist_influence_gain
+			SOV_industrialist_influence = 1
+		}
+		add_to_variable = {
+			tooltip = SOV_decist_influence_gain
+			SOV_decist_influence = 1
+		}
+		add_to_variable = {
+			tooltip = SOV_syndicalist_influence_gain
+			SOV_syndicalist_influence = 1
+		}
+		add_to_variable = {
+			tooltip = SOV_democrat_influence_gain
+			SOV_democrat_influence = 1
+		}
 	}
 }
 
