@@ -1,247 +1,360 @@
 leader_traits = {
-	undistinguished_suit = {
-		random = yes
-	}
+	
+	accomplished_diplomat = {
+		consumer_goods_factor = -0.09
+		civilian_intel_factor = 0.05
+		army_intel_factor = 0.05
+		navy_intel_factor = 0.05
+		airforce_intel_factor = 0.05
 
-	########################################
-	## ECONOMY MINISTERS
-	########################################
-
-	eco_administrative_genius = {
-		production_speed_buildings_factor = 0.05
-		research_speed_factor = 0.02
-		industrial_capacity_factory = 0.1
 		random = no
 		sprite = 13
 	}
+	
+	administrative_genius = {
+		line_change_production_efficiency_factor = 0.1
+		production_factory_max_efficiency_factor = 0.05
+		
+		random = no
+		sprite = 13
+	}
+	
+	agricultural_economist = {
+		global_building_slots_factor = 0.2
+		conscription_factor = 0.05
+		monthly_population = 0.2
+		
+		random = no
+		sprite = 10
+	}
+	
+	autarky_proponent = {
+		local_resources_factor = 0.05
+		production_lack_of_resource_penalty_factor = -0.15
 
-	eco_balanced_budget_economy = {
-		political_power_gain = 0.1
+		random = no
+		sprite = 10
+	}
+	
+	balanced_budget_advocate = {
 		consumer_goods_factor = -0.05
 		production_speed_buildings_factor = 0.07
 		production_factory_max_efficiency_factor = 0.07
+		
 		random = no
 		sprite = 13
 	}
-
-	eco_bank_president = {
+	
+	bank_president = {
 		production_speed_buildings_factor = 0.1
 		political_power_gain = 0.15
 		production_factory_max_efficiency_factor = 0.05
+		
 		random = no
 		sprite = 13
 	}
-
-	eco_construction_magnate = {
+	
+	compassionate_gentleman = {
+		political_power_factor = 0.1
+		compliance_gain = 0.01
+		
+		random = no
+		sprite = 13
+	}
+	
+	construction_magnate = {
 		production_speed_infrastructure_factor = 0.1
 		production_speed_air_base_factor = 0.15
 		production_speed_naval_base_factor = 0.15
 		production_speed_radar_station_factor = 0.15
 		production_speed_nuclear_reactor_factor = 0.15
+		
 		random = no
 		sprite = 10
 	}
+	
+	crime_fighter = {
+		stability_weekly = 0.001
+		conscription_factor = -0.03
+		resistance_target = -0.05
+		
+		random = no
+		sprite = 13
+	}
+	
+	educational_reformer = {
+		political_power_gain = -0.1
+		research_speed_factor = 0.075
+		
+		random = no
+		sprite = 13
+	}
+	
+	experienced_physician = {
+		research_speed_factor = 0.01
+		experience_loss_factor = -0.05
+		attrition = -0.05
+		
+		random = no
+		sprite = 13
+	}
+	
+	feminist_champion = {
+		conscription_factor = 0.07
+		stability_factor = 0.05
+		monthly_population = -0.05
+		
+		random = no
+		sprite = 13
+	}
+	
+	financial_expert = {
+		consumer_goods_factor = -0.1
+		production_factory_efficiency_gain_factor = 0.05
+		
+		random = no
+		sprite = 13
+	}
+	
+	fortification_engineer = {
+		static_anti_air_hit_chance_factor = 0.1
+		production_speed_bunker_factor = 0.15
+		production_speed_coastal_bunker_factor = 0.15
+		production_speed_anti_air_building_factor = 0.15
 
-	eco_corrupt_kleptocrat = {
-		local_resources_factor = -0.1
-		production_factory_max_efficiency_factor = -0.1
-		production_speed_buildings_factor = -0.05
 		random = no
 		sprite = 10
 	}
-
-	eco_industrial_chemist = {
-		local_resources_factor = 0.1
-		production_speed_buildings_factor = 0.025
-		production_speed_infrastructure_factor = 0.05
-		production_speed_synthetic_refinery_factor = 0.1
+	
+	general_staffer = {
+		high_command_cost_factor = -0.2
+		max_command_power = 20
+		
 		random = no
-		sprite = 10
+		sprite = 12
 	}
-
-	eco_industrialiser = {
+	
+	industrializer = {
 		production_speed_buildings_factor = 0.1
 		local_resources_factor = 0.05
-		consumer_goods_factor = -0.07
-		conscription_factor = -0.02
-		political_power_gain = -0.15
+		conscription_factor = -0.03
+		
 		random = no
 		sprite = 10
 	}
-
-	eco_keynesian_economy = {
-		production_factory_max_efficiency_factor = -0.05
-		local_resources_factor = -0.05
+	
+	interventionist_economist = {
 		consumer_goods_factor = -0.1
-		political_power_gain = 0.1
-		random = no
-		sprite = 13
-	}
-
-	eco_laissez_faire_capitalist = {
-		production_speed_buildings_factor = 0.05
-		local_resources_factor = 0.05
-		consumer_goods_factor = 0.05
-		random = no
-		sprite = 13
-	}
-
-	eco_military_entrepreneur = {
-		ai_focus_war_production_factor = 0.5
-		production_speed_infrastructure_factor = 0.1
-		production_factory_max_efficiency_factor = 0.03
-		random = no
-	}
-
-	eco_mixed_economy = {
-		production_factory_max_efficiency_factor = 0.025
-		local_resources_factor = 0.025
-		consumer_goods_factor = -0.025
+		stability_factor = 0.05
+		
 		random = no
 		sprite = 10
 	}
+	
+	iron_fisted_brute = {
+		resistance_target = -0.05
+		war_support_factor = 0.1
+		army_attack_factor = 0.05
 
-	eco_oil_baron = {
+		random = no
+		sprite = 13
+	}
+	
+	media_magnate = {
+		political_power_factor = 0.05
+		party_popularity_stability_factor = 0.25
+		
+		random = no
+		sprite = 13
+	}
+	
+	military_entrepreneur = {
+		production_speed_arms_factory_factor = 0.1
+		production_factory_max_efficiency_factor = 0.03
+		military_industrial_organization_funds_gain = 0.15
+		
+		random = no
+		sprite = 10
+	}
+	
+	mixed_economy_proponent = {
+		production_factory_max_efficiency_factor = 0.05
+		industrial_capacity_factory = 0.05
+		industrial_capacity_dockyard = 0.05
+		
+		random = no
+		sprite = 10
+	}
+	
+	oil_baron = {
 		local_resources_factor = 0.15
 		production_factory_max_efficiency_factor = 0.025
 		production_speed_synthetic_refinery_factor = 0.1
+		
 		random = no
 		sprite = 10
 	}
-
-	eco_planned_economy_proponent = {
+	
+	planned_economy_proponent = {
 		production_factory_max_efficiency_factor = 0.1
 		production_speed_buildings_factor = 0.05
 		consumer_goods_factor = 0.025
+		
 		random = no
 		sprite = 10
 	}
-
-	eco_reformer = {
-		production_speed_infrastructure_factor = 0.1
-		production_factory_max_efficiency_factor = 0.03
-		random = no
-		sprite = 10
-	}
-
-	eco_resource_industrialist = {
-		local_resources_factor = 0.15
-		production_factory_max_efficiency_factor = 0.05
-		random = no
-		sprite = 10
-	}
-
-	eco_steel_magnate = {
-		local_resources_factor = 0.15
-		production_factory_max_efficiency_factor = 0.05
-		random = no
-		sprite = 10
-	}
-
-	eco_theoretical_scientist = {
-		ai_focus_military_advancements_factor = 0.5
-		production_speed_air_base_factor = 0.2
-		production_speed_nuclear_reactor_factor = 0.2
-		research_speed_factor = 0.05
+	
+	popular_advocate = {
+		stability_factor = 0.075
+		compliance_gain = 0.01
+		
 		random = no
 		sprite = 13
 	}
-
-	eco_union_man = {
-		production_factory_max_efficiency_factor = 0.03
-		political_power_gain = 0.05
-		production_speed_buildings_factor = -0.05
-		random = no
-		sprite = 10
-	}
-
-	eco_political_appointment = {
+	
+	pragmatic_statesman = {
 		political_power_factor = 0.05
-		industrial_capacity_factory = -0.05
-		production_speed_buildings_factor = -0.05
-		random = no
-		sprite = 13
-	}
+		stability_factor = 0.05
+		min_export = -0.1
 
-	eco_big_spender = {
-		consumer_goods_factor = 0.05
-		production_factory_efficiency_gain_factor = 0.05
-		production_speed_buildings_factor = 0.05
-		random = no
-		sprite = 10
-	}
-
-	eco_anti_reform = {
-		production_factory_efficiency_gain_factor = -0.05
-		production_factory_start_efficiency_factor = -0.05
-		random = no
-		sprite = 10
-	}
-
-	eco_union_buster = {
-		stability_factor = -0.1
-		industrial_capacity_factory = 0.05
-		industrial_capacity_dockyard = 0.05
-		random = no
-		sprite = 10
-	}
-
-	eco_pillager = {
-		research_speed_factor = 0.05
-		local_resources_factor = 0.05
-		random = no
-		sprite = 10
-	}
-	
-	eco_naturalist = {
-		stability_factor = 0.1
-		production_speed_buildings_factor = -0.05
 		random = no
 		sprite = 13
 	}
 	
-	eco_relief_coordinator = {
-		consumer_goods_factor = -0.03
-		production_speed_buildings_factor = 0.05
-		poverty_monthly_rate = 0.01
-		random = no
-		sprite = 13
-	}
-	
-	eco_financial_expert = {
-		consumer_goods_factor = -0.05
-		production_factory_efficiency_gain_factor = 0.05
-		random = no
-		sprite = 13
-	}
-	
-	eco_railway_magnate = {
+	railway_magnate = {
 		production_speed_rail_way_factor = 0.15
 		production_speed_supply_node_factor = 0.15
 		equipment_bonus = {
 			train_equipment = {
-				build_cost_ic = -0.10
+				build_cost_ic = -0.1
 				instant = yes
 			}
 			railway_gun_equipment = {
+				build_cost_ic = -0.1
+				instant = yes
+			}
+		}
+		
+		random = no
+		sprite = 10
+	}
+	
+	relief_coordinator = {
+		consumer_goods_factor = -0.03
+		production_speed_buildings_factor = 0.05
+		poverty_monthly_rate = 0.01
+		
+		random = no
+		sprite = 13
+	}
+	
+	respected_jurist = {
+		stability_factor = 0.1
+		compliance_growth = 0.05
+		
+		random = no
+		sprite = 13
+	}
+	
+	retired_general = {
+		command_power_gain_mult = 0.1
+		army_org_factor = 0.05
+		
+		random = no
+		sprite = 15
+	}
+	
+	secret_police_chief = {
+		resistance_target = -0.1
+		resistance_activity = -0.15
+		
+		random = no
+		sprite = 15
+	}
+	
+	shipping_magnate = {
+		production_speed_dockyard_factor = 0.1
+		equipment_bonus = {
+			convoy = {
 				build_cost_ic = -0.10
 				instant = yes
 			}
 		}
+		
+		random = no
+		sprite = 3
+	}
+	
+	staff_college_president = {
+		experience_gain_army_factor = 0.1
+		army_org_factor = 0.05
+		
+		random = no
+		sprite = 13
+	}
+	
+	steel_magnate = {
+		local_resources_factor = 0.1
+		production_factory_max_efficiency_factor = 0.05
+		
 		random = no
 		sprite = 10
 	}
-
-	##proponents
 	
-	eco_naval_proponent = {
+	spymaster = {
+		decryption_factor = 0.05
+		recon_factor = 0.05
+		operative_slot = 1
+		
+		random = no
+		sprite = 15
+	}
+	
+	traditionalist_economist = {
+		stability_factor = 0.05
+		production_speed_buildings_factor = 0.05
+		production_factory_max_efficiency_factor = 0.025
+
+		random = no
+		sprite = 10
+	}
+	
+	ultranationalist_agitator = {
+		justify_war_goal_time = -0.1
+		conscription_factor = 0.1
+		
+		random = no
+		sprite = 13
+	}
+	
+	veteran_activist = {
+		political_power_gain = 0.05
+		production_factory_start_efficiency_factor = 0.025
+		consumer_goods_factor = -0.03
+		
+		random = no
+		sprite = 13
+	}
+	
+	war_propagandist = {
+		war_stability_factor = 0.15
+		conscription_factor = 0.05
+		
+		random = no
+		sprite = 13
+	}
+	
+	### Proponents ###
+	
+	naval_proponent = {
 		ai_focus_naval_factor = 0.5
 		production_speed_dockyard_factor = 0.1
+		
 		random = no
 		sprite = 3
 	}
 
-	eco_air_superiority_proponent = {
+	air_superiority_proponent = {
 		ai_focus_aviation_factor = 0.5
 		equipment_bonus = {
 			small_plane_airframe = {
@@ -251,11 +364,12 @@ leader_traits = {
 				build_cost_ic = -0.05
 			}
 		}
+		
 		random = no
 		sprite = 1
 	}
 
-	eco_battlefield_support_proponent = {
+	battlefield_support_proponent = {
 		ai_focus_aviation_factor = 0.5
 		equipment_bonus = {
 			small_plane_cas_airframe = {
@@ -265,11 +379,12 @@ leader_traits = {
 				build_cost_ic = -0.05
 			}
 		}
+		
 		random = no
 		sprite = 1
 	}
 
-	eco_battle_fleet_proponent = {
+	battle_fleet_proponent = {
 		ai_focus_naval_factor = 0.5
 		equipment_bonus = {
 			capital_ship = {
@@ -279,22 +394,24 @@ leader_traits = {
 				build_cost_ic = -0.05
 			}
 		}
+		
 		random = no
 		sprite = 3
 	}
 
-	eco_carrier_proponent = {
+	carrier_proponent = {
 		ai_focus_naval_factor = 0.5
 		equipment_bonus = {
 			carrier = {
 				build_cost_ic = -0.1
 			}
 		}
+		
 		random = no
 		sprite = 3
 	}
 
-	eco_infantry_proponent = {
+	infantry_proponent = {
 		sprite = 5
 		command_abilities_cost_factor = -0.1
 		equipment_bonus = {
@@ -302,11 +419,12 @@ leader_traits = {
 				build_cost_ic = -0.05
 			}
 		}
+		
 		random = no
 		sprite = 5
 	}
 
-	eco_naval_aviation_proponent = {
+	naval_aviation_proponent = {
 		ai_focus_naval_air_factor = 0.5
 		equipment_bonus = {
 			small_plane_naval_bomber_airframe = {
@@ -319,363 +437,83 @@ leader_traits = {
 				build_cost_ic = -0.05
 			}
 		}
+		
 		random = no
 		sprite = 1
 	}
 
-	eco_u_boat_proponent = {
+	submarine_proponent = {
 		ai_focus_naval_factor = 0.5
 		equipment_bonus = {
 			submarine = {
 				build_cost_ic = -0.1
 			}
 		}
+		
 		random = no
 		sprite = 4
 	}
 
-	eco_tank_proponent = {
+	armor_proponent = {
 		ai_focus_military_advancements_factor = 0.5
 		equipment_bonus = {
 			armor = {
 				build_cost_ic = -0.1
 			}
 		}
+		
 		random = no
 		sprite = 8
 	}
 
-	eco_strategic_destruction_proponent = {
+	strategic_destruction_proponent = {
 		ai_focus_aviation_factor = 0.5
 		equipment_bonus = {
 			large_plane_airframe = {
 				build_cost_ic = -0.1
 			}
 		}
+		
 		random = no
 		sprite = 1
-	}
-
-	########################################
-	## FOREIGN MINISTERS
-	########################################
-
-	for_biased_intellectual = {
-		ai_call_ally_desire_factor = 10
-		opinion_gain_monthly_same_ideology_factor = 0.65
-		opinion_gain_monthly_factor = -0.25
-		random = no
-		sprite = 13
-	}
-
-	for_ideological_crusader = {
-		sprite = 13
-		send_volunteer_size = 1
-		party_popularity_stability_factor = 0.15
-		random = no
-		sprite = 13
-	}
-
-	for_apologetic_clerk = {
-		party_popularity_stability_factor = 0.1
-		random = no
-		sprite = 13
-	}
-
-	for_iron_fisted_brute = {
-		justify_war_goal_time = -0.2
-		resistance_target = -0.05
-		random = no
-		sprite = 13
-	}
-
-	for_great_compromiser = {
-		trade_opinion_factor = 0.2
-		political_advisor_cost_factor = -0.1
-		random = no
-		sprite = 13
-	}
-
-	for_general_staffer = {
-		sprite = 12
-		high_command_cost_factor = -0.2
-		max_command_power = 20
-		random = no
-	}
-
-	for_the_cloak_n_dagger_schemer = {
-		ai_call_ally_desire_factor = 30
-		ai_focus_aggressive_factor = 0.5
-		decryption = 1
-		random = no
-		sprite = 13
-	}
-
-	for_seasoned_ambassador = {
-		stability_factor = 0.05
-		opinion_gain_monthly_factor = 0.1
-		trade_opinion_factor = 0.1
-		random = no
-		sprite = 13
-	}
-
-	for_fierce_negotiator = {
-		political_power_factor = 0.05
-		opinion_gain_monthly_factor = -0.05
-		trade_opinion_factor = 0.1
-		random = no
-		sprite = 13
-	}
-
-	for_political_appointment = {
-		political_power_factor = 0.05
-		foreign_subversive_activites = 0.05
-		trade_opinion_factor = -0.1
-		random = no
-		sprite = 13
-	}
-
-	for_warmonger = {
-		war_support_factor = 0.05
-		offensive_war_stability_factor = 0.1
-		ai_focus_aggressive_factor = 0.05
-		opinion_gain_monthly_factor = -0.05
-		random = no
-		sprite = 13
-	}
-
-	for_pacifist = {
-		war_support_factor = -0.1
-		stability_factor = 0.05
-		command_power_gain_mult = -0.2
-		justify_war_goal_time = 0.2
-		random = no
-		sprite = 13
-	}
-
-	for_well_connected = {
-		opinion_gain_monthly_factor = 0.1
-		decryption_factor = 0.05
-		supply_consumption_factor = -0.05
-		random = no
-		sprite = 13
-	}
-	
-	########################################
-	## EDUCATION MINISTERS
-	########################################
-	
-	edu_educational_reformer = {
-		political_power_gain = -0.1
-		research_speed_factor = 0.075
-		random = no
-		sprite = 13
-	}
-	
-	edu_traditionalist = {
-		stability_factor = 0.05
-		research_speed_factor = -0.03
-		random = no
-		sprite = 13
-	}
-	
-	edu_engineer = {
-		research_speed_factor = 0.03
-		production_speed_radar_station_factor = 0.05
-		production_speed_buildings_factor = 0.05
-		random = no
-		sprite = 13
-	}
-	
-	edu_chemist = {
-		research_speed_factor = 0.03
-		production_speed_synthetic_refinery_factor = 0.1
-		fuel_gain_factor_from_states = 0.05
-		production_oil_factor = 0.05
-		random = no
-		sprite = 13
-	}
-	
-	edu_technocrat = {
-		research_speed_factor = 0.05
-		production_factory_max_efficiency_factor = 0.05
-		random = no
-		sprite = 13
-	}
-	
-	edu_propagandist = {
-		war_support_factor = 0.05
-		conscription_factor = 0.03
-		random = no
-		sprite = 13
-	}
-	
-	edu_experienced_physician = {
-		research_speed_factor = 0.01
-		experience_loss_factor = -0.05
-		attrition = -0.05
-		random = no
-		sprite = 13
-	}
-	
-	edu_influential_intellectual = {
-		political_power_factor = 0.05
-		stability_factor = 0.1
-		random = no
-		sprite = 13
-	}
-	
-	edu_popular_advocate = {
-		political_power_factor = 0.1
-		stability_factor = 0.05
-		compliance_gain = 0.01
-		random = no
-		sprite = 13
-	}
-	
-	edu_respected_jurist = {
-		stability_factor = 0.075
-		random = no
-		sprite = 13
-	}
-
-	########################################
-	## SECURITY MINISTERS
-	########################################
-
-	sec_back_stabber = {
-		army_org_factor = -0.1
-		consumer_goods_factor = 0.02
-		political_power_gain = 0.2
-		random = no
-		sprite = 13
-	}
-
-	sec_compassionate_gentleman = {
-		stability_factor = 0.05
-		compliance_gain = 0.01
-		random = no
-		sprite = 13
-	}
-
-	sec_crime_fighter = {
-		stability_weekly = 0.001
-		conscription_factor = -0.03
-		resistance_target = -0.05
-		random = no
-		sprite = 13
-	}
-
-	sec_crooked_kleptocrat = {
-		political_power_gain = -0.15
-		production_speed_buildings_factor = -0.05
-		random = no
-		sprite = 13
-	}
-
-	sec_efficient_sociopath = {
-		local_resources_factor = 0.15
-		conscription_factor = -0.03
-		random = no
-		sprite = 13
-	}
-
-	sec_health_and_safety = {
-		consumer_goods_factor = -0.05
-		conscription_factor = 0.03
-		local_resources_factor = -0.05
-		production_speed_buildings_factor = -0.05
-		industrial_capacity_factory = -0.05
-		random = no
-		sprite = 13
-	}
-
-	sec_man_of_the_people = {
-		stability_factor = 0.1
-		random = no
-		sprite = 12
-	}
-
-	sec_media_magnate = {
-		political_power_factor = 0.05
-		party_popularity_stability_factor = 0.25
-		random = no
-		sprite = 13
-	}
-
-	sec_prince_of_terror = {
-		political_power_gain = 0.1
-		resistance_damage_to_garrison = -0.25
-		foreign_subversive_activites = -0.25
-		non_core_manpower = 0.025
-		random = no
-		sprite = 13
-	}
-
-	sec_secret_police_chief = {
-		resistance_target = -0.1
-		resistance_activity = -0.15
-		random = no
-		sprite = 15
-	}
-
-	sec_silent_lawyer = {
-		political_power_gain = 0.05
-		consumer_goods_factor = -0.02
-		random = no
-		sprite = 13
-	}
-
-	sec_spymaster = {
-		decryption_factor = 0.05
-		recon_factor = 0.05
-		operative_slot = 1
-		random = no
-		sprite = 15
-	}
-
-	sec_retired_general = {
-		command_power_gain_mult = 0.05
-		army_org_factor = 0.05
-		random = no
-		sprite = 15
-	}
-
-	sec_political_appointment = {
-		political_power_factor = 0.05
-		army_org_factor = -0.05
-		random = no
-		sprite = 13
 	}
 	
 	### Unique ###
 	
-	sec_maverick_marine = { # Smedley Butler
+	## USA ##
+	USA_maverick_marine = { # Smedley Butler
 		political_power_gain = -0.05
-		command_power_gain_mult = 0.1
+		command_power_gain_mult = 0.15
 		army_org_factor = 0.075
+		
 		random = no
 		sprite = 18
 	}
 	
-	sec_infiltration_expert = { # Maxwell Knight
-		intel_from_operatives_factor = 0.1
-		operative_slot = 1
-		random = no
-		sprite = 15
-	}
-	
-	fbi_director = { # John Edgar Hoover
+	USA_fbi_director = { # John Edgar Hoover
 		political_power_gain = -0.08
 		foreign_subversive_activites = -0.25
 		enemy_operative_capture_chance_factor = 0.1
+		
 		random = no
 		sprite = 9
 	}
 	
-	sov_lenins_widow = {
+	## ENG ##
+	ENG_infiltration_expert = { # Maxwell Knight
+		intel_from_operatives_factor = 0.1
+		operation_risk = -0.1
+		operative_slot = 1
+		
+		random = no
+		sprite = 15
+	}
+	
+	## SOV ##
+	SOV_lenins_widow = {
 		stability_factor = 0.075
 		political_power_gain = 0.1
+		
 		random = no
 		sprite = 13
 	}
@@ -687,22 +525,26 @@ leader_traits = {
 		air_chief_cost_factor = -0.15
 		high_command_cost_factor = -0.15
 		theorist_cost_factor = -0.15
+		
 		random = no
 		sprite = 13
 	}
 	
-	eco_architect_of_the_village_institutes = {
+	## TUR ##
+	TUR_architect_of_the_village_institutes = {
 		research_speed_factor = 0.075
 		poverty_monthly_rate = 0.01
+		
+		random = no
 		sprite = 13
 	}
 	
-	### Military Advisors ###
-	
-	mil_staff_college_president = {
-		experience_gain_army = 0.03
-		army_org_factor = 0.05
-		command_power_gain_mult = 0.05
+	## COL ##
+	COL_tribune_of_the_people = {
+		production_factory_start_efficiency_factor = 0.1
+		monthly_population = 0.1
+		research_speed_factor = 0.03
+		
 		random = no
 		sprite = 13
 	}

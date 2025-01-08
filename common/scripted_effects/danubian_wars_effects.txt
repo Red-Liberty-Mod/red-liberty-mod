@@ -59,6 +59,11 @@ AHE_setup_AUS = {
 			add_state_core = 985
 			add_state_core = 994
 			
+			# slovene states
+			add_state_core = 102
+			add_state_core = 736
+			add_state_core = 882
+			
 			add_ideas = {
 				AUS_last_chance
 			}
@@ -88,6 +93,9 @@ AHE_setup_AUS = {
 			
 			AHE_remove_templates = yes
 			load_oob = AHE_danubian_war
+			transfer_navy = {
+				target = AUS
+			}
 		}
 		
 		AUS_eugen_von_habsburg = { set_nationality = AUS }
@@ -270,8 +278,10 @@ AHE_setup_CRO = {
 						to_state_array = owned_controlled_states
 					}
 				}
-				
-				AHE_transfer_navy_to_CRO = yes
+			}
+			
+			AUS = {
+				AUS_transfer_navy_to_CRO = yes
 			}
 			
 			inherit_technology = AHE
@@ -282,7 +292,7 @@ AHE_setup_CRO = {
 	}
 }
 
-AHE_transfer_navy_to_CRO = {
+AUS_transfer_navy_to_CRO = {
 	
 	### Battleships ###
 	transfer_ship = {
@@ -364,22 +374,22 @@ AHE_setup_SLV = {
 			add_state_core = 736
 			add_state_core = 882
 			
-			AHE = {
+			AUS = {
 				every_owned_state = {
 					limit = { is_core_of = SLV }
 					
 					set_demilitarized_zone = no
-					remove_core_of = AHE
+					remove_core_of = AUS
 					SLV = { transfer_state = PREV }
 					
 					teleport_armies = {
-						limit = { tag = AHE }
+						limit = { tag = AUS }
 						to_state_array = owned_controlled_states
 					}
 				}
 			}
 			
-			inherit_technology = AHE
+			inherit_technology = AUS
 			load_oob = SLV_danubian_war
 			AHE_remove_templates = yes
 			add_to_array = { global.danubian_war_participants = THIS.id }
@@ -392,16 +402,16 @@ AHE_setup_PNB = {
 		PNB = {
 			add_state_core = 882
 			
-			AHE = {
+			AUS = {
 				every_owned_state = {
 					limit = { is_core_of = PNB }
 					
 					set_demilitarized_zone = no
-					remove_core_of = AHE
+					remove_core_of = AUS
 					PNB = { transfer_state = PREV }
 					
 					teleport_armies = {
-						limit = { tag = AHE }
+						limit = { tag = AUS }
 						to_state_array = owned_controlled_states
 					}
 				}
@@ -411,7 +421,7 @@ AHE_setup_PNB = {
 				}
 			}
 			
-			inherit_technology = AHE
+			inherit_technology = AUS
 			load_oob = PNB_danubian_war
 			AHE_remove_templates = yes
 			add_to_array = { global.danubian_war_participants = THIS.id }

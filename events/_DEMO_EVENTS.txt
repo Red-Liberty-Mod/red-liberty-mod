@@ -2,6 +2,7 @@ add_namespace = demo_ger
 add_namespace = demo_mex
 add_namespace = demo_ita
 add_namespace = demo_ahe
+add_namespace = demo_col
 add_namespace = demo_rom
 add_namespace = demo_rus
 add_namespace = demo_sov
@@ -34,6 +35,78 @@ add_namespace = demo_jap_chi_war
 
 add_namespace = demo_ww2
 
+country_event = { # 1938 election
+	id = demo_col.1
+	title = demo_col.1.title
+	desc = demo_col.1.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # liberal victory
+		name = demo_col.1.a
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_col.2 hours = 6 }
+		}
+		ai_chance = {
+			base = 60
+		}
+	}
+	
+	option = { # conservative victory
+		name = demo_col.1.a
+		COL = {
+			set_politics = {
+				ruling_party = national_conservatism
+				last_election = "1938.5.1"
+				election_frequency = 48
+				elections_allowed = no
+			}
+			add_popularity = {
+				ideology = national_conservatism
+				popularity = 0.05
+			}
+		}
+		
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_col.3 hours = 6 }
+		}
+		ai_chance = {
+			base = 40
+		}
+	}
+}
+
+news_event = { # 1938 election liberal victory
+	id = demo_col.2
+	title = demo_col.2.title
+	desc = demo_col.2.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = demo_col.2.a
+	}
+}
+
+news_event = { # 1938 election conservative victory
+	id = demo_col.3
+	title = demo_col.3.title
+	desc = demo_col.3.desc
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = demo_col.3.a
+	}
+}
 
 country_event = { # vorbeck takes power
 	id = demo_ger.1
@@ -783,9 +856,11 @@ country_event = { # september constitution - september 26, 1936
 				id = demo_ahe.10
 				days = 26
 			}
-			country_event = { # november 1
-				id = demo_ahe.11
-				days = 35
+			AUS = {
+				country_event = { # november 1 - slovenes
+					id = demo_ahe.11
+					days = 35
+				}
 			}
 			country_event = { # november 1
 				id = demo_ahe.12

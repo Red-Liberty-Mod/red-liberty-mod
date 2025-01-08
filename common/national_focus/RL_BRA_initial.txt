@@ -29,6 +29,11 @@ shared_focus = {
 		custom_effect_tooltip = available_political_advisor
 		show_ideas_tooltip = BRA_lindolfo_collor
 		show_ideas_tooltip = BRA_anisio_teixeira
+		add_power_balance_value = {
+			id = BRA_civil_war_balance
+			value = -0.05
+			tooltip_side = BRA_democrat_side
+		}
     }
 	
 	ai_will_do = {
@@ -49,6 +54,32 @@ shared_focus = {
     completion_reward = {
 		custom_effect_tooltip = available_political_advisor
 		show_ideas_tooltip = BRA_francisco_campos
+		if = {
+			limit = {
+				power_balance_value = {
+					id = BRA_civil_war_balance
+					value > 0
+				}
+			}
+			add_power_balance_value = {
+				id = BRA_civil_war_balance
+				value = -0.05
+				tooltip_side = BRA_democrat_side
+			}
+		}
+		else_if = {
+			limit = {
+				power_balance_value = {
+					id = BRA_civil_war_balance
+					value < 0
+				}
+			}
+			add_power_balance_value = {
+				id = BRA_civil_war_balance
+				value = 0.05
+				tooltip_side = BRA_integralist_side
+			}
+		}
     }
 	
 	ai_will_do = {
@@ -70,6 +101,11 @@ shared_focus = {
         custom_effect_tooltip = available_political_advisor
 		show_ideas_tooltip = BRA_gustavo_barroso
 		show_ideas_tooltip = BRA_miguel_reale
+		add_power_balance_value = {
+			id = BRA_civil_war_balance
+			value = 0.05
+			tooltip_side = BRA_integralist_side
+		}
     }
 	
 	ai_will_do = {
@@ -96,6 +132,11 @@ shared_focus = {
 			ideology = national_conservatism
 			popularity = 0.025
 		}
+		add_power_balance_value = {
+			id = BRA_civil_war_balance
+			value = -0.05
+			tooltip_side = BRA_democrat_side
+		}
     }
 	
 	ai_will_do = {
@@ -117,6 +158,32 @@ shared_focus = {
         add_popularity = {
 			ideology = despotism
 			popularity = 0.025
+		}
+		if = {
+			limit = {
+				power_balance_value = {
+					id = BRA_civil_war_balance
+					value > 0
+				}
+			}
+			add_power_balance_value = {
+				id = BRA_civil_war_balance
+				value = -0.05
+				tooltip_side = BRA_democrat_side
+			}
+		}
+		else_if = {
+			limit = {
+				power_balance_value = {
+					id = BRA_civil_war_balance
+					value < 0
+				}
+			}
+			add_power_balance_value = {
+				id = BRA_civil_war_balance
+				value = 0.05
+				tooltip_side = BRA_integralist_side
+			}
 		}
     }
 	
@@ -145,6 +212,11 @@ shared_focus = {
 		hidden_effect = {
 			load_oob = BRA_white_shirts
 		}
+		add_power_balance_value = {
+			id = BRA_civil_war_balance
+			value = 0.03
+			tooltip_side = BRA_integralist_side
+		}
     }
 	
 	ai_will_do = {
@@ -172,6 +244,11 @@ shared_focus = {
 		hidden_effect = {
 			load_oob = BRA_green_shirts
 		}
+		add_power_balance_value = {
+			id = BRA_civil_war_balance
+			value = 0.05
+			tooltip_side = BRA_integralist_side
+		}
     }
 	
 	ai_will_do = {
@@ -194,6 +271,11 @@ shared_focus = {
 		custom_effect_tooltip = BRA_utilize_state_militias_tt
         hidden_effect = {
 			load_oob = BRA_state_militias
+		}
+		add_power_balance_value = {
+			id = BRA_civil_war_balance
+			value = -0.05
+			tooltip_side = BRA_democrat_side
 		}
     }
 	
@@ -261,6 +343,11 @@ shared_focus = {
 	}
     completion_reward = {
         add_ideas = BRA_naval_support
+		add_power_balance_value = {
+			id = BRA_civil_war_balance
+			value = 0.05
+			tooltip_side = BRA_integralist_side
+		}
     }
 	
 	ai_will_do = {
@@ -279,7 +366,11 @@ shared_focus = {
 	relative_position_id = BRA_utilize_state_militias
 	prerequisite = { focus = BRA_utilize_state_militias }
     completion_reward = {
-        
+        add_power_balance_value = {
+			id = BRA_civil_war_balance
+			value = -0.1
+			tooltip_side = BRA_democrat_side
+		}
     }
 	
 	ai_will_do = {
@@ -323,7 +414,32 @@ shared_focus = {
 		focus = BRA_voice_of_brazil
 	}
     completion_reward = {
-        
+        if = {
+			limit = {
+				power_balance_value = {
+					id = BRA_civil_war_balance
+					value > 0
+				}
+			}
+			add_power_balance_value = {
+				id = BRA_civil_war_balance
+				value = -0.1
+				tooltip_side = BRA_democrat_side
+			}
+		}
+		else_if = {
+			limit = {
+				power_balance_value = {
+					id = BRA_civil_war_balance
+					value < 0
+				}
+			}
+			add_power_balance_value = {
+				id = BRA_civil_war_balance
+				value = 0.1
+				tooltip_side = BRA_integralist_side
+			}
+		}
     }
 	
 	ai_will_do = {
@@ -364,7 +480,11 @@ shared_focus = {
 	relative_position_id = BRA_navy_support
 	prerequisite = { focus = BRA_navy_support }
     completion_reward = {
-        
+        add_power_balance_value = {
+			id = BRA_civil_war_balance
+			value = 0.1
+			tooltip_side = BRA_integralist_side
+		}
     }
 	
 	ai_will_do = {

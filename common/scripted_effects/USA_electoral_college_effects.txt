@@ -85,6 +85,8 @@ USA_start_elections_system = {
 		set_variable = { state_afp_reps = 3 }
 		
 		set_variable = { electoral_votes = 12 } # was 11
+		
+		set_state_flag = USA_gerrymandered_democrat
 	}
 	
 	377 = { # Arizona, swing state
@@ -103,8 +105,9 @@ USA_start_elections_system = {
 	
 	372 = { # Arkansas
 		set_state_flag = US_election_state
-		set_variable = { democrat_popularity = 0.45 }
-		set_variable = { commonwealth_popularity = 0.55 }
+		set_variable = { socialist_popularity = 0.03 }
+		set_variable = { democrat_popularity = 0.44 }
+		set_variable = { commonwealth_popularity = 0.53 }
 		
 		set_variable = { senator_1 = 3 } # democrat
 		set_variable = { senator_2 = 4 } # afp
@@ -113,6 +116,8 @@ USA_start_elections_system = {
 		set_variable = { state_afp_reps = 5 }
 		
 		set_variable = { electoral_votes = 10 } # was 9
+		
+		set_state_flag = USA_gerrymandered_democrat
 	}
 	
 	378 = { # California, pretty messy state
@@ -181,9 +186,8 @@ USA_start_elections_system = {
 	
 	366 = { # Florida, largely democrat, socialists popular in tampa
 		set_state_flag = US_election_state
-		set_variable = { socialist_popularity = 0.05 }
+		set_variable = { socialist_popularity = 0.15 }
 		set_variable = { democrat_popularity = 0.85 }
-		set_variable = { commonwealth_popularity = 0.1 }
 		
 		set_variable = { senator_1 = 3 }
 		set_variable = { senator_2 = 3 }
@@ -198,7 +202,8 @@ USA_start_elections_system = {
 	
 	365 = { # Georgia, like Alabama, very pro-segregation
 		set_state_flag = US_election_state
-		set_variable = { democrat_popularity = 0.7 }
+		set_variable = { socialist_popularity = 0.01 }
+		set_variable = { democrat_popularity = 0.69 }
 		set_variable = { commonwealth_popularity = 0.3 }
 		
 		set_variable = { senator_1 = 3 }
@@ -311,9 +316,9 @@ USA_start_elections_system = {
 	
 	371 = { # Louisiana, pro segregation, very conservative, afp stronghold
 		set_state_flag = US_election_state
-		set_variable = { socialist_popularity = 0.05 }
-		set_variable = { democrat_popularity = 0.25 }
-		set_variable = { commonwealth_popularity = 0.7 }
+		set_variable = { socialist_popularity = 0.13 }
+		set_variable = { democrat_popularity = 0.3 }
+		set_variable = { commonwealth_popularity = 0.57 }
 		
 		set_variable = { senator_1 = 4 }
 		set_variable = { senator_2 = 4 }
@@ -409,7 +414,8 @@ USA_start_elections_system = {
 	
 	370 = { # Mississippi, pro-segregation
 		set_state_flag = US_election_state
-		set_variable = { commonwealth_popularity = 0.29 }
+		set_variable = { socialist_popularity = 0.03 }
+		set_variable = { commonwealth_popularity = 0.26 }
 		set_variable = { democrat_popularity = 0.71 }
 		
 		set_variable = { senator_1 = 3 }
@@ -437,6 +443,8 @@ USA_start_elections_system = {
 		set_variable = { state_democrat_reps = 10 }
 		
 		set_variable = { electoral_votes = 16 } # was 15
+		
+		set_state_flag = USA_gerrymandered_democrat
 	}
 	
 	388 = { # Montana, heavily unionized
@@ -450,6 +458,8 @@ USA_start_elections_system = {
 		set_variable = { state_socialist_reps = 3 }
 		
 		set_variable = { electoral_votes = 5 } # was 4
+		
+		set_state_flag = USA_gerrymandered_socialist
 	}
 	
 	384 = { # Nebraska, basically Kansas
@@ -545,6 +555,8 @@ USA_start_elections_system = {
 		set_variable = { state_democrat_reps = 12 }
 		
 		set_variable = { electoral_votes = 52 } # was 47
+		
+		set_state_flag = USA_gerrymandered_socialist
 	}
 	
 	363 = { # North Carolina, conservative but not super conservative
@@ -1191,6 +1203,7 @@ USA_convert_party_pop_percentage = {
 	### various bonuses/maluses
 	#USA_gerrymandering_bonus = yes # temporarily disabled
 	USA_party_unity_bonus = yes
+	USA_presidential_popularity_bonus = yes
 	
 	### final calculations
 	set_temp_variable = { total_party_pop = communist_temp_pop }
@@ -1398,8 +1411,7 @@ USA_clear_presidential_election_values = {
 	clr_country_flag = currently_campaigning
 }
 
-USA_kill_republican_party = {
-	# we do a little trolling
+USA_kill_republican_party = { # we do a little trolling
 	
 	set_country_flag = USA_republicans_ded
 	
@@ -1435,6 +1447,58 @@ USA_gerrymandering_bonus = {
 		}
 		add_to_temp_variable = { afp_temp_pop = 0.05 }
 		#log = "[This.GetName] : added USA_gerrymandered_afp bonus"
+	}
+}
+
+USA_presidential_popularity_bonus = {
+	clamp_variable = {
+		var = USA.USA_president_popularity
+		min = 0
+		max = 30
+	}
+	set_temp_variable = {
+		USA_president_popularity_temp = USA.USA_president_popularity
+	}
+	divide_temp_variable = {
+		USA_president_popularity_temp = 30
+	}
+	multiply_temp_variable = {
+		USA_president_popularity_temp = 0.04
+	}
+	
+	if = {
+		limit = {
+			check_variable = { USA.USA_president_popularity < 15 }
+		}
+		add_to_temp_variable = {
+			USA_president_popularity_temp = 0.96
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { USA.USA_president_popularity > 14 }
+		}
+		add_to_temp_variable = {
+			USA_president_popularity_temp = 1
+		}
+	}
+	#log = "[This.GetName] : presidential popularity bonus is [?USA_president_popularity_temp]"
+	
+	if = {
+		limit = {
+			USA = {
+				has_socialist_president = yes
+			}
+		}
+		multiply_temp_variable = { socialist_temp_pop = USA_president_popularity_temp }
+	}
+	else_if = {
+		limit = {
+			USA = {
+				has_democratic_president = yes
+			}
+		}
+		multiply_temp_variable = { democrat_temp_pop = USA_president_popularity_temp }
 	}
 }
 
@@ -1493,7 +1557,7 @@ USA_party_unity_bonus = {
 	}
 }
 
-USA_setup_candidate_popularity = {
+USA_setup_candidate_popularity = { # currently unused
 	
 	every_owned_state = {
 		limit = {
@@ -1508,7 +1572,7 @@ USA_setup_candidate_popularity = {
 	}
 }
 
-USA_add_homestate_advantage = {
+USA_add_homestate_advantage = { # currently unused
 	if = {
 		limit = {
 			check_variable = { THIS.id = 261.id } # ohio

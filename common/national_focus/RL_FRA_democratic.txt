@@ -165,7 +165,7 @@ shared_focus = {
 		add_proglib_coalition = yes
 		add_libcon_coalition = yes
 		add_natcon_coalition = yes
-		add_fash_coalition = yes
+		add_ultracon_coalition = yes
 		
 		hidden_effect = {
 			if = {
@@ -289,7 +289,7 @@ shared_focus = {
 
 shared_focus = {
     id = FRA_ally_far_right
-	icon = GFX_FRA_ally_far_right
+	icon = GFX_FRA_ally_the_far_right_leagues
 	
     x = 1
 	y = 1
@@ -312,7 +312,7 @@ shared_focus = {
 
 shared_focus = {
     id = FRA_ban_communist_party
-	icon = GFX_FRA_ban_communist_party
+	icon = GFX_goal_anti_comintern_pact
 	
     x = 1
 	y = 1
@@ -347,7 +347,7 @@ shared_focus = {
 
 shared_focus = {
     id = FRA_alliance_with_patriotic_socialists
-	icon = GFX_FRA_alliance_with_patriotic_socialists
+	icon = GFX_goal_generic_military_deal
 	
     x = -1
 	y = 1
@@ -370,7 +370,7 @@ shared_focus = {
 
 shared_focus = {
     id = FRA_suppress_the_violence
-	icon = GFX_FRA_suppress_the_violence
+	icon = GFX_goal_generic_military_sphere
 	
     x = 1
 	y = 1
@@ -655,10 +655,12 @@ shared_focus = {
 	
 	completion_reward = {
 		add_political_power = 75
+		add_war_support = 0.05
 	}
 	
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_WAR_SUPPORT
 	}
 }
 
@@ -825,7 +827,7 @@ shared_focus = {
 	}
 	
 	search_filters = {
-		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_INDUSTRY
 	}
 }
 
@@ -989,10 +991,12 @@ shared_focus = {
 	
 	completion_reward = {
 		add_stability = 0.075
+		add_war_support = 0.075
 	}
 	
 	search_filters = {
 		FOCUS_FILTER_STABILITY
+		FOCUS_FILTER_WAR_SUPPORT
 	}
 }
 
@@ -1053,10 +1057,12 @@ shared_focus = {
 			ideology = vanguard_socialism
 			popularity = -0.025
 		}
+		add_war_support = 0.075
 	}
 	
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_WAR_SUPPORT
 	}
 }
 
@@ -1097,7 +1103,7 @@ shared_focus = {
 	}
 	
 	search_filters = {
-		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_INDUSTRY
 	}
 }
 
@@ -1259,7 +1265,7 @@ shared_focus = {
 	}
 	
 	search_filters = {
-		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_INDUSTRY
 	}
 }
 

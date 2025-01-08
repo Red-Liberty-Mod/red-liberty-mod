@@ -1,0 +1,95 @@
+
+BRA_civil_war_balance = {
+	initial_value = 0.03
+	left_side = BRA_democrat_side
+	right_side = BRA_integralist_side
+	#decision_category = USA_balance_of_power_category
+	
+	side = {
+		id = BRA_democrat_side
+		icon = GFX_ideology_revolutionary_socialism_group
+		
+		range = {
+			id = BRA_democrats_dominant
+			min = -1
+			max = -0.85
+			
+			modifier = {
+				
+			}
+		}
+		
+		range = {
+			id = BRA_democrats_strong
+			min = -0.85
+			max = -0.45
+			
+			modifier = {
+				
+			}
+		}
+		
+		range = {
+			id = BRA_democrats_influential
+			min = -0.45
+			max = -0.2
+			
+			modifier = {
+				
+			}
+		}
+	}
+	
+	range = { ### Middle Ground ###
+		id = BRA_vargas_side
+		min = -0.2
+		max = 0.2
+		
+		modifier = {
+			
+		}
+		
+		on_activate = {
+
+		}
+		
+		on_deactivate = {
+			
+		}
+	}
+	
+	side = {
+		id = BRA_integralist_side
+		icon = GFX_ideology_social_democracy_group
+		
+		range = {
+			id = BRA_integralists_influential
+			min = 0.2
+			max = 0.45
+			
+			modifier = {
+				army_org_factor = 0.05
+			}
+		}
+		
+		range = {
+			id = BRA_integralists_strong
+			min = 0.45
+			max = 0.85
+			
+			modifier = {
+				army_org_factor = 0.075
+			}
+		}
+		
+		range = {
+			id = BRA_integralists_dominant
+			min = 0.85
+			max = 1
+			
+			modifier = {
+				army_org_factor = 0.1
+			}
+		}
+	}
+}

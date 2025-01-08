@@ -392,7 +392,7 @@ characters = {
 				}
 			}
 			traits = {
-				eco_union_man
+				planned_economy_proponent
 			}
 		}
 	}
@@ -418,7 +418,7 @@ characters = {
 				}
 			}
 			traits = {
-				for_fierce_negotiator
+				veteran_activist
 			}
 		}
 	}
@@ -439,20 +439,8 @@ characters = {
 			
 			cost = 100
 			
-			allowed = {
-				original_tag = FRA
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
-				eco_industrialiser
+				industrializer
 			}
 		}
 	}
@@ -489,7 +477,7 @@ characters = {
 			}
 			
 			traits = {
-				edu_popular_advocate
+				popular_advocate
 			}
 		}
 	}
@@ -526,7 +514,7 @@ characters = {
 			}
 			
 			traits = {
-				eco_relief_coordinator
+				relief_coordinator
 			}
 		}
 	}
@@ -554,7 +542,7 @@ characters = {
 			}
 			
 			traits = {
-				eco_balanced_budget_economy
+				balanced_budget_advocate
 			}
 		}
 	}
@@ -569,26 +557,16 @@ characters = {
 		}
 		
 		advisor = {
+			cost = 100
 			slot = political_advisor
 			idea_token = FRA_joseph_paul_boncour
 			ledger = civilian
-			
-			cost = 100
-			
-			allowed = {
-				original_tag = FRA
-			}
-			
-			visible = {
-				
-			}
-			
 			available = {
 				has_reactionary_govt = no
 			}
 			
 			traits = {
-				sec_man_of_the_people
+				compassionate_gentleman
 			}
 		}
 	}
@@ -622,7 +600,7 @@ characters = {
 			}
 			
 			traits = {
-				for_seasoned_ambassador
+				accomplished_diplomat
 			}
 		}
 	}
@@ -659,7 +637,7 @@ characters = {
 			}
 			
 			traits = {
-				for_warmonger
+				
 			}
 		}
 	}
@@ -693,7 +671,7 @@ characters = {
 			}
 			
 			traits = {
-				edu_propagandist
+				war_propagandist
 			}
 		}
 	}
@@ -708,19 +686,10 @@ characters = {
 		}
 		
 		advisor = {
+			cost = 100
 			slot = political_advisor
 			idea_token = FRA_maurice_pujo
 			ledger = civilian
-			
-			cost = 100
-			
-			allowed = {
-				original_tag = FRA
-			}
-			
-			visible = {
-				
-			}
 			
 			available = {
 				OR = {
@@ -730,7 +699,7 @@ characters = {
 			}
 			
 			traits = {
-				for_iron_fisted_brute
+				iron_fisted_brute
 			}
 		}
 	}
@@ -767,7 +736,7 @@ characters = {
 			}
 			
 			traits = {
-				eco_bank_president
+				bank_president
 			}
 		}
 	}
@@ -801,7 +770,7 @@ characters = {
 			}
 			
 			traits = {
-				sec_media_magnate
+				media_magnate
 			}
 		}
 	}
@@ -842,7 +811,7 @@ characters = {
 			}
 			
 			traits = {
-				for_ideological_crusader
+				ultranationalist_agitator
 			}
 		}
 	}
@@ -1118,9 +1087,9 @@ characters = {
 		
 		corps_commander = {
 			traits = {
-				old_guard
 				trait_cautious
 				defensive_doctrine
+				skilled_staffer
 			}
 			skill = 2
 			attack_skill = 2
@@ -1158,7 +1127,7 @@ characters = {
 		
 		portraits = {
 			army = {
-				#large = ""
+				large = "gfx/leaders/FRA/Portrait_FRA_Pierre_Hering.png"
 			}
 		}
 		
@@ -1296,7 +1265,7 @@ characters = {
 		
 		portraits = {
 			army = {
-				#large = ""
+				large = "gfx/leaders/FRA/Portrait_FRA_Marcel_Garchery.png"
 				small = "gfx/interface/ministers/FRA/military/FRA_Marcel_Garchery.png"
 			}
 		}
@@ -1328,8 +1297,8 @@ characters = {
 		
 		portraits = {
 			army = {
-				#large = ""
-				#small = ""
+				large = "gfx/leaders/FRA/Portrait_FRA_Rene_Prioux.png"
+				small = "gfx/interface/ministers/FRA/military/FRA_Rene_Prioux.png"
 			}
 		}
 		
@@ -1910,32 +1879,179 @@ characters = {
 			slot = theorist
 			idea_token = FRA_victor_denain
 			ledger = air
-			
+			available = {
+				has_completed_focus = FRA_ground_support
+			}
 			traits = {
 				assault_avaition
 			}
 		}
 	}
 	
-	FRA_frederic_irene_joliot_curie = {
-		name = FRA_frederic_irene_joliot_curie
+	FRA_jean_marie_bergeret = {
+		name = FRA_jean_marie_bergeret
 		
 		portraits = {
 			army = {
-				#small="GFX_idea_frederic_irene_joliot_curie"
+				#small = ""
 			}
 		}
 		
-		advisor={
+		advisor = {
 			cost = 100
 			slot = theorist
-			idea_token = frederic_irene_joliot_curie
-			ledger = army
-			research_bonus = {
-				nuclear = 0.150
+			idea_token = jean_marie_bergeret
+			ledger = air
+			traits = { air_warfare_theorist }
+		}
+	}
+
+	FRA_louis_kahn = {
+		name = FRA_louis_kahn
+		
+		portraits = {
+			army = {
+				#small=""
 			}
+		}
+		
+		advisor = {
+			cost = 150
+			slot = theorist
+			idea_token = louis_kahn
+			ledger = navy
 			traits = {
-				nuclear_scientist
+				grand_fleet_proponent
+			}
+		}
+	}
+	
+	### Scientists ###
+	
+	FRA_irene_joliot_curie = {
+		name = FRA_irene_joliot_curie
+		portraits = {
+			army = {
+				large = GFX_portrait_FRA_irene_joliot_curie
+			}
+		}
+
+		scientist = {
+			traits = { scientist_trait_nuclear_specialist scientist_trait_bright }
+			skills = {
+				specialization_nuclear = 2
+			}
+		}
+	}
+
+	FRA_frederic_joliot_curie = {
+		name = FRA_frederic_joliot_curie
+		portraits = {
+			army = {
+				large = GFX_portrait_FRA_frederic_joliot_curie
+			}
+		}
+
+		scientist = {
+			traits = { scientist_trait_nuclear_power_expert }
+			skills = {
+				specialization_nuclear = 2
+			}
+		}
+	}
+
+	FRA_francois_hussenot = {
+		name = FRA_francois_hussenot
+		portraits = {
+			army = {
+				large = GFX_portrait_FRA_francois_hussenot
+			}
+		}
+
+		scientist = {
+			traits = { scientist_trait_aircraft_specialist }
+			skills = {
+				specialization_air = 2
+			}
+		}
+	}
+
+	FRA_louis_renault = {
+		name = FRA_louis_renault
+		portraits = {
+			army = {
+				large = GFX_portrait_FRA_louis_renault
+			}
+		}
+
+		scientist = {
+			traits = { scientist_trait_armored_specialist }
+			skills = {
+				specialization_land = 2
+			}
+		}
+	}
+
+	FRA_emile_rimailho = {
+		name = FRA_emile_rimailho
+		portraits = {
+			army = {
+				large = GFX_portrait_FRA_emile_rimailho
+			}
+		}
+
+		scientist = {
+			traits = { scientist_trait_artillery_specialist scientist_trait_fast_learner }
+			skills = {
+				specialization_land = 2
+			}
+		}
+	}
+
+	FRA_eugene_schneider_ii = {
+		name = FRA_eugene_schneider_ii
+		portraits = {
+			army = {
+				large = GFX_portrait_FRA_eugene_schneider_ii
+			}
+		}
+
+		scientist = {
+			traits = { scientist_trait_artillery_specialist scientist_trait_resourceful }
+			skills = {
+				specialization_land = 2
+			}
+		}
+	}
+
+	FRA_henri_edmond_fouche = {
+		name = FRA_henri_edmond_fouche
+		portraits = {
+			army = {
+				large = GFX_portrait_FRA_henri_edmond_fouche
+			}
+		}
+
+		scientist = {
+			traits = { scientist_trait_surface_ship_specialist }
+			skills = {
+				specialization_naval = 2
+			}
+		}
+	}
+
+	FRA_joseph_bethenod = {
+		name = FRA_joseph_bethenod
+		portraits = {
+			army = {
+				large = GFX_portrait_FRA_joseph_bethenod
+			}
+		}
+
+		scientist = {
+			traits = { scientist_trait_electronics_specialist }
+			skills = {
+				specialization_air = 2
 			}
 		}
 	}

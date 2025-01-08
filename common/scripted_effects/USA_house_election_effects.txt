@@ -125,7 +125,7 @@ USA_recalc_house_state = { # call within state
 		limit = {
 			AND = {
 				has_state_flag = USA_gerrymandered_socialist
-				check_variable = { state_democrat_reps > 1 }
+				check_variable = { state_democrat_reps > 0 }
 			}
 		}
 		subtract_from_variable = { state_democrat_reps = 1 }
@@ -136,7 +136,7 @@ USA_recalc_house_state = { # call within state
 		limit = {
 			AND = {
 				has_state_flag = USA_gerrymandered_democrat
-				check_variable = { state_socialist_reps > 1 }
+				check_variable = { state_socialist_reps > 0 }
 			}
 		}
 		subtract_from_variable = { state_socialist_reps = 1 }

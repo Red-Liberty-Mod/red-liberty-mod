@@ -73,7 +73,18 @@ country_event = { # 1936 spa convention - choosing veep
 		name = united_states.4.a
 		custom_effect_tooltip = USA_henry_wallace_veep_tt
 		set_country_flag = USA_1936_henry_wallace_hog
-		
+		if = {
+			limit = {
+				has_power_balance = {
+					id = USA_socialist_party_balance
+				}
+			}
+			add_power_balance_value = {
+				id = USA_socialist_party_balance
+				value = 0.1
+				tooltip_side = USA_right_side
+			}
+		}
 		ai_chance = {
 			base = 8
 		}
@@ -83,7 +94,18 @@ country_event = { # 1936 spa convention - choosing veep
 		name = united_states.4.b
 		custom_effect_tooltip = USA_earl_browder_veep_tt
 		set_country_flag = USA_1936_earl_browder_hog
-		
+		if = {
+			limit = {
+				has_power_balance = {
+					id = USA_socialist_party_balance
+				}
+			}
+			add_power_balance_value = {
+				id = USA_socialist_party_balance
+				value = 0.1
+				tooltip_side = USA_left_side
+			}
+		}
 		ai_chance = {
 			base = 2
 		}
@@ -406,6 +428,23 @@ country_event = { # poverty threshold met, improve gd spirit
 	}
 }
 
+country_event = { # florida senator dies, both seats up for election
+	id = united_states.16
+	title = united_states.16.title
+	desc = united_states.16.desc
+	
+	is_triggered_only = yes
+
+	option = {
+		name = united_states.16.a
+		366 = {
+			custom_effect_tooltip = special_election_both_tt
+			set_state_flag = elections_senator_1
+			set_state_flag = elections_senator_2
+		}
+	}
+}
+
 country_event = { # we beat japan, set up occupation tag
 	id = united_states.200
 	title = united_states.200.title
@@ -699,7 +738,16 @@ country_event = { # boulder dam
 	option = {
 		name = united_states_flavor.1.a
 		379 = {
-			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = dam_mountain
+				level = 1
+				province = 4799
+				instant_build = yes
+			}
+			custom_effect_tooltip = {
+				localization_key = building_state_modifier|dam_mountain
+				INDENT = "    "
+			}
 			add_to_variable = { socialist_popularity = 0.05 }
 		}
 	}
@@ -983,7 +1031,9 @@ country_event = { # united pacifist committee
 	title = united_states_flavor.13.title
 	desc = united_states_flavor.13.desc
 	
-	is_triggered_only = yes
+	trigger = {
+		threat > 0.4 # fire when world tension starts getting high
+	}
 	
 	fire_only_once = yes
 

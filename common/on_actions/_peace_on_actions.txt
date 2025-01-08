@@ -638,6 +638,39 @@ on_actions = {
 					set_global_flag = skip_default_capitulation
 				}
 				
+				### GERMAN-UKRAINIAN WAR ###
+				else_if = {
+					limit = {
+						FROM = {
+							OR = {
+								tag = GER
+								tag = POL
+							}
+						}
+						ROOT = {
+							tag = UKR
+						}
+					}
+					FROM = {
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
+					FROM = {
+						GER_create_ukraine_occupation = yes
+					}
+					POL = {
+						transfer_state = 93
+						transfer_state = 902
+					}
+					BLR = {
+						transfer_state = 94
+						transfer_state = 194
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				
 				### IRISH CIVIL WAR ###
 				else_if = {
 					limit = {

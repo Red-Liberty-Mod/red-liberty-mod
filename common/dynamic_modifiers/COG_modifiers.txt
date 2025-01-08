@@ -1,0 +1,62 @@
+COG_rwandan_separatism_modifier = { 
+	enable = { always = yes } 
+	icon = GFX_modifiers_COG_rwandan_separatism
+
+	remove_trigger = {
+		OR = {
+			ROOT = { is_owned_and_controlled_by = RWA }
+		}
+	}
+
+	production_speed_buildings_factor = -0.1
+	resistance_target = 0.1
+	compliance_growth = -0.01
+	local_manpower = -0.02
+}
+
+COG_burundian_separatism_modifier = { 
+	enable = { always = yes } 
+	icon = GFX_modifiers_COG_burundian_separatism
+
+	remove_trigger = {
+		OR = {
+			ROOT = { is_owned_and_controlled_by = BRD }
+		}
+	}
+
+	production_speed_buildings_factor = -0.1
+	resistance_target = 0.1
+	compliance_growth = -0.01
+	local_manpower = -0.02
+}
+
+COG_kasai_separatism_modifier = { 
+	enable = { always = yes } 
+	icon = GFX_modifiers_COG_kasai_separatism
+
+	remove_trigger = {
+		ROOT = { 
+			NOT = {
+				OR = {
+					is_owned_by = COG 
+					is_owned_by = BEL 
+				}
+			}
+		}
+	}
+
+	compliance_growth = -0.02
+	local_manpower = -0.1
+}
+
+COG_katanga_separatism_modifier = { 
+	enable = { always = yes } 
+	icon = GFX_modifiers_COG_katanga_separatism
+
+	remove_trigger = {
+		ROOT = { is_owned_and_controlled_by = KAT }
+	}
+
+	compliance_growth = -0.03
+	local_manpower = -0.1
+}

@@ -1,13 +1,6 @@
 ﻿capital = 306
 
 oob = "COL_1936"
-if = {
-	limit = { has_dlc = "Man the Guns" }
-		set_naval_oob = "COL_1936_naval_mtg"
-	else = {
-		set_naval_oob = "COL_1936_naval_legacy"
-	}
-}
 
 # Starting tech
 set_technology = {
@@ -18,13 +11,7 @@ set_technology = {
 	interwar_antiair = 1
 }
 if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
-	set_technology = {
-		early_destroyer = 1
-	}
-}
-if = {
-	limit = { has_dlc = "Man the Guns" }
+	limit = { has_dlc_mtg = yes }
 	set_technology = {
 		basic_naval_mines = 1
 		early_ship_hull_light = 1
@@ -32,6 +19,13 @@ if = {
 		basic_battery = 1
 		basic_torpedo = 1
 		basic_depth_charges = 1
+	}
+	set_naval_oob = "COL_naval_mtg"
+	else = {
+		set_technology = {
+			early_destroyer = 1
+		}
+		set_naval_oob = "COL_1936_naval_legacy"
 	}
 }
 
@@ -61,21 +55,18 @@ set_popularities = {
 	fascism = 0
 }
 
+set_country_flag = democratic_socialism_coalition
 set_country_flag = social_democracy_coalition
 set_country_flag = progressive_liberalism_coalition
-set_country_flag = liberal_conservatism_coalition
 
 add_ideas = {
-    COL_legacy_bolivar
+    COL_memories_of_28
+	COL_revolution_on_the_march
 }
 
-create_country_leader = {
-	name = "Alfonso López Pumarejo"
-	desc = ""
-	picture = "gfx/leaders/COL/Portrait_COL_Alfonso_Pumajero.png"
-	expire = "1965.1.1"
-	ideology = progressive_liberalism_subtype
-	traits = {
-		#
-	}
-}
+### LEADERS ###
+recruit_character = COL_jorge_eliecer_gaitan
+recruit_character = COL_alfonso_lopez_pumarejo
+recruit_character = COL_mariano_ospina_perez
+recruit_character = COL_laureano_gomez_castro
+recruit_character = COL_jose_camacho_carreno

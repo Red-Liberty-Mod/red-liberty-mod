@@ -98,15 +98,14 @@ characters = {
 		portraits = {
 			civilian = {
 				large = "gfx/leaders/BAL/Portrait_BAL_alfred_rosenberg.png"
-				large = "GFX_minister_BAL_alfred_rosenberg"
+				small = "GFX_minister_BAL_alfred_rosenberg"
 			}
 		}
 		
 		advisor = {
 			cost = 100
-			
 			slot = head_of_government
-			idea_token = CHI_rongyao_hog
+			idea_token = BAL_alfred_rosenberg_hog
 			ledger = civilian
 			
 			available = {
@@ -114,8 +113,327 @@ characters = {
 			}
 			
 			traits = {
-				
+				hog_local_tyrant
 			}
+		}
+	}
+	
+	BAL_alfonse_rebane = {
+		name = BAL_alfonse_rebane
+		
+		portraits = {
+			civilian = {
+				#small = ""
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = BAL_alfonse_rebane_political_advisor
+			ledger = civilian
+			traits = {
+				spymaster
+			}
+		}
+	}
+	
+	### Generals ###
+	
+	BAL_harry_lutz = {
+		name = BAL_harry_lutz
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = { infantry_leader trait_reckless }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 2
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = BAL_harry_lutz_high_command
+			ledger = army
+			traits = { army_infantry_1 }
+			cost = 50
+		}
+	}
+	
+	BAL_wessel_von_loringhoven = {
+		name = BAL_wessel_von_loringhoven
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = { trickster }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = BAL_wessel_von_loringhoven_high_command
+			ledger = army
+			traits = { army_logistics_1 }
+			cost = 50
+		}
+	}
+	
+	BAL_ernst_von_nolcken = {
+		name = BAL_ernst_von_nolcken
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = { cavalry_leader }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 2
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = BAL_ernst_von_nolcken_high_command
+			ledger = army
+			traits = { army_cavalry_1 }
+			cost = 50
+		}
+	}
+	
+	BAL_heinrich_von_behr = {
+		name = BAL_heinrich_von_behr
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = { panzer_leader }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 2
+		}
+		
+		advisor = {
+			slot = theorist
+			idea_token = BAL_heinrich_von_behr_theorist
+			ledger = army
+			traits = { military_theorist }
+			cost = 100
+		}
+	}
+	
+	BAL_constantin_von_weiss = {
+		name = BAL_constantin_von_weiss
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = { old_guard infantry_officer }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+		
+		advisor = {
+			slot = army_chief
+			idea_token = BAL_constantin_von_weiss_army_chief
+			traits = { army_chief_organizational_2 }
+			cost = 100
+		}
+	}
+	
+	BAL_hans_von_manteuffel_szoege = {
+		name = BAL_hans_von_manteuffel_szoege
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = { commando }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
+		}
+		
+		advisor = {
+			slot = army_chief
+			idea_token = BAL_hans_von_manteuffel_szoege_army_chief
+			available = { not_already_hired_except_as = army_chief }
+			traits = { army_chief_maneuver_2 }
+			cost = 100
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = BAL_hans_von_manteuffel_szoege_high_command
+			available = { not_already_hired_except_as = high_command }
+			ledger = army
+			traits = { army_commando_2 }
+			cost = 100
+		}
+	}
+	
+	BAL_otto_goldfeld = {
+		name = BAL_otto_goldfeld
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				cavalry_officer
+				cavalry_leader
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 3
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = BAL_otto_goldfeld
+			ledger = army
+			traits = { army_regrouping_2 }
+			cost = 100
+		}
+	}
+	
+	### Admirals ###
+	BAL_hermann_alexander_von_salza = {
+		name = BAL_hermann_alexander_von_salza
+		
+		portraits = {
+			army = {
+				#large = ""
+				#small = ""
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				superior_tactician
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 4
+			maneuvering_skill = 2
+			coordination_skill = 1
+		}
+	}
+	
+	BAL_archibald_von_keyserling = {
+		name = BAL_archibald_von_keyserling
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		navy_leader = {
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			maneuvering_skill = 2
+			coordination_skill = 1
+		}
+		
+		advisor = {
+			idea_token = BAL_archibald_von_keyserling_navy_chief
+			slot = navy_chief
+			traits = { navy_chief_reform_1 }
+			cost = 50
+		}
+	}
+	
+	BAL_adam_richard_ernst_von_gernet = {
+		name = BAL_adam_richard_ernst_von_gernet
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				spotter
+			}
+			skill = 2
+			attack_skill = 3
+			defense_skill = 2
+			maneuvering_skill = 1
+			coordination_skill = 1
+		}
+	}
+	
+	### High Command ###
+	
+	BAL_erich_alt = {
+		name = BAL_erich_alt
+		
+		portraits = {
+			army = {
+				#small = ""
+			}
+		}
+		
+		advisor = {
+			slot = air_chief
+			idea_token = BAL_erich_alt_air_chief
+			traits = { air_chief_reform_2 }
+			cost = 100
 		}
 	}
 }
