@@ -112,6 +112,9 @@ characters = {
 			traits = {
 				hog_silent_workhorse
 			}
+			modifier = {
+				#power_balance_daily = -0.001
+			}
 		}
 		
 		country_leader = {
@@ -321,7 +324,10 @@ characters = {
 			idea_token = USA_max_shachtman_political_advisor
 			ledger = civilian
 			available = {
-				
+				#power_balance_value = {
+				#	id = USA_socialist_party_balance
+				#	value < -0.15
+				#}
 			}
 			traits = {
 				
@@ -344,7 +350,10 @@ characters = {
 			idea_token = USA_martin_abern_political_advisor
 			ledger = civilian
 			available = {
-				
+				#is_power_balance_in_range = {
+				#	id = USA_socialist_party_balance
+				#	range < USA_thomas_balanced
+				#}
 			}
 			traits = {
 				
@@ -450,7 +459,6 @@ characters = {
 	}
 	
 	## Old Guard ##
-	
 	USA_jasper_mclevy = {
 		name = USA_jasper_mclevy
 		
@@ -466,7 +474,10 @@ characters = {
 			idea_token = USA_jasper_mclevy_political_advisor
 			ledger = civilian
 			available = {
-				
+				is_power_balance_in_range = {
+					id = USA_socialist_party_balance
+					range > USA_thomas_balanced
+				}
 			}
 			traits = {
 				balanced_budget_advocate
