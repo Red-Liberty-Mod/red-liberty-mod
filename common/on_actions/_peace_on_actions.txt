@@ -47,7 +47,7 @@ on_actions = {
 			log = "[GetDateText]: FROM: [From.GetName] ROOT: [Root.GetName] on_capitulation"
 			
 			### PEACE POPUP ###
-			set_global_flag = show_peace_popup_alert
+			#set_global_flag = show_peace_popup_alert
 			FROM = {
 				save_global_event_target_as = winning_country
 			}
@@ -225,6 +225,15 @@ on_actions = {
 						annex_country = {
 							target = FER
 						}
+						annex_country = {
+							target = TMS
+						}
+						annex_country = {
+							target = KHV
+						}
+						annex_country = {
+							target = UZB
+						}
 						country_event = {
 							id = demo_sov.2
 							days = 15
@@ -374,9 +383,6 @@ on_actions = {
 							original_tag = HUN
 						}
 					}
-					FROM = {
-						white_peace = ROOT
-					}
 					
 					HUN = {
 						leave_faction = yes
@@ -390,6 +396,8 @@ on_actions = {
 						TRS = {
 							add_state_core = 885
 							transfer_state = 885
+							
+							white_peace = ROOT
 						}
 					}
 					if = {
@@ -404,11 +412,13 @@ on_actions = {
 							}
 							every_owned_state = {
 								limit = {
-									has_core_of = TRS
+									is_core_of = TRS
 								}
 								add_core_of = ROM
 								remove_core_of = TRS
 							}
+							
+							white_peace = ROOT
 						}
 					}
 					if = {
@@ -420,6 +430,8 @@ on_actions = {
 						SLO = {
 							transfer_state = 73
 							transfer_state = 664
+							
+							white_peace = ROOT
 						}
 					}
 					set_global_flag = skip_default_capitulation
@@ -441,7 +453,7 @@ on_actions = {
 					ROOT = {
 						diplomatic_relation = { country = FROM relation = war_relation active = no }
 					}
-					HUN = {
+					ROM = {
 						81 = {
 							set_demilitarized_zone = yes
 						}
@@ -629,6 +641,39 @@ on_actions = {
 					set_global_flag = skip_default_capitulation
 				}
 				
+				### GERMAN-UKRAINIAN WAR ###
+				else_if = {
+					limit = {
+						FROM = {
+							OR = {
+								tag = GER
+								tag = POL
+							}
+						}
+						ROOT = {
+							tag = UKR
+						}
+					}
+					every_country = {
+						limit = { has_war_with = ROOT }
+						white_peace = ROOT
+					}
+					GER = {
+						transfer_state = 137
+						transfer_state = 196
+						puppet = UKR
+					}
+					POL = {
+						transfer_state = 93
+						transfer_state = 902
+					}
+					BLR = {
+						transfer_state = 94
+						transfer_state = 194
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				
 				### IRISH CIVIL WAR ###
 				else_if = {
 					limit = {
@@ -730,10 +775,16 @@ on_actions = {
 				else_if = {
 					limit = {
 						FROM = {
-							original_tag = MEX
+							original_tag = MEX # mexican govt wins
 						}
 						ROOT = {
-							original_tag = CRT
+							OR = {
+								original_tag = CRT
+								original_tag = CMS
+								original_tag = MTC
+								original_tag = FRP
+								original_tag = YUC
+							}
 						}
 					}
 					FROM = {
@@ -749,17 +800,23 @@ on_actions = {
 					}
 					random_other_country = {
 						limit = { is_ai = yes }
-						news_event = { id = demo_mex.6 hours = 6 }
+						news_event = { id = worldnews.10 hours = 6 }
 					}
 					set_global_flag = skip_default_capitulation
 				}
 				else_if = {
 					limit = {
 						FROM = {
-							original_tag = CRT
+							original_tag = CRT # cristeros win
 						}
 						ROOT = {
-							original_tag = MEX
+							OR = {
+								original_tag = MEX
+								original_tag = CMS
+								original_tag = MTC
+								original_tag = FRP
+								original_tag = YUC
+							}
 						}
 					}
 					FROM = {
@@ -772,12 +829,152 @@ on_actions = {
 						annex_country = {
 							target = ROOT
 						}
-						set_cosmetic_tag = CRT_mexico
+						if = {
+							limit = {
+								NOT = {
+									country_exists = MEX
+									country_exists = CMS
+									country_exists = MTC
+									country_exists = FRP
+								}
+							}
+							#set_cosmetic_tag = CRT_mexico
+						}
 					}
 					random_other_country = {
 						limit = { is_ai = yes }
-						news_event = { id = demo_mex.5 hours = 6 }
+						news_event = { id = worldnews.11 hours = 6 }
 					}
+					set_global_flag = skip_default_capitulation
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							original_tag = CMS
+						}
+						ROOT = {
+							OR = {
+								original_tag = MEX
+								original_tag = CRT
+								original_tag = MTC
+								original_tag = FRP
+								original_tag = YUC
+							}
+						}
+					}
+					FROM = {
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
+					FROM = {
+						annex_country = {
+							target = ROOT
+						}
+						if = {
+							limit = {
+								NOT = {
+									country_exists = MEX
+									country_exists = CRT
+									country_exists = MTC
+									country_exists = FRP
+								}
+							}
+							#set_cosmetic_tag = CMS_mexico
+						}
+					}
+					#random_other_country = {
+					#	limit = { is_ai = yes }
+					#	news_event = { id = demo_mex.5 hours = 6 }
+					#}
+					set_global_flag = skip_default_capitulation
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							original_tag = FRP
+						}
+						ROOT = {
+							OR = {
+								original_tag = MEX
+								original_tag = CRT
+								original_tag = MTC
+								original_tag = CMS
+								original_tag = YUC
+							}
+						}
+					}
+					FROM = {
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
+					FROM = {
+						annex_country = {
+							target = ROOT
+						}
+						if = {
+							limit = {
+								NOT = {
+									country_exists = MEX
+									country_exists = CRT
+									country_exists = MTC
+									country_exists = CMS
+								}
+							}
+							#set_cosmetic_tag = FRP_mexico
+							#set_capital = { state = 227 }
+						}
+					}
+					#random_other_country = {
+					#	limit = { is_ai = yes }
+					#	news_event = { id = demo_mex.5 hours = 6 }
+					#}
+					set_global_flag = skip_default_capitulation
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							original_tag = MTC
+						}
+						ROOT = {
+							OR = {
+								original_tag = MEX
+								original_tag = CRT
+								original_tag = FRP
+								original_tag = CMS
+								original_tag = YUC
+							}
+						}
+					}
+					FROM = {
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
+					FROM = {
+						annex_country = {
+							target = ROOT
+						}
+						if = {
+							limit = {
+								NOT = {
+									country_exists = MEX
+									country_exists = CRT
+									country_exists = FRP
+									country_exists = CMS
+								}
+							}
+							#set_cosmetic_tag = MTC_mexico
+						}
+					}
+					#random_other_country = {
+					#	limit = { is_ai = yes }
+					#	news_event = { id = demo_mex.5 hours = 6 }
+					#}
 					set_global_flag = skip_default_capitulation
 				}
 				
@@ -957,6 +1154,26 @@ on_actions = {
 						SOV = {
 							SOV_wins_great_war = yes
 						}
+					}
+					set_global_flag = skip_default_capitulation
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							original_tag = FRA
+						}
+						ROOT = {
+							original_tag = SWI
+						}
+					}
+					FROM = {
+						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					}
+					ROOT = {
+						diplomatic_relation = { country = FROM relation = war_relation active = no }
+					}
+					FRA = {
+						transfer_state = 3
 					}
 					set_global_flag = skip_default_capitulation
 				}

@@ -1,0 +1,1938 @@
+prospect_for_resources = {
+	
+	develop_colorado_uranium_deposits = {
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 382
+			}
+		}
+		
+		available = {
+			has_tech = atomic_research
+			num_of_civilian_factories_available_for_projects > 5
+			owns_state = 382
+			controls_state = 382
+		}
+		
+		visible = {
+			owns_state = 382
+			controls_state = 382
+		}
+		
+		cost = 25
+		days_remove = 90
+		fire_only_once = yes
+
+		modifier = {
+			civilian_factory_use = 6
+		}
+		
+		remove_effect = {
+			382 = {
+				remove_dynamic_modifier = { modifier = uranium_deposits }
+				add_dynamic_modifier = { modifier = uranium_mines }
+			}
+		}
+	}
+	
+	develop_katanga_uranium_deposits = {
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 834
+			}
+		}
+		
+		available = {
+			has_tech = atomic_research
+			num_of_civilian_factories_available_for_projects > 5
+			owns_state = 834
+			controls_state = 834
+		}
+		
+		visible = {
+			owns_state = 834
+			controls_state = 834
+		}
+		
+		cost = 25
+		days_remove = 90
+		fire_only_once = yes
+
+		modifier = {
+			civilian_factory_use = 6
+		}
+		
+		remove_effect = {
+			834 = {
+				remove_dynamic_modifier = { modifier = uranium_deposits }
+				add_dynamic_modifier = { modifier = uranium_mines }
+			}
+		}
+	}
+	
+	develop_northern_canada_uranium_deposits = {
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 472
+			}
+		}
+		
+		available = {
+			has_tech = atomic_research
+			num_of_civilian_factories_available_for_projects > 5
+			owns_state = 472
+			controls_state = 472
+		}
+		
+		visible = {
+			owns_state = 472
+			controls_state = 472
+		}
+		
+		cost = 25
+		days_remove = 90
+		fire_only_once = yes
+
+		modifier = {
+			civilian_factory_use = 6
+		}
+		
+		remove_effect = {
+			472 = {
+				remove_dynamic_modifier = { modifier = uranium_deposits }
+				add_dynamic_modifier = { modifier = uranium_mines }
+			}
+		}
+	}
+	
+	develop_joachimsthal_uranium_deposits = {
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 69
+			}
+		}
+		
+		available = {
+			has_tech = atomic_research
+			num_of_civilian_factories_available_for_projects > 5
+			owns_state = 69
+			controls_state = 69
+		}
+		
+		visible = {
+			owns_state = 69
+			controls_state = 69
+		}
+		
+		cost = 25
+		days_remove = 90
+		fire_only_once = yes
+
+		modifier = {
+			civilian_factory_use = 6
+		}
+		
+		remove_effect = {
+			69 = {
+				remove_dynamic_modifier = { modifier = uranium_deposits }
+				add_dynamic_modifier = { modifier = uranium_mines }
+			}
+		}
+	}
+
+	develop_daqing_deposits = { #897
+
+		icon = oil
+
+		allowed = {
+
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 897
+			}
+		}
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 2
+			owns_state = 897
+			controls_state = 897
+		}
+
+		visible = {
+			owns_state = 897
+			controls_state = 897
+			897 = {
+				NOT = {
+					has_state_flag = daqing_oil_developed_1
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 60
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		ai_will_do = {
+			base = 0.5
+			modifier = {
+				factor = 20 #10 was the basic default AI weight before, meant for Chinas.
+				OR = {
+					is_literally_china = yes
+					original_tag = MAN
+					original_tag = MEN
+					original_tag = JAP
+				}
+			}
+			modifier = {  # Too low PP
+				factor = 0.5
+					has_political_power < 80
+			}
+			modifier = { #We have plenty of PP, avanti!
+				factor = 3
+				has_political_power > 200
+			}
+			modifier = { #Running out of the stuff, need more!
+				factor = 5
+				has_resources_in_country = {
+					resource = oil
+					amount < 1
+				}
+			}
+		}
+
+		remove_effect = {
+			897 = { set_state_flag = daqing_oil_developed_1 }
+			897 = {
+				add_resource = {
+					type = oil
+					amount = 4
+				}
+			}
+		}
+	}
+	develop_daqing_deposits_2 = { #897
+
+		icon = oil
+
+		allowed = {
+
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 897
+			}
+		}
+		available = {
+			has_tech = excavation4
+			num_of_civilian_factories_available_for_projects > 4
+			owns_state = 897
+			controls_state = 897
+		}
+
+		visible = {
+			owns_state = 897
+			controls_state = 897
+			897 = {
+				has_state_flag = daqing_oil_developed_1
+				NOT = {
+					has_state_flag = daqing_oil_developed_2
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 120
+
+		modifier = {
+			civilian_factory_use = 5
+		}
+
+		ai_will_do = {
+			base = 0.3
+			modifier = {  # Too low PP
+				factor = 0.5
+					has_political_power < 80
+			}
+			modifier = { #We have plenty of PP, avanti!
+				factor = 3
+				has_political_power > 200
+			}
+			modifier = { #Running out of the stuff, need more!
+				factor = 5
+				has_resources_in_country = {
+					resource = oil
+					amount < 1
+				}
+			}
+		}
+		remove_effect = {
+			897 = { set_state_flag = daqing_oil_developed_2 }
+			897 = {
+				add_resource = {
+					type = oil
+					amount = 8
+				}
+			}
+		}
+	}
+	
+	develop_sirte_oil_fields = { #662
+
+		icon = oil
+
+		allowed = {
+			NOT = {
+				tag = ITA
+			}
+		}
+
+		available = {
+			has_tech = excavation3
+			num_of_civilian_factories_available_for_projects > 2
+			owns_state = 662
+			controls_state = 662
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 662
+			}
+		}
+
+		visible = {
+			owns_state = 662
+			controls_state = 662
+			662 = {
+				NOT = {
+					has_state_flag = sirte_oil_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 60
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		ai_will_do = {
+			base = 0.5
+			modifier = {
+				factor = 20 #10 was the default weight before, meant for ITA.
+				original_tag = ITA
+			}
+			modifier = {  # Too low PP
+				factor = 0.5
+					has_political_power < 80
+			}
+			modifier = { #We have plenty of PP, avanti!
+				factor = 3
+				has_political_power > 200
+			}
+			modifier = { #Running out of the stuff, need more!
+				factor = 5
+				has_resources_in_country = {
+					resource = oil
+					amount < 1
+				}
+			}
+		}
+
+		remove_effect = {
+			662 = {
+				set_state_flag = sirte_oil_developed
+			}
+			662 = {
+				add_resource = {
+					type = oil
+					amount = 8
+				}
+			}
+		}
+	}
+	
+	develop_benghazi_oil_fields = { #450
+
+		icon = oil
+
+		allowed = {
+			NOT = {
+				tag = ITA
+			}
+		}
+
+		available = {
+			has_tech = excavation4
+			num_of_civilian_factories_available_for_projects > 2
+			owns_state = 450
+			controls_state = 450
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 450
+			}
+		}
+
+		visible = {
+			owns_state = 450
+			controls_state = 450
+			450 = {
+				NOT = {
+					has_state_flag = benghazi_oil_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 60
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		ai_will_do = {
+			base = 0.5
+			modifier = {
+				factor = 20 #10 was the default weight before, meant for ITA.
+				original_tag = ITA
+			}
+			modifier = {  # Too low PP
+				factor = 0.5
+					has_political_power < 80
+			}
+			modifier = { #We have plenty of PP, avanti!
+				factor = 3
+				has_political_power > 200
+			}
+			modifier = { #Running out of the stuff, need more!
+				factor = 5
+				has_resources_in_country = {
+					resource = oil
+					amount < 1
+				}
+			}
+		}
+
+		remove_effect = {
+			450 = {
+				set_state_flag = benghazi_oil_developed
+			}
+			450 = {
+				add_resource = {
+					type = oil
+					amount = 4
+				}
+			}
+		}
+	}
+	
+	develop_ems_oil_fields = { #56
+
+		icon = oil
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 56
+			}
+		}
+
+		available = {
+			has_tech = excavation4
+			num_of_civilian_factories_available_for_projects > 2
+			owns_state = 56
+			controls_state = 56
+		}
+
+		visible = {
+			owns_state = 56
+			controls_state = 56
+			56 = {
+				NOT = {
+					has_state_flag = ems_oil_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 120
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		ai_will_do = {
+			base = 0.5
+			modifier = {
+				factor = 20 #10 was the default weight before
+				original_tag = GER
+			}
+			modifier = {  # Too low PP
+				factor = 0.5
+					has_political_power < 80
+			}
+			modifier = { #We have plenty of PP, avanti!
+				factor = 3
+				has_political_power > 200
+			}
+			modifier = { #Running out of the stuff, need more!
+				factor = 5
+				has_resources_in_country = {
+					resource = oil
+					amount < 1
+				}
+			}
+		}
+
+		remove_effect = {
+			56 = {
+				set_state_flag = ems_oil_developed
+			}
+			56 = {
+				add_resource = {
+					type = oil
+					amount = 6
+				}
+			}
+		}
+	}
+
+	develop_matzen_oil_fields = { #4
+
+		icon = oil
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation5
+			num_of_civilian_factories_available_for_projects > 2
+			owns_state = 4
+			controls_state = 4
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 4
+			}
+		}
+
+		visible = {
+			owns_state = 4
+			controls_state = 4
+			4 = {
+				NOT = {
+					has_state_flag = ems_oil_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 120
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		ai_will_do = {
+			base = 0.5
+			modifier = {
+				factor = 20 #10 was the default weight before
+				original_tag = GER
+			}
+			modifier = {  # Too low PP
+				factor = 0.5
+					has_political_power < 80
+			}
+			modifier = { #We have plenty of PP, avanti!
+				factor = 3
+				has_political_power > 200
+			}
+			modifier = { #Running out of the stuff, need more!
+				factor = 5
+				has_resources_in_country = {
+					resource = oil
+					amount < 1
+				}
+			}
+		}
+
+		remove_effect = {
+			4 = {
+				set_state_flag = ems_oil_developed
+			}
+			4 = {
+				add_resource = {
+					type = oil
+					amount = 4
+				}
+			}
+		}
+	}
+	develop_friesland_oil_fields = { #36
+
+		icon = oil
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 36
+			}
+		}
+
+		available = {
+			has_tech = excavation4
+			num_of_civilian_factories_available_for_projects > 2
+			owns_state = 36
+			controls_state = 36
+		}
+
+		visible = {
+			owns_state = 36
+			controls_state = 36
+			36 = {
+				NOT = {
+					has_state_flag = friesland_oil_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 120
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		ai_will_do = {
+			base = 0.5
+			modifier = {
+				factor = 20 #10 was the default weight before
+				OR = {
+					original_tag = GER
+					original_tag = HOL
+				}
+			}
+			modifier = {  # Too low PP
+				factor = 0.5
+					has_political_power < 80
+			}
+			modifier = { #We have plenty of PP, avanti!
+				factor = 3
+				has_political_power > 200
+			}
+			modifier = { #Running out of the stuff, need more!
+				factor = 5
+				has_resources_in_country = {
+					resource = oil
+					amount < 1
+				}
+			}
+		}
+		remove_effect = {
+			36 = { set_state_flag = friesland_oil_developed }
+			36 = {
+				add_resource = {
+					type = oil
+					amount = 6
+				}
+
+			}
+		}
+	}
+	
+	develop_south_sakhalin_oil_deposits = { #537
+		icon = oil
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 537
+			}
+		}
+
+		allowed = {
+			#Everyone
+		}
+
+		available = {
+			has_full_control_of_state = 537
+			num_of_civilian_factories_available_for_projects > 2
+			has_tech = excavation3
+			controls_state = 537
+		}
+
+		visible = {
+			controls_state = 537
+			537 = { NOT = { has_state_flag = sakhalin_oil_developed } }
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 60
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		ai_will_do = {
+			base = 0.3
+			modifier = {  # Too low PP
+				factor = 0.5
+				has_political_power < 80
+			}
+			modifier = { #We have plenty of PP, avanti!
+				factor = 3
+				has_political_power > 200
+			}
+			modifier = { #Running out of the stuff, need more!
+				factor = 5
+				has_resources_in_country = {
+					resource = oil
+					amount < 1
+				}
+			}
+		}
+
+		remove_effect = {
+			537 = {
+				add_resource = {
+					type = oil
+					amount = 8
+				}
+				set_state_flag = sakhalin_oil_developed
+			}
+		}
+	}
+
+	develop_abu_dhabi_oil_fields  = { #658
+
+		icon = oil
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 658
+			}
+		}
+
+		available = {
+			has_tech = excavation5
+			num_of_civilian_factories_available_for_projects > 6
+			owns_state = 658
+			controls_state = 658
+		}
+
+		visible = {
+			owns_state = 658
+			controls_state = 658
+			658 = {
+				NOT = {
+					has_state_flag = abu_dhabi_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 120
+
+		modifier = {
+			civilian_factory_use = 9
+		}
+
+		ai_will_do = {
+			base = 0.3
+			modifier = {  # Too low PP
+				factor = 0.5
+				has_political_power < 80
+			}
+			modifier = { #We have plenty of PP, avanti!
+				factor = 3
+				has_political_power > 200
+			}
+			modifier = { #Running out of the stuff, need more!
+				factor = 5
+				has_resources_in_country = {
+					resource = oil
+					amount < 1
+				}
+			}
+		}
+
+		remove_effect = {
+			658 = {
+				set_state_flag = abu_dhabi_developed
+			}
+			658 = {
+				add_resource = {
+					type = oil
+					amount = 8
+				}
+			}
+		}
+	}
+	develop_kuwait_oil_fields = { #656
+
+		icon = oil
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation5
+			owns_state = 656
+			controls_state = 656
+			num_of_civilian_factories_available_for_projects > 11
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 656
+			}
+		}
+
+		visible = {
+			owns_state = 656
+			controls_state = 656
+			656 = {
+				NOT = {
+					has_state_flag = {
+						flag = kuwait_oil_developed
+						value = 5
+					}
+				}
+			}
+		}
+
+		cost = 25
+		days_remove = kuwait_oil_duration?30
+		modifier = {
+			civilian_factory_use = 12
+		}
+
+		ai_will_do = {
+			base = 0.3
+			modifier = {  # Too low PP
+				factor = 0.5
+					has_political_power < 80
+			}
+			modifier = { #We have plenty of PP, avanti!
+				factor = 3
+				has_political_power > 200
+			}
+			modifier = { #Running out of the stuff, need more!
+				factor = 5
+				has_resources_in_country = {
+					resource = oil
+					amount < 1
+				}
+			}
+		}
+
+		remove_effect = {
+			add_to_variable = { var = kuwait_oil_duration value = 30 }
+			656 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = kuwait_oil_developed
+						}
+					}
+					set_state_flag = {
+						flag = kuwait_oil_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = kuwait_oil_developed
+						value = 1
+					}
+				}
+			}
+			656 = {
+				add_resource = {
+					type = oil
+					amount = 18
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = kuwait_oil_duration value = 30 compare = less_than }
+				}
+				set_variable = { var = kuwait_oil_duration value = 60 }
+			}
+		}
+	}
+	develop_khuzestan_oil_fields   = { #413
+
+		icon = oil
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 413
+			}
+		}
+
+		available = {
+			has_tech = excavation4
+			num_of_civilian_factories_available_for_projects > 8
+			owns_state = 413
+			controls_state = 413
+		}
+
+		visible = {
+			owns_state = 413
+			controls_state = 413
+			413 = {
+				NOT = {
+					has_state_flag = khuzestan_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 180
+
+		modifier = {
+			civilian_factory_use = 9
+		}
+
+		ai_will_do = {
+			base = 0.3
+			modifier = {  # Too low PP
+				factor = 0.5
+					has_political_power < 80
+			}
+			modifier = { #We have plenty of PP, avanti!
+				factor = 3
+				has_political_power > 200
+			}
+			modifier = { #Running out of the stuff, need more!
+				factor = 5
+				has_resources_in_country = {
+					resource = oil
+					amount < 1
+				}
+			}
+		}
+
+		remove_effect = {
+			413 = {
+				set_state_flag = khuzestan_developed
+			}
+			413 = {
+				add_resource = {
+					type = oil
+					amount = 16
+				}
+			}
+		}
+	}
+	develop_fars_oil_fields = { #412
+
+		icon = oil
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 412
+			}
+		}
+
+		available = {
+			has_tech = excavation4
+			num_of_civilian_factories_available_for_projects > 2
+			owns_state = 412
+			controls_state = 412
+		}
+
+		visible = {
+			owns_state = 412
+			controls_state = 412
+			412 = {
+				NOT = {
+					has_state_flag = fars_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 120
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		ai_will_do = {
+			base = 0.3
+			modifier = {  # Too low PP
+				factor = 0.5
+					has_political_power < 80
+			}
+			modifier = { #We have plenty of PP, avanti!
+				factor = 3
+				has_political_power > 200
+			}
+			modifier = { #Running out of the stuff, need more!
+				factor = 5
+				has_resources_in_country = {
+					resource = oil
+					amount < 1
+				}
+			}
+		}
+
+		remove_effect = {
+			412 = {
+				set_state_flag = fars_developed
+			}
+			412 = {
+				add_resource = {
+					type = oil
+					amount = 6
+				}
+			}
+		}
+	}
+	develop_baghdad_oil_fields  = { #291
+
+		icon = oil
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 291
+			}
+		}
+
+		available = {
+			has_tech = excavation5
+			num_of_civilian_factories_available_for_projects > 11
+			owns_state = 291
+			controls_state = 291
+		}
+
+		visible = {
+			owns_state = 291
+			controls_state = 291
+			291 = {
+				NOT = {
+					has_state_flag = baghdad_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 90
+
+		modifier = {
+			civilian_factory_use = 12
+		}
+
+		ai_will_do = {
+			base = 0.3
+			modifier = {  # Too low PP
+				factor = 0.5
+					has_political_power < 80
+			}
+			modifier = { #We have plenty of PP, avanti!
+				factor = 3
+				has_political_power > 200
+			}
+			modifier = { #Running out of the stuff, need more!
+				factor = 5
+				has_resources_in_country = {
+					resource = oil
+					amount < 1
+				}
+			}
+		}
+
+		remove_effect = {
+			291 = {
+				set_state_flag = baghdad_developed
+			}
+			291 = {
+				add_resource = {
+					type = oil
+					amount = 18
+				}
+			}
+		}
+	}
+	develop_mosul_oil_fields   = { #676
+
+		icon = oil
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 676
+			}
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 14
+			owns_state = 676
+			controls_state = 676
+		}
+
+		visible = {
+			owns_state = 676
+			controls_state = 676
+			676 = {
+				NOT = {
+					has_state_flag = mosul_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 180
+
+		modifier = {
+			civilian_factory_use = 15
+		}
+
+		ai_will_do = {
+			base = 0.3
+			}
+			modifier = {  # Too low PP
+				factor = 0.5
+					has_political_power < 80
+			}
+			modifier = { #We have plenty of PP, avanti!
+				factor = 3
+				has_political_power > 200
+			}
+			modifier = { #Running out of the stuff, need more!
+				factor = 5
+				has_resources_in_country = {
+					resource = oil
+					amount < 1
+				}
+			}
+		}
+
+		remove_effect = {
+			676 = {
+				set_state_flag = mosul_developed
+			}
+			676 = {
+				add_resource = {
+					type = oil
+					amount = 28
+				}
+			}
+		}
+	}
+	develop_nejd_oil_fields = { #292
+
+		icon = oil
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation5
+			owns_state = 292
+			controls_state = 292
+			num_of_civilian_factories_available_for_projects > 14
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 292
+			}
+		}
+
+		visible = {
+			owns_state = 292
+			controls_state = 292
+			292 = {
+				NOT = {
+					has_state_flag = {
+						flag = nejd_oil_developed
+						value = 5
+					}
+				}
+			}
+		}
+
+		cost = 25
+		days_remove = nejd_oil_duration?30
+		modifier = {
+			civilian_factory_use = 15
+		}
+
+		ai_will_do = {
+			base = 0.3
+			modifier = {  # Too low PP
+				factor = 0.5
+					has_political_power < 80
+			}
+			modifier = { #We have plenty of PP, avanti!
+				factor = 3
+				has_political_power > 200
+			}
+			modifier = { #Running out of the stuff, need more!
+				factor = 5
+				has_resources_in_country = {
+					resource = oil
+					amount < 1
+				}
+			}
+		}
+
+		remove_effect = {
+			add_to_variable = { var = nejd_oil_duration value = 30 }
+			292 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = nejd_oil_developed
+						}
+					}
+					set_state_flag = {
+						flag = nejd_oil_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = nejd_oil_developed
+						value = 1
+					}
+				}
+			}
+			292 = {
+				add_resource = {
+					type = oil
+					amount = 22
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = nejd_oil_duration value = 30 compare = less_than }
+				}
+				set_variable = { var = nejd_oil_duration value = 60 }
+			}
+		}
+	}
+	develop_eastern_desert_oil_fields   = { #457
+
+		icon = oil
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 457
+			}
+		}
+
+		available = {
+			has_tech = excavation3
+			num_of_civilian_factories_available_for_projects > 2
+			owns_state = 457
+			controls_state = 457
+		}
+
+		visible = {
+			owns_state = 457
+			controls_state = 457
+			457 = {
+				NOT = {
+					has_state_flag = eastern_desert_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 60
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		ai_will_do = {
+			base = 0.3
+			modifier = {  # Too low PP
+				factor = 0.5
+					has_political_power < 80
+			}
+			modifier = { #We have plenty of PP, avanti!
+				factor = 3
+				has_political_power > 200
+			}
+			modifier = { #Running out of the stuff, need more!
+				factor = 5
+				has_resources_in_country = {
+					resource = oil
+					amount < 1
+				}
+			}
+		}
+
+		remove_effect = {
+			457 = {
+				set_state_flag = eastern_desert_developed
+			}
+			457 = {
+				add_resource = {
+					type = oil
+					amount = 6
+				}
+			}
+		}
+	}
+	develop_qatar_oil_fields   = { #765
+
+		icon = oil
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 765
+			}
+		}
+
+		available = {
+			has_tech = excavation4
+			num_of_civilian_factories_available_for_projects > 5
+			owns_state = 765
+			controls_state = 765
+		}
+
+		visible = {
+			owns_state = 765
+			controls_state = 765
+			765 = {
+				NOT = {
+					has_state_flag = qatar_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 90
+
+		modifier = {
+			civilian_factory_use = 6
+		}
+
+		ai_will_do = {
+			base = 0.3
+			modifier = {  # Too low PP
+				factor = 0.5
+					has_political_power < 80
+			}
+			modifier = { #We have plenty of PP, avanti!
+				factor = 3
+				has_political_power > 200
+			}
+			modifier = { #Running out of the stuff, need more!
+				factor = 5
+				has_resources_in_country = {
+					resource = oil
+					amount < 1
+				}
+			}
+		}
+
+		remove_effect = {
+			765 = {
+				set_state_flag = qatar_developed
+			}
+			765 = {
+				add_resource = {
+					type = oil
+					amount = 8
+				}
+			}
+		}
+	}
+
+	exploit_the_raman_oil_field = { #350
+
+		icon = oil
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 350
+			}
+		}
+
+
+		available = {
+			has_tech = excavation3
+			num_of_civilian_factories_available_for_projects > 9
+			owns_state = 350
+			controls_state = 350
+		}
+
+		visible = {
+			owns_state = 350
+			controls_state = 350
+			350 = {
+				NOT = {
+					has_state_flag = raman_oil_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 60
+
+		modifier = {
+			civilian_factory_use = 5
+		}
+
+		ai_will_do = {
+			base = 0.2
+			modifier = {  # Too low PP
+				factor = 0.3
+					has_political_power < 80
+			}
+			modifier = { #We have plenty of PP, avanti!
+				factor = 2
+				has_political_power > 200
+			}
+			modifier = { #Running out of the stuff, need more!
+				factor = 3
+				has_resources_in_country = {
+					resource = oil
+					amount < 1
+				}
+			}
+		}
+
+		remove_effect = {
+			350 = {
+				set_state_flag = raman_oil_developed
+			}
+			350 = {
+				add_resource = {
+					type = oil
+					amount = 8
+				}
+			}
+		}
+	}
+	
+	develop_tripoli_oil_fields = { #448
+
+		icon = oil
+
+		allowed = {
+			original_tag = ITA			
+		}
+
+		available = {
+			has_tech = excavation3
+			num_of_civilian_factories_available_for_projects > 2
+			OR = { 
+				has_full_control_of_state = 448 
+				any_subject_country = { #FOR PUPPETS
+					has_full_control_of_state = 448
+				}
+			} 
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 448
+			}
+		}
+
+		visible = {
+			448 = {
+				NOT = {
+					has_state_flag = {
+						flag = tripoli_oil_developed
+						value = 3
+					}
+				}
+			}
+		}
+
+		cost = 25
+		days_remove = 60
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		ai_will_do = {
+			base = 0.5
+			modifier = {  # Too low PP
+				factor = 0.5
+					has_political_power < 80
+			}
+			modifier = { #We have plenty of PP, avanti!
+				factor = 3
+				has_political_power > 200
+			}
+			modifier = { #Running out of the stuff, need more!
+				factor = 5
+				has_resources_in_country = {
+					resource = oil
+					amount < 1
+				}
+			}
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			448 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = tripoli_oil_developed
+						}
+					}
+					set_state_flag = {
+						flag = tripoli_oil_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = tripoli_oil_developed
+						value = 1
+					}
+				}
+			}	
+			448 = {
+				add_resource = {
+					type = oil
+					amount = 4
+				}
+			}
+		}
+	}
+	
+	develop_derna_oilfield = { #451
+
+		icon = oil
+
+		allowed = {
+
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 451
+			}
+		}
+		available = {
+			has_tech = excavation4
+			num_of_civilian_factories_available_for_projects > 14
+			owns_state = 451
+			controls_state = 451
+		}
+
+		visible = {
+			owns_state = 451
+			controls_state = 451
+			451 = {
+				NOT = {
+					has_state_flag = derna_oil_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 50
+		days_remove = 60
+
+		modifier = {
+			civilian_factory_use = 15
+		}
+
+		ai_will_do = {
+			base = 0 #Not historically excavated
+		}
+
+		remove_effect = {
+			451 = { set_state_flag = derna_oil_developed }
+			451 = {
+				add_resource = {
+					type = oil
+					amount = 24
+				}
+			}
+		}
+	}
+
+	tap_the_nagylengyel_oil_field = { #155
+
+		icon = oil
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 155
+			}
+		}
+
+		visible = {
+			owns_state = 155
+			controls_state = 155
+			155 = {
+				NOT = {
+					has_state_flag = nagylengyel_oil_developed
+				}
+			}
+		}
+
+		available = {
+			has_tech = excavation3
+			num_of_civilian_factories_available_for_projects > 14
+			owns_state = 155
+			controls_state = 155
+		}
+
+		fire_only_once = yes
+
+		cost = 75
+		days_remove = 60
+
+		modifier = {
+			civilian_factory_use = 15
+		}
+
+		ai_will_do = {
+			base = 0 #Not historically excavated until later
+		}
+
+		remove_effect = {
+			155 = { set_state_flag = nagylengyel_oil_developed }
+			155 = {
+				add_resource = {
+					type = oil
+					amount = 14
+				}
+			}
+		}
+	}
+
+	# Drill for oil in Chaco Boreal
+	drill_for_oil_in_chaco_boreal = { #688
+
+		icon = oil
+
+		allowed = {
+
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 688
+			}
+		}
+		available = {
+			has_tech = excavation3
+			num_of_civilian_factories_available_for_projects > 4
+			owns_state = 688
+			controls_state = 688
+			if = {
+				limit = {
+					original_tag = PAR
+				}
+				has_completed_focus = GUAY_exploit_mineral_wealth
+			}
+			else = {
+				hidden_trigger = {
+					always = yes
+				}
+			}
+
+		}
+
+		visible = {
+			owns_state = 688
+			controls_state = 688
+			688 = {
+				NOT = {
+					has_state_flag = drill_for_oil_in_chaco_boreal_done_1
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 50
+		days_remove = 60
+
+		modifier = {
+			civilian_factory_use = 5
+		}
+
+		ai_will_do = {
+			base = 0.5
+			modifier = {
+				factor = 20 
+				OR = {
+					original_tag = PAR
+					original_tag = BOL
+					original_tag = ARG
+					original_tag = BRA
+				}
+			}
+			modifier = {  # Too low PP
+				factor = 0.5
+				has_political_power < 75
+			}
+			modifier = { #We have plenty of PP, avanti!
+				factor = 3
+				has_political_power > 200
+			}
+			modifier = { #Running out of the stuff, need more!
+				factor = 5
+				has_resources_in_country = {
+					resource = oil
+					amount < 1
+				}
+			}
+			modifier = { # Murica!!!
+				factor = 10
+				original_tag = USA
+			}
+		}
+
+		remove_effect = {
+			688 = { set_state_flag = drill_for_oil_in_chaco_boreal_done_1 }
+			688 = {
+				add_resource = {
+					type = oil
+					amount = 12
+				}
+			}
+		}
+	}
+
+	# Drill for oil in Chaco Boreal
+	drill_for_oil_in_chaco_boreal_2 = { #688
+
+		icon = oil
+
+		allowed = {
+
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 688
+			}
+		}
+		available = {
+			has_tech = excavation4
+			num_of_civilian_factories_available_for_projects > 4
+			owns_state = 688
+			controls_state = 688
+		}
+
+		visible = {
+			owns_state = 688
+			controls_state = 688
+			688 = {
+				has_state_flag = drill_for_oil_in_chaco_boreal_done_1
+				NOT = {
+					has_state_flag = drill_for_oil_in_chaco_boreal_done_2
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 50
+		days_remove = 120
+
+		modifier = {
+			civilian_factory_use = 5
+		}
+
+		ai_will_do = {
+			base = 0.5
+			modifier = {  # Too low PP
+				factor = 0.5
+				has_political_power < 80 
+			}
+			modifier = { #We have plenty of PP, avanti!
+				factor = 3
+				has_political_power > 200
+			}
+			modifier = { #Running out of the stuff, need more!
+				factor = 5
+				has_resources_in_country = {
+					resource = oil
+					amount < 1
+				}
+			}
+			modifier = { # Murica!!!
+				factor = 10 
+				original_tag = USA
+			}
+		}
+		remove_effect = {
+			688 = { set_state_flag = drill_for_oil_in_chaco_boreal_done_2 }
+			688 = {
+				add_resource = {
+					type = oil
+					amount = 16
+				}
+			}
+		}
+	}
+	
+	explore_east_midlands_oil_deposits = { #129
+
+		icon = oil
+
+		allowed = {
+
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 129
+			}
+		}
+		available = {
+			has_tech = excavation4
+			num_of_civilian_factories_available_for_projects > 4
+			owns_state = 129
+			controls_state = 129
+		}
+
+		visible = {
+			owns_state = 129
+			controls_state = 129
+			688 = {
+				NOT = {
+					has_state_flag = east_midlands_oil_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 50
+		days_remove = 120
+
+		modifier = {
+			civilian_factory_use = 5
+		}
+
+		ai_will_do = {
+			base = 0.5
+			modifier = {  # Too low PP
+				factor = 0.5
+				has_political_power < 80 
+			}
+			modifier = { #We have plenty of PP, avanti!
+				factor = 3
+				has_political_power > 200
+			}
+			modifier = { #Running out of the stuff, need more!
+				factor = 5
+				has_resources_in_country = {
+					resource = oil
+					amount < 1
+				}
+			}
+			modifier = {
+				factor = 10 
+				original_tag = ENG
+			}
+		}
+		remove_effect = {
+			129 = { set_state_flag = east_midlands_oil_developed }
+			129 = {
+				add_resource = {
+					type = oil
+					amount = 6
+				}
+			}
+		}
+	}
+}

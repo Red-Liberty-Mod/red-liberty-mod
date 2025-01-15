@@ -22,7 +22,7 @@ IRE_paramilitary_orgs_category = {
 	icon = GFX_decision_category_eng_organize_the_blackshirts
 	
 	allowed = {
-		original_tag = IRE
+		tag = IRE
 		NOT = {
 			OR = {
 				tag = ICA
@@ -33,12 +33,46 @@ IRE_paramilitary_orgs_category = {
 	
 	visible = {
 		NOT = {
-			has_global_flag = IRE_civil_war_started
-			has_global_flag = IRE_civil_war_avoided
+			OR = {
+				has_global_flag = IRE_civil_war_started
+				has_global_flag = IRE_civil_war_avoided
+				has_global_flag = IRE_civil_war_ended
+			}
 		}
 	}
 	
 	scripted_gui = IRE_paramilitary_scripted_gui
+	
+	visible_when_empty = yes
+}
+
+IRE_foreign_investment_category = {
+	icon = IRE_parliament
+	
+	allowed = {
+		OR = {
+			AND = {
+				tag = IRE
+				NOT = {
+					OR = {
+						tag = ICA
+						tag = IRA
+					}
+				}
+			}
+			OR = {
+				tag = USA
+				tag = ENG
+				tag = GER
+			}
+		}
+	}
+	
+	visible = {
+		IRE = {
+			has_completed_focus = IRE_open_up_to_foreign_investment
+		}
+	}
 	
 	visible_when_empty = yes
 }

@@ -68,7 +68,7 @@ shared_focus = {
 		hidden_effect = {
 			if = {
 				limit = {
-					has_government = libertarian_socialism
+					has_government = democratic_socialism
 				}
 				every_owned_state = {
 					limit = {
@@ -504,17 +504,15 @@ shared_focus = {
 		white_peace = JAP
 		custom_effect_tooltip = USA_jap_surrender_tooltip
 		add_war_support = -0.35
-      add_popularity = {
-	    ideology = libertarian_socialism
-	    popularity = -0.07
-      }		
+		add_popularity = {
+			ideology = democratic_socialism
+			popularity = -0.07
+		}		
 	    JAP = {
-		 transfer_state = 638
-		 transfer_state = 631
-		 transfer_state = 632
-        
-		} 
-		
+			transfer_state = 638
+			transfer_state = 631
+			transfer_state = 632
+		}
     }
 	
 	ai_will_do = {
@@ -541,8 +539,8 @@ shared_focus = {
 	
 	cost = 5
     completion_reward = {
-	   custom_effect_tooltip = USA_europe_aflame_tooltip
-	   unlock_decision_tooltip = start_USA_war_declaration
+		custom_effect_tooltip = USA_europe_aflame_tooltip
+		unlock_decision_tooltip = start_USA_war_declaration
     }
 	
 	ai_will_do = {
@@ -568,7 +566,7 @@ shared_focus = {
 	relative_position_id = USA_europe_aflame
 	prerequisite = { focus = USA_europe_aflame }
     completion_reward = {
-	    custom_effect_tooltip = USA_peace_in_our_time_tt
+		custom_effect_tooltip = USA_peace_in_our_time_tt
     }
 	
 	ai_will_do = {
@@ -580,15 +578,18 @@ shared_focus = {
     id = USA_aef
 	icon = GFX_USA_aef
 	
-    x = 0
+    x = -1
 	y = 1
 	
 	cost = 5
 	relative_position_id = USA_peace_in_our_time
 	prerequisite = { focus = USA_peace_in_our_time }
     completion_reward = {
-		add_war_support = 0.15
-		add_manpower = 95000
+		add_war_support = 0.075
+		add_ideas = USA_european_volunteers
+		
+		set_country_flag = may_send_volunteers_to_ENG
+		set_country_flag = may_send_volunteers_to_FRA
     }
 	
 	ai_will_do = {
@@ -600,27 +601,27 @@ shared_focus = {
     id = USA_send_supplies
 	icon = GFX_USA_send_supplies
 	
-    x = 0
+    x = 1
 	y = 1
 	
 	cost = 5
-	relative_position_id = USA_aef
-	prerequisite = { focus = USA_aef }
+	relative_position_id = USA_peace_in_our_time
+	prerequisite = { focus = USA_peace_in_our_time }
     completion_reward = {
 		send_equipment = {
-          equipment = infantry_equipment
-          amount = 6500
-          target = ENG
+			equipment = infantry_equipment
+			amount = 6500
+			target = ENG
         }
 	    send_equipment = {
-          equipment = support_equipment
-          amount = 850
-          target = ENG
+			equipment = support_equipment
+			amount = 850
+			target = ENG
         }
 		send_equipment = {
-          equipment = light_tank_equipment
-          amount = 250
-          target = ENG
+			equipment = light_tank_equipment
+			amount = 250
+			target = ENG
         }
     }
 	
@@ -633,14 +634,17 @@ shared_focus = {
     id = USA_offer_arbitration
 	icon = GFX_USA_offer_arbitration
 	
-    x = 0
+    x = 1
 	y = 1
 	
 	cost = 5
-	relative_position_id = USA_send_supplies
-	prerequisite = { focus = USA_send_supplies }
+	relative_position_id = USA_aef
+	prerequisite = {
+		focus = USA_aef
+		focus = USA_send_supplies
+	}
     completion_reward = {
-	   custom_effect_tooltip = USA_arbitration_tooltip
+		custom_effect_tooltip = USA_arbitration_tooltip
     }
 	
 	ai_will_do = {
@@ -688,27 +692,20 @@ shared_focus = {
 		if = {
 			limit = {
 				has_country_flag = USA_progressive_veep 
-				
 			}
-			
 			set_politics = {
-	          ruling_party = social_democracy
-	          elections_allowed = yes
+				ruling_party = social_democracy
+				elections_allowed = yes
             }
-			
 		}
-		
-		if = {
+		else_if = {
 			limit = {
 				has_country_flag = USA_radical_veep
-				
 			}
-			
 			set_politics = {
-	          ruling_party = proletarian_dictatorship
-	          elections_allowed = yes
+				ruling_party = revolutionary_socialism
+				elections_allowed = yes
             }
-			
 		}
     }
 	
@@ -736,27 +733,20 @@ shared_focus = {
 			limit = {
 				has_government = social_democracy
 			}
-			
 			add_popularity = {
-	          ideology = social_democracy
-	          popularity = 0.04
+				ideology = social_democracy
+				popularity = 0.04
             }
-			
 		}
-		
-		if = {
+		else_if = {
 			limit = {
-				has_government = proletarian_dictatorship
+				has_government = revolutionary_socialism
 			}
-			
 			add_popularity = {
-	          ideology = proletarian_dictatorship
-	          popularity = 0.04
+				ideology = revolutionary_socialism
+				popularity = 0.04
             }
-			
 		}
-		
-		
     }
 	
 	ai_will_do = {

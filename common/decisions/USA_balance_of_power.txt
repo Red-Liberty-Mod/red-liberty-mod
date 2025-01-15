@@ -1,6 +1,6 @@
 USA_balance_of_power_category = {
 	
-	debug_boost_labor = {
+	debug_boost_party_left = {
 		available = {
 			is_debug = yes
 		}
@@ -11,14 +11,14 @@ USA_balance_of_power_category = {
 		
 		complete_effect = {
 			add_power_balance_value = {
-				id = USA_labor_capital_balance
+				id = USA_socialist_party_balance
 				value = -0.05
-				tooltip_side = USA_labor_side
+				tooltip_side = USA_left_side
 			}
 		}
 	}
 	
-	debug_boost_capital = {
+	debug_boost_party_right = {
 		available = {
 			is_debug = yes
 		}
@@ -29,9 +29,159 @@ USA_balance_of_power_category = {
 		
 		complete_effect = {
 			add_power_balance_value = {
-				id = USA_labor_capital_balance
+				id = USA_socialist_party_balance
 				value = 0.05
-				tooltip_side = USA_capital_side
+				tooltip_side = USA_right_side
+			}
+		}
+	}
+	
+	USA_increase_unity = {
+	
+		icon = generic_political_discourse
+		
+		visible = {
+			
+		}
+		
+		available = {
+			custom_trigger_tooltip = {
+				check_variable = { USA_socialist_unity < 30 }
+				tooltip = USA_socialists_fully_united
+			}
+		}
+		
+		days_re_enable = 360
+		
+		cost = 75
+		
+		complete_effect = {
+			add_to_variable = {
+				USA_socialist_unity = 3
+				tooltip = USA_spa_unity_small_gain_tt
+			}
+			clamp_variable = {
+				var = USA_socialist_unity
+				min = 0
+				max = 30
+			}
+		}
+	}
+	
+	USA_expand_party_newspaper = {
+		icon = GFX_decision_ger_mefo_bills
+		
+		visible = {
+			
+		}
+		
+		days_re_enable = 90
+		cost = 45
+		
+		complete_effect = {
+			add_power_balance_value = {
+				id = USA_socialist_party_balance
+				value = -0.1
+				tooltip_side = USA_left_side
+			}
+		}
+	}
+	
+	USA_stand_against_imperialism = {
+		icon = GFX_decision_generic_nationalism
+		
+		visible = {
+			
+		}
+		
+		days_re_enable = 90
+		cost = 45
+		
+		complete_effect = {
+			add_power_balance_value = {
+				id = USA_socialist_party_balance
+				value = -0.05
+				tooltip_side = USA_left_side
+			}
+		}
+	}
+	
+	USA_meet_with_nec = {
+		icon = generic_political_discourse
+		
+		visible = {
+			
+		}
+		
+		days_re_enable = 90
+		cost = 45
+		
+		complete_effect = {
+			if = {
+				limit = {
+					power_balance_value = {
+						id = USA_socialist_party_balance
+						value > 0
+					}
+				}
+				add_power_balance_value = {
+					id = USA_socialist_party_balance
+					value = -0.1
+					tooltip_side = USA_left_side
+				}
+			}
+			else_if = {
+				limit = {
+					power_balance_value = {
+						id = USA_socialist_party_balance
+						value < 0
+					}
+				}
+				add_power_balance_value = {
+					id = USA_socialist_party_balance
+					value = 0.1
+					tooltip_side = USA_right_side
+				}
+			}
+		}
+	}
+	
+	USA_promote_law_and_order = {
+		icon = GFX_decision_generic_police_action
+		
+		visible = {
+			
+		}
+		
+		days_re_enable = 90
+		cost = 45
+		
+		complete_effect = {
+			if = {
+				limit = {
+					power_balance_value = {
+						id = USA_socialist_party_balance
+						value > 0
+					}
+				}
+				add_power_balance_value = {
+					id = USA_socialist_party_balance
+					value = -0.05
+					tooltip_side = USA_left_side
+				}
+			}
+			else_if = {
+				limit = {
+					power_balance_value = {
+						id = USA_socialist_party_balance
+						value < 0
+					}
+				}
+				add_power_balance_value = {
+					id = USA_socialist_party_balance
+					value = 0.05
+					tooltip_side = USA_right_side
+				}
 			}
 		}
 	}

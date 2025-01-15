@@ -2,6 +2,7 @@ default_unit_production = {
 	enable = {
 		always = yes
 	}
+	abort_when_not_enabled = yes
 
 	ai_strategy = {
 		type = role_ratio
@@ -232,6 +233,7 @@ default_mountaineer_focused_nation = {
 	enable = {
 		has_tech = tech_mountaineers
 	}
+	abort_when_not_enabled = yes
 
 	ai_strategy = {
 		type = role_ratio
@@ -253,6 +255,7 @@ halt_light_armor_production_in_transitioning = {
 			date > 1939.1.1
 		}
 	}
+	abort_when_not_enabled = yes
 
 	ai_strategy = {
 		type = equipment_variant_production_factor
@@ -280,6 +283,7 @@ early_template_design = {
 	abort = {
 		date > 1940.1.1
 	}
+	abort_when_not_enabled = yes
 
 	ai_strategy = {
 		type = template_prio
@@ -310,6 +314,7 @@ late_template_design = {
 	enable = {
 		date > 1940.1.1
 	}
+	abort_when_not_enabled = yes
 
 	ai_strategy = {
 		type = template_prio
@@ -354,7 +359,6 @@ dont_guard_against_overlord_puppets = {
 		is_in_faction = no
 		overlord = { num_subjects > 1 }
 	}
-
 	abort_when_not_enabled = yes
 
 	ai_strategy = {
@@ -368,13 +372,13 @@ dont_guard_against_overlord_puppets = {
 }
 
 railway_gun_management = {
-	allowed = { has_dlc = "No Step Back" }
+	allowed = { has_dlc_nsb = yes }
 	enable = {
-		num_divisions > 150
+		num_divisions > 100
 		is_major = yes
 	}
 	abort = {
-		num_divisions < 120
+		num_divisions < 90
 	}
 
 	ai_strategy = { # This will add the specified value to the RAILWAY_GUN_PRODUCTION_BASE_DIVISIONS_RATIO_PERCENT define and use that as the desired railway guns / divisions ratio (in %)
@@ -384,7 +388,7 @@ railway_gun_management = {
 }
 
 produce_floating_harbors = {
-	allowed = { has_dlc = "No Step Back" }
+	allowed = { has_dlc_nsb = yes }
 	enable = {
 		has_war = yes
 		num_of_naval_factories > 25
@@ -403,6 +407,7 @@ default_pp_spend_amount = {
 	enable = {
 		always = yes
 	}
+	abort_when_not_enabled = yes
 
 	ai_strategy = {
 		type = pp_spend_amount
@@ -431,5 +436,3 @@ do_not_waste_pp_befriend = {
 		value = -9999
 	}
 }
-
-

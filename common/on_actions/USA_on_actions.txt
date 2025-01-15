@@ -1,6 +1,15 @@
 on_actions = {
 	on_startup = {
 		effect = {
+			USA = {
+				if = {
+					limit = {
+						is_debug = yes
+					}
+					set_country_flag = USA_state_full_info
+				}
+			}
+			
 			### POLITICAL SETUP ###
 			USA = {
 				add_to_array = { country_info_array = 1 }
@@ -19,6 +28,10 @@ on_actions = {
 				}
 			}
 			USA = {
+				# President
+				set_variable = { USA_president_popularity = 23 }
+				
+				# Congress
 				set_variable = { senators_total = 96 }
 				set_variable = { representatives_total = 483 }
 				USA_congress_quorum = yes
@@ -52,11 +65,15 @@ on_actions = {
 					modifier = USA_house_control_modifier
 				}
 				USA_calc_congress_control = yes
+				
+				# Supreme Court
+				set_variable = { supreme_court_lean = -6 } # LEAN
+				
+				country_event = { # Chief Justice Devanter Dies
+					id = united_states_supreme_court.3
+					days = 1865
+				}
 			}
-			
-			#USA = {
-			#	USA_calc_poverty_goal = yes
-			#}
 			
 			USA = {
 				##### ELECTION EVENTS #####
@@ -92,6 +109,18 @@ on_actions = {
 			}
 			
 			USA = {
+				### COTTON STRIKE ###
+				country_event = {
+					id = united_states.7
+					days = 530
+					random_days = 30
+				}
+				country_event = {
+					id = united_states.16
+					days = 160
+					random_days = 14
+				}
+				
 				### SPA EVENTS ###
 				country_event = {
 					id = united_states_thomas.1
@@ -144,10 +173,10 @@ on_actions = {
 				#}
 				
 				### MANHATTAN PROJECT ###
-				country_event = { # manhattan project start
-					id = united_states_mproject.1
-					days = 1809 # december 14, 1940
-				}
+				#country_event = { # manhattan project start
+				#	id = united_states_mproject.1
+				#	days = 1809 # december 14, 1940
+				#}
 			}
 			
 			USA = {
@@ -193,30 +222,60 @@ on_actions = {
 				country_event = { # the pale poison
 					id = united_states_flavor.11
 					days = 900
-					random_days = 30
+					random_days = 30 # early to mid 1938
 				}
 				country_event = {  # charles lindbergh returns
 					id = united_states_flavor.12
 					days = 1100
-					random_days = 30
+					random_days = 30 # late 1938
 				}
 			}
 			
-			### produce distribution ###
+			### misc variables ###
 			USA = {
 				set_variable = { USA_produce_units = 3 }
 				set_variable = { USA_produce_decay_rate = 55 }
+				
+				set_variable = { USA_poverty_threshold = 55 }
 			}
 			
-			### DUST BOWL SETUP ###
+			### MODIFIERS ###
+			360 = {
+				add_dynamic_modifier = {
+					modifier = USA_anthracite_coal_fields
+				}
+			}
+			363 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
+			365 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
+			368 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
+			369 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
+			370 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
 			374 = {
 				add_dynamic_modifier = {
 					modifier = USA_dust_bowl_modifier
 				}
-			}
-			383 = {
 				add_dynamic_modifier = {
-					modifier = USA_dust_bowl_modifier
+					modifier = USA_dry_state
 				}
 			}
 			376 = {
@@ -224,9 +283,50 @@ on_actions = {
 					modifier = USA_dust_bowl_modifier
 				}
 			}
+			377 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
 			382 = {
 				add_dynamic_modifier = {
 					modifier = USA_dust_bowl_modifier
+				}
+				add_dynamic_modifier = {
+					modifier = uranium_deposits
+				}
+			}
+			383 = {
+				add_dynamic_modifier = {
+					modifier = USA_dust_bowl_modifier
+				}
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
+			385 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
+			388 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
+			390 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
+			393 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
+			832 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
 				}
 			}
 			852 = {
@@ -292,10 +392,23 @@ on_actions = {
 					}
 				}
 			}
+			
+			if = {
+				limit = {
+					check_variable = { USA.poverty_rate < USA_poverty_threshold }
+				}
+				USA = {
+					subtract_from_variable = { USA_poverty_threshold = 5 }
+					country_event = {
+						id = united_states.15
+						hours = 6
+					}
+				}
+			}
 		}
 	}
 	
-	on_monthly_USA { # update - kwik mafs
+	on_monthly_USA = { # update - kwik mafs
 		effect = {
 			if = {
 				limit = {
@@ -319,6 +432,38 @@ on_actions = {
 					check_variable = { USA_mproject_phase > 0 }
 				}
 				USA_mproject_monthly_pulse = yes
+			}
+			
+			### very hacky method to naturally improve the spirit over time ###
+			#add_to_variable = { USA_month_counter = 1 }
+			#if = {
+			#	limit = {
+			#		check_variable = { USA_month_counter = 12 }
+			#	}
+			#	set_variable = { USA_month_counter = 0 }
+			#	if = {
+			#		limit = {
+			#			has_country_flag = social_security_passed
+			#		}
+			#		improve_great_depression = yes
+			#	}
+			#}
+
+			### Supreme Court Retirements ###
+			random_list = {
+				5 = {
+					country_event = {
+						id = united_states_supreme_court.1
+						random_days = 14
+					}
+					set_country_flag = {
+						flag = USA_justice_retired
+						days = 90
+					}
+				}
+				95 = {
+					
+				}
 			}
 		}
 	}

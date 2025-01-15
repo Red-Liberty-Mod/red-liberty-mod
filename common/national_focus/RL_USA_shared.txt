@@ -269,265 +269,265 @@ shared_focus = {
 }
 
 ### manhattan project tree ###
-shared_focus = {
-    id = USA_nuclear_rumors
-	icon = GFX_USA_nuclear_rumors
-	
-    x = 17
-	y = 6
-	
-	available = {
-		has_country_flag = USA_mproject_start
-	}
-	
-	allow_branch = {
-		#has_country_flag = USA_mproject_start
-	}
-	
-	cost = 0
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_the_manhattan_project
-	icon = GFX_USA_the_manhattan_project
-	
-    x = 0
-	y = 1
-	
-	cost = 4
-	relative_position_id = USA_nuclear_rumors
-	prerequisite = { focus = USA_nuclear_rumors }
-    completion_reward = {
-		custom_effect_tooltip = USA_manhattan_tooltip
-		country_event = {
-			id = united_states_mproject.2
-			hours = 6
-		}
-	}
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_theoretical_development
-	icon = GFX_USA_theoretical_development
-	
-    x = -1
-	y = 1
-	
-	cost = 4
-	relative_position_id = USA_the_manhattan_project
-	prerequisite = { focus = USA_the_manhattan_project }
-    completion_reward = {
-		custom_effect_tooltip = USA_theoretical_development_tt
-		add_to_variable = { USA_mproject_monthly_progress = 2 }
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_physical_development
-	icon = GFX_USA_physical_development
-	
-    x = 2
-	y = 1
-	
-	available = {
-		has_country_flag = USA_mproject_phase_1_complete
-	}
-	
-	cost = 4
-	relative_position_id = USA_the_manhattan_project
-	prerequisite = { focus = USA_the_manhattan_project }
-    completion_reward = {
-		custom_effect_tooltip = USA_physical_development_tt
-		add_to_variable = { USA_mproject_monthly_progress = 3 }
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_the_best_and_brightest
-	icon = GFX_USA_the_best_and_brightest
-	
-    x = -1
-	y = 1
-	
-	cost = 4
-	relative_position_id = USA_theoretical_development
-	prerequisite = { focus = USA_theoretical_development }
-    completion_reward = {
-        add_to_variable = { USA_mproject_monthly_progress = 2 }
-		custom_effect_tooltip = available_theorist
-		show_ideas_tooltip = USA_julius_robert_oppenheimer
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_the_utmost_secrecy
-	icon = GFX_USA_the_utmost_secrecy
-	
-    x = 1
-	y = 1
-	
-	cost = 4
-	relative_position_id = USA_theoretical_development
-	prerequisite = {
-		focus = USA_theoretical_development
-		focus = USA_physical_development
-	}
-    completion_reward = {
-        country_event = {
-			id = united_states_mproject.3
-			hours = 6
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_closed_facilities
-	icon = GFX_USA_closed_facilities
-	
-    x = 1
-	y = 1
-	
-	available = {
-		has_country_flag = USA_mproject_phase_2_complete
-	}
-	
-	cost = 4
-	relative_position_id = USA_the_best_and_brightest
-	prerequisite = { focus = USA_the_best_and_brightest }
-	prerequisite = { focus = USA_the_utmost_secrecy }
-    completion_reward = {
-		custom_effect_tooltip = USA_closed_facilities_tt
-		add_to_variable = { USA_mproject_monthly_progress = 3 }
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_uranium_fever
-	icon = GFX_USA_uranium_fever
-	
-    x = 0
-	y = 1
-	
-	available = {
-		has_country_flag = USA_mproject_phase_2_complete
-	}
-	
-	cost = 4
-	relative_position_id = USA_physical_development
-	prerequisite = { focus = USA_physical_development }
-    completion_reward = {
-		custom_effect_tooltip = USA_uranium_fever_tt
-		add_to_variable = { USA_mproject_monthly_progress = 3 }
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_going_critical
-	icon = GFX_USA_going_critical
-	
-    x = 0
-	y = 1
-	
-	available = {
-		has_country_flag = USA_mproject_phase_3_complete
-	}
-	
-	cost = 4
-	relative_position_id = USA_uranium_fever
-	prerequisite = { focus = USA_uranium_fever }
-    completion_reward = {
-		set_technology = {
-			nuclear_reactor = 1
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_begin_assembly
-	icon = GFX_USA_begin_assembly
-	
-    x = 1
-	y = 1
-	
-	available = {
-		has_country_flag = USA_mproject_phase_4_complete
-	}
-	
-	cost = 4
-	relative_position_id = USA_closed_facilities
-	prerequisite = { focus = USA_closed_facilities }
-	prerequisite = { focus = USA_going_critical }
-    completion_reward = {
-		custom_effect_tooltip = USA_begin_assembly_tt
-        add_to_variable = { USA_mproject_monthly_progress = 3 }
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_the_power_of_god
-	icon = GFX_USA_the_power_of_god
-	
-    x = 0
-	y = 1
-	
-	available = {
-		has_country_flag = USA_mproject_phase_5_complete
-	}
-	
-	cost = 4
-	relative_position_id = USA_begin_assembly
-	prerequisite = { focus = USA_begin_assembly }
-    completion_reward = {
-		set_technology = {
-			nukes = 1
-		}
-		custom_effect_tooltip = USA_power_god_tooltip
-	}
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
+#shared_focus = {
+#	id = USA_nuclear_rumors
+#	icon = GFX_USA_nuclear_rumors
+#	
+#	x = 17
+#	y = 6
+#	
+#	available = {
+#		has_country_flag = USA_mproject_start
+#	}
+#	
+#	allow_branch = {
+#		#has_country_flag = USA_mproject_start
+#	}
+#	
+#	cost = 0
+#	completion_reward = {
+#		
+#	}
+#	
+#	ai_will_do = {
+#		factor = 10
+#	}
+#}
+#
+#shared_focus = {
+#	id = USA_the_manhattan_project
+#	icon = GFX_USA_the_manhattan_project
+#	
+#    x = 0
+#	y = 1
+#	
+#	cost = 4
+#	relative_position_id = USA_nuclear_rumors
+#	prerequisite = { focus = USA_nuclear_rumors }
+#    completion_reward = {
+#		custom_effect_tooltip = USA_manhattan_tooltip
+#		country_event = {
+#			id = united_states_mproject.2
+#			hours = 6
+#		}
+#	}
+#	
+#	ai_will_do = {
+#		factor = 10
+#	}
+#}
+#
+#shared_focus = {
+#    id = USA_theoretical_development
+#	icon = GFX_USA_theoretical_development
+#	
+#    x = -1
+#	y = 1
+#	
+#	cost = 4
+#	relative_position_id = USA_the_manhattan_project
+#	prerequisite = { focus = USA_the_manhattan_project }
+#    completion_reward = {
+#		custom_effect_tooltip = USA_theoretical_development_tt
+#		add_to_variable = { USA_mproject_monthly_progress = 2 }
+#    }
+#	
+#	ai_will_do = {
+#		factor = 10
+#	}
+#}
+#
+#shared_focus = {
+#    id = USA_physical_development
+#	icon = GFX_USA_physical_development
+#	
+#    x = 2
+#	y = 1
+#	
+#	available = {
+#		has_country_flag = USA_mproject_phase_1_complete
+#	}
+#	
+#	cost = 4
+#	relative_position_id = USA_the_manhattan_project
+#	prerequisite = { focus = USA_the_manhattan_project }
+#    completion_reward = {
+#		custom_effect_tooltip = USA_physical_development_tt
+#		add_to_variable = { USA_mproject_monthly_progress = 3 }
+#    }
+#	
+#	ai_will_do = {
+#		factor = 10
+#	}
+#}
+#
+#shared_focus = {
+#    id = USA_the_best_and_brightest
+#	icon = GFX_USA_the_best_and_brightest
+#	
+#    x = -1
+#	y = 1
+#	
+#	cost = 4
+#	relative_position_id = USA_theoretical_development
+#	prerequisite = { focus = USA_theoretical_development }
+#    completion_reward = {
+#        add_to_variable = { USA_mproject_monthly_progress = 2 }
+#		custom_effect_tooltip = available_theorist
+#		show_ideas_tooltip = USA_julius_robert_oppenheimer
+#    }
+#	
+#	ai_will_do = {
+#		factor = 10
+#	}
+#}
+#
+#shared_focus = {
+#    id = USA_the_utmost_secrecy
+#	icon = GFX_USA_the_utmost_secrecy
+#	
+#    x = 1
+#	y = 1
+#	
+#	cost = 4
+#	relative_position_id = USA_theoretical_development
+#	prerequisite = {
+#		focus = USA_theoretical_development
+#		focus = USA_physical_development
+#	}
+#    completion_reward = {
+#        country_event = {
+#			id = united_states_mproject.3
+#			hours = 6
+#		}
+#    }
+#	
+#	ai_will_do = {
+#		factor = 10
+#	}
+#}
+#
+#shared_focus = {
+#    id = USA_closed_facilities
+#	icon = GFX_USA_closed_facilities
+#	
+#    x = 1
+#	y = 1
+#	
+#	available = {
+#		has_country_flag = USA_mproject_phase_2_complete
+#	}
+#	
+#	cost = 4
+#	relative_position_id = USA_the_best_and_brightest
+#	prerequisite = { focus = USA_the_best_and_brightest }
+#	prerequisite = { focus = USA_the_utmost_secrecy }
+#    completion_reward = {
+#		custom_effect_tooltip = USA_closed_facilities_tt
+#		add_to_variable = { USA_mproject_monthly_progress = 3 }
+#    }
+#	
+#	ai_will_do = {
+#		factor = 10
+#	}
+#}
+#
+#shared_focus = {
+#    id = USA_uranium_fever
+#	icon = GFX_USA_uranium_fever
+#	
+#    x = 0
+#	y = 1
+#	
+#	available = {
+#		has_country_flag = USA_mproject_phase_2_complete
+#	}
+#	
+#	cost = 4
+#	relative_position_id = USA_physical_development
+#	prerequisite = { focus = USA_physical_development }
+#    completion_reward = {
+#		custom_effect_tooltip = USA_uranium_fever_tt
+#		add_to_variable = { USA_mproject_monthly_progress = 3 }
+#    }
+#	
+#	ai_will_do = {
+#		factor = 10
+#	}
+#}
+#
+#shared_focus = {
+#    id = USA_going_critical
+#	icon = GFX_USA_going_critical
+#	
+#    x = 0
+#	y = 1
+#	
+#	available = {
+#		has_country_flag = USA_mproject_phase_3_complete
+#	}
+#	
+#	cost = 4
+#	relative_position_id = USA_uranium_fever
+#	prerequisite = { focus = USA_uranium_fever }
+#    completion_reward = {
+#		set_technology = {
+#			nuclear_reactor = 1
+#		}
+#    }
+#	
+#	ai_will_do = {
+#		factor = 10
+#	}
+#}
+#
+#shared_focus = {
+#    id = USA_begin_assembly
+#	icon = GFX_USA_begin_assembly
+#	
+#    x = 1
+#	y = 1
+#	
+#	available = {
+#		has_country_flag = USA_mproject_phase_4_complete
+#	}
+#	
+#	cost = 4
+#	relative_position_id = USA_closed_facilities
+#	prerequisite = { focus = USA_closed_facilities }
+#	prerequisite = { focus = USA_going_critical }
+#    completion_reward = {
+#		custom_effect_tooltip = USA_begin_assembly_tt
+#        add_to_variable = { USA_mproject_monthly_progress = 3 }
+#    }
+#	
+#	ai_will_do = {
+#		factor = 10
+#	}
+#}
+#
+#shared_focus = {
+#    id = USA_the_power_of_god
+#	icon = GFX_USA_the_power_of_god
+#	
+#    x = 0
+#	y = 1
+#	
+#	available = {
+#		has_country_flag = USA_mproject_phase_5_complete
+#	}
+#	
+#	cost = 4
+#	relative_position_id = USA_begin_assembly
+#	prerequisite = { focus = USA_begin_assembly }
+#    completion_reward = {
+#		set_technology = {
+#			nukes = 1
+#		}
+#		custom_effect_tooltip = USA_power_god_tooltip
+#	}
+#	
+#	ai_will_do = {
+#		factor = 10
+#	}
+#}

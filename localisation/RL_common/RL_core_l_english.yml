@@ -2,7 +2,14 @@
  
  BREAD_AND_ROSES_NAME:0 "Bread and Roses"
  BREAD_AND_ROSES_DESC:0 "The World was paralyzed following the results of the First World War, tens of millions of young men have died for what seemed to be little to no gain in Europe or abroad. Socialist thought, once deemed degenerate and deranged is now commonplace and one of the world´s largest powers stands firmly under the Presidency of Norman Thomas, leader of the Socialist Party of America. The world is a far different place than the one dreamed about at the beginning of the century - will you aid the revolution of the common man, achieving equality for all? Or will you strike it down in the name of individual freedom and finance, striving for a world of the renewed American Dream?"
+ 
  USA_BREAD_AND_ROSES_DESC:0 "Thanks to the shrewd policies of the former President Debs, not only did America manage to stay out of the mess that was the Great War, but it also was the mediator of the resulting peace. Now, despite those efforts, the fraying concert of Europe threatens to disturb the burgeoning republic once again. The coming storm may be one that the country cannot avoid. Though the wounds of the depression are still fresh, many Americans feel that the worst is behind them. They revere Norman Thomas, the 'modern day Debs', and his socialist party. Only time will tell if their loyalty to the president is deserved."
+ 
+ FRA_BREAD_AND_ROSES_DESC:0 "The years have not been kind to France. Beaten, but not defeated, she limped along after the end of the Great War, only holding together thanks to the exhaustion seeping into every facet of life. Now, dark clouds once again grow on the horizon. Radicals agitate once more, threatening to bring down the cherished republic. The next war will not be fought for honor, but for survival. France will need to summon every ounce of her strength to make it through the coming storm. We are not ready."
+ 
+ ### Buildings ###
+ canal_nicaragua:0 "Nicaragua Canal Locks"
+ canal_nicaragua_desc:0 "While much of the canal runs along the San Juan river, the stretch from Lake Nicaragua to the Pacific Ocean contains no natural waterways, necessitating the use of locks."
  
  ### Namelists ###
  NAME_THEME_ADMIRALS:0 "Admirals"
@@ -12,7 +19,7 @@
  central_america:0 "Central America"
  
  ### Equipment ###
- cat_scout_plane:0 "Scout Plane models"
+ #cat_scout_plane:0 "Scout Plane models"
  
  ### Adjacencies ###
  NICARAGUA_CANAL:0 "Nicaragua Canal"
@@ -43,6 +50,33 @@
  restructure_supply_system_desc:0 "By redirecting building materials and railway workers, we can quickly create a small number of make-shift supply dumps along some of our railways. This is, however, not a sustainable way of running the system. \n\n§RThis decision can only be taken once. The bonus will disappear if you construct more than 3 additional supply hubs.§!"
  
  ### Events ###
+ # Ace Events #
+ ace_promoted.1.t: "Ace Pilot Promoted"
+ ace_promoted.2.t: "A Wild Ace Appears"
+ ace_promoted.1.d: "Few take as many risks as the brave pilots of the [Root.GetAdjective] air force. [From.GetName] [From.GetSurname], a skilled pilot known under the callsign [From.GetCallsign], has distinguished [From.GetHerselfHimself] in not only returning alive from the recent mission over [From.GetMissionRegion], but living through significant victories in many critical encounters.\n\nHeld up as a shining example of [Root.GetAdjective] courage, [From.GetName]'s recent promotion has been highly publicised. Although the people may view war as more hell than glory, many are glad to see that there are still heroes to rally behind."
+ ace_promoted.1.d_major: "Few take as many risks as the brave pilots of the [Root.GetAdjective] air force. [From.GetName] [From.GetSurname], a skilled pilot known under the callsign [From.GetCallsign], has distinguished [From.GetHerselfHimself] in not only returning alive, but piloting [From.GetHerHis] [From.GetWing] with immense skill. Recently, [From.GetName] was on a mission over [From.GetMissionRegion] and was instrumental to the success of this critical encounter.\n\nHeld up as a shining example of [Root.GetAdjective] courage, [From.GetName]'s recent promotion has been highly publicised. Although the people may view war as more hell than glory, many are glad to see that there are still heroes to rally behind."
+ ace_promoted.1.a: "Who dares, wins."
+
+ ace_died.1.t: "[From.GetCallsign] Killed Over [From.GetMissionRegion]"
+ ace_died.1.d: "One of [From.Owner.GetName]'s most famous [From.GetAceType] aces, [From.GetFullName], has gone down in flames in the line of duty, during a mission over [From.GetMissionRegion]. Unfortunately, since [From.GetSheHe] has long since been a public figure, the demise of [From.GetCallsign] is severely demoralising to the many people who looked up to [From.GetHerHim].\n\nWhile we wish there was a way to hide this event from the people, the lack of public appearances from [From.GetName] would soon raise suspicion. Ultimately, [From.GetHerHis] death is another part of a legend that will hopefully live on long past our current troubles."
+ ace_died.1.d_major: "One of [From.Owner.GetName]'s most famous [From.GetAceType] aces, [From.GetFullName], has gone down in the line of duty. Pilots returning from the mission report having spotted [From.GetHerHis] [From.GetWingShort] going down in flames over [From.GetMissionRegion] after taking heavy enemy fire. Unfortunately, since [From.GetSheHe] has long since been a public figure, the demise of [From.GetCallsign] is severely demoralising to the many people who looked up to [From.GetHerHim].\n\nWhile we wish there was a way to hide this event from the people, the lack of public appearances from [From.GetName] would soon raise suspicion. Ultimately, [From.GetHerHis] death is another part of a legend that will hopefully live on long past our current troubles."
+ ace_died.1.a: "A living legend is still better."
+
+ ace_killed_by_ace.1.t: "[From.GetFullName] Shot Down By [Prev.GetCallsign]"
+ ace_killed_by_ace.1.d: "Pilots returning from [From.GetMissionRegion] report that a squadron of [Prev.Owner.GetAdjective] aircrafts, led by the infamous [Prev.GetCallsign], focused on chasing down [From.GetCallsign]. After dodging several burst from the [Prev.Owner.GetAdjective]s and taking down a number of enemy aircraft, [From.GetCallsign] was overwhelmed by [Prev.GetCallsign], who reportedly outmanoeuvred [From.GetHerHim] and ripped the fuel tanks open with a clean hit. [From.GetName] [From.GetSurname]'s plane caught fire and went spiraling down over [From.GetMissionRegion] in a violent inferno.\n\n[From.GetFullName] has shown great courage throughout [From.GetHerHis] service and was looked up to by many. The loss of this national hero is a great blow to the [From.Owner.GetAdjective] air force and is a devastating blow to our nation as a whole. Knowing that while we grieve, [Prev.Owner.GetName] is celebrating [Prev.GetFullName] as a hero, makes the tragedy even greater."
+ ace_killed_by_ace.1.d_major: "Pilots returning from [From.GetMissionRegion] report that, a squadron of [Prev.Owner.GetAdjective] aircrafts led by the infamous [Prev.GetCallsign] focused on chasing down [From.GetCallsign]. After taking down a number of enemy aircraft and dodging several burst from the [Prev.Owner.GetAdjective]s, [From.GetCallsign] was overwhelmed by [Prev.GetCallsign] in his [Prev.GetWingShort], who reportedly outmanoeuvred [From.GetHerHim] and ripped the fuel tanks open with a clean hit. [From.GetName] [From.GetSurname]'s [From.GetWingShort] caught fire and went spiraling down over [From.GetMissionRegion] in a violent inferno.\n\n[From.GetFullName] has shown great courage throughout [From.GetHerHis] service and was looked up to by many. The loss of this national hero is a great blow to the [From.Owner.GetAdjective] air force and is a devastating blow to our nation as a whole. Knowing that while we grieve, [Prev.Owner.GetName] is celebrating [Prev.GetFullName] as a hero, makes the tragedy even greater."
+ ace_killed_by_ace.1.a: "A devastating loss for us all"
+
+ ace_killed_other_ace.1.t: "[From.GetFullName] Shot Down [Prev.GetCallsign]"
+ ace_killed_other_ace.1.d: "Our latest mission over [From.GetMissionRegion] was a great success for the [From.Owner.GetAdjective] air force in more than one aspect. Reports have come in highlighting [From.GetFullName]'s heroic deed, managing to outwit the [Prev.Owner.GetAdjective] pilot, [Prev.GetName] [Prev.GetSurname], known as [Prev.GetCallsign]. [From.GetCallsign] used [From.GetHerselfHimself] as bait and lured [Prev.GetCallsign] into a trap where the [From.Owner.GetAdjective] pilots were able to dive on [Prev.GetCallsign]'s squadron. [From.GetCallsign] proceeded to outmanoeuvre the [Prev.Owner.GetAdjective] aircrafts and with a single burst sent [Prev.GetCallsign] spiraling from the skies of [From.GetMissionRegion].\n\n[Prev.GetFullName] was a feared pilot with many [From.Owner.GetAdjective] lives on [Prev.GetHerHis] conscience. This is a great victory and shows that when we rally behind great heroes, they perform great deeds."
+ ace_killed_other_ace.1.d_major: "Our latest mission over [From.GetMissionRegion] was a great success for the [From.Owner.GetAdjective] air force in more than one aspect. Reports have come in highlighting [From.GetFullName]'s heroic deed, managing to outwit the [Prev.Owner.GetAdjective] pilot, [Prev.GetName] [Prev.GetSurname], known as [Prev.GetCallsign]. [From.GetCallsign] used [From.GetHerselfHimself] as bait and lured [Prev.GetCallsign] into a trap where the [From.Owner.GetAdjective] pilots were able to dive on [Prev.GetCallsign]'s squadron. [From.GetCallsign] proceeded to outmanoeuvre the [Prev.Owner.GetAdjective] aircrafts and with a single burst sent [Prev.GetCallsign] spiraling from the skies of [From.GetMissionRegion].\n\n[Prev.GetFullName] was a feared pilot with many [From.Owner.GetAdjective] lives on [Prev.GetHerHis] conscience. This is a great victory and shows that when we rally behind great heroes, they perform great deeds."
+ ace_killed_other_ace.1.a: "A victory all of [From.Owner.GetName] will remember!"
+
+ aces_killed_each_other.1.t: "[From.GetFullName] has gone down"
+ aces_killed_each_other.1.d: "During the latest mission our famous [From.GetAceType] ace [From.GetFullname] ended up in a prolonged fight with the feared ace pilot, [Prev.GetFullName]. Being low on munitions and with no possibility of escape, [From.GetCallsign] manoeuvred through the fire from the [Prev.Owner.GetAdjective] aircrafts and proceeded to ram [Prev.GetCallsign].\nBoth [From.GetCallsign]'s and [Prev.GetCallsign]'s aircrafts were spotted going down in pieces over [From.GetMissionRegion].\n\nWhile it is a small consolation that the [Prev.Owner.GetAdjective] menace, [Prev.GetCallsign], will no longer be a nuisance to us, we have lost a valued public figure and inspiration to all [From.Owner.GetAdjective]."
+ aces_killed_each_other.1.d_major: "During the latest mission our famous [From.GetAceType] ace [From.GetFullname] ended up in a prolonged fight with the feared ace pilot, [Prev.GetFullName]. Being low on munitions and with no possibility of escape, [From.GetCallsign] manoeuvred [From.GetHerHis] [From.GetWingShort] through the fire from the [Prev.Owner.GetAdjective] aircrafts and proceeded to ram [Prev.GetCallsign].\nBoth [From.GetCallsign]'s [From.GetWingShort] and [Prev.GetCallsign]'s [Prev.GetWingShort] were spotted going down in pieces over [From.GetMissionRegion].\n\nWhile it is a small consolation that the [Prev.Owner.GetAdjective] menace, [Prev.GetCallsign], will no longer be a nuisance to us, we have lost a valued public figure and inspiration to all [From.Owner.GetAdjective]."
+ aces_killed_each_other.1.a: "A great loss for us nonetheless"
+ 
  # Unit Leader Events #
  unit_leader.1.t: "[From.GetName] Falls Ill"
  unit_leader.1.d: "In [From.GetHerHis] service to the nation, it seems [From.GetRank] [From.GetName] has pushed [From.GetHerselfHimself] too far. As a result of the bad climate in [From.GetHerHis] operational area, the [From.GetRank] has now fallen ill, and will likely need some time to recover. Until [From.GetSheHe] gets well, [From.GetSheHe] will not be performing at [From.GetHerHis] usual level."
@@ -51,6 +85,10 @@
  unit_leader.2.t: "[From.GetName] Wounded"
  unit_leader.2.d: "In bringing the battle to a successful conclusion, it seems [From.GetRank] [From.GetName] put [From.GetHerselfHimself] at a bit too much risk while leading [From.GetHerHis] men. [From.GetSheHeCap] has been wounded, and it will likely take some time for the wounds to fully heal, until which time the [From.GetRank] will not be performing at [From.GetHerHis] usual level."
  unit_leader.2.a: "Unfortunate."
+ 
+ unit_leader.3.t: "[This.GetRank] [This.GetName] Retires"
+ unit_leader.3.d: "After a long and colorful career serving [From.GetNameDef], [This.GetRank] [This.GetName] has reached retirement age. An adequate military pension has been set aside for [This.GetHerHim], in the hopes of making the transition to civilian life easier. Furthermore, [This.GetSheHe] has expressed a desire to write a set of memoirs about their service, which are naturally expected to be bestsellers."
+ unit_leader.3.a: "We wish [This.GetHerHim] well."
  
  # Government in Exile Events #
  mtg_exile_leader_added.1.t: "[exile_nation.GetAdjective] Exile Leader Offers Service"
@@ -80,7 +118,7 @@
  mtg_generic.1.a: "We have no choice but to accept."
  
  ### State Categories ###
- developing_rural:0 "Developing Rural"
+ developing_rural:0 "Developing Rural Region"
  minor_port:0 "Minor Port"
  port:0 "Port"
  major_port:0 "Major Port"
@@ -95,7 +133,9 @@
  
  ### Units ###
  light_infantry:0 "Light Infantry"
+ light_infantry_desc:0 "Light Infantry dispatches with heavy weapons such as machine guns and mortars in favor of maneuverability."
  elite_infantry:0 "Elite Infantry"
+ elite_infantry_ddesc:0 "The best of the best."
  
  ### officer corps ###
  old_boys_club_spirit:0 "Old Boys' Club"
@@ -105,8 +145,8 @@
  rigid_bureaucracy_spirit:0 "Rigid Bureacracy"
  rigid_bureaucracy_spirit_desc:0 "If you want fire support, you'll need to fill out forms B-12 and C-23."
  
- modifier_tactic_breakthrough_preferred_weight_factor:0 "Additional §YBreakthrough§! Tactic Chance if it is Preferred tactic"
- modifier_tactic_blitz_preferred_weight_factor:0 "Additional §YBlitz§! Tactic Chance if it is Preferred tactic"
+ tactic_breakthrough_preferred_weight_factor:0 "Additional §YBreakthrough§! Tactic Chance if it is Preferred tactic"
+ tactic_blitz_preferred_weight_factor:0 "Additional §YBlitz§! Tactic Chance if it is Preferred tactic"
  
  ### diplo ###
  wargoals_disabled:0 "§RBefore the Second Great War starts, wargoals can only be obtained from national focuses, events and decisions.§!"
@@ -117,10 +157,22 @@
  unlock_volunteers:0 "Unlocks sending §YVolunteers§! to this nation.\n"
  unlock_lend_lease:0 "Unlocks §Ylend leasing equipment§! to this nation.\n"
  
- RECALL_VOLUNTEERS_TITLE: "Recall Volunteers"
- RECALL_VOLUNTEERS_ACTION_DESC: "Recall all volunteers sent to this country."
- RECALL_VOLUNTEERS_ACTION_SEND_DESC: "Recall all volunteers sent to §Y[FROM.GetNameDef]§!?"
+ RECALL_VOLUNTEERS_TITLE:0 "Recall Volunteers"
+ RECALL_VOLUNTEERS_ACTION_DESC:0 "Recall all volunteers sent to this country."
+ RECALL_VOLUNTEERS_ACTION_SEND_DESC:0 "Recall all volunteers sent to §Y[FROM.GetNameDef]§!?"
  
  ### intel agency blocker ###
- INTELLIGENCE_AGENCY_BLOCK_TOOLTIP: "[!intelligence_agency_blocker_button_click_enabled]"
+ INTELLIGENCE_AGENCY_BLOCK_TOOLTIP:0 "[!intelligence_agency_blocker_button_click_enabled]"
+ 
+ ### Modules ###
+ tank_makeshift_armor:0 "Makeshift Armor"
+ tank_makeshift_armor_desc:0 "Made out of sheets of iron instead of steel to save money. Better than no armor... probably."
+ tank_improvised_turret:0 "Improvised Turret"
+ tank_improvised_turret_desc:0 "It houses the gun, and can rotate. When it wants to."
+ tank_supercharger:0 "Supercharger"
+ tank_supercharger_desc:0 "A supercharger compresses intake gas, forcing more air into the engine in order to produce more power."
+ tank_additional_armor_plating:0 "Additional Armor Plating"
+ tank_additional_armor_plating_desc:0 "Extra armor plates riveted on after the fact."
+ 
+ EQ_MOD_SLOT_radio_slot_TITLE:0 "Radio"
  

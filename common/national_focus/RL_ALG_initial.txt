@@ -1,0 +1,512 @@
+shared_focus = {
+    id = ALG_organize_a_navy
+	icon = GFX_goal_generic_navy_doctrines_tactics
+	
+    x = 1
+	y = 0
+	
+	cost = 3
+    completion_reward = {
+		navy_experience = 15
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = ALG_organize_an_army
+	icon = GFX_focus_chi_army_reform
+	
+    x = 7
+	y = 0
+	
+	cost = 3
+	
+    completion_reward = {
+		army_experience = 15
+    }
+	
+	ai_will_do = {
+		base = 20
+	}
+}
+
+shared_focus = {
+    id = ALG_repurpose_captured_ships
+	icon = GFX_focus_generic_destroyer
+	
+    x = -1
+	y = 1
+	
+	cost = 4
+	relative_position_id = ALG_organize_a_navy
+	prerequisite = {
+		focus = ALG_organize_a_navy
+	}
+	
+    completion_reward = {
+		load_oob = "ALG_repurposed_ships"
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = ALG_rebuild_port_facilities
+	icon = GFX_goal_generic_construct_naval_dockyard
+	
+    x = 1
+	y = 1
+	
+	cost = 4
+	relative_position_id = ALG_organize_a_navy
+	prerequisite = {
+		focus = ALG_organize_a_navy
+	}
+	
+    completion_reward = {
+		459 = {
+			add_building_construction = {
+				type = naval_base
+				province = 1145
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = ALG_repurpose_french_equipment
+	icon = GFX_goal_generic_small_arms
+	
+    x = -2
+	y = 1
+	
+	cost = 4
+	relative_position_id = ALG_organize_an_army
+	prerequisite = {
+		focus = ALG_organize_an_army
+	}
+	
+    completion_reward = {
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 2000
+			producer = FRA
+		}
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 150
+			producer = FRA
+		}
+		add_equipment_to_stockpile = {
+			type = small_plane_airframe_equipment
+			amount = 15
+			producer = FRA
+		}
+    }
+	
+	ai_will_do = {
+		base = 15
+	}
+}
+
+shared_focus = {
+    id = ALG_guerilla_warfare
+	icon = GFX_focus_RAJ_lions_of_the_great_war
+	
+    x = 0
+	y = 1
+	
+	cost = 4
+	relative_position_id = ALG_organize_an_army
+	prerequisite = {
+		focus = ALG_organize_an_army
+	}
+	mutually_exclusive = {
+		focus = ALG_begin_professionalization
+	}
+	
+    completion_reward = {
+		load_oob = "ALG_guerillas"
+		add_ideas = ALG_guerilla_army
+    }
+	
+	ai_will_do = {
+		base = 15
+	}
+}
+
+shared_focus = {
+    id = ALG_begin_professionalization
+	icon = GFX_focus_generic_little_entente
+	
+    x = 2
+	y = 1
+	
+	cost = 4
+	relative_position_id = ALG_organize_an_army
+	prerequisite = {
+		focus = ALG_organize_an_army
+	}
+	mutually_exclusive = {
+		focus = ALG_guerilla_warfare
+	}
+	
+    completion_reward = {
+		load_oob = "ALG_professional"
+		add_ideas = ALG_professionalization_program
+    }
+	
+	ai_will_do = {
+		base = 15
+	}
+}
+
+shared_focus = {
+    id = ALG_like_the_corsairs_of_old
+	icon = GFX_focus_generic_navy_battleship2
+	
+    x = 1
+	y = 1
+	
+	cost = 4
+	relative_position_id = ALG_repurpose_captured_ships
+	prerequisite = {
+		focus = ALG_repurpose_captured_ships
+	}
+	prerequisite = {
+		focus = ALG_rebuild_port_facilities
+	}
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = ALG_found_the_air_service
+	icon = GFX_goal_generic_build_airforce
+	
+    x = -2
+	y = 1
+	
+	cost = 4
+	relative_position_id = ALG_repurpose_french_equipment
+	prerequisite = {
+		focus = ALG_repurpose_french_equipment
+	}
+	
+    completion_reward = {
+		air_experience = 15
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = ALG_desert_power
+	icon = GFX_focus_generic_camel_corps
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = ALG_guerilla_warfare
+	prerequisite = {
+		focus = ALG_guerilla_warfare
+		focus = ALG_begin_professionalization
+	}
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = ALG_anti_colonial_crusade
+	icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = ALG_guerilla_warfare
+	prerequisite = {
+		focus = ALG_guerilla_warfare
+		focus = ALG_begin_professionalization
+	}
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = ALG_study_european_tactics
+	icon = GFX_focus_generic_military_academy
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = ALG_begin_professionalization
+	prerequisite = {
+		focus = ALG_guerilla_warfare
+		focus = ALG_begin_professionalization
+	}
+	
+    completion_reward = {
+		add_doctrine_cost_reduction = {
+			cost_reduction = 0.25
+			uses = 2
+			category = land_doctrine
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = ALG_acquire_naval_bombers
+	icon = GFX_goal_generic_air_naval_bomber
+	
+    x = -2
+	y = 1
+	
+	cost = 4
+	relative_position_id = ALG_found_the_air_service
+	prerequisite = {
+		focus = ALG_found_the_air_service
+	}
+	prerequisite = {
+		focus = ALG_like_the_corsairs_of_old
+	}
+	
+    completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.25
+			uses = 1
+			category = naval_air
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = ALG_purchase_fighters
+	icon = GFX_goal_generic_air_fighter
+	
+    x = 0
+	y = 1
+	
+	cost = 4
+	relative_position_id = ALG_found_the_air_service
+	prerequisite = {
+		focus = ALG_found_the_air_service
+	}
+	
+    completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.25
+			uses = 1
+			category = light_air
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = ALG_establish_an_arsenal
+	icon = GFX_goal_generic_construct_mil_factory
+	
+    x = 0
+	y = 2
+	
+	cost = 5
+	relative_position_id = ALG_repurpose_french_equipment
+	prerequisite = {
+		focus = ALG_repurpose_french_equipment
+	}
+	
+    completion_reward = {
+		random_owned_state = {
+			limit = {
+				OR = {
+					is_urban_state = yes
+					is_rural_state = yes
+				}
+			}
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = ALG_logistics_corps
+	icon = GFX_goal_generic_army_motorized
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = ALG_anti_colonial_crusade
+	prerequisite = {
+		focus = ALG_anti_colonial_crusade
+	}
+	
+    completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 1
+			category = support_tech
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = ALG_establish_the_republican_guard
+	icon = GFX_focus_generic_military_mission
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = ALG_anti_colonial_crusade
+	prerequisite = {
+		focus = ALG_anti_colonial_crusade
+	}
+	prerequisite = {
+		focus = ALG_study_european_tactics
+	}
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = ALG_german_air_doctrine
+	icon = GFX_focus_generic_cas_aircraft
+	
+    x = -1
+	y = 2
+	
+	cost = 4
+	relative_position_id = ALG_found_the_air_service
+	prerequisite = {
+		focus = ALG_found_the_air_service
+	}
+	mutually_exclusive = {
+		focus = ALG_french_air_doctrine
+	}
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = ALG_french_air_doctrine
+	icon = GFX_focus_generic_multi_role_aircraft
+	
+    x = 1
+	y = 2
+	
+	cost = 4
+	relative_position_id = ALG_found_the_air_service
+	prerequisite = {
+		focus = ALG_found_the_air_service
+	}
+	mutually_exclusive = {
+		focus = ALG_german_air_doctrine
+	}
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = ALG_national_military_academy
+	icon = GFX_goal_generic_army_doctrines
+	
+    x = 0
+	y = 1
+	
+	cost = 6
+	relative_position_id = ALG_logistics_corps
+	prerequisite = {
+		focus = ALG_logistics_corps
+	}
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}

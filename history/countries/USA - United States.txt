@@ -8,10 +8,8 @@ unlock_national_focus = USA_reach_across
 unlock_national_focus = USA_preparing_our_agenda
 
 unlock_national_focus = USA_the_forgotten
-unlock_national_focus = USA_anti_lynching_legislation
+unlock_national_focus = USA_renewed_enforcement
 unlock_national_focus = USA_encourage_minority_voting
-unlock_national_focus = USA_take_on_the_klan
-unlock_national_focus = USA_expose_their_crimes
 
 unlock_national_focus = USA_the_american_crisis
 unlock_national_focus = USA_of_agriculture
@@ -39,25 +37,21 @@ USA_setup_party_faction_vars = yes
 set_research_slots = 4
 set_stability = 0.75
 set_war_support = 0.4
+add_political_power = 175
 
 set_convoys = 500
 starting_train_buffer = 2
 add_equipment_to_stockpile = {
-    type = motorized_equipment
+    type = motorized_equipment_1
     amount = 200
     producer = USA
 }
 
-add_political_power = 175
-
-set_country_flag = revolutionary_socialism_coalition
-set_country_flag = democratic_socialism_coalition
-set_country_flag = social_democracy_coalition
-
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
-	infantry_weapons1 = 1
+	#infantry_weapons1 = 1
+	tech_trucks = 1
 	motorised_infantry = 1
 	marines = 1
 	
@@ -89,7 +83,7 @@ oob = "USA_army"
 
 if = {
 	limit = {
-		has_dlc = "La Resistance"
+		has_dlc_lar = yes
 	}
 	set_technology = {
 		armored_car1 = 1
@@ -97,15 +91,7 @@ if = {
 }
 if = {
 	limit = {
-		NOT = { has_dlc = "No Step Back" }
-	}
-	set_technology = {
-		gwtank = 1
-	}
-}
-if = {
-	limit = {
-		has_dlc = "No Step Back"
+		has_dlc_nsb = yes
 	}
 	set_technology = {
 		gwtank_chassis = 1
@@ -115,11 +101,47 @@ if = {
 	add_ideas = {
 		bureau_of_ordnance_spirit
 	}
+	else = {
+		set_technology = {
+			gwtank = 1
+			basic_light_tank = 1
+		}
+	}
 }
-
 if = {
-	limit = { has_dlc = "Man the Guns" }
-	set_naval_oob = "USA_naval_mtg"
+	limit = {
+		has_dlc_bba = yes
+	}
+	set_technology = {
+		iw_small_airframe = 1
+		iw_carrier_airframe = 1
+		basic_small_airframe = 1
+		iw_medium_airframe = 1
+		basic_medium_airframe = 1
+		engines_1 = 1
+		engines_2 = 1
+		aa_lmg = 1
+		early_bombs = 1
+		aircraft_construction = 1
+	}
+	set_air_oob = "USA_air_bba"
+	else = {
+		set_technology = {
+			early_fighter = 1
+			cv_early_fighter = 1
+			cv_naval_bomber1 = 1
+			cv_CAS1 = 1
+			naval_bomber1 = 1
+			CAS1 = 1
+			early_bomber = 1
+		}
+		set_air_oob = "USA_air_legacy"
+	}
+}
+if = {
+	limit = {
+		has_dlc_mtg = yes
+	}
 	set_technology = {
 		basic_naval_mines = 1
 		submarine_mine_laying = 1
@@ -147,51 +169,56 @@ if = {
 		improved_airplane_launcher = 1
 		basic_dp_light_battery = 1
 	}
+	set_naval_oob = "USA_naval_mtg"
 	else = {
 		set_technology = {
 			early_submarine = 1
 			basic_submarine = 1
 			early_destroyer = 1
+			basic_destroyer = 1
 			early_light_cruiser = 1
 			basic_light_cruiser = 1
 			early_heavy_cruiser = 1
 			early_battleship = 1
+			basic_battleship = 1
 			early_battlecruiser = 1
 			early_carrier = 1
 			basic_carrier = 1
 			transport = 1
 		}
+		set_naval_oob = "USA_naval_legacy"
+	}
+}
+if = {
+	limit = {
+		has_dlc_aat = yes
+	}
+	mio:USA_springfield_armory_organization = {
+		add_mio_size = 1
+	}
+	mio:USA_norfolk_naval_yard_organization = {
+		add_mio_size = 1
+	}
+	mio:USA_electric_boat_company_organization = {
+		add_mio_size = 1
+	}
+	create_equipment_variant = {
+		name = "M1903A1 Springfield"								
+		type = infantry_equipment_0
+		design_team = mio:USA_springfield_armory_organization
+	}
+	else = {
+		create_equipment_variant = {
+			name = "M1903A1 Springfield"								
+			type = infantry_equipment_0
+		}
 	}
 }
 
-if = {
-	limit = {
-		has_dlc = "By Blood Alone"
-	}
-	set_technology = {
-		iw_small_airframe = 1
-		iw_carrier_airframe = 1
-		basic_small_airframe = 1
-		iw_medium_airframe = 1
-		basic_medium_airframe = 1
-		engines_1 = 1
-		engines_2 = 1
-		aa_lmg = 1
-		early_bombs = 1
-		aircraft_construction = 1
-	}
-	else = {
-		set_technology = {
-			early_fighter = 1
-			cv_early_fighter = 1
-			cv_naval_bomber1 = 1
-			cv_CAS1 = 1
-			naval_bomber1 = 1
-			CAS1 = 1
-			early_bomber = 1
-		}
-		set_air_oob = "USA_air_legacy"
-	}
+complete_special_project = {
+	project = sp:sp_naval_cruiser_submarine
+	scientist = USA_andrew_mckee
+	state = 361
 }
 
 set_politics = {
@@ -215,6 +242,10 @@ set_popularities = {
 	fascism = 1
 }
 
+set_country_flag = revolutionary_socialism_coalition
+set_country_flag = democratic_socialism_coalition
+set_country_flag = social_democracy_coalition
+
 # DIPLOMACY
 set_autonomy = {
 	target = PHI
@@ -224,9 +255,10 @@ set_autonomy = {
 ### LEADERS ###
 recruit_character = USA_elizabeth_flynn
 recruit_character = USA_charles_ruthenberg
-recruit_character = USA_william_foster
+recruit_character = USA_jack_reed
 recruit_character = USA_earl_russell_browder
 recruit_character = USA_norman_thomas
+recruit_character = USA_henry_wallace
 recruit_character = USA_alben_william_barkley
 recruit_character = USA_warren_austen
 recruit_character = USA_joseph_lister_hill
@@ -234,13 +266,16 @@ recruit_character = USA_charles_lindbergh
 recruit_character = USA_gerald_lyman_smith
 recruit_character = USA_william_dudley_pelley
 
-### ADVISORS ###
-recruit_character = USA_jack_reed
-recruit_character = USA_henry_wallace
+### VICE PRESIDENTS ###
+recruit_character = USA_clarence_senior
 recruit_character = USA_john_nance_garner
+
+### ADVISORS ###
+recruit_character = USA_martin_abern
+recruit_character = USA_jasper_mclevy
+recruit_character = USA_asa_philip_randolph
 recruit_character = USA_sumner_welles
-recruit_character = USA_scott_nearing
-recruit_character = USA_norman_lermond
+recruit_character = USA_maynard_krueger
 recruit_character = USA_max_hayes
 recruit_character = USA_harry_hopkins
 recruit_character = USA_joseph_arthur_padway
@@ -257,6 +292,7 @@ recruit_character = USA_walter_krueger
 recruit_character = USA_george_van_horn_moseley
 recruit_character = USA_john_dewitt
 recruit_character = USA_william_cole
+recruit_character = USA_johnson_hagood
 recruit_character = USA_hugh_drum
 recruit_character = USA_stanley_embick
 recruit_character = USA_stanley_ford
@@ -265,6 +301,8 @@ recruit_character = USA_frank_maxwell_andrews
 recruit_character = USA_oscar_westover
 recruit_character = USA_albert_jesse_bowley_sr
 recruit_character = USA_stuart_heintzelman
+recruit_character = USA_dennis_edward_nolan
+recruit_character = USA_guy_henry_jr
 
 ### ADMIRALS ###
 recruit_character = USA_ernest_king
@@ -277,13 +315,26 @@ recruit_character = USA_arthur_hepburn
 ### HIGH COMMAND ###
 recruit_character = USA_thomas_charles_hart
 recruit_character = USA_henry_conger_pratt
+recruit_character = USA_leon_kromer
 
 ### THEORISTS ###
+recruit_character = USA_robert_olds
+
+### SCIENTISTS ###
 recruit_character = USA_julius_robert_oppenheimer
+recruit_character = USA_robert_goddard
+recruit_character = USA_leslie_skinner
+recruit_character = USA_edward_curtis_wells
+recruit_character = USA_william_francis_gibbs
+recruit_character = USA_andrew_mckee
+recruit_character = USA_john_walter_christie
+recruit_character = USA_vannevar_bush
 
 add_ideas = {
 	USA_city_on_a_hill
 	USA_the_great_depression_1
+	USA_the_tame_army
+	USA_clashes_with_the_courts
 	
 	USA_jack_reed_hog
 	USA_malin_craig_army_chief
@@ -295,7 +346,7 @@ add_ideas = {
 
 create_country_leader = {
 	name = "Various Military Officers"
-	expire = "1965.1.1"
+	picture = "gfx/leaders/USA/Portrait_USA_Military_Clique.png"
 	ideology = despotism_subtype
 	traits = {
 		
@@ -346,6 +397,24 @@ if = {
 		has_dlc = "No Step Back"
 	}
 	create_equipment_variant = {
+		name = "Light Tank, M1917"
+		type = light_tank_chassis_0
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_heavy_machine_gun
+			turret_type_slot = tank_light_one_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 1
+			tank_nsb_engine_upgrade = 3
+		}
+		icon = "gfx/interface/equipmentdesigner/tanks/designer/USA/light_0/USA_M1917_30_m1919_browning_mg.png"
+		obsolete = yes
+	}
+	create_equipment_variant = {
 		name = "Light Tank, M1"
 		type = light_tank_chassis_1
 		parent_version = 0
@@ -355,7 +424,7 @@ if = {
 			suspension_type_slot = tank_bogie_suspension
 			armor_type_slot = tank_riveted_armor
 			engine_type_slot = tank_gasoline_engine
-			special_type_slot_1 = tank_radio_1
+			radio_slot = tank_radio_1
 		}
 		upgrades = {
 			tank_nsb_armor_upgrade = 2
@@ -366,14 +435,14 @@ if = {
 	create_equipment_variant = {
 		name = "Light Tank, M2A1"
 		type = light_tank_chassis_1
-		parent_version = 1
+		parent_version = 0
 		modules = {
 			main_armament_slot = tank_heavy_machine_gun
 			turret_type_slot = tank_light_one_man_tank_turret
 			suspension_type_slot = tank_bogie_suspension
 			armor_type_slot = tank_riveted_armor
 			engine_type_slot = tank_gasoline_engine
-			special_type_slot_1 = tank_radio_1
+			radio_slot = tank_radio_1
 		}
 		upgrades = {
 			tank_nsb_armor_upgrade = 2
@@ -392,7 +461,7 @@ if = {
 			armor_type_slot = tank_riveted_armor
 			engine_type_slot = tank_gasoline_engine
 			special_type_slot_1 = secondary_turret_hmg
-			special_type_slot_2 = tank_radio_1
+			radio_slot = tank_radio_1
 		}
 		upgrades = {
 			tank_nsb_armor_upgrade = 2
@@ -400,319 +469,72 @@ if = {
 		}
 		icon = "gfx/interface/technologies/USA_basic_light_tank.dds"
 	}
-}
-
-### VARIANTS ###
-# 1936 Start #
-if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
-	### Ship Variants ###
+	
 	create_equipment_variant = {
-		name = "Barracuda Class"
-		type = submarine_1
+		name = "Medium Tank, M1921"
+		type = medium_tank_chassis_0
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_small_cannon
+			turret_type_slot = tank_light_two_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = secondary_turret_hmg
+		}
 		upgrades = {
-			ship_reliability_upgrade = 1
-			sub_engine_upgrade = 1
-			sub_stealth_upgrade = 1
-			sub_torpedo_upgrade = 1
+			tank_nsb_armor_upgrade = 2
+			tank_nsb_engine_upgrade = 3
 		}
 		obsolete = yes
 	}
-
 	create_equipment_variant = {
-		name = "Farragut Class"
-		type = destroyer_1
+		name = "Medium Tank, M1922"
+		type = medium_tank_chassis_0
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_small_cannon
+			turret_type_slot = tank_light_two_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = secondary_turret_hmg
+		}
 		upgrades = {
-			ship_torpedo_upgrade = 3
-			destroyer_engine_upgrade = 3
-			ship_ASW_upgrade = 3
-			ship_anti_air_upgrade = 3
-		}
-	}
-
-	create_equipment_variant = {
-		name = "Portland Class"
-		type = heavy_cruiser_1
-		upgrades = {
-			ship_reliability_upgrade = 2
-			ship_engine_upgrade = 2
-			ship_armor_upgrade = 2
-			ship_gun_upgrade = 2
-		}
-	}
-
-	create_equipment_variant = {
-		name = "Pennsylvania Class"
-		type = battleship_1
-		upgrades = {
-			ship_reliability_upgrade = 1
-			ship_engine_upgrade = 1
-			ship_armor_upgrade = 1
-			ship_gun_upgrade = 1
+			tank_nsb_armor_upgrade = 2
+			tank_nsb_engine_upgrade = 3
 		}
 		obsolete = yes
-	}
-
-	create_equipment_variant = {
-		name = "New Mexico Class"
-		type = battleship_1
-		upgrades = {
-			ship_reliability_upgrade = 2
-			ship_engine_upgrade = 2
-			ship_armor_upgrade = 2
-			ship_gun_upgrade = 2
-		}
-	}
-
-	create_equipment_variant = {
-		name = "Colorado Class"
-		type = battleship_1
-		upgrades = {
-			ship_reliability_upgrade = 3
-			ship_engine_upgrade = 3
-			ship_armor_upgrade = 3
-			ship_gun_upgrade = 4
-		}
-	}
-
-	create_equipment_variant = {
-		name = "Yorktown Class"
-		type = carrier_2
-		upgrades = {
-			ship_deckspace_upgrade = 1
-			carrier_armor_upgrade = 1
-			ship_engine_upgrade = 1
-			ship_reliability_upgrade = 1
-		}
-	}
-}
-
-if = {
-	limit = {
-		has_dlc = "By Blood Alone"
-	}
-	create_equipment_variant = {
-		name = "P-6" #export models only
-		type = small_plane_airframe_0
-		modules = {
-			fixed_main_weapon_slot = light_mg_2x
-			engine_type_slot = engine_1_1x
-			special_type_slot_1 = empty
-		}
-		obsolete = yes
-	}
-	create_equipment_variant = {
-		name = "P-26A" #
-		type = small_plane_airframe_0
-		modules = {
-			fixed_main_weapon_slot = light_mg_2x
-			engine_type_slot = engine_1_1x
-			special_type_slot_1 = empty
-		}
-		obsolete = yes
-		icon = "GFX_USA_light_plane_2_medium"
-	}
-	create_equipment_variant = {
-		name = "O2U" #
-		type = small_plane_cas_airframe_0
-		modules = {
-			fixed_main_weapon_slot = bomb_locks
-			fixed_auxiliary_weapon_slot_1 = light_mg_2x
-			engine_type_slot = engine_1_1x
-		}
-		obsolete = yes
-	}
-	create_equipment_variant = {
-		name = "SBU Corsair" #
-		type = cv_small_plane_cas_airframe_0
-		modules = {
-			fixed_main_weapon_slot = bomb_locks
-			engine_type_slot = engine_1_1x
-			special_type_slot_1 = dive_brakes_small
-		}
-		obsolete = yes
-	}
-	create_equipment_variant = {
-		name = "BM-2" #
-		type = cv_small_plane_naval_bomber_airframe_0
-		modules = {
-			fixed_main_weapon_slot = torpedo_mounting
-			engine_type_slot = engine_1_1x
-			special_type_slot_1 = empty
-		}
-		obsolete = yes
-	}
-	create_equipment_variant = {
-		name = "A-12" #
-		type = small_plane_cas_airframe_0
-		modules = {
-			fixed_main_weapon_slot = small_bomb_bay
-			fixed_auxiliary_weapon_slot_1 = light_mg_4x
-			engine_type_slot = engine_1_1x
-			special_type_slot_1 = empty
-		}
-		obsolete = yes
-		icon = "GFX_USA_CAS1_medium"
-	}
-	create_equipment_variant = {
-		name = "A-17" #
-		type = small_plane_cas_airframe_1
-		modules = {
-			fixed_main_weapon_slot = small_bomb_bay
-			fixed_auxiliary_weapon_slot_1 = light_mg_4x
-			engine_type_slot = engine_2_1x
-			special_type_slot_1 = empty
-		}
-		icon = "GFX_USA_CAS1_medium"
-	}
-	create_equipment_variant = {
-		name = "P-35" #
-		type = small_plane_airframe_1
-		modules = {
-			fixed_main_weapon_slot = light_mg_2x
-			fixed_auxiliary_weapon_slot_1 = heavy_mg_2x
-			engine_type_slot = engine_2_1x
-			special_type_slot_1 = empty
-		}
-		icon = "GFX_USA_light_plane_4_medium"
-	}
-	create_equipment_variant = {
-		name = "P-36 Hawk"
-		type = small_plane_airframe_1
-		modules = {
-			fixed_main_weapon_slot = light_mg_4x
-			fixed_auxiliary_weapon_slot_1 = light_mg_2x
-			engine_type_slot = engine_2_1x
-			special_type_slot_1 = empty
-		}
-		icon = "GFX_USA_fighter1_medium"
-	}
-	create_equipment_variant = {
-		name = "B-6A" #also covers other Keystone bombers
-		type = medium_plane_airframe_0
-		modules = {
-			fixed_main_weapon_slot = medium_bomb_bay
-			engine_type_slot = engine_1_2x
-			special_type_slot_1 = lmg_defense_turret
-		}
-		obsolete = yes
-	}
-	create_equipment_variant = {
-		name = "B-10" #
-		type = medium_plane_airframe_1
-		modules = {
-			fixed_main_weapon_slot = medium_bomb_bay
-			engine_type_slot = engine_1_2x
-			special_type_slot_1 = lmg_defense_turret
-		}
-		icon = "GFX_medium_plane_1_medium"
-	}
-	create_equipment_variant = {
-		name = "B-18 Bolo" #
-		type = medium_plane_airframe_1
-		modules = {
-			fixed_main_weapon_slot = medium_bomb_bay
-			engine_type_slot = engine_2_2x
-			special_type_slot_1 = lmg_defense_turret
-		}
-		icon = "GFX_USA_early_bomber_medium"
-	}
-	create_equipment_variant = {
-		name = "P2Y" #
-		type = medium_plane_airframe_0
-		modules = {
-			fixed_main_weapon_slot = medium_bomb_bay
-			fixed_auxiliary_weapon_slot_1 = bomb_locks
-			engine_type_slot = engine_2_2x
-			special_type_slot_1 = flying_boat_medium
-			special_type_slot_2 = lmg_defense_turret
-		}
-		obsolete = yes
-		icon = "GFX_USA_naval_bomber1_medium"
-	}
-	create_equipment_variant = {
-		name = "PBY Catalina" #
-		type = medium_plane_airframe_1
-		modules = {
-			fixed_main_weapon_slot = medium_bomb_bay
-			fixed_auxiliary_weapon_slot_1 = torpedo_mounting
-			engine_type_slot = engine_2_2x
-			special_type_slot_1 = flying_boat_medium
-			special_type_slot_2 = lmg_defense_turret
-		}
-		icon = "GFX_USA_naval_bomber1_medium"
-	}
-	create_equipment_variant = {
-		name = "F4B" #also covers F2F
-		type = cv_small_plane_airframe_0
-		modules = {
-			fixed_main_weapon_slot = light_mg_2x
-			engine_type_slot = engine_1_1x
-			special_type_slot_1 = empty
-		}
-		obsolete = yes
-		icon = "GFX_USA_cv_fighter1_medium"
-	}
-	create_equipment_variant = {
-		name = "F3F" #
-		type = cv_small_plane_airframe_0
-		modules = {
-			fixed_main_weapon_slot = light_mg_2x
-			engine_type_slot = engine_2_1x
-			special_type_slot_1 = empty
-		}
-		icon = "GFX_USA_cv_fighter1_medium"
 	}
 	
-	### Land Planes ###
-	add_equipment_to_stockpile = {
-		type = small_plane_cas_airframe_0
-		amount = 96
-		variant_name = "A-12"
-		producer = USA
-	}
-	add_equipment_to_stockpile = {
-		type = small_plane_airframe_0
-		amount = 384
-		variant_name = "P-26A"
-		producer = USA
-	}
-	add_equipment_to_stockpile = {
-		type = medium_plane_airframe_0
-		amount = 96
-		variant_name = "B-6A"
-		producer = USA
-	}
-	add_equipment_to_stockpile = {
-		type = medium_plane_airframe_0
-		amount = 144
-		variant_name = "P2Y"
-		producer = USA
-	}
-	add_equipment_to_stockpile = {
-		type = medium_plane_airframe_1
-		amount = 108
-		variant_name = "B-10"
-		producer = USA
+	create_equipment_variant = {
+		name = "Mark VIII 'Liberty'"
+		type = heavy_tank_chassis_0
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_small_cannon
+			turret_type_slot = tank_heavy_fixed_superstructure_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 3
+			tank_nsb_engine_upgrade = 1
+		}
+		obsolete = yes
 	}
 	
-	### Carrier Planes ###
 	add_equipment_to_stockpile = {
-		type = cv_small_plane_airframe_0
-		amount = 24
-		variant_name = "F4B"
+		type = light_tank_chassis_0
+		amount = 950
 		producer = USA
+		variant_name = "Light Tank, M1917"
 	}
 	add_equipment_to_stockpile = {
-		type = cv_small_plane_cas_airframe_0
-		amount = 36
-		variant_name = "SBU Corsair"
+		type = heavy_tank_chassis_0
+		amount = 100
 		producer = USA
-	}
-	add_equipment_to_stockpile = {
-		type = cv_small_plane_naval_bomber_airframe_0
-		amount = 24
-		variant_name = "BM-2"
-		producer = USA
+		variant_name = "Mark VIII 'Liberty'"
 	}
 }

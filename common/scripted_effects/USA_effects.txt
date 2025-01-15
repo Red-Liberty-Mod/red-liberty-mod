@@ -30,6 +30,42 @@ USA_thomas_third_term_setup = {
 	}
 }
 
+USA_clamp_supreme_court = {
+	clamp_variable = {
+		var = supreme_court_lean
+		min = -7
+		max = 7
+	}
+}
+
+USA_calc_sc_nomination_cost = {
+	if = {
+		limit = {
+			check_variable = { # reformist court
+				supreme_court_lean > 0
+			}
+		}
+		set_variable = { USA_reformist_cost = -250 }
+		set_variable = { USA_centrist_cost = -50 }
+		set_variable = { USA_conservative_cost = -150 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { # conservative court
+				supreme_court_lean < 0
+			}
+		}
+		set_variable = { USA_reformist_cost = -150 }
+		set_variable = { USA_centrist_cost = -50 }
+		set_variable = { USA_conservative_cost = -250 }
+	}
+	else = { # court is perfectly balanced
+		set_variable = { USA_reformist_cost = -50 }
+		set_variable = { USA_centrist_cost = -50 }
+		set_variable = { USA_conservative_cost = -50 }
+	}
+}
+
 USA_calc_congress_control = {
 	
 	### SENATE ###
@@ -153,10 +189,29 @@ improve_safety_net = {
 improve_great_depression = {
 	if = {
 		limit = {
+			has_idea = USA_the_new_economy_2
+		}
+		swap_ideas = {
+			remove_idea = USA_the_new_economy_2
+			add_idea = USA_the_new_economy_3
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = USA_the_new_economy_1
+		}
+		swap_ideas = {
+			remove_idea = USA_the_new_economy_1
+			add_idea = USA_the_new_economy_2
+		}
+	}
+	else_if = {
+		limit = {
 			has_idea = USA_the_great_depression_10
 		}
-		remove_ideas = {
-			USA_the_great_depression_10
+		swap_ideas = {
+			remove_idea = USA_the_great_depression_10
+			add_idea = USA_the_new_economy_1
 		}
 	}
 	else_if = {
@@ -777,6 +832,22 @@ USA_create_korean_occupation = {
 			}
 			
 			set_cosmetic_tag = KOR_occupied
+			
+			set_politics = {
+				ruling_party = despotism
+				elections_allowed = no
+				long_name = KOR_occupation_authority
+				name = KOR_occupation_authority
+			}
+			set_popularities = {
+				vanguard_socialism = 7
+				democratic_socialism = 13
+				social_democracy = 10
+				liberal_conservatism = 5
+				national_conservatism = 17
+				authoritarian_democracy = 8
+				despotism = 40
+			}
 		}
 	}
 }

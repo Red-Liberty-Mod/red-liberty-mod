@@ -12,7 +12,7 @@ start_irish_civil_war_ICA = {
 		
 		transfer_state = 135
 		
-		set_capital = 135
+		set_capital = { state = 135 }
 		set_politics = {
 			ruling_party = anarchism
 			elections_allowed = no
@@ -47,8 +47,43 @@ start_irish_civil_war_ICA = {
 				target = IRE
 				type = annex_everything
 			}
+			
+			add_ideas = {
+				closed_economy
+				low_economic_mobilisation
+			}
 		}
 	}
+	
+	### Leaders ###
+	IRE_jack_white = {
+		set_nationality = ICA
+		promote_character = yes
+	}
+	IRE_roddy_connelly = {
+		set_nationality = ICA
+		promote_character = yes
+	}
+	IRE_charles_donnelly = {
+		set_nationality = ICA
+		promote_character = yes
+	}
+	IRE_james_larkin = {
+		set_nationality = ICA
+		promote_character = yes
+	}
+	
+	### Deputy Leaders ###
+	IRE_james_larkin_jr = { set_nationality = ICA }
+	
+	### Ministers ###
+	IRE_andy_barr = { set_nationality = ICA }
+	IRE_mairtin_o_cadhain = { set_nationality = ICA }
+	IRE_benjamin_farrington = { set_nationality = ICA }
+	
+	### Generals ###
+	IRE_paddy_odaire = { set_nationality = ICA }
+	IRE_michael_oriordan = { set_nationality = ICA }
 }
 
 IRE_recalc_parliament = { # this will recalculate the number of members of parliament based on party popularity

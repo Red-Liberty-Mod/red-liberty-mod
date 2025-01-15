@@ -70,6 +70,7 @@ TAG_support_UOB = {
 		OR = {
 			original_tag = CHL
 			original_tag = SOV
+			original_tag = NIC
 		}
 	}
 	enable = {
@@ -93,6 +94,8 @@ TAG_support_BRA = {
 			original_tag = GER
 			original_tag = FRA
 			original_tag = ITA
+			original_tag = POR
+			original_tag = JAP
 		}
 	}
 	enable = {
@@ -128,34 +131,6 @@ TAG_support_RUS = {
 		type = send_lend_lease_desire
 		id = RUS
 		value = 150
-	}
-}
-
-FRA_crush_germany = {
-	allowed = {
-		original_tag = FRA
-	}
-	enable = {
-		has_war_with = GER
-	}
-	abort_when_not_enabled = yes
-
-	ai_strategy = {
-		type = front_unit_request
-		tag = GER
-		value = 40
-	}
-	ai_strategy = {
-		type = front_control
-		tag = GER
-		ordertype = front
-		execution_type = rush
-		manual_attack = yes
-	}
-	ai_strategy = {
-		type = conquer
-		id = GER
-		value = 1000
 	}
 }
 
@@ -209,79 +184,6 @@ BRA_hate_UOB = {
 	}
 }
 
-GER_let_allies_handle_russia = {
-	allowed = {
-		original_tag = GER
-	}
-	enable = {
-		is_in_faction_with = UKR
-		is_faction_leader = yes
-		FRA = {
-			is_faction_leader = yes
-		}
-		NOT = {
-			UKR = {
-				surrender_progress > 0.75
-			}
-		}
-	}
-	abort_when_not_enabled = yes
-	
-	ai_strategy = {
-		type = front_unit_request
-		tag = SOV
-		value = -250
-	}
-	ai_strategy = {
-		type = front_unit_request
-		tag = RUS
-		value = -250
-	}
-}
-
-GER_allies_let_germany_handle_france = {
-	allowed = {
-		OR = {
-			original_tag = POL
-			original_tag = BAL
-			original_tag = LAT
-			original_tag = EST
-			original_tag = BLR
-			original_tag = UKR
-			original_tag = LIT
-			original_tag = CRI
-		}
-	}
-	enable = {
-		is_in_faction_with = GER
-		OR = {
-			SOV = {
-				exists = yes
-			}
-			RUS = {
-				exists = yes
-			}
-		}
-	}
-	abort_when_not_enabled = yes
-
-	ai_strategy = {
-		type = front_unit_request
-		tag = RUS
-		value = 250
-	}
-	ai_strategy = {
-		type = front_unit_request
-		tag = SOV
-		value = 250
-	}
-	ai_strategy = {
-		type = front_unit_request
-		tag = FRA
-		value = -250
-	}
-}
-
 TAG_support_AUS = {
 	allowed = {
 		OR = {
@@ -323,5 +225,186 @@ AUS_focus_on_AHE = {
 		type = front_unit_request
 		tag = AHE
 		value = 40
+	}
+}
+
+MEX_crush_TAG = {
+	allowed = {
+		original_tag = MEX
+	}
+	enable = {
+		OR = {
+			has_war_with = CRT
+			has_war_with = CMS
+			has_war_with = MTC
+			has_war_with = FRP
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		tag = CRT
+		tag = CMS
+		tag = MTC
+		tag = FRP
+		ordertype = front
+		execution_type = rush
+		execute_order = yes
+	}
+}
+
+CRT_crush_TAG = {
+	allowed = {
+		original_tag = CRT
+	}
+	enable = {
+		OR = {
+			has_war_with = MEX
+			has_war_with = CMS
+			has_war_with = MTC
+			has_war_with = FRP
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		tag = MEX
+		tag = CMS
+		tag = MTC
+		tag = FRP
+		execution_type = rush
+		execute_order = yes
+	}
+}
+
+CMS_crush_TAG = {
+	allowed = {
+		original_tag = CMS
+	}
+	enable = {
+		OR = {
+			has_war_with = MEX
+			has_war_with = CRT
+			has_war_with = MTC
+			has_war_with = FRP
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		tag = MEX
+		tag = CRT
+		tag = MTC
+		tag = FRP
+		execution_type = rush
+		execute_order = yes
+	}
+}
+
+TAG_support_PRU = {
+	allowed = {
+		OR = {
+			original_tag = JAP
+			original_tag = BRA
+			original_tag = ARG
+			original_tag = GER
+		}
+	}
+	enable = {
+		PRU = {
+			has_war_with = SRP
+		}
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = PRU
+		value = 150
+	}
+}
+
+TAG_support_SRP = {
+	allowed = {
+		OR = {
+			original_tag = CHL
+			original_tag = UOB
+			original_tag = NIC
+			AND = {
+				original_tag = BOL
+				has_government = despotism
+			}
+		}
+	}
+	enable = {
+		PRU = {
+			has_war_with = SRP
+		}
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = SRP
+		value = 150
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = SRP
+		value = 75
+	}
+}
+
+TAG_support_HUN = {
+	allowed = {
+		OR = {
+			original_tag = BUL
+		}
+	}
+	enable = {
+		HUN = {
+			has_war_with = ROM
+		}
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = HUN
+		value = 150
+	}
+}
+
+TAG_support_FER = {
+	allowed = {
+		OR = {
+			original_tag = FNG
+			original_tag = MON
+		}
+	}
+	enable = {
+		FER = {
+			exists = yes
+			has_war_with = RUS
+		}
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = FER
+		value = 150
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = FER
+		value = 75
 	}
 }

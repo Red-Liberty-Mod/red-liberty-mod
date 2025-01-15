@@ -6,7 +6,7 @@ ideas = {
 			removal_cost = -1
 			
 			allowed = {
-				
+				always = no
 			}
 			
 			available = {
@@ -24,11 +24,14 @@ ideas = {
 			}
 		}
 		
-		ARG_crippled_industry = {
+		ARG_crippled_industry_1 = {
+			name = ARG_crippled_industry
+			picture = ARG_crippled_industry
+			
 			removal_cost = -1
 			
 			allowed = {
-				
+				always = no
 			}
 			
 			available = {
@@ -42,15 +45,43 @@ ideas = {
 			modifier = {
 				stability_factor = -0.2
 				poverty_monthly_rate = -0.06
-				political_power_gain = -0.3
+				political_power_factor = -0.3
 			}
 		}
 		
-		ARG_british_monopoly = {
+		ARG_crippled_industry_2 = {
+			name = ARG_crippled_industry
+			picture = ARG_crippled_industry
+			
 			removal_cost = -1
 			
 			allowed = {
+				always = no
+			}
+			
+			available = {
 				
+			}
+			
+			allowed_civil_war = { 
+				always = no
+			}
+			
+			modifier = {
+				stability_factor = -0.15
+				poverty_monthly_rate = -0.05
+				political_power_factor = -0.25
+			}
+		}
+		
+		ARG_british_monopoly_1 = {
+			name = ARG_british_monopoly
+			picture = ARG_british_monopoly
+			
+			removal_cost = -1
+			
+			allowed = {
+				always = no
 			}
 			
 			available = {
@@ -68,6 +99,197 @@ ideas = {
 			targeted_modifier = {
 				tag = ENG
 				trade_cost_for_target_factor = -0.1
+			}
+		}
+		
+		ARG_british_monopoly_2 = {
+			name = ARG_british_monopoly
+			picture = ARG_british_monopoly
+			
+			removal_cost = -1
+			
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = no
+			}
+			
+			modifier = {
+				stability_factor = -0.05
+			}
+			
+			targeted_modifier = {
+				tag = ENG
+				trade_cost_for_target_factor = -0.15
+			}
+		}
+		
+		ARG_political_corruption_1 = {
+			name = ARG_political_corruption
+			
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = -0.2
+			}
+		}
+		
+		ARG_purged_officer_corps_1 = {
+			name = ARG_purged_officer_corps
+			
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				political_power_gain = -0.1
+				army_org_factor = -0.3
+				planning_speed = -0.2
+			}
+		}
+		
+		ARG_purged_officer_corps_2 = {
+			name = ARG_purged_officer_corps
+			
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				political_power_gain = -0.075
+				army_org_factor = -0.2
+				planning_speed = -0.1
+			}
+		}
+		
+		ARG_purged_officer_corps_3 = {
+			name = ARG_purged_officer_corps
+			
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				political_power_gain = -0.05
+				army_org_factor = -0.1
+				planning_speed = -0.05
+			}
+		}
+		
+		ARG_great_argentina = {
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = 0.1
+			}
+		}
+		
+		### Economy Tree ###
+		
+		ARG_slashed_budget = {
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				political_power_gain = -0.15
+				production_speed_buildings_factor = -0.1
+			}
+		}
+		
+		ARG_reformed_tax_code = {
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				consumer_goods_factor = -0.15
+			}
+		}
+		
+		ARG_infrastructure_investments = {
+			picture = ARG_invest_in_roads
+			
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				production_speed_infrastructure_factor = 0.1
+			}
+		}
+		
+		ARG_plan_pinedo = {
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_industrial_complex_factor = 0.1
+			}
+		}
+		
+		ARG_plan_pinedo_civ = {
+			name = ARG_plan_pinedo
+			
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_industrial_complex_factor = 0.15
+			}
+		}
+		
+		ARG_plan_pinedo_mil = {
+			name = ARG_plan_pinedo
+			
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_industrial_complex_factor = 0.05
+				production_speed_arms_factory_factor = 0.05
+			}
+		}
+		
+		### UCR tree ###
+		
+		ARG_public_works_programme = {
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				production_speed_buildings_factor = 0.1
+			}
+		}
+		
+		ARG_welfare_fund = {
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				consumer_goods_factor = 0.02
+				production_factory_max_efficiency_factor = 0.05
+				production_factory_efficiency_gain_factor = 0.05
 			}
 		}
 	}

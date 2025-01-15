@@ -109,6 +109,12 @@ USA_social_security_act_setup = { # social security act
 		add_to_variable = { USA_socialist_bill_support = -0.05 }
 		add_to_variable = { USA_fascist_bill_support = 0.1 }
 	}
+	if = {
+		limit = {
+			has_country_flag = USA_social_security_moderate
+		}
+		add_to_variable = { USA_democrat_bill_support = 0.05 }
+	}
 	
 	USA_bill_setup = yes # always required
 }
@@ -154,43 +160,38 @@ USA_judicial_reform_act_setup = { # court packing plan
 	set_country_flag = USA_socialist_discussing
 	set_country_flag = USA_democrat_discussing
 	set_country_flag = USA_republican_discussing
+	set_country_flag = USA_fascist_discussing
 	
-	set_variable = { USA_republican_bill_support = 0.1 } # GOVERNMENT OVERREACH
-	set_variable = { USA_democrat_bill_support = 0.15 } # DICTATORSHIP ALERT
+	set_variable = { USA_republican_bill_support = 0 } # GOVERNMENT OVERREACH
+	set_variable = { USA_democrat_bill_support = 0 } # DICTATORSHIP ALERT
 	set_variable = { USA_communist_bill_support = 1 } # DESTROY CAPITALIST INSTITUTIONS
 	set_variable = { USA_socialist_bill_support = 0.75 } # arent we going a bit far?
-	set_variable = { USA_fascist_bill_support = 0 } # FACKING COMMIES RUINING MURICA
+	set_variable = { USA_fascist_bill_support = 0.05 } # FACKING COMMIES RUINING MURICA
 	
-	set_variable = { average_boost_democrat = 0.075 }
-	set_variable = { average_boost_socialist = 0.7 }
-	set_variable = { average_boost_republican = 0.075 }
+	set_variable = { average_boost_socialist = 0.9 }
+	set_variable = { average_boost_democrat = 0.15 }
+	set_variable = { average_boost_republican = 0.1 }
+	set_variable = { average_boost_fascist = 0.1 }
 	
 	set_variable = { republican_flip_cost = 130 }
 	set_variable = { democrat_flip_cost = 100 }
 	set_variable = { socialist_flip_cost = 50 }
-	
-	if = {
-		limit = {
-			has_country_flag = USA_judicial_reform_consulting
-		}
-		add_to_variable = { USA_republican_bill_support = 0.05 }
-		add_to_variable = { USA_democrat_bill_support = 0.05 }
-	}
+	set_variable = { fascist_flip_cost = 100 }
 	
 	if = {
 		limit = {
 			has_country_flag = USA_added_judicial_review_section_lite
 		}
-		subtract_from_variable = { USA_republican_bill_support = 0.02 }
-		subtract_from_variable = { USA_democrat_bill_support = 0.02 }
+		add_to_variable = { average_boost_socialist = 0.1 }
+		add_to_variable = { average_boost_democrat = 0.05 }
 	}
 	
 	if = {
 		limit = {
 			has_country_flag = USA_added_judicial_review_section
 		}
-		subtract_from_variable = { USA_republican_bill_support = 0.05 }
-		subtract_from_variable = { USA_democrat_bill_support = 0.05 }
+		add_to_variable = { average_boost_socialist = 0.05 }
+		add_to_variable = { average_boost_democrat = 0.03 }
 	}
 	
 	USA_bill_setup = yes # always required
@@ -1094,11 +1095,14 @@ USA_bill_clear = {
 	clear_variable = average_boost_socialist
 	clear_variable = average_boost_fascist
 	
+	### Decisions ###
 	clr_country_flag = republicans_negotiated
 	clr_country_flag = democrats_negotiated
 	clr_country_flag = communists_negotiated
 	clr_country_flag = socialists_negotiated
 	clr_country_flag = fascists_negotiated
+	
+	clr_country_flag = USA_backroom_dealing_flag
 	
 	clear_variable = republican_supporting_senators
 	clear_variable = democrat_supporting_senators

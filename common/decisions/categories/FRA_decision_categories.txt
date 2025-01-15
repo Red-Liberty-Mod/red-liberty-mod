@@ -1,5 +1,24 @@
+FRA_1936_elections_category = {
+	icon = usa_congress
+
+	allowed = {
+		original_tag = FRA
+	}
+	
+	visible = {
+		OR = {
+			has_country_flag = FRA_playing_as_psr
+			has_country_flag = FRA_playing_as_msf
+		}
+	}
+	
+	visible_when_empty = yes
+	
+	priority = 100
+}
+
 FRA_foreign_policy_category = {
-	#icon = usa_congress
+	icon = usa_congress
 
 	allowed = {
 		original_tag = FRA
@@ -12,8 +31,28 @@ FRA_foreign_policy_category = {
 	visible_when_empty = yes
 
 	scripted_gui = foreign_conflicts_container
+}
 
-	priority = 101
+FRA_promote_officers_category = {
+	
+	allowed = {
+		tag = FRA
+	}
+
+	visible = {
+		has_completed_focus = FRA_sweep_out_the_old_guard
+	}
+}
+
+FRA_build_defenses_category = {
+	
+	allowed = {
+		tag = FRA
+	}
+
+	visible = {
+		has_completed_focus = FRA_extend_the_painleve_line
+	}
 }
 
 FRA_industrialization_category = {
@@ -23,6 +62,98 @@ FRA_industrialization_category = {
 	}
 
 	visible = {
-
+		has_completed_focus = FRA_alliance_of_labour_and_capital
 	}
+}
+
+FRA_republican_resistance_category = {
+
+	allowed = {
+		tag = FRA
+	}
+
+	visible = {
+		has_completed_focus = FRA_appareildetat
+	}
+	visible_when_empty = yes
+	
+	on_map_area = {
+		target_array = core_states
+		name = FRA_republican_resistance_map_area
+	}
+}
+
+FRA_local_development_category = {
+
+	allowed = {
+		tag = FRA
+	}
+
+	visible = {
+		always = no
+	}
+}
+
+FRA_latin_entente_category = {
+	
+	allowed = {
+		tag = FRA
+	}
+	
+	visible = {
+		OR = {
+			tag = FRA
+			is_in_faction_with = FRA
+		}
+		FRA = {
+			has_completed_focus = FRA_latin_union
+		}
+	}
+}
+
+FRA_anti_german_pact_category = {
+	
+	allowed = {
+		tag = FRA
+	}
+	
+	visible = {
+		has_completed_focus = FRA_maintain_flexibility
+	}
+	
+	visible_when_empty = yes
+}
+
+FRA_nuclear_project_category = {
+	icon = GFX_decision_category_generic_crisis
+	allowed = {
+		original_tag = FRA
+	}
+	visible = {
+		always = no
+	}
+	visible_when_empty = yes
+	
+	priority = 90
+}
+
+FRA_balance_of_power_category = {
+	allowed = {
+		original_tag = FRA
+	}
+}
+
+FRA_italian_great_game_category = {
+
+	allowed = {
+		original_tag = FRA
+	}
+	
+	visible = {
+		NOT = {
+			has_global_flag = italian_great_game_ended
+		}
+	}
+	
+	visible_when_empty = yes
 }

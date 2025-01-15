@@ -3,9 +3,10 @@ instant_effect = {
 	
 	# Submarines #
 	create_equipment_variant = {			# represents O/R class, S class
-		name = "S Class"
+		name = "O/R/S Class"
 		type = ship_hull_submarine_1
 		name_group = USA_SS_HISTORICAL
+		design_team = mio:USA_electric_boat_company_organization
 		parent_version = 0
 		modules = {
 			fixed_ship_torpedo_slot = ship_torpedo_sub_1
@@ -15,9 +16,10 @@ instant_effect = {
 		obsolete = yes
 	}
 	create_equipment_variant = {
-		name = "Barracuda Class"			# represents Barracuda, Dolphin, Cachalot classes
+		name = "V Class"			# represents Barracuda, Narwhal, Dolphin, Cachalot classes
 		type = ship_hull_submarine_2
 		name_group = USA_SS_HISTORICAL
+		design_team = mio:USA_electric_boat_company_organization
 		parent_version = 0
 		modules = {
 			fixed_ship_torpedo_slot = ship_torpedo_sub_1
@@ -30,6 +32,7 @@ instant_effect = {
 		name = "Porpoise Class"				# represents Porpoise, Shark, and Perch classes
 		type = ship_hull_submarine_2
 		name_group = USA_SS_HISTORICAL
+		design_team = mio:USA_electric_boat_company_organization
 		parent_version = 0
 		modules = {
 			fixed_ship_torpedo_slot = ship_torpedo_sub_1
@@ -57,12 +60,44 @@ instant_effect = {
 		obsolete = yes
 	}
 	create_equipment_variant = {
-		name = "Farragut Class"				# represents Farragut, Porter, Mahan classes
+		name = "Farragut Class"
 		type = ship_hull_light_2
 		name_group = USA_DD_HISTORICAL
 		parent_version = 0
 		modules = {
-			fixed_ship_battery_slot = ship_light_battery_2
+			fixed_ship_battery_slot = dp_light_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = ship_sonar_1
+			fixed_ship_engine_slot = light_ship_engine_2
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+	}
+	create_equipment_variant = {
+		name = "Porter Class"
+		type = ship_hull_light_2
+		name_group = USA_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = dp_light_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = ship_sonar_1
+			fixed_ship_engine_slot = light_ship_engine_2
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+	}
+	create_equipment_variant = {
+		name = "Mahan Class"
+		type = ship_hull_light_2
+		name_group = USA_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = dp_light_battery_2
 			fixed_ship_anti_air_slot = ship_anti_air_1
 			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
 			fixed_ship_radar_slot = ship_sonar_1
@@ -150,7 +185,7 @@ instant_effect = {
 		obsolete = yes
 	}
 	create_equipment_variant = {
-		name = "Portland Class"				# Portland and New Orleans classes
+		name = "Portland Class"
 		type = ship_hull_cruiser_1
 		name_group = USA_CA_HISTORICAL
 		parent_version = 0
@@ -169,7 +204,7 @@ instant_effect = {
 		obsolete = yes
 	}
 	create_equipment_variant = {
-		name = "New Orleans Class"
+		name = "Astoria Class"
 		type = ship_hull_cruiser_1
 		name_group = USA_CA_HISTORICAL
 		parent_version = 0
@@ -224,6 +259,7 @@ instant_effect = {
 			mid_2_custom_slot = ship_secondaries_1
 			rear_1_custom_slot = ship_heavy_battery_1
 		}
+		obsolete = yes
 	}
 	
 	# Battleships #
@@ -383,20 +419,34 @@ instant_effect = {
 			fixed_ship_radar_slot = empty
 			fixed_ship_engine_slot = cruiser_ship_engine_1
 			fixed_ship_secondaries_slot = ship_secondaries_1
-			mid_1_custom_slot = ship_deck_space
 		}
 		obsolete = yes
 	}
-	
 	create_equipment_variant = {
-		name = "Yorktown Class"
-		type = ship_hull_carrier_1
+		name = "Constitution Class"
+		type = ship_hull_carrier_conversion_bb
 		name_group = USA_CV_HISTORICAL
 		parent_version = 0
 		modules = {
 			fixed_ship_deck_slot_1 = ship_deck_space
 			fixed_ship_deck_slot_2 = ship_deck_space
 			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = carrier_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			front_1_custom_slot = ship_deck_space
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Hornet Class"
+		type = ship_hull_carrier_1
+		name_group = USA_CV_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_deck_slot_1 = ship_deck_space
+			fixed_ship_deck_slot_2 = ship_deck_space
+			fixed_ship_anti_air_slot = ship_anti_air_2
 			fixed_ship_radar_slot = empty
 			fixed_ship_engine_slot = carrier_ship_engine_2
 			fixed_ship_secondaries_slot = ship_secondaries_2
@@ -451,24 +501,22 @@ units= {
 			name = "Carrier Division, Battle Force"		
 			location = 1562 # San Diego
 			
-			ship = { name = "USS Manly" definition = carrier start_experience_factor = 0.25 equipment = { ship_hull_carrier_conversion_ca = { amount = 1 owner = USA version_name = "Langley Class" } } }
-			ship = { name = "USS Chanute" definition = carrier start_experience_factor = 0.25 equipment = { ship_hull_carrier_conversion_ca = { amount = 1 owner = USA version_name = "Langley Class" } } }
-			ship = { name = "USS Augustus Herring" definition = carrier start_experience_factor = 0.25 equipment = { ship_hull_carrier_conversion_ca = { amount = 1 owner = USA version_name = "Langley Class" } } }
+			#ship = { name = "USS Manly" definition = carrier start_experience_factor = 0.25 equipment = { ship_hull_carrier_conversion_ca = { amount = 1 owner = USA version_name = "Langley Class" } } }
+			#ship = { name = "USS Chanute" definition = carrier start_experience_factor = 0.25 equipment = { ship_hull_carrier_conversion_ca = { amount = 1 owner = USA version_name = "Langley Class" } } }
+			#ship = { name = "USS Augustus Herring" definition = carrier start_experience_factor = 0.25 equipment = { ship_hull_carrier_conversion_ca = { amount = 1 owner = USA version_name = "Langley Class" } } }
 			
-			#ship = { name = "USS Yorktown" definition = carrier start_experience_factor = 0.25 equipment = { ship_hull_carrier_1 = { amount = 1 owner = USA version_name = "Yorktown Class" } } }
-			#ship = { name = "USS Enterprise" definition = carrier start_experience_factor = 0.25 equipment = { ship_hull_carrier_1 = { amount = 1 owner = USA version_name = "Yorktown Class" } } }
+			ship = { name = "USS Constitution" definition = carrier start_experience_factor = 0.25 equipment = { ship_hull_carrier_conversion_bb = { amount = 1 owner = USA version_name = "Constitution Class" } } }
+			ship = { name = "USS United States" definition = carrier start_experience_factor = 0.25 equipment = { ship_hull_carrier_conversion_bb = { amount = 1 owner = USA version_name = "Constitution Class" } } }
 		}					
 		task_force = {					
 			name = "Cruisers, Battle Force"
 			location = 9814 # Los Angeles
 			
 			# Cruiser Division 1 #			
-			ship = { name = "USS Lexington" definition = battle_cruiser start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Lexington Class" } } }				
+			ship = { name = "USS Lexington" definition = battle_cruiser start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Lexington Class" } } }
 			ship = { name = "USS Constellation" definition = battle_cruiser start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Lexington Class" } } }
 			ship = { name = "USS Saratoga" definition = battle_cruiser start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Lexington Class" } } }
 			ship = { name = "USS Ranger" definition = battle_cruiser start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Lexington Class" } } }
-			ship = { name = "USS Constitution" definition = battle_cruiser start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Lexington Class" } } }
-			ship = { name = "USS United States" definition = battle_cruiser start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Lexington Class" } } }
 			
 			# Cruiser Division 2 #			
 			ship = { name = "USS Omaha" definition = light_cruiser start_experience_factor = 0.25 equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "Omaha Class" } } }				
@@ -476,9 +524,9 @@ units= {
 			ship = { name = "USS Cincinnati" definition = light_cruiser start_experience_factor = 0.25 equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "Omaha Class" } } }
 			
 			# Cruiser Division 6 #		
-			ship = { name = "USS New Orleans" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "New Orleans Class" } } }				
-			ship = { name = "USS Astoria" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "New Orleans Class" } } }				
-			ship = { name = "USS Minneapolis" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "New Orleans Class" } } }				
+			ship = { name = "USS New Orleans" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "Astoria Class" } } }				
+			ship = { name = "USS Astoria" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "Astoria Class" } } }				
+			ship = { name = "USS Minneapolis" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "Astoria Class" } } }				
 			ship = { name = "USS Indianapolis" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "Portland Class" } } }				
 		}					
 		task_force = {					
@@ -604,8 +652,8 @@ units= {
 			ship = { name = "USS Chester" definition = heavy_cruiser start_experience_factor = 0.25 equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "Pensacola Class" } } }				
 			ship = { name = "USS Louisville" definition = heavy_cruiser start_experience_factor = 0.25 equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "Pensacola Class" } } }					
 			# Cruiser Division 7 #
-			ship = { name = "USS Tuscaloosa" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "New Orleans Class" } } }				
-			ship = { name = "USS San Francisco" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "New Orleans Class" } } }				
+			ship = { name = "USS Tuscaloosa" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "Astoria Class" } } }				
+			ship = { name = "USS San Francisco" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "Astoria Class" } } }				
 			ship = { name = "USS Portland" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = USA version_name = "Portland Class" } } }				
 			### Destroyer Squadron 10 ###
 			ship = { name = "USS Decatur" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Clemson Class" } } }		
@@ -634,33 +682,35 @@ units= {
 		task_force = {					
 			name = "4th Submarine Squadron"			
 			location = 4180 # Pearl Harbor, HI
-			ship = { name = "USS Argonaut" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = USA version_name = "Barracuda Class" } } }
+			ship = { name = "USS V-4" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = USA version_name = "V Class" } } }
 			# 7th Submarine Division				
-			ship = { name = "USS S-1" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-18" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-23" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-27" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-28" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-34" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-35" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
+			ship = { name = "USS S-1" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-18" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-23" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-27" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-28" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-34" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-35" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			
 			# 16th Submarine Division			
-			ship = { name = "USS S-31" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-32" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-33" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
+			ship = { name = "USS S-31" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-32" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-33" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
 		}
 		task_force = {					
 			name = "6th Submarine Squadron"			
 			location = 1562 # San Diego
 			# 12th Submarine Division				
-			ship = { name = "USS Barracuda" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = USA version_name = "Barracuda Class" } } }
-			ship = { name = "USS Bass" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = USA version_name = "Barracuda Class" } } }
-			ship = { name = "USS Bonita" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = USA version_name = "Barracuda Class" } } }
-			ship = { name = "USS Narwhal" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = USA version_name = "Barracuda Class" } } }
-			ship = { name = "USS Dolphin" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = USA version_name = "Barracuda Class" } } }
+			ship = { name = "USS V-1" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = USA version_name = "V Class" } } }
+			ship = { name = "USS V-2" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = USA version_name = "V Class" } } }
+			ship = { name = "USS V-3" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = USA version_name = "V Class" } } }
+			ship = { name = "USS V-5" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = USA version_name = "V Class" } } }
+			ship = { name = "USS V-7" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = USA version_name = "V Class" } } }
+			
 			# 13th Submarine Division				
-			ship = { name = "USS Nautilus" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = USA version_name = "Barracuda Class" } } }
-			ship = { name = "USS Cachalot" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = USA version_name = "Barracuda Class" } } }
-			ship = { name = "USS Cuttlefish" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = USA version_name = "Barracuda Class" } } }
+			ship = { name = "USS V-6" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = USA version_name = "V Class" } } }
+			ship = { name = "USS V-8" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = USA version_name = "V Class" } } }
+			ship = { name = "USS V-9" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = USA version_name = "V Class" } } }
 			ship = { name = "USS Porpoise" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = USA version_name = "Porpoise Class" } } }
 			ship = { name = "USS Pike" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = USA version_name = "Porpoise Class" } } }
 			ship = { name = "USS Shark" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = USA version_name = "Porpoise Class" } } }
@@ -712,30 +762,30 @@ units= {
 			ship = { name = "USS Cole" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Clemson Class" } } }		
 			# 27th Destroyer Division				
 			ship = { name = "USS Tarbell" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Clemson Class" } } }		
-			ship = { name = "USS Upshur" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Clemson Class" } } }		
-			ship = { name = "USS Greer" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Clemson Class" } } }		
+			ship = { name = "USS Abel P. Upshur" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Clemson Class" } } }		
+			ship = { name = "USS Greer" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Clemson Class" } } }	
 		}					
 		# ATLANTIC SUBMARINES #
 		task_force = {					
 			name = "2nd Submarine Squadron"		
 			location = 9832 # New London, CT
 			# 1st Experimental Division			
-			ship = { name = "USS S-20" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-22" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
+			ship = { name = "USS S-20" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-22" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
 			# 4th Submarine Division			
-			ship = { name = "USS R-2" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS R-4" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS R-10" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS R-11" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS R-13" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS R-14" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
+			ship = { name = "USS R-2" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS R-4" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS R-10" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS R-11" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS R-13" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS R-14" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
 			# 8th Submarine Division			
-			ship = { name = "USS S-21" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-24" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-25" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-26" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-29" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-30" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
+			ship = { name = "USS S-21" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-24" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-25" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-26" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-29" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-30" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
 		}	
 		# ATLANTIC RESERVES #
 		task_force = {					
@@ -755,34 +805,39 @@ units= {
 			ship = { name = "USS Gillis" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Clemson Class" } } }		
 			ship = { name = "USS Hulbert" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Clemson Class" } } }		
 			ship = { name = "USS Noa" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Clemson Class" } } }		
-			ship = { name = "USS William B Preston" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Clemson Class" } } }		
+			ship = { name = "USS William B Preston" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Clemson Class" } } }	
+
+			### decommissioned due to naval treaty irl ###
+			ship = { name = "USS Mason" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Clemson Class" } } }
+			ship = { name = "USS Graham" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Clemson Class" } } }
+			ship = { name = "USS Satterlee" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Clemson Class" } } }			
 		}					
 		task_force = {					
 			name = "Atlantic Reserve Submarines"		# Decommissioned ships docked in Philadelphia	
 			location = 6845 # Philadelphia
-			ship = { name = "USS O-2" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS O-3" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS O-4" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS O-6" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS O-7" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS O-8" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS O-9" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS O-10" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS R-1" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS R-3" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS R-5" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS R-6" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS R-7" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS R-9" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-11" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-12" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-13" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-14" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-15" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-16" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-17" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-48" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS R-20" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
+			ship = { name = "USS O-2" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS O-3" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS O-4" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS O-6" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS O-7" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS O-8" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS O-9" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS O-10" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS R-1" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS R-3" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS R-5" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS R-6" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS R-7" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS R-9" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-11" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-12" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-13" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-14" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-15" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-16" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-17" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-48" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS R-20" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
 		}					
 	}
 	
@@ -807,12 +862,12 @@ units= {
 			name = "3rd Submarine Squadron"	
 			location = 13276 # Canal Zone
 			# 11th Submarine Division			
-			ship = { name = "USS S-42" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-43" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-44" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-45" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-46" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-47" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
+			ship = { name = "USS S-42" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-43" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-44" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-45" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-46" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-47" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
 		}					
 	}
 	
@@ -858,12 +913,12 @@ units= {
 			name = "5th Submarine Squadron"				
 			location = 10265 # Manilla
 			# 10th Submarine Division				
-			ship = { name = "USS S-36" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-37" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-38" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-39" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-40" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
-			ship = { name = "USS S-41" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "S Class" } } }
+			ship = { name = "USS S-36" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-37" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-38" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-39" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-40" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
+			ship = { name = "USS S-41" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = USA version_name = "O/R/S Class" } } }
 		}					
 	}
 } 
@@ -876,27 +931,117 @@ units= {
 instant_effect = {
 
 	### Under Construction Notes ###
-	# CA: Quincy (New Orleans class, Comm. 9-Jun, 1936)
+	
+	# CL: Brooklyn Class x7
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_cruiser_2
+			creator = "USA"
+			version_name = "Brooklyn Class"
+		}
+		name = "USS Brooklyn" 
+		requested_factories = 1
+		progress = 0.55
+		amount = 1
+		industrial_manufacturer = mio:USA_brooklyn_naval_yard_organization
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_cruiser_2
+			creator = "USA"
+			version_name = "Brooklyn Class"
+		}
+		name = "USS Philadelphia" 
+		requested_factories = 1
+		progress = 0.5
+		amount = 1
+		industrial_manufacturer = mio:USA_brooklyn_naval_yard_organization
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_cruiser_2
+			creator = "USA"
+			version_name = "Brooklyn Class"
+		}
+		name = "USS Savannah" 
+		requested_factories = 1
+		progress = 0.5
+		amount = 1
+		industrial_manufacturer = mio:USA_new_york_shipbuilding_organization
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_cruiser_2
+			creator = "USA"
+			version_name = "Brooklyn Class"
+		}
+		name = "USS Nashville" 
+		requested_factories = 1
+		progress = 0.45
+		amount = 1
+		industrial_manufacturer = mio:USA_new_york_shipbuilding_organization
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_cruiser_2
+			creator = "USA"
+			version_name = "Brooklyn Class"
+		}
+		name = "USS Pheonix" 
+		requested_factories = 1
+		progress = 0.45
+		amount = 1
+		industrial_manufacturer = mio:USA_new_york_shipbuilding_organization
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_cruiser_2
+			creator = "USA"
+			version_name = "Brooklyn Class"
+		}
+		name = "USS Boise" 
+		requested_factories = 1
+		progress = 0.1
+		amount = 1
+		industrial_manufacturer = mio:USA_newport_news_shipbuilding_organization
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_cruiser_2
+			creator = "USA"
+			version_name = "Brooklyn Class"
+		}
+		name = "USS Honolulu" 
+		requested_factories = 1
+		progress = 0.1
+		amount = 1
+		industrial_manufacturer = mio:USA_brooklyn_naval_yard_organization
+	}
+	
+	# CA: Quincy (Astoria Class, Comm. 9-Jun, 1936)
 	add_equipment_production = {
 		equipment = {
 			type = ship_hull_cruiser_1
 			creator = "USA"
-			version_name = "New Orleans Class"
+			version_name = "Astoria Class"
 		}
 		name = "USS Quincy" 
 		requested_factories = 2
 		progress = 0.60
 		amount = 1
+		industrial_manufacturer = mio:USA_bethlehem_shipbuilding_organization
 	}
 	add_equipment_production = {
 		equipment = {
 			type = ship_hull_cruiser_1
 			creator = "USA"
-			version_name = "New Orleans Class"
+			version_name = "Astoria Class"
 		}
+		name = "USS Vincennes"
 		requested_factories = 1
 		progress = 0.50
 		amount = 1
+		industrial_manufacturer = mio:USA_bethlehem_shipbuilding_organization
 	}
 	# CA: Wichita (Wichita class
 	add_equipment_production = {
@@ -915,9 +1060,33 @@ instant_effect = {
 		equipment = {
 			type = ship_hull_light_2
 			creator = "USA"
-			version_name = "Farragut Class"
+			version_name = "Porter Class"
 		}
 		name = "USS Porter" 
+		requested_factories = 1
+		progress = 0.20
+		amount = 1
+		industrial_manufacturer = mio:USA_new_york_shipbuilding_organization
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "USA"
+			version_name = "Porter Class"
+		}
+		name = "USS Selfridge" 
+		requested_factories = 1
+		progress = 0.20
+		amount = 1
+		industrial_manufacturer = mio:USA_new_york_shipbuilding_organization
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "USA"
+			version_name = "Porter Class"
+		}
+		name = "USS McDougal" 
 		requested_factories = 1
 		progress = 0.20
 		amount = 1
@@ -926,7 +1095,18 @@ instant_effect = {
 		equipment = {
 			type = ship_hull_light_2
 			creator = "USA"
-			version_name = "Farragut Class"
+			version_name = "Porter Class"
+		}
+		name = "USS Winslow" 
+		requested_factories = 1
+		progress = 0.20
+		amount = 1
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "USA"
+			version_name = "Porter Class"
 		}
 		name = "USS Phelps" 
 		requested_factories = 1
@@ -937,7 +1117,7 @@ instant_effect = {
 		equipment = {
 			type = ship_hull_light_2
 			creator = "USA"
-			version_name = "Farragut Class"
+			version_name = "Porter Class"
 		}
 		name = "USS Clark" 
 		requested_factories = 1
@@ -948,9 +1128,20 @@ instant_effect = {
 		equipment = {
 			type = ship_hull_light_2
 			creator = "USA"
-			version_name = "Farragut Class"
+			version_name = "Porter Class"
 		}
 		name = "USS Moffett" 
+		requested_factories = 1
+		progress = 0.20
+		amount = 1
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "USA"
+			version_name = "Porter Class"
+		}
+		name = "USS Balch" 
 		requested_factories = 1
 		progress = 0.20
 		amount = 1
@@ -960,7 +1151,7 @@ instant_effect = {
 		equipment = {
 			type = ship_hull_light_2
 			creator = "USA"
-			version_name = "Farragut Class"
+			version_name = "Mahan Class"
 		}
 		name = "USS Mahan" 
 		requested_factories = 1
@@ -971,7 +1162,7 @@ instant_effect = {
 		equipment = {
 			type = ship_hull_light_2
 			creator = "USA"
-			version_name = "Farragut Class"
+			version_name = "Mahan Class"
 		}
 		name = "USS Cummings" 
 		requested_factories = 1
@@ -982,7 +1173,29 @@ instant_effect = {
 		equipment = {
 			type = ship_hull_light_2
 			creator = "USA"
-			version_name = "Farragut Class"
+			version_name = "Mahan Class"
+		}
+		name = "USS Drayton" 
+		requested_factories = 1
+		progress = 0.10
+		amount = 1
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "USA"
+			version_name = "Mahan Class"
+		}
+		name = "USS Lamson" 
+		requested_factories = 1
+		progress = 0.10
+		amount = 1
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "USA"
+			version_name = "Mahan Class"
 		}
 		name = "USS Flusser" 
 		requested_factories = 1
@@ -993,7 +1206,18 @@ instant_effect = {
 		equipment = {
 			type = ship_hull_light_2
 			creator = "USA"
-			version_name = "Farragut Class"
+			version_name = "Mahan Class"
+		}
+		name = "USS Reid" 
+		requested_factories = 1
+		progress = 0.20
+		amount = 1
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "USA"
+			version_name = "Mahan Class"
 		}
 		name = "USS Case" 
 		requested_factories = 1
@@ -1004,7 +1228,7 @@ instant_effect = {
 		equipment = {
 			type = ship_hull_light_2
 			creator = "USA"
-			version_name = "Farragut Class"
+			version_name = "Mahan Class"
 		}
 		name = "USS Conyngham" 
 		requested_factories = 1
@@ -1015,7 +1239,7 @@ instant_effect = {
 		equipment = {
 			type = ship_hull_light_2
 			creator = "USA"
-			version_name = "Farragut Class"
+			version_name = "Mahan Class"
 		}
 		name = "USS Cassin" 
 		requested_factories = 1
@@ -1026,7 +1250,7 @@ instant_effect = {
 		equipment = {
 			type = ship_hull_light_2
 			creator = "USA"
-			version_name = "Farragut Class"
+			version_name = "Mahan Class"
 		}
 		name = "USS Shaw" 
 		requested_factories = 1
@@ -1037,7 +1261,31 @@ instant_effect = {
 		equipment = {
 			type = ship_hull_light_2
 			creator = "USA"
-			version_name = "Farragut Class"
+			version_name = "Mahan Class"
+		}
+		name = "USS Tucker" 
+		requested_factories = 1
+		progress = 0.30
+		amount = 1
+		#industrial_manufacturer = mio:USA_norfolk_naval_yard_organization
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "USA"
+			version_name = "Mahan Class"
+		}
+		name = "USS Downes" 
+		requested_factories = 1
+		progress = 0.30
+		amount = 1
+		#industrial_manufacturer = mio:USA_norfolk_naval_yard_organization
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "USA"
+			version_name = "Mahan Class"
 		}
 		name = "USS Cushing" 
 		requested_factories = 1
@@ -1048,13 +1296,58 @@ instant_effect = {
 		equipment = {
 			type = ship_hull_light_2
 			creator = "USA"
-			version_name = "Farragut Class"
+			version_name = "Mahan Class"
 		}
 		name = "USS Perkins" 
 		requested_factories = 1
 		progress = 0.30
 		amount = 1
 	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "USA"
+			version_name = "Mahan Class"
+		}
+		name = "USS Smith" 
+		requested_factories = 1
+		progress = 0.1
+		amount = 1
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "USA"
+			version_name = "Mahan Class"
+		}
+		name = "USS Preston" 
+		requested_factories = 1
+		progress = 0.1
+		amount = 1
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "USA"
+			version_name = "Mahan Class"
+		}
+		name = "USS Dunlap" 
+		requested_factories = 1
+		progress = 0.1
+		amount = 1
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "USA"
+			version_name = "Mahan Class"
+		}
+		name = "USS Fanning" 
+		requested_factories = 1
+		progress = 0.1
+		amount = 1
+	}
+	
 	# SS: Shark class (x1) ("USS Tarpon")
 	add_equipment_production = {
 		equipment = {
@@ -1065,6 +1358,65 @@ instant_effect = {
 		name = "USS Tarpon" 
 		requested_factories = 1
 		progress = 0.70
+		amount = 1
+		industrial_manufacturer = mio:USA_electric_boat_company_organization
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_submarine_2
+			creator = "USA"
+			version_name = "Porpoise Class"
+		}
+		name = "USS Perch" 
+		requested_factories = 1
+		progress = 0.3
+		amount = 1
+		industrial_manufacturer = mio:USA_electric_boat_company_organization
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_submarine_2
+			creator = "USA"
+			version_name = "Porpoise Class"
+		}
+		name = "USS Pickerel" 
+		requested_factories = 1
+		progress = 0.3
+		amount = 1
+		industrial_manufacturer = mio:USA_electric_boat_company_organization
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_submarine_2
+			creator = "USA"
+			version_name = "Porpoise Class"
+		}
+		name = "USS Permit" 
+		requested_factories = 1
+		progress = 0.3
+		amount = 1
+		industrial_manufacturer = mio:USA_electric_boat_company_organization
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_submarine_2
+			creator = "USA"
+			version_name = "Porpoise Class"
+		}
+		name = "USS Plunger" 
+		requested_factories = 1
+		progress = 0.25
+		amount = 1
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_submarine_2
+			creator = "USA"
+			version_name = "Porpoise Class"
+		}
+		name = "USS Pollack" 
+		requested_factories = 1
+		progress = 0.2
 		amount = 1
 	}
 }

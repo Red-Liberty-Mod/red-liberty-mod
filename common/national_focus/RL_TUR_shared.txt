@@ -1,0 +1,613 @@
+shared_focus = {
+    id = TUR_death_of_the_sultan
+	icon = GFX_TUR_death_of_the_sultan
+	
+    x = 20
+	
+	offset = {
+		x = 26
+		trigger = {
+			has_focus_tree = TUR_adivar_post_crisis_tree
+		}
+	}
+	
+	cost = 1
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_a_week_of_mourning
+	icon = GFX_TUR_a_week_of_mourning
+	
+    x = -1
+	y = 1
+	
+	cost = 1
+	relative_position_id = TUR_death_of_the_sultan
+	prerequisite = { focus = TUR_death_of_the_sultan }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_a_call_to_prayer
+	icon = GFX_TUR_a_call_to_prayer
+	
+    x = 1
+	y = 1
+	
+	cost = 1
+	relative_position_id = TUR_death_of_the_sultan
+	prerequisite = { focus = TUR_death_of_the_sultan }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_deciding_the_successor
+	icon = GFX_TUR_deciding_the_successor
+	
+    x = 1
+	y = 1
+	
+	cost = 2
+	relative_position_id = TUR_a_week_of_mourning
+	prerequisite = { focus = TUR_a_week_of_mourning }
+	prerequisite = { focus = TUR_a_call_to_prayer }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_declare_the_38th_sultan
+	icon = GFX_TUR_declare_the_38th_sultan
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_deciding_the_successor
+	prerequisite = { focus = TUR_deciding_the_successor }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_constitutional_duties
+	icon = GFX_TUR_constitutional_duties
+	
+    x = -2
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_declare_the_38th_sultan
+	prerequisite = { focus = TUR_declare_the_38th_sultan }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_at_your_service
+	icon = GFX_TUR_at_your_service
+	
+    x = 2
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_declare_the_38th_sultan
+	prerequisite = { focus = TUR_declare_the_38th_sultan }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_keep_the_military_on_standby
+	icon = GFX_TUR_keep_the_military_on_standby
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_constitutional_duties
+	prerequisite = { focus = TUR_constitutional_duties }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_deciding_his_role
+	icon = GFX_TUR_deciding_his_role
+	
+    x = 2
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_constitutional_duties
+	prerequisite = { focus = TUR_constitutional_duties }
+	prerequisite = { focus = TUR_at_your_service }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_the_caliphs_loyal_agents
+	icon = GFX_TUR_the_caliphs_loyal_agents
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_at_your_service
+	prerequisite = { focus = TUR_at_your_service }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_the_viziers_supremacy
+	icon = GFX_TUR_the_viziers_supremacy
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_keep_the_military_on_standby
+	prerequisite = { focus = TUR_keep_the_military_on_standby }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_foreign_policy_is_for_the_legislature
+	icon = GFX_TUR_foreign_policy_is_for_the_legislature
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_deciding_his_role
+	prerequisite = { focus = TUR_deciding_his_role }
+	mutually_exclusive = { focus = TUR_the_sultan_will_have_his_say }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_the_sultan_will_have_his_say
+	icon = GFX_TUR_the_sultan_will_have_his_say
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_deciding_his_role
+	prerequisite = { focus = TUR_deciding_his_role }
+	mutually_exclusive = { focus = TUR_foreign_policy_is_for_the_legislature }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_respect_political_norms
+	icon = GFX_TUR_respect_political_norms
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_political_brinksmanship
+	}
+	relative_position_id = TUR_the_caliphs_loyal_agents
+	prerequisite = { focus = TUR_the_caliphs_loyal_agents }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_political_brinksmanship
+	icon = GFX_TUR_political_brinksmanship
+	
+    x = 3
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_respect_political_norms
+	}
+	relative_position_id = TUR_the_caliphs_loyal_agents
+	prerequisite = { focus = TUR_the_caliphs_loyal_agents }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_flush_out_the_brotherhood
+	icon = GFX_TUR_flush_out_the_brotherhood
+	
+    x = 0
+	y = 2
+	
+	cost = 5
+	relative_position_id = TUR_keep_the_military_on_standby
+	prerequisite = { focus = TUR_keep_the_military_on_standby }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_the_sultans_address
+	icon = GFX_TUR_the_sultans_address
+	
+    x = 0
+	y = 2
+	
+	cost = 5
+	relative_position_id = TUR_the_caliphs_loyal_agents
+	prerequisite = { focus = TUR_the_caliphs_loyal_agents }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_reach_out_to_conservatives
+	icon = GFX_TUR_reach_out_to_conservatives
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_respect_political_norms
+	prerequisite = {
+		focus = TUR_respect_political_norms
+		focus = TUR_political_brinksmanship
+	}
+	mutually_exclusive = { focus = TUR_contact_karakolu }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_contact_karakolu
+	icon = GFX_TUR_contact_karakolu
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_political_brinksmanship
+	prerequisite = { focus = TUR_political_brinksmanship }
+	mutually_exclusive = { focus = TUR_reach_out_to_conservatives }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_the_viziers_red_button
+	icon = GFX_TUR_the_viziers_red_button
+	
+    x = 0
+	y = 2
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_political_polemics
+	}
+	relative_position_id = TUR_the_viziers_supremacy
+	prerequisite = { focus = TUR_the_viziers_supremacy }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_political_polemics
+	icon = GFX_TUR_political_polemics
+	
+    x = 0
+	y = 2
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_the_viziers_red_button
+	}
+	relative_position_id = TUR_foreign_policy_is_for_the_legislature
+	prerequisite = { focus = TUR_foreign_policy_is_for_the_legislature }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_support_the_current_govt
+	icon = GFX_TUR_support_the_current_govt
+	
+    x = 0
+	y = 2
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_support_the_opposition
+	}
+	relative_position_id = TUR_the_sultan_will_have_his_say
+	prerequisite = { focus = TUR_the_sultan_will_have_his_say }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_support_the_opposition
+	icon = GFX_TUR_support_the_opposition
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	mutually_exclusive = {
+		focus = TUR_support_the_current_govt
+	}
+	relative_position_id = TUR_reach_out_to_conservatives
+	prerequisite = { focus = TUR_reach_out_to_conservatives }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_denouce_the_treaties
+	icon = GFX_TUR_denouce_the_treaties
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_reach_out_to_conservatives
+	prerequisite = {
+		focus = TUR_reach_out_to_conservatives
+		focus = TUR_contact_karakolu
+	}
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_funnel_money
+	icon = GFX_TUR_funnel_money
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_contact_karakolu
+	prerequisite = { focus = TUR_contact_karakolu }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_never_another_1878
+	icon = GFX_TUR_denouce_the_treaties
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_the_viziers_red_button
+	prerequisite = {
+		focus = TUR_the_viziers_red_button
+		focus = TUR_political_polemics
+	}
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_the_house_of_osman_affirmed
+	icon = GFX_TUR_the_house_of_osman_affirmed
+	
+    x = 2
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_support_the_current_govt
+	prerequisite = {
+		focus = TUR_support_the_current_govt
+		focus = TUR_support_the_opposition
+	}
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_biding_our_time
+	icon = GFX_TUR_the_house_of_osman_affirmed
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_denouce_the_treaties
+	prerequisite = { focus = TUR_denouce_the_treaties }
+	prerequisite = { focus = TUR_funnel_money }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_amend_the_constitution
+	icon = GFX_TUR_amend_the_constitution
+	
+    x = 3
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_never_another_1878
+	prerequisite = {
+		focus = TUR_never_another_1878
+		focus = TUR_the_house_of_osman_affirmed
+	}
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = TUR_the_restoration
+	icon = GFX_TUR_the_restoration
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = TUR_biding_our_time
+	prerequisite = { focus = TUR_biding_our_time }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}

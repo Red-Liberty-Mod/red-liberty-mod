@@ -1,28 +1,8 @@
 shared_focus = {
-    id = IRE_religious_education_act
-	icon = GFX_IRE_religious_education_act
-	
-    x = 5
-	y = 0
-	
-	cost = 8
-    completion_reward = {
-        country_event = {
-			id = ireland.3
-			hours = 6
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
     id = IRE_financial_austerity_act
-	icon = GFX_IRE_financial_austerity_act
+	icon = GFX_focus_DEN_limited_regulations
 	
-    x = 7
+    x = 16
 	y = 0
 	
 	cost = 8
@@ -39,16 +19,82 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = IRE_national_security_act
-	icon = GFX_IRE_national_security_act
+    id = IRE_continue_the_crackdowns
+	icon = GFX_focus_generic_support_the_left_right
 	
-    x = 9
+    x = 19
 	y = 0
 	
 	cost = 8
     completion_reward = {
+		add_political_power = -25
+        add_stability = 0.05
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_STABILITY
+	}
+}
+
+shared_focus = {
+    id = IRE_agricultural_reform_drive
+	icon = GFX_focus_generic_agricultural_subsidies
+	
+    x = 0
+	y = 1
+	cost = 8
+	
+	relative_position_id = IRE_financial_austerity_act
+	prerequisite = { focus = IRE_financial_austerity_act }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_containment_doctrine
+	icon = GFX_goal_generic_small_arms
+	
+    x = 2
+	y = 1
+	cost = 8
+	
+	relative_position_id = IRE_financial_austerity_act
+	prerequisite = { focus = IRE_financial_austerity_act }
+	prerequisite = { focus = IRE_continue_the_crackdowns }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_religious_education_act
+	icon = GFX_focus_mex_restore_the_army_of_christ
+	
+    x = -2
+	y = 2
+	cost = 8
+	
+	relative_position_id = IRE_financial_austerity_act
+	prerequisite = { focus = IRE_financial_austerity_act }
+	
+    completion_reward = {
         country_event = {
-			id = ireland.5
+			id = ireland.3
 			hours = 6
 		}
     }
@@ -59,27 +105,16 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = IRE_1937_elections
-	icon = GFX_IRE_1937_elections
+    id = IRE_the_great_divide
+	icon = GFX_IRE_the_great_divide
 	
     x = 0
 	y = 1
-	
 	cost = 8
 	
-	available = {
-		custom_trigger_tooltip = {
-			tooltip = focus_will_be_bypassed_tt
-			always = no
-		}
-	}
+	relative_position_id = IRE_agricultural_reform_drive
+	prerequisite = { focus = IRE_agricultural_reform_drive }
 	
-	relative_position_id = IRE_financial_austerity_act
-	prerequisite = {
-		focus = IRE_religious_education_act
-		focus = IRE_financial_austerity_act
-		focus = IRE_national_security_act
-	}
     completion_reward = {
         
     }
@@ -90,257 +125,30 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = IRE_labour_party
-	icon = GFX_IRE_labour_party
-	
-    x = -6
-	y = 1
-	
-	available = {
-		has_country_flag = IRE_labour_victory
-	}
-	
-	cost = 8
-	relative_position_id = IRE_1937_elections
-	prerequisite = {
-		focus = IRE_1937_elections
-	}
-    completion_reward = {
-        country_event = {
-			id = ireland.9
-			hours = 6
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = IRE_dile_saor
-	icon = GFX_IRE_dile_saor
-	
-    x = -4
-	y = 1
-	
-	available = {
-		has_country_flag = IRE_dile_saor_victory
-	}
-	
-	cost = 8
-	relative_position_id = IRE_1937_elections
-	prerequisite = {
-		focus = IRE_1937_elections
-	}
-    completion_reward = {
-        country_event = {
-			id = ireland.10
-			hours = 6
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = IRE_na_chead_laochra
-	icon = GFX_IRE_na_chead_laochra
+    id = IRE_support_the_gardai
+	icon = GFX_focus_generic_little_entente
 	
     x = 0
 	y = 1
-	
-	available = {
-		has_country_flag = IRE_laochra_victory
-	}
-	
 	cost = 8
-	relative_position_id = IRE_1937_elections
-	prerequisite = {
-		focus = IRE_1937_elections
-	}
+	
+	relative_position_id = IRE_containment_doctrine
+	prerequisite = { focus = IRE_containment_doctrine }
+	
     completion_reward = {
-        country_event = {
-			id = ireland.11
-			hours = 6
+		add_stability = 0.075
+        add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = -500
 		}
     }
 	
 	ai_will_do = {
 		factor = 10
 	}
-}
-
-shared_focus = {
-    id = IRE_invoke_emergency_powers
-	icon = GFX_focus_generic_court
 	
-    x = 2
-	y = 1
-	
-	available = {
-		has_country_flag = IRE_canceled_elections
-	}
-	
-	cost = 8
-	relative_position_id = IRE_1937_elections
-	prerequisite = {
-		focus = IRE_1937_elections
-	}
-    completion_reward = {
-        country_event = {
-			id = ireland.12
-			hours = 6
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = IRE_sinn_fein
-	icon = GFX_IRE_sinn_fein
-	
-    x = 5
-	y = 1
-	
-	available = {
-		has_country_flag = IRE_sinn_fein_victory
-	}
-	
-	cost = 8
-	relative_position_id = IRE_1937_elections
-	prerequisite = {
-		focus = IRE_1937_elections
-	}
-    completion_reward = {
-        country_event = {
-			id = ireland.13
-			hours = 6
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = IRE_expand_welfare
-	icon = GFX_IRE_expand_welfare
-	
-    x = -1
-	y = 1
-	
-	cost = 8
-	relative_position_id = IRE_labour_party
-	prerequisite = {
-		focus = IRE_labour_party
-	}
-    completion_reward = {
-        ECON_poverty_change_small = yes
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = IRE_common_ground
-	icon = GFX_IRE_common_ground
-	
-    x = 1
-	y = 1
-	
-	cost = 8
-	relative_position_id = IRE_labour_party
-	prerequisite = {
-		focus = IRE_labour_party
-		focus = IRE_dile_saor
-	}
-    completion_reward = {
-        add_political_power = 100
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = IRE_end_the_trade_war
-	icon = GFX_IRE_end_the_trade_war
-	
-    x = 1
-	y = 1
-	
-	cost = 8
-	relative_position_id = IRE_dile_saor
-	prerequisite = {
-		focus = IRE_dile_saor
-	}
-    completion_reward = {
-        swap_ideas = {
-			remove_idea = IRE_anglo_irish_trade_war
-			add_idea = IRE_waning_trade_war
-			days = 60
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = IRE_wind_down_the_trade_war
-	icon = GFX_IRE_wind_down_the_trade_war
-	
-    x = -1
-	y = 1
-	
-	cost = 8
-	relative_position_id = IRE_na_chead_laochra
-	prerequisite = {
-		focus = IRE_na_chead_laochra
-	}
-    completion_reward = {
-        swap_ideas = {
-			remove_idea = IRE_anglo_irish_trade_war
-			add_idea = IRE_waning_trade_war
-			days = 180
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = IRE_hyde_the_martyr
-	icon = GFX_IRE_hyde_the_martyr
-	
-    x = 1
-	y = 1
-	
-	cost = 8
-	relative_position_id = IRE_na_chead_laochra
-	prerequisite = {
-		focus = IRE_na_chead_laochra
-		focus = IRE_invoke_emergency_powers
-	}
-    completion_reward = {
-        add_stability = 0.05
-    }
-	
-	ai_will_do = {
-		factor = 10
+	search_filters = {
+		FOCUS_FILTER_STABILITY
 	}
 }
 
@@ -350,259 +158,63 @@ shared_focus = {
 	
     x = 1
 	y = 1
-	
 	cost = 8
-	relative_position_id = IRE_invoke_emergency_powers
-	prerequisite = {
-		focus = IRE_na_chead_laochra
-		focus = IRE_invoke_emergency_powers
-		focus = IRE_sinn_fein
-	}
+	
+	relative_position_id = IRE_religious_education_act
+	prerequisite = { focus = IRE_religious_education_act }
+	prerequisite = { focus = IRE_the_great_divide }
+	
     completion_reward = {
-        add_political_power = 25
-		set_province_name = { id = 7394 name = "Corcaigh" }
-		set_province_name = { id = 9303 name = "Gaillimh" }
-		set_province_name = { id = 11293 name = "Baile Átha Cliath" }
+		add_political_power = 75
     }
 	
 	ai_will_do = {
 		factor = 10
 	}
-}
-
-shared_focus = {
-    id = IRE_contacts_in_the_ira
-	icon = GFX_IRE_contacts_in_the_ira
 	
-    x = 0
-	y = 1
-	
-	cost = 8
-	relative_position_id = IRE_sinn_fein
-	prerequisite = {
-		focus = IRE_sinn_fein
-	}
-    completion_reward = {
-		custom_effect_tooltip = IRE_contacts_in_the_ira_tt
-		unlock_decision_tooltip = IRE_arm_the_ira
-		unlock_decision_tooltip = IRE_joint_operation_against_ica
-    }
-	
-	ai_will_do = {
-		factor = 10
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
 }
 
 shared_focus = {
-    id = IRE_secular_government
-	icon = GFX_IRE_secular_government
-	
-    x = 0
-	y = 1
-	
-	cost = 8
-	relative_position_id = IRE_expand_welfare
-	prerequisite = {
-		focus = IRE_expand_welfare
-	}
-    completion_reward = {
-		add_stability = 0.05
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = IRE_improve_safety_regulations
-	icon = GFX_IRE_improve_safety_regulations
-	
-    x = 0
-	y = 1
-	
-	cost = 8
-	relative_position_id = IRE_common_ground
-	prerequisite = {
-		focus = IRE_common_ground
-	}
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = IRE_open_up_to_foreign_investment
-	icon = GFX_IRE_open_up_to_foreign_investment
-	
-    x = 0
-	y = 1
-	
-	cost = 8
-	relative_position_id = IRE_end_the_trade_war
-	prerequisite = {
-		focus = IRE_end_the_trade_war
-	}
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = IRE_fan_irish_nationalism
-	icon = GFX_IRE_fan_irish_nationalism
+    id = IRE_consolidate_the_party
+	icon = GFX_IRE_consolidate_the_party
 	
     x = 1
 	y = 1
-	
 	cost = 8
-	relative_position_id = IRE_wind_down_the_trade_war
-	prerequisite = {
-		focus = IRE_wind_down_the_trade_war
-	}
-	prerequisite = {
-		focus = IRE_hyde_the_martyr
-	}
+	
+	relative_position_id = IRE_the_great_divide
+	prerequisite = { focus = IRE_the_great_divide }
+	prerequisite = { focus = IRE_support_the_gardai }
+	
     completion_reward = {
-        add_stability = 0.05
-		add_war_support = 0.05
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = IRE_reform_the_twelve_apostles
-	icon = GFX_focus_generic_secret_service_agency
-	
-    x = 0
-	y = 2
-	
-	cost = 8
-	relative_position_id = IRE_invoke_emergency_powers
-	prerequisite = {
-		focus = IRE_invoke_emergency_powers
-	}
-    completion_reward = {
-        custom_effect_tooltip = available_political_advisor
-		show_ideas_tooltip = IRE_liam_tobin
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = IRE_appeal_to_history
-	icon = GFX_IRE_reform_the_twelve_apostles
-	
-    x = -1
-	y = 1
-	
-	cost = 8
-	relative_position_id = IRE_contacts_in_the_ira
-	prerequisite = {
-		focus = IRE_contacts_in_the_ira
-	}
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = IRE_expand_popular_support
-	icon = GFX_IRE_reform_the_twelve_apostles
-	
-    x = 1
-	y = 1
-	
-	cost = 8
-	relative_position_id = IRE_contacts_in_the_ira
-	prerequisite = {
-		focus = IRE_contacts_in_the_ira
-	}
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = IRE_democratise_the_republic
-	icon = GFX_focus_generic_improve_the_administration
-	
-    x = 1
-	y = 1
-	
-	cost = 8
-	relative_position_id = IRE_secular_government
-	prerequisite = {
-		focus = IRE_secular_government
-	}
-	prerequisite = {
-		focus = IRE_improve_safety_regulations
-	}
-    completion_reward = {
-        set_temp_variable = { temp = party_popularity@national_conservatism }
-		multiply_temp_variable = { temp = -1 }
-		multiply_temp_variable = { temp = 0.25 }
-        add_popularity = {
-			ideology = national_conservatism
-			popularity = temp
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = IRE_rapid_industrialisation
-	icon = GFX_focus_generic_hydroelectric_energy
-	
-    x = -1
-	y = 1
-	
-	cost = 8
-	relative_position_id = IRE_open_up_to_foreign_investment
-	prerequisite = {
-		focus = IRE_open_up_to_foreign_investment
-	}
-	prerequisite = {
-		focus = IRE_improve_safety_regulations
-	}
-    completion_reward = {
-        113 = {
-			add_building_construction = {
-				type = 	industrial_complex
-				level = 1
-				instant_build = yes
+		if = {
+			limit = {
+				has_government = social_democracy
+			}
+			add_popularity = {
+				ideology = social_democracy
+				popularity = 0.025
 			}
 		}
-		134 = {
-			add_building_construction = {
-				type = 	industrial_complex
-				level = 1
-				instant_build = yes
+		else_if = {
+			limit = {
+				has_government = progressive_liberalism
+			}
+			add_popularity = {
+				ideology = progressive_liberalism
+				popularity = 0.025
+			}
+		}
+		else_if = {
+			limit = {
+				has_government = national_conservatism
+			}
+			add_popularity = {
+				ideology = national_conservatism
+				popularity = 0.025
 			}
 		}
     }
@@ -610,164 +222,29 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
-}
-
-shared_focus = {
-    id = IRE_church_and_state
-	icon = GFX_IRE_church_and_state
 	
-    x = -1
-	y = 1
-	
-	cost = 8
-	relative_position_id = IRE_fan_irish_nationalism
-	prerequisite = {
-		focus = IRE_fan_irish_nationalism
-	}
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
 	}
 }
 
 shared_focus = {
-    id = IRE_secure_the_dail
-	icon = GFX_focus_generic_self_management
+    id = IRE_national_security_act
+	icon = GFX_goal_generic_defence
 	
-    x = -1
-	y = 1
-	
+    x = 0
+	y = 3
 	cost = 8
-	relative_position_id = IRE_reform_the_twelve_apostles
+	
+	relative_position_id = IRE_continue_the_crackdowns
 	prerequisite = {
-		focus = IRE_reform_the_twelve_apostles
+		focus = IRE_continue_the_crackdowns
 	}
-    completion_reward = {
-		set_temp_variable = { temp = party_popularity@social_democracy }
-		multiply_temp_variable = { temp = -1 }
-		multiply_temp_variable = { temp = 0.25 }
-        add_popularity = {
-			ideology = social_democracy
-			popularity = temp
-		}
-		
-		set_temp_variable = { temp = party_popularity@progressive_liberalism }
-		multiply_temp_variable = { temp = -1 }
-		multiply_temp_variable = { temp = 0.25 }
-        add_popularity = {
-			ideology = progressive_liberalism
-			popularity = temp
-		}
-		
-		country_event = {
-			id = ireland.14
-			hours = 6
-		}
-    }
 	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = IRE_hem_in_the_press
-	icon = GFX_IRE_hem_in_the_press
-	
-    x = 1
-	y = 1
-	
-	cost = 8
-	relative_position_id = IRE_reform_the_twelve_apostles
-	prerequisite = {
-		focus = IRE_reform_the_twelve_apostles
-	}
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = IRE_declare_the_regency
-	icon = GFX_focus_generic_home_defense
-	
-    x = 1
-	y = 1
-	
-	cost = 8
-	relative_position_id = IRE_appeal_to_history
-	prerequisite = {
-		focus = IRE_appeal_to_history
-	}
-	prerequisite = {
-		focus = IRE_expand_popular_support
-	}
     completion_reward = {
         country_event = {
-			id = ireland.15
+			id = ireland.5
 			hours = 6
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = IRE_forgetting_division
-	icon = GFX_IRE_forgetting_division
-	
-    x = 1
-	y = 1
-	
-	cost = 8
-	relative_position_id = IRE_democratise_the_republic
-	prerequisite = {
-		focus = IRE_democratise_the_republic
-	}
-	prerequisite = {
-		focus = IRE_rapid_industrialisation
-	}
-    completion_reward = {
-        swap_ideas = {
-			remove_idea = IRE_paramilitary_violence
-			add_idea = IRE_waning_paramilitary_violence
-			days = 180
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = IRE_who_else_but_mick
-	icon = GFX_IRE_who_else_but_mick
-	
-    x = 1
-	y = 1
-	
-	cost = 8
-	relative_position_id = IRE_church_and_state
-	prerequisite = {
-		focus = IRE_church_and_state
-		focus = IRE_secure_the_dail
-		focus = IRE_hem_in_the_press
-	}
-    completion_reward = {
-        swap_ideas = {
-			remove_idea = IRE_paramilitary_violence
-			add_idea = IRE_waning_paramilitary_violence
-			days = 180
 		}
     }
 	
@@ -782,18 +259,25 @@ shared_focus = {
     id = IRE_victory_civil_war
 	icon = GFX_IRE_victory_civil_war
 	
-    x = 8
-	y = 8
+    x = 1
+	y = 1
+	cost = 8
 	
 	allow_branch = {
-		has_country_flag = IRE_civil_war_ended
+		#has_country_flag = IRE_civil_war_ended
 	}
 	
 	available = {
 		has_country_flag = IRE_civil_war_ended
 	}
 	
-	cost = 8
+	relative_position_id = IRE_promote_the_irish_language
+	prerequisite = {
+		focus = IRE_promote_the_irish_language
+		focus = IRE_consolidate_the_party
+		focus = IRE_national_security_act
+	}
+	
     completion_reward = {
         
     }
@@ -872,13 +356,900 @@ shared_focus = {
 	}
 }
 
+### PATHS ###
+
+shared_focus = {
+    id = IRE_1937_elections
+	icon = GFX_IRE_1937_elections
+	
+    x = 0
+	y = 0
+	
+	cost = 8
+	
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = focus_will_be_bypassed_tt
+			always = no
+		}
+	}
+	
+	mutually_exclusive = {
+		focus = IRE_invoke_emergency_powers
+		focus = IRE_aca_coup
+	}
+	
+    completion_reward = {
+        add_stability = 0.05
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_STABILITY
+	}
+}
+
+shared_focus = {
+    id = IRE_invoke_emergency_powers
+	icon = GFX_focus_generic_court
+	
+    x = 4
+	y = 0
+	
+	available = {
+		has_country_flag = IRE_canceled_elections
+	}
+	
+	cost = 8
+	mutually_exclusive = {
+		focus = IRE_1937_elections
+		focus = IRE_aca_coup
+	}
+	
+    completion_reward = {
+        country_event = {
+			id = ireland.12
+			hours = 6
+		}
+		hidden_effect = {
+			country_event = {
+				id = ireland.17
+				days = 7
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+    id = IRE_aca_coup
+	icon = GFX_IRE_aca_coup
+	
+    x = 7
+	y = 0
+	
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = focus_will_be_bypassed_tt
+			always = no
+		}
+	}
+	
+	cost = 8
+	mutually_exclusive = {
+		focus = IRE_1937_elections
+		focus = IRE_invoke_emergency_powers
+	}
+	
+    completion_reward = {
+        country_event = {
+			id = ireland.13
+			hours = 6
+		}
+		hidden_effect = {
+			country_event = {
+				id = ireland.17
+				days = 7
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+    id = IRE_labour_party
+	icon = GFX_IRE_labour_party
+	
+    x = -4
+	y = 1
+	
+	available = {
+		has_country_flag = IRE_labour_victory
+	}
+	
+	cost = 8
+	relative_position_id = IRE_1937_elections
+	prerequisite = {
+		focus = IRE_1937_elections
+	}
+	mutually_exclusive = {
+		focus = IRE_dile_saor
+		focus = IRE_na_chead_laochra
+	}
+	
+    completion_reward = {
+        country_event = {
+			id = ireland.9
+			hours = 6
+		}
+		hidden_effect = {
+			country_event = {
+				id = ireland.17
+				days = 7
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_dile_saor
+	icon = GFX_IRE_dile_saor
+	
+    x = -2
+	y = 1
+	
+	available = {
+		has_country_flag = IRE_dile_saor_victory
+	}
+	
+	cost = 8
+	relative_position_id = IRE_1937_elections
+	prerequisite = {
+		focus = IRE_1937_elections
+	}
+	mutually_exclusive = {
+		focus = IRE_labour_party
+		focus = IRE_na_chead_laochra
+	}
+	
+    completion_reward = {
+        country_event = {
+			id = ireland.10
+			hours = 6
+		}
+		hidden_effect = {
+			country_event = {
+				id = ireland.17
+				days = 7
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_na_chead_laochra
+	icon = GFX_IRE_na_chead_laochra
+	
+    x = 2
+	y = 1
+	
+	available = {
+		has_country_flag = IRE_laochra_victory
+	}
+	
+	cost = 8
+	relative_position_id = IRE_1937_elections
+	prerequisite = {
+		focus = IRE_1937_elections
+	}
+	mutually_exclusive = {
+		focus = IRE_labour_party
+		focus = IRE_dile_saor
+	}
+	
+    completion_reward = {
+        country_event = {
+			id = ireland.11
+			hours = 6
+		}
+		hidden_effect = {
+			country_event = {
+				id = ireland.17
+				days = 7
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_nationwide_crackdown
+	icon = GFX_focus_generic_full_social_mobilization
+	
+    x = 0
+	y = 1
+	
+	cost = 8
+	relative_position_id = IRE_invoke_emergency_powers
+	prerequisite = {
+		focus = IRE_invoke_emergency_powers
+	}
+    completion_reward = {
+        add_stability = 0.025
+		add_political_power = -25
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_STABILITY
+	}
+}
+
+shared_focus = {
+    id = IRE_democratise_the_republic
+	icon = GFX_focus_generic_improve_the_administration
+	
+    x = -1
+	y = 1
+	
+	cost = 8
+	relative_position_id = IRE_labour_party
+	prerequisite = {
+		focus = IRE_labour_party
+	}
+    completion_reward = {
+        set_temp_variable = { temp = party_popularity@national_conservatism }
+		multiply_temp_variable = { temp = -1 }
+		multiply_temp_variable = { temp = 0.25 }
+        add_popularity = {
+			ideology = national_conservatism
+			popularity = temp
+		}
+		add_political_power = 100
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+    id = IRE_end_the_trade_war
+	icon = GFX_goal_generic_positive_trade_relations
+	
+    x = 1
+	y = 1
+	
+	cost = 8
+	relative_position_id = IRE_labour_party
+	prerequisite = {
+		focus = IRE_labour_party
+		focus = IRE_dile_saor
+	}
+    completion_reward = {
+        swap_ideas = {
+			remove_idea = IRE_anglo_irish_trade_war
+			add_idea = IRE_waning_trade_war
+			days = 60
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_irish_diaspora
+	icon = GFX_IRE_irish_diaspora
+	
+    x = 1
+	y = 1
+	
+	cost = 8
+	relative_position_id = IRE_dile_saor
+	prerequisite = {
+		focus = IRE_dile_saor
+	}
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_wind_down_the_trade_war
+	icon = GFX_IRE_wind_down_the_trade_war
+	
+    x = -1
+	y = 1
+	
+	cost = 8
+	relative_position_id = IRE_na_chead_laochra
+	prerequisite = {
+		focus = IRE_na_chead_laochra
+	}
+    completion_reward = {
+        swap_ideas = {
+			remove_idea = IRE_anglo_irish_trade_war
+			add_idea = IRE_waning_trade_war
+			days = 180
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_hyde_the_martyr
+	icon = GFX_IRE_hyde_the_martyr
+	
+    x = 1
+	y = 1
+	
+	cost = 8
+	relative_position_id = IRE_na_chead_laochra
+	prerequisite = {
+		focus = IRE_na_chead_laochra
+		focus = IRE_nationwide_crackdown
+	}
+    completion_reward = {
+        add_stability = 0.05
+		add_political_power = 100
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_STABILITY
+	}
+}
+
+shared_focus = {
+    id = IRE_expand_popular_support
+	icon = GFX_IRE_expand_popular_support
+	
+    x = -1
+	y = 1
+	
+	cost = 8
+	relative_position_id = IRE_aca_coup
+	prerequisite = {
+		focus = IRE_aca_coup
+	}
+    completion_reward = {
+        add_popularity = {
+			ideology = authoritarian_democracy
+			popularity = 0.01
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+    id = IRE_contacts_in_the_ira
+	icon = GFX_goal_generic_dangerous_deal
+	
+    x = 1
+	y = 1
+	
+	cost = 8
+	relative_position_id = IRE_aca_coup
+	prerequisite = {
+		focus = IRE_aca_coup
+	}
+    completion_reward = {
+		custom_effect_tooltip = IRE_contacts_in_the_ira_tt
+		unlock_decision_tooltip = IRE_arm_the_ira
+		unlock_decision_tooltip = IRE_joint_operation_against_ica
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_ties_with_sinn_fein
+	icon = GFX_IRE_ties_with_sinn_fein
+	
+    x = 3
+	y = 1
+	
+	cost = 8
+	relative_position_id = IRE_aca_coup
+	prerequisite = { focus = IRE_aca_coup }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_secular_government
+	icon = GFX_IRE_secular_government
+	
+    x = -1
+	y = 1
+	
+	cost = 8
+	relative_position_id = IRE_democratise_the_republic
+	prerequisite = {
+		focus = IRE_democratise_the_republic
+	}
+    completion_reward = {
+		add_stability = 0.05
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_STABILITY
+	}
+}
+
+shared_focus = {
+    id = IRE_improve_safety_regulations
+	icon = GFX_goal_generic_construction2
+	
+    x = -1
+	y = 1
+	
+	cost = 8
+	relative_position_id = IRE_end_the_trade_war
+	prerequisite = {
+		focus = IRE_end_the_trade_war
+	}
+	
+    completion_reward = {
+        add_stability = 0.025
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_STABILITY
+	}
+}
+
+shared_focus = {
+    id = IRE_irish_progressivism
+	icon = GFX_IRE_irish_progressivism
+	
+    x = 1
+	y = 1
+	
+	cost = 8
+	relative_position_id = IRE_end_the_trade_war
+	prerequisite = {
+		focus = IRE_end_the_trade_war
+	}
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_open_up_to_foreign_investment
+	icon = GFX_goal_generic_consumer_goods
+	
+    x = 1
+	y = 1
+	
+	cost = 8
+	relative_position_id = IRE_irish_diaspora
+	prerequisite = {
+		focus = IRE_irish_diaspora
+	}
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_fan_irish_nationalism
+	icon = GFX_goal_generic_demand_territory
+	
+    x = 1
+	y = 1
+	
+	cost = 8
+	relative_position_id = IRE_wind_down_the_trade_war
+	prerequisite = {
+		focus = IRE_wind_down_the_trade_war
+	}
+	prerequisite = {
+		focus = IRE_hyde_the_martyr
+	}
+    completion_reward = {
+        add_stability = 0.05
+		add_war_support = 0.05
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_reform_the_twelve_apostles
+	icon = GFX_focus_generic_secret_service_agency
+	
+    x = 0
+	y = 2
+	
+	cost = 8
+	relative_position_id = IRE_nationwide_crackdown
+	prerequisite = {
+		focus = IRE_nationwide_crackdown
+	}
+    completion_reward = {
+		add_political_power = 50
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = IRE_liam_tobin
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_expand_welfare
+	icon = GFX_IRE_expand_welfare
+	
+    x = 1
+	y = 1
+	
+	cost = 8
+	relative_position_id = IRE_secular_government
+	prerequisite = {
+		focus = IRE_secular_government
+	}
+	prerequisite = {
+		focus = IRE_improve_safety_regulations
+	}
+    completion_reward = {
+        ECON_poverty_change_medium = yes
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_power_to_the_dail
+	icon = GFX_IRE_power_to_the_dail
+	
+    x = 1
+	y = 1
+	
+	cost = 8
+	relative_position_id = IRE_improve_safety_regulations
+	prerequisite = {
+		focus = IRE_improve_safety_regulations
+	}
+	prerequisite = {
+		focus = IRE_irish_progressivism
+	}
+	
+    completion_reward = {
+        add_stability = 0.05
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_rapid_industrialisation
+	icon = GFX_focus_generic_hydroelectric_energy
+	
+    x = -1
+	y = 1
+	
+	cost = 8
+	relative_position_id = IRE_open_up_to_foreign_investment
+	prerequisite = {
+		focus = IRE_open_up_to_foreign_investment
+	}
+	prerequisite = {
+		focus = IRE_irish_progressivism
+	}
+    completion_reward = {
+        113 = {
+			add_building_construction = {
+				type = 	industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		134 = {
+			add_building_construction = {
+				type = 	industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		ECON_poverty_change_small = yes
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_church_and_state
+	icon = GFX_IRE_church_and_state
+	
+    x = -1
+	y = 1
+	
+	cost = 8
+	relative_position_id = IRE_fan_irish_nationalism
+	prerequisite = {
+		focus = IRE_fan_irish_nationalism
+	}
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_secure_the_dail
+	icon = GFX_focus_generic_self_management
+	
+    x = -1
+	y = 1
+	
+	cost = 8
+	relative_position_id = IRE_reform_the_twelve_apostles
+	prerequisite = {
+		focus = IRE_reform_the_twelve_apostles
+	}
+    completion_reward = {
+		set_temp_variable = { temp = party_popularity@social_democracy }
+		multiply_temp_variable = { temp = -1 }
+		multiply_temp_variable = { temp = 0.25 }
+        add_popularity = {
+			ideology = social_democracy
+			popularity = temp
+		}
+		
+		set_temp_variable = { temp = party_popularity@progressive_liberalism }
+		multiply_temp_variable = { temp = -1 }
+		multiply_temp_variable = { temp = 0.25 }
+        add_popularity = {
+			ideology = progressive_liberalism
+			popularity = temp
+		}
+		
+		country_event = {
+			id = ireland.14
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_hem_in_the_press
+	icon = GFX_focus_renounce_the_treaty_of_trianon
+	
+    x = 1
+	y = 1
+	
+	cost = 8
+	relative_position_id = IRE_reform_the_twelve_apostles
+	prerequisite = {
+		focus = IRE_reform_the_twelve_apostles
+	}
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_forgetting_division
+	icon = GFX_goal_support_democracy
+	
+    x = 2
+	y = 1
+	
+	available = {
+		has_stability > 0.5
+	}
+	
+	cost = 8
+	relative_position_id = IRE_expand_welfare
+	prerequisite = {
+		focus = IRE_power_to_the_dail
+	}
+	prerequisite = {
+		focus = IRE_expand_welfare
+		focus = IRE_rapid_industrialisation
+	}
+    completion_reward = {
+        swap_ideas = {
+			remove_idea = IRE_paramilitary_violence
+			add_idea = IRE_waning_paramilitary_violence
+			days = 180
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_father_of_irish_conservatism
+	icon = GFX_IRE_father_of_irish_conservatism
+	
+    x = 1
+	y = 1
+	
+	cost = 8
+	relative_position_id = IRE_church_and_state
+	prerequisite = {
+		focus = IRE_church_and_state
+		focus = IRE_secure_the_dail
+		focus = IRE_hem_in_the_press
+	}
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_alliance_with_the_blueshirts
+	icon = GFX_IRE_alliance_with_the_blueshirts
+	
+    x = 1
+	y = 1
+	
+	cost = 8
+	relative_position_id = IRE_secure_the_dail
+	prerequisite = {
+		focus = IRE_church_and_state
+		focus = IRE_secure_the_dail
+		focus = IRE_hem_in_the_press
+	}
+	
+    completion_reward = {
+        add_stability = 0.05
+		add_popularity = {
+			ideology = ultraconservatism
+			popularity = 0.02
+		}
+		add_ultracon_coalition = yes
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = IRE_who_else_but_mick
+	icon = GFX_IRE_who_else_but_mick
+	
+    x = 1
+	y = 1
+	
+	cost = 8
+	relative_position_id = IRE_father_of_irish_conservatism
+	prerequisite = {
+		focus = IRE_father_of_irish_conservatism
+	}
+	prerequisite = {
+		focus = IRE_alliance_with_the_blueshirts
+	}
+	
+    completion_reward = {
+        swap_ideas = {
+			remove_idea = IRE_paramilitary_violence
+			add_idea = IRE_waning_paramilitary_violence
+			days = 180
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
 ### ARMY TREE ###
 
 shared_focus = {
     id = IRE_an_tarm
 	icon = GFX_IRE_an_tarm
 	
-    x = 20
+    x = 24
 	y = 0
 	cost = 8
 	
@@ -958,6 +1329,10 @@ shared_focus = {
     x = 1
 	y = 1
 	cost = 8
+	
+	available = {
+		controls_state = 857
+	}
 	
 	relative_position_id = IRE_an_tarm
 	prerequisite = {
@@ -1060,6 +1435,16 @@ shared_focus = {
 			uses = 1
 			category = armor
 		}
+		if = {
+			limit = {
+				has_dlc_aat = yes
+			}
+			add_equipment_subsidy = {
+				cic = 300
+				equipment_type = light_tank_chassis
+				seller_trigger = major_arms_producer
+			}
+		}
     }
 	
 	ai_will_do = {
@@ -1117,7 +1502,7 @@ shared_focus = {
 
 shared_focus = {
     id = IRE_expand_military_industry
-	icon = GFX_IRE_expand_military_industry
+	icon = GFX_goal_generic_construct_mil_factory
 	
     x = 1
 	y = 1
@@ -1176,7 +1561,7 @@ shared_focus = {
     id = IRE_an_taerchor
 	icon = GFX_IRE_an_taerchor
 	
-    x = 24
+    x = 28
 	y = 0
 	cost = 8
 	
@@ -1237,13 +1622,34 @@ shared_focus = {
 	}
 }
 
+shared_focus = {
+    id = IRE_domestic_aircraft_industry
+	icon = GFX_IRE_domestic_aircraft_industry
+	
+    x = 1
+	y = 1
+	cost = 8
+	
+	relative_position_id = IRE_purchase_foreign_designs
+	prerequisite = { focus = IRE_purchase_foreign_designs }
+	prerequisite = { focus = IRE_expand_airfields }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
 ### NAVY TREE ###
 
 shared_focus = {
     id = IRE_an_tseirbhis_chabhlaigh
 	icon = GFX_IRE_an_tseirbhis_chabhlaigh
 	
-    x = 28
+    x = 32
 	y = 0
 	cost = 8
 	

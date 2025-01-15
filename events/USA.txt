@@ -4,6 +4,7 @@ add_namespace = united_states_intervention
 add_namespace = united_states_flavor
 add_namespace = united_states_designer
 add_namespace = united_states_mproject
+add_namespace = united_states_supreme_court
 
 country_event = { # intro event
 	id = united_states.1
@@ -62,11 +63,28 @@ country_event = { # 1936 spa convention - choosing veep
 	
 	fire_only_once = yes
 	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = USA_thomas_renominated
+		}
+	}
+	
 	option = {
 		name = united_states.4.a
 		custom_effect_tooltip = USA_henry_wallace_veep_tt
 		set_country_flag = USA_1936_henry_wallace_hog
-		
+		if = {
+			limit = {
+				has_power_balance = {
+					id = USA_socialist_party_balance
+				}
+			}
+			add_power_balance_value = {
+				id = USA_socialist_party_balance
+				value = 0.1
+				tooltip_side = USA_right_side
+			}
+		}
 		ai_chance = {
 			base = 8
 		}
@@ -76,97 +94,120 @@ country_event = { # 1936 spa convention - choosing veep
 		name = united_states.4.b
 		custom_effect_tooltip = USA_earl_browder_veep_tt
 		set_country_flag = USA_1936_earl_browder_hog
-		
+		if = {
+			limit = {
+				has_power_balance = {
+					id = USA_socialist_party_balance
+				}
+			}
+			add_power_balance_value = {
+				id = USA_socialist_party_balance
+				value = 0.1
+				tooltip_side = USA_left_side
+			}
+		}
 		ai_chance = {
 			base = 2
 		}
 	}
 }
 
-country_event = {
+country_event = { # southern cotton strike - summer 1937
 	id = united_states.7
-	title = "A Jump in Unemployment!"
+	title = united_states.7.title
 	desc = united_states.7.desc
-	picture = GFX_report_event_unemployment
 	
-	trigger = {
-		NOT = {
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = united_states.8
+				days = 7
+			}
+		}
+	}
+
+	option = {
+		name = united_states.7.a
+		trigger = {
 			has_government = democratic_socialism
 		}
 	}
 	
-	is_triggered_only = yes
-	
-	fire_only_once = yes
-
 	option = {
-		name = "Damn."
-		country_event = {
-			id = united_states.8
-			days = 15
+		name = united_states.7.b
+		trigger = {
+			has_government = national_conservatism
 		}
 	}
 }
 
-country_event = {
+country_event = { # southern cotton strike - violence escalates
 	id = united_states.8
-	title = "Reduction in Manufacturing Output!"
+	title = united_states.8.title
 	desc = united_states.8.desc
-	picture = GFX_report_event_unemployment_2
 	
 	is_triggered_only = yes
 	
 	fire_only_once = yes
 
 	option = {
-		name = "Damn."
-		country_event = {
-			id = united_states.9
-			days = 15
-		}
-	}
-}
-
-country_event = {
-	id = united_states.9
-	title = "Recession!"
-	desc = united_states.9.desc
-	picture = GFX_report_event_usa_election_generic
-	
-	is_triggered_only = yes
-	
-	fire_only_once = yes
-
-	option = {
-		name = "We were doing so well..."
-		set_country_flag = USA_1937_recession
-		worsen_great_depression = yes
-		
-		#mark_focus_tree_layout_dirty = yes
-		
-		add_stability = -0.05
-		
+		name = united_states.8.a
+		add_stability = -0.025
+		add_manpower = -32
 		hidden_effect = {
 			country_event = {
-				id = united_states.10
+				id = united_states.9
+				days = 7
 			}
 		}
 	}
 }
 
-news_event = { # recession world event
+country_event = { # southern cotton strike - strike broken
+	id = united_states.9
+	title = united_states.9.title
+	desc = united_states.9.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states.9.a
+		hidden_effect = {
+			country_event = {
+				id = united_states.10
+				days = 14
+			}
+		}
+	}
+}
+
+country_event = { # southern cotton strike - aftermath
 	id = united_states.10
-	title = "United States Enters Recession!"
+	title = united_states.10.title
 	desc = united_states.10.desc
 	
 	is_triggered_only = yes
 	
 	fire_only_once = yes
-	
-	major = yes
 
 	option = {
-		name = "All that hard work..."
+		name = united_states.10.a
+		trigger = {
+			has_government = democratic_socialism
+		}
+	}
+	
+	option = {
+		name = united_states.10.b
+		trigger = {
+			has_government = national_conservatism
+		}
 	}
 }
 
@@ -370,6 +411,36 @@ country_event = { # 1940 spa convention - veep
 		}
 		ai_chance = {
 			base = 5
+		}
+	}
+}
+
+country_event = { # poverty threshold met, improve gd spirit
+	id = united_states.15
+	title = united_states.15.title
+	desc = united_states.15.desc
+	
+	is_triggered_only = yes
+
+	option = {
+		name = united_states.15.a
+		improve_great_depression = yes
+	}
+}
+
+country_event = { # florida senator dies, both seats up for election
+	id = united_states.16
+	title = united_states.16.title
+	desc = united_states.16.desc
+	
+	is_triggered_only = yes
+
+	option = {
+		name = united_states.16.a
+		366 = {
+			custom_effect_tooltip = special_election_both_tt
+			set_state_flag = elections_senator_1
+			set_state_flag = elections_senator_2
 		}
 	}
 }
@@ -667,7 +738,16 @@ country_event = { # boulder dam
 	option = {
 		name = united_states_flavor.1.a
 		379 = {
-			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = dam_mountain
+				level = 1
+				province = 4799
+				instant_build = yes
+			}
+			custom_effect_tooltip = {
+				localization_key = building_state_modifier|dam_mountain
+				INDENT = "    "
+			}
 			add_to_variable = { socialist_popularity = 0.05 }
 		}
 	}
@@ -946,6 +1026,28 @@ country_event = { # lindbergh returns to the US
 	}
 }
 
+country_event = { # united pacifist committee
+	id = united_states_flavor.13
+	title = united_states_flavor.13.title
+	desc = united_states_flavor.13.desc
+	
+	trigger = {
+		threat > 0.4 # fire when world tension starts getting high
+	}
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_flavor.13.a
+		add_war_support = -0.01
+	}
+	
+	option = {
+		name = united_states_flavor.13.b
+		add_war_support = -0.01
+	}
+}
+
 country_event = { # mexico ablaze
 	id = united_states_intervention.1
 	title = united_states_intervention.1.title
@@ -1125,5 +1227,227 @@ country_event = { #
 
 	option = {
 		name = united_states_mproject.6.a
+	}
+}
+
+### Supreme Court ###
+
+country_event = { # generic justice retires
+	id = united_states_supreme_court.1
+	title = united_states_supreme_court.1.title
+	desc = united_states_supreme_court.1.desc
+	picture = GFX_report_event_white_house
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = {
+			has_country_flag = USA_senate_elections
+			has_country_flag = USA_justice_retired
+			date < 1937.1.1
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			USA_calc_sc_nomination_cost = yes
+		}
+	}
+
+	option = { # nominate reformist
+		name = united_states_supreme_court.1.a
+		add_political_power = var:USA_reformist_cost
+		add_to_variable = {
+			tooltip = USA_court_lean_more_reformist
+			var = supreme_court_lean
+			value = 3
+		}
+		USA_clamp_supreme_court = yes
+	}
+	
+	option = { # nominate centrist
+		name = united_states_supreme_court.1.b
+		trigger = {
+			NOT = {
+				check_variable = { supreme_court_lean = 0 }
+			}
+		}
+		add_political_power = var:USA_centrist_cost
+		if = {
+			limit = {
+				check_variable = { supreme_court_lean < 0 }
+			}
+			add_to_variable = {
+				tooltip = USA_court_lean_more_reformist
+				var = supreme_court_lean
+				value = 2
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { supreme_court_lean > 0 }
+			}
+			add_to_variable = {
+				tooltip = USA_court_lean_more_conservative
+				var = supreme_court_lean
+				value = 2
+			}
+		}
+		USA_clamp_supreme_court = yes
+	}
+	
+	option = { # nominate conservative
+		name = united_states_supreme_court.1.c
+		add_political_power = var:USA_conservative_cost
+		add_to_variable = {
+			tooltip = USA_court_lean_more_conservative
+			var = supreme_court_lean
+			value = -3
+		}
+		USA_clamp_supreme_court = yes
+	}
+}
+
+country_event = { # chief justice devanter retires
+	id = united_states_supreme_court.2
+	title = united_states_supreme_court.2.title
+	desc = united_states_supreme_court.2.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			USA_calc_sc_nomination_cost = yes
+		}
+	}
+
+	option = { # nominate reformist
+		name = united_states_supreme_court.2.a
+		add_political_power = var:USA_reformist_cost
+		add_to_variable = {
+			tooltip = USA_court_lean_more_reformist
+			var = supreme_court_lean
+			value = 3
+		}
+		USA_clamp_supreme_court = yes
+	}
+	
+	option = { # nominate centrist
+		name = united_states_supreme_court.2.b
+		trigger = {
+			NOT = {
+				check_variable = { supreme_court_lean = 0 }
+			}
+		}
+		add_political_power = var:USA_centrist_cost
+		if = {
+			limit = {
+				check_variable = { supreme_court_lean < 0 }
+			}
+			add_to_variable = {
+				tooltip = USA_court_lean_more_reformist
+				var = supreme_court_lean
+				value = 2
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { supreme_court_lean > 0 }
+			}
+			add_to_variable = {
+				tooltip = USA_court_lean_more_conservative
+				var = supreme_court_lean
+				value = 2
+			}
+		}
+		USA_clamp_supreme_court = yes
+	}
+	
+	option = { # nominate conservative
+		name = united_states_supreme_court.2.c
+		add_political_power = var:USA_conservative_cost
+		add_to_variable = {
+			tooltip = USA_court_lean_more_conservative
+			var = supreme_court_lean
+			value = -3
+		}
+		USA_clamp_supreme_court = yes
+	}
+}
+
+country_event = { # chief justice devanter dies ~1941
+	id = united_states_supreme_court.3
+	title = united_states_supreme_court.3.title
+	desc = united_states_supreme_court.3.desc
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = {
+			has_country_flag = USA_van_devanter_retired
+		}
+	}
+	
+	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			USA_calc_sc_nomination_cost = yes
+			set_country_flag = USA_van_devanter_retired
+		}
+	}
+
+	option = { # nominate reformist
+		name = united_states_supreme_court.3.a
+		add_political_power = var:USA_reformist_cost
+		add_to_variable = {
+			tooltip = USA_court_lean_more_reformist
+			var = supreme_court_lean
+			value = 3
+		}
+		USA_clamp_supreme_court = yes
+	}
+	
+	option = { # nominate centrist
+		name = united_states_supreme_court.3.b
+		trigger = {
+			NOT = {
+				check_variable = { supreme_court_lean = 0 }
+			}
+		}
+		add_political_power = var:USA_centrist_cost
+		if = {
+			limit = {
+				check_variable = { supreme_court_lean < 0 }
+			}
+			add_to_variable = {
+				tooltip = USA_court_lean_more_reformist
+				var = supreme_court_lean
+				value = 2
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { supreme_court_lean > 0 }
+			}
+			add_to_variable = {
+				tooltip = USA_court_lean_more_conservative
+				var = supreme_court_lean
+				value = 2
+			}
+		}
+		USA_clamp_supreme_court = yes
+	}
+	
+	option = { # nominate conservative
+		name = united_states_supreme_court.3.c
+		add_political_power = var:USA_conservative_cost
+		add_to_variable = {
+			tooltip = USA_court_lean_more_conservative
+			var = supreme_court_lean
+			value = -3
+		}
+		USA_clamp_supreme_court = yes
 	}
 }

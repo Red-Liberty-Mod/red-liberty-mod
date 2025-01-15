@@ -1,0 +1,456 @@
+shared_focus = {
+    id = ARG_ucr_victory
+	icon = GFX_focus_ARG_the_clean_election
+	
+    x = 13
+	cost = 4
+	
+	available = {
+		has_country_flag = ARG_ucr_victory_flag
+	}
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_purge_the_military
+	icon = GFX_focus_SOV_military_purge
+	
+    x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = ARG_ucr_victory
+	prerequisite = { focus = ARG_ucr_victory }
+	
+    completion_reward = {
+		add_ideas = ARG_purged_officer_corps_1
+		unlock_decision_category_tooltip = ARG_rebuilding_officer_corps_category
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_unify_the_party
+	icon = GFX_goal_generic_national_unity
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = ARG_ucr_victory
+	prerequisite = { focus = ARG_ucr_victory }
+	
+    completion_reward = {
+		add_political_power = 75
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_expand_heavy_industry
+	icon = GFX_focus_generic_modernize_industry
+	
+    x = -2
+	y = 1
+	cost = 4
+	
+	relative_position_id = ARG_purge_the_military
+	prerequisite = { focus = ARG_purge_the_military }
+	prerequisite = { focus = ARG_unify_the_party }
+	
+    completion_reward = {
+		random_owned_state = {
+			limit = {
+				is_urban_state = yes
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_state = {
+			limit = {
+				is_rural_state = yes
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_land_to_the_tiller
+	icon = GFX_focus_generic_farmland
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = ARG_purge_the_military
+	prerequisite = { focus = ARG_purge_the_military }
+	prerequisite = { focus = ARG_unify_the_party }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_ucr_electoral_sanitation
+	icon = GFX_ARG_ucr_electoral_sanitation
+	
+    x = 6
+	y = 1
+	cost = 4
+	
+	relative_position_id = ARG_purge_the_military
+	prerequisite = { focus = ARG_purge_the_military }
+	prerequisite = { focus = ARG_unify_the_party }
+	
+    completion_reward = {
+		add_stability = 0.075
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_resource_nationalization
+	icon = GFX_ARG_ucr_electoral_sanitation
+	
+    x = -2
+	y = 1
+	cost = 4
+	
+	relative_position_id = ARG_land_to_the_tiller
+	prerequisite = { focus = ARG_land_to_the_tiller }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_reject_yrigoyenism
+	icon = GFX_focus_ARG_alvears_democracy
+	
+    x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = ARG_land_to_the_tiller
+	prerequisite = { focus = ARG_land_to_the_tiller }
+	mutually_exclusive = { focus = ARG_embrace_his_memory }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_embrace_his_memory
+	icon = GFX_focus_ARG_in_memory_of_yrigoyen
+	
+    x = 2
+	y = 1
+	cost = 4
+	
+	available = {
+		NOT = {
+			has_country_flag = ARG_ucr_rejected_yrigoyen
+		}
+	}
+	
+	relative_position_id = ARG_land_to_the_tiller
+	prerequisite = { focus = ARG_land_to_the_tiller }
+	mutually_exclusive = { focus = ARG_reject_yrigoyenism }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_absorb_cordoba_radicals
+	icon = GFX_ARG_absorb_cordoba_radicals
+	
+    x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = ARG_ucr_electoral_sanitation
+	prerequisite = { focus = ARG_ucr_electoral_sanitation }
+	
+    completion_reward = {
+		add_popularity = {
+			ideology = progressive_liberalism
+			popularity = 0.025
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_crackdown_on_corruption
+	icon = GFX_focus_ARG_anti_corruption_policies
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = ARG_ucr_electoral_sanitation
+	prerequisite = { focus = ARG_ucr_electoral_sanitation }
+	
+    completion_reward = {
+		add_political_power = 100
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_protect_small_businesses
+	icon = GFX_ARG_protect_small_businesses
+	
+    x = 0
+	y = 2
+	cost = 4
+	
+	relative_position_id = ARG_expand_heavy_industry
+	prerequisite = { focus = ARG_expand_heavy_industry }
+	
+    completion_reward = {
+		random_owned_state = {
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_state = {
+			add_extra_state_shared_building_slots = 1
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_public_works
+	icon = GFX_focus_generic_public_works
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = ARG_resource_nationalization
+	prerequisite = { focus = ARG_resource_nationalization }
+	
+    completion_reward = {
+		add_ideas = ARG_public_works_programme
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_establish_minimum_wage
+	icon = GFX_ARG_public_works
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = ARG_reject_yrigoyenism
+	prerequisite = {
+		focus = ARG_reject_yrigoyenism
+		focus = ARG_embrace_his_memory
+	}
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_socialist_allies
+	icon = GFX_ARG_socialist_allies
+	
+    x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = ARG_absorb_cordoba_radicals
+	prerequisite = { focus = ARG_absorb_cordoba_radicals }
+	
+    completion_reward = {
+		add_demsoc_coalition = yes
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_dissolve_the_leagues
+	icon = GFX_ARG_dissolve_the_leagues
+	
+    x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = ARG_crackdown_on_corruption
+	prerequisite = { focus = ARG_crackdown_on_corruption }
+	
+    completion_reward = {
+		add_popularity = {
+			ideology = ultraconservatism
+			popularity = -0.025
+		}
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.025
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_argentine_welfare_fund
+	icon = GFX_ARG_argentine_welfare_fund
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = ARG_protect_small_businesses
+	prerequisite = { focus = ARG_protect_small_businesses }
+	prerequisite = { focus = ARG_public_works }
+	
+    completion_reward = {
+		add_ideas = ARG_welfare_fund
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_extend_democracy
+	icon = GFX_ARG_extend_democracy
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = ARG_establish_minimum_wage
+	prerequisite = { focus = ARG_establish_minimum_wage }
+	prerequisite = { focus = ARG_socialist_allies }
+	prerequisite = { focus = ARG_dissolve_the_leagues }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_integrate_national_territories
+	icon = GFX_ARG_integrate_national_territories
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = ARG_socialist_allies
+	prerequisite = { focus = ARG_socialist_allies }
+	prerequisite = { focus = ARG_dissolve_the_leagues }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_miracle_on_the_river_plate
+	icon = GFX_focus_ARG_towards_a_greater_argentina
+	
+    x = 2
+	y = 1
+	cost = 4
+	
+	relative_position_id = ARG_argentine_welfare_fund
+	prerequisite = { focus = ARG_argentine_welfare_fund }
+	prerequisite = { focus = ARG_extend_democracy }
+	prerequisite = { focus = ARG_integrate_national_territories }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}

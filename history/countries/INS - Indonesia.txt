@@ -1,6 +1,6 @@
 ﻿capital = 335 #Jakarta
 
-oob = "INS_1936"
+oob = "INS"
 
 set_research_slots = 2
 
@@ -8,13 +8,15 @@ set_research_slots = 2
 # clone of Holland
 set_technology = {
 	infantry_weapons = 1
+	infantry_weapons1 = 1
 	tech_support = 1		
 	tech_recon = 1
-	early_fighter = 1
-	early_bomber = 1
+	gw_artillery = 1
+	interwar_antiair = 1
 	
-	transport = 1
 	fuel_silos = 1
+	fuel_refining = 1
+	marines = 1
 }
 
 if = {
@@ -67,31 +69,16 @@ set_popularities = {
 	fascism = 5
 }
 
+add_ideas = {
+	INS_economic_malaise
+	INS_vorstenlanden
+}
+
 set_cosmetic_tag = INS_HOL # Netherlands East Indies
 
-create_country_leader = {
-	name = "Bonifacius Cornelis de Jonge"
-	desc = ""
-	picture = "gfx/leaders/INS/Portrait_INS_Bonifacius_de_Jonge.png"
-	expire = "1953.3.1"
-	ideology = authoritarian_democracy_subtype 
-	traits = {
-		
-	}
-}
-
-if = {
-	limit = {
-		has_dlc = "Man the Guns"
-	}
-	create_field_marshal = {
-		name = "Hein ter Poorten"
-		gfx = "GFX_portrait_hol_hein_ter_poorten"
-		traits = { inspirational_leader logistics_wizard }
-		skill = 3
-		attack_skill = 2
-		defense_skill = 3
-		planning_skill = 2
-		logistics_skill = 3
-	}
-}
+### LEADERS ###
+recruit_character = INS_munawar_musso
+recruit_character = INS_liem_koen_hian
+recruit_character = INS_hok_hoei_kan
+recruit_character = INS_bonifacius_cornelis_de_jonge
+recruit_character = INS_henri_carel_zentgraff

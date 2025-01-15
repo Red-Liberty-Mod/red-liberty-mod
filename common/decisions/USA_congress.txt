@@ -21,8 +21,7 @@ USA_congress = {
 		icon = ger_mefo_bills
 		available = {
 			NOT = {
-				has_country_flag = debug_bill_passed
-				has_country_flag = USA_discussing_bill
+				#has_country_flag = debug_bill_passed
 			}
 			is_debug = yes
 		}
@@ -48,8 +47,9 @@ USA_congress = {
 		available = {
 			NOT = {
 				has_country_flag = social_security_passed
+				has_country_flag = USA_lame_duck_period
 			}
-			has_completed_focus = USA_of_poverty
+			has_completed_focus = USA_social_security_act
 		}
 		
 		visible = {
@@ -58,7 +58,7 @@ USA_congress = {
 				has_country_flag = USA_discussing_bill
 				has_country_flag = social_security_passed
 			}
-			has_completed_focus = USA_the_thomas_admin
+			has_focus_tree = USA_thomas_tree
 		}
 		
 		cost = 0
@@ -77,8 +77,9 @@ USA_congress = {
 		available = {
 			NOT = {
 				has_country_flag = ban_kkk_act_passed
+				has_country_flag = USA_lame_duck_period
 			}
-			has_completed_focus = USA_itll_never_happen_here
+			#has_completed_focus = USA_itll_never_happen_here
 			
 		}
 		
@@ -88,7 +89,8 @@ USA_congress = {
 				has_country_flag = USA_discussing_bill
 				has_country_flag = ban_kkk_act_passed
 			}
-			has_completed_focus = USA_the_thomas_admin
+			has_focus_tree = USA_thomas_tree
+			always = no
 		}
 		
 		cost = 0
@@ -111,6 +113,7 @@ USA_congress = {
 		available = {
 			NOT = {
 				has_country_flag = voting_rights_act_passed
+				has_country_flag = USA_lame_duck_period
 			}
 			has_completed_focus = USA_voting_rights_act
 			
@@ -145,6 +148,7 @@ USA_congress = {
 		available = {
 			NOT = {
 				has_country_flag = reorg_act_passed
+				has_country_flag = USA_lame_duck_period
 			}
 			has_completed_focus = USA_reorg_act
 		}
@@ -155,7 +159,7 @@ USA_congress = {
 				has_country_flag = USA_discussing_bill
 				has_country_flag = reorg_act_passed
 			}
-			has_completed_focus = USA_the_thomas_admin
+			has_focus_tree = USA_thomas_tree
 		}
 		
 		cost = 0
@@ -176,6 +180,7 @@ USA_congress = {
 		available = {
 			NOT = {
 				has_country_flag = farm_tenant_act_passed
+				has_country_flag = USA_lame_duck_period
 			}
 			has_completed_focus = USA_war_on_poverty
 		}
@@ -205,6 +210,7 @@ USA_congress = {
 		available = {
 			NOT = {
 				has_country_flag = court_packing_plan_passed
+				has_country_flag = USA_lame_duck_period
 			}
 			has_completed_focus = USA_strengthen_executive_branch
 			NOT = {
@@ -218,7 +224,7 @@ USA_congress = {
 				has_country_flag = court_packing_plan_passed
 				has_country_flag = USA_discussing_bill
 			}
-			has_completed_focus = USA_the_thomas_admin
+			has_focus_tree = USA_thomas_tree
 			NOT = {
 				has_completed_focus = USA_accept_the_rulings
 			}
@@ -242,6 +248,7 @@ USA_congress = {
 		available = {
 			NOT = {
 				has_country_flag = pension_act_passed
+				has_country_flag = USA_lame_duck_period
 			}
 			has_completed_focus = USA_war_on_poverty
 		}
@@ -271,6 +278,7 @@ USA_congress = {
 		available = {
 			NOT = {
 				has_country_flag = housing_act_passed
+				has_country_flag = USA_lame_duck_period
 			}
 			has_completed_focus = USA_war_on_poverty
 		}
@@ -300,6 +308,7 @@ USA_congress = {
 		available = {
 			NOT = {
 				has_country_flag = union_act_passed
+				has_country_flag = USA_lame_duck_period
 			}
 			has_completed_focus = USA_strengthen_executive_branch
 		}
@@ -310,7 +319,7 @@ USA_congress = {
 				has_country_flag = union_act_passed
 				has_country_flag = USA_discussing_bill
 			}
-			has_completed_focus = USA_the_thomas_admin
+			has_focus_tree = USA_thomas_tree
 		}
 		
 		cost = 0
@@ -331,6 +340,7 @@ USA_congress = {
 		available = {
 			NOT = {
 				has_country_flag = wealth_tax_act_passed
+				has_country_flag = USA_lame_duck_period
 			}
 			has_completed_focus = USA_paying_for_it_all
 		}
@@ -341,7 +351,7 @@ USA_congress = {
 				has_country_flag = wealth_tax_act_passed
 				has_country_flag = USA_discussing_bill
 			}
-			has_completed_focus = USA_the_thomas_admin
+			has_focus_tree = USA_thomas_tree
 		}
 		
 		cost = 0
@@ -360,6 +370,7 @@ USA_congress = {
 		available = {
 			NOT = {
 				has_country_flag = public_contracts_act_passed
+				has_country_flag = USA_lame_duck_period
 			}
 			has_completed_focus = USA_public_contracts_act
 		}
@@ -386,6 +397,7 @@ USA_congress = {
 		available = {
 			NOT = {
 				has_country_flag = equal_education_passed
+				has_country_flag = USA_lame_duck_period
 			}
 			has_completed_focus = USA_attempt_standardization
 		}
@@ -415,6 +427,7 @@ USA_congress = {
 		available = {
 			NOT = {
 				has_country_flag = economic_equality_passed
+				has_country_flag = USA_lame_duck_period
 			}
 			has_completed_focus = USA_economic_equality_act
 		}
@@ -446,6 +459,7 @@ USA_congress = {
 		available = {
 			NOT = {
 				has_country_flag = national_healthcare_passed
+				has_country_flag = USA_lame_duck_period
 			}
 			has_completed_focus = USA_national_healthcare_act
 		}
@@ -478,6 +492,7 @@ USA_congress = {
 		available = {
 			NOT = {
 				has_country_flag = second_bill_of_rights_passed
+				has_country_flag = USA_lame_duck_period
 			}
 			has_completed_focus = USA_second_bill_of_rights
 		}
@@ -511,6 +526,7 @@ USA_congress = {
 				686 = {
 					is_core_of = USA
 				}
+				has_country_flag = USA_lame_duck_period
 			}
 			has_country_flag = USA_pr_state_available
 		}
@@ -537,6 +553,7 @@ USA_congress = {
 		available = {
 			NOT = {
 				has_country_flag = naval_act_passed
+				has_country_flag = USA_lame_duck_period
 			}
 			has_completed_focus = USA_the_naval_act
 		}
@@ -568,6 +585,7 @@ USA_congress = {
 		available = {
 			NOT = {
 				has_country_flag = two_ocean_navy_act_passed
+				has_country_flag = USA_lame_duck_period
 			}
 			has_completed_focus = USA_two_ocean_navy
 		}
@@ -594,6 +612,7 @@ USA_congress = {
 		available = {
 			NOT = {
 				has_country_flag = USA_discussing_bill
+				has_country_flag = USA_lame_duck_period
 			}
 			has_completed_focus = USA_europe_aflame
 		}
@@ -619,6 +638,7 @@ USA_congress = {
 		available = {
 			NOT = {
 				has_country_flag = USA_discussing_bill
+				has_country_flag = USA_lame_duck_period
 			}
 			has_completed_focus = USA_remove_the_profit
 		}
@@ -696,6 +716,7 @@ USA_congress = {
 		available = {
 			NOT = {
 				has_country_flag = USA_discussing_bill
+				has_country_flag = USA_lame_duck_period
 			}
 			has_completed_focus = USA_as_the_fathers_intended
 		}
@@ -1176,6 +1197,74 @@ USA_congress = {
 				}
 				USA_fascist_support_senate_eventless = yes
 				check_if_bill_passed = yes
+			}
+		}
+	}
+	
+	USA_backroom_dealing = {
+		
+		visible = {
+			AND = {
+				original_tag = USA
+				check_variable = { bill_id > 0 }
+			}
+			NOT = {
+				has_country_flag = USA_backroom_dealing_flag
+			}
+        }
+		
+		cost = 50
+       	
+		available = {
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = reps_fully_support
+					NOT = { check_variable = { USA_republican_bill_support = 1 } }
+				}
+				custom_trigger_tooltip = {
+					tooltip = dems_fully_support
+					NOT = { check_variable = { USA_democrat_bill_support = 1 } }
+				}
+			}
+		}
+		
+    	complete_effect = {
+			custom_effect_tooltip = USA_backroom_dealing_tt
+			set_country_flag = USA_backroom_dealing_flag
+			if = {
+				limit = {
+					has_country_flag = USA_bill_house_phase
+				}
+				random_list = {
+					50 = {
+						modifier = {
+							factor = 0
+							check_variable = { USA_republican_bill_support = 1 }
+						}
+						set_temp_variable_to_random = {
+							var = rand
+							min = 1
+							max = 4
+						}
+						round_temp_variable = rand
+						add_to_variable = { republican_supporting_reps = rand }
+						custom_effect_tooltip = USA_random_republican_support
+					}
+					50 = {
+						modifier = {
+							factor = 0
+							check_variable = { USA_democrat_bill_support = 1 }
+						}
+						set_temp_variable_to_random = {
+							var = rand
+							min = 1
+							max = 4
+						}
+						round_temp_variable = rand
+						add_to_variable = { democrat_supporting_reps = rand }
+						custom_effect_tooltip = USA_random_democrat_support
+					}
+				}
 			}
 		}
 	}

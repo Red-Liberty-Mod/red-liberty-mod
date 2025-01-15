@@ -1,5 +1,85 @@
 characters = {
-
+	
+	BRA_francisco_morato = {
+		name = BRA_francisco_morato
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_BRA_francisco_morato"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_FRANCISCO_MORATO_DESC"
+			ideology = liberal_conservatism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	BRA_getulio_vargas = {
+		name = BRA_getulio_vargas
+		
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BRA/Portrait_BRA_Getulio_Dornelles_Vargas.png"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_GETULIO_VARGAS_DESC"
+			ideology = authoritarian_democracy_subtype
+			traits = {
+				
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_GETULIO_VARGAS_DESC"
+			ideology = despotism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	BRA_arlindo_veiga_dos_santos = {
+		name = BRA_arlindo_veiga_dos_santos
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_BRA_arlindo_veiga_dos_santos"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_ARLINDO_VEIGA_DOS_SANTOS_DESC"
+			ideology = ultraconservatism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	BRA_plinio_salgado = {
+		name = BRA_plinio_salgado
+		
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BRA/Portrait_BRA_Plinio_Salgado.png"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_PLINIO_SALGADO_DESC"
+			ideology = fascism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
 	BRA_various_leaders = {
 		name = BRA_various_leaders
 		
@@ -31,6 +111,440 @@ characters = {
 			traits = {
 				
 			}
+		}
+	}
+	
+	### ADVISORS ###
+	
+	BRA_artur_de_sousa_cousta = {
+		name = BRA_artur_de_sousa_cousta
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/BRA/BRA_Artur_de_Sousa_Costa.png"
+			}
+		}
+		
+		advisor={
+			slot = political_advisor
+			idea_token = BRA_artur_de_sousa_cousta
+			traits  = {
+				financial_expert
+			}
+		}
+	}
+	
+	BRA_oswaldo_aranha = {
+		name = BRA_oswaldo_aranha
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/BRA/BRA_Oswaldo_Aranha.png"
+			}
+		}
+		
+		advisor={
+			slot = political_advisor
+			idea_token = BRA_osvaldo_aranha
+			traits  = {
+				compassionate_gentleman
+			}
+		}
+	}
+	
+	BRA_antonio_ramos_caiado = {
+		name = BRA_antonio_ramos_caiado
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/BRA/BRA_Antonio_Ramos_Caiado.png"
+			}
+		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = BRA_antonio_ramos_caiado
+			traits = {
+				construction_magnate
+			}
+		}
+	}
+	
+	BRA_francisco_campos = {
+		name = BRA_francisco_campos
+		
+		portraits = {
+			civilian = {
+				small="gfx/interface/ministers/BRA/BRA_Francisco_Campos.png"
+			}
+		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = BRA_francisco_campos
+			available  = {
+				has_completed_focus = BRA_lay_the_groundwork
+			}
+			traits  = {
+				crime_fighter
+			}
+			modifier = {
+				despotism_drift = 0.03
+			}
+		}		
+	}
+	
+	BRA_lindolfo_collor = {
+		name = BRA_lindolfo_collor
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/BRA/BRA_Lindolfo_Collor.png"
+			}
+		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = BRA_lindolfo_collor
+			available  = {
+				has_completed_focus = BRA_align_with_the_democrats
+			}
+			traits  = {
+				interventionist_economist
+			}
+		}		
+	}
+	
+	BRA_anisio_teixeira = {
+		name = BRA_anisio_teixeira
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/BRA/BRA_Anisio_Teixeira.png"
+			}
+		}
+		
+		advisor={
+			slot = political_advisor
+			idea_token = BRA_anisio_teixeira
+			available  = {
+				has_completed_focus = BRA_align_with_the_democrats
+			}
+			traits  = {
+				educational_reformer
+			}
+			modifier = {
+				liberal_conservatism_drift = 0.03
+			}
+		}		
+	}
+	
+	BRA_gustavo_barroso = {
+		name = BRA_gustavo_barroso
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/BRA/BRA_Gustavo_Barroso.png"
+			}
+		}
+		
+		advisor={
+			slot = political_advisor
+			idea_token = BRA_gustavo_barroso
+			available  = {
+				has_completed_focus = BRA_align_with_the_right
+			}
+			traits  = {
+				war_propagandist
+			}
+			modifier = {
+				fascism_drift = 0.03
+			}
+		}	
+	}
+	
+	BRA_miguel_reale = {
+		name = BRA_miguel_reale
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/BRA/BRA_Miguel_Reale.png"
+			}
+		}
+		
+		advisor={
+			slot = political_advisor
+			idea_token = BRA_miguel_reale
+			available  = {
+				has_completed_focus = BRA_align_with_the_right
+			}
+			traits  = {
+				respected_jurist
+			}
+		}	
+	}
+	
+	### GENERALS ###
+	
+	BRA_candido_mariano_da_silva_rondon = {
+		name = BRA_candido_mariano_da_silva_rondon
+		
+		portraits = {
+			army = {
+				#large = ""
+				small = "gfx/interface/ministers/BRA/BRA_Candido_Rondon.png"
+			}
+		}
+		
+		advisor = {
+			slot = head_of_government
+			idea_token = BRA_candido_mariano_da_silva_rondon_head_of_govt
+			available = {
+				not_already_hired_except_as = head_of_govt
+			}
+			traits = { hog_respected_war_hero }
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = BRA_candido_mariano_da_silva_rondon_high_command
+			ledger = army
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = { army_logistics_2 }
+			cost = 100
+		}
+		
+		field_marshal = {
+			traits = {
+				old_guard
+				harsh_leader
+				trickster
+				jungle_rat
+				inspirational_leader
+				expert_improviser
+			}
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 2
+		}
+	}
+	
+	BRA_joao_batista_mascarenhas_de_morais = {
+		name = BRA_joao_batista_mascarenhas_de_morais
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		advisor = {
+			slot = army_chief
+			idea_token = BRA_joao_batista_mascarenhas_de_morais
+			traits = { army_chief_organizational_2 }
+			cost = 100
+		}
+		
+		corps_commander = {
+			traits = {
+				brilliant_strategist
+				war_hero trickster
+				fortress_buster
+			}
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 3
+		}
+	}
+	
+	BRA_nestor_sezefredo_dos_passos = {
+		name = BRA_nestor_sezefredo_dos_passos
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				old_guard
+				politically_connected
+				commando
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	
+	BRA_euclides_zenobio_da_costa = {
+		name = BRA_euclides_zenobio_da_costa
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		advisor = {
+			slot = army_chief
+			idea_token = BRA_euclides_zenobio_da_costa
+			traits = { army_chief_maneuver_1 }
+			cost = 50
+		}
+		
+		corps_commander = {
+			traits = {
+				infantry_officer
+				cavalry_officer
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	
+	BRA_olimpio_mourao_filho = {
+		name = BRA_olimpio_mourao_filho
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				harsh_leader
+				war_hero
+				organizer
+				trait_engineer
+				BRA_integralist_officer
+			}
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 2
+		}
+	}
+	
+	BRA_newton_de_andrade_cavalcanti = {
+		name = BRA_newton_de_andrade_cavalcanti
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				career_officer
+				trait_cautious
+				desert_fox
+				BRA_integralist_officer
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 3
+		}
+	}
+	
+	BRA_julio_caetano_horta_barbosa = {
+		name = BRA_julio_caetano_horta_barbosa
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				politically_connected
+				organizer
+				jungle_rat
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	
+	BRA_pedro_aurelio_de_gois_monteiro = {
+		name = BRA_pedro_aurelio_de_gois_monteiro
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				politically_connected
+				war_hero
+				panzer_leader
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+	}
+	
+	BRA_jose_fernandes_leite_de_castro = {
+		name = BRA_jose_fernandes_leite_de_castro
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		advisor = {
+			slot = army_chief
+			idea_token = BRA_jose_fernandes_leite_de_castro_army_chief
+			traits = { army_chief_planning_1 }
+			cost = 50
+		}
+		
+		corps_commander = {
+			traits = {
+				old_guard
+				trait_cautious
+				skilled_staffer
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 1
 		}
 	}
 }

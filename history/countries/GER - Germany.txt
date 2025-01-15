@@ -5,7 +5,7 @@ oob = "GER"
 starting_train_buffer = 2
 set_fuel_ratio = 0.8
 add_equipment_to_stockpile = {
-    type = motorized_equipment
+    type = motorized_equipment_1
     amount = 200
     producer = GER
 }
@@ -13,8 +13,8 @@ add_equipment_to_stockpile = {
 if = {
 	limit = {
 		OR = {
-			has_dlc = "Together for Victory"
-			has_dlc = "Man the Guns"
+			has_dlc_tfv = yes
+			has_dlc_mtg = yes
 		}
 	}
 	set_autonomy = {
@@ -29,19 +29,9 @@ if = {
 		target = BAL
 		autonomous_state = autonomy_RL_occupied_puppet
 	}
-	set_autonomy = {
-		target = CRI
-		autonomous_state = autonomy_RL_occupied_puppet
-	}
-	set_autonomy = {
-		target = ROM
-		autonomous_state = autonomy_RL_nominal_puppet
-	}
 	else = {
 		puppet = POL
 		puppet = LIT
-		puppet = ROM
-		puppet = CRI
 		puppet = BAL
 	}
 }
@@ -50,6 +40,7 @@ if = {
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
+	tech_trucks = 1
 	motorised_infantry = 1
 
 	tech_recon = 1
@@ -59,6 +50,7 @@ set_technology = {
 	
 	gw_artillery = 1
 	interwar_antiair = 1
+	interwar_artillery = 1
 	
 	mobile_warfare = 1
 	fleet_in_being = 1
@@ -100,6 +92,7 @@ if = {
 		improved_light_tank_chassis = 1
 		basic_heavy_tank_chassis = 1
 		engine_tech_1 = 1
+		armor_tech_1 = 1
 	}
 }
 if = {
@@ -165,9 +158,11 @@ if = {
 			iw_small_airframe = 1
 			iw_carrier_airframe = 1
 			basic_small_airframe = 1
+			basic_carrier_airframe = 1
 			iw_medium_airframe = 1
 			basic_medium_airframe = 1
 			iw_large_airframe = 1
+			bba_early_transport_plane = 1
 		}
 	else = {
 		set_technology = {
@@ -198,8 +193,8 @@ set_popularities = {
 	vanguard_socialism = 5
 	revolutionary_socialism = 0
 	democratic_socialism = 27
-	social_democracy = 13
-	progressive_liberalism = 11
+	social_democracy = 17
+	progressive_liberalism = 7
 	liberal_conservatism = 3
 	national_conservatism = 9
 	authoritarian_democracy = 14
@@ -208,24 +203,36 @@ set_popularities = {
 	fascism = 8
 }
 
+set_variable = { GER_mps_total = 445 }
+set_variable = { minority_mps = 11 }
+set_variable = { guelph_mps = 5 }
+GER_recalc_parliament = yes
+
 set_country_flag = liberal_conservatism_coalition
 set_country_flag = national_conservatism_coalition
 set_country_flag = authoritarian_democracy_coalition
-set_country_flag = despotism_coalition
-set_country_flag = ultraconservatism_coalition
-set_country_flag = fascism_coalition
 
 create_faction = "Warschauer Pakt"
-add_to_faction = GER
-add_to_faction = BLR
-add_to_faction = UKR
-add_to_faction = GEO
 add_to_faction = BAL
-add_to_faction = CRI
-remove_from_faction = ROM
+remove_from_faction = CRI
+
+give_guarantee = BLR
+give_guarantee = UKR
+give_guarantee = GEO
+
+BLR = {
+	give_military_access = GER
+}
+UKR = {
+	give_military_access = GER
+}
+GEO = {
+	give_military_access = GER
+}
 
 ### Leaders ###
-recruit_character = GER_karl_liebknecht
+recruit_character = GER_rudolf_rocker
+recruit_character = GER_heinrich_brandler
 recruit_character = GER_kurt_rosenfeld
 recruit_character = GER_otto_wels
 recruit_character = GER_philipp_scheidemann
@@ -313,100 +320,162 @@ if = {
 		has_dlc = "No Step Back"
 	}
 	create_equipment_variant = {
-		name = "Leichttraktor"
+		name = "le.Kpfw. IV (MG)"
 		type = light_tank_chassis_0
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_heavy_machine_gun
+			turret_type_slot = tank_light_two_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = additional_machine_guns
+			special_type_slot_2 = empty
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 2
+			tank_nsb_armor_upgrade = 1
+		}
+		obsolete = yes
+		icon = "gfx/interface/technologies/GER/GER_leichtraktor_rheinmetall.png"
+	}
+	create_equipment_variant = {
+		name = "le.Kpfw. IV (3,7cm)"
+		type = light_tank_chassis_0
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_small_cannon
+			turret_type_slot = tank_light_two_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = empty
+			special_type_slot_2 = empty
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 2
+			tank_nsb_armor_upgrade = 1
+		}
+		obsolete = yes
+		icon = "gfx/interface/technologies/GER/GER_leichtraktor_rheinmetall.png"
+	}
+	create_equipment_variant = {
+		name = "k.Pz.Kpfw. III (MG)"
+		type = light_tank_chassis_0
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_heavy_machine_gun
+			turret_type_slot = tank_light_one_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = empty
+			special_type_slot_2 = empty
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 2
+			tank_nsb_armor_upgrade = 1
+		}
+		obsolete = yes
+		icon = "gfx/interface/technologies/GER/GER_panzer1_ausf_b.png"
+	}
+	create_equipment_variant = {
+		name = "le.Pz.Kpfw. I"
+		type = light_tank_chassis_1
 		parent_version = 0
 		modules = {
 			main_armament_slot = tank_small_cannon
 			turret_type_slot = tank_light_two_man_tank_turret
-			suspension_type_slot = tank_christie_suspension
-			armor_type_slot = tank_riveted_armor
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_welded_armor
 			engine_type_slot = tank_gasoline_engine
-			special_type_slot_1 = tank_radio_1
-		}
-		upgrades = {
-			tank_nsb_engine_upgrade = 2
-			tank_nsb_armor_upgrade = 2
-		}
-		obsolete = yes
-		icon = "gfx/interface/technologies/gwtank.dds"
-	}
-	create_equipment_variant = {
-		name = "Panzer I Ausf. A"
-		type = light_tank_chassis_1
-		parent_version = 0
-		modules = {
-			main_armament_slot = tank_heavy_machine_gun
-			turret_type_slot = tank_light_one_man_tank_turret
-			suspension_type_slot = tank_christie_suspension
-			armor_type_slot = tank_riveted_armor
-			engine_type_slot = tank_gasoline_engine
-			special_type_slot_1 = tank_radio_1
+			radio_slot = tank_radio_1
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 5
-			tank_nsb_armor_upgrade = 1
-		}
-		icon = "gfx/interface/technologies/ger_basic_light_tank.dds"
-		obsolete = yes
-	}
-	create_equipment_variant = {
-		name = "Panzer I Ausf. B"
-		type = light_tank_chassis_1
-		parent_version = 0
-		modules = {
-			main_armament_slot = tank_heavy_machine_gun
-			turret_type_slot = tank_light_one_man_tank_turret
-			suspension_type_slot = tank_christie_suspension
-			armor_type_slot = tank_riveted_armor
-			engine_type_slot = tank_gasoline_engine
-			special_type_slot_1 = tank_radio_1
-		}
-		upgrades = {
-			tank_nsb_engine_upgrade = 7
-			tank_nsb_armor_upgrade = 1
-		}
-		icon = "gfx/interface/technologies/ger_basic_light_tank.dds"
-		obsolete = yes
-	}
-	create_equipment_variant = {
-		name = "Neubaufahrzeug"
-		type = heavy_tank_chassis_1
-		parent_version = 0
-		modules = {
-			main_armament_slot = tank_close_support_gun
-			turret_type_slot = tank_heavy_three_man_tank_turret
-			suspension_type_slot = tank_bogie_suspension
-			armor_type_slot = tank_riveted_armor
-			engine_type_slot = tank_gasoline_engine
-			special_type_slot_1 = tank_radio_1
-			special_type_slot_2 = secondary_turret_hmg
-			special_type_slot_3 = secondary_turret_hmg
-			special_type_slot_4 = secondary_turret_hmg
-		}
-		upgrades = {
-			tank_nsb_engine_upgrade = 6
 			tank_nsb_armor_upgrade = 2
 		}
-		icon = "gfx/interface/technologies/ger_basic_heavy_tank.dds"
+		icon = "gfx/interface/technologies/GER/GER_landsverk_L10.png"
 	}
 	create_equipment_variant = {
-		name = "Panzer II Ausf. a"
+		name = "le.Pz.Kpfw. II"
 		type = light_tank_chassis_2
 		parent_version = 0
 		modules = {
-			main_armament_slot = tank_auto_cannon
+			main_armament_slot = tank_small_cannon
 			turret_type_slot = tank_light_two_man_tank_turret
-			suspension_type_slot = tank_christie_suspension
-			armor_type_slot = tank_riveted_armor
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_welded_armor
 			engine_type_slot = tank_gasoline_engine
-			special_type_slot_1 = tank_radio_1
+			radio_slot = tank_radio_1
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 3
 			tank_nsb_armor_upgrade = 2
 		}
-		icon = "gfx/interface/technologies/ger_imp_light_tank.dds"
+		icon = "gfx/interface/technologies/GER/GER_l60.png"
+	}
+	create_equipment_variant = {
+		name = "m.Bg.Pz.Kpfw. I"
+		type = medium_tank_chassis_0
+		parent_version = 0
+		design_team = mio:GER_krupp_tank_organization
+		modules = {
+			main_armament_slot = tank_close_support_gun
+			turret_type_slot = tank_medium_three_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_gasoline_engine
+			radio_slot = tank_radio_1
+			special_type_slot_1 = secondary_turret_hmg
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 2
+			tank_nsb_armor_upgrade = 1
+		}
+		icon = "gfx/interface/technologies/GER/GER_begleitwagen_rheinmetall.png"
+	}
+	create_equipment_variant = {
+		name = "n.A. s.Pz.Kpfw. I"
+		type = heavy_tank_chassis_0
+		parent_version = 0
+		design_team = mio:GER_krupp_tank_organization
+		modules = {
+			main_armament_slot = tank_close_support_gun
+			turret_type_slot = tank_heavy_three_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_gasoline_engine
+			radio_slot = tank_radio_1
+			special_type_slot_1 = secondary_turret_small_cannon
+			special_type_slot_2 = secondary_turret_hmg
+			special_type_slot_3 = secondary_turret_hmg
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 2
+			tank_nsb_armor_upgrade = 1
+		}
+		obsolete = yes
+		icon = "gfx/interface/technologies/GER/GER_neubaufahrzeug_ausf_a.png"
+	}
+	
+	add_equipment_to_stockpile = {
+		type = light_tank_chassis_0
+		amount = 75
+		variant_name = "le.Kpfw. IV (MG)"
+		producer = GER
+	}
+	add_equipment_to_stockpile = {
+		type = light_tank_chassis_0
+		amount = 250
+		variant_name = "le.Kpfw. IV (3,7cm)"
+		producer = GER
+	}
+	add_equipment_to_stockpile = {
+		type = light_tank_chassis_0
+		amount = 25
+		variant_name = "k.Pz.Kpfw. III (MG)"
+		producer = GER
 	}
 }
 if = {
@@ -832,7 +901,7 @@ if = {
 			fixed_ship_anti_air_slot = ship_anti_air_1
 			fixed_ship_battery_slot = ship_heavy_battery_1
 			fixed_ship_secondaries_slot = ship_secondaries_1
-			fixed_ship_armor_slot = ship_armor_bc_2
+			fixed_ship_armor_slot = ship_armor_cruiser_2
 			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
 			fixed_ship_engine_slot = cruiser_ship_engine_2
 			rear_1_custom_slot = ship_torpedo_1
@@ -1047,6 +1116,23 @@ if = {
 	limit = { has_dlc = "By Blood Alone" }
 	
 	create_equipment_variant = {
+		name = "Do 11"
+		type = medium_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = medium_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = empty
+			fixed_auxiliary_weapon_slot_2 = empty
+			fixed_auxiliary_weapon_slot_3 = empty
+			engine_type_slot = engine_1_2x
+			special_type_slot_1 = lmg_defense_turret_2x
+			special_type_slot_2 = lmg_defense_turret
+			special_type_slot_3 = empty
+			special_type_slot_4 = empty
+		}
+		obsolete = yes
+	}
+	
+	create_equipment_variant = {
 		name = "Do 23"
 		type = medium_plane_airframe_0
 		modules = {
@@ -1055,8 +1141,8 @@ if = {
 			fixed_auxiliary_weapon_slot_2 = empty
 			fixed_auxiliary_weapon_slot_3 = empty
 			engine_type_slot = engine_1_2x
-			special_type_slot_1 = empty
-			special_type_slot_2 = empty
+			special_type_slot_1 = lmg_defense_turret_2x
+			special_type_slot_2 = lmg_defense_turret
 			special_type_slot_3 = empty
 			special_type_slot_4 = empty
 		}
@@ -1066,6 +1152,7 @@ if = {
 	create_equipment_variant = {
 		name = "Ju 86"
 		type = medium_plane_airframe_0
+		design_team = mio:GER_junkers_organization
 		modules = {
 			fixed_main_weapon_slot = medium_bomb_bay
 			fixed_auxiliary_weapon_slot_1 = empty
@@ -1083,6 +1170,7 @@ if = {
 	create_equipment_variant = {
 		name = "He 111"
 		type = medium_plane_airframe_1
+		design_team = mio:GER_heinkel_organization
 		modules = {
 			fixed_main_weapon_slot = medium_bomb_bay
 			fixed_auxiliary_weapon_slot_1 = medium_bomb_bay
@@ -1098,9 +1186,9 @@ if = {
 	}
 	create_equipment_variant = {
 		name = "Do 17"
-		type = small_plane_cas_airframe_0
+		type = medium_plane_airframe_1
 		modules = {
-			fixed_main_weapon_slot = small_bomb_bay
+			fixed_main_weapon_slot = medium_bomb_bay
 			engine_type_slot = engine_1_2x
 			special_type_slot_1 = lmg_defense_turret_2x
 		}
@@ -1118,23 +1206,12 @@ if = {
 		icon = "GFX_GER_early_fighter_medium"
 	}
 	create_equipment_variant = {
-		name = "Ff 68 T"
-		type = cv_small_plane_airframe_0
-		modules = {
-			fixed_main_weapon_slot = light_mg_2x
-			engine_type_slot = engine_1_1x
-			special_type_slot_1 = empty
-		}
-		obsolete = yes
-		icon = "GFX_GER_early_fighter_medium"
-	}
-	create_equipment_variant = {
 		name = "Hs 123"
 		type = small_plane_cas_airframe_0
 		modules = {
 			fixed_main_weapon_slot = bomb_locks
 			engine_type_slot = engine_1_1x
-			special_type_slot_1 = empty
+			fixed_auxiliary_weapon_slot_1 = light_mg_2x
 		}
 		obsolete = yes
 		icon = "GFX_GER_CAS1_medium"
@@ -1142,6 +1219,7 @@ if = {
 	create_equipment_variant = {
 		name = "Bf 109"
 		type = small_plane_airframe_1
+		design_team = mio:GER_messerschmitt_organization
 		modules = {
 			fixed_main_weapon_slot = light_mg_4x
 			engine_type_slot = engine_2_1x
@@ -1152,6 +1230,7 @@ if = {
 	create_equipment_variant = {
 		name = "Bf 109 T"
 		type = cv_small_plane_airframe_1
+		design_team = mio:GER_messerschmitt_organization
 		modules = {
 			fixed_main_weapon_slot = light_mg_4x
 			engine_type_slot = engine_2_1x
@@ -1160,8 +1239,9 @@ if = {
 		icon = "GFX_GER_fighter1_medium"
 	}
 	create_equipment_variant = {
-		name = "Ju 87"
+		name = "Ju 87 'Stuka'"
 		type = small_plane_cas_airframe_1
+		design_team = mio:GER_junkers_organization
 		modules = {
 			fixed_main_weapon_slot = bomb_locks
 			engine_type_slot = engine_2_1x
@@ -1171,26 +1251,37 @@ if = {
 		icon = "GFX_GER_CAS1_medium"
 	}
 	create_equipment_variant = {
-		name = "Fi 167"
-		type = small_plane_naval_bomber_airframe_1
+		name = "He 59"
+		type = small_plane_naval_bomber_airframe_0
 		modules = {
 			fixed_main_weapon_slot = torpedo_mounting
-			engine_type_slot = engine_1_1x
-			special_type_slot_1 = lmg_defense_turret
-			special_type_slot_2 = floats
+			engine_type_slot = engine_1_2x
+			fixed_auxiliary_weapon_slot_1 = light_mg_2x
 		}
 		icon = "GFX_GER_naval_bomber1_medium"
 	}
+	
 	create_equipment_variant = {
-		name = "Fi 167 T"
+		name = "Fi 167"
 		type = cv_small_plane_naval_bomber_airframe_1
+		design_team = mio:GER_fieseler_organization
 		modules = {
 			fixed_main_weapon_slot = torpedo_mounting
-			engine_type_slot = engine_1_1x
+			engine_type_slot = engine_2_1x
 			special_type_slot_1 = empty
 			special_type_slot_2 = empty
 		}
 		icon = "GFX_GER_cv_naval_bomber1_medium"
+	}
+	create_equipment_variant = {
+		name = "Do P"
+		type = large_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = large_bomb_bay
+			engine_type_slot = engine_1_4x
+			special_type_slot_1 = lmg_defense_turret
+		}
+		obsolete = yes
 	}
 	
 	### Land Planes ###
@@ -1207,9 +1298,15 @@ if = {
 		producer = GER
 	}
 	add_equipment_to_stockpile = {
-		type = small_plane_naval_bomber_airframe_1
+		type = small_plane_naval_bomber_airframe_0
 		amount = 72
-		variant_name = "Fi 167"
+		variant_name = "He 59"
+		producer = GER
+	}
+	add_equipment_to_stockpile = {
+		type = medium_plane_airframe_0
+		amount = 372
+		variant_name = "Do 11"
 		producer = GER
 	}
 	add_equipment_to_stockpile = {

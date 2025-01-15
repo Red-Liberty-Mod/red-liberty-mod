@@ -1,0 +1,30 @@
+ARG_improve_officer_corps_spirit = {
+	
+	if = {
+		limit = {
+			has_idea = ARG_purged_officer_corps_1
+		}
+		swap_ideas = {
+			remove_idea = ARG_purged_officer_corps_1
+			add_idea = ARG_purged_officer_corps_2
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = ARG_purged_officer_corps_2
+		}
+		swap_ideas = {
+			remove_idea = ARG_purged_officer_corps_2
+			add_idea = ARG_purged_officer_corps_3
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = ARG_purged_officer_corps_3
+		}
+		remove_ideas = ARG_purged_officer_corps_1
+	}
+	else = {
+		add_political_power = 25
+	}
+}

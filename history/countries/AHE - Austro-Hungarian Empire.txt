@@ -4,7 +4,7 @@ set_stability = 0.5
 set_war_support = 0.5
 set_convoys = 25
 add_equipment_to_stockpile = {
-    type = motorized_equipment
+    type = motorized_equipment_1
     amount = 125
     producer = GER
 }
@@ -12,13 +12,11 @@ add_equipment_to_stockpile = {
 OOB = "AHE"
 country_lock_all_division_template = yes
 
-set_country_flag = liberal_conservatism_coalition
-set_country_flag = national_conservatism_coalition
-
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
 	tech_mountaineers = 1
+	tech_trucks = 1
 	motorised_infantry = 1
 	
 	tech_recon = 1
@@ -42,10 +40,12 @@ if = {
 		early_ship_hull_light = 1
 		basic_ship_hull_light = 1
 		early_ship_hull_submarine = 1
+		basic_ship_hull_submarine = 1
 		early_ship_hull_cruiser = 1
 		basic_ship_hull_cruiser = 1
 		coastal_defense_ships = 1
 		early_ship_hull_heavy = 1
+		basic_ship_hull_heavy = 1
 		basic_battery = 1
 		basic_light_battery = 1
 		basic_medium_battery = 1
@@ -137,12 +137,15 @@ set_country_flag = liberal_conservatism_coalition
 set_country_flag = national_conservatism_coalition
 
 recruit_character = AUS_karl_steinhardt
+recruit_character = AUS_ernst_kirchweger
 recruit_character = AUS_karl_renner
 recruit_character = AUS_theodor_korner
 recruit_character = AUS_carl_vaugoin
 recruit_character = AUS_karl_i
 recruit_character = AUS_engelbert_dollfuss
 recruit_character = AUS_ernest_rudiger_starhemberg
+
+activate_advisor = AUS_karl_i_hog
 
 recruit_character = AUS_eugen_von_habsburg
 recruit_character = AUS_karl_albrecht_von_habsburg
@@ -160,10 +163,8 @@ recruit_character = AUS_wilhelm_zehner
 recruit_character = AUS_ludwig_von_eimannsberger
 
 add_ideas = {
-	AUS_karl_i_hog
-
-	AHE_incompetent_military
 	AHE_doomed_empire
+	AHE_incompetent_military
 	AHE_german_dependence
 	AHE_inept_legislature
 }
@@ -173,25 +174,7 @@ if = {
 		has_dlc_nsb = yes
 	}
 	create_equipment_variant = {
-		name = "Burstyn MtG"
-		type = light_tank_chassis_0
-		parent_version = 0
-		modules = {
-			main_armament_slot = tank_small_cannon
-			turret_type_slot = tank_light_two_man_tank_turret
-			suspension_type_slot = tank_bogie_suspension
-			armor_type_slot = tank_riveted_armor
-			engine_type_slot = tank_gasoline_engine
-			special_type_slot_1 = additional_machine_guns
-		}
-		upgrades = {
-			tank_nsb_engine_upgrade = 0
-			tank_nsb_armor_upgrade = 0
-		}
-		obsolete = yes
-	}
-	create_equipment_variant = {
-		name = "leKpfW M.35"
+		name = "le.Kpfw M.35"
 		type = light_tank_chassis_1
 		parent_version = 0
 		modules = {
@@ -200,11 +183,27 @@ if = {
 			suspension_type_slot = tank_bogie_suspension
 			armor_type_slot = tank_riveted_armor
 			engine_type_slot = tank_gasoline_engine
-			special_type_slot_1 = tank_radio_1
+			radio_slot = tank_radio_1
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 2
 			tank_nsb_armor_upgrade = 2
+		}
+	}
+	create_equipment_variant = {
+		name = "m.Kpfw M.34"
+		type = medium_tank_chassis_0
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_small_cannon
+			turret_type_slot = tank_medium_two_man_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 2
+			tank_nsb_armor_upgrade = 1
 		}
 	}
 }

@@ -1,0 +1,124 @@
+shared_focus = {
+    id = ARG_pdn_victory
+	icon = GFX_ARG_pdn_victory
+	
+    x = 12
+	
+	available = {
+		has_country_flag = ARG_pdn_victory_flag
+	}
+	
+	cost = 4
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_ucra_victory
+	icon = GFX_ARG_ucra_victory
+	
+    x = 16
+	
+	available = {
+		has_country_flag = ARG_ucra_victory_flag
+	}
+	
+	cost = 4
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_concordancia_electoral_sanitation
+	icon = GFX_ARG_concordancia_electoral_sanitation
+	
+    x = 2
+	y = 1
+	
+	cost = 4
+	relative_position_id = ARG_pdn_victory
+	prerequisite = {
+		focus = ARG_pdn_victory
+		focus = ARG_ucra_victory
+	}
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_consolidate_power
+	icon = GFX_ARG_consolidate_power
+	
+    x = 0
+	y = 1
+	
+	cost = 4
+	relative_position_id = ARG_concordancia_electoral_sanitation
+	prerequisite = { focus = ARG_concordancia_electoral_sanitation }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_reduce_the_fraud
+	icon = GFX_ARG_reduce_the_fraud
+	
+    x = -1
+	y = 1
+	
+	cost = 4
+	relative_position_id = ARG_consolidate_power
+	prerequisite = { focus = ARG_consolidate_power }
+	mutually_exclusive = { focus = ARG_placate_the_military }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ARG_placate_the_military
+	icon = GFX_ARG_placate_the_military
+	
+    x = 1
+	y = 1
+	
+	cost = 4
+	relative_position_id = ARG_consolidate_power
+	prerequisite = { focus = ARG_consolidate_power }
+	mutually_exclusive = { focus = ARG_reduce_the_fraud }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}

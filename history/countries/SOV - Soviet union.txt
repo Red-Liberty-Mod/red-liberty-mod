@@ -19,6 +19,7 @@ set_technology = {
 	tech_engineers = 1
 	tech_military_police = 1
 	tech_mountaineers = 1
+	tech_trucks = 1
 	motorised_infantry = 1
 	paratroopers = 1
 	gw_artillery = 1
@@ -91,6 +92,12 @@ if = {
 	}
 }
 
+complete_special_project = {
+	project = sp:sp_land_flamethrower_tank
+	#scientist = USA_andrew_mckee
+	state = 219
+}
+
 add_equipment_to_stockpile = {
     type = heavy_tank_equipment
     amount = 10
@@ -99,7 +106,7 @@ add_equipment_to_stockpile = {
 
 add_equipment_to_stockpile = {
     type = motorized_equipment
-    amount = 200
+    amount = 600
     producer = SOV
 }
 
@@ -144,6 +151,7 @@ recruit_character = SOV_lev_kamenev
 
 ### MINISTERS ###
 recruit_character = SOV_mikhail_kalinin
+recruit_character = SOV_yakov_sverdlov
 recruit_character = SOV_anatoly_lunacharsky
 recruit_character = SOV_karl_radek
 recruit_character = SOV_martemyan_ryutin
@@ -152,6 +160,7 @@ recruit_character = SOV_grigory_zinoviev
 recruit_character = SOV_ivar_smilga
 
 activate_advisor = SOV_mikhail_kalinin_hog
+activate_advisor = SOV_yakov_sverdlov
 
 ### GENERALS ###
 recruit_character = SOV_mikhail_tukhachevsky
@@ -194,12 +203,12 @@ set_country_flag = can_integrate_GEO
 
 create_navy_leader = {
 	name = "Lev Galler"
-	portrait_path = "e"
+	portrait_path = ""
 	traits = {
 		ironside
 		cruiser_captain
 		spotter
-		mine_layer
+		mine_craft
 	}
 	skill = 3
 	attack_skill = 3
@@ -210,7 +219,7 @@ create_navy_leader = {
 
 create_navy_leader = {
 	name = "Gordey Levchenko"
-	picture = "e"
+	picture = ""
 	traits = {  }
 	skill = 2
 }
@@ -218,7 +227,7 @@ create_navy_leader = {
 
 create_navy_leader = {
 	name = "Vladimir Kasatonov"
-	picture = "e"
+	picture = ""
 	traits = { seawolf }
 	skill = 2
 }
@@ -262,7 +271,7 @@ if = {
 		has_dlc = "No Step Back"
 	}
 	create_equipment_variant = {
-		name = "T-18"
+		name = "T-18 mod. 1927"
 		type = light_tank_chassis_0
 		parent_version = 0
 		modules = {
@@ -274,24 +283,6 @@ if = {
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 0
-			tank_nsb_armor_upgrade = 1
-		}
-		obsolete = yes
-		icon = "GFX_gwtank_medium"
-	}
-	create_equipment_variant = {
-		name = "T-37"
-		type = light_tank_chassis_0
-		parent_version = 1
-		modules = {
-			main_armament_slot = tank_heavy_machine_gun
-			turret_type_slot = tank_light_one_man_tank_turret
-			suspension_type_slot = tank_bogie_suspension
-			armor_type_slot = tank_riveted_armor
-			engine_type_slot = tank_gasoline_engine
-		}
-		upgrades = {
-			tank_nsb_engine_upgrade = 1
 			tank_nsb_armor_upgrade = 1
 		}
 		obsolete = yes
@@ -316,7 +307,7 @@ if = {
 		icon = "gfx/interface/technologies/gwtank.dds"
 	}
 	create_equipment_variant = {
-		name = "T-26TT mod. 1931"
+		name = "T-26 mod. 1931"
 		type = light_tank_chassis_1
 		parent_version = 0
 		modules = {
@@ -335,28 +326,30 @@ if = {
 		icon = "GFX_SOV_basic_light_tank_medium"
 	}
 	create_equipment_variant = {
-		name = "T-26TT mod. 1932"
-		type = light_tank_chassis_1
-		parent_version = 1
+		name = "KhT-26"
+		type = light_tank_flame_chassis_1
+		parent_version = 0
 		modules = {
-			main_armament_slot = tank_heavy_machine_gun
+			main_armament_slot = flamethrower
 			turret_type_slot = tank_light_one_man_tank_turret
 			suspension_type_slot = tank_bogie_suspension
-			armor_type_slot = tank_riveted_armor
+			armor_type_slot = tank_welded_armor
 			engine_type_slot = tank_gasoline_engine
-			special_type_slot_1 = secondary_turret_hmg
+			radio_slot = tank_radio_1
+			special_type_slot_1 = empty
+			special_type_slot_2 = empty
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 2
-			tank_nsb_armor_upgrade = 2
+			tank_nsb_armor_upgrade = 1
 		}
 		obsolete = yes
 		icon = "GFX_SOV_basic_light_tank_medium"
 	}
 	create_equipment_variant = {
-		name = "T-26TT mod. 1933"
+		name = "T-26 mod. 1933"
 		type = light_tank_chassis_1
-		parent_version = 2
+		parent_version = 0
 		modules = {
 			main_armament_slot = tank_heavy_machine_gun
 			turret_type_slot = tank_light_one_man_tank_turret
@@ -373,90 +366,35 @@ if = {
 		icon = "GFX_SOV_basic_light_tank_medium"
 	}
 	create_equipment_variant = {
-		name = "T-26TU mod. 1933"
-		type = light_tank_chassis_1
-		parent_version = 0
+		name = "KhT-130"
+		type = light_tank_flame_chassis_1
+		parent_version = 1
 		modules = {
-			main_armament_slot = tank_small_cannon_2
-			turret_type_slot = tank_light_two_man_tank_turret
+			main_armament_slot = flamethrower
+			turret_type_slot = tank_light_one_man_tank_turret
 			suspension_type_slot = tank_bogie_suspension
-			armor_type_slot = tank_riveted_armor
+			armor_type_slot = tank_welded_armor
 			engine_type_slot = tank_gasoline_engine
-			special_type_slot_1 = tank_radio_1
+			radio_slot = tank_radio_1
+			special_type_slot_1 = empty
+			special_type_slot_2 = empty
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 2
 			tank_nsb_armor_upgrade = 2
 		}
-		icon = "gfx/interface/technologies/SOV_basic_light_tank.dds"
-	}
-	create_equipment_variant = {
-		name = "T-26TU mod. 1934"
-		type = light_tank_chassis_1
-		parent_version = 6
-		modules = {
-			main_armament_slot = tank_small_cannon_2
-			turret_type_slot = tank_light_two_man_tank_turret
-			suspension_type_slot = tank_bogie_suspension
-			armor_type_slot = tank_riveted_armor
-			engine_type_slot = tank_gasoline_engine
-			special_type_slot_1 = additional_machine_guns
-		}
-		upgrades = {
-			tank_nsb_engine_upgrade = 3
-			tank_nsb_armor_upgrade = 4
-		}
-		icon = "GFX_SOV_basic_light_tank_medium"
-	}
-	create_equipment_variant = {
-		name = "T-26TU mod. 1935"
-		type = light_tank_chassis_1
-		parent_version = 8
-		modules = {
-			main_armament_slot = tank_small_cannon_2
-			turret_type_slot = tank_light_two_man_tank_turret
-			suspension_type_slot = tank_bogie_suspension
-			armor_type_slot = tank_riveted_armor
-			engine_type_slot = tank_gasoline_engine
-			special_type_slot_1 = tank_radio_1
-			special_type_slot_2 = additional_machine_guns
-			special_type_slot_3 = additional_machine_guns
-		}
-		upgrades = {
-			tank_nsb_engine_upgrade = 4
-			tank_nsb_armor_upgrade = 4
-		}
-		icon = "GFX_SOV_basic_light_tank_medium"
+		icon = "GFX_SOV_light_flame_tank_medium"
 	}
 	create_equipment_variant = {
 		name = "BT-2"
 		type = light_tank_chassis_1
-		parent_version = 4
+		parent_version = 0
 		modules = {
 			main_armament_slot = tank_small_cannon
 			turret_type_slot = tank_light_one_man_tank_turret
 			suspension_type_slot = tank_christie_suspension
 			armor_type_slot = tank_riveted_armor
 			engine_type_slot = tank_gasoline_engine
-		}
-		upgrades = {
-			tank_nsb_engine_upgrade = 7
-			tank_nsb_armor_upgrade = 1
-		}
-		obsolete = yes
-		icon = "GFX_SOV_improved_light_tank_medium"
-	}
-	create_equipment_variant = {
-		name = "BT-3"
-		type = light_tank_chassis_1
-		parent_version = 5
-		modules = {
-			main_armament_slot = tank_small_cannon
-			turret_type_slot = tank_light_one_man_tank_turret
-			suspension_type_slot = tank_christie_suspension
-			armor_type_slot = tank_riveted_armor
-			engine_type_slot = tank_gasoline_engine
-			special_type_slot_1 = additional_machine_guns
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 7
@@ -468,7 +406,7 @@ if = {
 	create_equipment_variant = {
 		name = "BT-4"
 		type = light_tank_chassis_1
-		parent_version = 7
+		parent_version = 1
 		modules = {
 			main_armament_slot = tank_small_cannon
 			turret_type_slot = tank_light_one_man_tank_turret
@@ -487,7 +425,7 @@ if = {
 	create_equipment_variant = {
 		name = "BT-5"
 		type = light_tank_chassis_1
-		parent_version = 9
+		parent_version = 2
 		modules = {
 			main_armament_slot = tank_small_cannon_2
 			turret_type_slot = tank_light_one_man_tank_turret
@@ -499,25 +437,8 @@ if = {
 			tank_nsb_engine_upgrade = 8
 			tank_nsb_armor_upgrade = 1
 		}
-		icon = "gfx/interface/technologies/SOV_imp_light_tank.dds"
-	}
-	create_equipment_variant = {
-		name = "BT-6"
-		type = light_tank_chassis_1
-		parent_version = 10
-		modules = {
-			main_armament_slot = tank_small_cannon_2
-			turret_type_slot = tank_light_one_man_tank_turret
-			suspension_type_slot = tank_christie_suspension
-			armor_type_slot = tank_welded_armor
-			engine_type_slot = tank_gasoline_engine
-			special_type_slot_1 = additional_machine_guns
-		}
-		upgrades = {
-			tank_nsb_engine_upgrade = 8
-			tank_nsb_armor_upgrade = 1
-		}
 		icon = "GFX_SOV_improved_light_tank_medium"
+		obsolete = yes
 	}
 	create_equipment_variant = {
 		name = "BT-7"
@@ -538,7 +459,7 @@ if = {
 	}
 
 	create_equipment_variant = {
-		name = "T-28"
+		name = "T-28 mod. 1934"
 		type = medium_tank_chassis_0
 		parent_version = 0
 		modules = {
@@ -547,50 +468,9 @@ if = {
 			suspension_type_slot = tank_bogie_suspension
 			armor_type_slot = tank_riveted_armor
 			engine_type_slot = tank_gasoline_engine
-			special_type_slot_1 = tank_radio_1
+			radio_slot = tank_radio_1
+			special_type_slot_1 = secondary_turret_hmg
 			special_type_slot_2 = secondary_turret_hmg
-			special_type_slot_3 = secondary_turret_hmg
-		}
-		upgrades = {
-			tank_nsb_armor_upgrade = 3
-			tank_nsb_engine_upgrade = 10
-		}
-		icon = "gfx/interface/technologies/SOV_basic_heavy_tank.dds"
-	}
-	create_equipment_variant = {
-		name = "T-28A"
-		type = medium_tank_chassis_0
-		parent_version = 1
-		modules = {
-			main_armament_slot = tank_close_support_gun
-			turret_type_slot = tank_medium_three_man_tank_turret
-			suspension_type_slot = tank_bogie_suspension
-			armor_type_slot = tank_riveted_armor
-			engine_type_slot = tank_gasoline_engine
-			special_type_slot_1 = tank_radio_1
-			special_type_slot_2 = secondary_turret_hmg
-			special_type_slot_3 = secondary_turret_hmg
-		}
-		upgrades = {
-			tank_nsb_armor_upgrade = 3
-			tank_nsb_engine_upgrade = 10
-		}
-		icon = "GFX_SOV_basic_heavy_tank_medium"
-	}
-	create_equipment_variant = {
-		name = "T-35"
-		type = heavy_tank_chassis_0
-		parent_version = 0
-		modules = {
-			main_armament_slot = tank_close_support_gun
-			turret_type_slot = tank_medium_three_man_tank_turret
-			suspension_type_slot = tank_bogie_suspension
-			armor_type_slot = tank_riveted_armor
-			engine_type_slot = tank_gasoline_engine
-			special_type_slot_1 = tank_radio_1
-			special_type_slot_2 = secondary_turret_hmg
-			special_type_slot_3 = secondary_turret_hmg
-			special_type_slot_4 = secondary_turret_small_cannon
 		}
 		upgrades = {
 			tank_nsb_armor_upgrade = 3
@@ -601,17 +481,18 @@ if = {
 	create_equipment_variant = {
 		name = "T-35A"
 		type = heavy_tank_chassis_0
-		parent_version = 1
+		parent_version = 0
+		design_team = mio:SOV_okmo_organization
 		modules = {
 			main_armament_slot = tank_close_support_gun
 			turret_type_slot = tank_medium_three_man_tank_turret
 			suspension_type_slot = tank_bogie_suspension
 			armor_type_slot = tank_riveted_armor
 			engine_type_slot = tank_gasoline_engine
-			special_type_slot_1 = tank_radio_1
-			special_type_slot_2 = secondary_turret_hmg
+			radio_slot = tank_radio_1
+			special_type_slot_1 = secondary_turret_hmg
+			special_type_slot_2 = secondary_turret_small_cannon
 			special_type_slot_3 = secondary_turret_small_cannon
-			special_type_slot_4 = secondary_turret_small_cannon
 		}
 		upgrades = {
 			tank_nsb_armor_upgrade = 3

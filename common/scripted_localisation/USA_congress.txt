@@ -1,4 +1,63 @@
 defined_text = {
+	name = GetSupremeCourtDesc
+	
+	text = {
+		trigger = {
+			has_socialist_govt = yes
+		}
+		localization_key = "USA_supreme_court_desc_socialist"
+	}
+	
+	text = {
+		trigger = {
+			has_socialist_govt = no
+		}
+		localization_key = "USA_supreme_court_desc_democrat"
+    }
+}
+
+defined_text = {
+	name = GetSupremeCourtLean
+	
+	text = {
+		trigger = {
+			check_variable = { supreme_court_lean < -5 }
+		}
+		localization_key = "USA_court_lean_very_conservative"
+	}
+	
+	text = {
+		trigger = {
+			check_variable = { supreme_court_lean > -6 }
+			check_variable = { supreme_court_lean < -3 }
+		}
+		localization_key = "USA_court_lean_conservative"
+	}
+	
+	text = {
+		trigger = {
+			check_variable = { supreme_court_lean = 0 }
+		}
+		localization_key = "USA_court_lean_neither"
+	}
+	
+	text = {
+		trigger = {
+			check_variable = { supreme_court_lean > -4 }
+			check_variable = { supreme_court_lean < 0 }
+		}
+		localization_key = "USA_court_lean_slightly_conservative"
+	}
+	
+	text = {
+		trigger = {
+			check_variable = { supreme_court_lean > 0 }
+		}
+		localization_key = "USA_court_lean_slightly_reformist"
+    }
+}
+
+defined_text = {
 	name = get_senate_quorum
 	
 	text = {
@@ -289,7 +348,7 @@ defined_text = {
 	
 	text = { 
         trigger = {
-			check_variable = { senators_fliberal > 0 }
+			check_variable = { senators_liberal > 0 }
         }
         localization_key = "USA_congress_liberal_senator_count"
     }
@@ -505,6 +564,13 @@ defined_text = {
         }
         localization_key = "USA_congress_voting_bill"
     }
+	
+	text = {
+		trigger = {
+			has_country_flag = USA_lame_duck_period
+        }
+		localization_key = "USA_congress_voting_lame_duck"
+	}
 	
 	text = {
 		localization_key = "USA_congress_voting_none"

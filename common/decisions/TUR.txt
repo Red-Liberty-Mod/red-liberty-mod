@@ -1,0 +1,449 @@
+TUR_straits_council_category ={
+	
+	TUR_demand_remil_manisa = {
+		icon = border_war
+		
+		visible = {
+			tag = TUR
+			NOT = {
+				has_country_flag = TUR_demanded_manisa
+			}
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+			set_country_flag = TUR_demanded_manisa
+			add_to_variable = { TUR_demand_val = 1 }
+			custom_effect_tooltip = TUR_if_entente_accepts
+			effect_tooltip = {
+				339 = {
+					set_demilitarized_zone = no
+				}
+			}
+		}
+	}
+	
+	TUR_withdraw_demand_remil_manisa = {
+		icon = ger_mefo_bills
+		
+		visible = {
+			tag = TUR
+			has_country_flag = TUR_demanded_manisa
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			clr_country_flag = TUR_demanded_manisa
+			add_to_variable = { TUR_demand_val = -1 }
+		}
+	}
+	
+	TUR_demand_debt_renegotiation = {
+		icon = generic_break_treaty
+		
+		visible = {
+			tag = TUR
+			NOT = {
+				has_country_flag = TUR_renegotiated_debt
+			}
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+			set_country_flag = TUR_renegotiated_debt
+			add_to_variable = { TUR_demand_val = 1 }
+			custom_effect_tooltip = TUR_if_entente_accepts
+			effect_tooltip = {
+				add_timed_idea = {
+					idea = TUR_renegotiated_debt
+					days = 360
+				}
+			}
+		}
+	}
+	
+	TUR_withdraw_demand_debt_renegotiation = {
+		icon = ger_mefo_bills
+		
+		visible = {
+			tag = TUR
+			has_country_flag = TUR_renegotiated_debt
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			clr_country_flag = TUR_renegotiated_debt
+			add_to_variable = { TUR_demand_val = -1 }
+		}
+	}
+	
+	TUR_demand_claim_thrace = {
+		icon = ger_mefo_bills
+		
+		visible = {
+			tag = TUR
+			NOT = {
+				has_country_flag = TUR_claimed_thrace
+			}
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+			set_country_flag = TUR_claimed_thrace
+			add_to_variable = { TUR_demand_val = 1 }
+			custom_effect_tooltip = TUR_if_entente_accepts
+			effect_tooltip = {
+				TUR = {
+					add_state_claim = 821
+				}
+			}
+		}
+	}
+	
+	TUR_withdraw_demand_claim_thrace = {
+		icon = ger_mefo_bills
+		
+		visible = {
+			tag = TUR
+			has_country_flag = TUR_claimed_thrace
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			clr_country_flag = TUR_claimed_thrace
+			add_to_variable = { TUR_demand_val = -1 }
+		}
+	}
+	
+	TUR_offer_remil_lemnos = {
+		icon = border_war
+		
+		visible = {
+			tag = TUR
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+			set_country_flag = TUR_remil_lemnos
+			add_to_variable = { TUR_concession_val = 1 }
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 2
+				check_variable = { TUR.TUR_demand_val > TUR.TUR_concession_val }
+			}
+		}
+	}
+	
+	TUR_offer_econ_liberalization = {
+		icon = generic_construction
+		
+		visible = {
+			tag = TUR
+		}
+		
+		cost = 15
+		
+		complete_effect = {
+			set_country_flag = TUR_econ_liberalization
+			add_to_variable = { TUR_concession_val = 1 }
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 2
+				check_variable = { TUR.TUR_demand_val > TUR.TUR_concession_val }
+			}
+		}
+	}
+	
+	TUR_offer_pol_democratization = {
+		icon = ger_mefo_bills
+		
+		visible = {
+			tag = TUR
+		}
+		
+		cost = 15
+		
+		complete_effect = {
+			set_country_flag = TUR_pol_democratization
+			add_to_variable = { TUR_concession_val = 1 }
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 2
+				check_variable = { TUR.TUR_demand_val > TUR.TUR_concession_val }
+			}
+		}
+	}
+	
+	TUR_offer_free_passage = {
+		icon =  infiltrate_state
+		
+		visible = {
+			tag = TUR
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+			set_country_flag = TUR_free_passage
+			add_to_variable = { TUR_concession_val = 1 }
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 2
+				check_variable = { TUR.TUR_demand_val > TUR.TUR_concession_val }
+			}
+		}
+	}
+	
+	TUR_destabilize_the_commission = {
+		icon = generic_operation
+		
+		visible = {
+			tag = TUR
+		}
+		
+		custom_cost_trigger = {
+			has_equipment = {
+				infantry_equipment > 499
+			}
+		}
+		custom_cost_text = IE_500
+		fire_only_once = yes
+		
+		complete_effect = {
+			SCM = {
+				add_stability = -0.05
+			}
+			hidden_effect = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = -500
+				}
+			}
+		}
+	}
+	
+	TUR_conference_opening = {
+		icon = generic_political_discourse
+		
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		
+		activation = {
+			NOT = {
+				has_global_flag = straits_conference_over
+			}
+			tag = TUR
+		}
+		
+		is_good = yes
+		days_mission_timeout = 200
+		fire_only_once = yes
+		
+		timeout_effect = {
+			country_event = {
+				id = anatalia_conference.1
+				hours = 6
+			}
+		}
+	}
+	
+	TUR_conference_opening_other = {
+		icon = generic_political_discourse
+		
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		
+		activation = {
+			NOT = {
+				has_global_flag = straits_conference_over
+				tag = TUR
+			}
+		}
+		
+		is_good = yes
+		days_mission_timeout = 200
+		fire_only_once = yes
+		
+		timeout_effect = {
+			
+		}
+	}
+	
+	TUR_invest_in_influence = {
+		icon = ger_mefo_bills
+		
+		visible = {
+			OR = {
+				tag = TUR
+				tag = ENG
+				tag = FRA
+				tag = GER
+			}
+			always = no
+		}
+		
+		available = {
+			
+		}
+		
+		days_remove = 14
+		days_re_enable = 14
+		
+		cost = 25
+		
+		remove_effect = {
+			if = {
+				limit = {
+					tag = TUR
+				}
+				add_to_variable = {
+					TUR.TUR_anatolian_influence = 2
+					tooltip = TUR_invest_in_influence_tt
+				}
+			}
+			else_if = {
+				limit = {
+					tag = ENG
+				}
+				add_to_variable = {
+					TUR.TUR_british_influence = 2
+					tooltip = TUR_invest_in_influence_tt
+				}
+			}
+			else_if = {
+				limit = {
+					tag = FRA
+				}
+				add_to_variable = {
+					TUR.TUR_french_influence = 2
+					tooltip = TUR_invest_in_influence_tt
+				}
+			}
+			else_if = {
+				limit = {
+					tag = GER
+				}
+				add_to_variable = {
+					TUR.TUR_german_influence = 2
+					tooltip = TUR_invest_in_influence_tt
+				}
+			}
+		}
+	}
+	
+	TUR_promote_riots = {
+		icon = ger_mefo_bills
+		
+		visible = {
+			tag = TUR
+			always = no
+		}
+		
+		available = {
+			
+		}
+		
+		days_remove = 7
+		days_re_enable = 14
+		
+		cost = 25
+		
+		complete_effect = {
+			
+		}
+		
+		remove_effect = {
+			SCM = {
+				add_stability = -0.025
+			}
+			add_to_variable = {
+				TUR.TUR_anatolian_influence = 1
+				tooltip = TUR_invest_in_influence_tt
+			}
+		}
+	}
+	
+	TUR_smuggle_guns = {
+		icon = ger_mefo_bills
+		
+		visible = {
+			tag = TUR
+			always = no
+		}
+		
+		available = {
+			
+		}
+		
+		days_remove = 7
+		days_re_enable = 14
+		
+		cost = 25
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		custom_cost_text = decision_cost_CP_25_pp_25
+		
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -100
+			}
+		}
+		
+		remove_effect = {
+			SCM = {
+				add_stability = -0.075
+				add_war_support = 0.025
+			}
+		}
+	}
+	
+	TUR_operation_ebul_feth = {
+		icon = ger_mefo_bills
+		
+		visible = {
+			tag = TUR
+			always = no
+		}
+		
+		available = {
+			SCM = {
+				has_stability < 0.1
+			}
+		}
+		
+		days_remove = 7
+		
+		cost = 0
+		
+		remove_effect = {
+			
+		}
+	}
+}

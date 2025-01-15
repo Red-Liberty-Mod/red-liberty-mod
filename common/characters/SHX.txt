@@ -1,0 +1,201 @@
+characters = {
+	
+	SHX_yu_youren = {
+		name = SHX_yu_youren
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_unknown"
+				#small = ""
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_YU_YOUREN_DESC"
+			ideology = social_democracy_subtype
+		}
+		
+		corps_commander = {
+			traits = {
+				politically_connected
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	
+	SHX_shang_zhen = {
+		name = SHX_shang_zhen
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_unknown"
+				#small = ""
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_SHANG_ZHEN_DESC"
+			ideology = national_conservatism_subtype
+		}
+		
+		advisor = {
+			slot = army_chief
+			idea_token = SHX_shang_zhen
+			traits = { army_chief_planning_2 }
+			cost = 100
+		}
+		
+		corps_commander = {
+			traits = {
+				politically_connected
+				organizer
+				infantry_officer
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 3
+		}
+	}
+	
+	SHX_yan_xishan = {
+		name = SHX_yan_xishan
+		
+		portraits = {
+			army = {
+				large = "gfx/leaders/SHX/Portrait_CHI_Yan_Xishan.png"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_YAN_XISHAN_DESC"
+			ideology = warlordism_subtype
+			traits = {
+				model_governor
+			}
+		}
+		
+		field_marshal = {
+			traits = {
+				inflexible_strategist
+				organizer
+				harsh_leader
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	
+	### Generals ###
+	
+	SHX_fu_zuoyi = {
+		name = SHX_fu_zuoyi
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		corps_commander = {
+			desc = SHX_fu_zuoyi_desc
+			traits = {
+				career_officer
+				infantry_officer
+				artillery_specialist
+				urban_assault_specialist
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		
+		advisor = {
+			slot = army_chief
+			idea_token = SHX_fu_zuoyi_army_chief
+			traits = {
+				army_chief_defensive_2
+			}
+			cost = 100
+		}
+	}
+	
+	SHX_zhao_chengshou = {
+		name = SHX_zhao_chengshou
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = SHX_zhao_chengshou_army_high_command
+			ledger = army
+			traits = { army_cavalry_2 }
+			cost = 100
+		}
+		
+		corps_commander = {
+			traits = {
+				career_officer
+				irregulars_officer
+				cavalry_leader
+				cavalry_expert
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	
+	SHX_wang_jingguo = {
+		name = SHX_wang_jingguo
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = SHX_wang_jingguo_army_high_command
+			ledger = army
+			traits = {
+				army_regrouping_1
+			}
+			cost = 50
+		}
+		
+		corps_commander = {
+			traits = {
+				organizer
+				career_officer
+				harsh_leader
+				skilled_staffer
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+}

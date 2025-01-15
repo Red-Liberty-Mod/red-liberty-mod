@@ -2,13 +2,37 @@ propaganda_efforts = {
 	icon = generic_propaganda
 
 	visible = {
-		AND = {
-			has_war = yes
-			any_enemy_country = {
-				is_government_in_exile = no
-			}
+		#AND = {
+		#	has_war = yes
+		#	any_enemy_country = {
+		#		is_government_in_exile = no
+		#	}
+		#}
+	}
+}
+
+prospect_for_resources = {
+	icon = generic_prospect_for_resources
+
+	visible = {
+		
+	}
+}
+
+foreign_policy_category = {
+	icon = generic_propaganda
+
+	visible = {
+		NOT = {
+			is_in_faction = yes
+		}
+		OR = {
+			has_country_flag = can_join_entente
+			has_country_flag = can_join_pakt
 		}
 	}
+	
+	visible_when_empty = yes
 }
 
 lar_local_recruitment = {
