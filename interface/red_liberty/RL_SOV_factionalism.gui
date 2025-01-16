@@ -1,0 +1,204 @@
+@FACTION_TEXT_X = 55
+@LOYALTY_TEXT_X = 240
+@POPULARITY_TEXT_X = 380
+@FACTION_ICONS_X = 10
+@FACTION_NAMES_X = 55
+@HEADERS_Y = 0
+
+guiTypes = {
+
+	containerWindowType = {
+		name = "SOV_factionalism_decision_ui_window"
+		position = { x = 0 y = 0 }
+		size = { width = 100% height = 250 }
+		
+		#background = {
+		#	name = "background"		
+		#	quadTextureSprite = "GFX_tiled_window_thin_border2"
+		#}
+		
+		instantTextBoxType = {
+			name = "opinion_header"
+			position = { x = @LOYALTY_TEXT_X y = @HEADERS_Y }
+			font = "hoi_18mbs"
+			text = "Opinion"
+			format = center
+			maxHeight = 24
+			maxwidth = 110
+		}
+		instantTextBoxType = {
+			name = "influence_header"
+			position = { x = @POPULARITY_TEXT_X y = @HEADERS_Y }
+			font = "hoi_18mbs"
+			text = "Influence"
+			format = center
+			maxHeight = 24
+			maxwidth = 110
+		}
+		
+		### Industrialists ###
+		iconType = {
+			name = "industrialist_icon"
+			spriteType = "GFX_ideology_vanguard_socialism_group"
+			position = { x = @FACTION_ICONS_X y = 30 }
+			pdx_tooltip = "industrialist_icon_tt"
+			scale = 0.57
+		}
+		instantTextBoxType = {
+			name = "industrialist_name_text"
+			position = { x = @FACTION_NAMES_X y = 40 }
+			font = "hoi_18mbs"
+			text = "Industrialists"
+			format = left
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "SOV_industrialist_opinion_status"
+			position = { x = @LOYALTY_TEXT_X y = 40 }
+			font = "hoi_18mbs"
+			text = "SOV_industrialist_opinion_status"
+			format = center
+			maxwidth = 110
+		}
+		instantTextBoxType = {
+			name = "SOV_industrialist_influence_status"
+			position = { x = @POPULARITY_TEXT_X y = 40 }
+			font = "hoi_18mbs"
+			text = "SOV_industrialist_influence_status"
+			format = center
+			maxwidth = 110
+		}
+		
+		### Rightists ###
+		iconType = {
+			name = "rightist_icon"
+			spriteType = "GFX_ideology_right_communism_subtype"
+			position = { x = @FACTION_ICONS_X y = 75 }
+			pdx_tooltip = "rightist_icon_tt"
+			scale = 0.57
+		}
+		instantTextBoxType = {
+			name = "rightist_name_text"
+			position = { x = @FACTION_NAMES_X y = 85 }
+			font = "hoi_18mbs"
+			text = "Rightists"
+			format = left
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "SOV_rightist_opinion_status"
+			position = { x = @LOYALTY_TEXT_X y = 85 }
+			font = "hoi_18mbs"
+			text = "SOV_rightist_opinion_status"
+			format = center
+			maxwidth = 110
+		}
+		instantTextBoxType = {
+			name = "SOV_rightist_influence_status"
+			position = { x = @POPULARITY_TEXT_X y = 85 }
+			font = "hoi_18mbs"
+			text = "SOV_rightist_influence_status"
+			format = center
+			maxwidth = 110
+		}
+		
+		### Decists ###
+		iconType = {
+			name ="decist_icon"
+			spriteType = "GFX_ideology_revolutionary_socialism_group"
+			position = { x = @FACTION_ICONS_X y = 120 }
+			pdx_tooltip = "decist_icon_tt"
+			scale = 0.57
+		}
+		instantTextBoxType = {
+			name ="decist_name_text"
+			position = { x = @FACTION_NAMES_X y = 130 }
+			font = "hoi_18mbs"
+			text = "Group of Dem. Centralism"
+			format = left
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "SOV_decist_opinion_status"
+			position = { x = @LOYALTY_TEXT_X y = 130 }
+			font = "hoi_18mbs"
+			text = "SOV_decist_opinion_status"
+			format = center
+			maxwidth = 110
+		}
+		instantTextBoxType = {
+			name = "SOV_decist_influence_status"
+			position = { x = @POPULARITY_TEXT_X y = 130 }
+			font = "hoi_18mbs"
+			text = "SOV_decist_influence_status"
+			format = center
+			maxwidth = 110
+		}
+		
+		### Syndicalist ###
+		iconType = {
+			name = "syndicalist_icon"
+			spriteType = "GFX_ideology_syndicalism_subtype"
+			position = { x = @FACTION_ICONS_X y = 165 }
+			pdx_tooltip = "syndicalist_icon_tt"
+			scale = 0.57
+		}
+		instantTextBoxType = {
+			name = "syndicalist_name_text"
+			position = { x = @FACTION_NAMES_X y = 175 }
+			font = "hoi_18mbs"
+			text = "Workers' Opposition"
+			format = left
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "SOV_syndicalist_opinion_status"
+			position = { x = @LOYALTY_TEXT_X y = 175 }
+			font = "hoi_18mbs"
+			text = "SOV_syndicalist_opinion_status"
+			format = center
+			maxwidth = 110
+		}
+		instantTextBoxType = {
+			name = "SOV_syndicalist_influence_status"
+			position = { x = @POPULARITY_TEXT_X y = 175 }
+			font = "hoi_18mbs"
+			text = "SOV_syndicalist_influence_status"
+			format = center
+			maxwidth = 110
+		}
+		
+		### Democrats ###
+		iconType = {
+			name ="democrat_icon"
+			spriteType = "GFX_ideology_democratic_socialism_group"
+			position = { x = @FACTION_ICONS_X y = 210 }
+			pdx_tooltip = "democrat_icon_tt"
+			scale = 0.57
+		}
+		instantTextBoxType = {
+			name ="democrat_name_text"
+			position = { x = @FACTION_NAMES_X y = 220 }
+			font = "hoi_18mbs"
+			text = "Democratic Group"
+			format = left
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "SOV_democrat_opinion_status"
+			position = { x = @LOYALTY_TEXT_X y = 220 }
+			font = "hoi_18mbs"
+			text = "SOV_democrat_opinion_status"
+			format = center
+			maxwidth = 110
+		}
+		instantTextBoxType = {
+			name = "SOV_democrat_influence_status"
+			position = { x = @POPULARITY_TEXT_X y = 220 }
+			font = "hoi_18mbs"
+			text = "SOV_democrat_influence_status"
+			format = center
+			maxwidth = 110
+		}
+	}
+}
