@@ -76,6 +76,34 @@ country_event = {
 	}
 }
 
+country_event = {
+	id = soviet_union.6
+	title = soviet_union.6.title
+	desc = soviet_union.6.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = soviet_union.6.a
+	}
+}
+
+country_event = {
+	id = soviet_union.7
+	title = soviet_union.7.title
+	desc = soviet_union.7.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = soviet_union.7.a
+	}
+}
+
 country_event = { # bukharin retires
 	id = soviet_union.50
 	title = soviet_union.50.title
@@ -126,22 +154,33 @@ country_event = { # fate of the nep
 	desc = sov_congress.2.desc
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
+	
+	immediate = {
+		unlock_national_focus = SOV_fate_of_the_nep
+	}
 
 	option = { # kept
 		name = sov_congress.2.a
 		add_to_variable = {
 			tooltip = SOV_rightist_influence_gain
-			SOV_industrialist_influence = 3
+			SOV_rightist_influence = 4
+		}
+		add_to_variable = {
+			tooltip = SOV_democrat_influence_gain
+			SOV_democrat_influence = 1
 		}
 	}
 	
 	option = { # abolished
 		name = sov_congress.2.b
+		subtract_from_variable = {
+			tooltip = SOV_rightist_influence_lose
+			SOV_rightist_influence = 5
+		}
 		add_to_variable = {
 			tooltip = SOV_industrialist_influence_gain
-			SOV_industrialist_influence = 1
+			SOV_industrialist_influence = 2
 		}
 		add_to_variable = {
 			tooltip = SOV_decist_influence_gain
@@ -149,11 +188,7 @@ country_event = { # fate of the nep
 		}
 		add_to_variable = {
 			tooltip = SOV_syndicalist_influence_gain
-			SOV_syndicalist_influence = 1
-		}
-		add_to_variable = {
-			tooltip = SOV_democrat_influence_gain
-			SOV_democrat_influence = 1
+			SOV_syndicalist_influence = 2
 		}
 	}
 }

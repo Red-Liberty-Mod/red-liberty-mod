@@ -51,22 +51,6 @@ characters = {
 		}
 	}
 	
-	USA_william_foster = {
-		name = USA_william_foster
-		
-		portraits = {
-			civilian = {
-				large = "GFX_portrait_USA_william_foster"
-			}
-		}
-		
-		country_leader = {
-			desc = "POLITICS_WILLIAM_FOSTER_DESC"
-			ideology = revolutionary_autocracy_subtype
-			traits = {  }
-		}
-	}
-	
 	USA_earl_russell_browder = {
 		name = USA_earl_russell_browder
 		
@@ -89,8 +73,35 @@ characters = {
 		}
 		
 		country_leader = {
+			ideology = revolutionary_socialism_subtype
+			traits = {  }
+		}
+	}
+	
+	USA_william_foster = {
+		name = USA_william_foster
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_USA_william_foster"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_WILLIAM_FOSTER_DESC"
 			ideology = syndicalism_subtype
 			traits = {  }
+		}
+		
+		advisor = {
+			slot = head_of_government
+			idea_token = USA_william_foster_hog
+			ledger = civilian
+			cost = 0
+			can_be_fired = no
+			traits = {
+				hog_ambitious_union_boss
+			}
 		}
 	}
 	
@@ -356,7 +367,7 @@ characters = {
 				#}
 			}
 			traits = {
-				
+				ideological_crusader
 			}
 		}
 	}
@@ -561,7 +572,7 @@ characters = {
 			idea_token = USA_max_hayes_political_advisor
 			ledger = civilian
 			traits = {
-				
+				trade_unionist
 			}
 		}
 	}

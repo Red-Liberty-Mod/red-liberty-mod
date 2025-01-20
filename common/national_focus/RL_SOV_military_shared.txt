@@ -153,12 +153,12 @@ shared_focus = {
     id = SOV_lessons_of_the_civil_war
 	icon = GFX_SOV_lessons_of_the_civil_war
 	
-    x = -1
-	y = 1
+    x = -2
+	y = 2
 	cost = 5
 	
-	relative_position_id = SOV_equipment_modernization
-	prerequisite = { focus = SOV_equipment_modernization }
+	relative_position_id = SOV_the_red_army
+	prerequisite = { focus = SOV_the_red_army }
     completion_reward = {
 		
     }
@@ -235,8 +235,8 @@ shared_focus = {
     id = SOV_motivate_the_people
 	icon = GFX_focus_generic_workers_and_farmers_rise
 	
-    x = -2
-	y = 1
+    x = -1
+	y = 2
 	cost = 5
 	
 	relative_position_id = SOV_svechin_doctrine
@@ -409,6 +409,7 @@ shared_focus = {
 	
 	relative_position_id = SOV_motivate_the_people
 	prerequisite = { focus = SOV_motivate_the_people }
+	prerequisite = { focus = SOV_preemptive_industrial_relocation }
     completion_reward = {
 		increase_mobilisation = yes
     }
@@ -441,13 +442,68 @@ shared_focus = {
 			}
 		}
 		random_owned_state = {
-			prioritize = { 572 582 651 652 }
+			prioritize = { 249 572 582 651 652 }
 			add_building_construction = {
 				type = arms_factory
 				level = 1
 				instant_build = yes
 			}
 		}
+		random_owned_state = {
+			prioritize = { 195 219 223 }
+			limit = {
+				arms_factory > 0
+			}
+			remove_building = {
+				type = arms_factory
+				level = 1
+			}
+		}
+		random_owned_state = {
+			prioritize = { 249 572 582 651 652 }
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+		random_owned_state = {
+			prioritize = { 195 219 223 }
+			limit = {
+				industrial_complex > 0
+			}
+			remove_building = {
+				type = industrial_complex
+				level = 1
+			}
+		}
+		random_owned_state = {
+			prioritize = { 249 572 582 651 652 }
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_masters_of_the_winter
+	icon = GFX_SOV_masters_of_the_winter
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_form_guards_divisions
+	prerequisite = { focus = SOV_form_guards_divisions }
+    completion_reward = {
+		
     }
 	
 	ai_will_do = {
@@ -521,21 +577,17 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = SOV_war_of_attrition
-	icon = GFX_focus_FIN_weapon_caches
+    id = SOV_special_forces_school
+	icon = GFX_SOV_special_forces_school
 	
-    x = 1
-	y = 1
+    x = 2
+	y = 2
 	cost = 5
 	
-	relative_position_id = SOV_permanent_mobilization
-	prerequisite = { focus = SOV_permanent_mobilization }
-	prerequisite = { focus = SOV_preemptive_industrial_relocation }
+	relative_position_id = SOV_form_the_stavka
+	prerequisite = { focus = SOV_form_the_stavka }
     completion_reward = {
-		swap_ideas = {
-			remove_idea = SOV_attritional_warfare_2
-			add_idea = SOV_attritional_warfare_3
-		}
+		
     }
 	
 	ai_will_do = {
@@ -598,8 +650,8 @@ shared_focus = {
 	y = 1
 	cost = 5
 	
-	relative_position_id = SOV_war_of_attrition
-	prerequisite = { focus = SOV_war_of_attrition }
+	relative_position_id = SOV_permanent_mobilization
+	prerequisite = { focus = SOV_permanent_mobilization }
     completion_reward = {
 		
     }
@@ -619,6 +671,109 @@ shared_focus = {
 	
 	relative_position_id = SOV_preemptive_industrial_relocation
 	prerequisite = { focus = SOV_preemptive_industrial_relocation }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_war_of_attrition
+	icon = GFX_focus_FIN_weapon_caches
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_alternating_action
+	prerequisite = { focus = SOV_alternating_action }
+	prerequisite = { focus = SOV_defend_the_skies }
+    completion_reward = {
+		swap_ideas = {
+			remove_idea = SOV_attritional_warfare_2
+			add_idea = SOV_attritional_warfare_3
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_the_red_navy
+	icon = GFX_SOV_the_red_navy
+	
+    x = 15
+	y = 0
+	cost = 5
+	
+	relative_position_id = SOV_the_red_army
+    completion_reward = {
+		navy_experience = 50
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_expand_the_surface_fleet
+	icon = GFX_SOV_expand_the_surface_fleet
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_the_red_navy
+	prerequisite = { focus = SOV_the_red_navy }
+	mutually_exclusive = { focus = SOV_expand_the_submarine_fleet }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_expand_the_submarine_fleet
+	icon = GFX_SOV_expand_the_submarine_fleet
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_the_red_navy
+	prerequisite = { focus = SOV_the_red_navy }
+	mutually_exclusive = { focus = SOV_expand_the_surface_fleet }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_expand_shipbuilding_facilities
+	icon = GFX_SOV_expand_shipbuilding_facilities
+	
+    x = 3
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_the_red_navy
+	prerequisite = { focus = SOV_the_red_navy }
+	
     completion_reward = {
 		
     }

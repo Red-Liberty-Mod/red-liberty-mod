@@ -13,7 +13,6 @@ starting_train_buffer = 2
 
 set_technology = {
 	infantry_weapons = 1
-	infantry_weapons1 = 1
 	tech_recon = 1
 	tech_support = 1		
 	tech_engineers = 1
@@ -25,8 +24,6 @@ set_technology = {
 	gw_artillery = 1
 	interwar_antiair = 1
 	
-	mass_assault = 1
-	fleet_in_being = 1
 	fuel_silos = 1
 	fuel_refining = 1
 	synth_oil_experiments = 1
@@ -35,7 +32,7 @@ set_technology = {
 }
 if = {
 	limit = {
-		has_dlc = "No Step Back"
+		has_dlc_nsb = yes
 	}
 	set_technology = {
 		gwtank_chassis = 1
@@ -53,7 +50,9 @@ if = {
 	}
 }
 if = {
-	limit = { has_dlc_mtg = yes }
+	limit = {
+		has_dlc_mtg = yes
+	}
 	set_technology = {
 		basic_naval_mines = 1
 		submarine_mine_laying = 1
@@ -85,23 +84,57 @@ if = {
 }
 if = {
 	limit = {
-		has_dlc = "La Resistance"
+		has_dlc_lar = yes
 	}
 	set_technology = {
 		armored_car1 = 1
 	}
+}
+if = {
+	limit = {
+		has_dlc_bba = yes
+	}
+	set_technology = {
+		aa_lmg = 1
+		aa_cannon_1 = 1
+		engines_1 = 1
+		engines_2 = 1
+		early_bombs = 1
+		aircraft_construction = 1
+		iw_small_airframe = 1
+		iw_medium_airframe = 1
+		iw_large_airframe = 1
+		bba_early_transport_plane = 1
+	}
+	else = {
+		set_technology = {
+			early_fighter = 1
+			early_bomber = 1
+			tactical_bomber1 = 1
+			CAS1 = 1
+			naval_bomber1 = 1
+			early_transport_plane = 1
+		}
+	}
+}
+
+add_breakthrough_progress = {
+	specialization = specialization_land
+	value = 0.5
+}
+add_breakthrough_progress = {
+	specialization = specialization_naval
+	value = 0.1
+}
+add_breakthrough_progress = {
+	specialization = specialization_air
+	value = 0.25
 }
 
 complete_special_project = {
 	project = sp:sp_land_flamethrower_tank
 	#scientist = USA_andrew_mckee
 	state = 219
-}
-
-add_equipment_to_stockpile = {
-    type = heavy_tank_equipment
-    amount = 10
-    producer = SOV
 }
 
 add_equipment_to_stockpile = {
@@ -152,12 +185,16 @@ recruit_character = SOV_lev_kamenev
 ### MINISTERS ###
 recruit_character = SOV_mikhail_kalinin
 recruit_character = SOV_yakov_sverdlov
+recruit_character = SOV_lazar_kaganovich
+recruit_character = SOV_maxim_litvinov
 recruit_character = SOV_anatoly_lunacharsky
 recruit_character = SOV_karl_radek
 recruit_character = SOV_martemyan_ryutin
 recruit_character = SOV_nikolai_yezhov
 recruit_character = SOV_grigory_zinoviev
 recruit_character = SOV_ivar_smilga
+recruit_character = SOV_alexandra_kollontai
+recruit_character = SOV_nadezhda_krupskaya
 
 activate_advisor = SOV_mikhail_kalinin_hog
 activate_advisor = SOV_yakov_sverdlov
@@ -181,6 +218,33 @@ recruit_character = SOV_mikhail_velikanov
 recruit_character = SOV_ivan_dubovoy
 recruit_character = SOV_ivan_fedko
 recruit_character = SOV_ivan_belov
+recruit_character = SOV_vitaly_primakov
+
+### ADMIRALS ###
+recruit_character = SOV_lev_galler
+recruit_character = SOV_gordey_levchenko
+recruit_character = SOV_vladimir_kasatonov
+recruit_character = SOV_neon_antonov
+recruit_character = SOV_grigory_kireev
+
+### HIGH COMMAND ###
+recruit_character = SOV_boris_feldman
+recruit_character = SOV_yakov_alksnis
+recruit_character = SOV_aleksandr_novikov
+recruit_character = SOV_vladimir_orlov
+recruit_character = SOV_aleksandr_samoylo
+recruit_character = SOV_sergey_khudyakov
+recruit_character = SOV_vladimir_triandafillov
+recruit_character = SOV_alexander_svechin
+recruit_character = SOV_aleksandr_nemits
+
+### SCIENTISTS ###
+recruit_character = SOV_igor_kurchatov
+recruit_character = SOV_abram_ioffe
+recruit_character = SOV_sergey_korolyov
+recruit_character = SOV_boris_stechkin
+recruit_character = SOV_arkady_nazarov
+recruit_character = SOV_vladimir_kotelnikov
 
 add_ideas = {
 	SOV_home_of_the_revolution
@@ -200,37 +264,6 @@ set_country_flag = can_integrate_UKR
 set_country_flag = can_integrate_BLR
 set_country_flag = can_integrate_AZR
 set_country_flag = can_integrate_GEO
-
-create_navy_leader = {
-	name = "Lev Galler"
-	portrait_path = ""
-	traits = {
-		ironside
-		cruiser_captain
-		spotter
-		mine_craft
-	}
-	skill = 3
-	attack_skill = 3
-	defense_skill = 3
-	maneuvering_skill = 3
-	coordination_skill = 3
-}
-
-create_navy_leader = {
-	name = "Gordey Levchenko"
-	picture = ""
-	traits = {  }
-	skill = 2
-}
-
-
-create_navy_leader = {
-	name = "Vladimir Kasatonov"
-	picture = ""
-	traits = { seawolf }
-	skill = 2
-}
 
 if = {
 	limit = {
@@ -476,7 +509,7 @@ if = {
 			tank_nsb_armor_upgrade = 3
 			tank_nsb_engine_upgrade = 10
 		}
-		icon = "gfx/interface/technologies/SOV_basic_heavy_tank.dds"
+		icon = "GFX_SOV_medium_gwtank_medium"
 	}
 	create_equipment_variant = {
 		name = "T-35A"
@@ -499,5 +532,12 @@ if = {
 			tank_nsb_engine_upgrade = 10
 		}
 		icon = "GFX_SOV_basic_heavy_tank_medium"
+	}
+	
+	add_equipment_to_stockpile = {
+		type = heavy_tank_chassis_0
+		amount = 10
+		variant_name = "T-35A"
+		producer = SOV
 	}
 }
