@@ -253,6 +253,9 @@ characters = {
 			traits = {
 				hog_national_figurehead
 			}
+			modifier = {
+				party_popularity_stability_factor = 0.25
+			}
 		}
 	}
 	
@@ -584,19 +587,12 @@ characters = {
 		
 		advisor = {
 			cost = 200
-			
 			slot = army_chief
 			idea_token = SOV_mikhail_tukhachevsky_army_chief
 			ledger = army
-			
-			allowed = {
-				original_tag = SOV
-			}
-			
 			available = {
 				not_already_hired_except_as = army_chief
 			}
-			
 			traits = {
 				army_chief_offensive_3
 			}
@@ -604,20 +600,13 @@ characters = {
 		
 		advisor = {
 			cost = 150
-			
 			slot = theorist
 			idea_token = SOV_mikhail_tukhachevsky_theorist
 			ledger = army
-			
-			allowed = {
-				original_tag = SOV
-			}
-			
 			available = {
 				not_already_hired_except_as = theorist
 				has_completed_focus = SOV_tukhachevsky_doctrine
 			}
-			
 			traits = {
 				mass_assault_expert
 			}
@@ -671,24 +660,15 @@ characters = {
 		portraits = {
 			army = {
 				large = "gfx/leaders/SOV/Portrait_SOV_Alexander_Yegorov.png"
+				small = "gfx/interface/ministers/SOV/military/SOV_alexander_yegorov.png"
 			}
 		}
 		
 		advisor = {
 			cost = 100
-			
 			slot = high_command
 			idea_token = SOV_alexander_yegorov_high_command
 			ledger = army
-			
-			allowed = {
-				original_tag = SOV
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
 				army_regrouping_2
 			}
@@ -714,6 +694,7 @@ characters = {
 		portraits = {
 			army = {
 				large = "gfx/leaders/SOV/Portrait_SOV_Semyon_Budyonny.png"
+				small = "gfx/interface/ministers/SOV/military/SOV_semyon_budyonny.png"
 			}
 		}
 		
@@ -1458,6 +1439,22 @@ characters = {
 	}
 	
 	### Scientists ###
+	
+	SOV_mikhail_koshkin = {
+		name = SOV_mikhail_koshkin
+		portraits = {
+			army = {
+				#large = ""
+			}
+		}
+
+		scientist = {
+			traits = { scientist_trait_armored_specialist }
+			skills = {
+				specialization_land = 2
+			}
+		}
+	}
 	
 	SOV_igor_kurchatov = {
 		name = SOV_igor_kurchatov

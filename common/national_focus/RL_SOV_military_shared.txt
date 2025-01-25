@@ -8,6 +8,10 @@ shared_focus = {
 	
     completion_reward = {
         custom_effect_tooltip = SOV_reform_the_intelligence_agency_tt
+		country_event = {
+			id = sov_military.1
+			hours = 6
+		}
     }
 	
 	ai_will_do = {
@@ -26,6 +30,25 @@ shared_focus = {
 	relative_position_id = SOV_reform_the_intelligence_agency
     completion_reward = {
 		army_experience = 50
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_smersh
+	icon = GFX_SOV_svechin_doctrine
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_reform_the_intelligence_agency
+	prerequisite = { focus = SOV_reform_the_intelligence_agency }
+    completion_reward = {
+		upgrade_intelligence_agency = upgrade_psycho_warfare
     }
 	
 	ai_will_do = {
@@ -84,6 +107,10 @@ shared_focus = {
 	y = 1
 	cost = 5
 	
+	available = {
+		has_global_flag = russian_civil_war_ended
+	}
+	
 	relative_position_id = SOV_the_red_army
 	prerequisite = { focus = SOV_the_red_army }
 	mutually_exclusive = { focus = SOV_svechin_doctrine }
@@ -111,6 +138,10 @@ shared_focus = {
 	y = 1
 	cost = 5
 	
+	available = {
+		has_global_flag = russian_civil_war_ended
+	}
+	
 	relative_position_id = SOV_the_red_army
 	prerequisite = { focus = SOV_the_red_army }
 	mutually_exclusive = { focus = SOV_tukhachevsky_doctrine }
@@ -123,25 +154,6 @@ shared_focus = {
 		add_ideas = SOV_attritional_warfare_1
 		custom_effect_tooltip = available_theorist
 		show_ideas_tooltip = SOV_alexander_svechin
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = SOV_smersh
-	icon = GFX_SOV_svechin_doctrine
-	
-    x = 0
-	y = 2
-	cost = 5
-	
-	relative_position_id = SOV_reform_the_intelligence_agency
-	prerequisite = { focus = SOV_reform_the_intelligence_agency }
-    completion_reward = {
-		
     }
 	
 	ai_will_do = {
@@ -243,6 +255,10 @@ shared_focus = {
 	prerequisite = { focus = SOV_svechin_doctrine }
     completion_reward = {
 		add_war_support = 0.1
+		swap_ideas = {
+			remove_idea = SOV_attritional_warfare_1
+			add_idea = SOV_attritional_warfare_2
+		}
     }
 	
 	ai_will_do = {
@@ -280,10 +296,7 @@ shared_focus = {
 	relative_position_id = SOV_svechin_doctrine
 	prerequisite = { focus = SOV_svechin_doctrine }
     completion_reward = {
-		swap_ideas = {
-			remove_idea = SOV_attritional_warfare_1
-			add_idea = SOV_attritional_warfare_2
-		}
+		enable_tech_improved_logistics = yes
     }
 	
 	ai_will_do = {
@@ -296,7 +309,7 @@ shared_focus = {
 	icon = GFX_SOV_form_guards_divisions
 	
     x = 1
-	y = 1
+	y = 2
 	cost = 5
 	
 	relative_position_id = SOV_smersh
@@ -345,11 +358,62 @@ shared_focus = {
 	y = 1
 	cost = 5
 	
+	available = {
+		if = {
+			limit = { has_dlc_nsb = yes }
+			has_design_based_on = medium_tank_chassis
+		}
+		else = {
+			custom_override_tooltip = {
+				tooltip = {
+					localization_key = tooltip_has_tech_detailed
+					NAME = country_culture|medium_tank_equipment_1
+					TECH = medium_tank_equipment_1
+				}
+				has_tech = basic_medium_tank
+			}
+		}
+	}
+	
 	relative_position_id = SOV_expand_tank_production
 	prerequisite = { focus = SOV_expand_tank_production }
 	prerequisite = { focus = SOV_broad_front_tactics }
     completion_reward = {
-		
+		custom_effect_tooltip = SOV_combined_arms_operations_tt
+		hidden_effect = {
+			division_template = {
+				name = "Tankovaya Diviziya"
+				division_names_group = SOV_ARM_01
+				regiments = {
+					medium_armor = { x = 0 y = 0 }
+					medium_armor = { x = 0 y = 1 }
+					medium_armor = { x = 0 y = 2 }
+					medium_armor = { x = 1 y = 0 }
+					medium_armor = { x = 1 y = 1 }
+					medium_armor = { x = 1 y = 2 }
+					motorized = { x = 2 y = 0 }
+					motorized = { x = 2 y = 1 }
+					motorized = { x = 2 y = 2 }
+					motorized = { x = 2 y = 3 }
+				}
+				support = {
+					artillery = { x = 0 y = 0 }
+					engineer = { x = 0 y = 1 }
+					maintenance_company = { x = 0 y = 2 }
+					logistics_company = { x = 0 y = 3 }
+					signal_company = { x = 0 y = 4 }
+				}
+				priority = 2
+			}
+			random_owned_controlled_state = {
+				prioritize = { 219 }
+				create_unit = {
+					division = "division_template = \"Tankovaya Diviziya\" start_experience_factor = 0.2"
+					owner = ROOT
+					count = 2
+				}
+			}
+		}
     }
 	
 	ai_will_do = {
@@ -368,7 +432,10 @@ shared_focus = {
 	relative_position_id = SOV_broad_front_tactics
 	prerequisite = { focus = SOV_broad_front_tactics }
     completion_reward = {
-		
+		swap_ideas = {
+			remove_idea = SOV_deep_battle_doctrine_2
+			add_idea = SOV_deep_battle_doctrine_3
+		}
     }
 	
 	ai_will_do = {
@@ -411,7 +478,10 @@ shared_focus = {
 	prerequisite = { focus = SOV_motivate_the_people }
 	prerequisite = { focus = SOV_preemptive_industrial_relocation }
     completion_reward = {
-		increase_mobilisation = yes
+		swap_ideas = {
+			remove_idea = SOV_attritional_warfare_2
+			add_idea = SOV_attritional_warfare_3
+		}
     }
 	
 	ai_will_do = {
@@ -431,58 +501,64 @@ shared_focus = {
 	prerequisite = { focus = SOV_expand_rifle_production }
 	prerequisite = { focus = SOV_strengthen_the_logistics_corps }
     completion_reward = {
-		random_owned_state = {
-			prioritize = { 195 219 223 }
-			limit = {
-				arms_factory > 0
-			}
-			remove_building = {
-				type = arms_factory
-				level = 1
-			}
+		249 = {
+			add_extra_state_shared_building_slots = 2
 		}
-		random_owned_state = {
-			prioritize = { 249 572 582 651 652 }
-			add_building_construction = {
-				type = arms_factory
-				level = 1
-				instant_build = yes
-			}
+		398 = {
+			add_extra_state_shared_building_slots = 2
 		}
-		random_owned_state = {
-			prioritize = { 195 219 223 }
-			limit = {
-				arms_factory > 0
-			}
-			remove_building = {
-				type = arms_factory
-				level = 1
-			}
+		399 = {
+			add_extra_state_shared_building_slots = 2
 		}
-		random_owned_state = {
-			prioritize = { 249 572 582 651 652 }
-			add_building_construction = {
-				type = arms_factory
-				level = 1
-				instant_build = yes
-			}
+		651 = {
+			add_extra_state_shared_building_slots = 1
 		}
-		random_owned_state = {
-			prioritize = { 195 219 223 }
-			limit = {
-				industrial_complex > 0
-			}
-			remove_building = {
-				type = industrial_complex
-				level = 1
-			}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_penal_battalions
+	icon = GFX_SOV_penal_battalions
+	
+    x = 0
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_smersh
+	prerequisite = { focus = SOV_smersh }
+    completion_reward = {
+		set_technology = {
+			penal_infantry = 1
 		}
-		random_owned_state = {
-			prioritize = { 249 572 582 651 652 }
-			add_building_construction = {
-				type = industrial_complex
-				level = 1
-				instant_build = yes
+		hidden_effect = {
+			division_template = {
+				name = "Shtrafnaya Chast"
+				division_names_group = SOV_PEN_01
+				regiments = {
+					penal_battalion = { x = 0 y = 0 }
+					penal_battalion = { x = 0 y = 1 }
+					penal_battalion = { x = 0 y = 2 }
+					penal_battalion = { x = 1 y = 0 }
+					penal_battalion = { x = 1 y = 1 }
+					penal_battalion = { x = 1 y = 2 }
+					penal_battalion = { x = 2 y = 0 }
+					penal_battalion = { x = 2 y = 1 }
+					penal_battalion = { x = 2 y = 2 }
+				}
+				support = {
+					artillery = { x = 0 y = 0 }
+				}
+			}
+			capital_scope = {
+				create_unit = {
+					division = "division_template = \"Shtrafnaya Chast\" start_experience_factor = 0.5 start_equipment_factor = 1.0"
+					owner = SOV
+					count = 12
+				}
 			}
 		}
     }
@@ -496,12 +572,12 @@ shared_focus = {
     id = SOV_masters_of_the_winter
 	icon = GFX_SOV_masters_of_the_winter
 	
-    x = -1
-	y = 1
+    x = 0
+	y = 2
 	cost = 5
 	
-	relative_position_id = SOV_form_guards_divisions
-	prerequisite = { focus = SOV_form_guards_divisions }
+	relative_position_id = SOV_lessons_of_the_civil_war
+	prerequisite = { focus = SOV_lessons_of_the_civil_war }
     completion_reward = {
 		
     }
@@ -524,8 +600,8 @@ shared_focus = {
 	prerequisite = { focus = SOV_combined_arms_operations }
     completion_reward = {
 		swap_ideas = {
-			remove_idea = SOV_deep_battle_doctrine_2
-			add_idea = SOV_deep_battle_doctrine_3
+			remove_idea = SOV_deep_battle_doctrine_3
+			add_idea = SOV_deep_battle_doctrine_4
 		}
     }
 	
@@ -545,7 +621,10 @@ shared_focus = {
 	relative_position_id = SOV_commander_initiative
 	prerequisite = { focus = SOV_commander_initiative }
     completion_reward = {
-		
+		every_unit_leader = {
+			limit = { is_corps_commander = yes }
+			add_planning = 1
+		}
     }
 	
 	ai_will_do = {
@@ -587,7 +666,24 @@ shared_focus = {
 	relative_position_id = SOV_form_the_stavka
 	prerequisite = { focus = SOV_form_the_stavka }
     completion_reward = {
-		
+		if = {
+			limit = {
+				has_dlc_aat = yes
+			}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.25
+				uses = 2
+				category = special_forces_doctrine
+			}
+			add_potential_special_forces_tree = yes
+		}
+		else = {
+			add_tech_bonus = {
+				bonus = 0.25
+				uses = 2
+				category = special_forces
+			}
+		}
     }
 	
 	ai_will_do = {
@@ -607,7 +703,11 @@ shared_focus = {
 	prerequisite = { focus = SOV_war_of_mobility }
 	prerequisite = { focus = SOV_operational_art }
     completion_reward = {
-		
+		swap_ideas = {
+			remove_idea = SOV_deep_battle_doctrine_4
+			add_idea = SOV_deep_battle_doctrine_5
+		}
+		enable_tech_masterful_blitz = yes
     }
 	
 	ai_will_do = {
@@ -653,7 +753,10 @@ shared_focus = {
 	relative_position_id = SOV_permanent_mobilization
 	prerequisite = { focus = SOV_permanent_mobilization }
     completion_reward = {
-		
+		swap_ideas = {
+			remove_idea = SOV_attritional_warfare_3
+			add_idea = SOV_attritional_warfare_4
+		}
     }
 	
 	ai_will_do = {
@@ -693,8 +796,8 @@ shared_focus = {
 	prerequisite = { focus = SOV_defend_the_skies }
     completion_reward = {
 		swap_ideas = {
-			remove_idea = SOV_attritional_warfare_2
-			add_idea = SOV_attritional_warfare_3
+			remove_idea = SOV_attritional_warfare_4
+			add_idea = SOV_attritional_warfare_5
 		}
     }
 	
@@ -710,6 +813,10 @@ shared_focus = {
     x = 15
 	y = 0
 	cost = 5
+	
+	available = {
+		has_global_flag = russian_civil_war_ended
+	}
 	
 	relative_position_id = SOV_the_red_army
     completion_reward = {
@@ -775,7 +882,22 @@ shared_focus = {
 	prerequisite = { focus = SOV_the_red_navy }
 	
     completion_reward = {
-		
+		195 = {
+			add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		234 = {
+			add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
     }
 	
 	ai_will_do = {

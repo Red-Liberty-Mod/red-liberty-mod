@@ -102,7 +102,9 @@ if = {
 		early_bombs = 1
 		aircraft_construction = 1
 		iw_small_airframe = 1
+		basic_small_airframe = 1
 		iw_medium_airframe = 1
+		basic_medium_airframe = 1
 		iw_large_airframe = 1
 		bba_early_transport_plane = 1
 	}
@@ -239,6 +241,7 @@ recruit_character = SOV_alexander_svechin
 recruit_character = SOV_aleksandr_nemits
 
 ### SCIENTISTS ###
+recruit_character = SOV_mikhail_koshkin
 recruit_character = SOV_igor_kurchatov
 recruit_character = SOV_abram_ioffe
 recruit_character = SOV_sergey_korolyov
@@ -538,6 +541,103 @@ if = {
 		type = heavy_tank_chassis_0
 		amount = 10
 		variant_name = "T-35A"
+		producer = SOV
+	}
+}
+
+if = {
+	limit = {
+		has_dlc_bba = yes
+	}
+	create_equipment_variant = {
+		name = "I-3"
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "I-15"
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = light_mg_4x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "I-16"
+		type = small_plane_airframe_1
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+		icon = "GFX_SOV_fighter1_medium"
+	}
+	create_equipment_variant = {
+		name = "DB-3"
+		type = medium_plane_airframe_0
+		design_team = mio:SOV_ilyushin_design_bureau_organization
+		modules = {
+			fixed_main_weapon_slot = medium_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = bomb_locks
+			engine_type_slot = engine_2_2x
+			special_type_slot_1 = lmg_defense_turret
+		}
+		icon = "GFX_SOV_early_bomber_medium"
+	}
+	create_equipment_variant = {
+		name = "TB-3"
+		type = large_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = large_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = empty
+			engine_type_slot = engine_1_4x
+			special_type_slot_1 = lmg_defense_turret_2x
+		}
+		icon = "GFX_SOV_transport_plane_equipment_1_medium"
+	}
+	create_equipment_variant = {
+		name = "ANT-40"
+		type = medium_plane_airframe_1
+		design_team = mio:SOV_tupolev_design_bureau_organization
+		modules = {
+			fixed_main_weapon_slot = medium_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = bomb_locks
+			engine_type_slot = engine_2_2x
+			special_type_slot_1 = lmg_defense_turret_2x
+		}
+		icon = "GFX_SOV_tactical_bomber1_medium"
+	}
+	
+	add_equipment_to_stockpile = {
+		type = small_plane_airframe_0
+		amount = 400
+		variant_name = "I-3"
+		producer = SOV
+	}
+	add_equipment_to_stockpile = {
+		type = small_plane_airframe_0
+		amount = 150
+		variant_name = "I-15"
+		producer = SOV
+	}
+	add_equipment_to_stockpile = {
+		type = small_plane_airframe_1
+		amount = 150
+		variant_name = "I-16"
+		producer = SOV
+	}
+	
+	add_equipment_to_stockpile = {
+		type = medium_plane_airframe_1
+		amount = 40
+		variant_name = "ANT-40"
 		producer = SOV
 	}
 }

@@ -1,0 +1,198 @@
+SOV_medium_tanks = {
+	category = land
+
+	available_for = { SOV }
+
+	roles = {
+		land_medium_tank
+	}
+
+	priority = {
+		factor = 2000
+	}
+
+	improved_medium_tank_1 = { # 
+		name = "T-34"
+	
+		priority = {
+			base = 10
+			modifier = {
+				has_tech = advanced_medium_tank_chassis
+				factor = 0 #let's not waste XP here
+			}
+		}
+		
+		target_variant = {
+			match_value = 2000
+			type = medium_tank_chassis_2
+			modules = {
+				main_armament_slot = tank_medium_cannon
+				turret_type_slot = tank_medium_two_man_tank_turret
+				suspension_type_slot = tank_christie_suspension
+				armor_type_slot = tank_welded_armor
+				engine_type_slot = tank_diesel_engine
+				radio_slot = tank_radio_module
+				special_type_slot_1 = sloped_armor
+				special_type_slot_2 = empty
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 10
+				tank_nsb_armor_upgrade = 8
+			}
+		}
+	}
+	
+	advanced_medium_tank_1 = { # 
+		name = "T-34-85"
+	
+		priority = {
+			base = 10
+		}
+		
+		target_variant = {
+			match_value = 2000
+			type = medium_tank_chassis_3
+			modules = {
+				main_armament_slot = tank_high_velocity_cannon
+				turret_type_slot = tank_medium_three_man_tank_turret
+				suspension_type_slot = tank_christie_suspension
+				armor_type_slot = tank_welded_armor
+				engine_type_slot = tank_diesel_engine
+				radio_slot = tank_radio_module
+				special_type_slot_1 = sloped_armor
+				special_type_slot_2 = expanded_fuel_tank
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 10
+				tank_nsb_armor_upgrade = 8
+			}
+		}
+	}
+}
+
+USA_medium_tank_artillery = {
+	category = land
+
+	available_for = { USA }
+
+	roles = {
+		land_light_tank_artillery
+	}
+
+	priority = {
+		factor = 500
+	}
+	
+	basic_medium_tank_artillery_1 = {
+		name = "SU-122"
+		
+		priority = {
+			base = 10
+			modifier = { 
+				has_tech = advanced_medium_tank_chassis
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		target_variant = {
+			match_value = 1000
+			type = medium_tank_artillery_chassis_2
+			modules = {
+				main_armament_slot = tank_medium_howitzer #105mm M1
+				turret_type_slot = tank_medium_fixed_superstructure_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_welded_armor
+				engine_type_slot = tank_diesel_engine
+				radio_slot = tank_radio_module
+				special_type_slot_1 = sloped_armor
+				special_type_slot_2 = easy_maintenance
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 8
+				tank_nsb_armor_upgrade = 3
+			}
+		}
+	}
+}
+
+SOV_medium_tank_destroyer = {
+	category = land
+
+	available_for = { SOV }
+
+	roles = {
+		land_medium_tank_destroyer
+	}
+
+	priority = {
+		factor = 500
+	}
+	
+	improved_medium_tank_destroyer_1 = {
+		name = "SU-85"
+		
+		priority = {
+			base = 10
+			modifier = { 
+				has_tech = improved_medium_tank_chassis
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		target_variant = {
+			match_value = 1000
+			type = medium_tank_destroyer_chassis_2
+			modules = {
+				main_armament_slot = tank_high_velocity_cannon
+				turret_type_slot = tank_medium_fixed_superstructure_turret
+				suspension_type_slot = tank_christie_suspension
+				armor_type_slot = tank_welded_armor
+				engine_type_slot = tank_diesel_engine
+				radio_slot = tank_radio_module
+				special_type_slot_1 = sloped_armor
+				special_type_slot_2 = expanded_fuel_tank
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 10
+				tank_nsb_armor_upgrade = 8
+			}
+		}
+	}
+	
+	advanced_medium_tank_destroyer_1 = {
+		name = "SU-100"
+		
+		priority = {
+			base = 10
+		}
+
+		target_variant = {
+			match_value = 1000
+			type = medium_tank_destroyer_chassis_3
+			modules = {
+				main_armament_slot = tank_high_velocity_cannon
+				turret_type_slot = tank_medium_fixed_superstructure_turret
+				suspension_type_slot = tank_christie_suspension
+				armor_type_slot = tank_welded_armor
+				engine_type_slot = tank_diesel_engine
+				radio_slot = tank_radio_module
+				special_type_slot_1 = sloped_armor
+				special_type_slot_2 = expanded_fuel_tank
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 10
+				tank_nsb_armor_upgrade = 8
+			}
+		}
+	}
+}

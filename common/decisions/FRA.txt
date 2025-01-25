@@ -1366,6 +1366,38 @@ FRA_balance_of_power_category = {
 
 FRA_italian_great_game_category = {
 	
+	FRA_demand_commitment = {
+		icon = ger_mefo_bills
+		
+		available = {
+			check_variable = { FRA_italian_influence > GER_italian_influence }
+			has_war_with = GER
+			NOT = {
+				has_global_flag = ITA_joined_GER
+			}
+		}
+		
+		visible = {
+			
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		complete_effect = {
+			ITA = {
+				country_event = {
+					id = italy_forpol.4
+					hours = 6
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+	}
+	
 	FRA_make_territorial_promises = {
 		icon = ger_mefo_bills
 		

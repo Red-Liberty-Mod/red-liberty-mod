@@ -22,10 +22,24 @@ SOV_war_communism_category = {
 	}
 	
 	visible = {
-		#has_completed_focus = SOV_war_communism
+		has_completed_focus = SOV_and_the_battle_is_going_again
+		NOT = {
+			has_global_flag = russian_civil_war_ended
+		}
 	}
 	
 	visible_when_empty = yes
+}
+
+SOV_evacuation_of_industry = {
+	
+	allowed = {
+		original_tag = SOV
+	}
+	
+	visible = {
+		always = no
+	}
 }
 
 SOV_foreign_trade_category = {
@@ -46,7 +60,7 @@ SOV_revolution_category = {
 	}
 	
 	visible = {
-		always = no
+		always = yes
 	}
 }
 

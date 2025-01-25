@@ -17,6 +17,20 @@ SOV_war_communism_category = {
 				mission = SOV_rising_discontent
 				days = 10
 			}
+			random_controlled_state = {
+				limit = {
+					resistance > 0
+				}
+				add_resistance = -5
+			}
+		}
+		
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 2
+				stability < 0.5
+			}
 		}
 	}
 	
@@ -28,14 +42,24 @@ SOV_war_communism_category = {
 		}
 		
 		cost = 15
+		days_remove = 30
 		days_re_enable = 30
 		
+		modifier = {
+			supply_node_range = 0.1
+			production_speed_rail_way_factor = 0.1
+		}
+		
 		complete_effect = {
-			add_stability = 0.025
-			add_days_mission_timeout = {
-				mission = SOV_rising_discontent
-				days = 10
-			}
+			#add_stability = 0.025
+			#add_days_mission_timeout = {
+			#	mission = SOV_rising_discontent
+			#	days = 10
+			#}
+		}
+		
+		ai_will_do = {
+			base = 10
 		}
 	}
 	
@@ -61,6 +85,14 @@ SOV_war_communism_category = {
 				days = -10
 			}
 		}
+		
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 0.5
+				war_support < 0.5
+			}
+		}
 	}
 	
 	SOV_food_rationing = {
@@ -83,6 +115,14 @@ SOV_war_communism_category = {
 			add_days_mission_timeout = {
 				mission = SOV_rising_discontent
 				days = -10
+			}
+		}
+		
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 0.5
+				war_support < 0.5
 			}
 		}
 	}
@@ -148,81 +188,157 @@ SOV_factionalism_category = {
 				}
 			}
 		}
+		
+		ai_will_do = {
+			base = 10
+		}
 	}
 }
 
 SOV_revolution_category = {
 	
-	SOV_declare_soviet_union = {
-	
+	SOV_form_cominform = {
 		icon = ger_mefo_bills
-		
-		visible = {
-			always = yes
-		}
-		
-		available = {
-			AND = {
-				owns_state = 202
-				owns_state = 206
-			}
-		}
-		
-		cost = 15
-		
-		complete_effect = {
-			
-		}
-	}
-	
-	SOV_spread_revolution = {
-	
-		icon = ger_mefo_bills
-		
-		visible = {
-			
-		}
 		
 		available = {
 			RUS = {
 				exists = no
 			}
-			FROM = {
-				is_in_faction = no
+		}
+		
+		cost = 0
+		fire_only_once = yes
+		
+		complete_effect = {
+			create_faction = "Communist International"
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+	}
+	
+	SOV_strike_down_the_eagle = {
+		icon = ger_mefo_bills
+		
+		available = {
+			has_war = no
+			is_subject = no
+			fighting_army_strength_ratio = {
+				tag = GER
+				ratio > 1.5
 			}
 		}
 		
-		war_with_on_remove = FROM
+		cost = 15
 		fire_only_once = yes
 		days_remove = 30
 		
-		target_trigger = {
-            FROM = {
-                OR = {
-					tag = AZR
-					tag = GEO
-                    tag = TKS
-                    tag = TMS
-                }
-            }
-        }
-		
-		cost = 0
+		war_with_on_remove = GER
 		
 		remove_effect = {
-			SOV = {
-				declare_war_on = {
-					target = FROM
-					type = annex_everything
+			every_country = {
+				limit = {
+					OR = {
+						tag = GER
+						is_in_faction_with = GER
+					}
+				}
+				SOV = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+			hidden_effect = {
+				news_event = {
+					id = worldnews_ww2.2
+					hours = 6
+				}
+				add_named_threat = {
+					threat = 15
+					name = SOV_strike_down_the_eagle
 				}
 			}
 		}
 		
 		ai_will_do = {
-			factor = 0
+			base = 10
 			modifier = {
-				add = 10
-				date > 1938.1.1
+				factor = 2
+				date > 1941.1.1
+			}
+		}
+	}
+}
+
+SOV_evacuation_of_industry = {
+	
+	SOV_evacuate_industry = {
+		icon = generic_construction
+		
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = ROOT
+				is_core_of = ROOT
+				is_fully_controlled_by = ROOT
+				is_on_continent = europe
+				OR = {
+					has_state_category = town
+					has_state_category = large_town
+					has_state_category = city
+					has_state_category = large_city
+					has_state_category = megalopolis
+					has_state_category = metropolis
+				}
+				infrastructure > 3
+			}
+		}
+		
+		target_root_trigger = {
+			original_tag = SOV
+			has_civil_war = no
+		}
+		
+		available = {
+			FROM = {
+				is_fully_controlled_by = ROOT
+				infrastructure > 3
+			}
+			has_equipment = { train_equipment > 19 } #20 trains per factory
+		}
+		
+		visible = {
+			FROM = {
+				OR = { #Has at least 2 factories
+					arms_factory > 1
+					industrial_complex > 1
+					AND = {
+						arms_factory > 0
+						industrial_complex > 0
+					}
+				}
+			}
+		}
+		
+		cost = 25
+		days_remove = 30
+		
+		complete_effect = {  #Attempt to remove 2 CIVS & 2 MILS
+			add_equipment_to_stockpile = {
+				type = train_equipment
+				amount = -20
+				producer = SOV
+			}
+		}
+
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = train_equipment
+				amount = 20
+				producer = SOV
 			}
 		}
 	}

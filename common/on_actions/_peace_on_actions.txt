@@ -231,14 +231,12 @@ on_actions = {
 						annex_country = {
 							target = KHV
 						}
-						annex_country = {
-							target = UZB
-						}
 						country_event = {
 							id = demo_sov.2
 							days = 15
 						}
 					}
+					set_global_flag = russian_civil_war_ended
 					random_other_country = {
 						limit = { is_ai = yes }
 						news_event = { id = demo_rus.4 hours = 6 }
@@ -661,7 +659,8 @@ on_actions = {
 					GER = {
 						transfer_state = 137
 						transfer_state = 196
-						puppet = UKR
+						#puppet = UKR
+						add_to_faction = BLR
 					}
 					POL = {
 						transfer_state = 93

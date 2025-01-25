@@ -1,5 +1,6 @@
 add_namespace = soviet_union
 add_namespace = sov_congress
+add_namespace = sov_military
 
 country_event = { # the secretarys woes
 	id = soviet_union.1
@@ -328,6 +329,37 @@ country_event = { #
 		name = sov_congress.8.e
 		trigger = {
 			check_variable = { SOV_democrat_influence > 14 }
+		}
+	}
+}
+
+### Military Tree ###
+
+country_event = { # the secretarys woes
+	id = sov_military.1
+	title = sov_military.1.title
+	desc = sov_military.1.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # the GRU
+		name = sov_military.1.a
+		hidden_effect = {
+			create_intelligence_agency = {
+				name = "Glavnoye Razvedyvatel'noye Upravleniye"
+				icon = GFX_intelligence_agency_logo_sov
+			}
+		}
+	}
+	
+	option = { # the NKVD
+		name = sov_military.1.b
+		hidden_effect = {
+			create_intelligence_agency = {
+				name = "Narodnyy Komissariat Vnutrennikh Del"
+				icon = GFX_intelligence_agency_logo_sov
+			}
 		}
 	}
 }

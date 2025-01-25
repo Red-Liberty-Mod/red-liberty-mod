@@ -136,7 +136,7 @@ ideas = {
 			}
 			
 			modifier = {
-				army_attack_factor = 0.05
+				army_morale_factor = 0.1
 			}
 		}
 		
@@ -148,8 +148,8 @@ ideas = {
 			}
 			
 			modifier = {
-				army_attack_factor = 0.05
-				army_org_factor = 0.05
+				army_morale_factor = 0.1
+				terrain_penalty_reduction = 0.1
 			}
 		}
 		
@@ -161,9 +161,45 @@ ideas = {
 			}
 			
 			modifier = {
-				army_attack_factor = 0.05
-				army_org_factor = 0.05
-				army_attack_speed_factor = 0.05
+				army_morale_factor = 0.1
+				terrain_penalty_reduction = 0.1
+				experience_gain_army_unit_factor = 0.1
+			}
+		}
+		
+		SOV_deep_battle_doctrine_4 = {
+			name = SOV_deep_battle_doctrine
+			
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				army_morale_factor = 0.1
+				terrain_penalty_reduction = 0.1
+				experience_gain_army_unit_factor = 0.1
+				army_armor_attack_factor = 0.1
+				army_armor_defence_factor = 0.1
+				army_speed_factor = 0.05
+				breakthrough_factor = 0.1
+			}
+		}
+		
+		SOV_deep_battle_doctrine_5 = {
+			name = SOV_deep_battle_doctrine
+			
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				army_morale_factor = 0.1
+				terrain_penalty_reduction = 0.1
+				experience_gain_army_unit_factor = 0.1
+				army_armor_attack_factor = 0.1
+				army_armor_defence_factor = 0.1
+				army_speed_factor = 0.05
+				breakthrough_factor = 0.2
 			}
 		}
 		
@@ -175,7 +211,7 @@ ideas = {
 			}
 			
 			modifier = {
-				army_defence_factor = 0.05
+				max_planning = 0.1
 			}
 		}
 		
@@ -187,8 +223,10 @@ ideas = {
 			}
 			
 			modifier = {
-				army_defence_factor = 0.05
-				supply_consumption_factor = -0.05
+				max_planning = 0.1
+				army_org_factor = 0.05
+				land_reinforce_rate = 0.03
+				weekly_casualties_war_support = 0.0025
 			}
 		}
 		
@@ -200,9 +238,95 @@ ideas = {
 			}
 			
 			modifier = {
-				army_defence_factor = 0.05
+				max_planning = 0.1
+				army_org_factor = 0.05
+				land_reinforce_rate = 0.03
+				weekly_casualties_war_support = 0.0025
+				experience_gain_army_factor = 0.15
+				experience_loss_factor = -0.25
+			}
+		}
+		
+		SOV_attritional_warfare_4 = {
+			name = SOV_attritional_warfare
+			
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				max_command_power = 50
+				max_planning = 0.15
+				army_org_factor = 0.05
+				land_reinforce_rate = 0.03
+				weekly_casualties_war_support = 0.0025
+				experience_gain_army_factor = 0.15
+				experience_loss_factor = -0.25
+			}
+		}
+		
+		SOV_attritional_warfare_5 = {
+			name = SOV_attritional_warfare
+			
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				max_command_power = 50
+				max_planning = 0.2
+				army_org_factor = 0.05
+				land_reinforce_rate = 0.03
+				weekly_casualties_war_support = 0.0025
+				experience_gain_army_factor = 0.15
+				experience_loss_factor = -0.25
+				coordination_bonus = 0.1
+			}
+		}
+		
+		### Operation Meteor ###
+		
+		SOV_operation_meteor_tukhachevsky = {
+			
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				army_speed_factor = 0.1
+				coordination_bonus = 0.15
+				org_loss_when_moving = -0.2
+			}
+			
+			targeted_modifier = {
+				tag = GER
+				attack_bonus_against = 0.1
+			}
+			targeted_modifier = {
+				tag = BAL
+				attack_bonus_against = 0.1
+			}
+		}
+		
+		SOV_operation_meteor_svechin = {
+			
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
 				supply_consumption_factor = -0.05
-				attrition = -0.05
+				breakthrough_factor = 0.1
+				dig_in_speed_factor = 0.25
+			}
+			
+			targeted_modifier = {
+				tag = GER
+				attack_bonus_against = 0.1
+			}
+			targeted_modifier = {
+				tag = UKR
+				attack_bonus_against = 0.1
 			}
 		}
 	}
