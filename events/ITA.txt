@@ -415,8 +415,20 @@ country_event = { # italy reaches out
 
 	option = {
 		name = italy_forpol.5.a
-		FRA = {
-			add_to_faction = ITA
+		if = {
+			limit = {
+				FRA = {
+					is_in_faction_with = ENG
+				}
+			}
+			ENG = {
+				add_to_faction = ITA
+			}
+		}
+		else = {
+			FRA = {
+				add_to_faction = ITA
+			}
 		}
 		hidden_effect = {
 			random_other_country = {
