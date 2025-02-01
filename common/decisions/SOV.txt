@@ -224,9 +224,22 @@ SOV_revolution_category = {
 		available = {
 			has_war = no
 			is_subject = no
-			fighting_army_strength_ratio = {
-				tag = GER
-				ratio > 1.5
+			if = {
+				limit = {
+					FRA = {
+						has_war_with = GER
+					}
+				}
+				fighting_army_strength_ratio = {
+					tag = GER
+					ratio > 1.25
+				}
+			}
+			else = {
+				fighting_army_strength_ratio = {
+					tag = GER
+					ratio > 1.5
+				}
 			}
 		}
 		

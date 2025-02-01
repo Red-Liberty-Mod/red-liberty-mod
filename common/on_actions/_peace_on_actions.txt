@@ -586,6 +586,17 @@ on_actions = {
 						annex_country = {
 							target = CRO
 						}
+						every_owned_state = {
+							limit = {
+								OR = {
+									is_core_of = CRO
+									is_core_of = BOS
+								}
+							}
+							add_core_of = SER
+							remove_core_of = CRO
+							remove_core_of = BOS
+						}
 					}
 					set_global_flag = skip_default_capitulation
 				}
