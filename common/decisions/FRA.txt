@@ -750,7 +750,7 @@ FRA_industrialization_category = {
 		}
 		custom_cost_text = decision_cost_5_industry_point
 		
-		days_remove = 30
+		days_remove = 90
 		
 		complete_effect = {
 			subtract_from_variable = { FRA_industry_points = 1 }
@@ -763,7 +763,11 @@ FRA_industrialization_category = {
 		}
 		
 		ai_will_do = {
-			base = 15
+			base = 0
+			modifier = {
+				add = 15
+				check_variable = { FRA_industry_points > 4 }
+			}
 		}
 	}
 	
@@ -791,7 +795,15 @@ FRA_industrialization_category = {
 		}
 		
 		ai_will_do = {
-			base = 10
+			base = 0
+			modifier = {
+				add = 10
+				has_political_power > 124
+			}
+			modifier = {
+				factor = 0
+				check_variable = { FRA_industry_points > 14 }
+			}
 		}
 	}
 	
@@ -819,7 +831,15 @@ FRA_industrialization_category = {
 		}
 		
 		ai_will_do = {
-			base = 10
+			base = 0
+			modifier = {
+				add = 10
+				has_political_power > 124
+			}
+			modifier = {
+				factor = 0
+				check_variable = { FRA_industry_points > 14 }
+			}
 		}
 	}
 	
@@ -854,6 +874,10 @@ FRA_industrialization_category = {
 		
 		ai_will_do = {
 			base = 5
+			modifier = {
+				factor = 2
+				check_variable = { FRA_industry_points > 9 }
+			}
 		}
 	}
 	
@@ -888,6 +912,10 @@ FRA_industrialization_category = {
 		
 		ai_will_do = {
 			base = 5
+			modifier = {
+				factor = 2
+				check_variable = { FRA_industry_points > 9 }
+			}
 		}
 	}
 	
@@ -922,6 +950,10 @@ FRA_industrialization_category = {
 		
 		ai_will_do = {
 			base = 5
+			modifier = {
+				factor = 2
+				check_variable = { FRA_industry_points > 9 }
+			}
 		}
 	}
 	
@@ -963,7 +995,11 @@ FRA_industrialization_category = {
 		}
 		
 		ai_will_do = {
-			base = 15
+			base = 0
+			modifier = {
+				add = 15
+				check_variable = { FRA_industry_points > 4 }
+			}
 		}
 	}
 }

@@ -14,11 +14,17 @@ country_event = { # colonial revolts
 			#activate_targeted_decision = { decision = NFA_crush_resistance target = event_target:revolter }
 			event_target:revolter = {
 				every_core_state = {
-					limit = { is_owned_by = ROOT }
+					limit = {
+						is_owned_by = ROOT
+						#NOT = {
+						#	is_core_of = FWA
+						#}
+					}
+					remove_core_of = FWA
 					teleport_armies = { limit = { is_ally_with = ROOT } }
 					transfer_state_to = event_target:revolter
 				}
-				#NFA_spawn_revolt_armies = yes
+				FWA_spawn_revolt_armies = yes
 				every_controlled_state = {
 					every_neighbor_state = {
 						limit = {
@@ -61,8 +67,10 @@ country_event = { #Colony Revolts (donotlog)
 
 	option = {
 		name = fwa_revolts.1.a
-		every_owned_state = {
-			add_resistance = 80
+		FWA = {
+			every_owned_state = {
+				add_resistance = 80
+			}
 		}
 	}
 }

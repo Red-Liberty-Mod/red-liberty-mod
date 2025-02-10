@@ -408,3 +408,41 @@ TAG_support_FER = {
 		value = 75
 	}
 }
+
+SER_support_allies = {
+	allowed = {
+		original_tag = SER
+	}
+	enable = {
+		OR = {
+			is_in_faction_with = ROM
+			has_military_access_to = ROM
+		}
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = force_defend_ally_borders
+		id = ROM
+		value = 50
+	}
+}
+
+GRE_support_allies = {
+	allowed = {
+		original_tag = GRE
+	}
+	enable = {
+		OR = {
+			is_in_faction_with = ROM
+			has_military_access_to = ROM
+		}
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = force_defend_ally_borders
+		id = ROM
+		value = 50
+	}
+}
