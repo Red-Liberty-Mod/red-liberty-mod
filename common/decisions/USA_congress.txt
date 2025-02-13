@@ -64,11 +64,33 @@ USA_congress = {
 		cost = 0
 		
 		complete_effect = {
-			custom_effect_tooltip = USA_bill_pass_req_tt
-			effect_tooltip = {
-				USA_add_social_security = yes
+			if = {
+				limit = {
+					USA = {
+						is_ai = no
+					}
+				}
+				custom_effect_tooltip = USA_bill_pass_req_tt
+				effect_tooltip = {
+					USA_add_social_security = yes
+				}
+				USA_social_security_act_setup = yes
 			}
-			USA_social_security_act_setup = yes
+			else = {
+				random_list = {
+					90 = {
+						USA_add_social_security = yes
+						set_country_flag = social_security_passed
+					}
+					10 = {
+						
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 10
 		}
 	}
 	

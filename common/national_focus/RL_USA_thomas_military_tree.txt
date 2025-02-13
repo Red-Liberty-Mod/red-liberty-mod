@@ -656,9 +656,10 @@ shared_focus = {
 	prerequisite = { focus = USA_under_the_army }
     completion_reward = {
 		add_doctrine_cost_reduction = {
-			cost_reduction = 0.5
+			name = USA_support_doctrine
+			cost_reduction = 0.25
 			uses = 2
-			category = battlefield_support_tree
+			category = air_doctrine
 		}
     }
 	
@@ -714,6 +715,7 @@ shared_focus = {
 			bonus = 0.75
 			uses = 1
 			category = cat_scout_plane
+			name = USA_recon_aircraft
 		}
     }
 	
@@ -931,6 +933,7 @@ shared_focus = {
 			bonus = 0.75
 			uses = 1
 			category = naval_bomber
+			name = USA_modernize_naval_bombers
 		}
     }
 	
@@ -957,6 +960,7 @@ shared_focus = {
 			bonus = 0.75
 			uses = 1
 			category = cat_strategic_bomber
+			name = USA_flying_fortresses
 		}
     }
 	
@@ -1006,10 +1010,25 @@ shared_focus = {
 	}
     completion_reward = {
         # add event here about air force
-		add_tech_bonus = {
-			bonus = 0.5
-			uses = 1
-			category = para_tech
+		if = {
+			limit = {
+				has_dlc_aat = yes
+			}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.25
+				uses = 2
+				category = cat_paratroopers_doctrine
+				name = USA_the_eagle_flies
+			}
+			add_potential_special_forces_tree = yes
+		}
+		else = {
+			add_tech_bonus = {
+				bonus = 0.25
+				uses = 2
+				category = para_tech
+				name = USA_the_eagle_flies
+			}
 		}
     }
 	
@@ -1035,8 +1054,8 @@ shared_focus = {
         add_ideas = {
 			USA_usaaf_1
 		}
-		custom_effect_tooltip = available_chief_of_airforce
-		show_ideas_tooltip = USA_frank_maxwell_andrews_air_chief
+		custom_effect_tooltip = available_military_high_command
+		show_ideas_tooltip = USA_frank_maxwell_andrews_high_command
     }
 	
 	ai_will_do = {
@@ -1079,10 +1098,13 @@ shared_focus = {
 	prerequisite = { focus = USA_independent_air_force }
     completion_reward = {
 		add_doctrine_cost_reduction = {
-			cost_reduction = 0.5
+			name = USA_strat_destruction
+			cost_reduction = 0.25
 			uses = 2
-			category = strategic_destruction_tree
+			category = air_doctrine
 		}
+		custom_effect_tooltip = available_theorist
+		show_ideas_tooltip = USA_robert_olds_theorist
     }
 	
 	ai_will_do = {
