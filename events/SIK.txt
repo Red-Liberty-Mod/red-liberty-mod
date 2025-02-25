@@ -1,0 +1,62 @@
+add_namespace = xinjiang
+
+
+country_event = { # 
+	id = xinjiang.1
+	title = xinjiang.1.title
+	desc = xinjiang.1.desc
+	#picture = ""
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = xinjiang.1.a
+		set_politics = {
+			ruling_party = authoritarian_democracy
+		}
+	}
+}
+
+country_event = { # 
+	id = xinjiang.2
+	title = xinjiang.2.title
+	desc = xinjiang.2.desc
+	#picture = ""
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			760 = {
+				add_core_of = KUM
+				transfer_state_to = KUM
+			}
+			KUM = {
+				760 = {
+					create_unit = {
+						division = "division_template = \"Uyghur Militia\" start_experience_factor = 0.5"
+						owner = KUM
+					}
+					create_unit = {
+						division = "division_template = \"Cavalry Horde\" start_experience_factor = 0.5"
+						owner = KUM
+					}
+					create_unit = {
+						division = "division_template = \"Cavalry Horde\" start_experience_factor = 0.5"
+						owner = KUM
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = xinjiang.2.a
+	}
+	
+	option = {
+		name = xinjiang.2.b
+	}
+}
