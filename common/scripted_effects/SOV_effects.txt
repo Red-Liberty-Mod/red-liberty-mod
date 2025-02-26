@@ -58,3 +58,145 @@ SOV_upgrade_attritional_warfare_idea = {
 		}
 	}
 }
+
+SOV_find_chairman_options = {
+
+	add_to_temp_array = {
+		array = chairman_options
+		value = SOV_industrialist_influence
+	}
+	add_to_temp_array = {
+		array = chairman_options
+		value = SOV_rightist_influence
+	}
+	add_to_temp_array = {
+		array = chairman_options
+		value = SOV_decist_influence
+	}
+	add_to_temp_array = {
+		array = chairman_options
+		value = SOV_syndicalist_influence
+	}
+	add_to_temp_array = {
+		array = chairman_options
+		value = SOV_democrat_influence
+	}
+	
+	# find the faction with the highest influence
+	find_highest_in_array = {
+		array = chairman_options 
+		index = chairman_options_index # (default 'i') index of highest value in array will be stored in this temp variable
+	}
+	if = {
+		limit = {
+			check_variable = { chairman_options_index = 0 }
+		}
+		set_country_flag = SOV_industrialist_chairman_option
+		remove_from_temp_array = {
+			array = chairman_options
+			index = 0
+		}
+		add_to_temp_array = {
+			array = chairman_options
+			index = 0
+			value = 1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { chairman_options_index = 1 }
+		}
+		set_country_flag = SOV_rightist_chairman_option
+		remove_from_temp_array = {
+			array = chairman_options
+			index = 1
+		}
+		add_to_temp_array = {
+			array = chairman_options
+			index = 1
+			value = 1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { chairman_options_index = 2 }
+		}
+		set_country_flag = SOV_decist_chairman_option
+		remove_from_temp_array = {
+			array = chairman_options
+			index = 2
+		}
+		add_to_temp_array = {
+			array = chairman_options
+			index = 2
+			value = 1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { chairman_options_index = 3 }
+		}
+		set_country_flag = SOV_syndicalist_chairman_option
+		remove_from_temp_array = {
+			array = chairman_options
+			index = 3
+		}
+		add_to_temp_array = {
+			array = chairman_options
+			index = 3
+			value = 1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { chairman_options_index = 4 }
+		}
+		set_country_flag = SOV_democrat_chairman_option
+		remove_from_temp_array = {
+			array = chairman_options
+			index = 4
+		}
+		add_to_temp_array = {
+			array = chairman_options
+			index = 4
+			value = 1
+		}
+	}
+	
+	# run the effect again, finding the second strongest faction
+	find_highest_in_array = {
+		array = chairman_options
+		index = chairman_options_index_2 # (default 'i') index of highest value in array will be stored in this temp variable
+	}
+	#log = "chairman_options_index_2 = [?chairman_options_index_2]"
+	if = {
+		limit = {
+			check_variable = { chairman_options_index_2 = 0 }
+		}
+		set_country_flag = SOV_industrialist_chairman_option
+	}
+	else_if = {
+		limit = {
+			check_variable = { chairman_options_index_2 = 1 }
+		}
+		set_country_flag = SOV_rightist_chairman_option
+	}
+	else_if = {
+		limit = {
+			check_variable = { chairman_options_index_2 = 2 }
+		}
+		set_country_flag = SOV_decist_chairman_option
+	}
+	else_if = {
+		limit = {
+			check_variable = { chairman_options_index_2 = 3 }
+		}
+		set_country_flag = SOV_syndicalist_chairman_option
+	}
+	else_if = {
+		limit = {
+			check_variable = { chairman_options_index_2 = 4 }
+		}
+		set_country_flag = SOV_democrat_chairman_option
+	}
+}

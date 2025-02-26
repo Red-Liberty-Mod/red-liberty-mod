@@ -1,10 +1,21 @@
 shared_focus = {
     id = SOV_reform_the_intelligence_agency
-	icon = GFX_focus_generic_secret_service_agency
+	icon = GFX_SOV_consolidate_intel_agencies
 	
     x = 24
 	y = 0
 	cost = 5
+	
+	offset = {
+		x = -10
+		trigger = {
+			has_focus_tree = SOV_syndicalist_tree
+		}
+	}
+	
+	available = {
+		has_global_flag = russian_civil_war_started
+	}
 	
     completion_reward = {
         custom_effect_tooltip = SOV_reform_the_intelligence_agency_tt
@@ -21,11 +32,15 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_the_red_army
-	icon = GFX_focus_SOV_builder_of_the_red_army
+	icon = GFX_SOV_the_red_army
 	
     x = 4
 	y = 0
 	cost = 5
+	
+	available = {
+		has_global_flag = russian_civil_war_started
+	}
 	
 	relative_position_id = SOV_reform_the_intelligence_agency
     completion_reward = {
@@ -223,7 +238,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_form_the_stavka
-	icon = GFX_SOV_broad_front_tactics
+	icon = GFX_SOV_form_the_stavka
 	
     x = 3
 	y = 1
@@ -268,7 +283,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_expand_rifle_production
-	icon = GFX_focus_generic_reorient_production
+	icon = GFX_SOV_expand_rifle_production
 	
     x = 0
 	y = 1
@@ -338,6 +353,11 @@ shared_focus = {
 	relative_position_id = SOV_equipment_modernization
 	prerequisite = { focus = SOV_equipment_modernization }
     completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.25
+			uses = 1
+			category = support_tech
+		}
 		add_tech_bonus = {
 			bonus = 0.25
 			uses = 2
@@ -425,8 +445,8 @@ shared_focus = {
     id = SOV_commander_initiative
 	icon = GFX_focus_generic_military_mission
 	
-    x = 1
-	y = 1
+    x = 0
+	y = 2
 	cost = 5
 	
 	relative_position_id = SOV_broad_front_tactics
@@ -522,7 +542,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_penal_battalions
-	icon = GFX_SOV_penal_battalions
+	icon = GFX_focus_SOV_penal_battalions
 	
     x = 0
 	y = 1
@@ -531,8 +551,12 @@ shared_focus = {
 	relative_position_id = SOV_smersh
 	prerequisite = { focus = SOV_smersh }
     completion_reward = {
-		set_technology = {
-			penal_infantry = 1
+		custom_override_tooltip = {
+			tooltip = {
+				localization_key = tooltip_add_tech
+				TECH = penal_infantry
+			}
+			set_technology = { penal_infantry = 1 popup = no }
 		}
 		hidden_effect = {
 			division_template = {
@@ -579,7 +603,18 @@ shared_focus = {
 	relative_position_id = SOV_lessons_of_the_civil_war
 	prerequisite = { focus = SOV_lessons_of_the_civil_war }
     completion_reward = {
-		
+		every_army_leader = {
+			random_select_amount = 3
+			limit = {
+				NOT = {
+					has_trait = winter_specialist
+				}
+			}
+			add_max_trait = 1
+			add_trait = {
+				trait = winter_specialist
+			}
+		}
     }
 	
 	ai_will_do = {
@@ -614,7 +649,7 @@ shared_focus = {
     id = SOV_operational_art
 	icon = GFX_SOV_operational_art
 	
-    x = -1
+    x = 0
 	y = 1
 	cost = 5
 	
@@ -636,8 +671,8 @@ shared_focus = {
     id = SOV_armor_modernization
 	icon = GFX_SOV_armor_modernization
 	
-    x = 0
-	y = 2
+    x = -1
+	y = 1
 	cost = 5
 	
 	relative_position_id = SOV_form_the_stavka
@@ -696,7 +731,7 @@ shared_focus = {
 	icon = GFX_SOV_cult_of_the_offensive
 	
     x = 1
-	y = 1
+	y = 2
 	cost = 5
 	
 	relative_position_id = SOV_war_of_mobility
@@ -744,7 +779,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_alternating_action
-	icon = GFX_SOV_alternating_action
+	icon = GFX_goal_generic_defence
 	
     x = -1
 	y = 1
@@ -766,7 +801,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_defend_the_skies
-	icon = GFX_SOV_defend_the_skies
+	icon = GFX_focus_generic_air_defense
 	
     x = 0
 	y = 2
@@ -830,18 +865,18 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_expand_the_surface_fleet
-	icon = GFX_SOV_expand_the_surface_fleet
+	icon = GFX_goal_generic_navy_battleship
 	
     x = -1
 	y = 1
-	cost = 5
+	cost = 7
 	
 	relative_position_id = SOV_the_red_navy
 	prerequisite = { focus = SOV_the_red_navy }
 	mutually_exclusive = { focus = SOV_expand_the_submarine_fleet }
 	
     completion_reward = {
-		
+		add_ideas = SOV_expanding_surface_fleet
     }
 	
 	ai_will_do = {
@@ -851,18 +886,18 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_expand_the_submarine_fleet
-	icon = GFX_SOV_expand_the_submarine_fleet
+	icon = GFX_goal_generic_navy_submarine
 	
     x = 1
 	y = 1
-	cost = 5
+	cost = 7
 	
 	relative_position_id = SOV_the_red_navy
 	prerequisite = { focus = SOV_the_red_navy }
 	mutually_exclusive = { focus = SOV_expand_the_surface_fleet }
 	
     completion_reward = {
-		
+		add_ideas = SOV_expanding_submarine_fleet
     }
 	
 	ai_will_do = {
@@ -872,7 +907,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_expand_shipbuilding_facilities
-	icon = GFX_SOV_expand_shipbuilding_facilities
+	icon = GFX_goal_generic_construct_naval_dockyard
 	
     x = 3
 	y = 1
@@ -897,6 +932,286 @@ shared_focus = {
 				instant_build = yes
 			}
 			add_extra_state_shared_building_slots = 1
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_new_destroyers
+	icon = GFX_unknown_focus
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_expand_the_surface_fleet
+	prerequisite = {
+		focus = SOV_expand_the_surface_fleet
+		focus = SOV_expand_the_submarine_fleet
+	}
+	
+    completion_reward = {
+		add_tech_bonus = {
+			name = SOV_new_destroyers
+			bonus = 1
+			uses = 1
+			category = dd_tech
+		}
+		if = {
+			limit = { has_dlc_mtg = yes }
+			add_tech_bonus = {
+				name = SOV_new_destroyers
+				bonus = 0.5
+				uses = 2
+				category = asw_tech
+				category = ship_modules_tech
+			}
+			if = {
+				limit = {
+					has_tech = improved_ship_hull_light
+				}
+				create_equipment_variant = {
+					name = "Tashkent Class"
+					type = ship_hull_light_3
+					name_group = SOV_DD_HISTORICAL
+					parent_version = 0
+					modules = {
+						fixed_ship_battery_slot = ship_light_battery_2
+						fixed_ship_anti_air_slot = ship_anti_air_2
+						fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+						fixed_ship_radar_slot = empty
+						fixed_ship_engine_slot = light_ship_engine_3
+						fixed_ship_torpedo_slot = ship_torpedo_2
+						mid_1_custom_slot = ship_light_battery_2
+						rear_1_custom_slot = ship_depth_charge_1
+					}
+				}
+			}
+			else = {
+				create_equipment_variant = {
+					name = "Tashkent Class"
+					type = ship_hull_light_2
+					name_group = SOV_DD_HISTORICAL
+					parent_version = 0
+					allow_without_tech = yes
+					modules = {
+						fixed_ship_battery_slot = ship_light_battery_2
+						fixed_ship_anti_air_slot = ship_anti_air_2
+						fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+						fixed_ship_radar_slot = empty
+						fixed_ship_engine_slot = light_ship_engine_2
+						fixed_ship_torpedo_slot = ship_torpedo_2
+						mid_1_custom_slot = ship_light_battery_2
+						rear_1_custom_slot = empty
+					}
+				}
+			}
+		}
+		else = {
+			add_tech_bonus = {
+				name = SOV_new_destroyers
+				bonus = 1
+				uses = 1
+				category = cl_tech
+			}
+			if = {
+				limit = { has_tech = improved_destroyer }
+				create_equipment_variant = {
+					name = "Tashkent Class"
+					type = destroyer_3
+					upgrades = {
+						ship_torpedo_upgrade = 2
+						destroyer_engine_upgrade = 2
+						ship_ASW_upgrade = 2
+						ship_anti_air_upgrade = 2
+					}
+				}
+			}
+			else = {
+				create_equipment_variant = {
+					name = "Tashkent Class"
+					type = destroyer_2
+					allow_without_tech = yes
+					upgrades = {
+						ship_torpedo_upgrade = 2
+						destroyer_engine_upgrade = 1
+						ship_ASW_upgrade = 2
+						ship_anti_air_upgrade = 2
+					}
+				}
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_naval_doctrine
+	icon = GFX_goal_generic_navy_doctrines_tactics
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_expand_the_surface_fleet
+	prerequisite = {
+		focus = SOV_expand_the_surface_fleet
+		focus = SOV_expand_the_submarine_fleet
+	}
+	
+    completion_reward = {
+		add_doctrine_cost_reduction = {
+			name = SOV_naval_doctrine
+			cost_reduction = 0.25
+			uses = 2
+			category = naval_doctrine
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_disrupt_communications
+	icon = GFX_unknown_focus
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_expand_the_submarine_fleet
+	prerequisite = {
+		focus = SOV_expand_the_surface_fleet
+		focus = SOV_expand_the_submarine_fleet
+	}
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_reinforce_leningrad
+	icon = GFX_unknown_focus
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_new_destroyers
+	prerequisite = { focus = SOV_new_destroyers }
+	
+    completion_reward = {
+		195 = {
+			add_building_construction = {
+				type = coastal_bunker
+				level = 2
+				instant_build = yes
+				province = 3151
+			}
+			add_building_construction = {
+				type = bunker
+				level = 2
+				instant_build = yes
+				province = 3151
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_armored_cruisers
+	icon = GFX_unknown_focus
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_new_destroyers
+	prerequisite = { focus = SOV_new_destroyers }
+	
+    completion_reward = {
+		custom_override_tooltip = {
+			tooltip = {
+				localization_key = tooltip_add_tech
+				TECH = panzerschiffe
+			}
+			set_technology = { panzerschiffe = 1 popup = no }
+		}
+		if = {
+			limit = {
+				has_dlc_mtg = yes
+			}
+			if = {
+				limit = {
+					has_tech = improved_heavy_battery
+				}
+				create_equipment_variant = {
+					name = "Kronshtadt Class"
+					type = ship_hull_cruiser_panzerschiff
+					parent_version = 0
+					modules = {
+						fixed_ship_battery_slot = ship_heavy_battery_3
+						fixed_ship_secondaries_slot = dp_ship_secondaries_2
+						fixed_ship_anti_air_slot = ship_anti_air_2
+						fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+						fixed_ship_radar_slot = empty
+						fixed_ship_engine_slot = cruiser_ship_engine_2
+						fixed_ship_armor_slot = ship_armor_cruiser_2
+						mid_1_custom_slot = dp_ship_secondaries_2
+						mid_2_custom_slot = ship_airplane_launcher_1
+						rear_1_custom_slot = empty
+					}
+				}
+			}
+			else = {
+				create_equipment_variant = {
+					name = "Kronshtadt Class"
+					type = ship_hull_cruiser_panzerschiff
+					parent_version = 0
+					modules = {
+						fixed_ship_battery_slot = ship_heavy_battery_2
+						fixed_ship_secondaries_slot = dp_ship_secondaries_2
+						fixed_ship_anti_air_slot = ship_anti_air_2
+						fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+						fixed_ship_radar_slot = empty
+						fixed_ship_engine_slot = cruiser_ship_engine_2
+						fixed_ship_armor_slot = ship_armor_cruiser_2
+						mid_1_custom_slot = dp_ship_secondaries_2
+						mid_2_custom_slot = ship_airplane_launcher_1
+						rear_1_custom_slot = empty
+					}
+				}
+			}
+		}
+		else = {
+			create_equipment_variant = {
+				name = "Kronshtadt Class"
+				type = heavy_cruiser_2
+				upgrades = {
+					ship_reliability_upgrade = 2
+					ship_engine_upgrade = 2
+					ship_armor_upgrade = 2
+					ship_gun_upgrade = 2
+				}
+			}
 		}
     }
 	
