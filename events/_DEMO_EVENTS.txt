@@ -3822,7 +3822,7 @@ country_event = { #
 			}
 		}
 		ai_chance = {
-			base = 10
+			base = 3
 		}
 	}
 	
@@ -3836,7 +3836,7 @@ country_event = { #
 			}
 		}
 		ai_chance = {
-			base = 0
+			base = 7
 		}
 	}
 }
@@ -3917,9 +3917,34 @@ country_event = { #
 		POL = {
 			white_peace = WUK
 		}
+		UKR = {
+			annex_country = {
+				target = WUK
+			}
+		}
+		GER = {
+			add_to_faction = UKR
+		}
+		news_event = {
+			id = demo_pol.6
+			hours = 6
+		}
 		ai_chance = {
 			base = 10
 		}
+	}
+}
+
+news_event = { # 
+	id = demo_pol.6
+	title = demo_pol.6.title
+	desc = demo_pol.6.desc
+	
+	is_triggered_only = yes
+	major = yes
+	
+	option = { # 
+		name = demo_pol.6.a
 	}
 }
 
