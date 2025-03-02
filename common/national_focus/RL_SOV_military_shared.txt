@@ -54,7 +54,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_smersh
-	icon = GFX_SOV_svechin_doctrine
+	icon = GFX_focus_generic_secret_service_agency
 	
     x = -1
 	y = 1
@@ -116,7 +116,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_tukhachevsky_doctrine
-	icon = GFX_SOV_tukhachevsky_doctrine
+	icon = GFX_focus_generic_army_doctrines_2
 	
     x = 1
 	y = 1
@@ -594,7 +594,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_masters_of_the_winter
-	icon = GFX_SOV_masters_of_the_winter
+	icon = GFX_focus_generic_winter_warfare
 	
     x = 0
 	y = 2
@@ -634,9 +634,20 @@ shared_focus = {
 	prerequisite = { focus = SOV_military_engineering_university }
 	prerequisite = { focus = SOV_combined_arms_operations }
     completion_reward = {
-		swap_ideas = {
-			remove_idea = SOV_deep_battle_doctrine_3
-			add_idea = SOV_deep_battle_doctrine_4
+		if = {`
+			limit = {
+				has_idea = SOV_deep_battle_doctrine_2
+			}
+			swap_ideas = {
+				remove_idea = SOV_deep_battle_doctrine_2
+				add_idea = SOV_deep_battle_doctrine_4a
+			}
+		}
+		else = {
+			swap_ideas = {
+				remove_idea = SOV_deep_battle_doctrine_3
+				add_idea = SOV_deep_battle_doctrine_4b
+			}
 		}
     }
 	
@@ -692,7 +703,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_special_forces_school
-	icon = GFX_SOV_special_forces_school
+	icon = GFX_goal_generic_special_forces
 	
     x = 2
 	y = 2
@@ -728,7 +739,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_cult_of_the_offensive
-	icon = GFX_SOV_cult_of_the_offensive
+	icon = GFX_focus_generic_total_war
 	
     x = 1
 	y = 2
@@ -738,9 +749,20 @@ shared_focus = {
 	prerequisite = { focus = SOV_war_of_mobility }
 	prerequisite = { focus = SOV_operational_art }
     completion_reward = {
-		swap_ideas = {
-			remove_idea = SOV_deep_battle_doctrine_4
-			add_idea = SOV_deep_battle_doctrine_5
+		if = {
+			limit = {
+				has_idea = SOV_deep_battle_doctrine_4a
+			}
+			swap_ideas = {
+				remove_idea = SOV_deep_battle_doctrine_4a
+				add_idea = SOV_deep_battle_doctrine_5
+			}
+		}
+		else = {
+			swap_ideas = {
+				remove_idea = SOV_deep_battle_doctrine_4b
+				add_idea = SOV_deep_battle_doctrine_5
+			}
 		}
 		enable_tech_masterful_blitz = yes
     }
@@ -752,7 +774,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_rocket_artillery
-	icon = GFX_SOV_rocket_artillery
+	icon = GFX_focus_rocketry
 	
     x = 0
 	y = 2
