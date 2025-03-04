@@ -5,13 +5,13 @@ oob = "SYR"
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
-	camelry = 1
+	gwtank = 1
 }
 
 set_convoys = 5
 
 set_politics = {
-	ruling_party = authoritarian_democracy
+	ruling_party = national_conservatism
 	last_election = "1936.1.1"
 	election_frequency = 48
 	elections_allowed = no
@@ -21,26 +21,113 @@ set_popularities = {
 	vanguard_socialism = 0
 	revolutionary_socialism = 0
 	democratic_socialism = 0
-	social_democracy = 10
-	progressive_liberalism = 17
-	liberal_conservatism = 0
-	national_conservatism = 28
-	authoritarian_democracy = 28
-	despotism = 5
-	ultraconservatism = 12
-	fascism = 0
+	social_democracy = 0
+	progressive_liberalism = 7
+	liberal_conservatism = 10
+	national_conservatism = 40
+	authoritarian_democracy = 20
+	despotism  = 12
+	ultraconservatism = 0
+	fascism = 11
 }
+set_country_flag = liberal_conservatism_coalition
+set_country_flag = national_conservatism_coalition
 
+country_event = {
+	id = syria.0
+	days = 2
+}
+country_event = {
+	id = syria.1
+	days = 11
+}
 add_ideas = {
-	SYR_revanchism
+	SYR_loyalism
+	SYR_seperated_coast
+	SYR_corruption
+	SYR_flawed_democracy
 }
-
+set_cosmetic_tag = SYR_FRA
 create_country_leader = {
-	name = "Taj al-Din al-Hasani"
+	name = "Khalid Bakdash"
 	desc = ""
-	picture = "gfx/leaders/SYR/Portrait_SYR_Taj_al_Hasani.png"
-	ideology = authoritarian_democracy_subtype
+	picture = "gfx/leaders/SYR/SYR_khalid_bakdash.png"
+	ideology = anarcho_socialism_subtype
+}
+create_country_leader = {
+	name = "Khalid Bakdash"
+	desc = ""
+	picture = "gfx/leaders/SYR/SYR_khalid_bakdash.png"
+	ideology = marxism_leninism_subtype
+}
+create_country_leader = {
+	name = "Khalid Bakdash"
+	desc = ""
+	picture = "gfx/leaders/SYR/SYR_khalid_bakdash.png"
+	ideology = proletarian_dictatorship_subtype
+}
+create_country_leader = {
+	name = "Zaki Al-Arsuzi"
+	desc = ""
+	picture = "gfx/leaders/SYR/SYR_Yusuf_Azama.png"
+	ideology = agrarian_socialism_subtype
+}
+create_country_leader = {
+	name = "Nazim Al-Qudsi"
+	desc = ""
+	picture = "gfx/leaders/SYR/SYR_Nazim_al-Qudsi.png"
+	ideology = left_wing_populism_subtype
+}
+create_country_leader = {
+	name = "Sabri Al-Asali"
+	desc = ""
+	picture = "gfx/leaders/SYR/SYR_Sabri_al-Asali.png"
+	ideology = progressive_liberalism_subtype
+}
+create_country_leader = {
+	name = "Shukri Al-Quwatli"
+	desc = ""
+	picture = "gfx/leaders/SYR/SYR_shukri_al_quwatli.png"
+	ideology = national_liberalism_subtype
+}
+create_country_leader = {
+	name = "Ata Bey al-Ayyubi" #Hashim Atassi
+	desc = ""
+	picture = "gfx/leaders/SYR/SYR_Ata_bey.png"
+	ideology = conservative_populism_subtype
 	traits = {
 		french_puppet
 	}
 }
+create_country_leader = {
+	name = "Yusuf Al Azma"
+	desc = ""
+	picture = "gfx/leaders/SYR/SYR_Yusuf_Azama.png"
+	ideology = right_wing_nationalism_subtype
+	traits = {
+		hashemite_loyalist
+	}
+}
+create_country_leader = {
+	name = "Yusuf Al Azma"
+	desc = ""
+	picture = "gfx/leaders/SYR/SYR_Yusuf_Azama.png"
+	ideology = military_government_subtype
+	traits = {
+		hashemite_loyalist
+	}
+}
+create_country_leader = {
+	name = "Mustafa Al Sibai"
+	desc = ""
+	picture = "gfx/leaders/SYR/SYR_Mustafa_al_Siba_i.png"
+	ideology = religious_nationalism_subtype
+}
+create_country_leader = {
+	name = "Antoun Saadeh"
+	desc = ""
+	picture = "gfx/leaders/SYR/SYR_antun_saadeh.png"
+	ideology = ultranationalism_subtype
+}
+
+
