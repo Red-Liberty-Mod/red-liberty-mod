@@ -59,6 +59,48 @@ SOV_upgrade_attritional_warfare_idea = {
 	}
 }
 
+SOV_improve_turmoil_idea = {
+	if = {
+		limit = {
+			has_idea = SOV_political_turmoil_1
+		}
+		swap_ideas = {
+			remove_idea = SOV_political_turmoil_1
+			add_idea = SOV_political_turmoil_2
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = SOV_political_turmoil_2
+		}
+		swap_ideas = {
+			remove_idea = SOV_political_turmoil_2
+			add_idea = SOV_political_turmoil_3
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = SOV_political_turmoil_3
+		}
+		swap_ideas = {
+			remove_idea = SOV_political_turmoil_3
+			add_idea = SOV_political_turmoil_4
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = SOV_political_turmoil_4
+		}
+		swap_ideas = {
+			remove_idea = SOV_political_turmoil_4
+			add_idea = SOV_political_turmoil_5
+		}
+	}
+	else = {
+		remove_ideas = SOV_political_turmoil_5
+	}
+}
+
 SOV_find_chairman_options = {
 
 	add_to_temp_array = {

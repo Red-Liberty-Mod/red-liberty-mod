@@ -16,7 +16,7 @@
  SOV_liberal_conservatism_party:0 "--"
  SOV_national_conservatism_party:0 "--"
  SOV_authoritarian_democracy_party:0 "--"
- SOV_despotism_party:0 "Red Army"
+ SOV_despotism_party:0 "Krasnaya Armiya"
  SOV_ultraconservatism_party:0 "--"
  SOV_fascism_party:0 "--"
  
@@ -54,6 +54,7 @@
  SOV_ivan_smirnov:0 "Ivan Smirnov"
  
  SOV_lev_kamenev:0 "Lev Kamenev"
+ POLITICS_LEV_KAMENEV_DESC:0 "Lev Kamenev has a dream. A dream of a republic, governed by all the socialist forces, peacefully and democratically."
  
  ### Ministers ###
  SOV_lazar_kaganovich:0 "Lazar Kaganovich"
@@ -174,6 +175,9 @@
  SOV_bukharin_retired:0 "§YChairman Bukharin§! has retired"
  SOV_nep_abolished:0 "The §YNew Economic Policy§! has been abolished"
  
+ SOV_centralists_flag:0 "The §YCentralists§! were victorious in the congress"
+ SOV_syndicalists_flag:0 "The §YSyndicalists§! were victorious in the congress"
+ 
  ### Focuses ###
  SOV_the_secretarys_woes:0 "The Chairman's Woes"
  SOV_the_secretarys_woes_desc:0 ""
@@ -215,7 +219,7 @@
  SOV_the_secretarys_letter:0 "The Chairman's Letter"
  SOV_the_secretarys_letter_desc:0 ""
  
- 
+ ## Post-Bukharin ##
  SOV_future_of_the_union:0 "The Future of the Union"
  SOV_future_of_the_union_desc:0 ""
  SOV_future_of_the_union_tt:0 "An event chain will begin."
@@ -240,8 +244,45 @@
  SOV_the_new_secretary:0 "The New Chairman"
  SOV_the_new_secretary_desc:0 ""
  
- ## Military ##
+ ## Centralist ##
+ SOV_the_centralists:0 "The Centralists"
+ SOV_the_centralists_desc:0 ""
+ SOV_strengthen_the_gensec:0 "Strengthen the General Secretary"
+ SOV_strengthen_the_gensec_desc:0 ""
+ SOV_wind_down_the_nep:0 "Wind Down the NEP"
+ SOV_wind_down_the_nep_desc:0 ""
+ SOV_control_the_army:0 "Control the Army"
+ SOV_control_the_army_desc:0 ""
  
+ ## Worker's Opposition ##
+ SOV_the_workers_opposition:0 "The Worker's Opposition"
+ SOV_the_workers_opposition_desc:0 ""
+ SOV_promises_of_true_democracy:0 "Promises of True Democracy"
+ SOV_promises_of_true_democracy_desc:0 ""
+ SOV_reconcile_the_decists:0 "Reconcile the Decists"
+ SOV_reconcile_the_decists_desc:0 ""
+ SOV_roll_up_our_sleeves:0 "Roll Up Our Sleeves"
+ SOV_roll_up_our_sleeves_desc:0 ""
+ SOV_all_power_to_the_soviets:0 "All Power to the Soviets!"
+ SOV_all_power_to_the_soviets_desc:0 ""
+ SOV_end_the_nep:0 "End the NEP"
+ SOV_end_the_nep_desc:0 ""
+ SOV_revolutionary_women:0 "Revolutionary Women"
+ SOV_revolutionary_women_desc:0 ""
+ SOV_seperate_the_party_and_state:0 "Separate the Party and the State"
+ SOV_seperate_the_party_and_state_desc:0 ""
+ SOV_end_bourgeois_specialism:0 "End Bourgeois Specialism"
+ SOV_end_bourgeois_specialism_desc:0 ""
+ SOV_voluntary_collectivization:0 "Voluntary Collectivization"
+ SOV_voluntary_collectivization_desc:0 ""
+ SOV_sweep_out_the_bureaucrats:0 "Sweep out the Bureaucrats"
+ SOV_sweep_out_the_bureaucrats_desc:0 ""
+ SOV_empower_the_unions:0 "Empower the Unions"
+ SOV_empower_the_unions_desc:0 ""
+ SOV_expand_welfare:0 "Expand Welfare"
+ SOV_expand_welfare_desc:0 ""
+ 
+ ## Military ##
  # Army #
  SOV_reform_the_intelligence_agency:0 "Consolidate the Intelligence Agencies"
  SOV_reform_the_intelligence_agency_desc:0 ""
@@ -299,8 +340,8 @@
  SOV_expand_shipbuilding_facilities_desc:0 ""
  SOV_new_destroyers:0 "Restart Destroyer Production"
  SOV_new_destroyers_desc:0 ""
- SOV_naval_doctrine:0 "Expand the Naval Academy"
- SOV_naval_doctrine_desc:0 ""
+ SOV_expand_the_naval_academy:0 "Expand the Naval Academy"
+ SOV_expand_the_naval_academy_desc:0 ""
  
  SOV_reinforce_leningrad:0 "Reinforce Leningrad"
  SOV_reinforce_leningrad_desc:0 ""
@@ -308,10 +349,6 @@
  SOV_armored_cruisers_desc:0 ""
  
  ### Decisions ###
- 
- ## Factionalism ##
- SOV_organize_anarchist_veterans:0 "Organize Anarchist Veterans"
- SOV_organize_anarchist_veterans_tt:0 "£nato_unit_cavalry_icon_small  Raise 1 §YCavalry Division§! composed of:\n- 6 §YCavalry§! battalions\n- 3 §YMotorized Infantry§! battalions\nWith the following Support Companies:\n- 1 §YRecon§! support group\nCommanded by: §YNestor Makhno§!\n"
  
  ## War Communism ##
  SOV_war_communism_category:0 "Managing War Communism"
@@ -345,11 +382,19 @@
  SOV_low:0 "Low"
  SOV_irrelevant:0 "Irrelevant"
  
+ SOV_opinions_reset_tt:0 "Factional opinions have been §Yreset§!."
+ 
  SOV_industrialist_opinion_status:0 "[GetCentralistOpinion] ([?SOV_industrialist_opinion])"
  SOV_rightist_opinion_status:0 "[GetRightistOpinion] ([?SOV_rightist_opinion])"
  SOV_decist_opinion_status:0 "[GetDecistOpinion] ([?SOV_decist_opinion])"
  SOV_syndicalist_opinion_status:0 "[GetSyndicalistOpinion] ([?SOV_syndicalist_opinion])"
  SOV_democrat_opinion_status:0 "[GetDemocratOpinion] ([?SOV_democrat_opinion])"
+ 
+ SOV_industrialist_influence_status:0 "[GetCentralistInfluence] ([?SOV_industrialist_influence])"
+ SOV_rightist_influence_status:0 "[GetRightistInfluence] ([?SOV_rightist_influence])"
+ SOV_decist_influence_status:0 "[GetDecistInfluence] ([?SOV_decist_influence])"
+ SOV_syndicalist_influence_status:0 "[GetSyndicalistInfluence] ([?SOV_syndicalist_influence])"
+ SOV_democrat_influence_status:0 "[GetDemocratInfluence] ([?SOV_democrat_influence])"
  
  SOV_industrialist_opinion_gain:0 "The §YCentralists§! gain $RIGHT|0=G$ opinion."
  SOV_industrialist_opinion_lose:0 "The §YCentralists§! lose $RIGHT|0=R$ opinion."
@@ -366,19 +411,23 @@
  SOV_decist_opinion_lose:0 "The §YDecists§! lose $RIGHT|0=R$ opinion."
  SOV_decist_influence_lose:0 "The §YDecists§! lose $RIGHT|0=R$ influence."
  
+ SOV_syndicalist_opinion_gain:0 "The §YSyndicalists§! gain $RIGHT|0=G$ opinion."
  SOV_syndicalist_influence_gain:0 "The §YSyndicalists§! gain $RIGHT|0=G$ influence."
  SOV_syndicalist_opinion_lose:0 "The §YSyndicalists§! lose $RIGHT|0=R$ opinion."
  SOV_syndicalist_influence_lose:0 "The §YSyndicalists§! lose $RIGHT|0=R$ influence."
  
+ SOV_democrat_opinion_gain:0 "The §YDemocrats§! gain $RIGHT|=0G$ opinion."
  SOV_democrat_influence_gain:0 "The §YDemocrats§! gain $RIGHT|=0G$ influence."
  SOV_democrat_opinion_lose:0 "The §YDemocrats§! lose $RIGHT|=0R$ opinion."
  SOV_democrat_influence_lose:0 "The §YDemocrats§! lose $RIGHT|=0R$ influence."
  
- SOV_industrialist_influence_status:0 "[GetCentralistInfluence] ([?SOV_industrialist_influence])"
- SOV_rightist_influence_status:0 "[GetRightistInfluence] ([?SOV_rightist_influence])"
- SOV_decist_influence_status:0 "[GetDecistInfluence] ([?SOV_decist_influence])"
- SOV_syndicalist_influence_status:0 "[GetSyndicalistInfluence] ([?SOV_syndicalist_influence])"
- SOV_democrat_influence_status:0 "[GetDemocratInfluence] ([?SOV_democrat_influence])"
+ ## Centralist ##
+ SOV_moratorium_on_new_members:0 "Moratorium on New Members"
+ SOV_confiscate_sidearms:0 "Confiscate Sidearms"
+ 
+ ## Decist ##
+ SOV_organize_anarchist_veterans:0 "Organize Anarchist Veterans"
+ SOV_organize_anarchist_veterans_tt:0 "£nato_unit_cavalry_icon_small  Raise 1 §YCavalry Division§! composed of:\n- 6 §YCavalry§! battalions\n- 3 §YMotorized Infantry§! battalions\nWith the following Support Companies:\n- 1 §YRecon§! support group\nCommanded by: §YNestor Makhno§!\n"
  
  ## International Trade ##
  SOV_foreign_trade_category:0 "Foreign Trade"

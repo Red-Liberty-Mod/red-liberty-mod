@@ -6,8 +6,23 @@ shared_focus = {
 	y = 0
 	cost = 5
 	
+	offset = {
+		x = 8
+		y = 8
+		trigger = {
+			has_focus_tree = SOV_initial_tree
+		}
+	}
+	
+	available = {
+		has_country_flag = SOV_syndicalists_flag
+	}
+	
     completion_reward = {
-		
+		country_event = {
+			id = sov_syndicalist.1
+			hours = 6
+		}
     }
 	
 	ai_will_do = {
@@ -27,7 +42,10 @@ shared_focus = {
 	prerequisite = { focus = SOV_the_workers_opposition }
 	
     completion_reward = {
-		
+		add_to_variable = {
+			tooltip = SOV_democrat_opinion_gain
+			SOV_democrat_opinion = 3
+		}
     }
 	
 	ai_will_do = {
@@ -47,7 +65,10 @@ shared_focus = {
 	prerequisite = { focus = SOV_the_workers_opposition }
 	
     completion_reward = {
-		
+		add_to_variable = {
+			tooltip = SOV_decist_opinion_gain
+			SOV_decist_opinion = 3
+		}
     }
 	
 	ai_will_do = {
@@ -129,7 +150,8 @@ shared_focus = {
 	prerequisite = { focus = SOV_all_power_to_the_soviets }
 	
     completion_reward = {
-		
+		add_political_power = -25
+		add_ideas = SOV_revolutionary_women_syndicalist
     }
 	
 	ai_will_do = {
@@ -149,7 +171,23 @@ shared_focus = {
 	prerequisite = { focus = SOV_all_power_to_the_soviets }
 	
     completion_reward = {
-		
+		add_stability = 0.1
+		add_to_variable = {
+			tooltip = SOV_industrialist_influence_lose
+			SOV_industrialist_influence = -5
+		}
+		add_to_variable = {
+			tooltip = SOV_industrialist_opinion_lose
+			SOV_industrialist_opinion = -5
+		}
+		add_to_variable = {
+			tooltip = SOV_rightist_influence_lose
+			SOV_rightist_influence = -3
+		}
+		add_to_variable = {
+			tooltip = SOV_rightist_opinion_lose
+			SOV_rightist_opinion = -3
+		}
     }
 	
 	ai_will_do = {
@@ -209,7 +247,7 @@ shared_focus = {
 	prerequisite = { focus = SOV_seperate_the_party_and_state }
 	
     completion_reward = {
-		
+		SOV_improve_turmoil_idea = yes
     }
 	
 	ai_will_do = {
@@ -229,7 +267,11 @@ shared_focus = {
 	prerequisite = { focus = SOV_seperate_the_party_and_state }
 	
     completion_reward = {
-		
+		add_to_variable = {
+			tooltip = SOV_syndicalist_influence_gain
+			SOV_syndicalist_influence = 3
+		}
+		SOV_improve_turmoil_idea = yes
     }
 	
 	ai_will_do = {
@@ -249,7 +291,7 @@ shared_focus = {
 	prerequisite = { focus = SOV_end_the_nep }
 	
     completion_reward = {
-		
+		ECON_poverty_change_large = yes
     }
 	
 	ai_will_do = {

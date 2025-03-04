@@ -154,6 +154,41 @@ SOV_war_communism_category = {
 
 SOV_factionalism_category = {
 	
+	SOV_moratorium_on_new_members = {
+		icon = GFX_decision_generic_political_discourse
+		
+		visible = {
+			has_completed_focus = SOV_strengthen_the_gensec
+		}
+		
+		cost = 30
+		fire_only_once = yes
+		
+		complete_effect = {
+			add_to_variable = {
+				tooltip = SOV_industrialist_influence_gain
+				SOV_industrialist_influence = 5
+			}
+		}
+	}
+	
+	SOV_confiscate_sidearms = {
+		icon = GFX_decision_generic_assassination
+		
+		visible = {
+			has_completed_focus = SOV_strengthen_the_gensec
+		}
+		
+		cost = 15
+		fire_only_once = yes
+		days_remove = 30
+		
+		remove_effect = {
+			add_political_power = 50
+			add_stability = 0.01
+		}
+	}
+	
 	SOV_organize_anarchist_veterans = {
 		icon = ger_mefo_bills
 

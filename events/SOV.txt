@@ -1,5 +1,6 @@
 add_namespace = soviet_union
 add_namespace = sov_congress
+add_namespace = sov_syndicalist
 add_namespace = sov_military
 
 country_event = { # the secretarys woes
@@ -332,67 +333,91 @@ country_event = { #
 	option = { # 
 		name = sov_congress.8.a
 		trigger = {
-			has_country_flag = SOV_industrialist_chairman_option
+			OR = {
+				has_country_flag = SOV_industrialist_chairman_option
+				is_debug = yes
+			}
 		}
 		set_politics = {
 			ruling_party = vanguard_socialism
 		}
-		promote_character = SOV_sergei_kirov
-		set_party_name = {
-			ideology = vanguard_socialism
-			long_name = SOV_kpr_industrialists_long
-			name = SOV_kpr_industrialists
-		}
 		load_focus_tree = SOV_centralist_tree
+		custom_effect_tooltip = SOV_opinions_reset_tt
+		
+		hidden_effect = {
+			promote_character = SOV_sergei_kirov
+			set_party_name = {
+				ideology = vanguard_socialism
+				long_name = SOV_kpr_industrialists_long
+				name = SOV_kpr_industrialists
+			}
+			set_country_flag = SOV_centralists_flag
+		}
 	}
 	
 	option = { # 
 		name = sov_congress.8.b
 		trigger = {
-			has_country_flag = SOV_rightist_chairman_option
+			OR = {
+				has_country_flag = SOV_rightist_chairman_option
+				is_debug = yes
+			}
 		}
 		set_politics = {
 			ruling_party = vanguard_socialism
 		}
 		promote_character = SOV_grigory_sokolnikov
 		load_focus_tree = SOV_rightist_tree
+		custom_effect_tooltip = SOV_opinions_reset_tt
 	}
 	
 	option = { # 
 		name = sov_congress.8.c
 		trigger = {
-			has_country_flag = SOV_decist_chairman_option
+			OR = {
+				has_country_flag = SOV_decist_chairman_option
+				is_debug = yes
+			}
 		}
 		set_politics = {
 			ruling_party = revolutionary_socialism
 		}
-		promote_character = SOV_sergei_kirov
+		promote_character = SOV_ivan_smirnov
 		set_party_name = {
-			ideology = vanguard_socialism
+			ideology = revolutionary_socialism
 			long_name = SOV_kpr_neodecists_long
 			name = SOV_kpr_neodecists
 		}
+		custom_effect_tooltip = SOV_opinions_reset_tt
 	}
 	
 	option = { # 
 		name = sov_congress.8.d
 		trigger = {
-			has_country_flag = SOV_syndicalist_chairman_option
+			OR = {
+				has_country_flag = SOV_syndicalist_chairman_option
+				is_debug = yes
+			}
 		}
 		set_politics = {
 			ruling_party = revolutionary_socialism
 		}
 		load_focus_tree = SOV_syndicalist_tree
+		custom_effect_tooltip = SOV_opinions_reset_tt
 	}
 	
 	option = { # 
 		name = sov_congress.8.e
 		trigger = {
-			has_country_flag = SOV_democrat_chairman_option
+			OR = {
+				has_country_flag = SOV_democrat_chairman_option
+				is_debug = yes
+			}
 		}
 		set_politics = {
 			ruling_party = democratic_socialism
 		}
+		custom_effect_tooltip = SOV_opinions_reset_tt
 	}
 }
 
@@ -406,6 +431,39 @@ country_event = { # red army storms the congress
 
 	option = { # 
 		name = sov_congress.9.a
+		set_politics = {
+			ruling_party = despotism
+		}
+	}
+}
+
+### Syndicalist ###
+
+country_event = { # the secretarys woes
+	id = sov_syndicalist.1
+	title = sov_syndicalist.1.title
+	desc = sov_syndicalist.1.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = sov_syndicalists.1.a
+	}
+}
+
+country_event = { # the secretarys woes
+	id = sov_syndicalist.2
+	title = sov_syndicalist.2.title
+	desc = sov_syndicalist.2.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = sov_syndicalists.2.a
 	}
 }
 

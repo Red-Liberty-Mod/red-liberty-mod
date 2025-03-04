@@ -2,12 +2,18 @@ shared_focus = {
     id = SOV_reform_the_intelligence_agency
 	icon = GFX_SOV_consolidate_intel_agencies
 	
-    x = 24
+    x = 0
 	y = 0
 	cost = 5
 	
 	offset = {
-		x = -10
+		x = 21
+		trigger = {
+			has_focus_tree = SOV_initial_tree
+		}
+	}
+	offset = {
+		x = 10
 		trigger = {
 			has_focus_tree = SOV_syndicalist_tree
 		}
@@ -1075,7 +1081,7 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = SOV_naval_doctrine
+    id = SOV_expand_the_naval_academy
 	icon = GFX_goal_generic_navy_doctrines_tactics
 	
     x = 1
@@ -1090,7 +1096,7 @@ shared_focus = {
 	
     completion_reward = {
 		add_doctrine_cost_reduction = {
-			name = SOV_naval_doctrine
+			name SOV_expand_the_naval_academy
 			cost_reduction = 0.25
 			uses = 2
 			category = naval_doctrine
