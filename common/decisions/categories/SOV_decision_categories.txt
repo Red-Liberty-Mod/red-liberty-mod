@@ -1,19 +1,56 @@
-SOV_foreign_policy_category = {
-	#icon = usa_congress
+SOV_factionalism_category = {
+	icon = generic_communism
 	
 	allowed = {
 		original_tag = SOV
 	}
-
+	
 	visible = {
-		check_variable = { active_conflicts^num > 0 }
+		
 	}
-
+	
+	scripted_gui = SOV_factionalism_scripted_gui
+	
 	visible_when_empty = yes
+	
+	priority = 100
+}
 
-	scripted_gui = foreign_conflicts_container
+SOV_war_communism_category = {
+	allowed = {
+		original_tag = SOV
+	}
+	
+	visible = {
+		has_completed_focus = SOV_and_the_battle_is_going_again
+		NOT = {
+			has_global_flag = russian_civil_war_ended
+		}
+	}
+	
+	visible_when_empty = yes
+}
 
-	priority = 101
+SOV_evacuation_of_industry = {
+	
+	allowed = {
+		original_tag = SOV
+	}
+	
+	visible = {
+		always = no
+	}
+}
+
+SOV_foreign_trade_category = {
+	
+	allowed = {
+		original_tag = SOV
+	}
+	
+	visible = {
+		always = no
+	}
 }
 
 SOV_revolution_category = {
@@ -21,8 +58,9 @@ SOV_revolution_category = {
 	allowed = {
 		original_tag = SOV
 	}
+	
 	visible = {
-		always = no
+		always = yes
 	}
 }
 
@@ -31,19 +69,10 @@ SOV_science_meter_category = {
 	allowed = {
 		original_tag = SOV
 	}
+	
 	visible = {
 		always = no
 	}
 
 	scripted_gui = SOV_science_meter_gui
-}
-
-SOV_regional_autonomy_category = {
-
-	allowed = {
-		original_tag = SOV
-	}
-	visible = {
-		always = yes
-	}
 }

@@ -437,7 +437,7 @@ if = {
 	}
 	create_equipment_variant = {
 		name = "n.A. s.Pz.Kpfw. I"
-		type = heavy_tank_chassis_1
+		type = heavy_tank_chassis_0
 		parent_version = 0
 		design_team = mio:GER_krupp_tank_organization
 		modules = {
@@ -1116,6 +1116,23 @@ if = {
 	limit = { has_dlc = "By Blood Alone" }
 	
 	create_equipment_variant = {
+		name = "Do 11"
+		type = medium_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = medium_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = empty
+			fixed_auxiliary_weapon_slot_2 = empty
+			fixed_auxiliary_weapon_slot_3 = empty
+			engine_type_slot = engine_1_2x
+			special_type_slot_1 = lmg_defense_turret_2x
+			special_type_slot_2 = lmg_defense_turret
+			special_type_slot_3 = empty
+			special_type_slot_4 = empty
+		}
+		obsolete = yes
+	}
+	
+	create_equipment_variant = {
 		name = "Do 23"
 		type = medium_plane_airframe_0
 		modules = {
@@ -1124,8 +1141,8 @@ if = {
 			fixed_auxiliary_weapon_slot_2 = empty
 			fixed_auxiliary_weapon_slot_3 = empty
 			engine_type_slot = engine_1_2x
-			special_type_slot_1 = empty
-			special_type_slot_2 = empty
+			special_type_slot_1 = lmg_defense_turret_2x
+			special_type_slot_2 = lmg_defense_turret
 			special_type_slot_3 = empty
 			special_type_slot_4 = empty
 		}
@@ -1189,23 +1206,12 @@ if = {
 		icon = "GFX_GER_early_fighter_medium"
 	}
 	create_equipment_variant = {
-		name = "Ff 68 T"
-		type = cv_small_plane_airframe_0
-		modules = {
-			fixed_main_weapon_slot = light_mg_2x
-			engine_type_slot = engine_1_1x
-			special_type_slot_1 = empty
-		}
-		obsolete = yes
-		icon = "GFX_GER_early_fighter_medium"
-	}
-	create_equipment_variant = {
 		name = "Hs 123"
 		type = small_plane_cas_airframe_0
 		modules = {
 			fixed_main_weapon_slot = bomb_locks
 			engine_type_slot = engine_1_1x
-			special_type_slot_1 = empty
+			fixed_auxiliary_weapon_slot_1 = light_mg_2x
 		}
 		obsolete = yes
 		icon = "GFX_GER_CAS1_medium"
@@ -1233,7 +1239,7 @@ if = {
 		icon = "GFX_GER_fighter1_medium"
 	}
 	create_equipment_variant = {
-		name = "Ju 87"
+		name = "Ju 87 'Stuka'"
 		type = small_plane_cas_airframe_1
 		design_team = mio:GER_junkers_organization
 		modules = {
@@ -1245,28 +1251,37 @@ if = {
 		icon = "GFX_GER_CAS1_medium"
 	}
 	create_equipment_variant = {
-		name = "Fi 167"
-		type = small_plane_naval_bomber_airframe_1
-		design_team = mio:GER_fieseler_organization
+		name = "He 59"
+		type = small_plane_naval_bomber_airframe_0
 		modules = {
 			fixed_main_weapon_slot = torpedo_mounting
-			engine_type_slot = engine_2_1x
-			special_type_slot_1 = lmg_defense_turret
-			special_type_slot_2 = floats
+			engine_type_slot = engine_1_2x
+			fixed_auxiliary_weapon_slot_1 = light_mg_2x
 		}
 		icon = "GFX_GER_naval_bomber1_medium"
 	}
+	
 	create_equipment_variant = {
-		name = "Fi 167 T"
+		name = "Fi 167"
 		type = cv_small_plane_naval_bomber_airframe_1
 		design_team = mio:GER_fieseler_organization
 		modules = {
 			fixed_main_weapon_slot = torpedo_mounting
-			engine_type_slot = engine_1_1x
+			engine_type_slot = engine_2_1x
 			special_type_slot_1 = empty
 			special_type_slot_2 = empty
 		}
 		icon = "GFX_GER_cv_naval_bomber1_medium"
+	}
+	create_equipment_variant = {
+		name = "Do P"
+		type = large_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = large_bomb_bay
+			engine_type_slot = engine_1_4x
+			special_type_slot_1 = lmg_defense_turret
+		}
+		obsolete = yes
 	}
 	
 	### Land Planes ###
@@ -1283,9 +1298,15 @@ if = {
 		producer = GER
 	}
 	add_equipment_to_stockpile = {
-		type = small_plane_naval_bomber_airframe_1
+		type = small_plane_naval_bomber_airframe_0
 		amount = 72
-		variant_name = "Fi 167"
+		variant_name = "He 59"
+		producer = GER
+	}
+	add_equipment_to_stockpile = {
+		type = medium_plane_airframe_0
+		amount = 372
+		variant_name = "Do 11"
 		producer = GER
 	}
 	add_equipment_to_stockpile = {

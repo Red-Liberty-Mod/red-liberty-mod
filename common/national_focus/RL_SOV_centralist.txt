@@ -1,0 +1,338 @@
+shared_focus = {
+    id = SOV_the_centralists
+	icon = GFX_SOV_the_centralists
+	
+    x = 4
+	y = 0
+	cost = 5
+	
+	offset = {
+		y = 8
+		trigger = {
+			has_focus_tree = SOV_initial_tree
+		}
+	}
+	
+	available = {
+		has_country_flag = SOV_centralists_flag
+	}
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_strengthen_the_gensec
+	icon = GFX_SOV_strengthen_the_gensec
+	
+    x = -3
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_the_centralists
+	prerequisite = { focus = SOV_the_centralists }
+	
+    completion_reward = {
+		unlock_decision_tooltip = SOV_moratorium_on_new_members
+		unlock_decision_tooltip = SOV_confiscate_sidearms
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_wind_down_the_nep
+	icon = GFX_SOV_wind_down_the_nep
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_the_centralists
+	prerequisite = { focus = SOV_the_centralists }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_control_the_army
+	icon = GFX_SOV_control_the_army
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_the_centralists
+	prerequisite = { focus = SOV_the_centralists }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_coordinate_with_the_decists
+	icon = GFX_SOV_coordinate_with_the_decists
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_wind_down_the_nep
+	prerequisite = { focus = SOV_wind_down_the_nep }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_centralized_economic_planning
+	icon = GFX_SOV_centralized_economic_planning
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_wind_down_the_nep
+	prerequisite = { focus = SOV_wind_down_the_nep }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_promote_loyal_officers
+	icon = GFX_SOV_promote_loyal_officers
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_control_the_army
+	prerequisite = { focus = SOV_control_the_army }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_five_year_plan
+	icon = GFX_SOV_five_year_plan
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_coordinate_with_the_decists
+	prerequisite = { focus = SOV_coordinate_with_the_decists }
+	prerequisite = { focus = SOV_centralized_economic_planning }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_militarization_of_labour
+	icon = GFX_SOV_militarization_of_labour
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_centralized_economic_planning
+	prerequisite = { focus = SOV_centralized_economic_planning }
+	prerequisite = { focus = SOV_control_the_army }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_forced_collectivization
+	icon = GFX_SOV_forced_collectivization
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_five_year_plan
+	prerequisite = { focus = SOV_five_year_plan }
+	prerequisite = { focus = SOV_militarization_of_labour }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_suppress_the_nepmen
+	icon = GFX_SOV_suppress_the_nepmen
+	
+    x = 0
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_forced_collectivization
+	prerequisite = { focus = SOV_forced_collectivization }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_crush_the_rightists
+	icon = GFX_SOV_crush_the_rightists
+	
+    x = -3
+	y = 1
+	cost = 7
+	
+	available = {
+		
+	}
+	
+	relative_position_id = SOV_suppress_the_nepmen
+	prerequisite = { focus = SOV_suppress_the_nepmen }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_crush_the_decists
+	icon = GFX_SOV_crush_the_decists
+	
+    x = -1
+	y = 1
+	cost = 7
+	
+	relative_position_id = SOV_suppress_the_nepmen
+	prerequisite = { focus = SOV_suppress_the_nepmen }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_crush_the_syndicalists
+	icon = GFX_SOV_crush_the_syndicalists
+	
+    x = 1
+	y = 1
+	cost = 7
+	
+	relative_position_id = SOV_suppress_the_nepmen
+	prerequisite = { focus = SOV_suppress_the_nepmen }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_crush_the_democrats
+	icon = GFX_SOV_crush_the_democrats
+	
+    x = 3
+	y = 1
+	cost = 7
+	
+	relative_position_id = SOV_suppress_the_nepmen
+	prerequisite = { focus = SOV_suppress_the_nepmen }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_one_union_one_party
+	icon = GFX_SOV_one_union_one_party
+	
+    x = 3
+	y = 1
+	cost = 7
+	
+	relative_position_id = SOV_crush_the_rightists
+	prerequisite = { focus = SOV_crush_the_rightists }
+	prerequisite = { focus = SOV_crush_the_decists }
+	prerequisite = { focus = SOV_crush_the_syndicalists }
+	prerequisite = { focus = SOV_crush_the_democrats }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}

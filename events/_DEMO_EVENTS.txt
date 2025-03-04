@@ -1305,6 +1305,9 @@ country_event = { # far eastern revolt
 				type = annex_everything
 			}
 		}
+		FNG = {
+			set_country_flag = may_send_volunteers_to_FER
+		}
 		country_event = {
 			id = demo_rus.2
 			days = 10
@@ -1333,6 +1336,7 @@ country_event = { # soviet-state war
 			threat = 10
 			name = SOV_RUS_civil_war
 		}
+		set_global_flag = russian_civil_war_started
 		hidden_effect = {
 			random_other_country = {
 				limit = { is_ai = yes }
@@ -2281,10 +2285,10 @@ country_event = { # adnan assassinated
 		kill_country_leader = yes
 		TUR = {
 			set_politics = {
-				ruling_party = authoritarian_democracy
+				ruling_party = progressive_liberalism
 			}
 			add_popularity = {
-				ideology = authoritarian_democracy
+				ideology = progressive_liberalism
 				popularity = 0.07
 			}
 		}
@@ -2948,10 +2952,6 @@ country_event = {
 				type = annex_everything
 			}
 			declare_war_on = {
-				target = MEN
-				type = annex_everything
-			}
-			declare_war_on = {
 				target = SHD
 				type = annex_everything
 			}
@@ -2984,15 +2984,7 @@ country_event = {
 				type = annex_everything
 			}
 			declare_war_on = {
-				target = SHA
-				type = annex_everything
-			}			
-			declare_war_on = {
 				target = SIK
-				type = annex_everything
-			}
-			declare_war_on = {
-				target = KUM
 				type = annex_everything
 			}
 			declare_war_on = {
@@ -3830,7 +3822,7 @@ country_event = { #
 			}
 		}
 		ai_chance = {
-			base = 10
+			base = 3
 		}
 	}
 	
@@ -3844,7 +3836,7 @@ country_event = { #
 			}
 		}
 		ai_chance = {
-			base = 0
+			base = 7
 		}
 	}
 }
@@ -3925,9 +3917,34 @@ country_event = { #
 		POL = {
 			white_peace = WUK
 		}
+		UKR = {
+			annex_country = {
+				target = WUK
+			}
+		}
+		GER = {
+			add_to_faction = UKR
+		}
+		news_event = {
+			id = demo_pol.6
+			hours = 6
+		}
 		ai_chance = {
 			base = 10
 		}
+	}
+}
+
+news_event = { # 
+	id = demo_pol.6
+	title = demo_pol.6.title
+	desc = demo_pol.6.desc
+	
+	is_triggered_only = yes
+	major = yes
+	
+	option = { # 
+		name = demo_pol.6.a
 	}
 }
 
@@ -4053,12 +4070,6 @@ country_event = { # democratic coup
 				ruling_party = progressive_liberalism
 			}
 			reset_coalition = yes
-			
-			country_event = {
-				id = demo_arg.3
-				days = 35
-				random_days = 15
-			}
 		}
 		random_other_country = {
 			limit = { is_ai = yes }
@@ -4200,6 +4211,12 @@ country_event = { # apra-led civil war
 				save_global_event_target_as = socialist_peru
 				set_cosmetic_tag = PRU_socialist
 			}
+		}
+		CHL = {
+			set_country_flag = may_send_volunteers_to_SRP
+		}
+		UOB = {
+			set_country_flag = may_send_volunteers_to_SRP
 		}
 		random_other_country = {
 			limit = { is_ai = yes }

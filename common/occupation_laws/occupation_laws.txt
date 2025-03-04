@@ -226,7 +226,10 @@ secret_police_oversight = {
 	
 	visible = {
 		NOT = {
-			original_tag = USA
+			OR = {
+				original_tag = USA
+				FROM = { capital_scope = { is_on_continent = africa } }
+			}
 		}
 	}
 
@@ -240,6 +243,45 @@ secret_police_oversight = {
 		enemy_operative_detection_chance_over_occupied_tag = 1 # offset detection chance by +1%
 		enemy_intel_network_gain_factor_over_occupied_tag = -0.25 # -25% scaled by the number of occupied states and the ratio of the network covering those occupied states
 		# todo + spy defense
+	}
+}
+
+colonial_police = {
+	icon = 13
+	sound_effect = "Martial_Law_Interface_Autonomous_Occupation_Unique_DEM"
+
+	#fallback_law = colonial_police_improved
+
+	visible = {
+		FROM = { capital_scope = { is_on_continent = africa } }
+	}
+
+	state_modifier = {
+		resistance_target 				= -0.3
+		compliance_gain 				= -0.02
+		required_garrison_factor 		= -0.30
+		resistance_damage_to_garrison	= -0.4
+	}
+
+	ai_will_do = {
+		base = 250
+		modifier = {
+			check_variable  = { resistance_target_without_law > 0.3}
+			add = 200
+		}
+
+		modifier = {
+			check_variable  = { resistance_target_without_law > 0.44}
+
+			set_temp_variable = { requirement_limit = 0.35 }
+			if = {
+				limit = { occupation_law = local_police_force_garrison }
+				set_temp_variable = { requirement_limit = 0.55 }
+			}
+			check_variable = { garrison_min_support_ratio < requirement_limit }
+
+			add = 350
+		}
 	}
 }
 

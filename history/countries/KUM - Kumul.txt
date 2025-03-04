@@ -1,17 +1,15 @@
 ﻿capital = 760
 
-oob = "empty"
+#oob = "empty"
 
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
 }
 
-set_convoys = 5
-
 set_politics = {
 	ruling_party = despotism
-	last_election = "1932.11.8"
+	last_election = "1936.1.1"
 	election_frequency = 48
 	elections_allowed = no
 }
@@ -22,21 +20,36 @@ set_popularities = {
 	democratic_socialism = 0
 	social_democracy = 0
 	progressive_liberalism = 0
-	liberal_conservatism = 0
+	liberal_conservatism = 5
 	national_conservatism = 20
-	ultraconservatism = 0
 	authoritarian_democracy = 0
-	despotism = 80
+	despotism = 75
+	ultraconservatism = 0
 	fascism = 0
 }
 
-create_country_leader = {
-	name = "Nasir Shah"
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = despotism_subtype
-	traits = {
-		
+### Leaders ###
+recruit_character = KUM_nasir_shah
+
+### Generals ###
+recruit_character = KUM_yulbars_khan
+
+division_template = {
+	name = "Uyghur Militia"
+	division_names_group = TRK_MIL_01
+	regiments = {
+		irregular_infantry = { x = 0 y = 0 }
+		irregular_infantry = { x = 0 y = 1 }
+		irregular_infantry = { x = 1 y = 0 }
+		irregular_infantry = { x = 1 y = 1 }
+	}
+}
+division_template = {
+	name = "Cavalry Horde"
+	division_names_group = TRK_CAV_01
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
 	}
 }

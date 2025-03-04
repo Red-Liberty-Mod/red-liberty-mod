@@ -25,8 +25,62 @@ mobile_warfare_ratios = {
 		id = armor
 		value = 10
 	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = motorized
+		value = 2
+	}
+
+	ai_strategy = {
+		type = force_concentration_factor
+		value = 15  # base + 15 = 30 %
+	}
 }
 
+mobile_infantry_or_armored_spearhead_ratios = {
+	enable = {
+		OR = {
+			has_tech = mobile_infantry
+			has_tech = armored_spearhead
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_concentration_factor
+		value = 15  # base + 15 + 15 = 45 %
+	}
+}
+
+mechanised_offensive_or_blitzkrieg_ratios = {
+	enable = {
+		OR = {
+			has_tech = mechanised_offensive
+			has_tech = blitzkrieg
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_concentration_factor
+		value = 15  # base + 15 + 15 + 15 = 60 %
+	}
+}
+
+modern_blitzkrieg_ratios = {
+	enable = {
+		has_tech = modern_blitzkrieg
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_concentration_factor
+		value = 10  # base + 15 + 15 + 15 + 10 = 70 %
+	}
+}
+
+#Superior Firepower
 superior_firepower_ratios = {
 	enable = {
 		has_tech = superior_firepower
@@ -46,9 +100,13 @@ superior_firepower_ratios = {
 		id = artillery
 		value = 15
 	}
+
+	ai_strategy = {
+		type = force_concentration_factor
+		value = 5  # base + 5 = 20 %
+	}
 }
 
-## Later in superior_firepower tree
 concentrated_fire_plans_ratios = {
 	enable = {
 		has_tech = concentrated_fire_plans
@@ -72,6 +130,31 @@ concentrated_fire_plans_ratios = {
 	}
 }
 
+mechanized_offensive_ratios = {
+	enable = {
+		has_tech = sup_mechanized_offensive
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_concentration_factor
+		value = 20  # base + 5 + 20 = 40 %
+	}
+}
+
+shock_and_awe_ratios = {
+	enable = {
+		has_tech = shock_and_awe
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_concentration_factor
+		value = 15  # base + 5 + 20 + 15 = 55 %
+	}
+}
+
+#Grand Battleplan
 grand_battle_plan_ratios = {
 	enable = {
 		has_tech = trench_warfare
@@ -90,6 +173,79 @@ grand_battle_plan_ratios = {
 	#}
 }
 
+grand_assault_ratios = {
+	enable = {
+		has_tech = grand_assault
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_concentration_factor
+		value = 5  # base + 5 = 20 %
+	}
+}
+
+mechanized_offensive_ratios = {
+	enable = {
+		has_tech = grand_mechanized_offensive
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_concentration_factor
+		value = 5  # base + 5 + 5 = 25 %
+	}
+}
+
+assault_concentration_ratios = {
+	enable = {
+		has_tech = assault_concentration
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_concentration_factor
+		value = 15  # base + 5 + 5 + 15 = 40 %
+	}
+}
+
+assault_breakthrough_ratios = {
+	enable = {
+		has_tech = assault_breakthrough
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_concentration_factor
+		value = 10  # base + 5 + 5 + 15 + 10 = 50 %
+	}
+}
+
+armored_operations_ratios = {
+	enable = {
+		has_tech = armored_operations
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_concentration_factor
+		value = 10  # base + 5 + 10 = 30 %
+	}
+}
+
+infiltration_in_depth_ratios = {
+	enable = {
+		has_tech = infiltration_in_depth
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_concentration_factor
+		value = 10  # base + 5 + 10 + 10 = 40 %
+	}
+}
+
+#Mass Assault
 mass_assault_ratios = {
 	enable = {
 		has_tech = mass_assault
@@ -99,16 +255,21 @@ mass_assault_ratios = {
 	ai_strategy = {
 		type = role_ratio
 		id = infantry
-		value = 30 #25
+		value = 25
 	}
-	#ai_strategy = {
-	#	type = role_ratio
-	#	id = anti_tank
-	#	value = 5
-	#}
+
+	ai_strategy = {
+		type = role_ratio
+		id = anti_tank
+		value = 5
+	}
+
+	ai_strategy = {
+		type = force_concentration_factor
+		value = 5  # base + 5 = 20 %
+	}
 }
 
-#Later in mass_assault tree
 large_front_operations_ratios = {
 	enable = {
 		has_tech = large_front_operations
@@ -118,14 +279,51 @@ large_front_operations_ratios = {
 	ai_strategy = {
 		type = role_ratio
 		id = infantry
-		value = -10
+		value = -20
 	}
 	ai_strategy = {
 		type = role_ratio
 		id = armor
-		value = 10
+		value = 2
 	}
 }
+
+operational_concentration_ratios = {
+	enable = {
+		has_tech = operational_concentration
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_concentration_factor
+		value = 20  # base + 5 + 20 = 40 %
+	}
+}
+
+breakthrough_priority_ratios = {
+	enable = {
+		has_tech = breakthrough_priority
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_concentration_factor
+		value = 20  # base + 5 + 20 + 20 = 60 %
+	}
+}
+
+human_infantry_offensive_ratios = {
+	enable = {
+		has_tech = human_infantry_offensive
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_concentration_factor
+		value = 5  # base + 5 + 5 = 25 %
+	}
+}
+
 
 ##############
 ### NAVAL ####

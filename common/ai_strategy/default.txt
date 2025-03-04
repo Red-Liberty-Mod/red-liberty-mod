@@ -1,4 +1,13 @@
 default_unit_production = {
+	
+	allowed = {
+		NOT = {
+			OR = {
+				original_tag = GER
+			}
+		}
+	}
+	
 	enable = {
 		always = yes
 	}
@@ -78,6 +87,34 @@ default_unit_production = {
 	}
 }
 
+default_transition_production = {
+	enable = {
+		num_of_military_factories > 9
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = infantry
+		value = 2
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = artillery_equipment
+		value = 1
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = anti_air
+		value = 1
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = motorized_equipment
+		value = 1
+	}
+}
+
 default_specialised_unit_production = {
 	enable = {
 		num_of_military_factories > 19
@@ -86,48 +123,65 @@ default_specialised_unit_production = {
 
 	ai_strategy = {
 		type = equipment_production_min_factories
-		id = artillery
-		value = 4
+		id = infantry
+		value = 2
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = artillery_equipment
+		value = 3
 	}
 	ai_strategy = {
 		type = equipment_production_factor
 		id = artillery
-		value = 100
+		value = 55
 	}
 
 	ai_strategy = {
 		type = equipment_production_min_factories
 		id = anti_air
-		value = 2
+		value = 1
 	}
 	ai_strategy = {
 		type = equipment_production_factor
 		id = anti_air
-		value = 25
+		value = 15
+	}
+
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = motorized_equipment
+		value = 1
 	}
 
 	ai_strategy = {
 		type = equipment_variant_production_factor
-		id = support_equipment
-		value = 30
+		id = medium_tank_chassis
+		value = 5
 	}
 }
 
 default_armored_production = {
 	enable = {
-		ai_wants_divisions > 49
+		num_divisions > 49
 	}
 	abort_when_not_enabled = yes
 
 	ai_strategy = {
+		type = equipment_variant_production_factor
+		id = medium_tank_chassis
+		value = 15
+	}
+	ai_strategy = {
 		type = role_ratio
 		id = armor
-		value = 5
+		value = 8
 	}
 }
 
 default_higher_armored_production = {
 	enable = {
+		num_divisions > 49
 		num_of_military_factories > 109
 	}
 	abort_when_not_enabled = yes
@@ -135,7 +189,7 @@ default_higher_armored_production = {
 	ai_strategy = {
 		type = role_ratio
 		id = armor
-		value = 20
+		value = 8
 	}
 }
 
@@ -145,6 +199,7 @@ default_armor_focused_nation = {
 			original_tag = FRA
 			original_tag = GER
 			original_tag = SOV
+			original_tag = USA
 		}
 	}
 	enable = {

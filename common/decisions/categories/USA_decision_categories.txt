@@ -30,6 +30,20 @@ USA_lister_bop_category = {
 	}
 }
 
+USA_office_of_the_president = {
+	icon = usa_congress
+	#picture = GFX_decision_USA_electoral_college
+	
+	allowed = {
+		#original_tag = USA
+		always = no
+	}
+
+	visible_when_empty = yes
+
+	priority = 101
+}
+
 USA_congress = {
 	icon = usa_congress
 	picture = GFX_decision_USA_electoral_college
@@ -43,6 +57,8 @@ USA_congress = {
 			has_country_flag = congress_disabled
 		}
 	}
+	
+	scripted_gui = USA_congress_help_gui
 
 	visible_when_empty = yes
 

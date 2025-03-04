@@ -1,10 +1,12 @@
 add_namespace = soviet_union
+add_namespace = sov_congress
+add_namespace = sov_syndicalist
+add_namespace = sov_military
 
-country_event = {
+country_event = { # the secretarys woes
 	id = soviet_union.1
 	title = soviet_union.1.title
 	desc = soviet_union.1.desc
-	picture = GFX_report_event_white_house
 	
 	is_triggered_only = yes
 	
@@ -12,6 +14,498 @@ country_event = {
 
 	option = {
 		name = soviet_union.1.a
+	}
+}
+
+country_event = { # divide and conquer
+	id = soviet_union.2
+	title = soviet_union.2.title
+	desc = soviet_union.2.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = soviet_union.2.a
+		add_political_power = -15
+	}
+}
+
+country_event = { # the red napoleon
+	id = soviet_union.3
+	title = soviet_union.3.title
+	desc = soviet_union.3.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = soviet_union.3.a
+	}
+	
+	option = {
+		name = soviet_union.3.b
+	}
+}
+
+country_event = {
+	id = soviet_union.4
+	title = soviet_union.4.title
+	desc = soviet_union.4.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = soviet_union.4.a
+	}
+}
+
+country_event = {
+	id = soviet_union.5
+	title = soviet_union.5.title
+	desc = soviet_union.5.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = soviet_union.5.a
+	}
+}
+
+country_event = {
+	id = soviet_union.6
+	title = soviet_union.6.title
+	desc = soviet_union.6.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = soviet_union.6.a
+	}
+}
+
+country_event = {
+	id = soviet_union.7
+	title = soviet_union.7.title
+	desc = soviet_union.7.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = soviet_union.7.a
+	}
+}
+
+country_event = { # bukharin retires
+	id = soviet_union.50
+	title = soviet_union.50.title
+	desc = soviet_union.50.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # later bitches
+		name = soviet_union.50.a
+	}
+}
+
+country_event = {
+	id = soviet_union.100
+	title = soviet_union.100.title
+	desc = soviet_union.100.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = soviet_union.100.a
 		remove_ideas = SOV_tsarist_captives
+	}
+}
+
+### Congress ###
+country_event = { # the opening of the congress
+	id = sov_congress.1
+	title = sov_congress.1.title
+	desc = sov_congress.1.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = sov_congress.1.a
+		custom_effect_tooltip = SOV_congress_opens
+	}
+}
+
+country_event = { # fate of the nep
+	id = sov_congress.2
+	title = sov_congress.2.title
+	desc = sov_congress.2.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			unlock_national_focus = SOV_fate_of_the_nep
+		}
+	}
+
+	option = { # kept
+		name = sov_congress.2.a
+		add_to_variable = {
+			tooltip = SOV_rightist_influence_gain
+			SOV_rightist_influence = 4
+		}
+		add_to_variable = {
+			tooltip = SOV_democrat_influence_gain
+			SOV_democrat_influence = 1
+		}
+	}
+	
+	option = { # abolished
+		name = sov_congress.2.b
+		add_to_variable = {
+			tooltip = SOV_rightist_influence_lose
+			SOV_rightist_influence = -5
+		}
+		add_to_variable = {
+			tooltip = SOV_industrialist_influence_gain
+			SOV_industrialist_influence = 2
+		}
+		add_to_variable = {
+			tooltip = SOV_decist_influence_gain
+			SOV_decist_influence = 1
+		}
+		add_to_variable = {
+			tooltip = SOV_syndicalist_influence_gain
+			SOV_syndicalist_influence = 2
+		}
+	}
+}
+
+country_event = { # expand/limit the gensecs influence
+	id = sov_congress.3
+	title = sov_congress.3.title
+	desc = sov_congress.3.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			unlock_national_focus = SOV_the_secretarys_power
+		}
+	}
+
+	option = { # expand
+		name = sov_congress.3.a
+		add_to_variable = {
+			tooltip = SOV_industrialist_influence_gain
+			SOV_industrialist_influence = 1
+		}
+		add_to_variable = {
+			tooltip = SOV_rightist_influence_gain
+			SOV_rightist_influence = 1
+		}
+		add_to_variable = {
+			tooltip = SOV_decist_influence_gain
+			SOV_decist_influence = 1
+		}
+	}
+	
+	option = { # limit
+		name = sov_congress.3.b
+		add_to_variable = {
+			tooltip = SOV_syndicalist_influence_gain
+			SOV_syndicalist_influence = 1
+		}
+		add_to_variable = {
+			tooltip = SOV_democrat_influence_gain
+			SOV_democrat_influence = 2
+		}
+	}
+}
+
+country_event = { # democratic centralism
+	id = sov_congress.4
+	title = sov_congress.4.title
+	desc = sov_congress.4.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # enforced
+		name = sov_congress.4.a
+	}
+	
+	option = { # kept the same
+		name = sov_congress.4.b
+	}
+	
+	option = { # abolished
+		name = sov_congress.4.c
+	}
+}
+
+country_event = { # oversight of the army
+	id = sov_congress.5
+	title = sov_congress.5.title
+	desc = sov_congress.5.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # increased
+		name = sov_congress.5.a
+	}
+	
+	option = { # decreased
+		name = sov_congress.5.b
+	}
+}
+
+country_event = { # unions
+	id = sov_congress.6
+	title = sov_congress.6.title
+	desc = sov_congress.6.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # empowered
+		name = sov_congress.6.a
+	}
+	
+	option = { # status quo
+		name = sov_congress.6.b
+	}
+}
+
+country_event = { # foreign policy
+	id = sov_congress.7
+	title = sov_congress.7.title
+	desc = sov_congress.7.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # socialism in one country
+		name = sov_congress.7.a
+	}
+	
+	option = { # internationalism
+		name = sov_congress.7.b
+	}
+}
+
+country_event = { # 
+	id = sov_congress.8
+	title = sov_congress.8.title
+	desc = sov_congress.8.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			SOV_find_chairman_options = yes
+		}
+	}
+
+	option = { # 
+		name = sov_congress.8.a
+		trigger = {
+			OR = {
+				has_country_flag = SOV_industrialist_chairman_option
+				is_debug = yes
+			}
+		}
+		set_politics = {
+			ruling_party = vanguard_socialism
+		}
+		load_focus_tree = SOV_centralist_tree
+		custom_effect_tooltip = SOV_opinions_reset_tt
+		
+		hidden_effect = {
+			promote_character = SOV_sergei_kirov
+			set_party_name = {
+				ideology = vanguard_socialism
+				long_name = SOV_kpr_industrialists_long
+				name = SOV_kpr_industrialists
+			}
+			set_country_flag = SOV_centralists_flag
+		}
+	}
+	
+	option = { # 
+		name = sov_congress.8.b
+		trigger = {
+			OR = {
+				has_country_flag = SOV_rightist_chairman_option
+				is_debug = yes
+			}
+		}
+		set_politics = {
+			ruling_party = vanguard_socialism
+		}
+		promote_character = SOV_grigory_sokolnikov
+		load_focus_tree = SOV_rightist_tree
+		custom_effect_tooltip = SOV_opinions_reset_tt
+	}
+	
+	option = { # 
+		name = sov_congress.8.c
+		trigger = {
+			OR = {
+				has_country_flag = SOV_decist_chairman_option
+				is_debug = yes
+			}
+		}
+		set_politics = {
+			ruling_party = revolutionary_socialism
+		}
+		promote_character = SOV_ivan_smirnov
+		set_party_name = {
+			ideology = revolutionary_socialism
+			long_name = SOV_kpr_neodecists_long
+			name = SOV_kpr_neodecists
+		}
+		custom_effect_tooltip = SOV_opinions_reset_tt
+	}
+	
+	option = { # 
+		name = sov_congress.8.d
+		trigger = {
+			OR = {
+				has_country_flag = SOV_syndicalist_chairman_option
+				is_debug = yes
+			}
+		}
+		set_politics = {
+			ruling_party = revolutionary_socialism
+		}
+		load_focus_tree = SOV_syndicalist_tree
+		custom_effect_tooltip = SOV_opinions_reset_tt
+	}
+	
+	option = { # 
+		name = sov_congress.8.e
+		trigger = {
+			OR = {
+				has_country_flag = SOV_democrat_chairman_option
+				is_debug = yes
+			}
+		}
+		set_politics = {
+			ruling_party = democratic_socialism
+		}
+		custom_effect_tooltip = SOV_opinions_reset_tt
+	}
+}
+
+country_event = { # red army storms the congress
+	id = sov_congress.9
+	title = sov_congress.9.title
+	desc = sov_congress.9.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # 
+		name = sov_congress.9.a
+		set_politics = {
+			ruling_party = despotism
+		}
+	}
+}
+
+### Syndicalist ###
+
+country_event = { # the secretarys woes
+	id = sov_syndicalist.1
+	title = sov_syndicalist.1.title
+	desc = sov_syndicalist.1.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = sov_syndicalists.1.a
+	}
+}
+
+country_event = { # the secretarys woes
+	id = sov_syndicalist.2
+	title = sov_syndicalist.2.title
+	desc = sov_syndicalist.2.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = sov_syndicalists.2.a
+	}
+}
+
+### Military Tree ###
+
+country_event = { # the secretarys woes
+	id = sov_military.1
+	title = sov_military.1.title
+	desc = sov_military.1.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # the GRU
+		name = sov_military.1.a
+		hidden_effect = {
+			create_intelligence_agency = {
+				name = "Glavnoye Razvedyvatel'noye Upravleniye"
+				icon = GFX_intelligence_agency_logo_sov
+			}
+		}
+		add_to_variable = {
+			tooltip = SOV_decist_influence_gain
+			SOV_decist_influence = 1
+		}
+	}
+	
+	option = { # the NKVD
+		name = sov_military.1.b
+		hidden_effect = {
+			create_intelligence_agency = {
+				name = "Narodnyy Komissariat Vnutrennikh Del"
+				icon = GFX_intelligence_agency_logo_sov
+			}
+		}
+		add_to_variable = {
+			tooltip = SOV_industrialist_influence_gain
+			SOV_industrialist_influence = 2
+		}
+		add_to_variable = {
+			tooltip = SOV_industrialist_influence_gain
+			SOV_rightist_influence = 2
+		}
 	}
 }

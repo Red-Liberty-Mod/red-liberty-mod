@@ -1,0 +1,99 @@
+add_namespace = hungary_skeleton
+
+country_event = { # revolutionaries overthrow the emir
+	id = hungary_skeleton.1
+	title = hungary_skeleton.1.title
+	desc = hungary_skeleton.1.desc
+	
+	trigger = {
+		tag = HUN
+		HUN = {
+			has_war_with = ROM
+		}
+		surrender_progress > 0.1
+	}
+	fire_only_once = yes
+
+	option = {
+		name = hungary_skeleton.1.a
+		HUN = {
+			set_politics = {
+				ruling_party = vanguard_socialism
+				last_election = "1936.1.1"
+				election_frequency = 48
+				elections_allowed = no
+			}
+			#set_cosmetic_tag = HUN_soviet_republic
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+country_event = { # revolutionaries overthrow the emir
+	id = hungary_skeleton.2
+	title = hungary_skeleton.2.title
+	desc = hungary_skeleton.2.desc
+	
+	trigger = {
+		tag = HUN
+		NOT = {
+			controls_state = 43
+		}
+	}
+	fire_only_once = yes
+
+	option = {
+		name = hungary_skeleton.2.a
+		HUN = {
+			if = {
+				limit = {
+					TRS = {
+						has_country_flag = declared_war_on_HUN
+					}
+				}
+				TRS = {
+					add_state_core = 885
+					transfer_state = 885
+					white_peace = HUN
+				}
+			}
+			if = {
+				limit = {
+					ROM = {
+						has_country_flag = declared_war_on_HUN
+					}
+				}
+				ROM = {
+					annex_country = {
+						target = TRS
+					}
+					every_owned_state = {
+						limit = {
+							is_core_of = TRS
+						}
+						add_core_of = ROM
+						remove_core_of = TRS
+					}
+					white_peace = HUN
+				}
+			}
+			if = {
+				limit = {
+					SLO = {
+						has_country_flag = declared_war_on_HUN
+					}
+				}
+				SLO = {
+					transfer_state = 73
+					transfer_state = 664
+					white_peace = HUN
+				}
+			}
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+}

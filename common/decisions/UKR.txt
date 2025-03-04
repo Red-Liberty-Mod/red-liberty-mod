@@ -30,3 +30,66 @@ UKR_foreign_influence_category = {
 		}
 	}
 }
+
+UKR_foreign_policy_category = {
+	
+	UKR_secret_negotiations_with_soviet = {
+		
+		available = {
+			is_in_faction_with = GER
+			has_government = democratic_socialism
+		}
+		
+		cost = 15
+		
+		complete_effect = {
+			SOV = {
+				country_event = ukraine_skeleton.1
+			}
+		}
+		
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 0.5
+				SOV = {
+					has_government = vanguard_socialism
+				}
+			}
+		}
+	}
+	
+	UKR_overthrow_the_germans = {
+		
+		available = {
+			has_capitulated = no
+			has_country_flag = UKR_secret_negotiations_success
+		}
+		
+		cost = 15
+		
+		complete_effect = {
+			leave_faction = yes
+			SOV = {
+				country_event = ukraine_skeleton.2
+			}
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 500
+				GER = {
+					has_war_with = FRA
+					surrender_progress > 0.80
+				}
+			}
+			modifier = {
+				add = 500
+				SOV = {
+					has_war_with = GER
+				}
+			}
+		}
+	}
+}

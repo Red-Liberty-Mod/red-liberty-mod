@@ -1,4 +1,124 @@
 
+GER_unit_production = {
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		always = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = garrison
+		value = 4
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = paratroopers
+		value = 1
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = mountaineers
+		value = 0
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = marines
+		value = 0
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = cavalry
+		value = -100
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = motorized
+		value = -1 #because doctrine this = 1
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = anti_armor
+		value = 1
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = mechanized
+		value = -5 #because doctrine this = 0
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = -7 #because doctrine this = 3
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = 75 #88 to 70
+	}
+
+	ai_strategy = {
+		type = equipment_production_factor
+		id = naval_bomber
+		value = -50
+	}
+
+	ai_strategy = {
+		type = equipment_production_factor
+		id = anti_tank
+		value = 20
+	}
+
+	ai_strategy = {
+		type = equipment_production_factor
+		id = anti_air
+		value = 25
+	}
+
+	ai_strategy = {
+		type = equipment_production_factor
+		id = artillery
+		value = 100 #20 to 40
+	}
+
+	ai_strategy = {
+		type = equipment_production_factor
+		id = armor
+		value = -10
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = motorized
+		value = -10
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype #Build these up over time, don't stall
+		id = anti_air_equipment
+		value = 2
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = artillery_equipment
+		value = 4
+	}
+
+	ai_strategy = { #added to railway gun define (set to 0 by default, increased in default strategies)
+		type = railway_gun_divisions_ratio
+		value = 1
+	}
+}
+
 GER_focus_on_france = {
 	allowed = {
 		original_tag = GER
@@ -113,5 +233,33 @@ GER_allies_let_germany_handle_france = {
 		type = front_unit_request
 		tag = FRA
 		value = -250
+	}
+}
+
+GER_hates_FRA_faction = {
+	reversed = yes
+
+	enable_reverse = {
+		FRA = {
+			is_faction_leader = yes
+		}
+	}
+	enable = {
+		is_in_faction_with = FRA
+	}
+	abort_when_not_enabled = yes
+
+	target_array = FRA.faction_members
+
+	ai_strategy = {
+		type = antagonize
+		id = GER
+		value = 1000
+	}
+	ai_strategy = {
+		type = diplo_action_acceptance
+		target = market_access_rights
+		id = GER
+		value = -1000
 	}
 }

@@ -16,6 +16,8 @@ division_template = {
 	}
 	support = {
 		artillery = { x = 0 y = 0 } 	# Heavy Arty Regiment had 1x 152mm bn + 2x 122mm bn
+		engineer = { x = 0 y = 1 } 
+		recon = { x = 0 y = 2 }
 	}
 }
 
@@ -32,8 +34,8 @@ division_template = {
 		motorized = { x = 1 y = 2 }
 	}
 	support = {
-		#recon = { x = 0 y = 0 } 		# Recon bn had 16x L tanks, 45 ACs #Eng and recon removed and they seem rather OP. Could revisit if balance changes 
-		#engineer = { x = 0 y = 1 } 	# (mot) Engineer bn
+		light_tank_recon = { x = 0 y = 0 } 		# Recon bn had 16x L tanks, 45 ACs #Eng and recon removed and they seem rather OP. Could revisit if balance changes 
+		engineer = { x = 0 y = 1 } 	# (mot) Engineer bn
 	}
 }
 
@@ -46,6 +48,10 @@ division_template = {
 		cavalry = { x = 0 y = 1 }
 		cavalry = { x = 1 y = 0 }
 		cavalry = { x = 1 y = 1 }
+	}
+	support = {
+		armored_car_recon = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
 	}
 }
 
@@ -82,6 +88,9 @@ division_template = {
 		motorized = { x = 2 y = 2 }
 		motorized = { x = 2 y = 3 }
 	}
+	support = {
+		armored_car_recon = { x = 0 y = 0 }
+	}
 }
 
 ##### OOB #####
@@ -116,13 +125,23 @@ units = {
 		start_experience_factor = 0.2
 		start_equipment_factor = 1.0
 	}
+	division= {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 11225
+		division_template = "Mekhanizirovaniy Korpus"
+		start_experience_factor = 0.2
+		start_equipment_factor = 1.0
+	}
 
 	division= {
 		division_name = {
 			is_name_ordered = yes
 			name_order = 1
 		}
-		location = 6177
+		location = 1278
 		division_template = "Strelkovaya Diviziya"
 		start_experience_factor = 0.2
 		start_equipment_factor = 0.85
@@ -132,7 +151,7 @@ units = {
 			is_name_ordered = yes
 			name_order = 1
 		}
-		location = 9230
+		location = 1278
 		division_template = "Strelkovaya Diviziya"
 		start_experience_factor = 0.2
 		start_equipment_factor = 0.85
@@ -162,7 +181,7 @@ units = {
 			is_name_ordered = yes
 			name_order = 1
 		}
-		location = 9121
+		location = 4354
 		division_template = "Strelkovaya Diviziya"
 		start_experience_factor = 0.2
 		start_equipment_factor = 0.85
@@ -427,7 +446,6 @@ units = {
 		start_experience_factor = 0.2
 		start_equipment_factor = 0.85
 	}
-	
 	division= {
 		division_name = {
 			is_name_ordered = yes
@@ -438,4 +456,122 @@ units = {
 		start_experience_factor = 0.2
 		start_equipment_factor = 0.85
 	}
+	
+	division= {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 11225
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.9
+	}
+	division= {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 6338
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.9
+	}
+	division= {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 7375
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.9
+	}
+	division= {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 9753
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.9
+	}
+	
+	division= {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 6380
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.97
+	}
 }			
+
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_0
+		}
+		requested_factories = 5
+		progress = 0.82
+		efficiency = 100
+		industrial_manufacturer = mio:SOV_tula_arms_plant_organization
+	}
+	add_equipment_production = {
+		equipment = {
+			type = artillery_equipment_1
+		}
+		requested_factories = 1
+		progress = 0.83
+		efficiency = 100
+		industrial_manufacturer = mio:SOV_grabin_design_bureau_organization
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+		}
+		requested_factories = 2
+		progress = 0.3
+		efficiency = 100
+		industrial_manufacturer = mio:SOV_mytishchy_plant_organization
+	}
+	add_equipment_production = {
+		equipment = {
+			type = motorized_equipment_1
+			creator = "SOV" 
+		}
+		requested_factories = 3
+		progress = 0.4
+		efficiency = 50
+		industrial_manufacturer = mio:SOV_gaz_organization
+	}
+	if = {
+		limit = {
+			has_dlc_nsb = yes
+		}
+		add_equipment_production = {
+			equipment = {
+				type = light_tank_chassis_2
+				creator = "SOV"
+				version_name = "BT-7"
+			}
+			requested_factories = 3
+			progress = 0.4
+			efficiency = 50
+		}
+	}
+	else = {
+		add_equipment_production = {
+			equipment = {
+				type = light_tank_equipment_2
+				creator = "SOV" 
+			}
+			requested_factories = 3
+			progress = 0.4
+			efficiency = 50
+		}
+	}
+}

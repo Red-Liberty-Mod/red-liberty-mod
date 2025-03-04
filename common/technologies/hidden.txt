@@ -1,0 +1,333 @@
+technologies = {
+	
+	### Special Units ###
+	bicycle_infantry = {
+		research_cost = 1
+		
+		allow = { always = no } #only added by effect
+
+		enable_subunits = {
+			bicycle_battalion
+		}
+	}
+	
+	penal_infantry = {
+		research_cost = 1
+		
+		allow = { always = no } #only added by effect
+
+		enable_subunits = {
+			penal_battalion
+		}
+	}
+
+	tech_irregulars = {
+		research_cost = 1
+
+		allow = { always = no } #only added by effect
+
+		enable_subunits = {
+			irregular_infantry
+		}
+	}
+
+	tech_militias = {
+		research_cost = 1
+
+		allow = { always = no } #only added by effect
+
+		enable_subunits = {
+			militia
+		}
+	}
+
+	tech_assault_battalion = {
+		research_cost = 1
+
+		allow = { always = no } #only added by effect
+
+		enable_subunits = {
+			blackshirt_assault_battalion
+		}
+	}
+	
+	### Improvements ###
+	tech_camel_corps = {
+		research_cost = 1
+
+		allow = { always = no } #only added by effect
+
+		on_research_complete = {
+			custom_effect_tooltip = tech_camel_corps_terrain_effect #TODO: remove if tech_effect terrain tooltips are fixed
+		}
+		show_effect_as_desc = yes
+
+		camelry = {
+			desert = {
+				attack = 0.15
+				defence = 0.05
+				movement = 0.03
+			}
+		}
+	}
+
+	tech_ski_infantry = {
+		research_cost = 1
+
+		allow = { always = no } #only added by effect
+
+		on_research_complete = {
+			custom_effect_tooltip = tech_ski_infantry_terrain_effect #TODO: remove if tech_effect terrain tooltips are fixed
+		}
+		show_effect_as_desc = yes
+
+		category_light_infantry = {
+			hills = {
+				attack = 0.05
+				defence = 0.05
+				movement = 0.05
+			}
+			mountain = {
+				attack = 0.05
+				defence = 0.05
+				movement = 0.1
+			}
+		}
+	}
+
+	tech_jungle_warfare = {
+		research_cost = 1
+
+		allow = { always = no } #only added by effect
+
+		on_research_complete = {
+			custom_effect_tooltip = tech_jungle_warfare_terrain_effect #TODO: remove if tech_effect terrain tooltips are fixed
+		}
+		show_effect_as_desc = yes
+
+		category_light_infantry = {
+			jungle = {
+				attack = 0.05
+				defence = 0.03
+				movement = 0.05
+			}
+		}
+	}
+
+	tech_forest_warfare = {
+		research_cost = 1
+
+		allow = { always = no } #only added by effect
+
+		on_research_complete = {
+			custom_effect_tooltip = tech_forest_warfare_terrain_effect #TODO: remove if tech_effect terrain tooltips are fixed
+		}
+		show_effect_as_desc = yes
+
+		category_light_infantry = {
+			forest = {
+				attack = 0.05
+				defence = 0.03
+				movement = 0.05
+			}
+		}
+	}
+
+	tech_mountain_warfare = {
+		research_cost = 1
+
+		allow = { always = no } #only added by effect
+
+		on_research_complete = {
+			custom_effect_tooltip = tech_mountain_warfare_terrain_effect #TODO: remove if tech_effect terrain tooltips are fixed
+		}
+		show_effect_as_desc = yes
+
+		category_light_infantry = {
+			mountain = {
+				attack = 0.05
+				defence = 0.05
+				movement = 0.1
+			}
+		}
+	}
+
+	tech_urban_warfare = {
+		research_cost = 1
+
+		allow = { always = no } #only added by effect
+
+		on_research_complete = {
+			custom_effect_tooltip = tech_urban_warfare_terrain_effect #TODO: remove if tech_effect terrain tooltips are fixed
+		}
+		show_effect_as_desc = yes
+
+		category_light_infantry = {
+			urban = {
+				attack = 0.05
+				defence = 0.03
+				movement = 0.05
+			}
+		}
+	}
+
+	tech_desert_warfare = {
+		research_cost = 1
+
+		allow = { always = no } #only added by effect
+
+		on_research_complete = {
+			custom_effect_tooltip = tech_desert_warfare_terrain_effect #TODO: remove if tech_effect terrain tooltips are fixed
+		}
+		show_effect_as_desc = yes
+
+		category_light_infantry = {
+			desert = {
+				attack = 0.10
+				defence = 0.05
+				movement = 0.05
+			}
+		}
+	}
+
+	tech_anti_fortification_artillery = {
+		research_cost = 1
+
+		allow = { always = no } #only added by effect
+
+		on_research_complete = {
+			custom_effect_tooltip = tech_anti_fortification_artillery_terrain_effect #TODO: remove if tech_effect terrain tooltips are fixed
+		}
+		show_effect_as_desc = yes
+
+		category_artillery = {
+			fort = {
+				attack = 0.20
+			}
+		}
+	}
+
+	tech_semi_motorised_cav = {
+		research_cost = 1
+
+		allow = { always = no } #only added by effect
+
+		category_cavalry = {
+			max_organisation = 5
+			default_morale = 0.1
+			maximum_speed = 0.15
+		}
+		recon = {
+			maximum_speed = 0.15
+		}
+	}
+
+	tech_mountain_artillery = {
+		research_cost = 1
+
+		allow = { always = no } #only added by effect
+
+		on_research_complete = {
+			custom_effect_tooltip = tech_mountain_artillery_terrain_effect #TODO: remove if tech_effect terrain tooltips are fixed
+		}
+		show_effect_as_desc = yes
+
+		category_artillery = {
+			hills = {
+				attack = 0.1
+				movement = 0.1
+			}
+			mountain = {
+				attack = 0.1
+				movement = 0.1
+			}
+		}
+	}
+
+	tech_arctic_commando = {
+		research_cost = 1
+
+		allow = { always = no } #only added by effect
+
+		on_research_complete = {
+			custom_effect_tooltip = tech_arctic_commando_terrain_effect #TODO: remove if tech_effect terrain tooltips are fixed
+		}
+		show_effect_as_desc = yes
+
+		special_forces_no_supply_grace = 48
+		category_special_forces = {
+			acclimatization_cold_climate_gain_factor = 0.10
+			hills = {
+				movement = 0.05
+			}
+			mountain = {
+				movement = 0.05
+			}
+		}
+	}
+
+	tech_anti_partisan = {
+		research_cost = 1
+
+		allow = { always = no } #only added by effect
+
+		category_light_infantry = {
+			suppression_factor = 0.15
+		}
+		category_cavalry = {
+			suppression_factor = 0.15
+		}
+	}
+
+	tech_improved_logistics = {
+		research_cost = 1
+
+		allow = { always = no } #only added by effect
+
+		logistics_company = {
+			supply_consumption_factor = -0.1
+			fuel_consumption_factor = -0.05
+		}
+		helicopter_transport = {
+			supply_consumption_factor = -0.1
+			fuel_consumption_factor = -0.05
+		}
+	}
+
+	tech_river_boats = {
+		research_cost = 1
+
+		allow = { always = no } #only added by effect
+
+		on_research_complete = {
+			custom_effect_tooltip = tech_river_boats_terrain_effect #TODO: remove if tech_effect terrain tooltips are fixed
+		}
+		show_effect_as_desc = yes
+
+		category_all_infantry = {
+			river = {
+				movement = 0.1
+				attack = 0.1
+				defence = 0.05
+			}
+		}
+	}
+
+	tech_masterful_blitz = {
+		doctrine = yes
+		research_cost = 1
+
+		allow = { always = no } #only added by effect
+
+		enable_tactic = tactic_masterful_blitz
+	}
+
+	tech_human_wave_tactics = {
+		doctrine = yes
+		research_cost = 1
+
+		allow = { always = no } #only added by effect
+
+		enable_tactic = tactic_human_wave_tactics
+	}
+}
