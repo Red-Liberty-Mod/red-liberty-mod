@@ -1,11 +1,5 @@
 MEX_setup_MTC = {
 	hidden_effect = {
-		every_state = {
-			limit = {
-				is_core_of = MEX
-			}
-			add_core_of = MTC
-		}
 		MTC = {
 			transfer_state = 479
 			set_province_controller = 12810
@@ -24,8 +18,12 @@ MEX_setup_YUC = {
 		474 = {
 			add_core_of = YUC
 		}
+		904 = {
+			add_core_of = YUC
+		}
 		YUC = {
 			transfer_state = 474
+			transfer_state = 904
 			load_oob = "YUC"
 		}
 	}
@@ -57,24 +55,44 @@ MEX_setup_CMS = {
 
 MEX_setup_CRT = {
 	hidden_effect = {
-		every_state = {
-			limit = {
-				is_core_of = MEX
+		MEX = {
+			every_owned_state = {
+				if = {
+					limit = {
+						has_dynamic_modifier = { modifier = MEX_cristero_revolt_heavy }
+					}
+					CRT = {
+						transfer_state = PREV
+					}
+					set_demilitarized_zone = no
+					remove_dynamic_modifier = {
+						modifier = MEX_cristero_revolt_heavy
+					}
+				}
+				else_if = {
+					limit = {
+						has_dynamic_modifier = { modifier = MEX_cristero_revolt_medium }
+					}
+					CRT = {
+						set_state_controller = PREV
+					}
+					set_demilitarized_zone = no
+					remove_dynamic_modifier = {
+						modifier = MEX_cristero_revolt_medium
+					}
+				}
+				else_if = {
+					limit = {
+						has_dynamic_modifier = { modifier = MEX_cristero_revolt_light }
+					}
+					set_demilitarized_zone = no
+					remove_dynamic_modifier = {
+						modifier = MEX_cristero_revolt_light
+					}
+				}
 			}
-			add_core_of = CRT
 		}
 		CRT = {
-			transfer_state = 478
-			transfer_state = 481
-			transfer_state = 899
-			set_province_controller = 2008
-			set_province_controller = 7921
-			set_province_controller = 8057
-			set_province_controller = 10172
-			set_province_controller = 13337
-			set_province_controller = 13345
-			set_province_controller = 8032
-			set_province_controller = 12804
 			load_oob = "CRT"
 			
 			if = {
