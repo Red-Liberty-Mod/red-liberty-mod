@@ -1,4 +1,200 @@
+add_namespace = french_west_africa
 add_namespace = fwa_revolts
+
+country_event = { # jules-brevie retires
+	id = french_west_africa.1
+	title = french_west_africa.1.title
+	desc = french_west_africa.1.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # we want maurice
+		name = french_west_africa.1.a
+		set_country_flag = FWA_prefers_marcel_de_coppet_flag
+		FRA = {
+			country_event = {
+				id = french_west_africa.2
+				hours = 6
+			}
+		}
+		ai_chance = {
+			base = 5
+		}
+	}
+
+	option = { # we want leon
+		name = french_west_africa.1.b
+		set_country_flag = FWA_prefers_leon_geismar_flag
+		FRA = {
+			country_event = {
+				id = french_west_africa.2
+				hours = 6
+			}
+		}
+		ai_chance = {
+			base = 5
+		}
+	}
+	
+	option = { # we want pierre
+		name = french_west_africa.1.b
+		set_country_flag = FWA_prefers_pierre_boisson_flag
+		FRA = {
+			country_event = {
+				id = french_west_africa.2
+				hours = 6
+			}
+		}
+		ai_chance = {
+			base = 5
+		}
+	}
+}
+
+country_event = { # choice for france
+	id = french_west_africa.2
+	title = french_west_africa.2.title
+	desc = french_west_africa.2.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # send maurice
+		name = french_west_africa.2.a
+		if = {
+			limit = {
+				OR = {
+					has_country_flag = FWA_prefers_leon_geismar_flag
+					has_country_flag = FWA_prefers_pierre_boisson_flag
+				}
+			}
+			add_political_power = -50
+		}
+		FWA = {
+			country_event = {
+				id = french_west_africa.3
+				hours = 6
+			}
+		}
+		ai_chance = {
+			base = 5
+			modifier = {
+				factor = 0
+				FWA = {
+					OR = {
+						has_country_flag = FWA_prefers_leon_geismar_flag
+						has_country_flag = FWA_prefers_pierre_boisson_flag
+					}
+				}
+			}
+		}
+	}
+
+	option = { # promote leon
+		name = french_west_africa.2.b
+		if = {
+			limit = {
+				OR = {
+					has_country_flag = FWA_prefers_marcel_de_coppet_flag
+					has_country_flag = FWA_prefers_pierre_boisson_flag
+				}
+			}
+			add_political_power = -50
+		}
+		FWA = {
+			country_event = {
+				id = french_west_africa.4
+				hours = 6
+			}
+		}
+		ai_chance = {
+			base = 5
+			modifier = {
+				factor = 0
+				FWA = {
+					OR = {
+						has_country_flag = FWA_prefers_marcel_de_coppet_flag
+						has_country_flag = FWA_prefers_pierre_boisson_flag
+					}
+				}
+			}
+		}
+	}
+	
+	option = { # promote boisson
+		name = french_west_africa.2.c
+		if = {
+			limit = {
+				OR = {
+					has_country_flag = FWA_prefers_marcel_de_coppet_flag
+					has_country_flag = FWA_prefers_leon_geismar_flag
+				}
+			}
+			add_political_power = -50
+		}
+		FWA = {
+			country_event = {
+				id = french_west_africa.5
+				hours = 6
+			}
+		}
+		ai_chance = {
+			base = 5
+			modifier = {
+				factor = 0
+				FWA = {
+					OR = {
+						has_country_flag = FWA_prefers_marcel_de_coppet_flag
+						has_country_flag = FWA_prefers_leon_geismar_flag
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = { # marcel de coppet
+	id = french_west_africa.3
+	title = french_west_africa.3.title
+	desc = french_west_africa.3.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # 
+		name = french_west_africa.3.a
+		promote_character = FWA_marcel_de_coppet
+	}
+}
+
+country_event = { # leon geismar
+	id = french_west_africa.4
+	title = french_west_africa.4.title
+	desc = french_west_africa.4.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # 
+		name = french_west_africa.4.a
+		promote_character = FWA_leon_geismar
+	}
+}
+
+country_event = { # pierre boisson
+	id = french_west_africa.5
+	title = french_west_africa.5.title
+	desc = french_west_africa.5.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # 
+		name = french_west_africa.5.a
+		promote_character = FWA_pierre_boisson
+	}
+}
 
 country_event = { # colonial revolts
 	id = fwa_revolts.1
