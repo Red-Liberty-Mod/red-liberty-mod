@@ -1,5 +1,31 @@
 scripted_gui = {
 	
+	USA_state_demographics_button = {
+		window_name = USA_state_demographics_button_container
+		parent_window_token = selected_state_view
+		context_type = selected_state_context
+		
+		visible = {
+			can_have_elections_in_state = yes
+		}
+		
+		effects = {
+			USA_state_demographics_button_click = {
+				ROOT = {
+					if = {
+						limit = {
+							has_country_flag = USA_state_full_info
+						}
+						clr_country_flag = USA_state_full_info
+					}
+					else = {
+						set_country_flag = USA_state_full_info
+					}
+				}
+			}
+		}
+	}
+	
 	USA_state_var_display = {
 		window_name = us_popularities_container
 		parent_window_token = selected_state_view
