@@ -1145,3 +1145,20 @@ country_event = { # activates filibuster
 		USA_activate_filibuster = yes
 	}
 }
+
+country_event = { # disables filibuster
+	id = us_bill.1002
+	title = us_bill.1002.title
+	desc = us_bill.1002.desc
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event us_bill.1002"
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = us_bill.1002.a
+		USA_clear_filibuster = yes
+	}
+}

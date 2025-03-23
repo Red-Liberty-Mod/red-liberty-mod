@@ -110,6 +110,7 @@ bill_will_pass = {
 				}
 			}
 			AND = { # for amendments
+				has_country_flag = USA_bill_house_phase
 				has_country_flag = USA_bill_is_amendment
 				check_variable = {
 					var = representatives_support
@@ -121,29 +122,31 @@ bill_will_pass = {
 		
 		### SENATE PHASE ###
 		OR = {
-			AND = { # for filibuster or amendments
-				has_country_flag = USA_bill_senate_phase
-				OR = {
-					has_country_flag = USA_bill_is_amendment
-					has_country_flag = filibuster_active
-				}
-				check_variable = {
-					var = senators_support
-					value = quorum_high
-					compare = greater_than_or_equals
-				}
-			}
 			AND = {
 				has_country_flag = USA_bill_senate_phase
-				NOT = {
-					OR = {
+				OR = {
+					NOT = {
 						has_country_flag = USA_bill_is_amendment
-						has_country_flag = filibuster_active
+					}
+					NOT = {
+						has_country_flag = USA_filibuster_active
 					}
 				}
 				check_variable = {
 					var = senators_support
 					value = quorum_medium
+					compare = greater_than_or_equals
+				}
+			}
+			AND = { # for filibuster or amendments
+				has_country_flag = USA_bill_senate_phase
+				OR = {
+					has_country_flag = USA_bill_is_amendment
+					has_country_flag = USA_filibuster_active
+				}
+				check_variable = {
+					var = senators_support
+					value = quorum_high
 					compare = greater_than_or_equals
 				}
 			}

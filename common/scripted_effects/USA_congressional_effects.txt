@@ -1035,11 +1035,28 @@ USA_senate_phase = {
 }
 
 USA_activate_filibuster = {
-	set_country_flag = filibuster_active
+	set_country_flag = USA_filibuster_active
+	set_variable = { USA_filibuster_support = 3 }
+	
+	add_days_mission_timeout = {
+		mission = USA_senate_phase
+		days = 14
+	}
+}
+
+USA_weaken_filibuster = {
+	custom_effect_tooltip = USA_filibuster_support_diminishes_tt
+	subtract_from_variable = { USA_filibuster_support = 1 }
+	if = {
+		limit = {
+			check_variable = { USA_filibuster_support < 1 }
+		}
+		country_event = us_bill.1002
+	}
 }
 
 USA_clear_filibuster = {
-	clr_country_flag = filibuster_active
+	clr_country_flag = USA_filibuster_active
 }
 
 check_if_bill_passed = {
@@ -1047,7 +1064,7 @@ check_if_bill_passed = {
 	divide_variable = { percent_support = senators_total }
 	set_variable = { votes_needed = 0.5 }
 	if = {
-		limit = { has_country_flag = filibuster_active }
+		limit = { has_country_flag = USA_filibuster_active }
 		set_variable = { votes_needed = 0.6 }
 	}
 
@@ -1122,7 +1139,7 @@ USA_bill_clear = {
 	clr_country_flag = bill_passed
 	clr_country_flag = bill_enable_mission
 	
-	clr_country_flag = filibuster_active
+	clr_country_flag = USA_filibuster_active
 	clr_country_flag = USA_bill_is_amendment
 	
 	clear_variable = USA_bill_strength

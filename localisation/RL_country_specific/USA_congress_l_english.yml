@@ -33,8 +33,13 @@
  democrat_majority_tt:0 "The §CDemocratic Party§! has a majority in both houses of §YCongress§!."
  
  USA_congress_voting_none:0 "Congress is currently in session, but there is no important legislation being considered."
- USA_congress_voting_bill:0 "\n\n§YCongress§! is currently considering §Y[get_bill_name]§!, which currently expects the support of [get_rep_color]/§Y[get_house_quorum]§! Representatives and [get_senator_color]/[get_senate_quorum] Senators.\n\nStatus in the §LHouse§!: [get_bill_house_status][get_us_communist_rep_support][get_us_socialist_rep_support][get_us_farmer_labor_rep_support][get_us_liberal_rep_support][get_us_republican_rep_support][get_us_democrat_rep_support][get_us_afp_rep_support]\n\nStatus in the §gSenate§!: [get_bill_senate_status][get_us_communist_senator_support][get_us_socialist_senator_support][get_us_republican_senator_support][get_us_democrat_senator_support][get_us_afp_senator_support]"
+ USA_congress_voting_bill:0 "\n\n§YCongress§! is currently considering §Y[get_bill_name]§!, which currently expects the support of [get_rep_color]/§Y[get_house_quorum]§! Representatives and [get_senator_color]/[get_senate_quorum] Senators.\n\nStatus in the §LHouse§!: [get_bill_house_status][get_us_communist_rep_support][get_us_socialist_rep_support][get_us_farmer_labor_rep_support][get_us_liberal_rep_support][get_us_republican_rep_support][get_us_democrat_rep_support][get_us_afp_rep_support]\n\nStatus in the §gSenate§!: [get_bill_senate_status][get_us_communist_senator_support][get_us_socialist_senator_support][get_us_republican_senator_support][get_us_democrat_senator_support][get_us_afp_senator_support][get_filibuster_status]"
  USA_congress_voting_lame_duck:0 "Congress is currently in a lame-duck period, so no legislation can be considered."
+ 
+ USA_filibuster_status:0 "\n\nWillingness to continue the filibuster is: [GetFilibusterSupport]"
+ USA_filibuster_high:0 "§RHigh§!"
+ USA_filibuster_middling:0 "§YMiddling§!"
+ USA_filibuster_low:0 "§YLow§!"
  
  ### Lame duck period ###
  USA_lame_duck_congress_tt:0 "Congress will enter a §Ylame-duck period§!, and no legislation can be passed."
@@ -56,6 +61,7 @@
  USA_bill_house_passed:0 "§GThe bill has passed!§!"
  USA_bill_status_awaiting_house:0 "§YThe bill is awaiting passage by the House.§!"
  USA_bill_being_filibustered:0 "§RThe bill is being filibustered!§!"
+ USA_filibuster_active:0 "The bill is being filibustered"
  
  USA_bill_additional_effect_tt:0 "The bill gains an §Yadditional effect§!."
  
@@ -119,10 +125,6 @@
  USA_talk_with_fascists:0 "Negotiate with the £GFX_afp_texticon §gCommonwealthers§!"
  negotiate_some_fascist_support:0 "We will negotiate the support of around [?average_boost_fascist|%0G] of the undecided §gCommonwealth§! members of Congress."
  
- USA_backroom_dealing:0 "Backroom Dealing"
- USA_backroom_dealing_flag:0 "We have already made a deal"
- USA_backroom_dealing_tt:0 "§YBackroom Dealing§! may be taken once per bill."
- 
  communists_talking:0 "The Communists are willing to negotiate."
  communists_fully_support:0 "The Communists don't fully support this bill."
  socialist_talking:0 "The Socialists are willing to negotiate."
@@ -136,13 +138,23 @@
  
  USA_bill_executive_order:0 "Force it Through"
  
+ USA_backroom_dealing:0 "Backroom Dealing"
+ USA_backroom_dealing_desc:0 "If we can get the other parties leadership to withdraw support, the filibuster will collapse."
+ #USA_backroom_dealing_flag:0 "We have already made a deal"
+ #USA_backroom_dealing_tt:0 "§YBackroom Dealing§! may be taken once per bill."
+ 
  USA_extend_session:0 "Extend the Legislative Session"
  USA_extend_session_desc:0 "In the case of a narrow vote margin, we may consider extending the legislative session by a few days, giving us a little bit more time to negotiate with Congress. However, it'll annoy the hell out of them, so we'll have to be strategic when we do."
+ 
+ USA_rally_our_party:0 "Rally Our Party"
+ USA_rally_our_party_desc:0 "We must be prepared for a drawn-out fight."
  
  USA_bill_pass_req_tt:0 "§CWe will have to pass the bill to gain the following effect:§!"
  USA_bill_over_time_tt:0 "§CThe following decisions will become available over time:§!"
  
  major_legislation:0 "Major Legislation"
+ 
+ USA_filibuster_support_diminishes_tt:0 "Support for the filibuster §Gdiminishes§!.\n"
  
  ### everything related to bills
  start_test_bill_debug:0 "The Debug Act"

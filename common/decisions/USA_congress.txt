@@ -952,6 +952,9 @@ USA_congress = {
 					has_country_flag = USA_special_decisions_enabled
 				}
 			}
+			NOT = {
+				has_country_flag = USA_filibuster_active
+			}
         }
 			
 		cost = communist_flip_cost?50
@@ -1001,6 +1004,9 @@ USA_congress = {
 				NOT = {
 					has_country_flag = USA_special_decisions_enabled
 				}
+			}
+			NOT = {
+				has_country_flag = USA_filibuster_active
 			}
         }
 		
@@ -1052,6 +1058,9 @@ USA_congress = {
 					has_country_flag = USA_special_decisions_enabled
 				}
 			}
+			NOT = {
+				has_country_flag = USA_filibuster_active
+			}
         }
 		
 		cost = farmer_labor_flip_cost?50
@@ -1089,6 +1098,9 @@ USA_congress = {
 				NOT = {
 					has_country_flag = USA_special_decisions_enabled
 				}
+			}
+			NOT = {
+				has_country_flag = USA_filibuster_active
 			}
         }
 			
@@ -1139,6 +1151,9 @@ USA_congress = {
 					has_country_flag = USA_special_decisions_enabled
 				}
 			}
+			NOT = {
+				has_country_flag = USA_filibuster_active
+			}
         }
 			
 		cost = democrat_flip_cost?50
@@ -1188,6 +1203,9 @@ USA_congress = {
 					has_country_flag = USA_special_decisions_enabled
 				}
 			}
+			NOT = {
+				has_country_flag = USA_filibuster_active
+			}
         }
 		
 		cost = fascist_flip_cost?50
@@ -1223,77 +1241,10 @@ USA_congress = {
 		}
 	}
 	
-	USA_backroom_dealing = {
-		
-		visible = {
-			AND = {
-				original_tag = USA
-				check_variable = { bill_id > 0 }
-			}
-			NOT = {
-				has_country_flag = USA_backroom_dealing_flag
-			}
-        }
-		
-		cost = 50
-       	
-		available = {
-			OR = {
-				custom_trigger_tooltip = {
-					tooltip = reps_fully_support
-					NOT = { check_variable = { USA_republican_bill_support = 1 } }
-				}
-				custom_trigger_tooltip = {
-					tooltip = dems_fully_support
-					NOT = { check_variable = { USA_democrat_bill_support = 1 } }
-				}
-			}
-		}
-		
-    	complete_effect = {
-			custom_effect_tooltip = USA_backroom_dealing_tt
-			set_country_flag = USA_backroom_dealing_flag
-			if = {
-				limit = {
-					has_country_flag = USA_bill_house_phase
-				}
-				random_list = {
-					50 = {
-						modifier = {
-							factor = 0
-							check_variable = { USA_republican_bill_support = 1 }
-						}
-						set_temp_variable_to_random = {
-							var = rand
-							min = 1
-							max = 4
-						}
-						round_temp_variable = rand
-						add_to_variable = { republican_supporting_reps = rand }
-						custom_effect_tooltip = USA_random_republican_support
-					}
-					50 = {
-						modifier = {
-							factor = 0
-							check_variable = { USA_democrat_bill_support = 1 }
-						}
-						set_temp_variable_to_random = {
-							var = rand
-							min = 1
-							max = 4
-						}
-						round_temp_variable = rand
-						add_to_variable = { democrat_supporting_reps = rand }
-						custom_effect_tooltip = USA_random_democrat_support
-					}
-				}
-			}
-		}
-	}
-	
 	USA_bill_executive_order = {
+		icon = GFX_decision_eng_trade_unions_support
+		
 		visible = {
-			original_tag = USA
 			OR = {
 				check_variable = { bill_id = 6 }
 			}
@@ -1318,40 +1269,74 @@ USA_congress = {
 		}
 	}
 	
-	USA_extend_session = {
+	USA_backroom_dealing = {
+		icon = GFX_decision_hol_exchange_intelligence_data
+		
 		visible = {
-			AND = {
-				original_tag = USA
-				check_variable = { bill_id > 0 }
-			}
-        }
+			has_country_flag = USA_filibuster_active
+		}
 		
-		cost = 0
+		available = {
+			has_country_flag = USA_filibuster_active
+		}
 		
-		available  = {
-			
-   		}
+		cost = 50
+		days_re_enable = 50
 		
-		days_re_enable = 14
+    	complete_effect = {
+			USA_weaken_filibuster = yes
+		}
+	}
+	
+	USA_extend_session = {
+	
+		visible = {
+			has_country_flag = USA_filibuster_active
+		}
+		
+		available = {
+			has_country_flag = USA_filibuster_active
+		}
+		
+		cost = 25
+		days_re_enable = 30
 		
 		complete_effect = {
-			add_stability = -0.005
-			if = {
-				limit = { 
-					has_country_flag = USA_bill_house_phase
-				}
-				add_days_mission_timeout = {
-					mission = USA_house_phase
-					days = 15
-				}
+			USA_weaken_filibuster = yes
+			add_days_mission_timeout = {
+				mission = USA_senate_phase
+				days = 15
 			}
-			else_if = {
-				limit = { 
-					has_country_flag = USA_bill_senate_phase
+		}
+	}
+	
+	USA_rally_our_party = {
+		icon = GFX_decision_generic_civil_support
+		
+		visible = {
+			has_country_flag = USA_filibuster_active
+		}
+		
+		available = {
+			has_country_flag = USA_filibuster_active
+		}
+		
+		cost = 30
+		days_re_enable = 30
+		
+		complete_effect = {
+			USA_weaken_filibuster = yes
+			
+			if = {
+				limit = { has_socialist_president = yes }
+				add_to_variable = {
+					USA_socialist_unity = 1
+					tooltip = USA_spa_unity_small_gain_tt
 				}
-				add_days_mission_timeout = {
-					mission = USA_senate_phase
-					days = 15
+				clamp_variable = {
+					var = USA_socialist_unity
+					min = 0
+					max = 30
 				}
 			}
 		}
@@ -1474,6 +1459,7 @@ USA_congress = {
 	}
 	
 	USA_philippines_independence_timer = {
+		icon = GFX_decision_generic_independence
 		
 		available = {
 			has_war_with_major = yes
