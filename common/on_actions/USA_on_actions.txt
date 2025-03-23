@@ -246,10 +246,21 @@ on_actions = {
 				add_dynamic_modifier = {
 					modifier = USA_dry_state
 				}
+				add_dynamic_modifier = {
+					modifier = USA_silver_legion_presence
+				}
 			}
 			365 = {
 				add_dynamic_modifier = {
 					modifier = USA_dry_state
+				}
+				add_dynamic_modifier = {
+					modifier = USA_klan_presence
+				}
+			}
+			367 = {
+				add_dynamic_modifier = {
+					modifier = USA_klan_presence
 				}
 			}
 			368 = {
@@ -305,6 +316,9 @@ on_actions = {
 				add_dynamic_modifier = {
 					modifier = USA_dry_state
 				}
+				add_dynamic_modifier = {
+					modifier = USA_klan_presence
+				}
 			}
 			388 = {
 				add_dynamic_modifier = {
@@ -320,10 +334,23 @@ on_actions = {
 				add_dynamic_modifier = {
 					modifier = USA_dry_state
 				}
+				add_dynamic_modifier = {
+					modifier = USA_black_legion_presence
+				}
+			}
+			396 = {
+				add_dynamic_modifier = {
+					modifier = USA_klan_presence
+				}
 			}
 			832 = {
 				add_dynamic_modifier = {
 					modifier = USA_dry_state
+				}
+			}
+			827 = {
+				add_dynamic_modifier = {
+					modifier = USA_klan_presence
 				}
 			}
 			852 = {
@@ -350,46 +377,6 @@ on_actions = {
 	
 	on_weekly_USA = {
 		effect = {
-			if = {
-				limit = {
-					has_country_flag = USA_insurgency_start
-				}
-				random_list = {
-					75 = {
-						random_owned_controlled_state = {
-							limit = {
-								has_state_flag = USA_active_insurgency
-								infrastructure > 0
-							}
-							damage_building = {
-								type = infrastructure
-								damage = 1
-							}
-						}
-					}
-					25 = {
-						
-					}
-				}
-				random_list = {
-					75 = {
-						random_owned_controlled_state = {
-							limit = {
-								has_state_flag = USA_active_insurgency
-								infrastructure > 0
-							}
-							damage_building = {
-								type = industrial_complex
-								damage = 1
-							}
-						}
-					}
-					25 = {
-						
-					}
-				}
-			}
-			
 			if = {
 				limit = {
 					check_variable = { USA.poverty_rate < USA_poverty_threshold }
