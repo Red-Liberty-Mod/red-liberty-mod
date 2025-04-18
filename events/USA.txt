@@ -1075,6 +1075,29 @@ country_event = { # george deatherage - seriously what a name - and the anc
 	}
 }
 
+country_event = { # fdr lost election, alben barkley now in charge of liberals
+	id = united_states_flavor.15
+	title = united_states_flavor.15.title
+	desc = united_states_flavor.15.desc
+	
+	trigger = {
+		358 = {
+			check_variable = {
+				var = senator_2
+				value = 3
+				compare = not_equals
+			}
+		}
+	}
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_flavor.15.a
+		promote_character = USA_alben_william_barkley
+	}
+}
+
 country_event = { # mexico ablaze
 	id = united_states_intervention.1
 	title = united_states_intervention.1.title
