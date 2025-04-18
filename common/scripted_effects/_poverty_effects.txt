@@ -180,3 +180,28 @@ ECON_poverty_war_devastation_effect = {
 	
 	#log = "[THIS.GetName] - poverty_war_devastation_modifier = [?THIS.poverty_war_devastation_modifier]"
 }
+
+ECON_poverty_from_annexation = {
+	
+	event_target:losing_country = {
+		every_owned_state = {
+			add_to_temp_variable = { temp_pop_factor_loser = state_population_k }
+		}
+		set_temp_variable = { temp_poverty_loser = poverty_rate }
+	}
+	event_target:winning_country = {
+		every_owned_state = {
+			add_to_temp_variable = { temp_pop_factor_winner = state_population_k }
+		}
+		set_temp_variable = { temp_poverty_winner = poverty_rate }
+	}
+	divide_temp_variable = { temp_pop_factor_loser = temp_pop_factor_winner }
+	
+	subtract_from_temp_variable = { temp_poverty_loser = temp_poverty_winner }
+	divide_temp_variable = { temp_poverty_loser = 2 }
+	multiply_temp_variable = { temp_poverty_loser = temp_pop_factor_loser }
+	
+	event_target:winning_country = { add_to_variable = { poverty_rate = temp_poverty_loser } }
+	
+	log = "[THIS.GetName] - poverty being changed by [?temp_poverty_loser] due to annexation"
+}
