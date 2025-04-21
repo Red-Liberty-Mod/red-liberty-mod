@@ -13,9 +13,21 @@ shared_focus = {
 		}
 	}
 	offset = {
-		x = 10
+		x = 11
+		trigger = {
+			has_focus_tree = SOV_centralist_tree
+		}
+	}
+	offset = {
+		x = 11
 		trigger = {
 			has_focus_tree = SOV_syndicalist_tree
+		}
+	}
+	offset = {
+		x = 11
+		trigger = {
+			has_focus_tree = SOV_democrat_tree
 		}
 	}
 	
@@ -55,6 +67,10 @@ shared_focus = {
 	
 	ai_will_do = {
 		factor = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ARMY_XP
 	}
 }
 
@@ -117,6 +133,10 @@ shared_focus = {
 	
 	ai_will_do = {
 		factor = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
 	}
 }
 
@@ -374,6 +394,10 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
 }
 
 shared_focus = {
@@ -489,6 +513,10 @@ shared_focus = {
 	
 	ai_will_do = {
 		factor = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
 	}
 }
 
@@ -705,6 +733,10 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
 }
 
 shared_focus = {
@@ -803,6 +835,10 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
 }
 
 shared_focus = {
@@ -889,6 +925,10 @@ shared_focus = {
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_NAVY_XP
+	}
 }
 
 shared_focus = {
@@ -965,6 +1005,10 @@ shared_focus = {
 	
 	ai_will_do = {
 		factor = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
 	}
 }
 
@@ -1077,6 +1121,10 @@ shared_focus = {
 	
 	ai_will_do = {
 		factor = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
 	}
 }
 
@@ -1241,6 +1289,93 @@ shared_focus = {
 				}
 			}
 		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_the_red_air_force
+	icon = GFX_SOV_the_red_air_force
+	
+    x = 10
+	y = 0
+	cost = 5
+	
+	available = {
+		has_global_flag = russian_civil_war_ended
+	}
+	
+	relative_position_id = SOV_the_red_navy
+	
+    completion_reward = {
+		air_experience = 50
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_AIR_XP
+	}
+}
+
+shared_focus = {
+    id = SOV_transpolar_flights
+	icon = GFX_SOV_transpolar_flights
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_the_red_air_force
+	prerequisite = { focus = SOV_the_red_air_force }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_airspace_defence
+	icon = GFX_SOV_airspace_defence
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_the_red_air_force
+	prerequisite = { focus = SOV_the_red_air_force }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_raise_aircraft_production
+	icon = GFX_SOV_raise_aircraft_production
+	
+    x = 3
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_the_red_air_force
+	prerequisite = { focus = SOV_the_red_air_force }
+	
+    completion_reward = {
+		
     }
 	
 	ai_will_do = {

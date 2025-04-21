@@ -8,20 +8,43 @@ focus_tree = {
 			tag = SOV
 		}
 	}
+	initial_show_position = {
+		x = 0
+		y = 0
+	}
 	continuous_focus_position = {
 		x = -2500
 		y = 125
 	}
 	default = no
+	
 	shared_focus = SOV_the_secretarys_woes
 	shared_focus = SOV_future_of_the_union
 	
 	shared_focus = SOV_the_centralists
 	shared_focus = SOV_the_workers_opposition
+	shared_focus = SOV_memories_of_moscow
 	
 	shared_focus = SOV_reform_the_intelligence_agency
 	shared_focus = SOV_the_red_army
 	shared_focus = SOV_the_red_navy
+	shared_focus = SOV_the_red_air_force
+	
+	shortcut = {
+		name = SOV_the_secretarys_woes
+		target = SOV_the_secretarys_woes
+		scroll_wheel_factor = 0.9
+	}
+	shortcut = {
+		name = SOV_the_red_army
+		target = SOV_the_red_army
+		scroll_wheel_factor = 0.9
+	}
+	shortcut = {
+		name = SOV_the_red_navy
+		target = SOV_the_red_navy
+		scroll_wheel_factor = 0.9
+	}
 }
 
 focus_tree = {
@@ -38,6 +61,7 @@ focus_tree = {
 		y = 125
 	}
 	default = no
+	shared_focus = SOV_the_centralists
 	shared_focus = SOV_reform_the_intelligence_agency
 	shared_focus = SOV_the_red_army
 	shared_focus = SOV_the_red_navy
@@ -100,3 +124,25 @@ focus_tree = {
 	shared_focus = SOV_red_star_rising
 	shared_focus = SOV_the_march_of_progress
 }
+
+focus_tree = {
+	id = SOV_democrat_tree
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = SOV
+		}
+	}
+	continuous_focus_position = {
+		x = -2500
+		y = 125
+	}
+	default = no
+	shared_focus = SOV_memories_of_moscow
+	
+	shared_focus = SOV_reform_the_intelligence_agency
+	shared_focus = SOV_the_red_army
+	shared_focus = SOV_the_red_navy
+}
+

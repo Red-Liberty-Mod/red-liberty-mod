@@ -152,6 +152,213 @@ SOV_war_communism_category = {
 	}
 }
 
+SOV_industrialization_category = {
+	
+	SOV_construct_volga_dam = {
+		icon = GFX_decision_generic_construction
+		
+		#state_target = yes
+		highlight_states = { highlight_state_targets = { state = 217 } } # Volgograd
+		
+		fire_only_once = yes
+		days_remove = 365
+		modifier = { consumer_goods_factor = 0.08 }
+		
+		custom_cost_text = manpower_cost_80k
+		custom_cost_trigger = {
+			has_manpower > 80000
+		}
+		
+		complete_effect = {
+			hidden_effect = { add_manpower = -80000 }
+		}
+		
+		remove_effect = {
+			hidden_effect = { add_manpower = 80000 }
+			217 = {
+				add_building_construction = {
+					type = dam
+					level = 1
+					province = 3555
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = {
+				localization_key = building_state_modifier|dam
+				INDENT = "    "
+			}
+		}
+	}
+	
+	SOV_improve_roads_in_northern_russia = {
+		icon = GFX_decision_generic_construction
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 214
+				state = 263
+				state = 351
+			}
+		}
+		
+		cost = 30
+		fire_only_once = yes
+		days_remove = 120
+		modifier = { consumer_goods_factor = 0.04 }
+		
+		remove_effect = {
+			214 = { add_building_construction = { type = infrastructure level = 1 } } #Arkhangelsk
+			351 = { add_building_construction = { type = infrastructure level = 1 } } #Vologda
+			263 = { add_building_construction = { type = infrastructure level = 1 } } #Novgorod
+		}
+	}
+	
+	SOV_improve_roads_in_central_russia = {
+		icon = GFX_decision_generic_construction
+		
+		cost = 30
+		fire_only_once = yes
+		days_remove = 120
+		modifier = { consumer_goods_factor = 0.04 }
+		
+		#state_target = yes
+		highlight_states = {
+			highlight_state_targets = {
+				state = 205 #
+				state = 260 #
+				state = 258 #
+				state = 252 #
+			}
+		}
+		
+		remove_effect = {
+			205 = {
+				add_building_construction = { type = infrastructure level = 1 } #Kaluga
+			}
+			260 = {
+				add_building_construction = { type = infrastructure level = 1 } #Voronezh
+			}
+			258 = {
+				add_building_construction = { type = infrastructure level = 1 } #Lipetsk
+			}
+			252 = {
+				add_building_construction = { type = infrastructure level = 1 } #Nizhny Novgorod
+			}
+		}
+	}
+	
+	SOV_improve_roads_in_southern_russia = {
+		icon = GFX_decision_generic_construction
+		
+		#state_target = yes
+		highlight_states = {
+			highlight_state_targets = {
+				state = 218
+				state = 236
+				state = 237
+				state = 238
+			}
+		}
+		
+		cost = 30
+		fire_only_once = yes
+		days_remove = 120
+		modifier = { consumer_goods_factor = 0.04 }
+		
+		remove_effect = {
+			218 = { add_building_construction = { type = infrastructure level = 1 } } #Rostov
+			236 = { add_building_construction = { type = infrastructure level = 1 } } #Astrakhan
+			237 = { add_building_construction = { type = infrastructure level = 1 } } #Elista
+			238 = { add_building_construction = { type = infrastructure level = 1 } } #Velikoknyazhesk
+		}
+	}
+	
+	SOV_volgograd_tractor_plant = {
+		icon = GFX_decision_generic_factory
+		
+		highlight_states = { highlight_state_targets = { state = 217 } }
+		
+		cost = 30
+		fire_only_once = yes
+		days_remove = 120
+		modifier = { consumer_goods_factor = 0.04 }
+		
+		remove_effect = {
+			217 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = { type = industrial_complex level = 3 }
+				add_building_construction = { type = infrastructure level = 1 }
+			}
+		}
+	}
+	
+	SOV_kursk_tractor_plant = {
+		icon = GFX_decision_generic_factory
+		
+		highlight_states = { highlight_state_targets = { state = 220 } }
+		
+		cost = 30
+		fire_only_once = yes
+		days_remove = 60
+		modifier = { consumer_goods_factor = 0.04 }
+		
+		remove_effect = {
+			220 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { type = industrial_complex level = 2 }
+				add_building_construction = { type = infrastructure level = 1 }
+			}
+		}
+	}
+	
+	SOV_lipetsk_metallurgical_plant = {
+		icon = GFX_decision_steel
+		
+		highlight_states = { highlight_state_targets = { state = 258 } } #Lipetsk
+		
+		cost = 30
+		fire_only_once = yes
+		days_remove = 60
+		modifier = { consumer_goods_factor = 0.04 }
+		
+		remove_effect = {
+			258 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 }
+				add_resource = {
+					type = steel
+					amount = 35
+				}
+			}
+		}
+	}
+	
+	SOV_grozny_oil = {
+		icon = GFX_decision_oil
+		
+		available = {
+			has_tech = excavation1
+		}
+		
+		cost = 60
+		fire_only_once = yes
+		days_remove = 60
+		modifier = { consumer_goods_factor = 0.04 }
+		
+		highlight_states = { highlight_state_targets = { state = 232 } } #Chechnya
+		
+		remove_effect = {
+			232 = {
+				add_extra_state_shared_building_slots = 1
+				add_resource = {
+					type = oil
+					amount = 20
+				}
+			}
+		}
+	}
+}
+
 SOV_factionalism_category = {
 	
 	SOV_moratorium_on_new_members = {

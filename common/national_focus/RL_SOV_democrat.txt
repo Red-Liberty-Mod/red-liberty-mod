@@ -1,0 +1,431 @@
+shared_focus = {
+    id = SOV_memories_of_moscow
+	icon = GFX_focus_AUS_danubian_socialist_communes
+	
+    x = 4
+	y = 0
+	cost = 5
+	
+	offset = {
+		x = 17
+		y = 8
+		trigger = {
+			has_focus_tree = SOV_initial_tree
+		}
+	}
+	
+	available = {
+		has_country_flag = SOV_democrats_flag
+	}
+	
+    completion_reward = {
+		country_event = {
+			id = sov_democrat.1
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_mobilize_the_unions
+	icon = GFX_focus_eng_concessions_to_the_trade_unions
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_memories_of_moscow
+	prerequisite = { focus = SOV_memories_of_moscow }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_define_moderate_bolshevism
+	icon = GFX_SOV_define_moderate_bolshevism
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_memories_of_moscow
+	prerequisite = { focus = SOV_memories_of_moscow }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_expand_civil_rights
+	icon = GFX_focus_generic_soviet_politics
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_mobilize_the_unions
+	prerequisite = { focus = SOV_mobilize_the_unions }
+	prerequisite = { focus = SOV_define_moderate_bolshevism }
+	
+    completion_reward = {
+		country_event = {
+			id = sov_democrat.2
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_restoring_the_countryside
+	icon = GFX_SOV_restoring_the_countryside
+	
+    x = -3
+	y = 1
+	cost = 6
+	
+	relative_position_id = SOV_expand_civil_rights
+	prerequisite = { focus = SOV_expand_civil_rights }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_expand_acceptable_deviations
+	icon = GFX_SOV_expand_acceptable_deviations
+	
+    x = -1
+	y = 1
+	cost = 6
+	
+	relative_position_id = SOV_expand_civil_rights
+	prerequisite = { focus = SOV_expand_civil_rights }
+	mutually_exclusive = { focus = SOV_introduce_freedom_of_speech }
+	
+    completion_reward = {
+		add_popularity = {
+			ideology = democratic_socialism
+			popularity = 0.03
+		}
+		add_popularity = {
+			ideology = social_democracy
+			popularity = 0.01
+		}
+		add_popularity = {
+			ideology = progressive_liberalism
+			popularity = 0.01
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_introduce_freedom_of_speech
+	icon = GFX_SOV_introduce_freedom_of_speech
+	
+    x = 1
+	y = 1
+	cost = 6
+	
+	relative_position_id = SOV_expand_civil_rights
+	prerequisite = { focus = SOV_expand_civil_rights }
+	mutually_exclusive = { focus = SOV_expand_acceptable_deviations }
+	
+    completion_reward = {
+		add_popularity = {
+			ideology = democratic_socialism
+			popularity = 0.03
+		}
+		add_popularity = {
+			ideology = social_democracy
+			popularity = 0.01
+		}
+		add_popularity = {
+			ideology = progressive_liberalism
+			popularity = 0.01
+		}
+		add_popularity = {
+			ideology = liberal_conservatism
+			popularity = 0.03
+		}
+		add_popularity = {
+			ideology = national_conservatism
+			popularity = 0.05
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_empower_the_congress
+	icon = GFX_focus_AUS_lawmaking_leniency
+	
+    x = 3
+	y = 1
+	cost = 6
+	
+	relative_position_id = SOV_expand_civil_rights
+	prerequisite = { focus = SOV_expand_civil_rights }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_absorb_the_feminist_movement
+	icon = GFX_focus_ARG_women_in_industry
+	
+    x = -2
+	y = 2
+	cost = 6
+	
+	relative_position_id = SOV_expand_civil_rights
+	prerequisite = { focus = SOV_expand_civil_rights }
+	
+    completion_reward = {
+		add_political_power = 25
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_deepen_american_ties
+	icon = GFX_focus_SOV_proclaim_soviet_hegemony
+	
+    x = 1
+	y = 1
+	cost = 6
+	
+	relative_position_id = SOV_expand_acceptable_deviations
+	prerequisite = {
+		focus = SOV_expand_acceptable_deviations
+		focus = SOV_introduce_freedom_of_speech
+	}
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_sideline_the_hardliners
+	icon = GFX_SOV_sideline_the_hardliners
+	
+    x = -1
+	y = 1
+	cost = 6
+	
+	relative_position_id = SOV_empower_the_congress
+	prerequisite = { focus = SOV_empower_the_congress }
+	
+    completion_reward = {
+		add_to_variable = {
+			tooltip = SOV_industrialist_influence_lose
+			SOV_industrialist_influence = -5
+		}
+		add_popularity = {
+			ideology = vanguard_socialism
+			popularity = -0.03
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_strengthen_democratic_values
+	icon = GFX_focus_ARG_defense_and_democracy
+	
+    x = 1
+	y = 1
+	cost = 6
+	
+	relative_position_id = SOV_empower_the_congress
+	prerequisite = { focus = SOV_empower_the_congress }
+	
+    completion_reward = {
+		add_stability = 0.05
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_lift_menshevik_exiles
+	icon = GFX_focus_generic_government_in_exile
+	
+    x = -1
+	y = 1
+	cost = 6
+	
+	relative_position_id = SOV_absorb_the_feminist_movement
+	prerequisite = { focus = SOV_absorb_the_feminist_movement }
+	prerequisite = { focus = SOV_deepen_american_ties }
+	
+    completion_reward = {
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = SOV_fyodor_dan_political_advisor
+		show_ideas_tooltip = SOV_boris_nicolaevsky_political_advisor
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_reconcile_the_esers
+	icon = GFX_SOV_reconcile_the_esers
+	
+    x = 1
+	y = 1
+	cost = 6
+	
+	relative_position_id = SOV_absorb_the_feminist_movement
+	prerequisite = { focus = SOV_absorb_the_feminist_movement }
+	prerequisite = { focus = SOV_deepen_american_ties }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_unify_the_party_and_the_state
+	icon = GFX_SOV_unify_the_party_and_the_state
+	
+    x = 1
+	y = 1
+	cost = 6
+	
+	relative_position_id = SOV_sideline_the_hardliners
+	prerequisite = {
+		focus = SOV_sideline_the_hardliners
+		focus = SOV_strengthen_democratic_values
+	}
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_democracy_across_the_country
+	icon = GFX_SOV_democracy_across_the_country
+	
+    x = 1
+	y = 1
+	cost = 6
+	
+	relative_position_id = SOV_lift_menshevik_exiles
+	prerequisite = { focus = SOV_lift_menshevik_exiles }
+	prerequisite = { focus = SOV_reconcile_the_esers }
+	mutually_exclusive = { focus = SOV_democracy_within_the_party }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_democracy_within_the_party
+	icon = GFX_SOV_democracy_within_the_party
+	
+    x = -1
+	y = 1
+	cost = 6
+	
+	relative_position_id = SOV_unify_the_party_and_the_state
+	prerequisite = { focus = SOV_reconcile_the_esers }
+	prerequisite = { focus = SOV_unify_the_party_and_the_state }
+	mutually_exclusive = { focus = SOV_democracy_across_the_country }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_democracy
+	icon = GFX_SOV_democracy_within_the_party
+	
+    x = 2
+	y = 1
+	cost = 6
+	
+	relative_position_id = SOV_democracy_across_the_country
+	prerequisite = {
+		focus = SOV_democracy_across_the_country
+		focus = SOV_democracy_within_the_party
+	}
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
