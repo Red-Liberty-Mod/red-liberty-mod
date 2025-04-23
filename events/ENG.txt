@@ -1,4 +1,5 @@
 add_namespace = united_kingdom
+add_namespace = united_kingdom_skeleton
 
 country_event = { # death of george v
 	id = united_kingdom.1
@@ -24,6 +25,80 @@ country_event = { # death of george v
 				limit = { is_ai = yes }
 				news_event = { id = worldnews.9 hours = 6 }
 			}
+		}
+	}
+}
+
+country_event = { # edward dismisses ramsay
+	id = united_kingdom_skeleton.1
+	title = united_kingdom_skeleton.1.title
+	desc = united_kingdom_skeleton.1.desc
+
+	is_triggered_only = yes
+
+	fire_only_once = yes 
+
+	option = { 
+		name = united_kingdom_skeleton.1.a
+		ENG = {
+			ENG_ramsay_macdonald = {
+				retire = yes
+			}
+			set_politics = {
+				ruling_party = authoritarian_democracy
+				last_election = "1935.11.14"
+				election_frequency = 48
+				elections_allowed = yes
+			}
+			add_popularity = {
+				ideology = authoritarian_democracy
+				popularity = 0.05
+			}
+		}
+		
+		hidden_effect = {
+			random_other_country = {
+				limit = { is_ai = yes }
+				news_event = { id = united_kingdom_skeleton.2 hours = 6 }
+			}
+		}
+	}
+}
+
+news_event = { # edward dismisses ramsay news
+	id = united_kingdom_skeleton.2
+	title = united_kingdom_skeleton.2.title
+	desc = united_kingdom_skeleton.2.desc
+	picture = GFX_news_event_ENG_edward_viii
+	
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	major = yes
+	show_major = {
+		or = {
+			regional_europe_news = yes
+			regional_north_america_news = yes
+			original_tag = RAJ
+			original_tag = AST
+			original_tag = NZL
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = united_kingdom_skeleton.2.a
+		trigger = {
+			original_tag = ENG
+		}
+	}
+	
+	option = { 
+		name = united_kingdom_skeleton.2.b
+		trigger = {
+			NOT = { original_tag = ENG }
 		}
 	}
 }
