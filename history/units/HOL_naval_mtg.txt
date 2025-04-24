@@ -215,6 +215,22 @@
 			rear_1_custom_slot = ship_mine_sweeper_1
 		}
 	}
+	create_equipment_variant = {
+		name = "Jan van Amstel Brakel"		# Minelayer	
+		type = ship_hull_light_2
+		name_group = HOL_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_2
+			fixed_ship_torpedo_slot = empty
+			mid_1_custom_slot = ship_mine_layer_1
+			rear_1_custom_slot = ship_mine_sweeper_1
+		}
+	}
 
 	# Gunboats #
 	create_equipment_variant = {
@@ -392,7 +408,7 @@
 	}
 	create_equipment_variant = {
 		name = "De Ruyter Klasse"
-		type = ship_hull_cruiser_1
+		type = ship_hull_cruiser_2
 		name_group = HOL_CL_HISTORICAL
 		parent_version = 0
 		modules = {
@@ -531,7 +547,7 @@ units = {
 			ship = { name = "HrMs Soerabaja" definition = heavy_cruiser equipment = { ship_hull_cruiser_coastal_defense_ship = { amount = 1 owner = HOL version_name = "De Zeven Provinciën Klasse" } }	}		
 			ship = { name = "HrMs Java" definition = light_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = HOL version_name = "Java Klasse" } } }
 			ship = { name = "HrMs Sumatra" definition = light_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = HOL version_name = "Java Klasse" } } }
-			ship = { name = "HrMs De Ruyter" pride_of_the_fleet = yes definition  = light_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = HOL version_name = "De Ruyter Klasse" } } }
+			ship = { name = "HrMs De Ruyter" pride_of_the_fleet = yes definition  = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = HOL version_name = "De Ruyter Klasse" } } }
 			ship = { name = "HrMs Soemba" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = HOL version_name = "Flores Klasse" } } }
 			# Torpedobootjager Divisie
 			ship = { name = "HrMs Van Ghent" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = HOL version_name = "Admiralen Klasse 1e" } } }		
@@ -677,6 +693,17 @@ instant_effect = {
 			version_name = "Jan van Amstel Klasse"
 		}
 		name = "HrMs Abraham van der Hulst"
+		requested_factories = 1
+		progress = 0
+		amount = 1
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "HOL" 
+			version_name = "Jan van Brakel Klasse"
+		}
+		name = "HrMs Jan van Brakel"
 		requested_factories = 1
 		progress = 0
 		amount = 1
