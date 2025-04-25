@@ -3,11 +3,11 @@ BRA_civil_war_balance = {
 	initial_value = 0.03
 	left_side = BRA_democrat_side
 	right_side = BRA_integralist_side
-	#decision_category = USA_balance_of_power_category
+	decision_category = BRA_balance_of_power_category
 	
 	side = {
 		id = BRA_democrat_side
-		icon = GFX_ideology_revolutionary_socialism_group
+		icon = GFX_ideology_liberal_conservatism_group
 		
 		range = {
 			id = BRA_democrats_dominant
@@ -60,7 +60,7 @@ BRA_civil_war_balance = {
 	
 	side = {
 		id = BRA_integralist_side
-		icon = GFX_ideology_social_democracy_group
+		icon = GFX_ideology_clerical_fascism_subtype
 		
 		range = {
 			id = BRA_integralists_influential
@@ -69,6 +69,7 @@ BRA_civil_war_balance = {
 			
 			modifier = {
 				army_org_factor = 0.05
+				war_support_factor = 0.05
 			}
 		}
 		
@@ -79,6 +80,7 @@ BRA_civil_war_balance = {
 			
 			modifier = {
 				army_org_factor = 0.075
+				war_support_factor = 0.1
 			}
 		}
 		
@@ -89,6 +91,7 @@ BRA_civil_war_balance = {
 			
 			modifier = {
 				army_org_factor = 0.1
+				war_support_factor = 0.2
 			}
 		}
 	}
