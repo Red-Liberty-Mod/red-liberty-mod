@@ -76,9 +76,14 @@ FRA_wins_great_war = {
 			add_state_core = 51
 		}
 		
-		GER = {
+		FRA = {
 			every_owned_state = {
-				limit = { is_core_of = WGR }
+				limit = {
+					is_core_of = WGR
+					NOT = {
+						is_core_of = FRA
+					}
+				}
 				WGR = { transfer_state = PREV }
 			}
 		}

@@ -10,30 +10,17 @@ add_equipment_to_stockpile = {
     producer = GER
 }
 
-if = {
-	limit = {
-		OR = {
-			has_dlc_tfv = yes
-			has_dlc_mtg = yes
-		}
-	}
-	set_autonomy = {
-		target = POL
-		autonomous_state = autonomy_RL_occupied_puppet
-	}
-	set_autonomy = {
-		target = LIT
-		autonomous_state = autonomy_RL_occupied_puppet
-	}
-	set_autonomy = {
-		target = BAL
-		autonomous_state = autonomy_RL_occupied_puppet
-	}
-	else = {
-		puppet = POL
-		puppet = LIT
-		puppet = BAL
-	}
+set_autonomy = {
+	target = LIT
+	autonomous_state = autonomy_RL_occupied_puppet
+}
+set_autonomy = {
+	target = BAL
+	autonomous_state = autonomy_RL_nominal_puppet
+}
+set_autonomy = {
+	target = POL
+	autonomous_state = autonomy_RL_nominal_puppet
 }
 
 # Starting tech
@@ -214,7 +201,8 @@ set_country_flag = authoritarian_democracy_coalition
 
 create_faction = "Warschauer Pakt"
 add_to_faction = BAL
-remove_from_faction = CRI
+remove_from_faction = POL
+remove_from_faction = LIT
 
 give_guarantee = BLR
 give_guarantee = UKR

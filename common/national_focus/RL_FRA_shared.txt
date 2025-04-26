@@ -1961,6 +1961,10 @@ shared_focus = {
 	#	}
 	#}
 	
+	bypass = {
+		FRA = { is_in_faction_with = ENG }
+	}
+	
 	relative_position_id = FRA_renew_our_friendship_with_the_british
 	prerequisite = { focus = FRA_renew_our_friendship_with_the_british }
 	prerequisite = {
@@ -1985,6 +1989,14 @@ shared_focus = {
 				threat = 5
 				name = FRA_ENG_reformed_entente
 			}
+		}
+	}
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 0.2
+			date < 1938.1.1
 		}
 	}
 	
