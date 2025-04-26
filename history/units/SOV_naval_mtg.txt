@@ -68,7 +68,6 @@ instant_effect = {
 		modules = {
 			fixed_ship_torpedo_slot = ship_torpedo_sub_2
 			fixed_ship_engine_slot = sub_ship_engine_1
-			rear_1_custom_slot = empty
 		}
 	}
 	
@@ -266,6 +265,23 @@ instant_effect = {
 			rear_1_custom_slot = empty
 		}
 	}
+	
+	# Carriers #
+	create_equipment_variant = {
+		name = "Izmail Class"					
+		type = ship_hull_carrier_conversion_bb
+		name_group = SOV_CV_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_deck_slot_1 = ship_deck_space
+			fixed_ship_deck_slot_2 = ship_deck_space
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = heavy_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+		}
+	}
 }
 
 units= {
@@ -276,6 +292,8 @@ units= {
 		task_force = {
 			name = "Baltiyskiy Flot"
 			location = 3151 # Leningrad
+			
+			#ship = { name = "Izmail" definition = carrier equipment = { ship_hull_carrier_conversion_bb = { amount = 1 owner = SOV version_name = "Izmail Class" } } }
 			
 			ship = { name = "Marat" pride_of_the_fleet = yes definition = battleship equipment = { ship_hull_heavy_1 = { amount = 1 owner = SOV version_name = "Marat Class" } } }
 			ship = { name = "Oktyabrskaya Revolutsiya" definition = battleship equipment = { ship_hull_heavy_1 = { amount = 1 owner = SOV version_name = "Marat Class" } } }
@@ -372,5 +390,20 @@ units= {
 			ship = { name = "Narodovolets" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "Dekabrist Class" } } }
 			ship = { name = "Krasnogvardyeyets" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "Dekabrist Class" } } }
 		}
+	}
+}
+
+
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_carrier_conversion_bb
+			creator = "SOV" 
+			version_name = "Izmail Class"
+		}
+		name = "Izmail"
+		requested_factories = 1
+		progress = 0.93
+		amount = 1
 	}
 }

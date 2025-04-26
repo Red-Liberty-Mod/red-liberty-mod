@@ -167,7 +167,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 0
+			has_tech = trench_warfare
+		}
 	}
 }
 
@@ -198,7 +202,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 0
+			has_tech = mass_assault
+		}
 	}
 }
 
@@ -346,29 +354,6 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = SOV_form_guards_divisions
-	icon = GFX_SOV_form_guards_divisions
-	
-    x = 1
-	y = 2
-	cost = 5
-	
-	relative_position_id = SOV_smersh
-	prerequisite = { focus = SOV_smersh }
-	prerequisite = { focus = SOV_lessons_of_the_civil_war }
-    completion_reward = {
-		custom_effect_tooltip = SOV_form_guards_divisions_tt
-		hidden_effect = {
-			load_oob = "SOV_guards_divisions"
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
     id = SOV_military_engineering_university
 	icon = GFX_goal_generic_position_armies
 	
@@ -429,38 +414,78 @@ shared_focus = {
 	prerequisite = { focus = SOV_expand_tank_production }
 	prerequisite = { focus = SOV_broad_front_tactics }
     completion_reward = {
-		custom_effect_tooltip = SOV_combined_arms_operations_tt
-		hidden_effect = {
-			division_template = {
-				name = "Tankovaya Diviziya"
-				division_names_group = SOV_ARM_01
-				regiments = {
-					medium_armor = { x = 0 y = 0 }
-					medium_armor = { x = 0 y = 1 }
-					medium_armor = { x = 0 y = 2 }
-					medium_armor = { x = 1 y = 0 }
-					medium_armor = { x = 1 y = 1 }
-					medium_armor = { x = 1 y = 2 }
-					motorized = { x = 2 y = 0 }
-					motorized = { x = 2 y = 1 }
-					motorized = { x = 2 y = 2 }
-					motorized = { x = 2 y = 3 }
+		if = {
+			limit = { has_completed_focus = SOV_armor_modernization }
+			custom_effect_tooltip = SOV_combined_arms_operations_tt
+			hidden_effect = {
+				division_template = {
+					name = "Tankovaya Diviziya"
+					division_names_group = SOV_ARM_01
+					regiments = {
+						medium_armor = { x = 0 y = 0 }
+						medium_armor = { x = 0 y = 1 }
+						medium_armor = { x = 0 y = 2 }
+						medium_armor = { x = 1 y = 0 }
+						medium_armor = { x = 1 y = 1 }
+						medium_armor = { x = 1 y = 2 }
+						motorized = { x = 2 y = 0 }
+						motorized = { x = 2 y = 1 }
+						motorized = { x = 2 y = 2 }
+						motorized = { x = 2 y = 3 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+						engineer = { x = 0 y = 1 }
+						maintenance_company = { x = 0 y = 2 }
+						logistics_company = { x = 0 y = 3 }
+						signal_company = { x = 0 y = 4 }
+					}
+					priority = 2
 				}
-				support = {
-					artillery = { x = 0 y = 0 }
-					engineer = { x = 0 y = 1 }
-					maintenance_company = { x = 0 y = 2 }
-					logistics_company = { x = 0 y = 3 }
-					signal_company = { x = 0 y = 4 }
+				random_owned_controlled_state = {
+					prioritize = { 219 }
+					create_unit = {
+						division = "division_template = \"Tankovaya Diviziya\" start_experience_factor = 0.2"
+						owner = ROOT
+						count = 2
+					}
 				}
-				priority = 2
 			}
-			random_owned_controlled_state = {
-				prioritize = { 219 }
-				create_unit = {
-					division = "division_template = \"Tankovaya Diviziya\" start_experience_factor = 0.2"
-					owner = ROOT
-					count = 2
+		}
+		else = {
+			custom_effect_tooltip = SOV_combined_arms_operations_light_tt
+			hidden_effect = {
+				division_template = {
+					name = "Tankovaya Diviziya"
+					division_names_group = SOV_ARM_01
+					regiments = {
+						medium_armor = { x = 0 y = 0 }
+						medium_armor = { x = 0 y = 1 }
+						light_armor = { x = 0 y = 2 }
+						medium_armor = { x = 1 y = 0 }
+						medium_armor = { x = 1 y = 1 }
+						light_armor = { x = 1 y = 2 }
+						motorized = { x = 2 y = 0 }
+						motorized = { x = 2 y = 1 }
+						motorized = { x = 2 y = 2 }
+						motorized = { x = 2 y = 3 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+						engineer = { x = 0 y = 1 }
+						maintenance_company = { x = 0 y = 2 }
+						logistics_company = { x = 0 y = 3 }
+						signal_company = { x = 0 y = 4 }
+					}
+					priority = 2
+				}
+				random_owned_controlled_state = {
+					prioritize = { 219 }
+					create_unit = {
+						division = "division_template = \"Tankovaya Diviziya\" start_experience_factor = 0.2"
+						owner = ROOT
+						count = 2
+					}
 				}
 			}
 		}
@@ -567,6 +592,8 @@ shared_focus = {
 		651 = {
 			add_extra_state_shared_building_slots = 1
 		}
+		unlock_decision_category_tooltip = SOV_evacuation_of_industry_category
+		SOV_init_evacuation_vars = yes
     }
 	
 	ai_will_do = {
@@ -578,7 +605,7 @@ shared_focus = {
     id = SOV_penal_battalions
 	icon = GFX_focus_SOV_penal_battalions
 	
-    x = 0
+    x = 1
 	y = 1
 	cost = 5
 	
@@ -592,6 +619,7 @@ shared_focus = {
 			}
 			set_technology = { penal_infantry = 1 popup = no }
 		}
+		custom_effect_tooltip = SOV_penal_battalions_tt
 		hidden_effect = {
 			division_template = {
 				name = "Shtrafnaya Chast"
@@ -740,6 +768,109 @@ shared_focus = {
 }
 
 shared_focus = {
+    id = SOV_form_guards_divisions
+	icon = GFX_SOV_form_guards_divisions
+	
+    x = 0
+	y = 2
+	cost = 5
+	
+	relative_position_id = SOV_form_the_stavka
+	prerequisite = { focus = SOV_form_the_stavka }
+    completion_reward = {
+		custom_effect_tooltip = SOV_form_guards_divisions_tt
+		hidden_effect = {
+			hidden_effect = {
+				division_template = {
+					name = "Gvardeyskaya Strelkovaya Diviziya"
+					division_names_group = SOV_GRD_01
+					is_locked = yes
+					force_allow_recruiting = yes
+
+					regiments = {
+						elite_infantry = { x = 0 y = 0 }
+						elite_infantry = { x = 0 y = 1 }
+						elite_infantry = { x = 0 y = 2 }
+						elite_infantry = { x = 1 y = 0 }
+						elite_infantry = { x = 1 y = 1 }
+						elite_infantry = { x = 1 y = 2 }
+						elite_infantry = { x = 2 y = 0 }
+						elite_infantry = { x = 2 y = 1 }
+						elite_infantry = { x = 2 y = 2 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+						engineer = { x = 0 y = 1 }
+						recon = { x = 0 y = 2 }
+						logistics_company = { x = 0 y = 3 }
+						signal_company = { x = 0 y = 4 }
+					}
+					priority = 2
+				}
+				random_owned_controlled_state = {
+					prioritize = { 219 }
+					create_unit = {
+						division = "division_template = \"Gvardeyskaya Strelkovaya Diviziya\" start_experience_factor = 0.3"
+						owner = ROOT
+						count = 2
+					}
+				}
+			}
+		}
+		custom_effect_tooltip = SOV_form_armored_guards_divisions_tt
+		if = {
+			limit = {
+				OR = {
+					has_completed_focus = SOV_combined_arms_operations
+					has_completed_focus = SOV_armor_modernization
+				}
+			}
+			hidden_effect = {
+				division_template = {
+					name = "Gvardeyskaya Tankovaya Diviziya"
+					division_names_group = SOV_GRD_01
+					is_locked = yes
+					force_allow_recruiting = yes
+
+					regiments = {
+						medium_armor = { x = 0 y = 0 }
+						medium_armor = { x = 0 y = 1 }
+						heavy_armor = { x = 0 y = 2 }
+						medium_armor = { x = 1 y = 0 }
+						medium_armor = { x = 1 y = 1 }
+						heavy_armor = { x = 1 y = 2 }
+						motorized_infantry = { x = 2 y = 0 }
+						motorized_infantry = { x = 2 y = 1 }
+						motorized_infantry = { x = 2 y = 2 }
+						motorized_infantry = { x = 2 y = 3 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+						engineer = { x = 0 y = 1 }
+						recon = { x = 0 y = 2 }
+						logistics_company = { x = 0 y = 3 }
+						signal_company = { x = 0 y = 4 }
+					}
+					priority = 2
+				}
+				random_owned_controlled_state = {
+					prioritize = { 219 }
+					create_unit = {
+						division = "division_template = \"Gvardeyskaya Tankovaya Diviziya\" start_experience_factor = 0.3"
+						owner = ROOT
+						count = 2
+					}
+				}
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
     id = SOV_special_forces_school
 	icon = GFX_goal_generic_special_forces
 	
@@ -874,11 +1005,43 @@ shared_focus = {
 	relative_position_id = SOV_preemptive_industrial_relocation
 	prerequisite = { focus = SOV_preemptive_industrial_relocation }
     completion_reward = {
-		
+		add_tech_bonus = {
+			name = SOV_defend_the_skies
+			bonus = 0.75
+			uses = 1
+			category = cat_anti_air
+		}
+		195 = {
+			add_building_construction = {
+				type = anti_air_building
+				level = 2
+				instant_build = yes
+			}
+		}
+		219 = {
+			add_building_construction = {
+				type = anti_air_building
+				level = 2
+				instant_build = yes
+			}
+		}
+		every_owned_state = {
+			limit = { has_state_flag = SOV_evacuated_industry_flag }
+			add_building_construction = {
+				type = anti_air_building
+				level = 1
+				instant_build = yes
+			}
+		}
     }
 	
 	ai_will_do = {
 		factor = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+		FOCUS_FILTER_INDUSTRY
 	}
 }
 

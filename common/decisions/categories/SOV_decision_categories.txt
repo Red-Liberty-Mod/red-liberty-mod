@@ -47,14 +47,26 @@ SOV_industrialization_category = {
 	visible_when_empty = yes
 }
 
-SOV_evacuation_of_industry = {
+SOV_stavka_category = {
 	
 	allowed = {
 		original_tag = SOV
 	}
 	
 	visible = {
-		always = no
+		
+	}
+}
+
+SOV_evacuation_of_industry_category = {
+	
+	allowed = {
+		original_tag = SOV
+	}
+	
+	visible = {
+		#has_completed_focus = SOV_preemptive_industrial_relocation
+		always = yes
 	}
 }
 

@@ -366,6 +366,9 @@
  SOV_svechin_doctrine_desc:0 ""
  SOV_smersh:0 "Counter-Intelligence Directorate"
  SOV_smersh_desc:0 ""
+ SOV_penal_battalions:0 "Establish Penal Battalions"
+ SOV_penal_battalions_desc:0 ""
+ SOV_penal_battalions_tt:0 "£nato_unit_infantry_icon_small  Raise 12 §YPenal Infantry Divisions§! composed of:\n- 9 §YPenal Infantry§! battalions\nWith the following Support Companies:\n- 1 §YArtillery§! support group"
  SOV_lessons_of_the_civil_war:0 "Lessons of the Civil War"
  SOV_lessons_of_the_civil_war_desc:0 ""
  SOV_expand_tank_production:0 "Expand Tank Production"
@@ -380,18 +383,24 @@
  SOV_expand_rifle_production_desc:0 ""
  SOV_strengthen_the_logistics_corps:0 "Strengthen the Logistics Corps"
  SOV_strengthen_the_logistics_corps_desc:0 ""
- SOV_form_guards_divisions:0 "Form Guards Divisions"
- SOV_form_guards_divisions_desc:0 ""
- SOV_form_guards_divisions_tt:0 "£nato_unit_infantry_icon_small  Raise 2 §YInfantry Divisions§! composed of:\n- 9 §YElite Infantry§! battalions\nWith the following Support Companies:\n- 1 §YArtillery§! support group\n- 1 §YEngineer§! support group\n- 1 §YRecon§! support group\n- 1 §YLogistics§! support group\n- 1 §YSignal§! support group"
  SOV_military_engineering_university:0 "Military Engineering University"
  SOV_military_engineering_university_desc:0 ""
  SOV_combined_arms_operations:0 "Independent Armor Operations"
  SOV_combined_arms_operations_desc:0 ""
+ SOV_combined_arms_operations_light_tt:0 "£nato_unit_medium_armor_icon_small  Raise 2 §YArmored Divisions§! composed of:\n- 4 §YMedium Armor§! battalions\n- 2 §YLight Armor§! battalions\n- 4 §YMotorized Infantry§! battalions\nWith the following Support Companies:\n- 1 §YArtillery§! support group\n- 1 §YEngineer§! support group\n- 1 §YMaintenance§! support group\n- 1 §YLogistics§! support group\n- 1 §YSignal§! support group"
  SOV_combined_arms_operations_tt:0 "£nato_unit_medium_armor_icon_small  Raise 2 §YArmored Divisions§! composed of:\n- 6 §YMedium Armor§! battalions\n- 4 §YMotorized Infantry§! battalions\nWith the following Support Companies:\n- 1 §YArtillery§! support group\n- 1 §YEngineer§! support group\n- 1 §YMaintenance§! support group\n- 1 §YLogistics§! support group\n- 1 §YSignal§! support group"
+ SOV_armor_modernization:0 "Armor Modernization"
+ SOV_armor_modernization_desc:0 ""
  SOV_commander_initiative:0 "Commander Initiative"
  SOV_commander_initiative_desc:0 ""
  SOV_artillery_improvements:0 "Artillery Improvements"
  SOV_artillery_improvements_desc:0 ""
+ SOV_form_guards_divisions:0 "Form Guards Divisions"
+ SOV_form_guards_divisions_desc:0 ""
+ SOV_form_guards_divisions_tt:0 "£nato_unit_infantry_icon_small  Raise 2 §YInfantry Divisions§! composed of:\n- 9 §YElite Infantry§! battalions\nWith the following Support Companies:\n- 1 §YArtillery§! support group\n- 1 §YEngineer§! support group\n- 1 §YRecon§! support group\n- 1 §YLogistics§! support group\n- 1 §YSignal§! support group"
+ SOV_form_armored_guards_divisions_tt:0 "\nIf focuses §Y$SOV_armor_modernization$§! or §Y$SOV_combined_arms_operations$§! have been completed:\n£nato_unit_medium_armor_icon_small  Raise 2 §YArmored Divisions§! composed of:\n- 4 §YMedium Armor§! battalions\n- 2 §YHeavy Armor§! battalions\n- 4 §YMotorized Infantry§! battalions\nWith the following Support Companies:\n- 1 §YArtillery§! support group\n- 1 §YEngineer§! support group\n- 1 §YMaintenance§! support group\n- 1 §YLogistics§! support group\n- 1 §YSignal§! support group"
+ SOV_special_forces_school:0 "Special Forces School"
+ SOV_special_forces_school_desc:0 ""
  SOV_permanent_mobilization:0 "Permanent Mobilization"
  SOV_permanent_mobilization_desc:0 ""
  SOV_preemptive_industrial_relocation:0 "Preemptive Industrial Relocation"
@@ -417,6 +426,14 @@
  SOV_armored_cruisers_desc:0 ""
  
  ### Decisions ###
+ SOV_evacuation_of_industry_category:0 "Evacuation of Industry"
+ SOV_evacuate_industry:0 "Evacuate Industry from [FROM.GetName]"
+ SOV_evacuate_industry_desc:0 "Evacuating the heavy machinery of our [FROM.GetName] factories is a huge undertaking, but it is necessary to secure our war production."
+ SOV_industry_relocation_complete_effect_tt:0 "Up to §Y[?SOV_industrial_relocation_max_factories] Military or Civilian Factories§! will be removed from §Y[FROM.GetName]§!.\n"
+ SOV_industry_relocation_remove_effect_tt:0 "Removed factories will be relocated to a state in either the Volga basin or in the Urals. "
+ SOV_relocate_industry_repair_tt:0 "§RSome factories will need to be rebuilt.§!"
+ SOV_relocate_industry_lose_control_tt:0 "§RLosing control of [FROM.GetName] will make the factories suffer more damage upon relocation.§!"
+ SOV_industry_relocation_trains_tt:0 "§R[?SOV_industrial_relocation_trains_decision_negative] $train_equipment$s§! will be used for the duration of this decision."
  
  ## War Communism ##
  SOV_war_communism_category:0 "Managing War Communism"
@@ -488,6 +505,9 @@
  SOV_democrat_influence_gain:0 "The §YDemocrats§! gain $RIGHT|=0G$ influence."
  SOV_democrat_opinion_lose:0 "The §YDemocrats§! lose $RIGHT|=0R$ opinion."
  SOV_democrat_influence_lose:0 "The §YDemocrats§! lose $RIGHT|=0R$ influence."
+ 
+ ## Tooltips ##
+ SOV_crush_the_rightists_trigger_tt:0 "The §YRightists§! have §Y10§! or less influence\n"
  
  ## Centralist ##
  SOV_moratorium_on_new_members:0 "Moratorium on New Members"
