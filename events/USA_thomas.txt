@@ -653,6 +653,63 @@ country_event = { # a senators ties to the KKK are revealed
 	}
 }
 
+country_event = { # 
+	id = united_states_thomas.41
+	title = united_states_thomas.41.title
+	desc = united_states_thomas.41.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_thomas.41.a
+	}
+}
+
+country_event = { # 
+	id = united_states_thomas.42
+	title = united_states_thomas.42.title
+	desc = united_states_thomas.42.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_thomas.42.a
+		USA_norman_thomas = {
+			swap_country_leader_traits = {
+				remove = USA_americas_promise_inactive
+				add = USA_americas_promise_semiactive
+				ideology = christian_socialism_subtype
+			}
+		}
+	}
+}
+
+country_event = { # 
+	id = united_states_thomas.43
+	title = united_states_thomas.43.title
+	desc = united_states_thomas.43.desc
+	picture = GFX_report_event_thomas_speech
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = united_states_thomas.43.a
+		#USA_norman_thomas = {
+		#	swap_country_leader_traits = {
+		#		remove = USA_americas_promise_semiactive
+		#		add = USA_americas_promise_active
+		#		ideology = christian_socialism_subtype
+		#	}
+		#}
+	}
+}
+
 country_event = { # assassination of francis riggs
 	id = united_states_thomas.100
 	title = united_states_thomas.100.title
