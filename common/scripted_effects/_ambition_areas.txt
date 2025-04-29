@@ -120,6 +120,20 @@ create_ambition_areas = {
 		set_variable = { ambition_area_@ITA = 1 }
 	}
 	
+	# PRU/SRP - Peru
+	if = {
+		limit = {
+			OR = {
+				is_core_of = PRU
+				is_claimed_by = PRU
+				
+				state = 999 # Acre
+			}
+		}
+		set_variable = { ambition_area_@PRU = 1 }
+		set_variable = { ambition_area_@SRP = 1 }
+	}
+	
 	# ROM - Romania
 	if = {
 		limit = {
