@@ -446,3 +446,26 @@ GRE_support_allies = {
 		value = 50
 	}
 }
+
+TAG_support_ICA = {
+	allowed = {
+		OR = {
+			original_tag = SOV
+			original_tag = UOB
+			original_tag = USA
+		}
+	}
+	enable = {
+		ICA = {
+			has_war_with = IRE
+		}
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = ICA
+		value = 150
+	}
+}
