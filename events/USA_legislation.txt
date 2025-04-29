@@ -796,6 +796,15 @@ country_event = { # national healthcare act
 	option = { # bill fails
 		name = us_bill.16.b
 		trigger = { NOT = { has_country_flag = bill_passed } }
+		
+		hidden_effect = {
+			country_event = {
+				id = united_states_thomas.44
+				days = 120
+				random_days = 30
+			}
+		}
+		
 		USA_bill_clear = yes # ALWAYS DO THIS
 	}
 }
