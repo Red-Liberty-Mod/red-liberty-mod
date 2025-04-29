@@ -398,6 +398,63 @@ on_actions = {
 					}
 				}
 			}
+			
+			### Agenda Checks ###
+			if = {
+				limit = {
+					norman_thomas_is_president = yes
+					#var:country_leader = {
+					#	NOT = { has_character_flag = USA_thomas_agenda_completed_flag }
+					#}
+				}
+				
+				## Agenda 1 ##
+				if = {
+					limit = {
+						#USA_norman_thomas = { has_trait = USA_all_inclusive_socialist_inactive }
+						USA_thomas_agenda_1_active = yes
+					}
+					remove_country_leader_trait = USA_all_inclusive_socialist_inactive
+					add_country_leader_trait = USA_all_inclusive_socialist_active
+				}
+				else_if = {
+					limit = {
+						#USA_norman_thomas = { has_trait = USA_all_inclusive_socialist_active }
+						USA_thomas_agenda_1_active = no
+					}
+					remove_country_leader_trait = USA_all_inclusive_socialist_active
+					add_country_leader_trait = USA_all_inclusive_socialist_inactive
+				}
+				
+				## Agenda 2 ##
+				if = {
+					limit = {
+						#USA_norman_thomas = { has_trait = USA_the_last_idealist_inactive }
+						USA_thomas_agenda_2_active = yes
+					}
+					remove_country_leader_trait = USA_the_last_idealist_inactive
+					add_country_leader_trait = USA_the_last_idealist_active
+				}
+				else_if = {
+					limit = {
+						#USA_norman_thomas = { has_trait = USA_the_last_idealist_active }
+						USA_thomas_agenda_2_active = no
+					}
+					remove_country_leader_trait = USA_the_last_idealist_active
+					add_country_leader_trait = USA_the_last_idealist_inactive
+				}
+				
+				USA_norman_thomas = {
+					if = {
+						limit = {
+							has_trait = USA_all_inclusive_socialist_active
+							has_trait = USA_the_last_idealist_active
+							has_trait = USA_americas_promise_active
+						}
+					}
+					set_character_flag = USA_thomas_agenda_completed_flag
+				}
+			}
 		}
 	}
 	
