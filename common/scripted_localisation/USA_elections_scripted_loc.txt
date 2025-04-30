@@ -2620,6 +2620,80 @@ defined_text = {
 }
 
 defined_text = {
+	name = GetFirstPlaceSenate
+	text = {
+		trigger = {
+			has_state_flag = socialist_senate_first_place
+		}
+		localization_key = SOCIALIST_PLURAL
+	}
+	text = {
+		trigger = {
+			has_state_flag = republican_senate_first_place
+		}
+		localization_key = REPUBLICAN_PLURAL
+	}
+	text = {
+		trigger = {
+			has_state_flag = democrat_senate_first_place
+		}
+		localization_key = DEMOCRAT_PLURAL
+	}
+	text = {
+		trigger = {
+			has_state_flag = afp_senate_first_place
+		}
+		localization_key = AFP_PLURAL
+	}
+	text = {
+		trigger = {
+			has_state_flag = communist_senate_first_place
+		}
+		localization_key = COMMUNIST_PLURAL
+	}
+	text = {
+		localization_key = empty
+	}
+}
+
+defined_text = {
+	name = GetSecondPlaceSenate
+	text = {
+		trigger = {
+			has_state_flag = socialist_senate_second_place
+		}
+		localization_key = SOCIALIST_PLURAL
+	}
+	text = {
+		trigger = {
+			has_state_flag = republican_senate_second_place
+		}
+		localization_key = REPUBLICAN_PLURAL
+	}
+	text = {
+		trigger = {
+			has_state_flag = democrat_senate_second_place
+		}
+		localization_key = DEMOCRAT_PLURAL
+	}
+	text = {
+		trigger = {
+			has_state_flag = afp_senate_second_place
+		}
+		localization_key = AFP_PLURAL
+	}
+	text = {
+		trigger = {
+			has_state_flag = communist_senate_second_place
+		}
+		localization_key = COMMUNIST_PLURAL
+	}
+	text = {
+		localization_key = empty
+	}
+}
+
+defined_text = {
 	name = GetMargin
 	text = {
 		trigger = {
@@ -2646,6 +2720,45 @@ defined_text = {
 	text = {
 		trigger = {
 			check_variable = { USA_state_poll_pop_diff > 0 }
+		}
+		localization_key = USA_margin_very_small
+	}
+}
+
+defined_text = {
+	name = GetMarginSenate
+	text = {
+		trigger = {
+			AND = {
+				check_variable = { USA_senate_poll_pop_diff > 0.2 }
+			}
+		}
+		localization_key = USA_margin_large
+	}
+	text = {
+		trigger = {
+			AND = {
+				check_variable = { USA_senate_poll_pop_diff < 0.21 }
+				check_variable = { USA_senate_poll_pop_diff > 0.1 }
+			}
+		}
+		localization_key = USA_margin_medium
+	}
+	text = {
+		trigger = {
+			AND = {
+				check_variable = { USA_senate_poll_pop_diff < 0.11 }
+				check_variable = { USA_senate_poll_pop_diff > 0.05 }
+			}
+		}
+		localization_key = USA_margin_small
+	}
+	text = {
+		trigger = {
+			AND = {
+				check_variable = { USA_senate_poll_pop_diff < 0.06 }
+				check_variable = { USA_senate_poll_pop_diff > 0 }
+			}
 		}
 		localization_key = USA_margin_very_small
 	}

@@ -1237,6 +1237,11 @@ USA_prepare_presidential_election = {
 }
 
 USA_convert_party_pop_percentage = {
+	USA_convert_party_pop_percentage_presidential = yes
+	USA_convert_party_pop_percentage_senate = ues
+}
+
+USA_convert_party_pop_percentage_presidential = {
 	
 	### log the previous value ###
 	set_variable = { communist_prev_election_pop = communist_election_pop }
@@ -1317,13 +1322,72 @@ USA_convert_party_pop_percentage = {
 	multiply_variable = { democrat_prev_election_pop = -1 }
 	multiply_variable = { commonwealth_prev_election_pop = -1 }
 	
-	#log = "[This.GetName] : communist_prev_election_pop - [?communist_prev_election_pop]"
-	#log = "[This.GetName] : socialist_prev_election_pop - [?socialist_prev_election_pop]"
-	#log = "[This.GetName] : republican_prev_election_pop - [?republican_prev_election_pop]"
-	#log = "[This.GetName] : democrat_prev_election_pop - [?democrat_prev_election_pop]"
-	#log = "[This.GetName] : commonwealth_prev_election_pop - [?commonwealth_prev_election_pop]"
+	log = "[This.GetName] : communist_prev_election_pop - [?communist_prev_election_pop]"
+	log = "[This.GetName] : socialist_prev_election_pop - [?socialist_prev_election_pop]"
+	log = "[This.GetName] : republican_prev_election_pop - [?republican_prev_election_pop]"
+	log = "[This.GetName] : democrat_prev_election_pop - [?democrat_prev_election_pop]"
+	log = "[This.GetName] : commonwealth_prev_election_pop - [?commonwealth_prev_election_pop]"
 	
 	USA_state_generate_list = yes
+}
+
+USA_convert_party_pop_percentage_senate = {
+
+	### log the previous value ###
+	set_variable = { communist_prev_senate_election_pop = communist_senate_election_pop }
+	set_variable = { socialist_prev_senate_election_pop = socialist_senate_election_pop }
+	set_variable = { republican_prev_senate_election_pop = republican_senate_election_pop }
+	set_variable = { democrat_prev_senate_election_pop = democrat_senate_election_pop }
+	set_variable = { commonwealth_prev_senate_election_pop = commonwealth_senate_election_pop }
+	
+	#make party pop into percentages
+	#convert temp party pops into percentages
+	set_temp_variable = { communist_temp_pop = communist_popularity }
+	set_temp_variable = { socialist_temp_pop = socialist_popularity }
+	set_temp_variable = { republican_temp_pop = republican_popularity }
+	set_temp_variable = { democrat_temp_pop = democrat_popularity }
+	set_temp_variable = { afp_temp_pop = commonwealth_popularity }
+	
+	### various bonuses/maluses
+	USA_party_unity_bonus = yes
+	
+	### final calculations
+	set_temp_variable = { total_party_pop = communist_temp_pop }
+	add_to_temp_variable = { total_party_pop = socialist_temp_pop }
+	add_to_temp_variable = { total_party_pop = republican_temp_pop }
+	add_to_temp_variable = { total_party_pop = democrat_temp_pop }
+	add_to_temp_variable = { total_party_pop = afp_temp_pop }
+	
+	divide_temp_variable = { communist_temp_pop = total_party_pop }
+	divide_temp_variable = { socialist_temp_pop = total_party_pop }
+	divide_temp_variable = { republican_temp_pop = total_party_pop }
+	divide_temp_variable = { democrat_temp_pop = total_party_pop }
+	divide_temp_variable = { afp_temp_pop = total_party_pop }
+
+	### convert to non-temp variables
+	set_variable = { communist_senate_election_pop = communist_temp_pop }
+	set_variable = { socialist_senate_election_pop = socialist_temp_pop }
+	set_variable = { republican_senate_election_pop = republican_temp_pop }
+	set_variable = { democrat_senate_election_pop = democrat_temp_pop }
+	set_variable = { commonwealth_senate_election_pop = afp_temp_pop }
+	
+	log = "[This.GetName] : communist_senate_election_pop - [?communist_senate_election_pop]"
+	log = "[This.GetName] : socialist_senate_election_pop - [?socialist_senate_election_pop]"
+	log = "[This.GetName] : republican_senate_election_pop - [?republican_senate_election_pop]"
+	log = "[This.GetName] : democrat_senate_election_pop - [?democrat_senate_election_pop]"
+	log = "[This.GetName] : commonwealth_senate_election_pop - [?commonwealth_senate_election_pop]"
+	
+	set_variable = { total_senate_election_pop = communist_senate_election_pop }
+	add_to_variable = { total_senate_election_pop = socialist_senate_election_pop }
+	add_to_variable = { total_senate_election_pop = republican_senate_election_pop }
+	add_to_variable = { total_senate_election_pop = democrat_senate_election_pop }
+	add_to_variable = { total_senate_election_pop = commonwealth_senate_election_pop }
+	
+	add_to_variable = { total_senate_election_pop = -1 }
+	#log = "[This.GetName] : total_senate_election_pop - [?total_senate_election_pop]"
+	
+	### discrepancy check
+	USA_discrepancy_check = yes
 }
 
 USA_discrepancy_check = {
@@ -1347,6 +1411,30 @@ USA_discrepancy_check = {
 			}
 			50 = {
 				add_to_variable = { democrat_election_pop = total_election_pop }
+			}
+		}
+	}
+	
+	if = {
+		limit = {
+			NOT = {
+				check_variable = { total_senate_election_pop = 0 }
+			}
+		}
+		log = "[This.GetName] : total_senate_election_pop discrepancy found - [?total_senate_election_pop]"
+		
+		if = {
+			limit = {
+				check_variable = { total_senate_election_pop < 0 }
+			}
+			multiply_variable = { total_senate_election_pop = -1 }
+		}
+		random_list = {
+			50 = {
+				add_to_variable = { socialist_election_pop = total_senate_election_pop }
+			}
+			50 = {
+				add_to_variable = { democrat_election_pop = total_senate_election_pop }
 			}
 		}
 	}
@@ -1523,7 +1611,7 @@ USA_presidential_popularity_bonus = {
 		USA_president_popularity_temp = 30
 	}
 	multiply_temp_variable = {
-		USA_president_popularity_temp = 0.04
+		USA_president_popularity_temp = 0.08
 	}
 	
 	if = {
@@ -1531,7 +1619,7 @@ USA_presidential_popularity_bonus = {
 			check_variable = { USA.USA_president_popularity < 15 }
 		}
 		add_to_temp_variable = {
-			USA_president_popularity_temp = 0.96
+			USA_president_popularity_temp = 0.88
 		}
 	}
 	else_if = {
@@ -1542,7 +1630,7 @@ USA_presidential_popularity_bonus = {
 			USA_president_popularity_temp = 1
 		}
 	}
-	#log = "[This.GetName] : presidential popularity bonus is [?USA_president_popularity_temp]"
+	log = "[This.GetName] : presidential popularity bonus is [?USA_president_popularity_temp]"
 	
 	if = {
 		limit = {
