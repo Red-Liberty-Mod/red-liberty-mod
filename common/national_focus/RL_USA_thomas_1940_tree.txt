@@ -52,7 +52,7 @@ shared_focus = {
     id = USA_right_to_learn
 	icon = GFX_USA_right_to_learn
 	
-    x = -6
+    x = -5
 	y = 1
 	
 	cost = 5
@@ -75,103 +75,20 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = USA_assess_school_resources
-	icon = GFX_USA_assess_school_resources
+    id = USA_right_to_work
+	icon = GFX_USA_right_to_work
 	
-    x = -1
+    x = -3
 	y = 1
 	
 	cost = 5
-	relative_position_id = USA_right_to_learn
-	prerequisite = { focus = USA_right_to_learn }
+	relative_position_id = USA_second_bill_of_rights
+	prerequisite = { focus = USA_second_bill_of_rights }
     completion_reward = {
-        add_political_power = 25
-		add_stability = 0.02
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-	
-	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
-}
-
-shared_focus = {
-    id = USA_work_with_teachers_unions
-	icon = GFX_USA_work_with_teachers_unions
-	
-    x = -1
-	y = 1
-	
-	cost = 5
-	relative_position_id = USA_assess_school_resources
-	prerequisite = { focus = USA_assess_school_resources }
-    completion_reward = {
-        add_political_power = 25
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-	
-	search_filters = { FOCUS_FILTER_POLITICAL }
-}
-
-shared_focus = {
-    id = USA_compulsory_education
-	icon = GFX_USA_compulsory_education
-	
-    x = 1
-	y = 1
-	
-	cost = 5
-	relative_position_id = USA_assess_school_resources
-	prerequisite = { focus = USA_assess_school_resources }
-    completion_reward = {
-        add_research_slot = 1
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-	
-	search_filters = { FOCUS_FILTER_RESEARCH }
-}
-
-shared_focus = {
-    id = USA_invest_in_higher_education
-	icon = GFX_USA_invest_in_higher_education
-	
-    x = 1
-	y = 1
-	
-	cost = 5
-	relative_position_id = USA_right_to_learn
-	prerequisite = { focus = USA_right_to_learn }
-    completion_reward = {
-        add_political_power = 50
-		add_stability = 0.03
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-	
-	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
-}
-
-shared_focus = {
-    id = USA_invest_in_childcare
-	icon = GFX_USA_invest_in_childcare
-	
-    x = 1
-	y = 1
-	
-	cost = 8
-	relative_position_id = USA_invest_in_higher_education
-	prerequisite = { focus = USA_invest_in_higher_education }
-    completion_reward = {
-        improve_safety_net = yes
+        country_event = {
+			id = united_states_thomas.29
+			days = 1
+		}
     }
 	
 	ai_will_do = {
@@ -180,25 +97,19 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = USA_federal_education_grants
-	icon = GFX_USA_federal_education_grants
+    id = USA_right_to_life
+	icon = GFX_USA_right_to_life
 	
     x = 0
-	y = 2
+	y = 1
 	
-	cost = 8
-	relative_position_id = USA_invest_in_higher_education
-	prerequisite = { focus = USA_invest_in_higher_education }
-	prerequisite = { focus = USA_compulsory_education }
+	cost = 5
+	relative_position_id = USA_second_bill_of_rights
+	prerequisite = { focus = USA_second_bill_of_rights }
     completion_reward = {
-        improve_great_depression = yes
-		hidden_effect = {
-			every_owned_state = {
-				limit = {
-					can_have_elections_in_state = yes
-				}
-				add_to_variable = { socialist_popularity = 0.01 }
-			}
+        country_event = {
+			id = united_states_thomas.30
+			days = 1
 		}
     }
 	
@@ -211,64 +122,14 @@ shared_focus = {
     id = USA_fund_public_libraries
 	icon = GFX_USA_fund_public_libraries
 	
-    x = 1
+    x = -1
 	y = 1
 	
 	cost = 8
-	relative_position_id = USA_work_with_teachers_unions
-	prerequisite = { focus = USA_work_with_teachers_unions }
+	relative_position_id = USA_right_to_learn
+	prerequisite = { focus = USA_right_to_learn }
     completion_reward = {
         ECON_poverty_change_small = yes 
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_attempt_standardization
-	icon = GFX_USA_attempt_standardization
-	
-    x = 1
-	y = 1
-	
-	cost = 8
-	relative_position_id = USA_fund_public_libraries
-	prerequisite = { focus = USA_fund_public_libraries }
-	prerequisite = { focus = USA_federal_education_grants }
-    completion_reward = {
-        unlock_decision_tooltip = start_USA_equal_education_act
-		custom_effect_tooltip = USA_bill_pass_req_tt
-		effect_tooltip = {
-			add_ideas = {
-				USA_education_act
-			}
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-	
-	search_filters = { FOCUS_FILTER_USA_CONGRESS FOCUS_FILTER_RESEARCH }
-}
-
-shared_focus = {
-    id = USA_right_to_work
-	icon = GFX_USA_right_to_work
-	
-    x = -2
-	y = 1
-	
-	cost = 5
-	relative_position_id = USA_second_bill_of_rights
-	prerequisite = { focus = USA_second_bill_of_rights }
-    completion_reward = {
-        country_event = {
-			id = united_states_thomas.29
-			days = 1
-		}
     }
 	
 	ai_will_do = {
@@ -304,23 +165,63 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = USA_end_child_labor
-	icon = GFX_USA_end_child_labor
+    id = USA_ensure_fair_competition
+	icon = GFX_USA_ensure_fair_competition
 	
-    x = 0
-	y = 2
+    x = 1
+	y = 1
 	
 	cost = 8
-	relative_position_id = USA_workplace_democracy
-	prerequisite = { focus = USA_workplace_democracy }
-	prerequisite = { focus = USA_invest_in_childcare }
+	relative_position_id = USA_right_to_work
+	prerequisite = { focus = USA_right_to_work }
     completion_reward = {
-        add_stability = 0.03
+		improve_great_depression = yes
     }
 	
 	ai_will_do = {
 		factor = 10
 	}
+}
+
+shared_focus = {
+    id = USA_maternity_insurance
+	icon = GFX_USA_maternity_insurance
+	
+    x = 0
+	y = 1
+	
+	cost = 8
+	relative_position_id = USA_right_to_life
+	prerequisite = { focus = USA_right_to_life }
+    completion_reward = {
+		improve_safety_net = yes
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = USA_invest_in_higher_education
+	icon = GFX_USA_invest_in_higher_education
+	
+    x = 0
+	y = 2
+	
+	cost = 5
+	relative_position_id = USA_right_to_learn
+	prerequisite = { focus = USA_right_to_learn }
+    completion_reward = {
+        add_political_power = 50
+		add_stability = 0.03
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 }
 
 shared_focus = {
@@ -344,137 +245,17 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = USA_ensure_fair_competition
-	icon = GFX_USA_ensure_fair_competition
-	
-    x = 1
-	y = 1
-	
-	cost = 8
-	relative_position_id = USA_right_to_work
-	prerequisite = { focus = USA_right_to_work }
-    completion_reward = {
-		improve_great_depression = yes
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_end_wage_discrimination
-	icon = GFX_USA_end_wage_discrimination
-	
-    x = 1
-	y = 1
-	
-	cost = 5
-	relative_position_id = USA_6_hour_day
-	prerequisite = { focus = USA_6_hour_day }
-	prerequisite = { focus = USA_unemployment_compensation }
-    completion_reward = {
-        add_stability = 0.03
-		hidden_effect = {
-			every_owned_state = {
-				limit = {
-					can_have_elections_in_state = yes
-				}
-				add_to_variable = { socialist_popularity = 0.01 }
-			}
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_economic_equality_act
-	icon = GFX_USA_economic_equality_act
-	
-    x = 1 
-	y = 1
-	
-	cost = 8
-	relative_position_id = USA_end_child_labor
-	prerequisite = { focus = USA_end_child_labor }
-	prerequisite = { focus = USA_end_wage_discrimination }
-    completion_reward = {
-		unlock_decision_tooltip = start_USA_economic_equality_act
-		
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-	
-	search_filters = { FOCUS_FILTER_USA_CONGRESS }
-}
-
-shared_focus = {
-    id = USA_right_to_life
-	icon = GFX_USA_right_to_life
-	
-    x = 2
-	y = 1
-	
-	cost = 5
-	relative_position_id = USA_second_bill_of_rights
-	prerequisite = { focus = USA_second_bill_of_rights }
-    completion_reward = {
-        country_event = {
-			id = united_states_thomas.30
-			days = 1
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_food_stamp_plan
-	icon = GFX_USA_food_stamp_plan
-	
-    x = -1
-	y = 1
-	
-	cost = 5
-	relative_position_id = USA_right_to_life
-	prerequisite = { focus = USA_right_to_life }
-    completion_reward = {
-		improve_great_depression = yes
-		hidden_effect = {
-			every_owned_state = {
-				limit = {
-					can_have_elections_in_state = yes
-				}
-				add_to_variable = { socialist_popularity = 0.01 }
-			}
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_unemployment_compensation
-	icon = GFX_USA_unemployment_compensation
+    id = USA_invest_in_childcare
+	icon = GFX_USA_invest_in_childcare
 	
     x = -1
 	y = 1
 	
 	cost = 8
-	relative_position_id = USA_food_stamp_plan
-	prerequisite = { focus = USA_food_stamp_plan }
-	prerequisite = { focus = USA_ensure_fair_competition }
+	relative_position_id = USA_maternity_insurance
+	prerequisite = { focus = USA_maternity_insurance }
     completion_reward = {
-		improve_safety_net = yes
+        improve_safety_net = yes
     }
 	
 	ai_will_do = {
@@ -486,7 +267,7 @@ shared_focus = {
     id = USA_lower_healthcare_costs
 	icon = GFX_USA_lower_healthcare_costs
 	
-    x = 0
+    x = 1
 	y = 2
 	
 	cost = 8
@@ -503,22 +284,48 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = USA_maternity_insurance
-	icon = GFX_USA_maternity_insurance
+    id = USA_compulsory_education
+	icon = GFX_USA_compulsory_education
 	
-    x = -1
+    x = 1
 	y = 1
 	
-	cost = 8
-	relative_position_id = USA_lower_healthcare_costs
-	prerequisite = { focus = USA_lower_healthcare_costs }
+	cost = 5
+	relative_position_id = USA_invest_in_higher_education
+	prerequisite = { focus = USA_invest_in_higher_education }
+	prerequisite = { focus = USA_6_hour_day }
     completion_reward = {
-		improve_safety_net = yes
+        add_research_slot = 1
     }
 	
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = { FOCUS_FILTER_RESEARCH }
+}
+
+shared_focus = {
+    id = USA_economic_equality_act
+	icon = GFX_USA_economic_equality_act
+	
+    x = 1 
+	y = 1
+	
+	cost = 8
+	relative_position_id = USA_6_hour_day
+	prerequisite = { focus = USA_6_hour_day }
+	prerequisite = { focus = USA_invest_in_childcare }
+    completion_reward = {
+		unlock_decision_tooltip = start_USA_economic_equality_act
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = { FOCUS_FILTER_USA_CONGRESS }
 }
 
 shared_focus = {
@@ -533,9 +340,9 @@ shared_focus = {
 	}
 	
 	cost = 8
-	relative_position_id = USA_maternity_insurance
-	prerequisite = { focus = USA_maternity_insurance }
-	prerequisite = { focus = USA_look_at_causes }
+	relative_position_id = USA_invest_in_childcare
+	prerequisite = { focus = USA_invest_in_childcare }
+	prerequisite = { focus = USA_lower_healthcare_costs }
     completion_reward = {
         unlock_decision_tooltip = start_USA_national_healthcare_act
 		custom_effect_tooltip = USA_bill_pass_req_tt
@@ -555,15 +362,42 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = USA_war_on_poverty
-	icon = GFX_USA_war_on_poverty
+    id = USA_attempt_standardization
+	icon = GFX_USA_attempt_standardization
 	
-    x = 1
+    x = 0
 	y = 1
 	
 	cost = 8
-	relative_position_id = USA_right_to_life
-	prerequisite = { focus = USA_right_to_life }
+	relative_position_id = USA_compulsory_education
+	prerequisite = { focus = USA_compulsory_education }
+    completion_reward = {
+        unlock_decision_tooltip = start_USA_equal_education_act
+		custom_effect_tooltip = USA_bill_pass_req_tt
+		effect_tooltip = {
+			add_ideas = {
+				USA_education_act
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = { FOCUS_FILTER_USA_CONGRESS FOCUS_FILTER_RESEARCH }
+}
+
+shared_focus = {
+    id = USA_war_on_poverty
+	icon = GFX_USA_war_on_poverty
+	
+    x = -1
+	y = 1
+	
+	cost = 8
+	relative_position_id = USA_national_healthcare_act
+	prerequisite = { focus = USA_national_healthcare_act }
     completion_reward = {
 		custom_effect_tooltip = USA_bill_over_time_tt
         unlock_decision_tooltip = start_USA_farm_tenant_act
@@ -577,30 +411,10 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = USA_look_at_causes
-	icon = GFX_USA_look_at_causes
-	
-    x = 0
-	y = 2
-	
-	cost = 8
-	relative_position_id = USA_war_on_poverty
-	prerequisite = { focus = USA_war_on_poverty }
-    completion_reward = {
-       add_political_power = 25
-	   add_stability = 0.02
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
     id = USA_right_to_democracy
 	icon = GFX_USA_right_to_democracy
 	
-    x = 6
+    x = 5
 	y = 1
 	
 	cost = 5
@@ -661,7 +475,7 @@ shared_focus = {
     id = USA_voting_rights_act
 	icon = GFX_USA_voting_rights_act
 	
-    x = 1
+    x = 0
 	y = 1
 	
 	cost = 8
@@ -769,39 +583,19 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = USA_politicians_should_be_popular
-	icon = GFX_USA_politicians_should_be_popular
-	
-    x = 1
-	y = 1
-	
-	cost = 8
-	relative_position_id = USA_voting_rights_act
-	prerequisite = { focus = USA_voting_rights_act }
-	prerequisite = { focus = USA_prepare_the_amendment }
-    completion_reward = {
-        # series of events about EC
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
     id = USA_america_reborn
 	icon = GFX_USA_america_reborn
 	text_icon = USA_focus_style
 	
-    x = 6
-	y = 1
+    x = 1
+	y = 2
 	
 	cost = 8
-	relative_position_id = USA_attempt_standardization
+	relative_position_id = USA_national_healthcare_act
 	prerequisite = { focus = USA_attempt_standardization }
 	prerequisite = { focus = USA_economic_equality_act }
 	prerequisite = { focus = USA_national_healthcare_act }
-	prerequisite = { focus = USA_politicians_should_be_popular }
+	prerequisite = { focus = USA_voting_rights_act }
     completion_reward = {
         # add blessed event
 		custom_effect_tooltip = USA_america_reborn_tooltip
@@ -809,25 +603,6 @@ shared_focus = {
 			id = united_states_thomas.43
 			hours = 6
 		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_one_more_thing
-	icon = GFX_USA_one_more_thing
-	
-    x = 0
-	y = 1
-	
-	cost = 8
-	#relative_position_id = USA_america_reborn
-	#prerequisite = { focus = USA_america_reborn }
-    completion_reward = {
-        
     }
 	
 	ai_will_do = {
