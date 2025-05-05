@@ -928,11 +928,33 @@ country_event = { #
 		trigger = { has_country_flag = bill_passed }
 		complete_national_focus = USA_congress_reigns_supreme
 		set_country_flag = USA_war_declaration_passed
+		
+		add_to_war = {
+			targeted_alliance = FRA
+			enemy = GER
+			hostility_reason = asked_to_join
+		}
+		
+		USA_bill_clear = yes # ALWAYS DO THIS
+	}
+	
+	option = { # bill passes
+		name = us_bill.19.b
+		trigger = { has_country_flag = bill_passed }
+		complete_national_focus = USA_congress_reigns_supreme
+		set_country_flag = USA_war_declaration_passed
+		
+		add_to_war = {
+			targeted_alliance = GER
+			enemy = FRA
+			hostility_reason = asked_to_join
+		}
+		
 		USA_bill_clear = yes # ALWAYS DO THIS
 	}
 	
 	option = { # bill fails
-		name = us_bill.19.b
+		name = us_bill.19.c
 		trigger = { NOT = { has_country_flag = bill_passed } }
 		complete_national_focus = USA_peace_in_our_time
 		set_country_flag = USA_war_declaration_failed
