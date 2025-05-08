@@ -240,7 +240,7 @@ shared_focus = {
 	}
 	
     completion_reward = {
-		
+		enable_tech_camel_corps = yes
     }
 	
 	ai_will_do = {
@@ -256,7 +256,7 @@ shared_focus = {
 	y = 1
 	
 	cost = 5
-	relative_position_id = ALG_guerilla_warfare
+	relative_position_id = ALG_begin_professionalization
 	prerequisite = {
 		focus = ALG_guerilla_warfare
 		focus = ALG_begin_professionalization
@@ -279,7 +279,7 @@ shared_focus = {
 	y = 1
 	
 	cost = 5
-	relative_position_id = ALG_begin_professionalization
+	relative_position_id = ALG_guerilla_warfare
 	prerequisite = {
 		focus = ALG_guerilla_warfare
 		focus = ALG_begin_professionalization
@@ -367,13 +367,7 @@ shared_focus = {
 	}
 	
     completion_reward = {
-		random_owned_state = {
-			limit = {
-				OR = {
-					is_urban_state = yes
-					is_rural_state = yes
-				}
-			}
+		random_owned_controlled_state = {
 			add_building_construction = {
 				type = arms_factory
 				level = 1
@@ -396,9 +390,9 @@ shared_focus = {
 	y = 1
 	
 	cost = 5
-	relative_position_id = ALG_anti_colonial_crusade
+	relative_position_id = ALG_study_european_tactics
 	prerequisite = {
-		focus = ALG_anti_colonial_crusade
+		focus = ALG_study_european_tactics
 	}
 	
     completion_reward = {
@@ -406,6 +400,11 @@ shared_focus = {
 			bonus = 0.5
 			uses = 1
 			category = support_tech
+		}
+		add_tech_bonus = {
+			bonus = 0.25
+			uses = 1
+			category = motorized_equipment
 		}
     }
 	
@@ -418,7 +417,7 @@ shared_focus = {
     id = ALG_establish_the_republican_guard
 	icon = GFX_focus_generic_military_mission
 	
-    x = 1
+    x = -1
 	y = 1
 	
 	cost = 5
@@ -503,7 +502,11 @@ shared_focus = {
 	}
 	
     completion_reward = {
-		
+		add_doctrine_cost_reduction = {
+			cost_reduction = 0.25
+			uses = 1
+			category = land_doctrine
+		}
     }
 	
 	ai_will_do = {
