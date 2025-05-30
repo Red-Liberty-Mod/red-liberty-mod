@@ -1,0 +1,250 @@
+shared_focus = {
+    id = SOV_the_rightists
+	icon = GFX_SOV_the_rightists
+	
+    x = 4
+	y = 0
+	cost = 5
+	
+	offset = {
+		x = 9
+		y = 8
+		trigger = {
+			has_focus_tree = SOV_initial_tree
+		}
+	}
+	
+	available = {
+		has_country_flag = SOV_rightists_flag
+	}
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_crackdown_on_factionalism
+	icon = GFX_focus_generic_communist_discourse
+	
+    x = -3
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_the_rightists
+	prerequisite = { focus = SOV_the_rightists }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_gradual_industrialization
+	icon = GFX_focus_generic_state_economy
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_the_rightists
+	prerequisite = { focus = SOV_the_rightists }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_acknowledge_the_shortcomings
+	icon = GFX_SOV_acknowledge_the_shortcomings
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_the_rightists
+	prerequisite = { focus = SOV_the_rightists }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_strengthen_the_ruble
+	icon = GFX_focus_generic_banking
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_acknowledge_the_shortcomings
+	prerequisite = { focus = SOV_acknowledge_the_shortcomings }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_streamline_the_bureaucracy
+	icon = GFX_SOV_acknowledge_the_shortcomings
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_acknowledge_the_shortcomings
+	prerequisite = { focus = SOV_acknowledge_the_shortcomings }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_planning_and_output_incentives
+	icon = GFX_SOV_acknowledge_the_shortcomings
+	
+    x = 3
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_acknowledge_the_shortcomings
+	prerequisite = { focus = SOV_acknowledge_the_shortcomings }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_modernize_the_farms
+	icon = GFX_focus_generic_agrarian_reform
+	
+    x = 0
+	y = 2
+	cost = 5
+	
+	relative_position_id = SOV_gradual_industrialization
+	prerequisite = { focus = SOV_gradual_industrialization }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_loosen_trade_regulations
+	icon = GFX_goal_generic_positive_trade_relations
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_streamline_the_bureaucracy
+	prerequisite = { focus = SOV_streamline_the_bureaucracy }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_loosen_grain_quotas
+	icon = GFX_SOV_acknowledge_the_shortcomings
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_streamline_the_bureaucracy
+	prerequisite = { focus = SOV_streamline_the_bureaucracy }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_import_international_expertise
+	icon = GFX_focus_generic_research
+	
+    x = 0
+	y = 2
+	cost = 5
+	
+	relative_position_id = SOV_strengthen_the_ruble
+	prerequisite = { focus = SOV_modernize_the_farms }
+	prerequisite = { focus = SOV_strengthen_the_ruble }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_join_the_world_market
+	icon = GFX_SOV_acknowledge_the_shortcomings
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_loosen_trade_regulations
+	prerequisite = { focus = SOV_loosen_trade_regulations }
+	prerequisite = { focus = SOV_loosen_grain_quotas }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}

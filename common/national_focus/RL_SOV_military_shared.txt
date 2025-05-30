@@ -115,7 +115,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_equipment_modernization
-	icon = GFX_goal_generic_small_arms
+	icon = GFX_focus_generic_design_equipment
 	
     x = -1
 	y = 1
@@ -210,28 +210,28 @@ shared_focus = {
 	}
 }
 
-shared_focus = {
-    id = SOV_lessons_of_the_civil_war
-	icon = GFX_SOV_lessons_of_the_civil_war
-	
-    x = -2
-	y = 2
-	cost = 5
-	
-	relative_position_id = SOV_the_red_army
-	prerequisite = { focus = SOV_the_red_army }
-    completion_reward = {
-		
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
+#shared_focus = {
+#    id = SOV_lessons_of_the_civil_war
+#	icon = GFX_SOV_lessons_of_the_civil_war
+#	
+#    x = -2
+#	y = 2
+#	cost = 5
+#	
+#	relative_position_id = SOV_the_red_army
+#	prerequisite = { focus = SOV_the_red_army }
+#    completion_reward = {
+#		
+#    }
+#	
+#	ai_will_do = {
+#		factor = 10
+#	}
+#}
 
 shared_focus = {
     id = SOV_expand_tank_production
-	icon = GFX_focus_generic_tank_production
+	icon = GFX_focus_generic_mass_production
 	
     x = -1
 	y = 1
@@ -547,7 +547,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_permanent_mobilization
-	icon = GFX_focus_SOV_mobilization_plan
+	icon = GFX_focus_generic_full_employment
 	
     x = 1
 	y = 1
@@ -603,7 +603,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_penal_battalions
-	icon = GFX_focus_SOV_penal_battalions
+	icon = GFX_focus_GER_strafbataillon
 	
     x = 1
 	y = 1
@@ -611,6 +611,8 @@ shared_focus = {
 	
 	relative_position_id = SOV_smersh
 	prerequisite = { focus = SOV_smersh }
+	prerequisite = { focus = SOV_frontline_commissars }
+	
     completion_reward = {
 		custom_override_tooltip = {
 			tooltip = {
@@ -658,12 +660,12 @@ shared_focus = {
     id = SOV_masters_of_the_winter
 	icon = GFX_focus_generic_winter_warfare
 	
-    x = 0
-	y = 2
+    x = -1
+	y = 1
 	cost = 5
 	
-	relative_position_id = SOV_lessons_of_the_civil_war
-	prerequisite = { focus = SOV_lessons_of_the_civil_war }
+	relative_position_id = SOV_military_engineering_university
+	prerequisite = { focus = SOV_military_engineering_university }
     completion_reward = {
 		every_army_leader = {
 			random_select_amount = 3
@@ -686,7 +688,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_war_of_mobility
-	icon = GFX_SOV_war_of_mobility
+	icon = GFX_focus_generic_armor_doctrine
 	
     x = 1
 	y = 1
@@ -769,7 +771,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_form_guards_divisions
-	icon = GFX_SOV_form_guards_divisions
+	icon = GFX_focus_generic_manpower
 	
     x = 0
 	y = 2
@@ -1096,7 +1098,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_expand_the_surface_fleet
-	icon = GFX_goal_generic_navy_battleship
+	icon = GFX_focus_generic_navy_battleship2
 	
     x = -1
 	y = 1
@@ -1177,7 +1179,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_new_destroyers
-	icon = GFX_unknown_focus
+	icon = GFX_focus_generic_destroyer
 	
     x = -1
 	y = 1
@@ -1320,8 +1322,8 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = SOV_disrupt_communications
-	icon = GFX_unknown_focus
+    id = SOV_landing_craft
+	icon = GFX_focus_generic_naval_invasion
 	
     x = 1
 	y = 1
@@ -1377,7 +1379,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_armored_cruisers
-	icon = GFX_unknown_focus
+	icon = GFX_focus_GER_panzerschiff
 	
     x = 1
 	y = 1
@@ -1452,6 +1454,108 @@ shared_focus = {
 				}
 			}
 		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_reinforce_coastal_defences
+	icon = GFX_focus_generic_coastal_fort
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_landing_craft
+	prerequisite = { focus = SOV_landing_craft }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_naval_infantry
+	icon = GFX_unknown_focus
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_landing_craft
+	prerequisite = { focus = SOV_landing_craft }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_replace_the_izmail
+	icon = GFX_focus_generic_air_carrier
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_reinforce_leningrad
+	prerequisite = { focus = SOV_reinforce_leningrad }
+	prerequisite = { focus = SOV_armored_cruisers }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_anti_mine_warfare
+	icon = GFX_focus_generic_mine_warfare
+	
+    x = 0
+	y = 2
+	cost = 5
+	
+	relative_position_id = SOV_expand_the_naval_academy
+	prerequisite = { focus = SOV_expand_the_naval_academy }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_disrupt_communications
+	icon = GFX_unknown_focus
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_reinforce_coastal_defences
+	prerequisite = { focus = SOV_reinforce_coastal_defences }
+	prerequisite = { focus = SOV_naval_infantry	}
+	
+    completion_reward = {
+		
     }
 	
 	ai_will_do = {

@@ -30,7 +30,7 @@ shared_focus = {
     id = SOV_strengthen_the_gensec
 	icon = GFX_focus_generic_soviet_politics
 	
-    x = -3
+    x = 3
 	y = 1
 	cost = 5
 	
@@ -149,7 +149,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_five_year_plan
-	icon = GFX_goal_generic_construct_civ_factory
+	icon = GFX_focus_generic_central_planning
 	
     x = 1
 	y = 1
@@ -191,7 +191,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_forced_collectivization
-	icon = GFX_SOV_forced_collectivization
+	icon = GFX_focus_generic_forced_labor
 	
     x = 1
 	y = 1
@@ -200,6 +200,26 @@ shared_focus = {
 	relative_position_id = SOV_five_year_plan
 	prerequisite = { focus = SOV_five_year_plan }
 	prerequisite = { focus = SOV_militarization_of_labour }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_empower_the_security_service
+	icon = GFX_focus_generic_shadow_government
+	
+    x = 0
+	y = 2
+	cost = 5
+	
+	relative_position_id = SOV_promote_loyal_officers
+	prerequisite = { focus = SOV_promote_loyal_officers }
 	
     completion_reward = {
 		
