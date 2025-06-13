@@ -23,7 +23,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -59,7 +59,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 	
 	search_filters = {  }
@@ -69,7 +69,7 @@ shared_focus = {
     id = USA_butler_reform_plan
 	icon = GFX_USA_butler_reform_plan
 	
-    x = -8
+    x = -9
 	y = 1
 	
 	available = {
@@ -79,14 +79,26 @@ shared_focus = {
 	cost = 4
 	relative_position_id = USA_reforming_the_military
 	prerequisite = { focus = USA_reforming_the_military }
+	mutually_exclusive = { focus = USA_marshall_reform_plan }
+	
     completion_reward = {
         army_experience = 25
 		custom_effect_tooltip = available_political_advisor
 		show_ideas_tooltip = USA_smedley_butler_political_advisor
+		
+		swap_ideas = {
+			remove_idea = USA_the_tame_army
+			add_idea = USA_army_reforms
+			days = 500
+		}
+		
+		hidden_effect = {
+			country_event = tree_reload.1
+		}
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 	
 	search_filters = { FOCUS_FILTER_ARMY_XP }
@@ -96,8 +108,12 @@ shared_focus = {
     id = USA_20_division_plan
 	icon = GFX_USA_20_division_plan
 	
-    x = -2
+    x = -1
 	y = 1
+	
+	allow_branch = {
+		has_completed_focus = USA_butler_reform_plan
+	}
 	
 	available = {
 		has_character = USA_smedley_butler
@@ -109,10 +125,15 @@ shared_focus = {
     completion_reward = {
 		army_experience = 15
         add_ideas = { USA_20_division_plan_a }
+		
+		modify_timed_idea = {
+			idea = USA_army_reforms
+			months = -1
+		}
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 	
 	search_filters = { FOCUS_FILTER_ARMY_XP }
@@ -179,7 +200,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -210,7 +231,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -246,10 +267,14 @@ shared_focus = {
 				add_idea = USA_20_division_plan_abd
 			}
 		}
+		modify_timed_idea = {
+			idea = USA_army_reforms
+			months = -1
+		}
 	}
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 	
 	search_filters = { FOCUS_FILTER_ARMY_XP }
@@ -295,10 +320,14 @@ shared_focus = {
 				add_idea = USA_20_division_plan_abcd
 			}
 		}
+		modify_timed_idea = {
+			idea = USA_army_reforms
+			months = -1
+		}
 	}
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -336,7 +365,7 @@ shared_focus = {
 	}
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -344,8 +373,12 @@ shared_focus = {
     id = USA_ending_war_as_business
 	icon = GFX_USA_ending_war_as_business
 	
-    x = 2
+    x = 3
 	y = 1
+	
+	allow_branch = {
+		has_completed_focus = USA_butler_reform_plan
+	}
 	
 	available = {
 		has_character = USA_smedley_butler
@@ -360,7 +393,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -384,7 +417,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -407,7 +440,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -431,7 +464,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -508,7 +541,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 	
 	search_filters = { FOCUS_FILTER_USA_CONGRESS FOCUS_FILTER_INDUSTRY }
@@ -534,7 +567,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 	
 	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
@@ -562,7 +595,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 	
 	search_filters = { FOCUS_FILTER_POLITICAL }
@@ -591,10 +624,306 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 	
 	search_filters = { FOCUS_FILTER_STABILITY }
+}
+
+shared_focus = {
+    id = USA_marshall_reform_plan
+	icon = GFX_focus_generic_combined_arms
+	
+    x = -7
+	y = 1
+	
+	cost = 4
+	relative_position_id = USA_reforming_the_military
+	prerequisite = { focus = USA_reforming_the_military }
+	mutually_exclusive = { focus = USA_butler_reform_plan }
+	
+    completion_reward = {
+		army_experience = 25
+		swap_ideas = {
+			remove_idea = USA_the_tame_army
+			add_idea = USA_army_reforms
+			days = 365
+		}
+		
+		hidden_effect = {
+			country_event = tree_reload.1
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+	
+	search_filters = { FOCUS_FILTER_ARMY_XP }
+}
+
+shared_focus = {
+    id = USA_90_division_plan
+	icon = GFX_focus_generic_manpower
+	
+    x = -3
+	y = 1
+	
+	allow_branch = {
+		NOT = { has_completed_focus = USA_butler_reform_plan }
+	}
+	
+	cost = 5
+	relative_position_id = USA_marshall_reform_plan
+	prerequisite = { focus = USA_marshall_reform_plan }
+	mutually_exclusive = { focus = USA_256_division_plan }
+	
+    completion_reward = {
+		modify_timed_idea = {
+			idea = USA_army_reforms
+			months = -1
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = USA_256_division_plan
+	icon = GFX_USA_20_division_plan
+	
+    x = -1
+	y = 1
+	
+	allow_branch = {
+		NOT = { has_completed_focus = USA_butler_reform_plan }
+	}
+	
+	cost = 5
+	relative_position_id = USA_marshall_reform_plan
+	prerequisite = { focus = USA_marshall_reform_plan }
+	mutually_exclusive = { focus = USA_90_division_plan }
+	
+    completion_reward = {
+		add_political_power = -100
+		modify_timed_idea = {
+			idea = USA_army_reforms
+			months = -1
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 0
+			has_government = democratic_socialism
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_utilize_american_industry
+	icon = GFX_focus_generic_support_equipment
+	
+    x = 1
+	y = 1
+	
+	allow_branch = {
+		NOT = { has_completed_focus = USA_butler_reform_plan }
+	}
+	
+	cost = 5
+	relative_position_id = USA_marshall_reform_plan
+	prerequisite = { focus = USA_marshall_reform_plan }
+	
+    completion_reward = {
+		modify_timed_idea = {
+			idea = USA_army_reforms
+			months = -1
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = USA_joint_chiefs_of_staff
+	icon = GFX_focus_usa_build_the_pentagon
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_90_division_plan
+	prerequisite = {
+		focus = USA_90_division_plan
+		focus = USA_256_division_plan
+	}
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = USA_equipment_modernization
+	icon = GFX_focus_generic_design_equipment
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_90_division_plan
+	prerequisite = {
+		focus = USA_90_division_plan
+		focus = USA_256_division_plan
+	}
+	
+    completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.5
+			ahead_reduction = 1
+			uses = 1
+			category = infantry_weapons
+			name = USA_equipment_modernization
+		}
+		modify_timed_idea = {
+			idea = USA_army_reforms
+			months = -1
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = USA_mass_motorization
+	icon = GFX_focus_generic_truck
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_utilize_american_industry
+	prerequisite = { focus = USA_utilize_american_industry }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = USA_support_federal_arsenals
+	icon = GFX_goal_generic_army_artillery
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_utilize_american_industry
+	prerequisite = { focus = USA_utilize_american_industry }
+	
+    completion_reward = {
+		if = {
+			limit = {
+				has_dlc_aat = yes
+			}
+			mio:USA_springfield_armory_organization = {
+				add_mio_size = 1
+				add_mio_research_bonus = 0.05
+			}
+			mio:USA_rock_island_arsenal_organization = {
+				add_mio_size = 1
+				add_mio_research_bonus = 0.05
+			}
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = USA_marshall_scrap_the_reserves
+	icon = GFX_USA_scrap_reserves
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_equipment_modernization
+	prerequisite = { focus = USA_equipment_modernization }
+	
+    completion_reward = {
+		delete_unit_template_and_units = {
+			division_template = "Organized Reserve"
+		}
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 5000
+			producer = USA
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = USA_raise_armored_divisions
+	icon = GFX_focus_generic_armor_doctrine
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_equipment_modernization
+	prerequisite = { focus = USA_equipment_modernization }
+	prerequisite = { focus = USA_mass_motorization }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = USA_infantry_mechanization
+	icon = GFX_focus_generic_mechanized
+	
+    x = 0
+	y = 2
+	
+	cost = 5
+	relative_position_id = USA_mass_motorization
+	prerequisite = { focus = USA_mass_motorization }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
 }
 
 shared_focus = {
@@ -612,7 +941,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 	
 	search_filters = { FOCUS_FILTER_AIR_XP }
@@ -640,7 +969,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -664,7 +993,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -693,7 +1022,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 	
 	search_filters = { FOCUS_FILTER_RESEARCH }
@@ -720,7 +1049,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 	
 	search_filters = { FOCUS_FILTER_RESEARCH }
@@ -755,7 +1084,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -788,7 +1117,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -811,7 +1140,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -865,7 +1194,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -920,7 +1249,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -945,7 +1274,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 	
 	search_filters = { FOCUS_FILTER_RESEARCH }
@@ -972,7 +1301,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 	
 	search_filters = { FOCUS_FILTER_RESEARCH }
@@ -997,7 +1326,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -1040,7 +1369,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -1066,7 +1395,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -1089,7 +1418,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -1115,7 +1444,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -1137,7 +1466,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -1160,7 +1489,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 	
 	search_filters = { FOCUS_FILTER_RESEARCH }
@@ -1181,7 +1510,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 	
 	search_filters = { FOCUS_FILTER_NAVY_XP }
@@ -1209,7 +1538,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -1273,7 +1602,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -1330,7 +1659,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -1358,7 +1687,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -1387,7 +1716,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 	
 	search_filters = { FOCUS_FILTER_RESEARCH }
@@ -1444,7 +1773,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -1472,7 +1801,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -1493,7 +1822,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -1516,7 +1845,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -1569,7 +1898,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 	
 	search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -1599,7 +1928,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 	
 	search_filters = { FOCUS_FILTER_RESEARCH }
@@ -1625,7 +1954,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 	
 	search_filters = { FOCUS_FILTER_RESEARCH }
@@ -1659,7 +1988,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -1701,7 +2030,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -1724,7 +2053,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -1750,7 +2079,7 @@ shared_focus = {
 	}
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -1769,7 +2098,7 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
 
@@ -1795,6 +2124,6 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
 	}
 }
