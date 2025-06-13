@@ -469,3 +469,31 @@ TAG_support_ICA = {
 		value = 150
 	}
 }
+
+TAG_support_SOV = {
+	allowed = {
+		OR = {
+			original_tag = UOB
+			original_tag = CHL
+			original_tag = MON
+		}
+	}
+	enable = {
+		SOV = {
+			has_war_with = RUS
+		}
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = SOV
+		value = 150
+	}
+	#ai_strategy = {
+	#	type = send_volunteers_desire
+	#	id = SOV
+	#	value = 150
+	#}
+}
