@@ -1,8 +1,8 @@
 ideas = {
 	country = {
-
-		SPR_divided_spain = {
-			removal_cost = -1 
+		
+		SPR_corporatist_constitution = {
+			picture = generic_constitutional_guarantees
 			
 			allowed = {
 				always = no
@@ -13,13 +13,16 @@ ideas = {
 			}
 			
 			modifier = {
-				stability_factor = -0.2
-				war_support_factor = -0.2
+				political_power_factor = 0.1
+				consumer_goods_factor = 0.15
+				production_factory_max_efficiency_factor = 0.05
+				industrial_capacity_factory = 0.05
+				stability_factor = -0.05
 			}
 		}
 		
-		SPR_civil_war_aftermath = {
-			removal_cost = -1 
+		SPR_republican_agitation = {
+			picture = MEX_revolutionary_army
 			
 			allowed = {
 				always = no
@@ -30,16 +33,15 @@ ideas = {
 			}
 			
 			modifier = {
-				consumer_goods_factor = 1
-				conscription = -0.01
-				production_speed_buildings_factor = -0.5
-				industrial_capacity_factory = -0.5
-				industrial_capacity_dockyard = -0.5
+				stability_factor = -0.1
+				war_support_factor = 0.05
+				social_democracy_drift = 0.01
+				progressive_liberalism_drift = 0.01
 			}
 		}
 		
-		SPR_disatisfied_people = {
-			removal_cost = -1 
+		SPR_stagnant_economy = {
+			picture = generic_economic_crisis
 			
 			allowed = {
 				always = no
@@ -50,12 +52,9 @@ ideas = {
 			}
 			
 			modifier = {
-				fascism_drift = 0.025
-				ultraconservatism_drift = 0.0125
-				national_conservatism_drift = 0.0125
-				revolutionary_socialism_drift = 0.025
-				vanguard_socialism_drift = 0.025
-				anarchism_drift = 0.0125
+				production_factory_max_efficiency_factor = -0.05
+				industrial_capacity_factory = -0.05
+				production_speed_buildings_factor = -0.1
 			}
 		}
 	}
