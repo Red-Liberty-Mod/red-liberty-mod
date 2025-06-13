@@ -23,7 +23,7 @@ propaganda_efforts = {
 		days_remove = 90
 		days_re_enable = 180
 
-		cost = 150
+		cost = war_propaganda_decision_cost?150
 
 		modifier = {
 			war_support_weekly = 0.005
@@ -258,6 +258,127 @@ propaganda_efforts = {
 				add = 201
 				has_war_support < 0.6
 			}
+		}
+	}
+}
+
+economic_efforts = {
+	
+	industrialize_the_economy = {
+		icon = GFX_decision_generic_construction
+		
+		visible = {
+			OR = {
+				has_country_flag = unindustrialized_nation
+				has_country_flag = semi_industrialized_nation
+			}
+		}
+		
+		available = {
+			has_tech = basic_machine_tools
+		}
+		
+		cost = 100
+		days_remove = 120
+		
+		modifier = {
+			production_speed_buildings_factor = 0.15
+		}
+		
+		remove_effect = {
+			if = {
+				limit = { has_country_flag = unindustrialized_nation }
+				clr_country_flag = unindustrialized_nation
+				set_country_flag = semi_industrialized_nation
+				custom_effect_tooltip = industrialize_the_economy_tt_1
+			}
+			else_if = {
+				limit = { has_country_flag = semi_industrialized_nation }
+				clr_country_flag = semi_industrialized_nation
+				custom_effect_tooltip = industrialize_the_economy_tt_2
+			}
+		}
+	}
+	
+	fight_poverty = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		
+		cost = 50
+		days_re_enable = 300
+		
+		complete_effect = {
+			ECON_poverty_change_medium = yes
+		}
+	}
+	
+	seize_some_trains_woo = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+
+		visible = {
+			has_tech = basic_train
+			num_of_factories < 60
+			NOT = { has_stability < 0.05 }
+		}
+
+		available = {
+			has_equipment = { train_equipment < 101 }
+		}
+		
+		cost = 10
+		days_remove = 180
+
+		complete_effect = {
+			#log = "[GetLogRoot]: Decision seize_some_trains_woo"
+			add_stability = -0.05
+			add_equipment_to_stockpile = {
+				type = train_equipment
+				amount = 15
+			}
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 1
+				has_stability > 0.74
+				has_equipment = { train_equipment < 15 }
+			}
+		}
+	}
+
+	restructure_supply_system = { #one time boost to get a few cheap supply hubs
+		icon = GFX_decision_generic_construction
+
+		visible = {
+			OR = {
+				is_major = no
+				AND = {
+					is_faction_leader = yes
+					num_of_factories < 51 #would be a minor if it wasn't for faction leader status
+				}
+			}
+		}
+		
+		cost = 10
+		days_remove = 120
+		fire_only_once = yes
+
+		modifier = {
+			production_speed_supply_node_factor = 3
+		}
+
+		complete_effect = {
+			#log = "[GetLogRoot]: Decision restructure_supply_system"
+			set_variable = { node_goal = num_of_supply_nodes }
+			add_to_variable = { node_goal = 3 } #maximum 3 additional nodes
+		}
+
+		cancel_trigger = {
+			check_variable = { node_goal < num_of_supply_nodes } #if the number of supply nodes exceeds the old number by +3, immediately cancel
+		}
+		
+		ai_will_do = {
+			base = 0
 		}
 	}
 }
