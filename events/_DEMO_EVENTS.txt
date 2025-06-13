@@ -1247,17 +1247,76 @@ country_event = {
 	}
 }
 
-country_event = { # far eastern revolt
+country_event = { # mutiny in vladivostok
 	id = demo_rus.1
-	title = ""
+	title = demo_rus.1.title
 	desc = demo_rus.1.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = demo_rus.1.a
+	}
+}
+
+country_event = { # mutiny devolves into rioting
+	id = demo_rus.2
+	title = demo_rus.2.title
+	desc = demo_rus.2.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = demo_rus.2.a
+	}
+}
+
+country_event = { # rioting devolves into armed rebellion
+	id = demo_rus.3
+	title = demo_rus.3.title
+	desc = demo_rus.3.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = demo_rus.3.a
+		SOV = {
+			country_event = {
+				id = demo_rus.4
+				hours = 12
+			}
+		}
+	}
+}
+
+country_event = { # what the hell is happening over there?
+	id = demo_rus.4
+	title = demo_rus.4.title
+	desc = demo_rus.4.desc
 	
 	is_triggered_only = yes
 	
 	fire_only_once = yes
 
 	option = {
-		name = ""
+		name = demo_rus.4.a
+	}
+}
+
+country_event = { # far eastern revolt
+	id = demo_rus.5
+	title = demo_rus.5.title
+	desc = demo_rus.5.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = demo_rus.5.a
 		896 = {
 			set_demilitarized_zone = no
 		}
@@ -1273,23 +1332,22 @@ country_event = { # far eastern revolt
 			set_country_flag = may_send_volunteers_to_FER
 		}
 		country_event = {
-			id = demo_rus.2
+			id = demo_rus.6
 			days = 10
 		}
 	}
 }
 
 country_event = { # soviet-state war
-	id = demo_rus.2
-	title = demo_rus.2.title
-	desc = demo_rus.2.desc
+	id = demo_rus.6
+	title = demo_rus.6.title
+	desc = demo_rus.6.desc
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
 
 	option = {
-		name = demo_rus.2.a
+		name = demo_rus.6.a
 		SOV = {
 			declare_war_on = {
 				target = RUS
@@ -1304,16 +1362,16 @@ country_event = { # soviet-state war
 		hidden_effect = {
 			random_other_country = {
 				limit = { is_ai = yes }
-				news_event = { id = demo_rus.3 days = 1 }
+				news_event = { id = demo_rus.6 days = 1 }
 			}
 		}
 	}
 }
 
 news_event = { # soviet-state war news
-	id = demo_rus.3
-	title = demo_rus.3.title
-	desc = demo_rus.3.desc
+	id = demo_rus.7
+	title = demo_rus.7.title
+	desc = demo_rus.7.desc
 	picture = GFX_report_event_russian_civil_war
 	
 	is_triggered_only = yes
@@ -1321,7 +1379,7 @@ news_event = { # soviet-state war news
 	major = yes
 
 	option = {
-		name = demo_rus.3.a
+		name = demo_rus.7.a
 		trigger = {
 			OR = {
 				has_government = vanguard_socialism
@@ -1332,7 +1390,7 @@ news_event = { # soviet-state war news
 	}
 	
 	option = {
-		name = demo_rus.3.b
+		name = demo_rus.7.b
 		trigger = {
 			NOT = {
 				OR = {
@@ -1345,16 +1403,16 @@ news_event = { # soviet-state war news
 	}
 }
 news_event = { # soviet victory
-	id = demo_rus.4
-	title = demo_rus.4.title
-	desc = demo_rus.4.desc
+	id = demo_rus.8
+	title = demo_rus.8.title
+	desc = demo_rus.8.desc
 	
 	is_triggered_only = yes
 	
 	major = yes
 
 	option = {
-		name = demo_rus.4.a
+		name = demo_rus.8.a
 		trigger = {
 			OR = {
 				has_government = vanguard_socialism
@@ -1365,7 +1423,7 @@ news_event = { # soviet victory
 	}
 	
 	option = {
-		name = demo_rus.4.b
+		name = demo_rus.8.b
 		trigger = {
 			NOT = {
 				OR = {
@@ -1379,16 +1437,16 @@ news_event = { # soviet victory
 }
 
 news_event = { # white victory 
-	id = demo_rus.5
-	title = demo_rus.5.title
-	desc = demo_rus.5.desc
+	id = demo_rus.9
+	title = demo_rus.9.title
+	desc = demo_rus.9.desc
 	
 	is_triggered_only = yes
 	
 	major = yes
 
 	option = {
-		name = demo_rus.5.a
+		name = demo_rus.9.a
 		trigger = {
 			OR = {
 				has_government = vanguard_socialism
@@ -1399,7 +1457,7 @@ news_event = { # white victory
 	}
 	
 	option = {
-		name = demo_rus.5.b
+		name = demo_rus.9.b
 		trigger = {
 			NOT = {
 				OR = {
