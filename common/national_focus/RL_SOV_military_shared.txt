@@ -809,6 +809,31 @@ shared_focus = {
 }
 
 shared_focus = {
+    id = SOV_international_intel_networks
+	icon = GFX_focus_generic_secret_police
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	available = {
+		has_global_flag = russian_civil_war_ended
+	}
+	
+	relative_position_id = SOV_smersh
+	prerequisite = { focus = SOV_smersh }
+	prerequisite = { focus = SOV_frontline_commissars }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
     id = SOV_penal_battalions
 	icon = GFX_focus_GER_strafbataillon
 	
@@ -816,8 +841,7 @@ shared_focus = {
 	y = 1
 	cost = 5
 	
-	relative_position_id = SOV_smersh
-	prerequisite = { focus = SOV_smersh }
+	relative_position_id = SOV_frontline_commissars
 	prerequisite = { focus = SOV_frontline_commissars }
 	
     completion_reward = {
@@ -1164,11 +1188,7 @@ shared_focus = {
 		add_tech_bonus = {
 			bonus = 0.25
 			uses = 2
-			technology = motorized_rocket_unit
-			technology = rocket_artillery
-			technology = rocket_artillery2
-			technology = rocket_artillery3
-			technology = rocket_artillery4
+			category = rocketry
 		}
     }
 	
@@ -1205,7 +1225,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_defend_the_skies
-	icon = GFX_focus_generic_air_defense
+	icon = GFX_focus_PER_construct_air_defenses
 	
     x = 0
 	y = 2
@@ -1543,11 +1563,21 @@ shared_focus = {
 	}
 	
     completion_reward = {
-		
+		add_tech_bonus = {
+			name = SOV_landing_craft
+			bonus = 0.5
+			ahead_reduction = 0.5
+			uses = 1
+			category = tp_tech
+		}
     }
 	
 	ai_will_do = {
 		factor = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
 	}
 }
 
@@ -1586,7 +1616,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_armored_cruisers
-	icon = GFX_focus_GER_panzerschiff
+	icon = GFX_focus_generic_navy_research_bonus
 	
     x = 1
 	y = 1
@@ -1700,11 +1730,21 @@ shared_focus = {
 	prerequisite = { focus = SOV_landing_craft }
 	
     completion_reward = {
-		
+		add_tech_bonus = {
+			name = SOV_naval_infantry
+			bonus = 0.5
+			uses = 1
+			category = marine_tech
+			category = cat_special_forces_generic
+		}
     }
 	
 	ai_will_do = {
 		factor = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
 	}
 }
 
@@ -1771,10 +1811,34 @@ shared_focus = {
 }
 
 shared_focus = {
+    id = SOV_if_youll_be_lucky
+	icon = GFX_unknown_focus
+	
+    x = 0
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_anti_mine_warfare
+	prerequisite = { focus = SOV_anti_mine_warfare	}
+	prerequisite = {
+		focus = SOV_replace_the_izmail
+		focus = SOV_disrupt_communications
+	}
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
     id = SOV_the_red_air_force
 	icon = GFX_SOV_the_red_air_force
 	
-    x = 10
+    x = 9
 	y = 0
 	cost = 5
 	
@@ -1799,7 +1863,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_women_in_aviation
-	icon = GFX_SOV_women_in_aviation
+	icon = GFX_focus_SOV_women_in_aviation
 	
     x = -3
 	y = 1
@@ -1809,7 +1873,10 @@ shared_focus = {
 	prerequisite = { focus = SOV_the_red_air_force }
 	
     completion_reward = {
-		
+		add_manpower = 10000
+		set_rule = {
+			can_generate_female_aces = yes
+		}
     }
 	
 	ai_will_do = {
@@ -1819,7 +1886,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_transpolar_flights
-	icon = GFX_SOV_transpolar_flights
+	icon = GFX_goal_generic_air_fighter2
 	
     x = -1
 	y = 1
@@ -1839,7 +1906,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_airspace_defence
-	icon = GFX_SOV_airspace_defence
+	icon = GFX_focus_generic_air_defense
 	
     x = 1
 	y = 1
@@ -1849,7 +1916,11 @@ shared_focus = {
 	prerequisite = { focus = SOV_the_red_air_force }
 	
     completion_reward = {
-		
+		add_doctrine_cost_reduction = {
+			cost_reduction = 0.25
+			uses = 2
+			category = air_doctrine
+		}
     }
 	
 	ai_will_do = {
@@ -1859,7 +1930,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_raise_aircraft_production
-	icon = GFX_SOV_raise_aircraft_production
+	icon = GFX_focus_generic_aircraft_production
 	
     x = 3
 	y = 1
@@ -1869,17 +1940,36 @@ shared_focus = {
 	prerequisite = { focus = SOV_the_red_air_force }
 	
     completion_reward = {
-		
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
     }
 	
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
+	}
 }
 
 shared_focus = {
     id = SOV_propagandize_the_air_force
-	icon = GFX_SOV_raise_aircraft_production
+	icon = GFX_focus_PER_the_peoples_airforce
 	
     x = 1
 	y = 1
@@ -1890,17 +1980,21 @@ shared_focus = {
 	prerequisite = { focus = SOV_transpolar_flights }
 	
     completion_reward = {
-		
+		add_war_support = 0.075
     }
 	
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_WAR_SUPPORT
+	}
 }
 
 shared_focus = {
     id = SOV_prioritize_light_aircraft
-	icon = GFX_SOV_raise_aircraft_production
+	icon = GFX_focus_generic_air_fighter
 	
     x = -1
 	y = 1
@@ -1912,17 +2006,45 @@ shared_focus = {
 	mutually_exclusive = { focus = SOV_prioritize_heavy_aircraft }
 	
     completion_reward = {
-		
+		add_timed_idea = {
+			idea = SOV_prioritizing_light_air
+			days = 365
+		}
+		if = {
+			limit = {
+				has_dlc_bba = yes
+			}
+			add_tech_bonus = {
+				name = SOV_prioritize_light_aircraft
+				bonus = 0.5
+				ahead_reduction = 0.5
+				uses = 1
+				category = light_air
+			}
+		}
+		else = {
+			add_tech_bonus = {
+				name = SOV_prioritize_light_aircraft
+				bonus = 0.5
+				ahead_reduction = 0.5
+				uses = 1
+				category = light_fighter
+			}
+		}
     }
 	
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
 }
 
 shared_focus = {
     id = SOV_prioritize_heavy_aircraft
-	icon = GFX_SOV_raise_aircraft_production
+	icon = GFX_focus_generic_air_tactical_bomber
 	
     x = 1
 	y = 1
@@ -1934,19 +2056,49 @@ shared_focus = {
 	mutually_exclusive = { focus = SOV_prioritize_light_aircraft }
 	
     completion_reward = {
-		
+		add_timed_idea = {
+			idea = SOV_prioritizing_heavy_air
+			days = 365
+		}
+		if = {
+			limit = {
+				has_dlc_bba = yes
+			}
+			add_tech_bonus = {
+				name = SOV_prioritize_heavy_aircraft
+				bonus = 0.5
+				ahead_reduction = 0.5
+				uses = 1
+				category = medium_air
+				category = heavy_air
+			}
+		}
+		else = {
+			add_tech_bonus = {
+				name = SOV_prioritize_heavy_aircraft
+				bonus = 0.5
+				ahead_reduction = 0.5
+				uses = 1
+				category = tactical_bomber
+				category = cat_strategic_bomber
+			}
+		}
     }
 	
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
 }
 
 shared_focus = {
-    id = SOV_suport_the_design_bureaus
-	icon = GFX_SOV_suport_the_design_bureaus
+    id = SOV_guards_air_units
+	icon = GFX_focus_generic_eagle
 	
-    x = 1
+    x = -1
 	y = 1
 	cost = 5
 	
@@ -1965,3 +2117,213 @@ shared_focus = {
 	}
 }
 
+shared_focus = {
+    id = SOV_support_the_design_bureaus
+	icon = GFX_focus_generic_air_research_boost
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_prioritize_light_aircraft
+	prerequisite = {
+		focus = SOV_prioritize_light_aircraft
+		focus = SOV_prioritize_heavy_aircraft
+	}
+	
+    completion_reward = {
+		if = {
+			limit = {
+				has_dlc_aat = yes
+			}
+			mio:SOV_yakovlev_design_bureau_organization = {
+				add_mio_size = 1
+				add_mio_research_bonus = 0.05
+			}
+			mio:SOV_mig_design_bureau_organization = {
+				add_mio_size = 1
+				add_mio_research_bonus = 0.05
+			}
+			
+			
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_flying_tanks
+	icon = GFX_focus_generic_cas_aircraft
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_prioritize_heavy_aircraft
+	prerequisite = {
+		focus = SOV_prioritize_light_aircraft
+		focus = SOV_prioritize_heavy_aircraft
+	}
+	
+    completion_reward = {
+		if = {
+			limit = {
+				has_dlc_aat = yes
+			}
+			mio:SOV_ilyushin_design_bureau_organization = {
+				add_mio_size = 1
+				add_mio_research_bonus = 0.05
+			}
+		}
+		if = {
+			limit = {
+				has_dlc_bba = yes
+			}
+			create_equipment_variant = {
+				name = "Ilyushin Il-2 'Shturmovik'"
+				type = small_plane_cas_airframe_2
+				allow_without_tech = yes
+				design_team = mio:SOV_ilyushin_design_bureau_organization
+				modules = {
+					fixed_main_weapon_slot = bomb_locks
+					fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_2x
+					fixed_auxiliary_weapon_slot_2 = light_mg_2x
+					engine_type_slot = engine_3_1x
+					special_type_slot_1 = armor_plate_small
+					special_type_slot_2 = hmg_defense_turret
+					special_type_slot_3 = empty
+				}
+				icon = "GFX_SOV_CAS2_medium"
+			}
+		}
+		add_tech_bonus = {
+			name = SOV_flying_tanks
+			bonus = 0.5
+			ahead_reduction = 0.5
+			uses = 1
+			category = cas_bomber
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
+}
+
+shared_focus = {
+    id = SOV_knights_of_socialism
+	icon = GFX_focus_generic_peoples_air_force
+	
+    x = 0
+	y = 2
+	cost = 5
+	
+	relative_position_id = SOV_propagandize_the_air_force
+	prerequisite = { focus = SOV_propagandize_the_air_force }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_increase_propulsive_efficiency
+	icon = GFX_focus_generic_jet_planes
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_guards_air_units
+	prerequisite = {
+		focus = SOV_guards_air_units
+		focus = SOV_support_the_design_bureaus
+	}
+	
+    completion_reward = {
+		add_tech_bonus = {
+			name = SOV_increase_propulsive_efficiency
+			bonus = 0.75
+			uses = 2
+			category = cat_air_engine
+			category = jet_technology
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
+}
+
+shared_focus = {
+    id = SOV_form_the_vdv
+	icon = GFX_focus_generic_paratrooper
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_support_the_design_bureaus
+	prerequisite = {
+		focus = SOV_support_the_design_bureaus
+		focus = SOV_flying_tanks
+	}
+	
+    completion_reward = {
+		add_tech_bonus = {
+			name = SOV_form_the_vdv
+			bonus = 0.5
+			uses = 1
+			category = para_tech
+			category = cat_special_forces_generic
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
+}
+
+shared_focus = {
+    id = SOV_form_the_kurchatov_institute
+	icon = GFX_focus_generic_nuclear
+	
+    x = 0
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_increase_propulsive_efficiency
+	prerequisite = { focus = SOV_knights_of_socialism }
+	prerequisite = { focus = SOV_increase_propulsive_efficiency }
+	prerequisite = { focus = SOV_form_the_vdv }
+	
+    completion_reward = {
+		add_breakthrough_progress = {
+			specialization = specialization_nuclear
+			value = 0.5
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}

@@ -406,13 +406,13 @@ SOV_factionalism_category = {
 			has_completed_focus = SOV_strengthen_the_gensec
 		}
 		
-		cost = 30
+		cost = 25
 		fire_only_once = yes
 		
 		complete_effect = {
 			add_to_variable = {
 				tooltip = SOV_industrialist_influence_gain
-				SOV_industrialist_influence = 5
+				SOV_industrialist_influence = 3
 			}
 		}
 	}
@@ -431,6 +431,26 @@ SOV_factionalism_category = {
 		remove_effect = {
 			add_political_power = 50
 			add_stability = 0.01
+		}
+	}
+	
+	SOV_strengthen_the_control_commission = {
+		icon = GFX_decision_SWI_no_elected_president
+		
+		visible = {
+			has_completed_focus = SOV_strengthen_the_gensec
+		}
+		
+		cost = 30
+		fire_only_once = yes
+		days_remove = 30
+		
+		remove_effect = {
+			add_to_variable = {
+				tooltip = SOV_industrialist_influence_gain
+				SOV_industrialist_influence = 5
+			}
+			add_stability = 0.03
 		}
 	}
 	
