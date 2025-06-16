@@ -2,42 +2,44 @@ guiTypes = {
 	
 	containerWindowType = {
 		name = "poverty_topbar_container"
-		position = { x = 709 y = 5 }
+		position = { x = 280 y = 613 }
 		clipping = no
 		size = { width = 62 height = 30 }
 		Orientation = UPPER_LEFT
 
-		background = {
-			name = "bg"
-			quadTextureSprite = "GFX_generic_box_smallest"
-		}
+		#background = {
+		#	name = "bg"
+		#	quadTextureSprite = "GFX_generic_box_smallest"
+		#}
 		
 		iconType = {
 			name ="poverty_icon"
 			spriteType = "GFX_idea_ENG_unemployment_crisis"
-			scale = 0.3
-			position = { x = 2 y = 3 }
+			scale = 0.85
+			#position = { x = 2 y = 3 }
 			Orientation = "UPPER_LEFT"
+			pdx_tooltip = "poverty_rate_topbar_value_desc"
+			pdx_tooltip_delayed = "poverty_rate_topbar_desc"
 		}		
 		
 		instantTextBoxType = {
 			name ="poverty_value"
-			position = { x = 30 y = -1 }
+			position = { x = 35 y = 35 }
 			font = "hoi_18mbs"
 			text = "poverty_rate_topbar_value"
 			format = left
-			maxWidth = 60
+			maxWidth = 85
 			maxHeight = 24
 			fixedsize = yes
 			pdx_tooltip = "poverty_rate_topbar_value_desc"
 			pdx_tooltip_delayed = "poverty_rate_topbar_desc"
 		}
 		
-		iconType = {
-			name = "poverty_progressbar"
-			spriteType = "GFX_topbar_poverty_bar"
-			position = { x = 23 y = 15 }
-			alwaystransparent = yes
-		}
+		#iconType = {
+		#	name = "poverty_progressbar"
+		#	spriteType = "GFX_topbar_poverty_bar"
+		#	position = { x = 23 y = 15 }
+		#	alwaystransparent = yes
+		#}
 	}
 }
