@@ -15,7 +15,7 @@ instant_effect = {
 		obsolete = yes
 	}
 	create_equipment_variant = {
-		name = "Dekabrist Class"
+		name = "Bars Class"
 		type = ship_hull_submarine_1
 		name_group = SOV_SS_SHCHUKA
 		parent_version = 0
@@ -27,7 +27,7 @@ instant_effect = {
 		obsolete = yes
 	}
 	create_equipment_variant = {
-		name = "Bars Class"
+		name = "Dekabrist Class"
 		type = ship_hull_submarine_1
 		name_group = SOV_SS_SHCHUKA
 		parent_version = 0
@@ -336,10 +336,10 @@ units= {
 	### Black Sea Fleet -- Rostov
 	fleet = {
 		name = "Chernomorskiy Flot"
-		naval_base = 9417 # Rostov
+		naval_base = 719 # Novorossiysk
 		task_force = {				
 			name = "Chernomorskiy Flot"
-			location = 9417 # Rostov
+			location = 719 # Novorossiysk
 			
 			ship = { name = "Parizhskaya Kommuna" definition = battleship equipment = { ship_hull_heavy_1 = { amount = 1 owner = SOV version_name = "Marat Class" } } }
 			ship = { name = "Poltava" definition = battleship equipment = { ship_hull_heavy_1 = { amount = 1 owner = SOV version_name = "Marat Class" } } }
@@ -353,11 +353,17 @@ units= {
 		}	
 		task_force = {	
 			name = "Chernomorskiy Podvodniy Flot"
-			location = 9417 # Rostov
+			location = 719 # Novorossiysk
 			
 			ship = { name = "Revolutsioner" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "Dekabrist Class" } } }
 			ship = { name = "Spartakovets" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "Dekabrist Class" } } }
 			ship = { name = "Yakobinets" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "Dekabrist Class" } } }
+			
+			ship = { name = "A-1" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "AG Class" } } }
+			ship = { name = "A-2" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "AG Class" } } }
+			ship = { name = "A-3" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "AG Class" } } }
+			ship = { name = "A-4" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "AG Class" } } }
+			ship = { name = "A-5" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "AG Class" } } }
 			
 			ship = { name = "Garibaldets" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = SOV version_name = "Leninets Class" } } }
 			ship = { name = "Chartist" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = SOV version_name = "Leninets Class" } } }
@@ -404,6 +410,29 @@ instant_effect = {
 		name = "Izmail"
 		requested_factories = 1
 		progress = 0.93
+		amount = 1
+	}
+	
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_cruiser_2
+			creator = "SOV" 
+			version_name = "Kirov Class"
+		}
+		name = "Kirov"
+		requested_factories = 1
+		progress = 0.12
+		amount = 1
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_cruiser_2
+			creator = "SOV" 
+			version_name = "Kirov Class"
+		}
+		name = "Voroshilov"
+		requested_factories = 1
+		progress = 0.07
 		amount = 1
 	}
 }
