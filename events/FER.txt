@@ -1,0 +1,139 @@
+add_namespace = far_east
+add_namespace = far_east_forpol
+
+country_event = {
+	id = far_east.1
+	title = far_east.1.title
+	desc = far_east.1.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = far_east.1.a
+	}
+}
+
+country_event = { # we're not happy with the soviets for abandoning us - fired by _peace_on_actions
+	id = far_east_forpol.1
+	title = far_east_forpol.1.title
+	desc = far_east_forpol.1.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # demand reforms
+		name = far_east_forpol.1.a
+		SOV = {
+			country_event = {
+				id = far_east_forpol.2
+				hours = 6
+			}
+		}
+		
+		ai_chance = {
+			base = 10
+		}
+	}
+	
+	option = { # fuck them, what're they going to do, invade?
+		name = far_east_forpol.1.a
+		custom_effect_tooltip = FER_really_bad_idea_tt
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+country_event = { # info event for SOV
+	id = far_east_forpol.2
+	title = far_east_forpol.2.title
+	desc = far_east_forpol.2.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # W H A R
+		name = far_east_forpol.2.a
+		add_political_power = -25
+		activate_mission = SOV_form_a_new_government_mission
+	}
+}
+
+country_event = { # FER informed bukharin has retired
+	id = far_east_forpol.3
+	title = far_east_forpol.3.title
+	desc = far_east_forpol.3.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # 
+		name = far_east_forpol.3.a
+		add_political_power = 25
+	}
+}
+
+country_event = { # soviets fail mission - war is inevitable
+	id = far_east_forpol.4
+	title = far_east_forpol.4.title
+	desc = far_east_forpol.4.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # 
+		name = far_east_forpol.4.a
+		add_stability = -0.1
+		add_war_support = 0.05
+		SOV = {
+			country_event = {
+				id = far_east_forpol.5
+				hours = 12
+			}
+		}
+	}
+}
+
+country_event = { # soviets informed that war is about to happen
+	id = far_east_forpol.5
+	title = far_east_forpol.5.title
+	desc = far_east_forpol.5.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # to war it is
+		name = far_east_forpol.5.a
+		add_stability = -0.1
+		add_war_support = 0.05
+		add_to_variable = {
+			tooltip = SOV_rightist_influence_lose
+			SOV_rightist_influence = -10
+		}
+		country_event = {
+			id = far_east_forpol.6
+			days = 7
+		}
+	}
+}
+
+country_event = { # conflict with the FER
+	id = far_east_forpol.6
+	title = far_east_forpol.6.title
+	desc = far_east_forpol.6.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # to war it is
+		name = far_east_forpol.6.a
+		SOV = {
+			declare_war_on = {
+				target = FER
+				type = annex_everything
+			}
+		}
+	}
+}

@@ -227,7 +227,10 @@ on_actions = {
 				else_if = {
 					limit = {
 						FROM = {
-							original_tag = SOV
+							OR = {
+								original_tag = SOV
+								original_tag = FER
+							}
 						}
 						ROOT = {
 							original_tag = RUS
@@ -239,12 +242,21 @@ on_actions = {
 					ROOT = {
 						diplomatic_relation = { country = FROM relation = war_relation active = no }
 					}
+					FER = {
+						every_controlled_state = {
+							#limit = {
+							#	is_core_of = RUS
+							#}
+							set_state_owner_to = PREV
+						}
+						country_event = {
+							id = far_east_forpol.1
+							days = 5
+						}
+					}
 					FROM = {
 						annex_country = {
 							target = ROOT
-						}
-						annex_country = {
-							target = FER
 						}
 						annex_country = {
 							target = TMS

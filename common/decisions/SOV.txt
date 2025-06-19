@@ -1,4 +1,130 @@
 
+SOV_factionalism_category = {
+
+	SOV_form_a_new_government_mission = {
+		icon = GFX_decision_revolt
+
+		available = {
+			has_country_flag = SOV_bukharin_retired
+		}
+		
+		activation = {
+			always = no
+		}
+		
+		fire_only_once = yes
+		is_good = no
+		days_mission_timeout = 120
+		
+		complete_effect = {
+			FER = {
+				country_event = far_east_forpol.3
+			}
+		}
+		
+		timeout_effect = {
+			FER = {
+				country_event = far_east_forpol.4
+			}
+		}
+	}
+	
+	SOV_moratorium_on_new_members = {
+		icon = GFX_decision_generic_political_discourse
+		
+		visible = {
+			has_completed_focus = SOV_strengthen_the_gensec
+		}
+		
+		cost = 25
+		fire_only_once = yes
+		
+		complete_effect = {
+			add_to_variable = {
+				tooltip = SOV_industrialist_influence_gain
+				SOV_industrialist_influence = 3
+			}
+		}
+	}
+	
+	SOV_confiscate_sidearms = {
+		icon = GFX_decision_generic_assassination
+		
+		visible = {
+			has_completed_focus = SOV_strengthen_the_gensec
+		}
+		
+		cost = 15
+		fire_only_once = yes
+		days_remove = 30
+		
+		remove_effect = {
+			add_political_power = 50
+			add_stability = 0.01
+		}
+	}
+	
+	SOV_strengthen_the_control_commission = {
+		icon = GFX_decision_SWI_no_elected_president
+		
+		visible = {
+			has_completed_focus = SOV_strengthen_the_gensec
+		}
+		
+		cost = 30
+		fire_only_once = yes
+		days_remove = 30
+		
+		remove_effect = {
+			add_to_variable = {
+				tooltip = SOV_industrialist_influence_gain
+				SOV_industrialist_influence = 5
+			}
+			add_stability = 0.03
+		}
+	}
+	
+	SOV_organize_anarchist_veterans = {
+		icon = ger_mefo_bills
+
+		available = {
+			has_war = yes
+		}
+		
+		cost = 25
+		fire_only_once = yes
+		
+		complete_effect = {
+			#add_to_variable = {
+			#	tooltip = SOV_decist_influence_gain
+			#	SOV_decist_influence = 1
+			#}
+			custom_effect_tooltip = SOV_organize_anarchist_veterans_tt
+			hidden_effect = {
+				load_oob = "SOV_anarchist_veterans"
+				random_country_division = {
+					limit = {
+						AND = {
+							division_has_majority_template = cavalry
+							division_has_battalion_in_template = motorized
+						}
+					}
+					add_divisional_commander_xp = 500
+					#add_history_entry = {
+					#	key = my_history_entry
+					#	subject = "Test entry"
+					#	allow = no
+					#}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+	}
+}
+
 SOV_war_communism_category = {
 
 	SOV_crack_down_on_dissent = {
@@ -387,104 +513,6 @@ SOV_industrialization_category = {
 				add_resource = {
 					type = oil
 					amount = 20
-				}
-			}
-		}
-		
-		ai_will_do = {
-			base = 10
-		}
-	}
-}
-
-SOV_factionalism_category = {
-	
-	SOV_moratorium_on_new_members = {
-		icon = GFX_decision_generic_political_discourse
-		
-		visible = {
-			has_completed_focus = SOV_strengthen_the_gensec
-		}
-		
-		cost = 25
-		fire_only_once = yes
-		
-		complete_effect = {
-			add_to_variable = {
-				tooltip = SOV_industrialist_influence_gain
-				SOV_industrialist_influence = 3
-			}
-		}
-	}
-	
-	SOV_confiscate_sidearms = {
-		icon = GFX_decision_generic_assassination
-		
-		visible = {
-			has_completed_focus = SOV_strengthen_the_gensec
-		}
-		
-		cost = 15
-		fire_only_once = yes
-		days_remove = 30
-		
-		remove_effect = {
-			add_political_power = 50
-			add_stability = 0.01
-		}
-	}
-	
-	SOV_strengthen_the_control_commission = {
-		icon = GFX_decision_SWI_no_elected_president
-		
-		visible = {
-			has_completed_focus = SOV_strengthen_the_gensec
-		}
-		
-		cost = 30
-		fire_only_once = yes
-		days_remove = 30
-		
-		remove_effect = {
-			add_to_variable = {
-				tooltip = SOV_industrialist_influence_gain
-				SOV_industrialist_influence = 5
-			}
-			add_stability = 0.03
-		}
-	}
-	
-	SOV_organize_anarchist_veterans = {
-		icon = ger_mefo_bills
-
-		available = {
-			has_war = yes
-		}
-		
-		cost = 25
-		fire_only_once = yes
-		
-		complete_effect = {
-			#add_to_variable = {
-			#	tooltip = SOV_decist_influence_gain
-			#	SOV_decist_influence = 1
-			#}
-			custom_effect_tooltip = SOV_organize_anarchist_veterans_tt
-			hidden_effect = {
-				load_oob = "SOV_anarchist_veterans"
-				random_country_division = {
-					limit = {
-						AND = {
-							division_has_majority_template = cavalry
-							division_has_battalion_in_template = motorized
-						}
-					}
-					add_divisional_commander_xp = 500
-					#add_history_entry = {
-					#	key = my_history_entry
-					#	subject = "Test entry"
-					#	allow = no
-					#}
 				}
 			}
 		}
