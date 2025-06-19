@@ -79,6 +79,31 @@ set_technology = {
 	basic_train = 1
 }
 
+if = {
+	limit = {
+		has_dlc_aat = yes
+	}
+	mio:USA_springfield_armory_organization = {
+		add_mio_size = 1
+	}
+	mio:USA_norfolk_naval_yard_organization = {
+		add_mio_size = 1
+	}
+	mio:USA_electric_boat_company_organization = {
+		add_mio_size = 1
+	}
+	create_equipment_variant = {
+		name = "U.S. Rifle, Caliber .30, M1903A1"
+		type = infantry_equipment_0
+		design_team = mio:USA_springfield_armory_organization
+	}
+	else = {
+		create_equipment_variant = {
+			name = "U.S. Rifle, Caliber .30, M1903A1"
+			type = infantry_equipment_0
+		}
+	}
+}
 oob = "USA_army"
 
 if = {
@@ -189,31 +214,6 @@ if = {
 		set_naval_oob = "USA_naval_legacy"
 	}
 }
-if = {
-	limit = {
-		has_dlc_aat = yes
-	}
-	mio:USA_springfield_armory_organization = {
-		add_mio_size = 1
-	}
-	mio:USA_norfolk_naval_yard_organization = {
-		add_mio_size = 1
-	}
-	mio:USA_electric_boat_company_organization = {
-		add_mio_size = 1
-	}
-	create_equipment_variant = {
-		name = "M1903A1 Springfield"								
-		type = infantry_equipment_0
-		design_team = mio:USA_springfield_armory_organization
-	}
-	else = {
-		create_equipment_variant = {
-			name = "M1903A1 Springfield"								
-			type = infantry_equipment_0
-		}
-	}
-}
 
 complete_special_project = {
 	project = sp:sp_naval_cruiser_submarine
@@ -295,7 +295,6 @@ recruit_character = USA_douglas_macarthur
 recruit_character = USA_malin_craig
 recruit_character = USA_henry_harley_arnold
 recruit_character = USA_walter_krueger
-recruit_character = USA_george_van_horn_moseley
 recruit_character = USA_john_dewitt
 recruit_character = USA_william_cole
 recruit_character = USA_johnson_hagood
