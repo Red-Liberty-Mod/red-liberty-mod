@@ -1098,6 +1098,24 @@ country_event = { # fdr lost election, alben barkley now in charge of liberals
 	}
 }
 
+country_event = { # seversky reorganized as republic aviation
+	id = united_states_flavor.16
+	title = united_states_flavor.16.title
+	desc = united_states_flavor.16.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = united_states_flavor.16.a
+		mio:USA_seversky_organization = {
+			set_mio_name_key = USA_republic_aviation_organization
+			set_mio_icon = GFX_idea_USA_republic_aviation
+			add_mio_funds = 750
+		}
+	}
+}
+
 country_event = { # mexico ablaze
 	id = united_states_intervention.1
 	title = united_states_intervention.1.title
