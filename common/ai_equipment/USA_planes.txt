@@ -10,12 +10,14 @@ USA_fighter = {
 	priority = {
 		factor = 1000
 		modifier = {
-			has_War = yes
+			has_war = yes
 			factor = 2
 		}
 	}
 
-	great_war_fighter_default = {
+	early_fighter_1 = {
+		name = "P-1 'Hawk'"
+		
 		priority = {
 			factor = 1
 			modifier = { 
@@ -28,17 +30,60 @@ USA_fighter = {
 			match_value = 1000
 			type = small_plane_airframe_0
 			modules = {
-				fixed_main_weapon_slot = light_mg_4x
+				fixed_main_weapon_slot = light_mg_2x
 				fixed_auxiliary_weapon_slot_1 = empty
 				engine_type_slot = engine_1_1x
 				special_type_slot_1 = empty
 				special_type_slot_2 = empty	
 			}
 		}
+	}
+	
+	early_fighter_2 = {
+		name = "P-6 'Hawk'"
+		
+		priority = {
+			factor = 1
+			modifier = { 
+				has_tech = basic_small_airframe
+				factor = 0 #let's not waste XP here
+			}
+		}
 
-		allowed_modules = {
-			engine_1_1x
-			light_mg_4x
+		target_variant = {
+			match_value = 1000
+			type = small_plane_airframe_0
+			modules = {
+				fixed_main_weapon_slot = light_mg_2x
+				fixed_auxiliary_weapon_slot_1 = empty
+				engine_type_slot = engine_1_1x
+				special_type_slot_1 = empty
+				special_type_slot_2 = empty	
+			}
+		}
+	}
+	
+	early_fighter_3 = {
+		name = "P-26A 'Peashooter'"
+		
+		priority = {
+			factor = 1
+			modifier = { 
+				has_tech = basic_small_airframe
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		target_variant = {
+			match_value = 1000
+			type = small_plane_airframe_0
+			modules = {
+				fixed_main_weapon_slot = light_mg_2x
+				fixed_auxiliary_weapon_slot_1 = bomb_locks
+				engine_type_slot = engine_1_1x
+				special_type_slot_1 = empty
+				special_type_slot_2 = empty	
+			}
 		}
 	}
 	
@@ -64,43 +109,6 @@ USA_fighter = {
 				special_type_slot_2 = empty	
 			}
 		}
-
-		allowed_modules = {
-			light_mg_4x
-			light_mg_2x
-			engine_2_1x
-			armor_plate_small
-		}
-	}
-	
-	basic_fighter_2 = {
-		name = "P-40B 'Warhawk'"
-		
-		priority = {
-			factor = 100
-			modifier = { 
-				has_tech = improved_small_airframe
-				factor = 0 #let's not waste XP here
-			}
-		}
-
-		target_variant = {
-			match_value = 2000
-			type = small_plane_airframe_1
-			modules = {
-				fixed_main_weapon_slot = light_mg_4x
-				fixed_auxiliary_weapon_slot_1 = light_mg_4x
-				engine_type_slot = engine_2_1x
-				special_type_slot_1 = empty
-				special_type_slot_2 = empty	
-			}
-		}
-
-		allowed_modules = {
-			light_mg_4x
-			engine_2_1x
-			armor_plate_small
-		}
 	}
 	
 	improved_fighter_1 = {
@@ -125,13 +133,6 @@ USA_fighter = {
 				special_type_slot_1 = empty
 				special_type_slot_2 = empty
 			}
-		}
-
-		allowed_modules = {
-			heavy_mg_2x
-			aircraft_cannon_1_1x
-			engine_3_1x
-			light_mg_2x
 		}
 	}
 	
@@ -201,7 +202,7 @@ USA_fighter = {
 		}
 	}
 	
-	improved_fighter_3 = {
+	improved_fighter_4 = {
 		name = "P-66 Vanguard"
 		
 		priority = {
@@ -237,7 +238,7 @@ USA_fighter = {
 		name = "P-51 Mustang"
 		
 		priority = {
-			factor = 100
+			base = 100
 		}
 
 		target_variant = {
@@ -264,7 +265,6 @@ USA_fighter = {
 	
 	jet_fighter_1 = {
 		
-		
 		priority = {
 			factor = 10
 		}
@@ -288,12 +288,54 @@ USA_fighter = {
 			armor_plate_small
 		}
 	}
+}
+
+USA_cas = {
+	category = air
+
+	available_for = { USA }
+
+	roles = {
+		air_cas
+	}
+
+	priority = {
+		factor = 1000
+		modifier = {
+			has_war = yes
+			factor = 2
+		}
+	}
 	
-	close_air_support_ = {
+	basic_close_air_support_1 = {
+		name = "A-17"
+		
+		priority = {
+			base = 200
+			modifier = { 
+				has_tech = improved_small_airframe
+				factor = 0 #let's not waste XP here
+			}
+		}
+		
+		target_variant = {
+			match_value = 2500
+			type = small_plane_cas_airframe_1
+			modules = {
+				fixed_main_weapon_slot = small_bomb_bay
+				fixed_auxiliary_weapon_slot_1 = light_mg_4x
+				engine_type_slot = engine_2_1x
+				special_type_slot_1 = empty
+				special_type_slot_2 = empty
+			}
+		}
+	}
+
+	advanced_close_air_support_1 = {
 		name = "A-36A"
 		
 		priority = {
-			factor = 200
+			base = 200
 		}
 		
 		target_variant = {
@@ -314,6 +356,103 @@ USA_fighter = {
 			bomb_locks
 			rocket_rails
 			engine_3_2x
+		}
+	}
+}
+
+USA_strategic_bomber = {
+	category = air
+
+	available_for = { USA }
+
+	roles = {
+		air_strategic_bomber
+	}
+
+	priority = {
+		factor = 1000
+		modifier = {
+			has_war = yes
+			factor = 2
+		}
+	}
+	
+	early_strategic_bomber_1 = {
+		name = "XNBL-1 'Barling Bomber'"
+		
+		priority = {
+			base = 200
+			modifier = { 
+				has_tech = basic_large_airframe
+				factor = 0 #let's not waste XP here
+			}
+		}
+		
+		target_variant = {
+			match_value = 2500
+			type = large_plane_airframe_0
+			modules = {
+				fixed_main_weapon_slot = large_bomb_bay
+				fixed_auxiliary_weapon_slot_1 = empty
+				engine_type_slot = engine_1_4x
+				special_type_slot_1 = lmg_defense_turret_2x
+				special_type_slot_2 = lmg_defense_turret
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+		}
+	}
+	
+	basic_strategic_bomber_1 = {
+		name = "B-17B 'Flying Fortress'"
+		
+		priority = {
+			base = 200
+			modifier = { 
+				has_tech = improved_large_airframe
+				factor = 0 #let's not waste XP here
+			}
+		}
+		
+		target_variant = {
+			match_value = 2500
+			type = large_plane_airframe_1
+			modules = {
+				fixed_main_weapon_slot = large_bomb_bay
+				#fixed_auxiliary_weapon_slot_1 = large_bomb_bay
+				engine_type_slot = engine_2_4x
+				special_type_slot_1 = hmg_defense_turret_2x
+				special_type_slot_2 = hmg_defense_turret_2x
+				special_type_slot_3 = radio_navigation_1
+				special_type_slot_4 = bomb_sights_1
+			}
+		}
+	}
+	
+	basic_strategic_bomber_1 = {
+		name = "B-17E 'Flying Fortress'"
+		
+		priority = {
+			base = 200
+			modifier = { 
+				has_tech = improved_large_airframe
+				factor = 0 #let's not waste XP here
+			}
+		}
+		
+		target_variant = {
+			match_value = 2500
+			type = large_plane_airframe_1
+			modules = {
+				fixed_main_weapon_slot = large_bomb_bay
+				#fixed_auxiliary_weapon_slot_1 = large_bomb_bay
+				engine_type_slot = engine_2_4x
+				special_type_slot_1 = hmg_defense_turret_2x
+				special_type_slot_2 = hmg_defense_turret_2x
+				special_type_slot_3 = hmg_defense_turret
+				special_type_slot_4 = radio_navigation_1
+				special_type_slot_5 = bomb_sights_1
+			}
 		}
 	}
 }
