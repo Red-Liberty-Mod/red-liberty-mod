@@ -1,5 +1,7 @@
 add_namespace = soviet_union
 add_namespace = sov_congress
+add_namespace = sov_centralist
+add_namespace = sov_rightist
 add_namespace = sov_syndicalist
 add_namespace = sov_democrat
 add_namespace = sov_military
@@ -556,9 +558,149 @@ country_event = { # red army storms the congress
 	}
 }
 
+### Centralist ###
+country_event = { # 
+	id = sov_centralist.1
+	title = sov_centralist.1.title
+	desc = sov_centralist.1.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = sov_centralist.1.a
+	}
+}
+
+country_event = { # 
+	id = sov_centralist.2
+	title = sov_centralist.2.title
+	desc = sov_centralist.2.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = sov_rightist.2.a
+		hidden_effect = {
+			country_event = {
+				id = sov_centralist.3
+				days = 30
+				random_days = 7
+			}
+		}
+	}
+}
+
+country_event = { # 
+	id = sov_centralist.3
+	title = sov_centralist.3.title
+	desc = sov_centralist.3.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = sov_centralist.3.a
+	}
+}
+
+country_event = { # 
+	id = sov_centralist.4
+	title = sov_centralist.4.title
+	desc = sov_centralist.4.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = sov_centralist.4.a
+	}
+}
+
+### Rightist ###
+country_event = { # 
+	id = sov_rightist.1
+	title = sov_rightist.1.title
+	desc = sov_rightist.1.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = sov_rightist.1.a
+	}
+}
+
+country_event = { # 
+	id = sov_rightist.2
+	title = sov_rightist.2.title
+	desc = sov_rightist.2.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = sov_rightist.2.a
+		add_political_power = -5
+	}
+}
+
+country_event = { # 
+	id = sov_rightist.3
+	title = sov_rightist.3.title
+	desc = sov_rightist.3.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = sov_rightist.3.a
+	}
+}
+
+country_event = { # 
+	id = sov_rightist.4
+	title = sov_rightist.4.title
+	desc = sov_rightist.4.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = sov_rightist.4.a
+	}
+}
+
+country_event = { # 
+	id = sov_rightist.5
+	title = sov_rightist.5.title
+	desc = sov_rightist.5.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = sov_rightist.5.a
+	}
+}
+
+country_event = { # 
+	id = sov_rightist.6
+	title = sov_rightist.6.title
+	desc = sov_rightist.6.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = sov_rightist.6.a
+	}
+}
+
 ### Syndicalist ###
 
-country_event = { # the secretarys woes
+country_event = { # 
 	id = sov_syndicalist.1
 	title = sov_syndicalist.1.title
 	desc = sov_syndicalist.1.desc
@@ -572,7 +714,7 @@ country_event = { # the secretarys woes
 	}
 }
 
-country_event = { # the secretarys woes
+country_event = { # 
 	id = sov_syndicalist.2
 	title = sov_syndicalist.2.title
 	desc = sov_syndicalist.2.desc
@@ -588,7 +730,7 @@ country_event = { # the secretarys woes
 
 ### Military Tree ###
 
-country_event = { # the secretarys woes
+country_event = { # 
 	id = sov_military.1
 	title = sov_military.1.title
 	desc = sov_military.1.desc
@@ -670,5 +812,103 @@ country_event = { #
 
 	option = {
 		name = sov_democrat.3.a
+	}
+}
+
+country_event = { # 
+	id = sov_democrat.4
+	title = sov_democrat.4.title
+	desc = sov_democrat.4.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = sov_democrat.4.a
+	}
+}
+
+country_event = { # 
+	id = sov_democrat.5
+	title = sov_democrat.5.title
+	desc = sov_democrat.5.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = sov_democrat.5.a
+	}
+}
+
+country_event = { # 
+	id = sov_democrat.6
+	title = sov_democrat.6.title
+	desc = sov_democrat.6.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = sov_democrat.6.a
+	}
+}
+
+country_event = { # 
+	id = sov_democrat.7
+	title = sov_democrat.7.title
+	desc = sov_democrat.7.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = sov_democrat.7.a
+	}
+}
+
+country_event = { # 
+	id = sov_democrat.8
+	title = sov_democrat.8.title
+	desc = sov_democrat.8.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = sov_democrat.8.a
+	}
+}
+
+country_event = { # 
+	id = sov_democrat.9
+	title = sov_democrat.9.title
+	desc = sov_democrat.9.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = sov_democrat.9.a
+	}
+}
+
+country_event = { # 
+	id = sov_democrat.10
+	title = sov_democrat.10.title
+	desc = sov_democrat.10.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = sov_democrat.10.a
 	}
 }

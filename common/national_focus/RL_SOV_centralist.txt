@@ -18,7 +18,21 @@ shared_focus = {
 	}
 	
     completion_reward = {
-		
+		swap_ideas = {
+			remove_idea = SOV_political_turmoil_1
+			add_idea = SOV_political_turmoil_2
+		}
+		country_event = {
+			id = sov_centralist.1
+			hours = 6
+		}
+		hidden_effect = {
+			country_event = {
+				id = sov_centralist.2
+				days = 90
+				random_days = 15
+			}
+		}
     }
 	
 	ai_will_do = {
@@ -38,6 +52,11 @@ shared_focus = {
 	prerequisite = { focus = SOV_the_centralists }
 	
     completion_reward = {
+		swap_ideas = {
+			remove_idea = SOV_political_turmoil_2
+			add_idea = SOV_political_turmoil_3
+		}
+		#add_political_power = 25
 		unlock_decision_tooltip = SOV_moratorium_on_new_members
 		unlock_decision_tooltip = SOV_confiscate_sidearms
 		unlock_decision_tooltip = SOV_strengthen_the_control_commission
@@ -60,7 +79,12 @@ shared_focus = {
 	prerequisite = { focus = SOV_the_centralists }
 	
     completion_reward = {
-		remove_ideas = SOV_nep
+		add_tech_bonus = {
+			bonus = 0.25
+			uses = 2
+			category = industry
+		}
+		remove_ideas = SOV_nep_1
     }
 	
 	ai_will_do = {
