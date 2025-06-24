@@ -1,0 +1,320 @@
+add_namespace = aus_hun
+add_namespace = AHE_revolution
+add_namespace = AHE_collapse
+
+country_event = { # 
+	id = aus_hun.1
+	title = aus_hun.1.title
+	desc = aus_hun.1.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = aus_hun.1.a
+	}
+}
+
+country_event = { # 
+	id = aus_hun.2
+	title = aus_hun.2.title
+	desc = aus_hun.2.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = aus_hun.2.a
+	}
+}
+
+country_event = { # vienna uprising
+	id = AHE_revolution.1
+	title = AHE_revolution.1.title
+	desc = AHE_revolution.1.desc
+	picture = GFX_report_event_revolutions
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			AHE = {
+				set_politics = {
+					ruling_party = revolutionary_socialism
+					elections_allowed = no
+					last_election = "1932.10.8"
+					election_frequency = 48
+				}
+				
+				clear_all_coalitions = yes
+				set_country_flag = vanguard_socialism_coalition
+				set_country_flag = revolutionary_socialism_coalition
+				set_country_flag = democratic_socialism_coalition
+				set_country_flag = social_democracy_coalition
+				
+				diplomatic_relation = {
+					country = SER
+					relation = military_access
+					active = no
+				}
+				diplomatic_relation = {
+					country = ALB
+					relation = guarantee
+					active = no
+				}
+				
+				load_focus_tree = APR_revolution_tree
+				complete_national_focus = AHE_the_austrian_revolution
+				
+				country_event = {
+					id = AHE_collapse.1
+					days = 24
+				}
+			}
+			AHE_create_demilitarized_zones = yes
+		}
+	}
+
+	option = {
+		name = AHE_revolution.1.a
+		hidden_effect = {
+			recruit_character = AUS_alexander_eifler
+			recruit_character = AUS_julius_deutsch
+		}
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_ahe.2 hours = 6 }
+		}
+	}
+}
+
+country_event = { # september constitution
+	id = AHE_revolution.2
+	title = AHE_revolution.2.title
+	desc = AHE_revolution.2.desc
+	picture = GFX_report_event_revolutions
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			
+		}
+	}
+
+	option = {
+		name = AHE_revolution.2.a
+		remove_ideas = AHE_doomed_empire
+		set_cosmetic_tag = AHE_peoples_republic
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_ahe.4 hours = 6 }
+		}
+	}
+}
+
+country_event = { # hidden trigger
+	id = AHE_collapse.1
+	title = AHE_collapse.1.title
+	desc = AHE_collapse.1.desc
+	picture = GFX_report_event_revolutions
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			country_event = { # austrians
+				id = AHE_collapse.2
+				days = 1
+			}
+			country_event = { # czechs
+				id = AHE_collapse.3
+				days = 4
+			}
+			country_event = { # hungarians
+				id = AHE_collapse.4
+				days = 8
+			}
+			country_event = { # croats
+				id = AHE_collapse.5
+				days = 13
+			}
+			country_event = { # slovenes
+				id = AHE_collapse.6
+				days = 36
+			}
+			country_event = { # poland and ukraine
+				id = AHE_collapse.7
+				days = 53
+			}
+		}
+	}
+
+	option = {
+		name = AHE_collapse.1.a
+	}
+}
+
+country_event = { # austrian state
+	id = AHE_collapse.2
+	title = AHE_collapse.2.title
+	desc = AHE_collapse.2.desc
+	picture = GFX_report_event_revolutions
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			AHE_setup_AUS = yes
+			AHE = {
+				add_timed_idea = {
+					idea = AHE_winter
+					days = 120
+				}
+			}
+			AUS = {
+				add_timed_idea = {
+					idea = AUS_winter
+					days = 120
+				}
+			}
+			set_global_flag = austrian_civil_war_started
+		}
+	}
+
+	option = {
+		name = AHE_collapse.2.a
+		AUS = {
+			declare_war_on = {
+				target = AHE
+				type = annex_everything
+			}
+			add_civil_war_target = AHE
+		}
+	}
+}
+
+country_event = { # czech republic
+	id = AHE_collapse.3
+	title = AHE_collapse.3.title
+	desc = AHE_collapse.3.desc
+	picture = GFX_report_event_revolutions
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			AHE_setup_CZE = yes
+		}
+	}
+
+	option = {
+		name = AHE_collapse.3.a
+	}
+}
+
+country_event = { # hungarian peoples republic
+	id = AHE_collapse.4
+	title = AHE_collapse.4.title
+	desc = AHE_collapse.4.desc
+	picture = GFX_report_event_revolutions
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			AHE_setup_HUN = yes
+		}
+	}
+
+	option = {
+		name = AHE_collapse.4.a
+	}
+}
+
+country_event = { # croatian republic
+	id = AHE_collapse.5
+	title = AHE_collapse.5.title
+	desc = AHE_collapse.5.desc
+	picture = GFX_report_event_revolutions
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			AHE_setup_CRO = yes
+		}
+	}
+
+	option = {
+		name = AHE_collapse.5.a
+	}
+}
+
+country_event = { # slovene republic and pola naval base
+	id = AHE_collapse.6
+	title = AHE_collapse.6.title
+	desc = AHE_collapse.6.desc
+	picture = GFX_report_event_revolutions
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			AHE_setup_PNB = yes
+			AHE_setup_SLV = yes
+		}
+	}
+
+	option = {
+		name = AHE_collapse.6.a
+	}
+}
+
+country_event = { # poland and ukraine
+	id = AHE_collapse.7
+	title = AHE_collapse.7.title
+	desc = AHE_collapse.7.desc
+	picture = GFX_report_event_revolutions
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			88 = {
+				set_state_owner_to = POL
+				set_state_controller_to = POL
+				add_core_of = POL
+				remove_core_of = AHE
+				set_demilitarized_zone = no
+			}
+			AHE_setup_WUK = yes
+		}
+	}
+
+	option = {
+		name = AHE_collapse.7.a
+	}
+}

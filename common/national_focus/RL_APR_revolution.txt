@@ -1,0 +1,808 @@
+shared_focus = {
+    id = AHE_the_austrian_revolution
+	icon = GFX_AHE_the_austrian_revolution
+	
+    x = 21
+	y = 0
+	
+	available = {
+		has_global_flag = austrian_civil_war_started
+	}
+	
+	cost = 1
+    completion_reward = {
+        add_ideas = AHE_beacon_of_hope
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_form_local_councils
+	icon = GFX_AHE_form_local_councils
+	
+    x = -1
+	y = 1
+	
+	cost = 2
+	relative_position_id = AHE_the_austrian_revolution
+	prerequisite = { focus = AHE_the_austrian_revolution }
+    completion_reward = {
+        remove_ideas = AHE_inept_legislature
+		if = {
+			limit = {
+				NOT = {
+					has_global_flag = austrian_civil_war_started
+				}
+			}
+			custom_effect_tooltip = AHE_effect_before_war_tt
+			add_political_power = 100
+		}
+    }
+	
+	ai_will_do = {
+		factor = 20
+	}
+}
+
+shared_focus = {
+    id = AHE_seize_factories
+	icon = GFX_AHE_seize_factories
+	
+    x = 1
+	y = 1
+	
+	cost = 2
+	relative_position_id = AHE_the_austrian_revolution
+	prerequisite = { focus = AHE_the_austrian_revolution }
+    completion_reward = {
+        remove_ideas = AHE_german_dependence
+		if = {
+			limit = {
+				NOT = {
+					has_global_flag = austrian_civil_war_started
+				}
+			}
+			custom_effect_tooltip = AHE_effect_before_war_tt
+			4 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 20
+	}
+}
+
+shared_focus = {
+    id = AHE_disband_army
+	icon = GFX_AHE_disband_army
+	
+    x = 3
+	y = 1
+	
+	cost = 2
+	relative_position_id = AHE_the_austrian_revolution
+	prerequisite = { focus = AHE_the_austrian_revolution }
+    completion_reward = {
+        remove_ideas = AHE_incompetent_military
+		if = {
+			limit = {
+				NOT = {
+					has_global_flag = austrian_civil_war_started
+				}
+			}
+			custom_effect_tooltip = AHE_effect_before_war_tt
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = 5000
+				producer = AHE
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 20
+	}
+}
+
+shared_focus = {
+    id = AHE_september_constitution
+	icon = GFX_AHE_september_constitution
+	
+    x = 0
+	y = 2
+	
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = focus_will_be_bypassed_tt
+			always = no
+		}
+	}
+	
+	cost = 3
+	relative_position_id = AHE_the_austrian_revolution
+	prerequisite = { focus = AHE_the_austrian_revolution }
+    completion_reward = {
+		country_event = {
+			id = AHE_revolution.2
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_political_reform
+	icon = GFX_AHE_political_reform
+	
+    x = -9
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_september_constitution
+	prerequisite = { focus = AHE_september_constitution }
+    completion_reward = {
+        add_political_power = 50
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_socialist_economy
+	icon = GFX_AHE_socialist_economy
+	
+    x = 0
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_september_constitution
+	prerequisite = { focus = AHE_september_constitution }
+    completion_reward = {
+        add_to_variable = {
+			global.austria_escalation = 1
+			tooltip = austria_escalation_increase
+		}
+		increase_mobilisation = yes
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_volkswehr
+	icon = GFX_AHE_volkswehr
+	
+    x = 9
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_september_constitution
+	prerequisite = { focus = AHE_september_constitution }
+	
+    completion_reward = {
+		army_experience = 15
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_clamp_down
+	icon = GFX_AHE_clamp_down
+	
+    x = -2
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_political_reform
+	prerequisite = { focus = AHE_political_reform }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_arbeiterbildung
+	icon = GFX_AHE_arbeiterbildung
+	
+    x = 0
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_political_reform
+	prerequisite = { focus = AHE_political_reform }
+    completion_reward = {
+		add_popularity = {
+			ideology = vanguard_socialism
+			popularity = 0.005
+		}
+		add_popularity = {
+			ideology = revolutionary_socialism
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = democratic_socialism
+			popularity = 0.01
+		}
+        add_popularity = {
+			ideology = social_democracy
+			popularity = 0.005
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_religious_policy
+	icon = GFX_AHE_religious_policy
+	
+    x = 2
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_political_reform
+	prerequisite = { focus = AHE_political_reform }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_ban_bourgeois_parties
+	icon = GFX_AHE_ban_bourgeois_parties
+	
+    x = 1
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_clamp_down
+	prerequisite = { focus = AHE_clamp_down }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_organize_food_distribution
+	icon = GFX_AHE_organize_food_distribution
+	
+    x = -3
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_war_economy
+	prerequisite = { focus = AHE_war_economy }
+	relative_position_id = AHE_socialist_economy
+	prerequisite = { focus = AHE_socialist_economy }
+    completion_reward = {
+        add_stability = 0.05
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_organize_the_factories
+	icon = GFX_AHE_organize_the_factories
+	
+    x = 0
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_socialist_economy
+	prerequisite = { focus = AHE_socialist_economy }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_international_aid
+	icon = GFX_AHE_international_aid
+	
+    x = 3
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_war_economy
+	prerequisite = { focus = AHE_war_economy }
+	relative_position_id = AHE_socialist_economy
+	prerequisite = { focus = AHE_socialist_economy }
+    completion_reward = {
+        add_equipment_to_stockpile = {
+			type = infantry_equipment_1
+			amount = 150
+			producer = GER
+		}
+		add_equipment_to_stockpile = {
+			type = infantry_equipment_0
+			amount = 250
+			producer = SOV
+		}
+		add_equipment_to_stockpile = {
+			type = infantry_equipment_1
+			amount = 150
+			producer = USA
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_collective_farms
+	icon = GFX_AHE_collective_farms
+	
+    x = 0
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_organize_food_distribution
+	prerequisite = { focus = AHE_organize_food_distribution }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_collective_ownership
+	icon = GFX_AHE_collective_ownership
+	
+    x = -1
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_organize_the_factories
+	prerequisite = { focus = AHE_organize_the_factories }
+	mutually_exclusive = {
+		focus = AHE_state_ownership
+	}
+	
+    completion_reward = {
+        add_ideas = AHE_collective_ownership
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_state_ownership
+	icon = GFX_AHE_state_ownership
+	
+    x = 1
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_organize_the_factories
+	prerequisite = { focus = AHE_organize_the_factories }
+	mutually_exclusive = {
+		focus = AHE_collective_ownership
+	}
+	
+    completion_reward = {
+        add_ideas = AHE_state_ownership
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_all_must_do_their_duty
+	icon = GFX_AHE_all_must_do_their_duty
+	
+    x = 0
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_international_aid
+	prerequisite = { focus = AHE_international_aid }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_prepare_for_the_long_war
+	icon = GFX_AHE_prepare_for_the_long_war
+	
+    x = 1
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_collective_farms
+	prerequisite = { focus = AHE_collective_farms }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_resource_nationalisation
+	icon = GFX_AHE_resource_nationalisation
+	
+    x = 1
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_collective_ownership
+	prerequisite = {
+		focus = AHE_collective_ownership
+		focus = AHE_state_ownership
+	}
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_establish_price_controls
+	icon = GFX_AHE_establish_price_controls
+	
+    x = -1
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_all_must_do_their_duty
+	prerequisite = { focus = AHE_all_must_do_their_duty }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_we_are_the_workers_of_vienna
+	icon = GFX_AHE_we_are_the_workers_of_vienna
+	
+    x = 0
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_resource_nationalisation
+	prerequisite = { focus = AHE_prepare_for_the_long_war }
+	prerequisite = { focus = AHE_resource_nationalisation }
+	prerequisite = { focus = AHE_establish_price_controls }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_deutsch_plan
+	icon = GFX_AHE_deutsch_plan
+	
+    x = -2
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_volkswehr
+	mutually_exclusive = { focus = AHE_eifler_plan }
+	prerequisite = { focus = AHE_volkswehr }
+    completion_reward = {
+        AUS_julius_deutsch = {
+			promote_leader = yes
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_eifler_plan
+	icon = GFX_AHE_eifler_plan
+	
+    x = 2
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_volkswehr
+	mutually_exclusive = { focus = AHE_deutsch_plan }
+	prerequisite = { focus = AHE_volkswehr }
+    completion_reward = {
+        AUS_alexander_eifler = {
+			promote_leader = yes
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_chain_of_command
+	icon = GFX_AHE_chain_of_command
+	
+    x = -2
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_deutsch_plan
+	prerequisite = { focus = AHE_deutsch_plan }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_consistent_armaments
+	icon = GFX_AHE_consistent_armaments
+	
+    x = 0
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_deutsch_plan
+	prerequisite = { focus = AHE_deutsch_plan }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_form_soldiers_councils
+	icon = GFX_AHE_form_soldiers_councils
+	
+    x = 2
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_deutsch_plan
+	prerequisite = {
+		focus = AHE_deutsch_plan
+		focus = AHE_eifler_plan
+	}
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_terror_tactics
+	icon = GFX_AHE_terror_tactics
+	
+    x = 0
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_eifler_plan
+	prerequisite = {
+		focus = AHE_eifler_plan
+	}
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_local_informants
+	icon = GFX_AHE_local_informants
+	
+    x = 2
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_eifler_plan
+	prerequisite = {
+		focus = AHE_eifler_plan
+	}
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_fire_support
+	icon = GFX_AHE_fire_support
+	
+    x = 1
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_chain_of_command
+	prerequisite = { focus = AHE_chain_of_command }
+	prerequisite = { focus = AHE_consistent_armaments }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_establish_officer_elections
+	icon = GFX_AHE_establish_officer_elections
+	
+    x = -1
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_form_soldiers_councils
+	prerequisite = {
+		focus = AHE_form_soldiers_councils
+	}
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_political_commissars
+	icon = GFX_AHE_political_commissars
+	
+    x = 1
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_form_soldiers_councils
+	prerequisite = {
+		focus = AHE_form_soldiers_councils
+	}
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_revolutionary_tribunals
+	icon = GFX_AHE_revolutionary_tribunals
+	
+    x = 1
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_terror_tactics
+	prerequisite = { focus = AHE_terror_tactics }
+	prerequisite = { focus = AHE_local_informants }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_establish_the_army_high_command
+	icon = GFX_AHE_establish_the_army_high_command
+	
+    x = 1
+	y = 1
+	
+	cost = 3
+	relative_position_id = AHE_establish_officer_elections
+	prerequisite = { focus = AHE_establish_officer_elections }
+	prerequisite = { focus = AHE_political_commissars }
+	prerequisite = {
+		focus = AHE_fire_support
+		focus = AHE_revolutionary_tribunals
+	}
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}

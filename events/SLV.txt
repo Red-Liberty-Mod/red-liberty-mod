@@ -1,0 +1,184 @@
+add_namespace = slovenia
+
+country_event = {
+	id = slovenia.1
+	title = slovenia.1.title
+	desc = slovenia.1.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = slovenia.1.a
+	}
+}
+
+country_event = {
+	id = slovenia.2
+	title = slovenia.2.title
+	desc = slovenia.2.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # prioritize professionalism
+		name = slovenia.2.a
+		add_popularity = {
+			ideology = liberal_conservatism
+			popularity = 0.03
+		}
+		add_popularity = {
+			ideology = national_conservatism
+			popularity = 0.02
+		}
+		load_oob = SLV_professional
+		
+		ai_chance = {
+			base = 40
+		}
+	}
+	
+	option = { # prioritize the militias
+		name = slovenia.2.b
+		add_popularity = {
+			ideology = democratic_socialism
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = social_democracy
+			popularity = 0.03
+		}
+		load_oob = SLV_militias
+		
+		ai_chance = {
+			base = 50
+		}
+	}
+}
+
+country_event = {
+	id = slovenia.3
+	title = slovenia.3.title
+	desc = slovenia.3.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # a popular constitution
+		name = slovenia.3.a
+		add_popularity = {
+			ideology = democratic_socialism
+			popularity = 0.01
+		}
+		add_popularity = {
+			ideology = social_democracy
+			popularity = 0.03
+		}
+		add_popularity = {
+			ideology = national_conservatism
+			popularity = 0.01
+		}
+		
+		ai_chance = {
+			base = 50
+		}
+	}
+	
+	option = { # prioritize individual rights
+		name = slovenia.3.b
+		add_popularity = {
+			ideology = progressive_liberalism
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = liberal_conservatism
+			popularity = 0.03
+		}
+		
+		ai_chance = {
+			base = 50
+		}
+	}
+}
+
+country_event = {
+	id = slovenia.4
+	title = slovenia.4.title
+	desc = slovenia.4.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # prioritize relief
+		name = slovenia.4.a
+		add_popularity = {
+			ideology = democratic_socialism
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = social_democracy
+			popularity = 0.03
+		}
+		
+		ai_chance = {
+			base = 50
+		}
+	}
+	
+	option = { # prioritize the budget
+		name = slovenia.4.b
+		add_popularity = {
+			ideology = liberal_conservatism
+			popularity = 0.03
+		}
+		add_popularity = {
+			ideology = national_conservatism
+			popularity = 0.02
+		}
+		
+		ai_chance = {
+			base = 50
+		}
+	}
+}
+
+country_event = {
+	id = slovenia.5
+	title = slovenia.5.title
+	desc = slovenia.5.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { # 
+		name = slovenia.5.a
+		set_politics = {
+			ruling_party = social_democracy
+		}
+		add_demsoc_coalition = yes
+		add_socdem_coalition = yes
+		ai_chance = {
+			base = 35
+		}
+	}
+	
+	option = { # 
+		name = slovenia.5.b
+		
+		ai_chance = {
+			base = 45
+		}
+	}
+	
+	option = { # 
+		name = slovenia.5.v
+		set_politics = {
+			ruling_party = national_conservatism
+		}
+		add_natcon_coalition = yes
+		add_authdem_coalition = yes
+		ai_chance = {
+			base = 30
+		}
+	}
+}

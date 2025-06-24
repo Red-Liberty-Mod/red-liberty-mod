@@ -17,4 +17,14 @@ on_actions = {
 			}
 		}
 	}
+	
+	on_weekly_AHE = {
+		effect = {
+			if = {
+				limit = { has_global_flag = austrian_civil_war_started }
+				add_to_variable = { global.austria_escalation = 1 }
+				AHE_calc_escalation_progressbar = yes
+			}
+		}
+	}
 }

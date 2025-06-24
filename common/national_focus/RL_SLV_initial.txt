@@ -1,0 +1,432 @@
+shared_focus = {
+    id = SLV_free_slovenia
+	icon = GFX_SLV_free_slovenia
+	
+    x = 8
+	y = 0
+	
+	cost = 2
+    completion_reward = {
+        country_event = {
+			id = slovenia.1
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SLV_forming_an_army
+	icon = GFX_SLV_forming_an_army
+	
+    x = -1
+	y = 1
+	
+	cost = 2
+	relative_position_id = SLV_free_slovenia
+	prerequisite = { focus = SLV_free_slovenia }
+	
+    completion_reward = {
+        country_event = {
+			id = slovenia.2
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SLV_drafting_the_constitution
+	icon = GFX_focus_generic_treaty
+	
+    x = 1
+	y = 1
+	
+	cost = 2
+	relative_position_id = SLV_free_slovenia
+	prerequisite = { focus = SLV_free_slovenia }
+	
+    completion_reward = {
+        country_event = {
+			id = slovenia.3
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SLV_stabilizing_the_economy
+	icon = GFX_goal_generic_positive_trade_relations
+	
+    x = 3
+	y = 1
+	
+	cost = 2
+	relative_position_id = SLV_free_slovenia
+	prerequisite = { focus = SLV_free_slovenia }
+	
+    completion_reward = {
+        country_event = {
+			id = slovenia.4
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SLV_the_first_election
+	icon = GFX_goal_generic_intelligence_exchange
+	
+    x = 0
+	y = 2
+	
+	cost = 2
+	relative_position_id = SLV_free_slovenia
+	prerequisite = { focus = SLV_free_slovenia }
+	
+    completion_reward = {
+        country_event = {
+			id = slovenia.5
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SLV_labor_victory
+	icon = GFX_SLV_labor_victory
+	
+    x = -4
+	y = 1
+	
+	available = {
+		has_government = social_democracy
+	}
+	
+	cost = 2
+	relative_position_id = SLV_the_first_election
+	prerequisite = { focus = SLV_the_first_election }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SLV_national_progressive_victory
+	icon = GFX_SLV_national_progressive_victory
+	
+    x = 2
+	y = 1
+	
+	available = {
+		has_government = liberal_conservatism
+	}
+	
+	cost = 2
+	relative_position_id = SLV_the_first_election
+	prerequisite = { focus = SLV_the_first_election }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SLV_peoples_victory
+	icon = GFX_SLV_peoples_victory
+	
+    x = 6
+	y = 1
+	
+	available = {
+		has_government = national_conservatism
+	}
+	
+	cost = 2
+	relative_position_id = SLV_the_first_election
+	prerequisite = { focus = SLV_the_first_election }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SLV_austromarxist_inspirations
+	icon = GFX_SLV_austromarxist_inspirations
+	
+    x = -2
+	y = 1
+	
+	available = {
+		OR = {
+			has_government = democratic_socialism
+			has_government = social_democracy
+		}
+	}
+	
+	cost = 2
+	relative_position_id = SLV_labor_victory
+	prerequisite = { focus = SLV_labor_victory }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SLV_workers_rights
+	icon = GFX_SLV_workers_rights
+	
+    x = 0
+	y = 1
+	
+	available = {
+		OR = {
+			has_government = democratic_socialism
+			has_government = social_democracy
+		}
+	}
+	
+	cost = 2
+	relative_position_id = SLV_labor_victory
+	prerequisite = { focus = SLV_labor_victory }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SLV_promote_popular_culture
+	icon = GFX_SLV_promote_popular_culture
+	
+    x = 2
+	y = 1
+	
+	available = {
+		OR = {
+			has_government = democratic_socialism
+			has_government = social_democracy
+		}
+	}
+	
+	cost = 2
+	relative_position_id = SLV_labor_victory
+	prerequisite = { focus = SLV_labor_victory }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SLV_safeguard_democracy
+	icon = GFX_SLV_safeguard_democracy
+	
+    x = 4
+	y = 1
+	
+	cost = 2
+	relative_position_id = SLV_labor_victory
+	prerequisite = {
+		focus = SLV_labor_victory
+		focus = SLV_national_progressive_victory
+		focus = SLV_peoples_victory
+	}
+	
+    completion_reward = {
+        add_stability = 0.1
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SLV_liberal_nationalism
+	icon = GFX_SLV_liberal_nationalism
+	
+    x = 0
+	y = 1
+	
+	available = {
+		has_government = liberal_conservatism
+	}
+	
+	cost = 2
+	relative_position_id = SLV_national_progressive_victory
+	prerequisite = { focus = SLV_national_progressive_victory }
+	
+    completion_reward = {
+        add_war_support = 0.05
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SLV_embrace_the_free_market
+	icon = GFX_SLV_embrace_the_free_market
+	
+    x = 2
+	y = 1
+	
+	available = {
+		OR = {
+			has_government = liberal_conservatism
+			has_government = national_conservatism
+		}
+	}
+	
+	cost = 2
+	relative_position_id = SLV_national_progressive_victory
+	prerequisite = {
+		focus = SLV_national_progressive_victory
+		focus = SLV_peoples_victory
+	}
+	mutually_exclusive = { focus = SLV_promote_workers_coops }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SLV_promote_workers_coops
+	icon = GFX_SLV_promote_workers_coops
+	
+    x = 0
+	y = 1
+	
+	available = {
+		has_government = national_conservatism
+	}
+	
+	cost = 2
+	relative_position_id = SLV_peoples_victory
+	prerequisite = { focus = SLV_peoples_victory }
+	mutually_exclusive = { focus = SLV_embrace_the_free_market }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SLV_christian_welfare
+	icon = GFX_SLV_christian_welfare
+	
+    x = 2
+	y = 1
+	
+	available = {
+		has_government = national_conservatism
+	}
+	
+	cost = 2
+	relative_position_id = SLV_peoples_victory
+	prerequisite = { focus = SLV_peoples_victory }
+	
+    completion_reward = {
+        ECON_poverty_change_medium = yes
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SLV_ban_extremist_parties
+	icon = GFX_SLV_embrace_the_free_market
+	
+    x = -1
+	y = 1
+	
+	cost = 2
+	relative_position_id = SLV_safeguard_democracy
+	prerequisite = { focus = SLV_safeguard_democracy }
+	
+    completion_reward = {
+        add_ideas = SLV_outlawed_radicalism
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SLV_ensure_military_neutrality
+	icon = GFX_SLV_ensure_military_neutrality
+	
+    x = 1
+	y = 1
+	
+	cost = 2
+	relative_position_id = SLV_safeguard_democracy
+	prerequisite = { focus = SLV_safeguard_democracy }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}

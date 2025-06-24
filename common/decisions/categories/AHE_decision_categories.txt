@@ -1,3 +1,18 @@
+AHE_saving_the_empire_category = {
+	icon = GFX_decision_category_generic_crisis
+
+	allowed = {
+		original_tag = AHE
+		always = no
+	}
+
+	visible = {
+		
+	}
+
+	visible_when_empty = yes
+}
+
 AHE_austrian_revolution_category = {
 	icon = GFX_decision_category_generic_crisis
 
@@ -6,8 +21,32 @@ AHE_austrian_revolution_category = {
 	}
 
 	visible = {
-		
+		has_socialist_govt = yes
 	}
+	
+	scripted_gui = danubian_wars_gui
 
 	visible_when_empty = yes
+}
+
+generic_collapse_category = {
+	icon = GFX_decision_category_generic_crisis
+	
+	allowed = {
+		OR = {
+			original_tag = SLV
+			original_tag = PNB
+			original_tag = CRO
+			original_tag = BOS
+			original_tag = CZE
+			original_tag = HUN
+			original_tag = SLO
+		}
+	}
+	
+	scripted_gui = danubian_wars_gui
+	
+	visible = {
+		#has_global_flag = austrian_civil_war_started
+	}
 }

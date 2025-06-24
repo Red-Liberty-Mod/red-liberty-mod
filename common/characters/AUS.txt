@@ -610,6 +610,10 @@ characters = {
 		}
 		
 		corps_commander = {
+			visible = {
+				has_socialist_govt = yes
+			}
+		
 			traits = {
 				career_officer
 				militias_officer
@@ -630,6 +634,10 @@ characters = {
 				not_already_hired_except_as = army_chief
 			}
 			
+			visible = {
+				has_socialist_govt = yes
+			}
+			
 			traits = {
 				army_chief_morale_2
 			}
@@ -642,6 +650,10 @@ characters = {
 			
 			available = {
 				not_already_hired_except_as = high_command
+			}
+			
+			visible = {
+				has_socialist_govt = yes
 			}
 			
 			traits = {
@@ -661,6 +673,10 @@ characters = {
 		}
 		
 		corps_commander = {
+			visible = {
+				has_socialist_govt = yes
+			}
+		
 			traits = {
 				militias_officer
 				organizer
@@ -679,6 +695,10 @@ characters = {
 			
 			available = {
 				
+			}
+			
+			visible = {
+				has_socialist_govt = yes
 			}
 			
 			traits = {
@@ -708,6 +728,55 @@ characters = {
 			defense_skill = 2
 			planning_skill = 2
 			logistics_skill = 3
+		}
+	}
+	
+	### Admirals ###
+	
+	AUS_georg_von_trapp = {
+		name = AUS_georg_von_trapp
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_AUS_georg_von_trapp"
+				small = "GFX_minister_AUS_georg_von_trapp"
+			}
+		}
+		
+		advisor = {
+			slot = navy_chief
+			idea_token = AUS_georg_von_trapp_navy_chief
+			available = {
+				not_already_hired_except_as = navy_chief
+			}
+			traits = { navy_chief_commerce_raiding_3 }
+			cost = 200
+		}
+		
+		advisor = {
+			slot = theorist
+			idea_token = AUS_georg_von_trapp_theorist
+			ledger = navy
+			available = {
+				not_already_hired_except_as = theorist
+			}
+			traits = { submarine_specialist }
+			cost = 150
+		}
+		
+		navy_leader = {
+			traits = {
+				navy_media_personality
+				bold
+				seawolf
+				silent_hunter
+				spotter
+			}
+			skill = 4
+			attack_skill = 4
+			defense_skill = 3
+			maneuvering_skill = 3
+			coordination_skill = 3
 		}
 	}
 }

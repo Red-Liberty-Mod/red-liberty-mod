@@ -1,11 +1,11 @@
 shared_focus = {
-    id = AHE_winds_of_change
-	icon = GFX_AHE_winds_of_change
+    id = AHE_limping_along
+	icon = GFX_AHE_limping_along
 	
-    x = 8
+    x = 4
 	y = 0
-	
 	cost = 3
+	
     completion_reward = {
         
     }
@@ -16,18 +16,15 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = AHE_look_to_the_left
-	icon = GFX_AHE_look_to_the_left
+    id = AHE_spiraling_down
+	icon = GFX_AHE_spiraling_down
 	
-    x = -2
+    x = 0
 	y = 1
+	cost = 3
 	
-	cost = 5
-	relative_position_id = AHE_winds_of_change
-	prerequisite = { focus = AHE_winds_of_change }
-	mutually_exclusive = {
-		focus = AHE_look_to_the_right
-	}
+	relative_position_id = AHE_limping_along
+	prerequisite = { focus = AHE_limping_along }
     completion_reward = {
         
     }
@@ -38,15 +35,34 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = AHE_rally_the_workers
-	icon = GFX_AHE_rally_the_workers
+    id = AHE_urge_for_calm
+	icon = GFX_AHE_urge_for_calm
+	
+    x = -3
+	y = 1
+	cost = 3
+	
+	relative_position_id = AHE_spiraling_down
+	prerequisite = { focus = AHE_spiraling_down }
+    completion_reward = {
+        add_stability = 0.05
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_tour_the_nation
+	icon = GFX_AHE_urge_for_calm
 	
     x = -1
 	y = 1
+	cost = 3
 	
-	cost = 5
-	relative_position_id = AHE_look_to_the_left
-	prerequisite = { focus = AHE_look_to_the_left }
+	relative_position_id = AHE_spiraling_down
+	prerequisite = { focus = AHE_spiraling_down }
     completion_reward = {
         
     }
@@ -57,57 +73,15 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = AHE_the_nationalities_question
-	icon = GFX_AHE_the_nationalities_question
-	
-    x = 1
-	y = 1
-	
-	cost = 5
-	relative_position_id = AHE_look_to_the_left
-	prerequisite = { focus = AHE_look_to_the_left }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = AHE_state_and_nation
-	icon = GFX_AHE_state_and_nation
-	
-    x = 1
-	y = 1
-	
-	cost = 5
-	relative_position_id = AHE_rally_the_workers
-	prerequisite = { focus = AHE_rally_the_workers }
-	prerequisite = { focus = AHE_the_nationalities_question }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = AHE_look_to_the_right
-	icon = GFX_AHE_look_to_the_right
+    id = AHE_order_law
+	icon = GFX_AHE_urge_for_calm
 	
     x = 2
 	y = 1
+	cost = 3
 	
-	cost = 5
-	relative_position_id = AHE_winds_of_change
-	prerequisite = { focus = AHE_winds_of_change }
-	mutually_exclusive = {
-		focus = AHE_look_to_the_left
-	}
+	relative_position_id = AHE_spiraling_down
+	prerequisite = { focus = AHE_spiraling_down }
     completion_reward = {
         
     }
@@ -118,15 +92,15 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = AHE_float_coalition_idea
-	icon = GFX_AHE_float_coalition_idea
+    id = AHE_reorganize_the_gendarmerie
+	icon = GFX_AHE_reorganize_the_gendarmerie
 	
-    x = 1
+    x = 0
 	y = 1
+	cost = 3
 	
-	cost = 5
-	relative_position_id = AHE_look_to_the_right
-	prerequisite = { focus = AHE_look_to_the_right }
+	relative_position_id = AHE_urge_for_calm
+	prerequisite = { focus = AHE_urge_for_calm }
     completion_reward = {
         
     }
@@ -137,15 +111,80 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = AHE_states_rights
-	icon = GFX_AHE_states_rights
+    id = AHE_anti_corruption_effort
+	icon = GFX_AHE_anti_corruption_effort
+	
+    x = 0
+	y = 1
+	cost = 3
+	
+	relative_position_id = AHE_tour_the_nation
+	prerequisite = { focus = AHE_tour_the_nation }
+    completion_reward = {
+        add_political_power = 25
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+
+shared_focus = {
+    id = AHE_concessions_to_trade_unions
+	icon = GFX_AHE_concessions_to_trade_unions
 	
     x = -1
 	y = 1
+	cost = 3
 	
-	cost = 5
-	relative_position_id = AHE_look_to_the_right
-	prerequisite = { focus = AHE_look_to_the_right }
+	relative_position_id = AHE_order_law
+	prerequisite = { focus = AHE_order_law }
+	mutually_exclusive = { focus = AHE_crush_the_revolts }
+    completion_reward = {
+		add_political_power = -50
+        add_stability = 0.1
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_crush_the_revolts
+	icon = GFX_AHE_crush_the_revolts
+	
+    x = 1
+	y = 1
+	cost = 3
+	
+	relative_position_id = AHE_order_law
+	prerequisite = { focus = AHE_order_law }
+	mutually_exclusive = { focus = AHE_concessions_to_trade_unions }
+    completion_reward = {
+        add_political_power = 25
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_army_reform
+	icon = GFX_AHE_army_reform
+	
+    x = 1
+	y = 1
+	cost = 3
+	
+	relative_position_id = AHE_reorganize_the_gendarmerie
+	prerequisite = {
+		focus = AHE_reorganize_the_gendarmerie
+		focus = AHE_anti_corruption_effort
+	}
+	mutually_exclusive = { focus = AHE_concessions_to_trade_unions }
     completion_reward = {
         
     }
@@ -156,16 +195,40 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = AHE_from_many_one
-	icon = GFX_AHE_from_many_one
+    id = AHE_relocate_industries
+	icon = GFX_AHE_relocate_industries
 	
     x = 1
 	y = 1
+	cost = 3
 	
-	cost = 5
-	relative_position_id = AHE_states_rights
-	prerequisite = { focus = AHE_float_coalition_idea }
-	prerequisite = { focus = AHE_states_rights }
+	relative_position_id = AHE_concessions_to_trade_unions
+	prerequisite = {
+		focus = AHE_concessions_to_trade_unions
+		focus = AHE_crush_the_revolts
+	}
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_the_coming_storm
+	icon = GFX_AHE_the_coming_storm
+	
+    x = 2
+	y = 1
+	cost = 3
+	
+	relative_position_id = AHE_army_reform
+	prerequisite = {
+		focus = AHE_army_reform
+		focus = AHE_relocate_industries
+	}
     completion_reward = {
         
     }
