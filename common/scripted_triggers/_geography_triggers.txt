@@ -109,6 +109,7 @@ is_in_china = {
 }
 
 is_urban_state = {
+	impassable = no
 	OR = {
 		has_state_category = large_town
 		has_state_category = city
@@ -119,10 +120,20 @@ is_urban_state = {
 }
 
 is_rural_state = {
+	impassable = no
 	OR = {
 		has_state_category = pastoral
 		has_state_category = rural
 		has_state_category = developing_rural
 		has_state_category = town
+	}
+}
+
+is_valid_state_for_development = {
+	impassable = no
+	NOT = {
+		has_state_category = wasteland
+		has_state_category = tiny_island
+		has_state_category = small_island
 	}
 }
