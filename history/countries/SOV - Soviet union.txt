@@ -8,7 +8,7 @@ set_country_flag = democratic_socialism_coalition
 set_country_flag = despotism_coalition
 
 set_research_slots = 3
-set_stability = 0.5
+set_stability = 0.6
 set_war_support = 0.8
 starting_train_buffer = 2
 
@@ -178,11 +178,6 @@ set_popularities = {
 	fascism = 0
 }
 
-SOV_init_parliament = yes
-SOV_setup_variables = yes
-SOV_refresh_parliament = yes
-SOV_calc_coalition = yes
-
 ### LEADERS ###
 recruit_character = SOV_nikolai_bukharin
 recruit_character = SOV_grigory_sokolnikov
@@ -269,8 +264,13 @@ add_ideas = {
 	SOV_nep_1
 	SOV_tsarist_captives
 	
-	limited_exports
+	trade_monopoly_1
 }
+
+add_dynamic_modifier = {
+	modifier = SOV_factionalism_modifier
+}
+
 set_country_flag = conscription_banned
 set_country_flag = can_integrate_RUS
 set_country_flag = can_integrate_NRR

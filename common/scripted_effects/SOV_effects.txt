@@ -572,3 +572,82 @@ SOV_relocate_industry_in_appropriate_state_effect = {
 		}
 	}
 }
+
+SOV_calc_faction_effects = {
+	
+	### Centralists ###
+	if = {
+		limit = {
+			check_variable = { SOV_industrialist_opinion < 15 }
+		}
+		set_variable = { SOV_centralist_stability_factor = -0.1 }
+	}
+	else = {
+		set_variable = { SOV_centralist_stability_factor = 0.1 }
+	}
+	
+	set_temp_variable = { SOV_centralist_effect_factor = SOV_industrialist_influence }
+	divide_temp_variable = { SOV_centralist_effect_factor = 30 }
+	multiply_variable = { SOV_centralist_stability_factor = SOV_centralist_effect_factor }
+	
+	### Rightists ###
+	if = {
+		limit = {
+			check_variable = { SOV_rightist_opinion < 15 }
+		}
+		set_variable = { SOV_rightist_political_power_factor = -0.1 }
+	}
+	else = {
+		set_variable = { SOV_rightist_political_power_factor = 0.1 }
+	}
+	
+	set_temp_variable = { SOV_rightist_effect_factor = SOV_rightist_influence }
+	divide_temp_variable = { SOV_rightist_effect_factor = 30 }
+	multiply_variable = { SOV_rightist_political_power_factor = SOV_rightist_effect_factor }
+	
+	### Syndicalist ###
+	if = {
+		limit = {
+			check_variable = { SOV_syndicalist_opinion < 15 }
+		}
+		set_variable = { SOV_syndicalist_industrial_capacity_factory = -0.1 }
+	}
+	else = {
+		set_variable = { SOV_syndicalist_industrial_capacity_factory = 0.1 }
+	}
+	
+	set_temp_variable = { SOV_syndicalist_effect_factor = SOV_syndicalist_influence }
+	divide_temp_variable = { SOV_syndicalist_effect_factor = 30 }
+	multiply_variable = { SOV_syndicalist_industrial_capacity_factory = SOV_syndicalist_effect_factor }
+	
+	### Democrat ###
+	if = {
+		limit = {
+			check_variable = { SOV_democrat_opinion < 15 }
+		}
+		set_variable = { SOV_democrat_consumer_goods_factor = 0.1 }
+	}
+	else = {
+		set_variable = { SOV_democrat_consumer_goods_factor = -0.1 }
+	}
+	
+	set_temp_variable = { SOV_democrat_effect_factor = SOV_democrat_influence }
+	divide_temp_variable = { SOV_democrat_effect_factor = 30 }
+	multiply_variable = { SOV_democrat_consumer_goods_factor = SOV_democrat_effect_factor }
+}
+
+SOV_setup_kirov_vars = {
+	set_variable = { SOV_industrialist_opinion = 30 }
+	set_variable = { SOV_rightist_opinion = 17 }
+	set_variable = { SOV_decist_opinion = 7 }
+	set_variable = { SOV_syndicalist_opinion = 9 }
+	set_variable = { SOV_democrat_opinion = 3 }
+}
+
+SOV_setup_sokolnikov_vars = {
+	set_variable = { SOV_industrialist_opinion = 14 }
+	set_variable = { SOV_rightist_opinion = 27 }
+	set_variable = { SOV_decist_opinion = 11 }
+	set_variable = { SOV_syndicalist_opinion = 6 }
+	set_variable = { SOV_democrat_opinion = 13 }
+}
