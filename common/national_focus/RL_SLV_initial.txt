@@ -19,6 +19,26 @@ shared_focus = {
 }
 
 shared_focus = {
+    id = SLV_safeguard_democracy
+	icon = GFX_focus_ARG_defense_and_democracy
+	
+    x = -3
+	y = 1
+	
+	cost = 2
+	relative_position_id = SLV_free_slovenia
+	prerequisite = { focus = SLV_free_slovenia }
+	
+    completion_reward = {
+        add_stability = 0.1
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
     id = SLV_forming_an_army
 	icon = GFX_SLV_forming_an_army
 	
@@ -30,6 +50,11 @@ shared_focus = {
 	prerequisite = { focus = SLV_free_slovenia }
 	
     completion_reward = {
+		add_equipment_to_stockpile = {
+			type = infantry_equipment_1
+			amount = 250
+			producer = AHE
+		}
         country_event = {
 			id = slovenia.2
 			hours = 6
@@ -66,7 +91,7 @@ shared_focus = {
 
 shared_focus = {
     id = SLV_stabilizing_the_economy
-	icon = GFX_goal_generic_positive_trade_relations
+	icon = GFX_focus_generic_economic_recovery
 	
     x = 3
 	y = 1
@@ -80,6 +105,46 @@ shared_focus = {
 			id = slovenia.4
 			hours = 6
 		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SLV_ban_extremist_parties
+	icon = GFX_FRA_outlaw_paramilitaries
+	
+    x = -1
+	y = 1
+	
+	cost = 2
+	relative_position_id = SLV_safeguard_democracy
+	prerequisite = { focus = SLV_safeguard_democracy }
+	
+    completion_reward = {
+        add_ideas = SLV_outlawed_radicalism
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SLV_ensure_military_neutrality
+	icon = GFX_focus_generic_advanced_military_studies
+	
+    x = 1
+	y = 1
+	
+	cost = 2
+	relative_position_id = SLV_safeguard_democracy
+	prerequisite = { focus = SLV_safeguard_democracy }
+	
+    completion_reward = {
+        add_war_support = 0.05
     }
 	
 	ai_will_do = {
@@ -264,30 +329,6 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = SLV_safeguard_democracy
-	icon = GFX_SLV_safeguard_democracy
-	
-    x = 4
-	y = 1
-	
-	cost = 2
-	relative_position_id = SLV_labor_victory
-	prerequisite = {
-		focus = SLV_labor_victory
-		focus = SLV_national_progressive_victory
-		focus = SLV_peoples_victory
-	}
-	
-    completion_reward = {
-        add_stability = 0.1
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
     id = SLV_liberal_nationalism
 	icon = GFX_SLV_liberal_nationalism
 	
@@ -384,46 +425,6 @@ shared_focus = {
 	
     completion_reward = {
         ECON_poverty_change_medium = yes
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = SLV_ban_extremist_parties
-	icon = GFX_SLV_embrace_the_free_market
-	
-    x = -1
-	y = 1
-	
-	cost = 2
-	relative_position_id = SLV_safeguard_democracy
-	prerequisite = { focus = SLV_safeguard_democracy }
-	
-    completion_reward = {
-        add_ideas = SLV_outlawed_radicalism
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = SLV_ensure_military_neutrality
-	icon = GFX_SLV_ensure_military_neutrality
-	
-    x = 1
-	y = 1
-	
-	cost = 2
-	relative_position_id = SLV_safeguard_democracy
-	prerequisite = { focus = SLV_safeguard_democracy }
-	
-    completion_reward = {
-        
     }
 	
 	ai_will_do = {
