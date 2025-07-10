@@ -1,5 +1,21 @@
 TUR_straits_council_category ={
 	
+	TUR_demands_header = {
+		icon = GFX_decision_generic_operation
+		
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		
+		cost = 0
+		
+		ai_will_do = {
+			base = 0
+		}
+	}
+	
 	TUR_demand_remil_manisa = {
 		icon = border_war
 		
@@ -14,13 +30,17 @@ TUR_straits_council_category ={
 		
 		complete_effect = {
 			set_country_flag = TUR_demanded_manisa
-			add_to_variable = { TUR_demand_val = 1 }
+			add_to_variable = { TUR_demand_val = 10 }
 			custom_effect_tooltip = TUR_if_entente_accepts
 			effect_tooltip = {
 				339 = {
 					set_demilitarized_zone = no
 				}
 			}
+		}
+		
+		ai_will_do = {
+			base = 10
 		}
 	}
 	
@@ -36,7 +56,7 @@ TUR_straits_council_category ={
 		
 		complete_effect = {
 			clr_country_flag = TUR_demanded_manisa
-			add_to_variable = { TUR_demand_val = -1 }
+			add_to_variable = { TUR_demand_val = -10 }
 		}
 	}
 	
@@ -54,7 +74,7 @@ TUR_straits_council_category ={
 		
 		complete_effect = {
 			set_country_flag = TUR_renegotiated_debt
-			add_to_variable = { TUR_demand_val = 1 }
+			add_to_variable = { TUR_demand_val = 5 }
 			custom_effect_tooltip = TUR_if_entente_accepts
 			effect_tooltip = {
 				add_timed_idea = {
@@ -62,6 +82,10 @@ TUR_straits_council_category ={
 					days = 360
 				}
 			}
+		}
+		
+		ai_will_do = {
+			base = 10
 		}
 	}
 	
@@ -77,7 +101,7 @@ TUR_straits_council_category ={
 		
 		complete_effect = {
 			clr_country_flag = TUR_renegotiated_debt
-			add_to_variable = { TUR_demand_val = -1 }
+			add_to_variable = { TUR_demand_val = -5 }
 		}
 	}
 	
@@ -95,13 +119,17 @@ TUR_straits_council_category ={
 		
 		complete_effect = {
 			set_country_flag = TUR_claimed_thrace
-			add_to_variable = { TUR_demand_val = 1 }
+			add_to_variable = { TUR_demand_val = 5 }
 			custom_effect_tooltip = TUR_if_entente_accepts
 			effect_tooltip = {
 				TUR = {
 					add_state_claim = 821
 				}
 			}
+		}
+		
+		ai_will_do = {
+			base = 10
 		}
 	}
 	
@@ -117,7 +145,23 @@ TUR_straits_council_category ={
 		
 		complete_effect = {
 			clr_country_flag = TUR_claimed_thrace
-			add_to_variable = { TUR_demand_val = -1 }
+			add_to_variable = { TUR_demand_val = -5 }
+		}
+	}
+	
+	TUR_concessions_header = {
+		icon = GFX_decision_generic_operation
+		
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		
+		cost = 0
+		
+		ai_will_do = {
+			base = 0
 		}
 	}
 	
@@ -126,17 +170,20 @@ TUR_straits_council_category ={
 		
 		visible = {
 			tag = TUR
+			NOT = {
+				has_country_flag = TUR_remil_lemnos
+			}
 		}
 		
 		cost = 25
 		
 		complete_effect = {
 			set_country_flag = TUR_remil_lemnos
-			add_to_variable = { TUR_concession_val = 1 }
+			add_to_variable = { TUR_concession_val = 5 }
 		}
 		
 		ai_will_do = {
-			base = 1
+			base = 5
 			modifier = {
 				factor = 2
 				check_variable = { TUR.TUR_demand_val > TUR.TUR_concession_val }
@@ -149,17 +196,20 @@ TUR_straits_council_category ={
 		
 		visible = {
 			tag = TUR
+			NOT = {
+				has_country_flag = TUR_econ_liberalization
+			}
 		}
 		
 		cost = 15
 		
 		complete_effect = {
 			set_country_flag = TUR_econ_liberalization
-			add_to_variable = { TUR_concession_val = 1 }
+			add_to_variable = { TUR_concession_val = 5 }
 		}
 		
 		ai_will_do = {
-			base = 1
+			base = 10
 			modifier = {
 				factor = 2
 				check_variable = { TUR.TUR_demand_val > TUR.TUR_concession_val }
@@ -172,17 +222,20 @@ TUR_straits_council_category ={
 		
 		visible = {
 			tag = TUR
+			NOT = {
+				has_country_flag = TUR_pol_democratization
+			}
 		}
 		
 		cost = 15
 		
 		complete_effect = {
 			set_country_flag = TUR_pol_democratization
-			add_to_variable = { TUR_concession_val = 1 }
+			add_to_variable = { TUR_concession_val = 5 }
 		}
 		
 		ai_will_do = {
-			base = 1
+			base = 10
 			modifier = {
 				factor = 2
 				check_variable = { TUR.TUR_demand_val > TUR.TUR_concession_val }
@@ -195,21 +248,40 @@ TUR_straits_council_category ={
 		
 		visible = {
 			tag = TUR
+			NOT = {
+				has_country_flag = TUR_free_passage
+			}
 		}
 		
 		cost = 25
 		
 		complete_effect = {
 			set_country_flag = TUR_free_passage
-			add_to_variable = { TUR_concession_val = 1 }
+			add_to_variable = { TUR_concession_val = 5 }
 		}
 		
 		ai_will_do = {
-			base = 1
+			base = 5
 			modifier = {
 				factor = 2
 				check_variable = { TUR.TUR_demand_val > TUR.TUR_concession_val }
 			}
+		}
+	}
+	
+	TUR_special_actions_header = {
+		icon = GFX_decision_generic_operation
+		
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		
+		cost = 0
+		
+		ai_will_do = {
+			base = 0
 		}
 	}
 	

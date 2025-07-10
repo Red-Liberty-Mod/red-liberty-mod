@@ -1,32 +1,99 @@
-add_namespace = aus_hun
+add_namespace = AHE_prewar
 add_namespace = AHE_revolution
 add_namespace = AHE_collapse
 
-country_event = { # 
-	id = aus_hun.1
-	title = aus_hun.1.title
-	desc = aus_hun.1.desc
+country_event = { # german nationalists protest govt reforms
+	id = AHE_prewar.1
+	title = AHE_prewar.1.title
+	desc = AHE_prewar.1.desc
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
 
 	option = {
-		name = aus_hun.1.a
+		name = AHE_prewar.1.a
+		add_political_power = -10
 	}
 }
 
-country_event = { # 
-	id = aus_hun.2
-	title = aus_hun.2.title
-	desc = aus_hun.2.desc
+country_event = { # mutiny of czech officers
+	id = AHE_prewar.2
+	title = AHE_prewar.2.title
+	desc = AHE_prewar.2.desc
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
 
 	option = {
-		name = aus_hun.2.a
+		name = AHE_prewar.2.a
+		add_war_support = -0.01
+	}
+}
+
+country_event = { # clashes between poles and ukrainians in galicia
+	id = AHE_prewar.3
+	title = AHE_prewar.3.title
+	desc = AHE_prewar.3.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = AHE_prewar.3.a
+		add_stability = -0.01
+	}
+}
+
+country_event = { # formation of the slovene national unity govt
+	id = AHE_prewar.4
+	title = AHE_prewar.4.title
+	desc = AHE_prewar.4.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = AHE_prewar.4.a
+	}
+}
+
+country_event = { # austrian officers struggle to process a polish prisoner (gregorz bbrestsfmndska)
+	id = AHE_prewar.5
+	title = AHE_prewar.5.title
+	desc = AHE_prewar.5.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = AHE_prewar.5.a
+	}
+}
+
+country_event = { # arson attacks on govt buildings in sarajevo
+	id = AHE_prewar.6
+	title = AHE_prewar.6.title
+	desc = AHE_prewar.6.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = AHE_prewar.6.a
+		add_stability = -0.01
+	}
+}
+
+country_event = { # karl gives a speech basically begging everyone to stop killing each other
+	id = AHE_prewar.7
+	title = AHE_prewar.7.title
+	desc = AHE_prewar.7.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = AHE_prewar.7.a
 	}
 }
 
@@ -37,7 +104,6 @@ country_event = { # vienna uprising
 	picture = GFX_report_event_revolutions
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
 	
 	immediate = {
@@ -49,6 +115,7 @@ country_event = { # vienna uprising
 					last_election = "1932.10.8"
 					election_frequency = 48
 				}
+				set_country_flag = AHE_revolution_started
 				
 				clear_all_coalitions = yes
 				set_country_flag = vanguard_socialism_coalition
@@ -81,10 +148,6 @@ country_event = { # vienna uprising
 
 	option = {
 		name = AHE_revolution.1.a
-		hidden_effect = {
-			recruit_character = AUS_alexander_eifler
-			recruit_character = AUS_julius_deutsch
-		}
 		random_other_country = {
 			limit = { is_ai = yes }
 			news_event = { id = demo_ahe.2 hours = 6 }
@@ -99,7 +162,6 @@ country_event = { # september constitution
 	picture = GFX_report_event_revolutions
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
 	
 	immediate = {
@@ -126,9 +188,7 @@ country_event = { # hidden trigger
 	picture = GFX_report_event_revolutions
 	
 	hidden = yes
-	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
 	
 	immediate = {

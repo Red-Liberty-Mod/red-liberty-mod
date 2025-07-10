@@ -16,27 +16,59 @@ has_bad_army_spirit_army = {
 has_military_academy = {
 	custom_trigger_tooltip = {
 		tooltip = has_military_academy_tt
-		always = yes
+		if = {
+			limit = {
+				tag = LIB
+			}
+			has_completed_focus = LIB_officer_candidate_school
+		}
+		else = {
+			always = yes
+		}
 	}
 }
 
 has_naval_academy = {
 	custom_trigger_tooltip = {
 		tooltip = has_naval_academy_tt
-		always = yes
+		if = {
+			limit = {
+				tag = LIB
+			}
+			has_completed_focus = LIB_form_the_coast_guard
+		}
+		else = {
+			always = yes
+		}
 	}
 }
 
 has_air_academy = {
 	custom_trigger_tooltip = {
 		tooltip = has_air_academy_tt
-		always = yes
+		if = {
+			limit = {
+				tag = LIB
+			}
+			has_completed_focus = LIB_form_the_liberian_air_wing
+		}
+		else = {
+			always = yes
+		}
 	}
 }
 
 has_air_force_command = {
 	custom_trigger_tooltip = {
 		tooltip = has_air_force_command_tt
-		always = yes
+		if = {
+			limit = {
+				tag = LIB
+			}
+			has_completed_focus = LIB_form_the_liberian_air_wing
+		}
+		else = {
+			always = yes
+		}
 	}
 }

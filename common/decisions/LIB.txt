@@ -1,0 +1,55 @@
+LIB_support_rebels_category = {
+	
+	LIB_support_rebels = {
+		icon = GFX_decision_generic_nationalism
+		
+		visible = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		state_target = yes
+		target_array = FWA.core_states
+		on_map_mode = map_and_decisions_view
+		target_trigger = {
+			FROM = {
+				NOT = {
+					has_state_category = wasteland
+				}
+			}
+		}
+		
+		#cost = 25
+		days_remove = 14
+		days_re_enable = 90
+		
+		custom_cost_text = IE_500
+		custom_cost_trigger = {
+			has_equipment = {
+				infantry_equipment > 499
+			}
+		}
+		
+		complete_effect = {
+			hidden_effect = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = -500
+				}
+			}
+		}
+		
+		remove_effect = {
+			FROM = {
+				add_resistance = 5
+			}
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+	}
+}

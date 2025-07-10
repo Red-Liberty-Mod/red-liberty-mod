@@ -1,0 +1,569 @@
+shared_focus = {
+    id = LIB_expand_the_frontier_force
+	icon = GFX_LIB_expand_the_frontier_force
+	
+    x = 8
+	y = 0
+	cost = 4
+	
+	available = {
+		threat > 0.2
+	}
+	
+    completion_reward = {
+        army_experience = 15
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = LIB_foreign_technical_expertise
+	icon = GFX_LIB_foreign_technical_expertise
+	
+    x = -3
+	y = 1
+	cost = 4
+	
+	relative_position_id = LIB_expand_the_frontier_force
+	prerequisite = { focus = LIB_expand_the_frontier_force }
+	
+    completion_reward = {
+        add_tech_bonus = {
+			name = LIB_foreign_technical_expertise
+			bonus = 0.25
+			uses = 2
+			category = industry
+			category = electronics
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = LIB_fight_military_corruption
+	icon = GFX_LIB_fight_military_corruption
+	
+    x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = LIB_expand_the_frontier_force
+	prerequisite = { focus = LIB_expand_the_frontier_force }
+	
+    completion_reward = {
+        add_political_power = 50
+		add_war_support = 0.05
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = LIB_american_military_advisors
+	icon = GFX_LIB_american_military_advisors
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = LIB_expand_the_frontier_force
+	prerequisite = { focus = LIB_expand_the_frontier_force }
+	
+    completion_reward = {
+        army_experience = 5
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = LIB_air_mail_service
+	icon = GFX_LIB_air_mail_service
+	
+    x = 5
+	y = 1
+	cost = 4
+	
+	relative_position_id = LIB_expand_the_frontier_force
+	prerequisite = { focus = LIB_expand_the_frontier_force }
+	
+    completion_reward = {
+        add_equipment_to_stockpile = {
+			type = transport_plane_equipment
+			amount = 6
+			producer = USA
+		}
+		air_experience = 5
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = LIB_import_small_arms
+	icon = GFX_LIB_import_small_arms
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = LIB_foreign_technical_expertise
+	prerequisite = { focus = LIB_foreign_technical_expertise }
+	
+    completion_reward = {
+        add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 500
+			producer = USA
+		}
+		add_tech_bonus = {
+			name = LIB_import_small_arms
+			bonus = 0.25
+			uses = 1
+			category = infantry_weapons
+		}
+		custom_effect_tooltip = forms_mio_tt
+		show_mio_tooltip = LIB_mauser_organization
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = LIB_expand_military_infrastructure
+	icon = GFX_LIB_expand_military_infrastructure
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = LIB_fight_military_corruption
+	prerequisite = { focus = LIB_fight_military_corruption }
+	prerequisite = { focus = LIB_american_military_advisors }
+	
+    completion_reward = {
+        298 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = LIB_fortification_studies
+	icon = GFX_LIB_fortification_studies
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = LIB_american_military_advisors
+	prerequisite = { focus = LIB_american_military_advisors }
+	
+    completion_reward = {
+		298 = {
+			add_building_construction = {
+				type = bunker
+				level = 1
+				instant_build = yes
+				province = 13264
+			}
+		}
+		add_tech_bonus = {
+			name = LIB_acquire_military_aircraft
+			bonus = 0.25
+			uses = 1
+			category = cat_fortification
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = LIB_construct_robertsfield_airport
+	icon = GFX_LIB_construct_robertsfield_airport
+	
+    x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = LIB_air_mail_service
+	prerequisite = { focus = LIB_air_mail_service }
+	prerequisite = { focus = LIB_american_military_advisors }
+	
+    completion_reward = {
+        298 = {
+			add_building_construction = {
+				type = air_base
+				level = 1
+				instant_build = yes
+			}
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = LIB_acquire_military_aircraft
+	icon = GFX_LIB_acquire_military_aircraft
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = LIB_air_mail_service
+	prerequisite = { focus = LIB_air_mail_service }
+	
+    completion_reward = {
+		add_equipment_to_stockpile = {
+			type = small_plane_airframe
+			amount = 12
+			producer = USA
+		}
+        add_tech_bonus = {
+			name = LIB_acquire_military_aircraft
+			bonus = 0.25
+			uses = 1
+			category = light_air
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = LIB_import_automobiles
+	icon = GFX_LIB_import_automobiles
+	
+    x = -1
+	y = 2
+	cost = 4
+	
+	relative_position_id = LIB_foreign_technical_expertise
+	prerequisite = { focus = LIB_foreign_technical_expertise }
+	
+    completion_reward = {
+        add_equipment_to_stockpile = {
+			type = motorized_equipment
+			amount = 50
+			producer = USA
+		}
+		add_tech_bonus = {
+			name = LIB_import_automobiles
+			bonus = 0.25
+			uses = 1
+			category = motorized_equipment
+		}
+		custom_effect_tooltip = forms_mio_tt
+		show_mio_tooltip = LIB_ford_motor_company_organization
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = LIB_import_artillery
+	icon = GFX_LIB_import_artillery
+	
+    x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = LIB_import_small_arms
+	prerequisite = { focus = LIB_import_small_arms }
+	
+    completion_reward = {
+        add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 75
+			producer = USA
+		}
+		add_tech_bonus = {
+			name = LIB_import_artillery
+			bonus = 0.25
+			uses = 1
+			category = artillery
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = LIB_domestic_manufacturing
+	icon = GFX_LIB_domestic_manufacturing
+	
+    x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = LIB_expand_military_infrastructure
+	prerequisite = { focus = LIB_expand_military_infrastructure }
+	
+    completion_reward = {
+        298 = {
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = LIB_form_the_liberian_air_wing
+	icon = GFX_LIB_form_the_liberian_air_wing
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = LIB_construct_robertsfield_airport
+	prerequisite = { focus = LIB_construct_robertsfield_airport }
+	prerequisite = { focus = LIB_acquire_military_aircraft }
+	
+    completion_reward = {
+        if = {
+			limit = { has_dlc_nsb = yes }
+			custom_effect_tooltip = unlock_air_command_spirit_tt
+		}
+		else = {
+			air_experience = 25
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = LIB_form_the_militia_force
+	icon = GFX_LIB_form_the_militia_force
+	
+    x = -3
+	y = 1
+	cost = 4
+	
+	relative_position_id = LIB_domestic_manufacturing
+	prerequisite = { focus = LIB_import_automobiles }
+	prerequisite = { focus = LIB_import_artillery }
+	prerequisite = { focus = LIB_domestic_manufacturing }
+	mutually_exclusive = { focus = LIB_prioritize_the_frontier_force }
+	
+    completion_reward = {
+		custom_effect_tooltip = LIB_form_the_militia_force_tt
+        hidden_effect = {
+			load_oob = "LIB_militia"
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = LIB_prioritize_the_frontier_force
+	icon = GFX_LIB_prioritize_the_frontier_force
+	
+    x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = LIB_domestic_manufacturing
+	prerequisite = { focus = LIB_import_automobiles }
+	prerequisite = { focus = LIB_import_artillery }
+	prerequisite = { focus = LIB_domestic_manufacturing }
+	mutually_exclusive = { focus = LIB_form_the_militia_force }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = LIB_military_drydocks
+	icon = GFX_LIB_military_drydocks
+	
+    x = 1
+	y = 2
+	cost = 4
+	
+	relative_position_id = LIB_expand_military_infrastructure
+	prerequisite = { focus = LIB_expand_military_infrastructure }
+	
+    completion_reward = {
+        298 = {
+			add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = LIB_expand_trade_connections
+	icon = GFX_LIB_expand_trade_connections
+	
+    x = 2
+	y = 3
+	cost = 4
+	
+	relative_position_id = LIB_american_military_advisors
+	prerequisite = { focus = LIB_american_military_advisors }
+	
+    completion_reward = {
+        add_equipment_to_stockpile = {
+			type = convoy
+			amount = 10
+			producer = LIB
+		}
+		298 = {
+			add_building_construction = {
+				type = naval_base
+				level = 1
+				instant_build = yes
+				province = 13264
+			}
+		}
+		navy_experience = 5
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = LIB_jungle_training
+	icon = GFX_LIB_jungle_training
+	
+    x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = LIB_form_the_militia_force
+	prerequisite = {
+		focus = LIB_form_the_militia_force
+		focus = LIB_prioritize_the_frontier_force
+	}
+	
+    completion_reward = {
+		enable_tech_jungle_warfare = yes
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = LIB_officer_candidate_school
+	icon = GFX_LIB_officer_candidate_school
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = LIB_form_the_militia_force
+	prerequisite = {
+		focus = LIB_form_the_militia_force
+		focus = LIB_prioritize_the_frontier_force
+	}
+	
+    completion_reward = {
+		if = {
+			limit = { has_dlc_nsb = yes }
+			custom_effect_tooltip = unlock_academy_spirit_tt
+		}
+		else = {
+			army_experience = 25
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = LIB_form_the_coast_guard
+	icon = GFX_LIB_form_the_coast_guard
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = LIB_military_drydocks
+	prerequisite = {
+		focus = LIB_military_drydocks
+		focus = LIB_expand_trade_connections
+	}
+	
+    completion_reward = {
+        if = {
+			limit = { has_dlc_nsb = yes }
+			custom_effect_tooltip = unlock_naval_academy_spirit_tt
+		}
+		else = {
+			navy_experience = 25
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+

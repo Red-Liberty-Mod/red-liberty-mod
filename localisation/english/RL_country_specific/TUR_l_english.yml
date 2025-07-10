@@ -280,33 +280,37 @@
  
  TUR_straits_council_category:0 "The Straits Commission Council"
  #TUR_straits_council_category_desc:0 "After the end of the Great War and the defeat of the Ottoman Empire, a joint straits commission was established to guarantee the interests of the allied powers in the area.\n[GetCouncilMemberStatus]\n\n[ENG.GetFlag]British Influence: [?TUR_british_influence|Y0]\n[FRA.GetFlag]French Influence: [?TUR_french_influence|Y0]\n[GER.GetFlag]German Influence: [?TUR_german_influence|Y0]\n\n[TUR.GetFlag]Anatolian Influence: [?TUR_anatolian_influence|Y0]\n\nCommission Stability: [?SCM.stability|Y2%]"
- TUR_straits_council_category_desc:0 "After the end of the §YGreat War§! and the collapse of the §YOttoman Empire§!, a joint straits commission was established to guarantee the interests of the allied powers in the area. [GetCouncilMemberStatus]\n\nThe council has recently begun preparing for the §YConstantinople Conference§!, in which the future of the straits governorate will be decided.\n\nDemands: [?TUR.TUR_demand_val]\n§G+Reintegration of Constantinople§!\n[GetRemilManisa]\n[GetDebtRenegotiation]\n[GetThraceClaim]\n\nConcessions: [?TUR.TUR_concession_val]\n[GetRemilLemnos]\n[GetEconLiberalization]\n[GetPolDemocratization]\n[GetFreePassage]\n\nModifiers:\n[GetGermanOutreach]\n[GetUnstableCommission]\n\nCurrently, [GetEntenteAgreement]"
+ TUR_straits_council_category_desc:0 "After the end of the §YGreat War§! and the collapse of the §YOttoman Empire§!, a joint straits commission was established to guarantee the interests of the allied powers in the area. [GetCouncilMemberStatus]\n\nThe council has recently begun preparing for the §YConstantinople Conference§!, in which the future of the straits governorate will be decided.\n\nDemand Score: [?TUR.TUR_demand_val]\n§G+Reintegration of Constantinople (10)§!\n[GetRemilManisa]\n[GetDebtRenegotiation]\n[GetThraceClaim]\n\nConcession Score: [?TUR.TUR_concession_val]\n[GetRemilLemnos]\n[GetEconLiberalization]\n[GetPolDemocratization]\n[GetFreePassage]\n\nModifiers:\n[GetGermanOutreach]\n[GetUnstableCommission]\n\nCurrently, [GetEntenteAgreement]"
  
  TUR_if_entente_accepts:0 "If the conference is successful, we will gain:"
+ TUR_rejecting_favorable_deal:0 "Rejecting a favorable deal would be a mistake."
+ TUR_straits_conference_over:0 "The Constantinople Conference has ended."
  
  ## demands ##
- TUR_demanded_manisa_green:0 "§G+Remilitarization of Manisa§!"
- TUR_demanded_manisa_grey:0 "§g+Remilitarization of Manisa§!"
- TUR_debt_renegotiation_green:0 "§G+Debt Renegotiation§!"
- TUR_debt_renegotiation_grey:0 "§g+Debt Renegotiation§!"
- TUR_claimed_thrace_green:0 "§G+Claim on Thrace§!"
- TUR_claimed_thrace_grey:0 "§g+Claim on Thrace§!"
+ TUR_demanded_manisa_green:0 "§G+Remilitarization of Manisa (10)§!"
+ TUR_demanded_manisa_grey:0 "§g+Remilitarization of Manisa (10)§!"
+ TUR_debt_renegotiation_green:0 "§G+Debt Renegotiation (5)§!"
+ TUR_debt_renegotiation_grey:0 "§g+Debt Renegotiation (5)§!"
+ TUR_claimed_thrace_green:0 "§G+Claim on Thrace (5)§!"
+ TUR_claimed_thrace_grey:0 "§g+Claim on Thrace (5)§!"
  
  ## concessions ##
- TUR_remil_lemnos_red:0 "§R-Remilitarization of Lemnos & Samothrace§!"
- TUR_remil_lemnos_grey:0 "§g-Remilitarization of Lemnos & Samothrace§!"
- TUR_econ_liberal_red:0 "§R-Economic Liberalization§!"
- TUR_econ_liberal_grey:0 "§g-Economic Liberalization§!"
- TUR_pol_democratization_red:0 "§R-Political Democratization§!"
- TUR_pol_democratization_grey:0 "§g-Political Democratization§!"
- TUR_free_passage_red:0 "§R-Free Passage Clause§!"
- TUR_free_passage_grey:0 "§g-Free Passage Clause§!"
+ TUR_remil_lemnos_red:0 "§R-Remilitarization of Lemnos & Samothrace (5)§!"
+ TUR_remil_lemnos_grey:0 "§g-Remilitarization of Lemnos & Samothrace (5)§!"
+ TUR_econ_liberal_red:0 "§R-Economic Liberalization (5)§!"
+ TUR_econ_liberal_grey:0 "§g-Economic Liberalization (5)§!"
+ TUR_pol_democratization_red:0 "§R-Political Democratization (5)§!"
+ TUR_pol_democratization_grey:0 "§g-Political Democratization (5)§!"
+ TUR_free_passage_red:0 "§R-Free Passage Clause (5)§!"
+ TUR_free_passage_grey:0 "§g-Free Passage Clause (5)§!"
+ TUR_oil_rights_red:0 "§R-Oil Exploration Rights (5)§!"
+ TUR_oil_rights_grey:0 "§g-Oil Exploration Rights (5)§!"
  
  ## modifiers ##
- TUR_german_outreach_yellow:0 "§Y=German Outreach§!"
- TUR_german_outreach_grey:0 "§g=German Outreach§!"
- TUR_unstable_commission_yellow:0 "§Y=Unstable Commission§!"
- TUR_unstable_commission_grey:0 "§g=Unstable Commission§!"
+ TUR_german_outreach_yellow:0 "§Y=German Outreach (x1.25)§!"
+ TUR_german_outreach_grey:0 "§g=German Outreach (x1.25)§!"
+ TUR_unstable_commission_yellow:0 "§Y=Unstable Commission (x1.25)§!"
+ TUR_unstable_commission_grey:0 "§g=Unstable Commission (x1.25)§!"
  
  ## else ##
  TUR_entente_will_accept:0 "the Entente powers are expected to §Gaccept§! the agreement."
@@ -316,16 +320,20 @@
  TUR_straits_council_observer:0 "As a country with a versted interest, we have been granted observer rights on the council."
  
  ## decisions ##
+ TUR_demands_header:0 "--- Demands ---"
  TUR_demand_remil_manisa:0 "Demand Remilitarization of Manisa"
+ TUR_withdraw_demand_remil_manisa:0 "Withdraw Remilitarization of Manisa"
  TUR_demand_debt_renegotiation:0 "Demand Debt Renegotiation"
  TUR_demand_claim_thrace:0 "Demand Recognition of Claims"
  TUR_demand_claim_thrace_desc:0 "Adrianople is rightfully ours, and should be recognized as such."
  
+ TUR_concessions_header:0 "--- Concessions ---"
  TUR_offer_remil_lemnos:0 "Offer Remilitarization of Greek Isles"
  TUR_offer_econ_liberalization:0 "Offer Economic Liberalization"
  TUR_offer_pol_democratization:0 "Offer Political Democratization"
  TUR_offer_free_passage:0 "Offer Free Passage"
  
+ TUR_special_actions_header:0 "--- Additional Actions ---"
  TUR_destabilize_the_commission:0 "Destabilize the Commission"
  TUR_destabilize_the_commission_desc:0 "Allowing a few guns to end up in the wrong hands should make the Entente think twice about holding the straits militarily."
  
