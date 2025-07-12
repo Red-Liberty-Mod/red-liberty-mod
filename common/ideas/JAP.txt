@@ -186,5 +186,276 @@ ideas = {
 				
 			}
 		}
+		
+		### Military ###
+		
+		JAP_motorisation_drive = {
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = {
+				always = no
+			}
+			
+			equipment_bonus = {
+				motorized_equipment = {
+					build_cost_ic = -0.1
+					instant = yes
+				}
+			}
+		}
+		
+		JAP_purged_high_command = {
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = {
+				always = no
+			}
+			
+			modifier = {
+				army_org_factor = -0.15
+				command_power_gain_mult = -0.5
+			}
+		}
+		
+		JAP_updated_recruitment_standards = {
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = {
+				always = no
+			}
+			
+			modifier = {
+				conscription_factor = -0.05
+				army_org_factor = 0.05
+			}
+		}
+		
+		JAP_new_model_army = {
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = {
+				always = no
+			}
+			
+			modifier = {
+				conscription_factor = -0.05
+				army_org_factor = 0.075
+				army_morale_factor = 0.05
+			}
+		}
+		
+		JAP_zaibatsu_contracts = {
+			picture = idea_jap_zaibatsu_ally
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = {
+				always = no
+			}
+			
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.1
+					instant = yes
+				}
+				artillery_equipment = {
+					build_cost_ic = -0.1
+					instant = yes
+				}
+				support_equipment = {
+					build_cost_ic = -0.1
+					instant = yes
+				}
+			}
+		}
+		
+		JAP_spiritual_training = {
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = {
+				always = no
+			}
+			
+			modifier = {
+				modifier_army_sub_unit_infantry_attack_factor = 0.05
+			}
+		}
+		
+		JAP_spiritual_training_2 = {
+			name = JAP_spiritual_training
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = {
+				always = no
+			}
+			
+			modifier = {
+				modifier_army_sub_unit_infantry_attack_factor = 0.05
+				conscription_factor = 0.1
+			}
+		}
+		
+		JAP_third_naval_programme = {
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = {
+				always = no
+			}
+			
+			modifier = {
+				industrial_capacity_dockyard = 0.05
+			}
+		}
+		
+		JAP_third_naval_programme_cv = {
+			name = JAP_third_naval_programme
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = {
+				always = no
+			}
+			
+			modifier = {
+				industrial_capacity_dockyard = 0.05
+			}
+			
+			equipment_bonus = {
+				ship_hull_carrier = {
+					build_cost_ic = -0.1
+					instant = yes
+				}
+			}
+		}
+		
+		JAP_third_naval_programme_bb = {
+			name = JAP_third_naval_programme
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = {
+				always = no
+			}
+			
+			modifier = {
+				industrial_capacity_dockyard = 0.05
+			}
+			
+			equipment_bonus = {
+				ship_hull_heavy = {
+					build_cost_ic = -0.1
+					instant = yes
+				}
+			}
+		}
+	}
+	
+	industrial_concern = {
+
+		JAP_kawasaki = {
+			picture = GFX_idea_JAP_kawasaki
+			
+			allowed = {
+				original_tag = JAP
+			}
+			
+			traits = {
+				industrial_manufacturer
+			}
+			
+			modifier = {
+				production_speed_industrial_complex_factor = 0.1
+			}
+			
+			research_bonus = {
+				industry = 0.1
+			}
+		}
+
+		JAP_mitsui = {
+			picture = GFX_idea_JAP_mitsui
+			
+			allowed = {
+				original_tag = JAP
+			}
+			
+			traits = {
+				industrial_manufacturer
+			}
+			
+			modifier = {
+				production_speed_arms_factory_factor = 0.1
+			}
+			
+			research_bonus = {
+				industry = 0.1
+			}
+		}
+		
+		JAP_sumitomo = {
+			
+			allowed = {
+				original_tag = JAP
+			}
+			
+			traits = {
+				industrial_manufacturer
+			}
+			
+			research_bonus = {
+				industry = 0.15
+			}
+			
+			modifier = {
+				production_speed_infrastructure_factor = 0.1
+				local_resources_factor = 0.1
+			}
+		}
+		
+		JAP_nichitsu = {
+			
+			allowed = {
+				original_tag = JAP
+			}
+			
+			traits = {
+				chemical_producer
+			}
+			
+			research_bonus = {
+				synth_resources = 0.1
+			}
+			
+			modifier = {
+				production_speed_synthetic_refinery_factor = 0.1
+			}
+		}
 	}
 }
