@@ -1,175 +1,24 @@
 defined_text = { # doesnt change based on tag
 	name = GetConflictTabName
 	text = {
-		trigger = { check_variable = { conflict_id = 1 } }
-		localization_key = conflict_name_1
-	}
-	text = {
-		trigger = { check_variable = { conflict_id = 2 } }
-		localization_key = conflict_name_2
-	}
-	text = {
-		trigger = { check_variable = { conflict_id = 3 } }
-		localization_key = conflict_name_3
-	}
-	text = {
-		trigger = { check_variable = { conflict_id = 4 } }
-		localization_key = conflict_name_4
-	}
-	text = {
-		localization_key = "missing name"
+		localization_key = "conflict_name_[?conflict_id]"
 	}
 }
 
 defined_text = {
 	name = GetConflictDesc
 	
-	### Cristiada ###
 	text = {
 		trigger = {
-			check_variable = { selected_conflict_id = 1 }
-			tag = USA
-		}
-		localization_key = USA_cristiada_desc
-	}
-	text = {
-		trigger = {
-			check_variable = { selected_conflict_id = 1 }
 			tag = SOV
 		}
-		localization_key = SOV_cristiada_desc
+		localization_key = "SOV_conflict_desc_[?selected_conflict_id]"
 	}
 	text = {
 		trigger = {
-			check_variable = { selected_conflict_id = 1 }
-			tag = GER
-		}
-		localization_key = GER_cristiada_desc
-	}
-	text = {
-		trigger = {
-			check_variable = { selected_conflict_id = 1 }
-			tag = FRA
-		}
-		localization_key = FRA_cristiada_desc
-	}
-	text = {
-		trigger = {
-			check_variable = { selected_conflict_id = 1 }
-			tag = ENG
-		}
-		localization_key = ENG_cristiada_desc
-	}
-	
-	### Intentona ###
-	text = {
-		trigger = {
-			check_variable = { selected_conflict_id = 2 }
 			tag = USA
 		}
-		localization_key = USA_intentona_desc
-	}
-	text = {
-		trigger = {
-			check_variable = { selected_conflict_id = 2 }
-			tag = SOV
-		}
-		localization_key = SOV_intentona_desc
-	}
-	text = {
-		trigger = {
-			check_variable = { selected_conflict_id = 2 }
-			tag = GER
-		}
-		localization_key = GER_intentona_desc
-	}
-	text = {
-		trigger = {
-			check_variable = { selected_conflict_id = 2 }
-			tag = FRA
-		}
-		localization_key = FRA_intentona_desc
-	}
-	text = {
-		trigger = {
-			check_variable = { selected_conflict_id = 2 }
-			tag = ENG
-		}
-		localization_key = ENG_intentona_desc
-	}
-	
-	### Silver Legion ###
-	text = {
-		trigger = {
-			check_variable = { selected_conflict_id = 3 }
-			tag = USA
-		}
-		localization_key = USA_silver_legion_desc
-	}
-	text = {
-		trigger = {
-			check_variable = { selected_conflict_id = 3 }
-			tag = SOV
-		}
-		localization_key = SOV_silver_legion_desc
-	}
-	text = {
-		trigger = {
-			check_variable = { selected_conflict_id = 3 }
-			tag = GER
-		}
-		localization_key = GER_silver_legion_desc
-	}
-	text = {
-		trigger = {
-			check_variable = { selected_conflict_id = 3 }
-			tag = FRA
-		}
-		localization_key = FRA_silver_legion_desc
-	}
-	text = {
-		trigger = {
-			check_variable = { selected_conflict_id = 3 }
-			tag = ENG
-		}
-		localization_key = ENG_silver_legion_desc
-	}
-	
-	### Austria ###
-	text = {
-		trigger = {
-			check_variable = { selected_conflict_id = 4 }
-			tag = USA
-		}
-		localization_key = USA_austrian_collapse_desc
-	}
-	text = {
-		trigger = {
-			check_variable = { selected_conflict_id = 4 }
-			tag = SOV
-		}
-		localization_key = SOV_austrian_collapse_desc
-	}
-	text = {
-		trigger = {
-			check_variable = { selected_conflict_id = 4 }
-			tag = GER
-		}
-		localization_key = GER_austrian_collapse_desc
-	}
-	text = {
-		trigger = {
-			check_variable = { selected_conflict_id = 4 }
-			tag = FRA
-		}
-		localization_key = FRA_austrian_collapse_desc
-	}
-	text = {
-		trigger = {
-			check_variable = { selected_conflict_id = 4 }
-			tag = ENG
-		}
-		localization_key = ENG_austrian_collapse_desc
+		localization_key = "USA_conflict_desc_[?selected_conflict_id]"
 	}
 	
 	text = {
@@ -180,31 +29,7 @@ defined_text = {
 defined_text = { # dont need to change based on tag
 	name = GetConflictIcon
 	text = {
-		trigger = {
-			check_variable = { conflict_id = 1 }
-		}
-		localization_key = "GFX_foreign_conflicts_mexico_button"
-	}
-	text = {
-		trigger = {
-			check_variable = { conflict_id = 2 }
-		}
-		localization_key = "GFX_foreign_conflicts_intentona_button"
-	}
-	text = {
-		trigger = {
-			check_variable = { conflict_id = 3 }
-		}
-		localization_key = "GFX_foreign_conflicts_silver_legion_button"
-	}
-	text = {
-		trigger = {
-			check_variable = { conflict_id = 4 }
-		}
-		localization_key = "GFX_foreign_conflicts_austria_button"
-	}
-	text = {
-		localization_key = ""
+		localization_key = "GFX_foreign_conflicts_button_[?conflict_id]"
 	}
 }
 
