@@ -101,10 +101,31 @@ shared_focus = {
 }
 
 shared_focus = {
+    id = SOV_end_the_nep
+	icon = GFX_goal_generic_soviet_construction
+	
+    x = -2
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_roll_up_our_sleeves
+	prerequisite = { focus = SOV_roll_up_our_sleeves }
+	
+    completion_reward = {
+		add_political_power = 50
+		remove_ideas = SOV_nep_1
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
     id = SOV_all_power_to_the_soviets
 	icon = GFX_focus_generic_workers_revolution
 	
-    x = -2
+    x = 2
 	y = 1
 	cost = 5
 	
@@ -124,19 +145,38 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = SOV_end_the_nep
-	icon = GFX_goal_generic_soviet_construction
+    id = SOV_expand_welfare
+	icon = GFX_focus_generic_welfare
 	
-    x = 2
+    x = -1
 	y = 1
 	cost = 5
 	
-	relative_position_id = SOV_roll_up_our_sleeves
-	prerequisite = { focus = SOV_roll_up_our_sleeves }
+	relative_position_id = SOV_end_the_nep
+	prerequisite = { focus = SOV_end_the_nep }
 	
     completion_reward = {
-		add_political_power = 50
-		remove_ideas = SOV_nep_1
+		ECON_poverty_change_large = yes
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_end_bourgeois_specialism
+	icon = GFX_focus_SOV_organize_wreckers
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_end_the_nep
+	prerequisite = { focus = SOV_end_the_nep }
+	
+    completion_reward = {
+		
     }
 	
 	ai_will_do = {
@@ -156,7 +196,6 @@ shared_focus = {
 	prerequisite = { focus = SOV_all_power_to_the_soviets }
 	
     completion_reward = {
-		add_political_power = -25
 		add_ideas = SOV_revolutionary_women_syndicalist
     }
 	
@@ -202,15 +241,65 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = SOV_end_bourgeois_specialism
-	icon = GFX_focus_SOV_organize_wreckers
+    id = SOV_modernize_factory_equipment
+	icon = GFX_SOV_modernize_factory_equipment
+	
+    x = 0
+	y = 2
+	cost = 5
+	
+	relative_position_id = SOV_end_the_nep
+	prerequisite = { focus = SOV_end_the_nep }
+	
+    completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.25
+			uses = 1
+			category = cat_production
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_intensify_class_warfare
+	icon = GFX_SOV_intensify_class_warfare
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_end_bourgeois_specialism
+	prerequisite = { focus = SOV_end_bourgeois_specialism }
+	prerequisite = { focus = SOV_revolutionary_women }
+	
+    completion_reward = {
+		add_political_power = 50
+		add_stability = -0.1
+		add_popularity = {
+			ideology = revolutionary_socialism
+			popularity = 0.03
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_combat_careerism
+	icon = GFX_SOV_combat_careerism
 	
     x = -1
 	y = 1
 	cost = 5
 	
-	relative_position_id = SOV_end_the_nep
-	prerequisite = { focus = SOV_end_the_nep }
+	relative_position_id = SOV_seperate_the_party_and_state
+	prerequisite = { focus = SOV_seperate_the_party_and_state }
 	
     completion_reward = {
 		
@@ -225,12 +314,12 @@ shared_focus = {
     id = SOV_voluntary_collectivization
 	icon = GFX_focus_chi_mission_to_the_soviet_union
 	
-    x = 1
-	y = 1
+    x = 0
+	y = 2
 	cost = 5
 	
-	relative_position_id = SOV_end_the_nep
-	prerequisite = { focus = SOV_end_the_nep }
+	relative_position_id = SOV_expand_welfare
+	prerequisite = { focus = SOV_expand_welfare }
 	
     completion_reward = {
 		
@@ -242,42 +331,19 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = SOV_sweep_out_the_bureaucrats
-	icon = GFX_SOV_promises_of_true_democracy
-	
-    x = -1
-	y = 1
-	cost = 5
-	
-	relative_position_id = SOV_seperate_the_party_and_state
-	prerequisite = { focus = SOV_seperate_the_party_and_state }
-	
-    completion_reward = {
-		SOV_improve_turmoil_idea = yes
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = SOV_empower_the_unions
-	icon = GFX_focus_eng_concessions_to_the_trade_unions
+    id = SOV_empower_the_factory_comittees
+	icon = GFX_SOV_empower_the_factory_comittees
 	
     x = 1
 	y = 1
 	cost = 5
 	
-	relative_position_id = SOV_seperate_the_party_and_state
-	prerequisite = { focus = SOV_seperate_the_party_and_state }
+	relative_position_id = SOV_modernize_factory_equipment
+	prerequisite = { focus = SOV_modernize_factory_equipment }
+	prerequisite = { focus = SOV_intensify_class_warfare }
 	
     completion_reward = {
-		add_to_variable = {
-			tooltip = SOV_syndicalist_influence_gain
-			SOV_syndicalist_influence = 3
-		}
-		SOV_improve_turmoil_idea = yes
+		
     }
 	
 	ai_will_do = {
@@ -286,18 +352,46 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = SOV_expand_welfare
-	icon = GFX_focus_FIN_socialist_welfare
+    id = SOV_eliminate_bureacratic_formations
+	icon = GFX_SOV_empower_the_factory_comittees
 	
-    x = 0
-	y = 2
+    x = 1
+	y = 1
 	cost = 5
 	
-	relative_position_id = SOV_end_the_nep
-	prerequisite = { focus = SOV_end_the_nep }
+	relative_position_id = SOV_intensify_class_warfare
+	prerequisite = { focus = SOV_intensify_class_warfare }
+	prerequisite = { focus = SOV_combat_careerism }
+	mutually_exclusive = { focus = SOV_proletarianize_the_ministries }
 	
     completion_reward = {
-		ECON_poverty_change_large = yes
+		add_political_power = -75
+		add_stability = -0.1
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_proletarianize_the_ministries
+	icon = GFX_SOV_proletarianize_the_ministries
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_combat_careerism
+	prerequisite = { focus = SOV_combat_careerism }
+	#prerequisite = { focus = SOV_intensify_class_warfare }
+	mutually_exclusive = { focus = SOV_eliminate_bureacratic_formations }
+	
+    completion_reward = {
+		add_popularity = {
+			ideology = revolutionary_socialism
+			popularity = -0.05
+		}
     }
 	
 	ai_will_do = {

@@ -134,8 +134,44 @@ country_event = { # bukharin retires
 	desc = soviet_union.50.desc
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
+	
+	after = {
+		hidden_effect = {
+			country_event = {
+				id = sov_congress.1
+				days = 3
+			}
+			country_event = {
+				id = sov_congress.2
+				days = 7
+			}
+			country_event = {
+				id = sov_congress.3
+				days = 11
+			}
+			country_event = {
+				id = sov_congress.4
+				days = 16
+			}
+			country_event = {
+				id = sov_congress.5
+				days = 23
+			}
+			country_event = {
+				id = sov_congress.6
+				days = 29
+			}
+			country_event = {
+				id = sov_congress.7
+				days = 37
+			}
+			country_event = {
+				id = sov_congress.8
+				days = 42
+			}
+		}
+	}
 
 	option = { # later bitches
 		name = soviet_union.50.a
@@ -171,6 +207,9 @@ country_event = { # the opening of the congress
 	option = {
 		name = sov_congress.1.a
 		custom_effect_tooltip = SOV_congress_opens
+		hidden_effect = {
+			activate_shine_on_focus = SOV_future_of_the_union
+		}
 	}
 }
 
@@ -381,6 +420,7 @@ country_event = { #
 	immediate = {
 		hidden_effect = {
 			SOV_find_chairman_options = yes
+			unlock_national_focus = SOV_future_of_the_union
 		}
 	}
 
@@ -392,12 +432,10 @@ country_event = { #
 				is_debug = yes
 			}
 		}
-		set_politics = {
-			ruling_party = vanguard_socialism
+		country_event = {
+			id = sov_congress.9
+			hours = 6
 		}
-		load_focus_tree = SOV_centralist_tree
-		SOV_setup_kirov_vars = yes
-		
 		hidden_effect = {
 			promote_character = SOV_sergei_kirov
 			set_party_name = {
@@ -417,12 +455,15 @@ country_event = { #
 				is_debug = yes
 			}
 		}
-		set_politics = {
-			ruling_party = vanguard_socialism
+		hidden_effect = {
+			promote_character = SOV_grigory_sokolnikov
+			set_party_name = {
+				ideology = vanguard_socialism
+				long_name = SOV_vanguard_socialism_party_long
+				name = SOV_vanguard_socialism_party
+			}
+			set_country_flag = SOV_rightists_flag
 		}
-		promote_character = SOV_grigory_sokolnikov
-		load_focus_tree = SOV_rightist_tree
-		SOV_setup_sokolnikov_vars = yes
 	}
 	
 	option = { # 
@@ -433,16 +474,14 @@ country_event = { #
 				is_debug = yes
 			}
 		}
-		set_politics = {
-			ruling_party = revolutionary_socialism
+		hidden_effect = {
+			promote_character = SOV_ivan_smirnov
+			set_party_name = {
+				ideology = revolutionary_socialism
+				long_name = SOV_kpr_neodecists_long
+				name = SOV_kpr_neodecists
+			}
 		}
-		promote_character = SOV_ivan_smirnov
-		set_party_name = {
-			ideology = revolutionary_socialism
-			long_name = SOV_kpr_neodecists_long
-			name = SOV_kpr_neodecists
-		}
-		custom_effect_tooltip = SOV_opinions_reset_tt
 	}
 	
 	option = { # 
@@ -453,14 +492,15 @@ country_event = { #
 				is_debug = yes
 			}
 		}
-		set_politics = {
-			ruling_party = revolutionary_socialism
-		}
 		hidden_effect = {
-			set_country_flag = SOV_syndicalists_flag
+			promote_character = SOV_alexander_shliapnikov
+			set_party_name = {
+				ideology = revolutionary_socialism
+				long_name = SOV_revolutionary_socialism_party_long
+				name = SOV_revolutionary_socialism_party
+			}
 		}
-		load_focus_tree = SOV_syndicalist_tree
-		SOV_setup_shliapnikov_vars = yes
+		set_country_flag = SOV_syndicalists_flag
 	}
 	
 	option = { # 
@@ -471,12 +511,7 @@ country_event = { #
 				is_debug = yes
 			}
 		}
-		set_politics = {
-			ruling_party = democratic_socialism
-		}
-		load_focus_tree = SOV_democrat_tree
 		set_country_flag = SOV_democrats_flag
-		SOV_setup_kamenev_vars = yes
 	}
 }
 
@@ -491,10 +526,15 @@ country_event = { # kirov
 
 	option = { # 
 		name = sov_congress.9.a
+		set_politics = {
+			ruling_party = vanguard_socialism
+		}
+		load_focus_tree = SOV_centralist_tree
+		SOV_setup_kirov_vars = yes
 	}
 }
 
-country_event = { # kamenev
+country_event = { # sokolnikov
 	id = sov_congress.10
 	title = sov_congress.10.title
 	desc = sov_congress.10.desc
@@ -504,10 +544,15 @@ country_event = { # kamenev
 
 	option = { # 
 		name = sov_congress.10.a
+		set_politics = {
+			ruling_party = vanguard_socialism
+		}
+		load_focus_tree = SOV_rightist_tree
+		SOV_setup_sokolnikov_vars = yes
 	}
 }
 
-country_event = { # kamenev
+country_event = { # smirnov
 	id = sov_congress.11
 	title = sov_congress.11.title
 	desc = sov_congress.11.desc
@@ -517,10 +562,13 @@ country_event = { # kamenev
 
 	option = { # 
 		name = sov_congress.11.a
+		set_politics = {
+			ruling_party = revolutionary_socialism
+		}
 	}
 }
 
-country_event = { # kamenev
+country_event = { # shliapnikov
 	id = sov_congress.12
 	title = sov_congress.12.title
 	desc = sov_congress.12.desc
@@ -530,6 +578,11 @@ country_event = { # kamenev
 
 	option = { # 
 		name = sov_congress.12.a
+		set_politics = {
+			ruling_party = revolutionary_socialism
+		}
+		load_focus_tree = SOV_syndicalist_tree
+		SOV_setup_shliapnikov_vars = yes
 	}
 }
 
@@ -543,6 +596,11 @@ country_event = { # kamenev
 
 	option = { # 
 		name = sov_congress.13.a
+		set_politics = {
+			ruling_party = democratic_socialism
+		}
+		load_focus_tree = SOV_democrat_tree
+		SOV_setup_kamenev_vars = yes
 	}
 }
 
