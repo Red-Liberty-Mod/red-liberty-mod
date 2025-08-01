@@ -26,6 +26,19 @@ create_ambition_areas = {
 		set_variable = { ambition_area_@AUS = 1 }
 	}
 	
+	# BAL - Baltica
+	if = {
+		limit = {
+			OR = {
+				is_core_of = BAL
+				is_claimed_by = BAL
+				
+				state = 874 # Dvinsk
+			}
+		}
+		set_variable = { ambition_area_@BAL = 1 }
+	}
+	
 	# BLR - Belarus
 	if = {
 		limit = {
@@ -263,6 +276,7 @@ create_ambition_areas = {
 				is_core_of = UKR
 				is_claimed_by = UKR
 				
+				state = 73
 				state = 78
 				state = 89
 				state = 91

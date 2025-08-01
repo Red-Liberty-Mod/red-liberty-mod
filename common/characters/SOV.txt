@@ -1197,8 +1197,47 @@ characters = {
 		}
 	}
 	
-	### High Command ###
+	## Promotable ##
 	
+	SOV_georgy_zhukov = {
+		name = SOV_georgy_zhukov
+		
+		portraits = {
+			army = {
+				#large = "GFX_portrait_SOV_georgy_zhukov"
+			}
+		}
+			
+		corps_commander = {
+			traits = {
+				armor_officer
+				brilliant_strategist
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+			visible = {
+				has_country_flag = SOV_promote_armor_officers_flag
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = high_command
+			idea_token = SOV_georgy_zhukov_high_command
+			ledger = army
+			available = {
+				has_country_flag = SOV_promote_armor_officers_flag
+			}
+			traits = {
+				army_armored_3
+			}
+		}
+	}
+	
+	### High Command ###
 	SOV_boris_feldman = {
 		name = SOV_boris_feldman
 		

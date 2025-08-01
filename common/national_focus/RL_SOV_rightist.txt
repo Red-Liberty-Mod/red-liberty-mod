@@ -259,6 +259,7 @@ shared_focus = {
 	
 	relative_position_id = SOV_gradual_industrialization
 	prerequisite = { focus = SOV_gradual_industrialization }
+	prerequisite = { focus = SOV_strengthen_the_ruble }
 	
     completion_reward = {
 		add_tech_bonus = {
@@ -274,10 +275,30 @@ shared_focus = {
 }
 
 shared_focus = {
+    id = SOV_loosen_grain_quotas
+	icon = GFX_SOV_acknowledge_the_shortcomings
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_streamline_the_bureaucracy
+	prerequisite = { focus = SOV_streamline_the_bureaucracy }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
     id = SOV_loosen_trade_regulations
 	icon = GFX_goal_generic_positive_trade_relations
 	
-    x = -1
+    x = 1
 	y = 1
 	cost = 5
 	
@@ -297,15 +318,15 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = SOV_loosen_grain_quotas
-	icon = GFX_SOV_acknowledge_the_shortcomings
+    id = SOV_import_international_expertise
+	icon = GFX_focus_generic_research
 	
-    x = 1
+    x = -1
 	y = 1
-	cost = 5
+	cost = 6
 	
-	relative_position_id = SOV_streamline_the_bureaucracy
-	prerequisite = { focus = SOV_streamline_the_bureaucracy }
+	relative_position_id = SOV_modernize_the_farms
+	prerequisite = { focus = SOV_modernize_the_farms }
 	
     completion_reward = {
 		
@@ -320,12 +341,13 @@ shared_focus = {
     id = SOV_organic_collectivization
 	icon = GFX_SOV_organic_collectivization
 	
-    x = -1
+    x = 1
 	y = 1
 	cost = 6
 	
 	relative_position_id = SOV_modernize_the_farms
 	prerequisite = { focus = SOV_modernize_the_farms }
+	prerequisite = { focus = SOV_loosen_grain_quotas }
 	
     completion_reward = {
 		random_owned_controlled_state = {
@@ -346,27 +368,10 @@ shared_focus = {
 			}
 			add_extra_state_shared_building_slots = 1
 		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = SOV_import_international_expertise
-	icon = GFX_focus_generic_research
-	
-    x = 0
-	y = 2
-	cost = 6
-	
-	relative_position_id = SOV_strengthen_the_ruble
-	prerequisite = { focus = SOV_modernize_the_farms }
-	prerequisite = { focus = SOV_strengthen_the_ruble }
-	
-    completion_reward = {
-		
+		country_event = {
+			id = sov_rightist.7
+			hours = 6
+		}
     }
 	
 	ai_will_do = {
@@ -382,7 +387,7 @@ shared_focus = {
 	y = 1
 	cost = 6
 	
-	relative_position_id = SOV_loosen_trade_regulations
+	relative_position_id = SOV_loosen_grain_quotas
 	prerequisite = { focus = SOV_loosen_trade_regulations }
 	prerequisite = { focus = SOV_loosen_grain_quotas }
 	
@@ -403,7 +408,7 @@ shared_focus = {
 	y = 1
 	cost = 6
 	
-	relative_position_id = SOV_import_international_expertise
+	relative_position_id = SOV_organic_collectivization
 	prerequisite = { focus = SOV_organic_collectivization }
 	prerequisite = { focus = SOV_import_international_expertise }
 	prerequisite = { focus = SOV_join_the_world_market }

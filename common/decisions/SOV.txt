@@ -633,8 +633,137 @@ SOV_revolution_category = {
 
 SOV_stavka_category = {
 	
+	SOV_form_state_defense_committee = {
+		icon = GFX_decision_SWI_no_elected_president
+		
+		available = {
+			has_war_with = GER
+		}
+		
+		visible = {
+			country_exists = GER
+		}
+		
+		cost = 100
+		days_remove = -1
+		remove_trigger = {
+			NOT = {
+				has_war_with = GER
+				country_exists = GER
+			}
+		}
+		
+		modifier = {
+			max_command_power = 50
+			planning_speed = 0.3
+			mobilization_speed = 0.3
+			mobilization_laws_cost_factor = -0.33
+			economy_cost_factor = -0.33
+			high_command_cost_factor = -0.33
+		}
+		
+		complete_effect = {
+			
+		}
+		
+		ai_will_do = {
+			base = 100
+		}
+	}
+	
+	SOV_fortify_leningrad = {
+		icon = GFX_decision_generic_fortification
+		
+		#allowed = { always = no }
+		
+		available = {
+			num_of_civilian_factories_available_for_projects > 0
+			controls_state = 195 #Petrograd
+			controls_state = 208 #Luga
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 195 #Petrograd
+				state = 208 #Luga
+			}
+		}
+		
+		cost = 10
+		days_remove = 60
+		fire_only_once = yes
+
+		modifier = {
+			civilian_factory_use = 1
+		}
+
+		remove_effect = {
+			195 = { #Leningrad
+				add_building_construction = { type = bunker province = 79 level = 2 }
+				add_building_construction = { type = bunker province = 6174 level = 2 }
+				add_building_construction = { type = bunker province = 11068 level = 2 }
+			}
+			208 = { #Luga
+				add_building_construction = { type = bunker province = 181 level = 2 }
+				add_building_construction = { type = bunker province = 6197 level = 2 }
+				add_building_construction = { type = bunker province = 11032 level = 2 }
+				add_building_construction = { type = bunker province = 11186 level = 2 }
+			}
+		}
+		
+		ai_will_do = {
+			base = 30
+		}
+	}
+	
+	SOV_fortify_moscow = {
+		icon = GFX_decision_generic_fortification
+		
+		#allowed = { always = no }
+		
+		available = {
+			num_of_civilian_factories_available_for_projects > 0
+			controls_state = 205 #Kaluga
+			controls_state = 219 #Moscow
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 205 #Kaluga
+				state = 219 #Moscow
+			}
+		}
+		
+		cost = 10
+		days_remove = 60
+		fire_only_once = yes
+
+		modifier = {
+			civilian_factory_use = 1
+		}
+
+		remove_effect = {
+			205 = { #Kaluga
+				add_building_construction = { type = bunker province = 274 level = 2 }
+				add_building_construction = { type = bunker province = 382 level = 2 }
+				add_building_construction = { type = bunker province = 11300 level = 2 }
+			}
+			219 = { #Moscow
+				add_building_construction = { type = bunker province = 366 level = 2 }
+				add_building_construction = { type = bunker province = 401 level = 2 }
+				add_building_construction = { type = bunker province = 3391 level = 2 }
+				add_building_construction = { type = bunker province = 6414 level = 2 }
+				add_building_construction = { type = bunker province = 11282 level = 2 }
+			}
+		}
+		
+		ai_will_do = {
+			base = 50
+		}
+	}
+	
 	SOV_promote_armor_officers = {
-		icon = ger_mefo_bills
+		icon = GFX_decision_generic_army_support
 		
 		custom_cost_text = CP_25
 		custom_cost_trigger = {
@@ -646,6 +775,7 @@ SOV_stavka_category = {
 			hidden_effect = {
 				add_command_power = -25
 			}
+			set_country_flag = SOV_promote_armor_officers_flag
 		}
 		
 		ai_will_do = {
