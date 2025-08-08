@@ -44,6 +44,73 @@ SOV_reduce_turmoil = {
 	}
 }
 
+SOV_activate_operation_meteor = {
+	if = {
+		limit = {
+			has_country_flag = SOV_strategic_objective_kiev_flag
+			#has_completed_focus = SOV_tukhachevsky_doctrine
+		}
+		add_ideas = SOV_operation_meteor_tukhachevsky_kiev
+		activate_mission = SOV_take_kiev
+	}
+	else_if = {
+		limit = {
+			has_country_flag = SOV_strategic_objective_kiev_flag
+			#has_completed_focus = SOV_tukhachevsky_doctrine
+		}
+		add_ideas = SOV_operation_meteor_tukhachevsky_minsk
+		activate_mission = SOV_take_minsk
+	}
+	else_if = {
+		limit = {
+			has_country_flag = SOV_strategic_objective_riga_flag
+			#has_completed_focus = SOV_tukhachevsky_doctrine
+		}
+		add_ideas = SOV_operation_meteor_tukhachevsky_minsk
+		activate_mission = SOV_take_riga
+	}
+}
+
+SOV_weaken_operation_meteor = {
+	
+	if = {
+		limit = {
+			has_idea = SOV_operation_meteor_tukhachevsky_kiev
+		}
+		remove_ideas = SOV_operation_meteor_tukhachevsky_kiev
+	}
+	else_if = {
+		limit = {
+			has_idea = SOV_operation_meteor_tukhachevsky_minsk
+		}
+		remove_ideas = SOV_operation_meteor_tukhachevsky_minsk
+	}
+	else_if = {
+		limit = {
+			has_idea = SOV_operation_meteor_tukhachevsky_riga
+		}
+		remove_ideas = SOV_operation_meteor_tukhachevsky_riga
+	}
+	else_if = {
+		limit = {
+			has_idea = SOV_operation_meteor_svechin_kiev
+		}
+		remove_ideas = SOV_operation_meteor_svechin_kiev
+	}
+	else_if = {
+		limit = {
+			has_idea = SOV_operation_meteor_svechin_minsk
+		}
+		remove_ideas = SOV_operation_meteor_svechin_minsk
+	}
+	else_if = {
+		limit = {
+			has_idea = SOV_operation_meteor_svechin_riga
+		}
+		remove_ideas = SOV_operation_meteor_svechin_riga
+	}
+}
+
 SOV_start_eser_revolt = {
 	
 	SRU = {

@@ -1767,7 +1767,76 @@ shared_focus = {
 	prerequisite = { focus = SOV_armored_cruisers }
 	
     completion_reward = {
+		if = {
+			limit = {
+				NOT = {
+					has_tech = basic_ship_hull_carrier
+				}
+			}
+			add_tech_bonus = {
+				name = SOV_replace_the_izmail
+				bonus = 0.5
+				uses = 1
+				category = mio_cat_tech_all_carrier_and_modules
+			}
+		}
 		
+		if = {
+			limit = {
+				has_dlc_mtg = yes
+			}
+			create_equipment_variant = {
+				name = "Serov Class"
+				type = ship_hull_carrier_1
+				parent_version = 0
+				allow_without_tech = yes
+				modules = {
+					fixed_ship_deck_slot_1 = ship_deck_space
+					fixed_ship_deck_slot_2 = ship_deck_space
+					fixed_ship_anti_air_slot = ship_anti_air_2
+					fixed_ship_radar_slot = empty
+					fixed_ship_engine_slot = carrier_engine_2
+					fixed_ship_secondaries_slot = ship_secondaries_2
+					fixed_ship_armor_slot = ship_armor_cruiser_1
+					mid_1_custom_slot = ship_carrier_armor
+				}
+			}
+			add_equipment_production = {
+				equipment = {
+					type = ship_hull_carrier_1
+					creator = "SOV"
+					version_name = "Serov Class"
+				}
+				name = "Serov"
+				requested_factories = 1
+				progress = 0.2
+				amount = 1
+			}
+		}
+		else = {
+			create_equipment_variant = {
+				name = "Serov Class"
+				type = carrier_1
+				allow_without_tech = yes
+				upgrades = {
+					ship_deckspace_upgrade = 1
+					carrier_armor_upgrade = 1
+					ship_engine_upgrade = 1
+					ship_reliability_upgrade = 1
+				}
+			}
+			add_equipment_production = {
+				equipment = {
+					type = carrier_1
+					creator = "SOV"
+					version_name = "Serov Class"
+				}
+				name = "Serov"
+				requested_factories = 1
+				progress = 0.2
+				amount = 1
+			}
+		}
     }
 	
 	ai_will_do = {

@@ -231,7 +231,7 @@ country_event = { # mexico civil war demo event
 				remove_ideas = MEX_radical_christians
 				
 				add_named_threat = { 
-					threat = 5
+					threat = 2
 					name = MEX_civil_war
 				}
 			
@@ -270,27 +270,14 @@ country_event = { # mexico civil war demo event
 		
 	    MEX = {
 			declare_war_on = {
-					target = FRP
-					type = annex_everything
-				}
+				target = FRP
+				type = annex_everything
+			}
 			declare_war_on = {
-					target = CMS
-					type = annex_everything
-				}
-				
-				
-			add_named_threat = { 
-					threat = 2
-					name = MEX_civil_war
-			}												
+				target = CMS
+				type = annex_everything
+			}
 		}
-		
-	
-		
-		
-		
-		
-		
 		
 		hidden_effect = {
 			random_other_country = {
@@ -321,11 +308,7 @@ country_event = { # mexico civil war demo event
 					modifier = MEX_communist_revolt_medium
 				}
 			}
-		
-		
-		
 		}
-	
 	}
 }
 
@@ -339,7 +322,6 @@ country_event = { # mexico civil war demo event
 	}
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
 	
 	option = {
@@ -350,61 +332,40 @@ country_event = { # mexico civil war demo event
 	    
 		MEX = {
 			declare_war_on = {
-					target = MTC
-					type = annex_everything
+				taret = MTC
+				type = annex_everything
 			}						
 		}
-		
 		MTC = {
 			declare_war_on = {
-					target = CMS
-					type = annex_everything
-			}						
-		}
-		
-		MTC = {
+				target = CMS
+				type = annex_everything
+			}
 			declare_war_on = {
-					target = CRT
-					type = annex_everything
-			}						
-		}
-		
-		MTC = {
+				target = CRT
+				type = annex_everything
+			}
 			declare_war_on = {
-					target = FRP
-					type = annex_everything
-			}						
+				target = FRP
+				type = annex_everything
+			}			
 		}
-		
-		
-		
 		FRP = {
 			declare_war_on = {
-					target = CMS
-					type = annex_everything
-			}						
-		}
-		
-		FRP = {
+				target = CMS
+				type = annex_everything
+			}
 			declare_war_on = {
-					target = CRT
-					type = annex_everything
-			}						
+				target = CRT
+				type = annex_everything
+			}									
 		}
-		
 		CMS = {
 			declare_war_on = {
-					target = CRT
-					type = annex_everything
+				target = CRT
+				type = annex_everything
 			}						
 		}
-		
-		
-		
-		
-		
-		
-		
 		
 		hidden_effect = {
 			random_other_country = {
@@ -424,10 +385,6 @@ country_event = { # mexico civil war demo event
 					modifier = MEX_cartel_revolt_medium
 				}
 			}
-		
-		
-		
-		
 		}
 	}
 }
@@ -437,37 +394,33 @@ country_event = { # CRT wins
 	title = ""
 	desc = demo_mex.5.desc
 	
-
 	fire_only_once = yes
-	
 	
 	immediate = {
 		#log = "event demo_mex.5"
 	}
 	
-	
-	
 	trigger = {		
-		   original_tag = CRT
-		   484 = { is_owned_by = CRT }	
-		   483 = { is_owned_by = CRT }
-		   482 = { is_owned_by = CRT }
-		   480 = { is_owned_by = CRT }
-		   479 = { is_owned_by = CRT }
-		   899 = { is_owned_by = CRT }
-		   481 = { is_owned_by = CRT }
-		   906 = { is_owned_by = CRT }
-		   478 = { is_owned_by = CRT }
-		   957 = { is_owned_by = CRT }
-		   477 = { is_owned_by = CRT }
-		   905 = { is_owned_by = CRT }
-		   277 = { is_owned_by = CRT }
-		   900 = { is_owned_by = CRT }
-		   485 = { is_owned_by = CRT }
-		   476 = { is_owned_by = CRT }
-		   475 = { is_owned_by = CRT }
-		   904 = { is_owned_by = CRT }
-		}
+		original_tag = CRT
+		484 = { is_owned_by = CRT }	
+		483 = { is_owned_by = CRT }
+		482 = { is_owned_by = CRT }
+		480 = { is_owned_by = CRT }
+		479 = { is_owned_by = CRT }
+		899 = { is_owned_by = CRT }
+		481 = { is_owned_by = CRT }
+		906 = { is_owned_by = CRT }
+		478 = { is_owned_by = CRT }
+		957 = { is_owned_by = CRT }
+		477 = { is_owned_by = CRT }
+		905 = { is_owned_by = CRT }
+		277 = { is_owned_by = CRT }
+		900 = { is_owned_by = CRT }
+		485 = { is_owned_by = CRT }
+		476 = { is_owned_by = CRT }
+		475 = { is_owned_by = CRT }
+		904 = { is_owned_by = CRT }
+	}
 	
 	option = {
 		name = ""
@@ -491,58 +444,46 @@ country_event = { # MTC wins
 	title = ""
 	desc = demo_mex.6.desc
 	
-	
 	fire_only_once = yes
 	
 	immediate = {
 		log = "event demo_mex.6"
 	}
 	
-	
-	
-	
-	
 	trigger = {		
-		   original_tag = MTC
-		   484 = { is_owned_by = MTC }	
-		   483 = { is_owned_by = MTC }
-		   482 = { is_owned_by = MTC }
-		   480 = { is_owned_by = MTC }
-		   479 = { is_owned_by = MTC }
-		   899 = { is_owned_by = MTC }
-		   481 = { is_owned_by = MTC }
-		   906 = { is_owned_by = MTC }
-		   478 = { is_owned_by = MTC }
-		   957 = { is_owned_by = MTC }
-		   477 = { is_owned_by = MTC }
-		   905 = { is_owned_by = MTC }
-		   277 = { is_owned_by = MTC }
-		   900 = { is_owned_by = MTC }
-		   485 = { is_owned_by = MTC }
-		   476 = { is_owned_by = MTC }
-		   475 = { is_owned_by = MTC }
-		   904 = { is_owned_by = MTC }
-		}
+		original_tag = MTC
+		484 = { is_owned_by = MTC }	
+		483 = { is_owned_by = MTC }
+		482 = { is_owned_by = MTC }
+		480 = { is_owned_by = MTC }
+		479 = { is_owned_by = MTC }
+		899 = { is_owned_by = MTC }
+		481 = { is_owned_by = MTC }
+		906 = { is_owned_by = MTC }
+		478 = { is_owned_by = MTC }
+		957 = { is_owned_by = MTC }
+		477 = { is_owned_by = MTC }
+		905 = { is_owned_by = MTC }
+		277 = { is_owned_by = MTC }
+		900 = { is_owned_by = MTC }
+		485 = { is_owned_by = MTC }
+		476 = { is_owned_by = MTC }
+		475 = { is_owned_by = MTC }
+		904 = { is_owned_by = MTC }
+	}
 	
 	option = {
 		name = ""
 		set_cosmetic_tag = MTC_mexico
-		
 	    hidden_effect = {
 			random_other_country = {
 				limit = { is_ai = yes }
 				news_event = { id = worldnews_war.6 hours = 6 }
 			}
 		}
-		
-		MTC = {			
-			
-	    }
-		
 		hidden_effect = {
 			MTC = {			  
-			  set_capital = { state = 277 } 
-			
+				set_capital = { state = 277 } 
 			}
 		}
 	}
@@ -555,11 +496,9 @@ country_event = { # CMS wins
 	
 	fire_only_once = yes
 	
-	
 	immediate = {
 		log = "event demo_mex.7"
 	}
-	
 	
 	trigger = {		
 		   original_tag = CMS
@@ -583,14 +522,12 @@ country_event = { # CMS wins
 		   904 = { is_owned_by = CMS }
 	}
 	
-	  option = {
+	option = {
 		name = ""
 		set_cosmetic_tag = CMS_mexico
-		
 	    hidden_effect = {
-			CMS = {			  
-			  set_capital = { state = 277 } 
-			
+			CMS = {
+				set_capital = { state = 277 } 
 			}
 		}
 	}
@@ -603,14 +540,9 @@ country_event = { # FRP wins
 	
 	fire_only_once = yes
 	
-	
 	immediate = {
 		log = "event demo_mex.8"
 	}
-	
-	
-	
-	
 	
 	trigger = {		
 		original_tag = FRP
@@ -649,10 +581,8 @@ country_event = { # MEX wins
 	title = demo_mex.9.title
 	desc = demo_mex.9.desc
 	
-	
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	
 	option = {
 		name = demo_mex.9.a
@@ -670,8 +600,7 @@ country_event = { # palacio nacional bombing
     immediate = {
 		log = "event demo_mex.10"
 	}
-  
-
+	
 	is_triggered_only = yes
 	fire_only_once = yes
 	
@@ -679,7 +608,6 @@ country_event = { # palacio nacional bombing
 		name = demo_mex.10.a		
 	    277 = {
 			set_demilitarized_zone = yes
-			
 		}
 	
 	    hidden_effect = {
@@ -687,8 +615,7 @@ country_event = { # palacio nacional bombing
 				limit = { is_ai = yes }
 				news_event = { id = worldnews.13 hours = 6 }
 			}
-		}		
-	
+		}
 	}
 }
 
@@ -716,6 +643,8 @@ country_event = { # vienna uprising - september 19, 1936
 			set_country_flag = revolutionary_socialism_coalition
 			set_country_flag = democratic_socialism_coalition
 			set_country_flag = social_democracy_coalition
+			
+			set_country_flag = AHE_revolution_started
 			
 			diplomatic_relation = {
 				country = SER
@@ -845,7 +774,7 @@ country_event = { # september constitution - september 26, 1936
 		}
 		
 		add_named_threat = { 
-			threat = 5
+			threat = 10
 			name = AHE_collapse
 		}
 		
@@ -2265,6 +2194,13 @@ country_event = { # adnan assassinated
 	desc = demo_tur.5.desc
 	
 	is_triggered_only = yes
+	
+	immediate = {
+		add_named_threat = { 
+			threat = 2
+			name = TUR_adivar_assassinated
+		}
+	}
 
 	option = { # fethi okyar
 		name = demo_tur.5.a
@@ -3824,6 +3760,13 @@ country_event = { #
 	desc = demo_pol.1.desc
 	
 	is_triggered_only = yes
+	
+	immediate = {
+		add_named_threat = { 
+			threat = 3
+			name = POL_galician_crisis
+		}
+	}
 	
 	option = { # 
 		name = demo_pol.1.a

@@ -3,15 +3,90 @@ SOV_focus_on_RUS = {
 		original_tag = SOV
 	}
 	enable = {
-		RUS = {
-			exists = yes
-		}
+		is_neighbor_of = RUS
+		RUS = { has_capitulated = no }
+		surrender_progress < 0.1
 	}
 	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 14 #Trans-Urals
+		value = 100
+	}
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 151 #Western Siberia
+		value = 100
+	}
 	
 	ai_strategy = {
 		type = front_unit_request
 		tag = RUS
 		value = 250
+	}
+	ai_strategy = {
+		type = conquer
+		tag = RUS
+		value = 200
+	}
+	ai_strategy = {
+		type = front_armor_score
+		id = RUS
+		value = 100
+	}
+	ai_strategy = {
+		type = force_concentration_front_factor
+		state = 403
+		state = 571
+		state = 572
+		state = 653
+		value = 500
+	}
+	
+	ai_strategy = {
+		type = front_unit_request
+		tag = FIN
+		value = -50
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = BLR
+		value = -50
+	}
+}
+
+SOV_hates_GER = {
+	reversed = yes
+
+	enable = {
+		is_in_faction_with = GER
+		SOV = { is_subject = no }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = SOV
+		value = 1000
+	}
+	ai_strategy = {
+		type = diplo_action_acceptance
+		target = market_access_rights
+		id = SOV
+		value = -1000
+	}
+}
+
+SOV_dont_need_garrisons = {
+	allowed = {
+		original_tag = SOV
+	}
+	enable = { always = yes }
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = garrison
+		value = -100
 	}
 }

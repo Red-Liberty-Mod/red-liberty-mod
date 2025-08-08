@@ -131,4 +131,51 @@ characters = {
 			logistics_skill = 2
 		}
 	}
+	
+	### Admirals ###
+	
+	HUN_miklos_horthy_de_nagybanya = { # starts in AHE, moves to PNB
+		name = HUN_miklos_horthy_de_nagybanya
+		
+		portraits = {
+			army = {
+				large = "gfx/leaders/HUN/Portrait_HUN_Miklos_Horthy.png"
+				#small = "GFX_minister_AUS_georg_von_trapp"
+			}
+		}
+		
+		advisor = {
+			slot = navy_chief
+			idea_token = HUN_miklos_horthy_de_nagybanya_navy_chief
+			available = {
+				not_already_hired_except_as = navy_chief
+			}
+			traits = { navy_chief_decisive_battle_2 }
+			cost = 100
+		}
+		
+		advisor = {
+			slot = theorist
+			idea_token = HUN_miklos_horthy_de_nagybanya_theorist
+			ledger = navy
+			available = {
+				not_already_hired_except_as = theorist
+			}
+			traits = { naval_theorist }
+			cost = 100
+		}
+		
+		navy_leader = {
+			traits = {
+				old_guard_navy
+				bold ironside
+				inshore_fighter
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			maneuvering_skill = 2
+			coordination_skill = 3
+		}
+	}
 }

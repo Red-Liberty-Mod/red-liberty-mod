@@ -446,8 +446,21 @@ AHE_setup_PNB = {
 			add_to_array = { global.danubian_war_participants = THIS.id }
 		}
 		
-		HUN_miklos_horthy_de_nagybanya = { set_nationality = PNB }
-		promote_character = HUN_miklos_horthy_de_nagybanya
+		AHE = {
+			set_nationality = {
+				character = HUN_miklos_horthy_de_nagybanya
+				target_country = PNB
+			}
+		}
+		PNB = {
+			add_country_leader_role = {
+				character = HUN_miklos_horthy_de_nagybanya
+				promote_leader = yes
+				country_leader = {
+					ideology = military_government_subtype
+				}
+			}
+		}
 	}
 }
 
