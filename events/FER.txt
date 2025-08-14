@@ -39,7 +39,12 @@ country_event = { # we're not happy with the soviets for abandoning us - fired b
 	option = { # fuck them, what're they going to do, invade?
 		name = far_east_forpol.1.a
 		custom_effect_tooltip = FER_really_bad_idea_tt
-		
+		SOV = {
+			country_event = {
+				id = far_east_forpol.5
+				days = 3
+			}
+		}
 		ai_chance = {
 			base = 0
 		}
@@ -133,6 +138,45 @@ country_event = { # conflict with the FER
 			declare_war_on = {
 				target = FER
 				type = annex_everything
+			}
+		}
+	}
+}
+
+country_event = { # FER is satisfied
+	id = far_east_forpol.7
+	title = far_east_forpol.7.title
+	desc = far_east_forpol.7.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # to war it is
+		name = far_east_forpol.7.a
+		SOV = {
+			country_event = {
+				id = far_east_forpol.8
+				hours = 6
+			}
+		}
+	}
+}
+
+country_event = { # FER is satisfied
+	id = far_east_forpol.8
+	title = far_east_forpol.8.title
+	desc = far_east_forpol.8.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # to war it is
+		name = far_east_forpol.8.a
+		SOV = {
+			FER = { keep_current_politics = yes }
+			set_autonomy = {
+				target = FER
+				autonomous_state = autonomy_RL_nominal_puppet
 			}
 		}
 	}

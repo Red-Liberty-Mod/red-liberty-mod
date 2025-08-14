@@ -1653,6 +1653,11 @@ shared_focus = {
 	
 	ai_will_do = {
 		base = 10
+		modifier = {
+			factor = 0.5
+			FRA = { has_government = democratic_socialism }
+			ENG = { has_government = authoritarian_democracy }
+		}
 	}
 }
 
@@ -2002,8 +2007,12 @@ shared_focus = {
 	ai_will_do = {
 		base = 10
 		modifier = {
-			factor = 0.2
-			date < 1938.1.1
+			factor = 0
+			date < 1938.6.1
+		}
+		modifier = {
+			factor = 0.5
+			date < 1939.1.1
 		}
 	}
 	

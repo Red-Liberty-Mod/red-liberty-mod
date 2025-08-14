@@ -263,3 +263,55 @@ GER_hates_FRA_faction = {
 		value = -1000
 	}
 }
+
+GER_hates_socialists = {
+	reversed = yes
+
+	enable = {
+		has_socialist_govt = yes
+		GER = {
+			is_subject = no
+			has_socialist_govt = no
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = GER
+		value = 1000
+	}
+	ai_strategy = {
+		type = diplo_action_acceptance
+		target = market_access_rights
+		id = GER
+		value = -1000
+	}
+}
+
+GER_hates_japan = {
+	reversed = yes
+
+	enable = {
+		is_in_faction_with = JAP
+		JAP = { is_faction_leader = yes }
+		GER = {
+			is_subject = no
+			has_socialist_govt = no
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = JAP
+		value = 1000
+	}
+	ai_strategy = {
+		type = diplo_action_acceptance
+		target = market_access_rights
+		id = JAP
+		value = -1000
+	}
+}

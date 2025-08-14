@@ -59,6 +59,24 @@ create_ambition_areas = {
 		set_variable = { ambition_area_@BLR = 1 }
 	}
 	
+	# FIC - French Indochina
+	if = {
+		limit = {
+			OR = {
+				is_core_of = VIN
+				is_claimed_by = VIN
+				is_core_of = LAO
+				is_claimed_by = LAO
+				is_core_of = CAM
+				is_claimed_by = CAM
+				
+				state = 983
+				state = 984
+			}
+		}
+		set_variable = { ambition_area_@FIC = 1 }
+	}
+	
 	# FRA - France
 	if = {
 		limit = {
