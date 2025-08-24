@@ -1,13 +1,13 @@
 shared_focus = {
     id = SOV_memories_of_moscow
-	icon = GFX_focus_AUS_danubian_socialist_communes
+	icon = GFX_SOV_the_democrats
 	
-    x = 4
+    x = 5
 	y = 0
 	cost = 5
 	
 	offset = {
-		x = 26
+		x = 27
 		y = 8
 		trigger = {
 			has_focus_tree = SOV_initial_tree
@@ -31,56 +31,15 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = SOV_mobilize_the_unions
-	icon = GFX_focus_eng_concessions_to_the_trade_unions
-	
-    x = -1
-	y = 1
-	cost = 5
-	
-	relative_position_id = SOV_memories_of_moscow
-	prerequisite = { focus = SOV_memories_of_moscow }
-	
-    completion_reward = {
-		
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = SOV_define_moderate_bolshevism
-	icon = GFX_SOV_define_moderate_bolshevism
-	
-    x = 1
-	y = 1
-	cost = 5
-	
-	relative_position_id = SOV_memories_of_moscow
-	prerequisite = { focus = SOV_memories_of_moscow }
-	
-    completion_reward = {
-		
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
     id = SOV_expand_civil_rights
 	icon = GFX_focus_generic_soviet_politics
 	
-    x = 1
+    x = -3
 	y = 1
 	cost = 5
 	
-	relative_position_id = SOV_mobilize_the_unions
-	prerequisite = { focus = SOV_mobilize_the_unions }
-	prerequisite = { focus = SOV_define_moderate_bolshevism }
+	relative_position_id = SOV_memories_of_moscow
+	prerequisite = { focus = SOV_memories_of_moscow }
 	
     completion_reward = {
 		country_event = {
@@ -100,15 +59,61 @@ shared_focus = {
 }
 
 shared_focus = {
+    id = SOV_mobilize_the_unions
+	icon = GFX_focus_eng_concessions_to_the_trade_unions
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_memories_of_moscow
+	prerequisite = { focus = SOV_memories_of_moscow }
+	mutually_exclusive = { focus = SOV_rally_the_peasantry }
+	
+    completion_reward = {
+		add_political_power = 35
+		add_to_variable = {
+			tooltip = SOV_syndicalist_influence_gain
+			SOV_industrialist_influence = 3
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_rally_the_peasantry
+	icon = GFX_focus_ITA_peasants_rise
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_memories_of_moscow
+	prerequisite = { focus = SOV_memories_of_moscow }
+	mutually_exclusive = { focus = SOV_mobilize_the_unions }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
     id = SOV_restoring_the_countryside
 	icon = GFX_focus_generic_agrarian_reform
 	
-    x = -3
+    x = 3
 	y = 1
 	cost = 6
 	
-	relative_position_id = SOV_expand_civil_rights
-	prerequisite = { focus = SOV_expand_civil_rights }
+	relative_position_id = SOV_memories_of_moscow
+	prerequisite = { focus = SOV_memories_of_moscow }
 	
     completion_reward = {
 		ECON_poverty_change_large = yes
@@ -141,17 +146,20 @@ shared_focus = {
 			id = sov_democrat.5
 			hours = 6
 		}
-		add_popularity = {
-			ideology = democratic_socialism
-			popularity = 0.03
-		}
-		add_popularity = {
-			ideology = social_democracy
-			popularity = 0.01
-		}
-		add_popularity = {
-			ideology = progressive_liberalism
-			popularity = 0.01
+		custom_effect_tooltip = event_effect_tt
+		effect_tooltip = {
+			add_popularity = {
+				ideology = democratic_socialism
+				popularity = 0.03
+			}
+			add_popularity = {
+				ideology = social_democracy
+				popularity = 0.01
+			}
+			add_popularity = {
+				ideology = progressive_liberalism
+				popularity = 0.01
+			}
 		}
     }
 	
@@ -177,25 +185,28 @@ shared_focus = {
 			id = sov_democrat.6
 			hours = 6
 		}
-		add_popularity = {
-			ideology = democratic_socialism
-			popularity = 0.03
-		}
-		add_popularity = {
-			ideology = social_democracy
-			popularity = 0.01
-		}
-		add_popularity = {
-			ideology = progressive_liberalism
-			popularity = 0.01
-		}
-		add_popularity = {
-			ideology = liberal_conservatism
-			popularity = 0.03
-		}
-		add_popularity = {
-			ideology = national_conservatism
-			popularity = 0.05
+		custom_effect_tooltip = event_effect_tt
+		effect_tooltip = {
+			add_popularity = {
+				ideology = democratic_socialism
+				popularity = 0.03
+			}
+			add_popularity = {
+				ideology = social_democracy
+				popularity = 0.01
+			}
+			add_popularity = {
+				ideology = progressive_liberalism
+				popularity = 0.01
+			}
+			add_popularity = {
+				ideology = liberal_conservatism
+				popularity = 0.03
+			}
+			add_popularity = {
+				ideology = national_conservatism
+				popularity = 0.05
+			}
 		}
     }
 	
@@ -214,9 +225,36 @@ shared_focus = {
 	
 	relative_position_id = SOV_expand_civil_rights
 	prerequisite = { focus = SOV_expand_civil_rights }
+	prerequisite = {
+		focus = SOV_mobilize_the_unions
+		focus = SOV_rally_the_peasantry
+	}
 	
     completion_reward = {
 		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_deepen_international_ties
+	icon = GFX_focus_SOV_proclaim_soviet_hegemony
+	
+    x = -1
+	y = 1
+	cost = 6
+	
+	relative_position_id = SOV_restoring_the_countryside
+	prerequisite = { focus = SOV_restoring_the_countryside }
+	
+    completion_reward = {
+		swap_ideas = {
+			remove_idea = trade_monopoly_1
+			add_idea = trade_monopoly_2
+		}
     }
 	
 	ai_will_do = {
@@ -259,10 +297,7 @@ shared_focus = {
 	}
 	
     completion_reward = {
-		swap_ideas = {
-			remove_idea = trade_monopoly_1
-			add_idea = trade_monopoly_2
-		}
+		
     }
 	
 	ai_will_do = {
@@ -318,10 +353,30 @@ shared_focus = {
 }
 
 shared_focus = {
+    id = SOV_end_grain_requisitioning
+	icon = GFX_focus_generic_farmland
+	
+    x = 0
+	y = 2
+	cost = 6
+	
+	relative_position_id = SOV_restoring_the_countryside
+	prerequisite = { focus = SOV_restoring_the_countryside }
+	
+    completion_reward = {
+		add_stability = 0.05
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
     id = SOV_lift_menshevik_exiles
 	icon = GFX_focus_generic_government_in_exile
 	
-    x = -1
+    x = 1
 	y = 1
 	cost = 6
 	
@@ -352,7 +407,7 @@ shared_focus = {
 	y = 1
 	cost = 6
 	
-	relative_position_id = SOV_absorb_the_feminist_movement
+	relative_position_id = SOV_deepen_american_ties
 	prerequisite = { focus = SOV_absorb_the_feminist_movement }
 	prerequisite = { focus = SOV_deepen_american_ties }
 	
@@ -370,7 +425,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_unify_the_party_and_the_state
-	icon = GFX_SOV_unify_the_party_and_the_state
+	icon = GFX_focus_generic_socialist_government
 	
     x = 1
 	y = 1
@@ -395,7 +450,7 @@ shared_focus = {
     id = SOV_democracy_across_the_country
 	icon = GFX_SOV_democracy_across_the_country
 	
-    x = 1
+    x = -1
 	y = 1
 	cost = 6
 	
@@ -436,8 +491,8 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = SOV_democracy
-	icon = GFX_SOV_democracy_within_the_party
+    id = SOV_the_kamenev_constitution
+	icon = GFX_focus_generic_socialist_constitution
 	
     x = 2
 	y = 1
