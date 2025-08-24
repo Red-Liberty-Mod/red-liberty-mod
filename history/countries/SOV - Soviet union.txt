@@ -276,15 +276,17 @@ add_dynamic_modifier = {
 }
 
 set_country_flag = conscription_banned
-set_country_flag = can_integrate_RUS
-set_country_flag = can_integrate_NRR
-set_country_flag = can_integrate_TMS
-set_country_flag = can_integrate_TKS
-set_country_flag = can_integrate_CRI
-set_country_flag = can_integrate_UKR
-set_country_flag = can_integrate_BLR
-set_country_flag = can_integrate_AZR
-set_country_flag = can_integrate_GEO
+set_variable = { can_integrate_RUS = 50 }
+
+#set_country_flag = can_integrate_RUS
+#set_country_flag = can_integrate_NRR
+#set_country_flag = can_integrate_TMS
+#set_country_flag = can_integrate_TKS
+#set_country_flag = can_integrate_CRI
+#set_country_flag = can_integrate_UKR
+#set_country_flag = can_integrate_BLR
+#set_country_flag = can_integrate_AZR
+#set_country_flag = can_integrate_GEO
 
 if = {
 	limit = {
@@ -382,6 +384,7 @@ if = {
 	create_equipment_variant = {
 		name = "KhT-26"
 		type = light_tank_flame_chassis_1
+		parent_version = 1
 		modules = {
 			main_armament_slot = flamethrower
 			turret_type_slot = tank_light_one_man_tank_turret
