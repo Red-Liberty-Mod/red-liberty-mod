@@ -11,6 +11,10 @@ country_event = { # revolutionaries overthrow the govt
 			has_war_with = ROM
 		}
 		surrender_progress > 0.1
+		casualties_inflicted_by = {
+			opponent = ROM
+			thousands > 10
+		}
 	}
 	fire_only_once = yes
 
@@ -91,9 +95,71 @@ country_event = { #
 					white_peace = HUN
 				}
 			}
+			
+			country_event = {
+				id = hungary_skeleton.3
+				days = 14
+				random_days = 7
+			}
 		}
 		ai_chance = {
 			base = 10
+		}
+	}
+}
+
+country_event = { # 
+	id = hungary_skeleton.3
+	title = hungary_skeleton.3.title
+	desc = hungary_skeleton.3.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = hungary_skeleton.3.a
+		HUN = {
+			set_politics = {
+				ruling_party = anarchism
+				last_election = "1936.1.1"
+				election_frequency = 48
+				elections_allowed = no
+			}
+			set_cosmetic_tag = HUN_free_territory
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	
+	option = {
+		name = hungary_skeleton.3.a
+		HUN = {
+			set_politics = {
+				ruling_party = revolutionary_socialism
+				last_election = "1936.1.1"
+				election_frequency = 48
+				elections_allowed = no
+			}
+		}
+		ai_chance = {
+			base = 25
+		}
+	}
+	
+	option = {
+		name = hungary_skeleton.3.a
+		HUN = {
+			set_politics = {
+				ruling_party = despotism
+				last_election = "1936.1.1"
+				election_frequency = 48
+				elections_allowed = no
+			}
+			drop_cosmetic_tag = yes
+		}
+		ai_chance = {
+			base = 65
 		}
 	}
 }

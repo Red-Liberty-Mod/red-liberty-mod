@@ -985,7 +985,6 @@ country_event = { #
 	desc = sov_democrat.1.desc
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
 
 	option = {
@@ -999,7 +998,6 @@ country_event = { #
 	desc = sov_democrat.2.desc
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
 
 	option = {
@@ -1013,7 +1011,6 @@ country_event = { #
 	desc = sov_democrat.3.desc
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
 
 	option = {
@@ -1041,7 +1038,6 @@ country_event = { #
 	desc = sov_democrat.5.desc
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
 
 	option = {
@@ -1067,7 +1063,6 @@ country_event = { #
 	desc = sov_democrat.6.desc
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
 
 	option = {
@@ -1101,7 +1096,6 @@ country_event = { #
 	desc = sov_democrat.7.desc
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
 
 	option = {
@@ -1115,7 +1109,6 @@ country_event = { #
 	desc = sov_democrat.8.desc
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
 
 	option = {
@@ -1129,7 +1122,6 @@ country_event = { #
 	desc = sov_democrat.9.desc
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
 
 	option = {
@@ -1143,10 +1135,129 @@ country_event = { #
 	desc = sov_democrat.10.desc
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
 
 	option = {
 		name = sov_democrat.10.a
+	}
+	
+	option = {
+		name = sov_democrat.10.b
+	}
+}
+
+country_event = { # 
+	id = sov_democrat.11
+	title = sov_democrat.11.title
+	desc = sov_democrat.11.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = sov_democrat.11.a
+		SOV = {
+			set_party_name = {
+				ideology = social_democracy
+				long_name = SOV_united_socdem_party_long
+				name = SOV_united_socdem_party
+			}
+			add_popularity = {
+				ideology = social_democracy
+				popularity = 0.04
+			}
+		}
+	}
+	
+	option = {
+		name = sov_democrat.11.b
+		SOV = {
+			set_party_name = {
+				ideology = social_democracy
+				long_name = SOV_united_left_party_long
+				name = SOV_united_left_party
+			}
+			add_socdem_coalition = yes
+			add_popularity = {
+				ideology = social_democracy
+				popularity = 0.02
+			}
+			add_political_power = -50
+		}
+	}
+}
+
+country_event = { # 
+	id = sov_democrat.12
+	title = sov_democrat.12.title
+	desc = sov_democrat.12.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = sov_democrat.12.a
+		SOV = {
+			set_party_name = {
+				ideology = vanguard_socialism
+				long_name = SOV_united_left_party_long
+				name = SOV_united_left_party
+			}
+			set_party_name = {
+				ideology = revolutionary_socialism
+				long_name = SOV_united_left_party_long
+				name = SOV_united_left_party
+			}
+			set_party_name = {
+				ideology = democratic_socialism
+				long_name = SOV_united_left_party_long
+				name = SOV_united_left_party
+			}
+		}
+	}
+}
+
+country_event = { # Shliapnikov splits the party
+	id = sov_democrat.13
+	title = sov_democrat.13.title
+	desc = sov_democrat.13.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = sov_democrat.13.a
+		SOV = {
+			set_party_name = {
+				ideology = revolutionary_socialism
+				long_name = SOV_workers_communist_party_long
+				name = SOV_workers_communist_party
+			}
+			remove_revsoc_coalition = yes
+			add_popularity = {
+				ideology = revolutionary_socialism
+				popularity = -0.03
+			}
+		}
+	}
+}
+
+country_event = { # Centralists outraged
+	id = sov_democrat.14
+	title = sov_democrat.14.title
+	desc = sov_democrat.14.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = sov_democrat.14.a
+		SOV = {
+			remove_vansoc_coalition = yes
+			add_popularity = {
+				ideology = vanguard_socialism
+				popularity = -0.03
+			}
+		}
 	}
 }

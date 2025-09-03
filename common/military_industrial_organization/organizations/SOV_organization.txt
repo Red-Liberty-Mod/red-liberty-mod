@@ -92,6 +92,43 @@ SOV_mytishchy_plant_organization = {
 	}
 }
 
+SOV_avtomobilnoe_moskovskoe_organization = {
+	include = generic_mobile_tank_organization
+	icon = GFX_idea_avtomobilnoe_moskovskoe
+	
+	allowed = {
+		original_tag = SOV
+	}
+}
+
+SOV_dalzavod_organization = {
+	include = generic_refurbishment_repair_organization
+	icon = GFX_idea_SOV_dalzavod
+	
+	#initial_trait = {
+	#	name = SOV_mio_initial_trait_pacific_fleet_repair_center
+	#
+	#	organization_modifier = {
+	#		military_industrial_organization_research_bonus = 0.03
+	#	}
+	#	
+	#	production_bonus = {
+	#		production_capacity_factor = 0.05
+	#	}
+	#}
+	
+	allowed = {	
+		OR = {
+			original_tag = SOV
+			original_tag = RUS
+		}
+	}
+	
+	available = {
+		FROM = { controls_state = 408 }
+	}
+}
+
 ### Naval ###
 
 SOV_nevskoye_design_bureau_organization = {
@@ -184,6 +221,18 @@ SOV_ilyushin_design_bureau_organization = {
 	}
 }
 
+SOV_sukhoi_design_bureau_organization = {
+	include = generic_medium_aircraft_organization
+	icon = GFX_idea_SOV_sukhoi_design_bureau
+	
+	allowed = {	
+		original_tag = SOV
+	}
+	
+	available = {
+		has_completed_focus = SOV_support_the_design_bureaus
+	}
+}
 
 ##     ##    ###    ######## ######## ########  #### ######## ##       
 ###   ###   ## ##      ##    ##       ##     ##  ##  ##       ##       
@@ -214,6 +263,15 @@ SOV_tula_arms_plant_organization = {
 SOV_gaz_organization = {
 	include = generic_motorized_mechanized_organization
 	icon = GFX_idea_gaz
+	
+	allowed = {	
+		original_tag = SOV
+	}
+}
+
+SOV_sestroretsk_tools_plant_organization = {
+	include = generic_support_equipment_organization
+	icon = GFX_idea_generic_infantry_equipment_manufacturer_1
 	
 	allowed = {	
 		original_tag = SOV
