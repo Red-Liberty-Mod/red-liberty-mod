@@ -450,6 +450,27 @@ shared_focus = {
 }
 
 shared_focus = {
+	id = JAP_expand_the_tokko_conservative
+	icon = GFX_focus_generic_secret_police
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = JAP_crack_down
+	prerequisite = { focus = JAP_crack_down }
+	prerequisite = { focus = JAP_disband_the_societies }
+	
+    completion_reward = {
+		add_ideas = JAP_expanded_tokko
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
 	id = JAP_promote_labor_conciliation
 	icon = GFX_focus_generic_solidarity
 	
@@ -563,6 +584,29 @@ shared_focus = {
 }
 
 shared_focus = {
+	id = JAP_inukais_legacy
+	icon = GFX_JAP_inukais_legacy
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = JAP_expand_the_tokko_conservative
+	prerequisite = {
+		focus = JAP_expand_the_tokko_conservative
+		focus = JAP_promote_labor_conciliation
+	}
+	
+    completion_reward = {
+		
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
 	id = JAP_nationalize_the_defense_industry
 	icon = GFX_focus_generic_reorient_production
 	
@@ -585,7 +629,7 @@ shared_focus = {
 }
 
 shared_focus = {
-	id = JAP_greater_east_asian_railrod_conservative
+	id = JAP_greater_east_asian_railroad_conservative
 	icon = GFX_focus_generic_railroad
 	
 	x = 0

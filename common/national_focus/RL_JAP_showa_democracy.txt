@@ -1,259 +1,30 @@
 shared_focus = {
-    id = JAP_prime_minister_abe
-	icon = GFX_JAP_prime_minister_saito
+    id = JAP_dawn_of_showa_democracy
+	icon = GFX_JAP_minseito_platform
 	
-    x = 2
+    x = 10
 	y = 0
+	cost = 4
+	
+	offset = {
+		X = 17
+		y = 9
+		trigger = {
+			has_focus_tree = JAP_initial_tree
+		}
+	}
 	
 	available = {
-		has_government = democratic_socialism
+		custom_trigger_tooltip = {
+			tooltip = focus_will_be_bypassed_tt
+			always = no
+		}
 	}
 	
-	cost = 4
     completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_prime_minister_kato
-	icon = GFX_JAP_prime_minister_saito
-	
-    x = 8
-	y = 0
-	
-	available = {
-		has_government = social_democracy
-	}
-	
-	cost = 4
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_prime_minister_saito
-	icon = GFX_JAP_prime_minister_saito
-	
-    x = 19
-	y = 0
-	
-	available = {
-		has_government = progressive_liberalism
-	}
-	
-	cost = 4
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_the_american_example
-	icon = GFX_JAP_the_american_example
-	
-    x = -1
-	y = 1
-	
-	cost = 4
-	relative_position_id = JAP_prime_minister_abe
-	prerequisite = { focus = JAP_prime_minister_abe }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_christian_socialism
-	icon = GFX_JAP_christian_socialism
-	
-    x = 1
-	y = 1
-	
-	cost = 4
-	relative_position_id = JAP_prime_minister_abe
-	prerequisite = { focus = JAP_prime_minister_abe }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_red_rising_sun
-	icon = GFX_JAP_christian_socialism
-	
-    x = 3
-	y = 1
-	
-	cost = 4
-	relative_position_id = JAP_prime_minister_abe
-	prerequisite = {
-		focus = JAP_prime_minister_abe
-		focus = JAP_prime_minister_kato
-	}
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_radical_feminism
-	icon = GFX_JAP_radical_feminism
-	
-    x = -1
-	y = 1
-	
-	cost = 4
-	relative_position_id = JAP_prime_minister_kato
-	prerequisite = { focus = JAP_prime_minister_kato }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_birth_control
-	icon = GFX_JAP_birth_control
-	
-    x = 1
-	y = 1
-	
-	cost = 4
-	relative_position_id = JAP_prime_minister_kato
-	prerequisite = { focus = JAP_prime_minister_kato }
-    completion_reward = {
-        add_stability = -0.025
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_showa_democracy
-	icon = GFX_JAP_showa_democracy
-	
-    x = -6
-	y = 1
-	
-	cost = 2
-	relative_position_id = JAP_prime_minister_saito
-	prerequisite = {
-		focus = JAP_prime_minister_abe
-		focus = JAP_prime_minister_kato
-		focus = JAP_prime_minister_saito
-	}
-    completion_reward = {
-        set_variable = { JAP_socialist_influence = 21 }
-		set_variable = { JAP_liberal_influence = 79 }
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_new_democratic_culture
-	icon = GFX_JAP_new_democratic_culture
-	
-    x = -1
-	y = 1
-	
-	cost = 4
-	relative_position_id = JAP_showa_democracy
-	prerequisite = { focus = JAP_showa_democracy }
-    completion_reward = {
-        add_stability = 0.05
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_end_imperial_cult
-	icon = GFX_JAP_end_imperial_cult
-	
-    x = -1
-	y = 1
-	
-	cost = 4
-	relative_position_id = JAP_new_democratic_culture
-	prerequisite = { focus = JAP_new_democratic_culture }
-    completion_reward = {
-        add_war_support = -0.05
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_civilian_governance
-	icon = GFX_JAP_civilian_governance
-	
-    x = 1
-	y = 1
-	
-	cost = 4
-	relative_position_id = JAP_showa_democracy
-	prerequisite = { focus = JAP_showa_democracy }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_depoliticize_military
-	icon = GFX_JAP_depoliticize_military
-	
-    x = 1
-	y = 1
-	
-	cost = 4
-	relative_position_id = JAP_civilian_governance
-	prerequisite = { focus = JAP_civilian_governance }
-    completion_reward = {
-        swap_ideas = {
-			remove_idea = JAP_military_influence
-			add_idea = JAP_military_influence_1
+        country_event = {
+			id = japan_saito.1
+			hours = 6
 		}
     }
 	
@@ -263,18 +34,29 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = JAP_secure_the_coalition
-	icon = GFX_JAP_secure_the_coalition
+    id = JAP_secure_the_coalition_liberal
+	icon = GFX_JAP_bipartisanship
 	
-    x = 1
+    x = -1
 	y = 1
-	
 	cost = 4
-	relative_position_id = JAP_new_democratic_culture
-	prerequisite = { focus = JAP_new_democratic_culture }
-	prerequisite = { focus = JAP_civilian_governance }
+	
+	available = {
+		has_government = progressive_liberalism
+	}
+	
+	relative_position_id = JAP_dawn_of_showa_democracy
+	prerequisite = { focus = JAP_dawn_of_showa_democracy }
+	
     completion_reward = {
-        add_political_power = 50
+		country_event = {
+			id = japan_saito.2
+			hours = 6
+		}
+        add_to_variable = {
+			JAP_coalition_stability = 10
+			tooltip = JAP_coalition_change_tt
+		}
     }
 	
 	ai_will_do = {
@@ -283,19 +65,25 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = JAP_reforms_begin
-	icon = GFX_JAP_reforms_begin
+    id = JAP_depoliticize_the_military
+	icon = GFX_focus_generic_conspiracy
 	
-    x = 0
+    x = 1
 	y = 1
-	
 	cost = 4
-	relative_position_id = JAP_secure_the_coalition
-	prerequisite = { focus = JAP_secure_the_coalition }
-	prerequisite = { focus = JAP_end_imperial_cult }
-	prerequisite = { focus = JAP_depoliticize_military }
+	
+	available = {
+		has_government = progressive_liberalism
+	}
+	
+	relative_position_id = JAP_dawn_of_showa_democracy
+	prerequisite = { focus = JAP_dawn_of_showa_democracy }
+	
     completion_reward = {
-        
+        country_event = {
+			id = japan_saito.3
+			hours = 6
+		}
     }
 	
 	ai_will_do = {
@@ -305,16 +93,22 @@ shared_focus = {
 
 shared_focus = {
     id = JAP_economic_reform
-	icon = GFX_JAP_prime_minister_saito
+	icon = GFX_JAP_depoliticize_the_military
 	
-    x = -2
+    x = -3
 	y = 1
-	
 	cost = 4
-	relative_position_id = JAP_prime_minister_saito
-	prerequisite = { focus = JAP_prime_minister_saito }
+	
+	available = {
+		has_government = progressive_liberalism
+	}
+	
+	relative_position_id = JAP_secure_the_coalition_liberal
+	prerequisite = { focus = JAP_secure_the_coalition_liberal }
+	prerequisite = { focus = JAP_depoliticize_the_military }
+	
     completion_reward = {
-		swap_ideas = {
+        swap_ideas = {
 			remove_idea = JAP_echoes_of_the_depression
 			add_idea = JAP_echoes_of_the_depression_1
 		}
@@ -326,115 +120,21 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = JAP_liberate_the_market
-	icon = GFX_JAP_liberate_the_market
-	
-    x = -1
-	y = 1
-	
-	cost = 4
-	relative_position_id = JAP_economic_reform
-	prerequisite = { focus = JAP_economic_reform }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_protect_tbe_workers
-	icon = GFX_JAP_protect_tbe_workers
+    id = JAP_new_democratic_culture
+	icon = GFX_goal_generic_national_unity
 	
     x = 1
 	y = 1
-	
 	cost = 4
-	relative_position_id = JAP_economic_reform
-	prerequisite = { focus = JAP_economic_reform }
-    completion_reward = {
-        
-    }
 	
-	ai_will_do = {
-		factor = 10
+	available = {
+		has_government = progressive_liberalism
 	}
-}
-
-shared_focus = {
-    id = JAP_support_small_business
-	icon = GFX_JAP_support_small_business
 	
-    x = 1
-	y = 1
+	relative_position_id = JAP_secure_the_coalition_liberal
+	prerequisite = { focus = JAP_secure_the_coalition_liberal }
+	prerequisite = { focus = JAP_depoliticize_the_military }
 	
-	cost = 4
-	relative_position_id = JAP_liberate_the_market
-	prerequisite = { focus = JAP_liberate_the_market }
-	prerequisite = { focus = JAP_protect_tbe_workers }
-    completion_reward = {
-        remove_ideas = {
-			JAP_echoes_of_the_depression_1
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_the_invisible_hand
-	icon = GFX_JAP_the_invisible_hand
-	
-    x = 0
-	y = 2
-	
-	cost = 4
-	relative_position_id = JAP_liberate_the_market
-	prerequisite = { focus = JAP_liberate_the_market }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_empower_workers_orgs
-	icon = GFX_JAP_empower_workers_orgs
-	
-    x = 0
-	y = 2
-	
-	cost = 4
-	relative_position_id = JAP_protect_tbe_workers
-	prerequisite = { focus = JAP_protect_tbe_workers }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_progressive_economy
-	icon = GFX_JAP_progressive_economy
-	
-    x = 0
-	y = 2
-	
-	cost = 4
-	relative_position_id = JAP_support_small_business
-	prerequisite = { focus = JAP_the_invisible_hand }
-	prerequisite = { focus = JAP_support_small_business }
-	prerequisite = { focus = JAP_empower_workers_orgs }
     completion_reward = {
         
     }
@@ -446,14 +146,74 @@ shared_focus = {
 
 shared_focus = {
     id = JAP_social_reform
-	icon = GFX_JAP_prime_minister_saito
+	icon = GFX_JAP_depoliticize_the_military
 	
-    x = 2
+    x = 3
 	y = 1
-	
 	cost = 4
-	relative_position_id = JAP_prime_minister_saito
-	prerequisite = { focus = JAP_prime_minister_saito }
+	
+	available = {
+		has_government = progressive_liberalism
+	}
+	
+	relative_position_id = JAP_depoliticize_the_military
+	prerequisite = { focus = JAP_secure_the_coalition_liberal }
+	prerequisite = { focus = JAP_depoliticize_the_military }
+	
+    completion_reward = {
+        add_to_variable = {
+			JAP_coalition_stability = 2
+			tooltip = JAP_coalition_change_tt
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = JAP_liberate_the_market
+	icon = GFX_focus_DEN_no_regulations
+	
+    x = -3
+	y = 1
+	cost = 4
+	
+	available = {
+		has_government = progressive_liberalism
+	}
+	
+	relative_position_id = JAP_economic_reform
+	prerequisite = { focus = JAP_economic_reform }
+	
+    completion_reward = {
+        add_to_variable = {
+			JAP_coalition_stability = -3
+			tooltip = JAP_coalition_change_tt
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = JAP_reassure_the_zaibatsu
+	icon = GFX_focus_jap_zaibatsu
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	available = {
+		has_government = progressive_liberalism
+	}
+	
+	relative_position_id = JAP_economic_reform
+	prerequisite = { focus = JAP_economic_reform }
+	
     completion_reward = {
         
     }
@@ -465,19 +225,45 @@ shared_focus = {
 
 shared_focus = {
     id = JAP_abolish_political_bans
-	icon = GFX_JAP_abolish_political_bans
+	icon = GFX_JAP_depoliticize_the_military
 	
     x = -1
 	y = 1
-	
 	cost = 4
-	relative_position_id = JAP_social_reform
-	prerequisite = { focus = JAP_social_reform }
+	
+	available = {
+		has_government = progressive_liberalism
+	}
+	
+	relative_position_id = JAP_new_democratic_culture
+	prerequisite = { focus = JAP_new_democratic_culture }
+	
     completion_reward = {
-		swap_ideas = {
-			remove_idea = JAP_taisho_democracy
-			add_idea = JAP_showa_democracy_1
-		}
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = JAP_abolish_the_tokko
+	icon = GFX_JAP_depoliticize_the_military
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	available = {
+		has_government = progressive_liberalism
+	}
+	
+	relative_position_id = JAP_new_democratic_culture
+	prerequisite = { focus = JAP_new_democratic_culture }
+	
+    completion_reward = {
+        
     }
 	
 	ai_will_do = {
@@ -487,15 +273,23 @@ shared_focus = {
 
 shared_focus = {
     id = JAP_expand_minority_rights
-	icon = GFX_JAP_expand_minority_rights
+	icon = GFX_JAP_depoliticize_the_military
 	
     x = 1
 	y = 1
-	
 	cost = 4
+	
+	available = {
+		has_government = progressive_liberalism
+	}
+	
 	relative_position_id = JAP_social_reform
 	prerequisite = { focus = JAP_social_reform }
+	
     completion_reward = {
+		524 = {
+			add_compliance = 5
+		}
         525 = {
 			add_compliance = 5
 		}
@@ -510,287 +304,50 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = JAP_empower_the_diet
-	icon = GFX_JAP_empower_the_diet
+    id = JAP_land_reform_question
+	icon = GFX_JAP_land_reform_question
+	
+    x = 3
+	y = 1
+	cost = 4
+	
+	available = {
+		has_government = progressive_liberalism
+	}
+	
+	relative_position_id = JAP_social_reform
+	prerequisite = { focus = JAP_social_reform }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = JAP_reduce_red_tape
+	icon = GFX_JAP_depoliticize_the_military
 	
     x = -1
 	y = 1
-	
 	cost = 4
-	relative_position_id = JAP_abolish_political_bans
-	prerequisite = { focus = JAP_abolish_political_bans }
+	
+	available = {
+		has_government = progressive_liberalism
+	}
+	
+	relative_position_id = JAP_liberate_the_market
+	prerequisite = { focus = JAP_liberate_the_market }
+	mutually_exclusive = { focus = JAP_expand_safety_regulations }
+	
     completion_reward = {
-		add_political_power = 50
-        swap_ideas = {
-			remove_idea = JAP_showa_democracy_1
-			add_idea = JAP_showa_democracy_2
+        add_to_variable = {
+			JAP_coalition_stability = -3
+			tooltip = JAP_coalition_change_tt
 		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_reform_nationalist_culture
-	icon = GFX_JAP_reform_nationalist_culture
-	
-    x = 1
-	y = 1
-	
-	cost = 4
-	relative_position_id = JAP_abolish_political_bans
-	prerequisite = { focus = JAP_abolish_political_bans }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_repeal_the_peace_preservation_laws
-	icon = GFX_JAP_repeal_the_peace_preservation_laws
-	
-    x = 1
-	y = 1
-	
-	cost = 4
-	relative_position_id = JAP_empower_the_diet
-	prerequisite = { focus = JAP_empower_the_diet }
-	prerequisite = { focus = JAP_reform_nationalist_culture }
-    completion_reward = {
-		add_popularity = {
-			ideology = vanguard_socialism
-			popularity = 0.005
-		}
-		add_popularity = {
-			ideology = revolutionary_socialism
-			popularity = 0.005
-		}
-		add_popularity = {
-			ideology = democratic_socialism
-			popularity = 0.01
-		}
-        add_popularity = {
-			ideology = social_democracy
-			popularity = 0.01
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_expand_womens_rights
-	icon = GFX_JAP_abolish_peace_laws
-	
-    x = 0
-	y = 2
-	
-	cost = 4
-	relative_position_id = JAP_expand_minority_rights
-	prerequisite = { focus = JAP_expand_minority_rights }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_progressive_society
-	icon = GFX_JAP_progressive_society
-	
-    x = 1
-	y = 1
-	
-	cost = 4
-	relative_position_id = JAP_repeal_the_peace_preservation_laws
-	prerequisite = { focus = JAP_repeal_the_peace_preservation_laws }
-	prerequisite = { focus = JAP_expand_womens_rights }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_progressive_japan
-	icon = GFX_JAP_progressive_japan
-	
-    x = 2
-	y = 1
-	
-	cost = 4
-	relative_position_id = JAP_progressive_economy
-	prerequisite = { focus = JAP_progressive_economy }
-	prerequisite = { focus = JAP_progressive_society }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_freedom_of_speech
-	icon = GFX_JAP_freedom_of_speech
-	
-    x = -1
-	y = 1
-	
-	cost = 4
-	relative_position_id = JAP_the_american_example
-	prerequisite = { focus = JAP_the_american_example }
-    completion_reward = {
-        add_stability = 0.05
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_religious_liberty
-	icon = GFX_JAP_religious_liberty
-	
-    x = 1
-	y = 1
-	
-	cost = 4
-	relative_position_id = JAP_the_american_example
-	prerequisite = { focus = JAP_the_american_example }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_economic_democracy
-	icon = GFX_JAP_prime_minister_machida
-	
-    x = -1
-	y = 1
-	
-	cost = 4
-	relative_position_id = JAP_red_rising_sun
-	prerequisite = { focus = JAP_red_rising_sun }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_social_liberation
-	icon = GFX_JAP_social_liberation
-	
-    x = 1
-	y = 1
-	
-	cost = 4
-	relative_position_id = JAP_red_rising_sun
-	prerequisite = { focus = JAP_red_rising_sun }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_state_atheism
-	icon = GFX_JAP_state_atheism
-	
-    x = -1
-	y = 1
-	
-	cost = 4
-	relative_position_id = JAP_birth_control
-	prerequisite = { focus = JAP_birth_control }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_abortion_rights
-	icon = GFX_JAP_abortion_rights
-	
-    x = 1
-	y = 1
-	
-	cost = 4
-	relative_position_id = JAP_birth_control
-	prerequisite = { focus = JAP_birth_control }
-    completion_reward = {
-        add_stability = -0.05
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_secular_state
-	icon = GFX_JAP_secular_state
-	
-    x = 1
-	y = 1
-	
-	cost = 4
-	relative_position_id = JAP_freedom_of_speech
-	prerequisite = { focus = JAP_freedom_of_speech }
-	prerequisite = { focus = JAP_religious_liberty }
-    completion_reward = {
-        add_political_power = 50
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_national_sport
-	icon = GFX_JAP_national_sport
-	
-    x = 0
-	y = 2
-	
-	cost = 4
-	relative_position_id = JAP_christian_socialism
-	prerequisite = { focus = JAP_christian_socialism }
-    completion_reward = {
-        # add event 'Play Ball!'
     }
 	
 	ai_will_do = {
@@ -800,15 +357,72 @@ shared_focus = {
 
 shared_focus = {
     id = JAP_expand_safety_regulations
-	icon = GFX_JAP_expand_safety_regulations
+	icon = GFX_JAP_depoliticize_the_military
 	
     x = 1
 	y = 1
-	
 	cost = 4
-	relative_position_id = JAP_economic_democracy
-	prerequisite = { focus = JAP_economic_democracy }
-	prerequisite = { focus = JAP_social_liberation }
+	
+	available = {
+		has_government = progressive_liberalism
+	}
+	
+	relative_position_id = JAP_liberate_the_market
+	prerequisite = { focus = JAP_liberate_the_market }
+	mutually_exclusive = { focus = JAP_reduce_red_tape }
+	
+    completion_reward = {
+        add_to_variable = {
+			JAP_coalition_stability = 3
+			tooltip = JAP_coalition_change_tt
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = JAP_support_small_business
+	icon = GFX_goal_generic_consumer_goods
+	
+    x = -1
+	y = 1
+	cost = 4
+	
+	available = {
+		has_government = progressive_liberalism
+	}
+	
+	relative_position_id = JAP_reassure_the_zaibatsu
+	prerequisite = { focus = JAP_liberate_the_market }
+	prerequisite = { focus = JAP_reassure_the_zaibatsu }
+	
+    completion_reward = {
+        remove_ideas = JAP_echoes_of_the_depression_1
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = JAP_empower_the_diet
+	icon = GFX_focus_generic_parliament
+	
+    x = -1
+	y = 1
+	cost = 4
+	
+	available = {
+		has_government = progressive_liberalism
+	}
+	
+	relative_position_id = JAP_abolish_political_bans
+	prerequisite = { focus = JAP_abolish_political_bans }
+	
     completion_reward = {
         
     }
@@ -819,17 +433,185 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = JAP_feminist_academia
-	icon = GFX_JAP_feminist_academia
+    id = JAP_democratic_nationalism
+	icon = GFX_JAP_depoliticize_the_military
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	available = {
+		has_government = progressive_liberalism
+	}
+	
+	relative_position_id = JAP_abolish_political_bans
+	prerequisite = { focus = JAP_abolish_political_bans }
+	prerequisite = { focus = JAP_abolish_the_tokko }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = JAP_affirm_loyalty_to_the_kokutai
+	icon = GFX_JAP_depoliticize_the_military
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	available = {
+		has_government = progressive_liberalism
+	}
+	
+	relative_position_id = JAP_abolish_the_tokko
+	prerequisite = { focus = JAP_abolish_the_tokko }
+	prerequisite = { focus = JAP_social_reform }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = JAP_basic_tenant_rights
+	icon = GFX_JAP_basic_tenant_rights
+	
+    x = -1
+	y = 1
+	cost = 4
+	
+	available = {
+		has_government = progressive_liberalism
+	}
+	
+	relative_position_id = JAP_land_reform_question
+	prerequisite = { focus = JAP_land_reform_question }
+	mutually_exclusive = { focus = JAP_land_control_act }
+	
+    completion_reward = {
+        add_to_variable = {
+			JAP_coalition_stability = -3
+			tooltip = JAP_coalition_change_tt
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = JAP_land_control_act
+	icon = GFX_JAP_land_control_act
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	available = {
+		has_government = progressive_liberalism
+	}
+	
+	relative_position_id = JAP_land_reform_question
+	prerequisite = { focus = JAP_land_reform_question }
+	mutually_exclusive = { focus = JAP_basic_tenant_rights }
+	
+    completion_reward = {
+        add_to_variable = {
+			JAP_coalition_stability = 3
+			tooltip = JAP_coalition_change_tt
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = JAP_shinkansen_plan_liberal
+	icon = GFX_focus_generic_railway_construction
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	available = {
+		has_government = progressive_liberalism
+	}
+	
+	relative_position_id = JAP_reduce_red_tape
+	prerequisite = {
+		focus = JAP_reduce_red_tape
+		focus = JAP_expand_safety_regulations
+	}
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = JAP_the_invisible_hand
+	icon = GFX_JAP_depoliticize_the_military
+	
+    x = -1
+	y = 1
+	cost = 4
+	
+	available = {
+		has_government = progressive_liberalism
+	}
+	
+	relative_position_id = JAP_support_small_business
+	prerequisite = { focus = JAP_support_small_business }
+	
+    completion_reward = {
+        add_to_variable = {
+			JAP_coalition_stability = -3
+			tooltip = JAP_coalition_change_tt
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = JAP_empower_workers_organizations
+	icon = GFX_focus_eng_concessions_to_the_trade_unions
 	
     x = 0
 	y = 2
-	
 	cost = 4
-	relative_position_id = JAP_radical_feminism
-	prerequisite = { focus = JAP_radical_feminism }
+	
+	available = {
+		has_government = progressive_liberalism
+	}
+	
+	relative_position_id = JAP_reassure_the_zaibatsu
+	prerequisite = { focus = JAP_reassure_the_zaibatsu }
+	
     completion_reward = {
-        
+        add_to_variable = {
+			JAP_coalition_stability = 5
+			tooltip = JAP_coalition_change_tt
+		}
     }
 	
 	ai_will_do = {
@@ -838,105 +620,131 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = JAP_mandated_sterilization
-	icon = GFX_JAP_mandated_sterilization
+    id = JAP_repeal_the_peace_preservation_laws
+	icon = GFX_JAP_depoliticize_the_military
 	
     x = 1
 	y = 1
-	
 	cost = 4
-	relative_position_id = JAP_state_atheism
-	prerequisite = { focus = JAP_state_atheism }
-	prerequisite = { focus = JAP_abortion_rights }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_support_small_farmers
-	icon = GFX_JAP_support_small_farmers
-	
-    x = 0
-	y = 1
-	
-	cost = 4
-	relative_position_id = JAP_secular_state
-	prerequisite = { focus = JAP_secular_state }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_progressive_nationalism
-	icon = GFX_JAP_progressive_nationalism
-	
-    x = 0
-	y = 1
-	
-	cost = 4
-	relative_position_id = JAP_national_sport
-	prerequisite = { focus = JAP_national_sport }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_abolish_the_tokko
-	icon = GFX_JAP_abolish_the_tokko
-	
-    x = 0
-	y = 1
-	
-	cost = 4
-	relative_position_id = JAP_expand_safety_regulations
-	prerequisite = { focus = JAP_expand_safety_regulations }
-    completion_reward = {
-		add_popularity = {
-			ideology = national_conservatism
-			popularity = -0.01
-		}
-        add_popularity = {
-			ideology = authoritarian_democracy
-			popularity = -0.01
-		}
-		add_popularity = {
-			ideology = fascism
-			popularity = -0.01
-		}
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = JAP_prime_minister_machida
-	icon = GFX_JAP_prime_minister_machida
-	
-    x = 11
-	y = 1
 	
 	available = {
-		has_government = liberal_conservatism
+		has_government = progressive_liberalism
 	}
 	
+	relative_position_id = JAP_empower_the_diet
+	prerequisite = { focus = JAP_empower_the_diet }
+	prerequisite = { focus = JAP_democratic_nationalism }
+	
+    completion_reward = {
+        add_stability = -0.1
+		add_popularity = {
+			ideology = democratic_socialism
+			popularity = 0.01
+		}
+		add_popularity = {
+			ideology = social_democracy
+			popularity = 0.02
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = JAP_promote_freedom_of_speech
+	icon = GFX_JAP_depoliticize_the_military
+	
+    x = 1
+	y = 1
 	cost = 4
+	
+	available = {
+		has_government = progressive_liberalism
+	}
+	
+	relative_position_id = JAP_affirm_loyalty_to_the_kokutai
+	prerequisite = { focus = JAP_affirm_loyalty_to_the_kokutai }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = JAP_expand_womens_rights
+	icon = GFX_focus_generic_suffrage
+	
+    x = 0
+	y = 2
+	cost = 4
+	
+	available = {
+		has_government = progressive_liberalism
+	}
+	
+	relative_position_id = JAP_expand_minority_rights
+	prerequisite = { focus = JAP_expand_minority_rights }
+	prerequisite = {
+		focus = JAP_basic_tenant_rights
+		focus = JAP_land_control_act
+	}
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = JAP_greater_east_asia_railroad_liberal
+	icon = GFX_focus_generic_railroad
+	
+    x = 0
+	y = 1
+	cost = 4
+	
+	available = {
+		has_government = progressive_liberalism
+	}
+	
+	relative_position_id = JAP_shinkansen_plan_liberal
+	prerequisite = { focus = JAP_shinkansen_plan_liberal }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = JAP_progressive_economy
+	icon = GFX_JAP_depoliticize_the_military
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	available = {
+		has_government = progressive_liberalism
+	}
+	
+	relative_position_id = JAP_the_invisible_hand
+	prerequisite = { focus = JAP_shinkansen_plan_liberal }
+	prerequisite = { focus = JAP_the_invisible_hand }
+	prerequisite = { focus = JAP_empower_workers_organizations }
+	
     completion_reward = {
         
     }

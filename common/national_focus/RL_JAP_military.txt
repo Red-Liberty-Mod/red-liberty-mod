@@ -1443,3 +1443,98 @@ shared_focus = {
 		base = 10
 	}
 }
+
+### Air Force ###
+shared_focus = {
+    id = JAP_bolster_the_air_service
+	icon = GFX_JAP_bolster_the_air_service
+	
+    x = 13
+	y = 1
+	cost = 5
+	
+	offset = {
+		x = 4
+		trigger = {
+			JAP_is_conservative_path = yes
+		}
+	}
+	
+	relative_position_id = JAP_dealing_with_the_military
+	prerequisite = { focus = JAP_dealing_with_the_military }
+	
+    completion_reward = {
+		air_experience = 25
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_AIR_XP
+	}
+}
+
+shared_focus = {
+    id = JAP_naval_air_service
+	icon = GFX_JAP_naval_air_service
+	
+    x = -2
+	y = 1
+	cost = 5
+	
+	relative_position_id = JAP_bolster_the_air_service
+	prerequisite = { focus = JAP_begin_the_third_expansion_plan }
+	prerequisite = { focus = JAP_bolster_the_air_service }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = JAP_prioritize_fighter_aircraft
+	icon = GFX_JAP_naval_air_service
+	
+    x = 0
+	y = 1
+	cost = 5
+	
+	relative_position_id = JAP_bolster_the_air_service
+	prerequisite = { focus = JAP_bolster_the_air_service }
+	mutually_exclusive = { focus = JAP_prioritize_bomber_aircraft }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = JAP_prioritize_bomber_aircraft
+	icon = GFX_JAP_naval_air_service
+	
+    x = 2
+	y = 1
+	cost = 5
+	
+	relative_position_id = JAP_bolster_the_air_service
+	prerequisite = { focus = JAP_bolster_the_air_service }
+	mutually_exclusive = { focus = JAP_prioritize_fighter_aircraft }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}

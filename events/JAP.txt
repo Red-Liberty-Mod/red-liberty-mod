@@ -2,6 +2,7 @@ add_namespace = japan
 add_namespace = japan_flavor
 add_namespace = japan_news
 add_namespace = japan_konoe
+add_namespace = japan_saito
 
 country_event = { # this is a hidden event that fires at the beginning of the game only for the ai
 	id = japan.1
@@ -767,5 +768,144 @@ country_event = {
 
 	option = {
 		name = "To the Future."
+	}
+}
+
+### Liberal ###
+country_event = { # 
+	id = japan_saito.1
+	title = japan_saito.1.title
+	desc = japan_saito.1.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = japan_saito.1.a
+		unlock_decision_category_tooltip = JAP_liberal_socialist_influence_category
+		set_country_flag = JAP_coalition_mechanic_enabled
+		set_variable = { JAP_coalition_stability = 67 }
+		activate_mission = JAP_fulfill_campaign_promises_mission
+	}
+}
+
+country_event = { # 
+	id = japan_saito.2
+	title = japan_saito.2.title
+	desc = japan_saito.2.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = japan_saito.2.a
+	}
+}
+
+country_event = { # 
+	id = japan_saito.3
+	title = japan_saito.3.title
+	desc = japan_saito.3.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = japan_saito.3.a
+	}
+}
+
+country_event = { # 
+	id = japan_saito.4
+	title = japan_saito.4.title
+	desc = japan_saito.4.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = japan_saito.4.a
+	}
+}
+
+country_event = { # 
+	id = japan_saito.5
+	title = japan_saito.5.title
+	desc = japan_saito.5.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = japan_saito.5.a
+	}
+}
+
+country_event = { # 
+	id = japan_saito.50
+	title = japan_saito.50.title
+	desc = japan_saito.50.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = japan_saito.50.a
+		clr_country_flag = JAP_coalition_mechanic_enabled
+		add_popularity = {
+			ideology = progressive_liberalism
+			popularity = -0.03
+		}
+		set_politics = {
+			ruling_party = social_democracy
+			last_election = "[?date]"
+			election_frequency = 24
+			elections_allowed = yes
+		}
+		hidden_effect = {
+			add_country_leader_role = {
+				character = JAP_abe_isoo
+				promote_leader = yes
+				country_leader = {
+					ideology = social_democracy_subtype
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = japan_saito.50.b
+		clr_country_flag = JAP_coalition_mechanic_enabled
+		trigger = {
+			has_completed_focus = JAP_expand_womens_rights
+		}
+		add_popularity = {
+			ideology = progressive_liberalism
+			popularity = -0.03
+		}
+		set_politics = {
+			ruling_party = social_democracy
+			last_election = "[?date]"
+			election_frequency = 24
+			elections_allowed = yes
+		}
+		hidden_effect = {
+			promote_character = JAP_kato_shidzue
+		}
+	}
+	
+	option = {
+		name = japan_saito.50.c
+		clr_country_flag = JAP_coalition_mechanic_enabled
+		add_popularity = {
+			ideology = progressive_liberalism
+			popularity = -0.03
+		}
+		set_politics = {
+			ruling_party = liberal_conservatism
+			last_election = "[?date]"
+			election_frequency = 24
+			elections_allowed = yes
+		}
 	}
 }
