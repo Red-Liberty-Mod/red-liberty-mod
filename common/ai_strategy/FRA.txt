@@ -128,3 +128,21 @@ FRA_commit_less_against_ALG = {
 		priority = -50
 	}
 }
+
+FRA_ddont_defend_indochina = {
+	allowed = {
+		original_tag = FRA
+	}
+	enable = {
+		FIC = {
+			has_war_with = VIN
+		}
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		id = FIC
+		value = 100
+	}
+}

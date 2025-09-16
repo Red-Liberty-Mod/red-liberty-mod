@@ -408,15 +408,15 @@ on_actions = {
 			if = {
 				limit = {
 					norman_thomas_is_president = yes
-					#var:country_leader = {
-					#	NOT = { has_character_flag = USA_thomas_agenda_completed_flag }
-					#}
+					USA_norman_thomas = {
+						NOT = { has_character_flag = USA_thomas_agenda_completed_flag }
+					}
 				}
 				
 				## Agenda 1 ##
 				if = {
 					limit = {
-						#USA_norman_thomas = { has_trait = USA_all_inclusive_socialist_inactive }
+						USA_norman_thomas = { has_trait = USA_all_inclusive_socialist_inactive }
 						USA_thomas_agenda_1_active = yes
 					}
 					remove_country_leader_trait = USA_all_inclusive_socialist_inactive
@@ -424,7 +424,7 @@ on_actions = {
 				}
 				else_if = {
 					limit = {
-						#USA_norman_thomas = { has_trait = USA_all_inclusive_socialist_active }
+						USA_norman_thomas = { has_trait = USA_all_inclusive_socialist_active }
 						USA_thomas_agenda_1_active = no
 					}
 					remove_country_leader_trait = USA_all_inclusive_socialist_active
@@ -434,7 +434,7 @@ on_actions = {
 				## Agenda 2 ##
 				if = {
 					limit = {
-						#USA_norman_thomas = { has_trait = USA_the_last_idealist_inactive }
+						USA_norman_thomas = { has_trait = USA_the_last_idealist_inactive }
 						USA_thomas_agenda_2_active = yes
 					}
 					remove_country_leader_trait = USA_the_last_idealist_inactive
@@ -442,7 +442,7 @@ on_actions = {
 				}
 				else_if = {
 					limit = {
-						#USA_norman_thomas = { has_trait = USA_the_last_idealist_active }
+						USA_norman_thomas = { has_trait = USA_the_last_idealist_active }
 						USA_thomas_agenda_2_active = no
 					}
 					remove_country_leader_trait = USA_the_last_idealist_active

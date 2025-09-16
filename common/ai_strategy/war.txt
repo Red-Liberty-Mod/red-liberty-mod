@@ -498,3 +498,72 @@ TAG_support_SOV = {
 	#	value = 150
 	#}
 }
+
+TAG_support_VIN = {
+	allowed = {
+		OR = {
+			original_tag = JAP
+		}
+	}
+	enable = {
+		VIN = {
+			has_war_with = FIC
+		}
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = VIN
+		value = 50
+	}
+}
+
+TAG_support_CAM_LAO = {
+	allowed = {
+		OR = {
+			original_tag = SIA
+		}
+	}
+	enable = {
+		OR = {
+			CAM = { has_war_with = FIC }
+			LAO = { has_war_with = FIC }
+		}
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = CAM
+		value = 150
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = LAO
+		value = 150
+	}
+}
+
+TAG_support_FIC = {
+	allowed = {
+		OR = {
+			original_tag = FRA
+		}
+	}
+	enable = {
+		FIC = {
+			has_war_with = VIN
+		}
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = FIC
+		value = 150
+	}
+}
