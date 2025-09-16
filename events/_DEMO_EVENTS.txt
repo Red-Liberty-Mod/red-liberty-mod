@@ -1771,7 +1771,7 @@ news_event = { # adoption of 1937 constitution - news
 
 country_event = { # baltic collapse/federation
 	id = demo_bal.1
-	title = ""
+	title = demo_bal.1.title
 	desc = demo_bal.1.desc
 	
 	is_triggered_only = yes
@@ -1779,30 +1779,20 @@ country_event = { # baltic collapse/federation
 	fire_only_once = yes
 
 	option = {
-		name = ""
-		
-		random_list = {
-			20 = {
-				BAL_collapse = yes
-				random_other_country = {
-					limit = { is_ai = yes }
-					news_event = { id = demo_bal.2 hours = 6 }
-				}
-			}
-			30 = {
-				BAL_form_autonomies = yes
-				random_other_country = {
-					limit = { is_ai = yes }
-					news_event = { id = demo_bal.3 hours = 6 }
-				}
-			}
-			50 = {
-				BAL_form_federation = yes
-				random_other_country = {
-					limit = { is_ai = yes }
-					news_event = { id = demo_bal.4 hours = 6 }
-				}
-			}
+		name = demo_bal.1.a
+		BAL_collapse = yes
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_bal.2 hours = 6 }
+		}
+	}
+	
+	option = {
+		name = demo_bal.1.b
+		BAL_form_federation = yes
+		random_other_country = {
+			limit = { is_ai = yes }
+			news_event = { id = demo_bal.4 hours = 6 }
 		}
 	}
 }

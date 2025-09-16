@@ -1,0 +1,46 @@
+china_ignore_garrisons = {
+	allowed = {
+		is_chinese_tag = yes
+	}
+	enable = {
+		NOT = { has_war_with = JAP }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = garrison
+		value = -1000
+	}
+	
+	ai_strategy = {
+		type = garrison_reinforcement_priority
+		value = -1000
+	}
+}
+
+KMT_crush_GUD = {
+	allowed = {
+		original_tag = KMT
+	}
+	enable = {
+		has_war_with = GUD
+		GUD = {
+			has_capitulated = no
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = conquer
+		id = GUD
+		value = 200
+	}
+	
+	ai_strategy = {
+		type = front_control
+		tag = GUD
+		execution_type = rush
+		execute_order = yes
+		manual_attack = no
+	}
+}

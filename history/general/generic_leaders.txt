@@ -1,18 +1,18 @@
 # For minor countries where advisors are not defined
 # Generate them from a generic template
 
-# Political advisors
+# Fallback leaders
 every_possible_country = {
 	
-	limit = {
-		is_dynamic_country = no
-		NOT = {
-			OR = {
-				has_country_leader_ideology = anarchism_subtype
-				has_country_leader_ideology = anarcho_socialism_subtype
-			}
-		}
-	}
+	#limit = {
+	#	is_dynamic_country = no
+	#	NOT = {
+	#		OR = {
+	#			has_country_leader_ideology = anarchism_subtype
+	#			has_country_leader_ideology = anarcho_socialism_subtype
+	#		}
+	#	}
+	#}
 	
 	generate_character = {
 		token_base = generic_anarchist_leader # token will be TAG_token_base
@@ -20,6 +20,21 @@ every_possible_country = {
 		
 		country_leader = {
 			ideology = anarchism_subtype
+		}
+		
+		portraits = { 
+			civilian = {
+				large = "gfx/leaders/generic/Portrait_Generic_Anarchist_Commune.dds"
+			}
+		}
+	}
+	
+	generate_character = {
+		token_base = generic_fascist_leader
+		name = generic_fascist_leader
+		
+		country_leader = {
+			ideology = fascism_subtype
 		}
 		
 		portraits = { 
