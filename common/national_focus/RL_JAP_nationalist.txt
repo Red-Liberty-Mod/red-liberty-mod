@@ -4,14 +4,49 @@ shared_focus = {
 	
     x = 6
 	y = 0
+	cost = 6
 	
-	cost = 0
+	offset = {
+		X = 38
+		y = 9
+		trigger = {
+			has_focus_tree = JAP_initial_tree
+		}
+	}
+	
+	select_effect = {
+		country_event = {
+			id = japan_konoe.1
+			days = 2
+		}
+		country_event = {
+			id = japan_konoe.2
+			days = 10
+		}
+		country_event = {
+			id = japan_konoe.3
+			days = 17
+		}
+		country_event = {
+			id = japan_konoe.4
+			days = 24
+		}
+		country_event = {
+			id = japan_konoe.5
+			days = 31
+		}
+	}
+	
     completion_reward = {
-		set_variable = { JAP_pp_gain = -1 }
-		set_variable = { JAP_weekly_stability = -0.03 }
-		set_variable = { JAP_weekly_war_support = -0.03 }
-        add_dynamic_modifier = {
-			modifier = JAP_civil_opposition
+		#set_variable = { JAP_pp_gain = -1 }
+		#set_variable = { JAP_weekly_stability = -0.03 }
+		#set_variable = { JAP_weekly_war_support = -0.03 }
+        #add_dynamic_modifier = {
+		#	modifier = JAP_civil_opposition
+		#}
+		country_event = {
+			id = japan_konoe.6
+			hours = 6
 		}
     }
 	

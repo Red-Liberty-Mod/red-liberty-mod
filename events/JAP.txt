@@ -357,7 +357,7 @@ country_event = {
 			base = 70
 			modifier = {
 				factor = 0
-				has_country_flag = JAP_militarist_ai
+				has_country_flag = JAP_liberal_ai
 			}
 		}
 	}
@@ -374,7 +374,7 @@ country_event = {
 			base = 30
 			modifier = {
 				factor = 0
-				has_country_flag = JAP_liberal_ai
+				has_country_flag = JAP_militarist_ai
 			}
 		}
 	}
@@ -451,6 +451,9 @@ country_event = {
 		
 		load_focus_tree = JAP_showa_democracy_tree
 		mark_focus_tree_layout_dirty = yes
+		
+		set_country_flag = JAP_dawn_of_showa_democracy_flag
+		set_country_flag = JAP_military_reform_available
 		
 		add_political_power = 25
 		add_popularity = {
@@ -689,7 +692,7 @@ country_event = {
 ### Konoe ###
 country_event = {
 	id = japan_konoe.1
-	title = "Blood on the Cobblestones"
+	title = japan_konoe.1.title
 	desc = japan_konoe.1.desc
 	
 	is_triggered_only = yes
@@ -697,13 +700,14 @@ country_event = {
 	fire_only_once = yes
 
 	option = {
-		name = "Iwao to na~rite, koke no~ musu ma~de..."
+		name = japan_konoe.1.a
+		add_stability = -0.01
 	}
 }
 
 country_event = {
 	id = japan_konoe.2
-	title = "Knock, Knock!"
+	title = japan_konoe.2.title
 	desc = japan_konoe.2.desc
 	
 	is_triggered_only = yes
@@ -711,7 +715,8 @@ country_event = {
 	fire_only_once = yes
 
 	option = {
-		name = "She would never know for sure what happened to him."
+		name = japan_konoe.2.a
+		add_stability = -0.01
 	}
 }
 
@@ -726,6 +731,7 @@ country_event = {
 
 	option = {
 		name = "Was he really guilty of Konoe's crimes?"
+		add_war_support = -0.03
 	}
 }
 
@@ -740,6 +746,7 @@ country_event = {
 
 	option = {
 		name = "Thank you, Your Majesty."
+		add_stability = 0.01
 	}
 }
 
@@ -754,6 +761,7 @@ country_event = {
 
 	option = {
 		name = "Traitors must be dealt with for the nation to be whole."
+		add_stability = -0.01
 	}
 }
 
@@ -768,6 +776,7 @@ country_event = {
 
 	option = {
 		name = "To the Future."
+		add_stability = 0.1
 	}
 }
 

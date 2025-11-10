@@ -431,6 +431,12 @@ characters = {
 			slot = political_advisor
 			idea_token = SPR_ramiro_ledesma_ramos_political_advisors
 			ledger = civilian
+			available = {
+				OR = {
+					has_government = fascism
+					has_country_flag = fascism_coalition
+				}
+			}
 			traits = {
 				ideological_crusader
 			}
@@ -451,6 +457,12 @@ characters = {
 			slot = political_advisor
 			idea_token = SPR_onesimo_redondo_ortega_political_advisors
 			ledger = civilian
+			available = {
+				OR = {
+					has_government = fascism
+					has_country_flag = fascism_coalition
+				}
+			}
 			traits = {
 				iron_fisted_brute
 			}
@@ -473,6 +485,7 @@ characters = {
 				old_guard
 				politically_connected
 				logistics_wizard
+				#SPR_falangist_officer
 			}
 			skill = 2
 			attack_skill = 1
@@ -496,6 +509,7 @@ characters = {
 			traits = {
 				politically_connected
 				infantry_leader
+				#SPR_monarchist_officer
 			}
 			skill = 3
 			attack_skill = 3
@@ -525,12 +539,116 @@ characters = {
 			traits = {
 				media_personality
 				war_hero
+				#SPR_monarchist_officer
 			}
 			skill = 2
 			attack_skill = 2
 			defense_skill = 1
 			planning_skill = 1
 			logistics_skill = 3
+		}
+	}
+	
+	SPA_leopoldo_de_saro_y_marin = {
+		name = SPA_leopoldo_de_saro_y_marin
+		
+		portraits = {
+			army = {
+				#large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				politically_connected
+				trait_cautious
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	
+	SPR_emilio_barrera_luyando = {
+		name = SPR_emilio_barrera_luyando
+		
+		portraits = {
+			army = {
+				large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				#SPR_carlist_officer
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	
+	SPR_manuel_goded_llopis = {
+		name = SPR_manuel_goded_llopis
+		
+		portraits = {
+			army = {
+				large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				#SPR_monarchist_officer
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	
+	### Admirals ###
+	
+	SPA_manuel_vierna_belando = {
+		name = SPA_manuel_vierna_belando
+		
+		portraits = {
+			army = {
+				large = ""
+			}
+		}
+		
+		navy_leader = {
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			maneuvering_skill = 1
+			coordination_skill = 1
+		}
+	}
+	
+	### High Command ###
+	
+	SPR_segismundo_casado_lopez = {
+		name = SPR_segismundo_casado_lopez
+		
+		portraits = {
+			army = {
+				small = ""
+			}
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = SPR_segismundo_casado_lopez_high_command
+			traits = { army_armored_2 }
+			cost = 100
 		}
 	}
 }

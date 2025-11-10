@@ -584,10 +584,10 @@ shared_focus = {
 
 ### Conservative Section ###
 shared_focus = {
-    id = JAP_in_control
-	icon = GFX_focus_generic_military_dictatorship
+    id = JAP_appease_the_military
+	icon = GFX_focus_JAP_appease_the_military
 	
-    x = 1
+    x = 3
 	y = 1
 	cost = 5
 	
@@ -613,6 +613,84 @@ shared_focus = {
 }
 
 shared_focus = {
+    id = JAP_tactical_demotions
+	icon = GFX_focus_JAP_tactical_demotions
+	
+    x = -2
+	y = 1
+	cost = 5
+	
+	relative_position_id = JAP_appease_the_military
+	prerequisite = { focus = JAP_appease_the_military }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+	
+	search_filters = {
+		
+	}
+}
+
+shared_focus = {
+    id = JAP_strategic_spending
+	icon = GFX_focus_JAP_strategic_spending
+	
+    x = 0
+	y = 1
+	cost = 5
+	
+	relative_position_id = JAP_appease_the_military
+	prerequisite = { focus = JAP_appease_the_military }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+	
+	search_filters = {
+		
+	}
+}
+
+### Nationalist Section ###
+shared_focus = {
+    id = JAP_in_control
+	icon = GFX_focus_generic_military_dictatorship
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	available = {
+		JAP_is_nationalist_path = yes
+	}
+	
+	allow_branch = {
+		JAP_is_nationalist_path = yes
+	}
+	
+	mutually_exclusive = { focus = JAP_the_imperial_way }
+	relative_position_id = JAP_dealing_with_the_military
+	prerequisite = { focus = JAP_dealing_with_the_military }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
     id = JAP_the_imperial_way
 	icon = GFX_focus_generic_japanese_imperial_glory
 	
@@ -621,11 +699,11 @@ shared_focus = {
 	cost = 5
 	
 	available = {
-		JAP_is_conservative_path = yes
+		JAP_is_nationalist_path = yes
 	}
 	
 	allow_branch = {
-		JAP_is_conservative_path = yes
+		JAP_is_nationalist_path = yes
 	}
 	
 	mutually_exclusive = { focus = JAP_in_control }

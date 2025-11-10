@@ -329,7 +329,8 @@ ideas = {
 			}
 		}
 		
-		USA_national_railway_corp = {
+		USA_national_railway_corp_1 = {
+			name = USA_national_railway_corp
 			picture = generic_build_infrastructure
 		
 			allowed = {
@@ -338,6 +339,10 @@ ideas = {
 		
 			available = {
 				owns_state = 361
+			}
+			
+			visible = {
+				check_variable = { USA_purchased_railways < 1 }
 			}
 			
 			cost = 100
@@ -349,6 +354,103 @@ ideas = {
 			
 			research_bonus = {
 				industry = 0.05
+			}
+		}
+		
+		USA_national_railway_corp_2 = {
+			name = USA_national_railway_corp
+			picture = generic_build_infrastructure
+		
+			allowed = {
+				original_tag = USA
+			}
+		
+			available = {
+				owns_state = 361
+			}
+			
+			visible = {
+				check_variable = { USA_purchased_railways = 1 }
+			}
+			
+			cost = 100
+			removal_cost = 50
+			
+			traits = {
+				railway_company
+			}
+			
+			modifier = {
+				supply_node_range = 0.05
+			}
+			
+			research_bonus = {
+				industry = 0.075
+			}
+		}
+		
+		USA_national_railway_corp_3 = {
+			name = USA_national_railway_corp
+			picture = generic_build_infrastructure
+		
+			allowed = {
+				original_tag = USA
+			}
+		
+			available = {
+				owns_state = 361
+			}
+			
+			visible = {
+				check_variable = { USA_purchased_railways = 2 }
+			}
+			
+			cost = 100
+			removal_cost = 50
+			
+			traits = {
+				railway_company
+			}
+			
+			modifier = {
+				supply_node_range = 0.1
+			}
+			
+			research_bonus = {
+				industry = 0.1
+			}
+		}
+		
+		USA_national_railway_corp_4 = {
+			name = USA_national_railway_corp
+			picture = generic_build_infrastructure
+		
+			allowed = {
+				original_tag = USA
+			}
+		
+			available = {
+				owns_state = 361
+			}
+			
+			visible = {
+				check_variable = { USA_purchased_railways = 3 }
+			}
+			
+			cost = 100
+			removal_cost = 50
+			
+			traits = {
+				railway_company
+			}
+			
+			modifier = {
+				supply_node_range = 0.1
+				production_speed_buildings_factor = 0.1
+			}
+			
+			research_bonus = {
+				industry = 0.15
 			}
 		}
 		

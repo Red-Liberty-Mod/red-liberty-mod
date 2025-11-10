@@ -15,10 +15,7 @@ shared_focus = {
 	}
 	
 	available = {
-		custom_trigger_tooltip = {
-			tooltip = focus_will_be_bypassed_tt
-			always = no
-		}
+		has_country_flag = JAP_dawn_of_showa_democracy_flag
 	}
 	
     completion_reward = {
@@ -136,7 +133,10 @@ shared_focus = {
 	prerequisite = { focus = JAP_depoliticize_the_military }
 	
     completion_reward = {
-        
+        country_event = {
+			id = japan_saito.4
+			hours = 6
+		}
     }
 	
 	ai_will_do = {
@@ -653,6 +653,30 @@ shared_focus = {
 }
 
 shared_focus = {
+    id = JAP_purge_the_reform_bureaucrats
+	icon = GFX_JAP_purge_the_reform_bureaucrats
+	
+    x = -1
+	y = 1
+	cost = 4
+	
+	available = {
+		has_government = progressive_liberalism
+	}
+	
+	relative_position_id = JAP_affirm_loyalty_to_the_kokutai
+	prerequisite = { focus = JAP_affirm_loyalty_to_the_kokutai }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
     id = JAP_promote_freedom_of_speech
 	icon = GFX_JAP_depoliticize_the_military
 	
@@ -744,6 +768,33 @@ shared_focus = {
 	prerequisite = { focus = JAP_shinkansen_plan_liberal }
 	prerequisite = { focus = JAP_the_invisible_hand }
 	prerequisite = { focus = JAP_empower_workers_organizations }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = JAP_progressive_society
+	icon = GFX_JAP_progressive_society
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	available = {
+		has_government = progressive_liberalism
+	}
+	
+	relative_position_id = JAP_purge_the_reform_bureaucrats
+	prerequisite = { focus = JAP_repeal_the_peace_preservation_laws }
+	prerequisite = { focus = JAP_purge_the_reform_bureaucrats }
+	prerequisite = { focus = JAP_promote_freedom_of_speech }
+	prerequisite = { focus = JAP_expand_womens_rights }
 	
     completion_reward = {
         

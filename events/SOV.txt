@@ -128,6 +128,120 @@ country_event = {
 	}
 }
 
+country_event = { # sverdlov retires as gensec
+	id = soviet_union.10
+	title = soviet_union.10.title
+	desc = soviet_union.10.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = soviet_union.10.a
+		retire_character = SOV_yakov_sverdlov
+	}
+}
+
+country_event = { # sverdlov retires as gensec
+	id = soviet_union.11
+	title = soviet_union.11.title
+	desc = soviet_union.11.desc
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # centralists
+		name = soviet_union.11.a
+		trigger = {
+			has_government = vanguard_socialism
+		}
+		SOV_valerian_kuibyshev = {
+			
+		}
+	}
+	
+	option = { # rightists
+		name = soviet_union.11.b
+		trigger = {
+			has_government = vanguard_socialism
+		}
+		SOV_aleksei_rykov = {
+			
+		}
+	}
+	
+	option = { # syndicalists
+		name = soviet_union.11.c
+		trigger = {
+			has_government = revolutionary_socialism
+		}
+		SOV_alexandra_kollontai = {
+			add_trait = {
+				slot = political_advisor
+				trait = SOV_general_secretary_kollontai
+			}
+		}
+	}
+	
+	option = { # 
+		name = soviet_union.11.d
+		trigger = {
+			has_government = revolutionary_socialism
+		}
+		SOV_karl_radek = {
+			add_trait = {
+				slot = political_advisor
+				trait = SOV_general_secretary_radek
+			}
+		}
+	}
+	
+	option = { # democrats
+		name = soviet_union.11.e
+		trigger = {
+			has_government = democratic_socialism
+		}
+		SOV_joseph_stalin = {
+			add_trait = {
+				slot = political_advisor
+				trait = SOV_general_secretary_stalin
+			}
+		}
+	}
+	
+	option = { # democrats
+		name = soviet_union.11.f
+		trigger = {
+			has_government = democratic_socialism
+		}
+		SOV_lev_karakhan = {
+			
+		}
+	}
+	
+	option = { # red army
+		name = soviet_union.11.g
+		trigger = {
+			has_government = despotism
+		}
+		SOV_kliment_voroshilov = {
+			
+		}
+	}
+	
+	option = { # red army
+		name = soviet_union.11.h
+		trigger = {
+			has_government = despotism
+		}
+		SOV_mikhail_tukhachevsky = {
+			
+		}
+	}
+}
+
 country_event = { # bukharin retires
 	id = soviet_union.50
 	title = soviet_union.50.title

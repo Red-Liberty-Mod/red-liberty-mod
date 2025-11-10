@@ -165,6 +165,58 @@ add_fash_coalition = {
 	clr_country_flag = fascism_opposition
 }
 
+calc_coalition_popularity = {
+	set_variable = { coalition_popularity = 0 }
+	if = {
+		limit = { has_country_flag = anarchism_coalition }
+		add_to_variable = { coalition_popularity = party_popularity@anarchism }
+	}
+	if = {
+		limit = { has_country_flag = vanguard_socialism_coalition }
+		add_to_variable = { coalition_popularity = party_popularity@vanguard_socialism }
+	}
+	if = {
+		limit = { has_country_flag = revolutionary_socialism_coalition }
+		add_to_variable = { coalition_popularity = party_popularity@revolutionary_socialism }
+	}
+	if = {
+		limit = { has_country_flag = democratic_socialism_coalition }
+		add_to_variable = { coalition_popularity = party_popularity@democratic_socialism }
+	}
+	if = {
+		limit = { has_country_flag = social_democracy_coalition }
+		add_to_variable = { coalition_popularity = party_popularity@social_democracy }
+	}
+	if = {
+		limit = { has_country_flag = progressive_liberalism_coalition }
+		add_to_variable = { coalition_popularity = party_popularity@progressive_liberalism }
+	}
+	if = {
+		limit = { has_country_flag = liberal_conservatism_coalition }
+		add_to_variable = { coalition_popularity = party_popularity@liberal_conservatism }
+	}
+	if = {
+		limit = { has_country_flag = national_conservatism_coalition }
+		add_to_variable = { coalition_popularity = party_popularity@national_conservatism }
+	}
+	if = {
+		limit = { has_country_flag = authoritarian_democracy_coalition }
+		add_to_variable = { coalition_popularity = party_popularity@authoritarian_democracy }
+	}
+	if = {
+		limit = { has_country_flag = despotism_coalition }
+		add_to_variable = { coalition_popularity = party_popularity@despotism }
+	}
+	if = {
+		limit = { has_country_flag = ultraconservatism_coalition }
+		add_to_variable = { coalition_popularity = party_popularity@ultraconservatism }
+	}
+	if = {
+		limit = { has_country_flag = fascism_coalition }
+		add_to_variable = { coalition_popularity = party_popularity@fascism }
+	}
+}
+
 
 ### REMOVE FROM ###
 remove_anarchism_coalition = {

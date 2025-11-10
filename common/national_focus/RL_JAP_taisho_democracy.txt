@@ -367,26 +367,6 @@ shared_focus = {
 }
 
 shared_focus = {
-	id = JAP_shinkansen_plan_conservative
-	icon = GFX_focus_generic_railway_construction
-	
-	x = 3
-	y = 1
-	cost = 6
-	
-	relative_position_id = JAP_buy_japanese
-	prerequisite = { focus = JAP_buy_japanese }
-	
-    completion_reward = {
-		
-	}
-	
-	ai_will_do = {
-		base = 10
-	}
-}
-
-shared_focus = {
 	id = JAP_progressive_taxation
 	icon = GFX_focus_JAP_rural_outreach
 	
@@ -629,11 +609,32 @@ shared_focus = {
 }
 
 shared_focus = {
+	id = JAP_shinkansen_plan_conservative
+	icon = GFX_focus_generic_railway_construction
+	
+	x = 1
+	y = 1
+	cost = 6
+	
+	relative_position_id = JAP_foster_innovation
+	prerequisite = { focus = JAP_foster_innovation }
+	prerequisite = { focus = JAP_small_business_loans }
+	
+    completion_reward = {
+		
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
 	id = JAP_greater_east_asian_railroad_conservative
 	icon = GFX_focus_generic_railroad
 	
 	x = 0
-	y = 2
+	y = 1
 	cost = 6
 	
 	relative_position_id = JAP_shinkansen_plan_conservative

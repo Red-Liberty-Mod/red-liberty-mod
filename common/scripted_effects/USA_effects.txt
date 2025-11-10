@@ -851,3 +851,64 @@ USA_create_korean_occupation = {
 		}
 	}
 }
+
+USA_improve_railway_corp = {
+	if = {
+		limit = {
+			has_idea = USA_national_railway_corp_1
+		}
+		swap_ideas = {
+			remove_idea = USA_national_railway_corp_1
+			add_idea = USA_national_railway_corp_2
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = USA_national_railway_corp_2
+		}
+		swap_ideas = {
+			remove_idea = USA_national_railway_corp_2
+			add_idea = USA_national_railway_corp_3
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = USA_national_railway_corp_3
+		}
+		swap_ideas = {
+			remove_idea = USA_national_railway_corp_3
+			add_idea = USA_national_railway_corp_4
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				check_variable = { USA_purchased_railways < 1 }
+			}
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = USA_national_railway_corp_1
+					add_idea = USA_national_railway_corp_2
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { USA_purchased_railways = 1 }
+			}
+			swap_ideas = {
+				remove_idea = USA_national_railway_corp_2
+				add_idea = USA_national_railway_corp_3
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { USA_purchased_railways = 2 }
+			}
+			swap_ideas = {
+				remove_idea = USA_national_railway_corp_3
+				add_idea = USA_national_railway_corp_4
+			}
+		}
+	}
+}

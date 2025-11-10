@@ -205,3 +205,212 @@ ECON_poverty_from_annexation = {
 	
 	log = "[THIS.GetName] - poverty being changed by [?temp_poverty_loser] due to annexation"
 }
+
+
+#############################################################################
+
+
+#ECON_generate_state_poverty_from_national_test = {
+#	
+#	every_controlled_state = {
+#		set_variable = { state_poverty_rate = 100 }
+#		set_variable = { state_poverty_rate_factor = 1 }
+#		
+#		set_temp_variable = { sv_factor_inf = infrastructure_level }
+#		multiply_temp_variable = { sv_factor_inf = 0.1 }
+#		multiply_variable = { state_poverty_rate = sv_factor_inf }
+#		
+#		#log = "state_poverty_rate - [?state_poverty_rate]"
+#	}
+#	
+#	set_variable = { total_state_poverty = 0 }
+#	every_controlled_state = {
+#		set_temp_variable = { temp_total_state_poverty_rate = 1 }
+#		clamp_temp_variable = { var = temp_total_state_poverty_rate max = 0 }
+#		add_to_temp_variable = { temp_total_state_poverty_rate = 1 }
+#		multiply_temp_variable = { temp_total_state_poverty_rate = state_poverty_rate }
+#		
+#		add_to_variable = { PREV.total_state_poverty = temp_total_state_poverty_rate }
+#	}
+#	log = "total_state_poverty - [?total_state_poverty]"
+#	
+#	set_variable = { needed_poverty = poverty_rate }
+#	divide_variable = { needed_poverty = total_state_poverty }
+#	log = "needed_poverty - [?needed_poverty]"
+#	
+#	every_controlled_state = {
+#		multiply_variable = { state_poverty_rate = PREV.needed_poverty }
+#		#log = "state_poverty_rate - [?state_poverty_rate]"
+#	}
+#}
+
+ECON_generate_state_poverty_from_national = {
+    # --- Step 0: Prep ---
+    set_temp_variable = { total_states = 0 }
+    set_temp_variable = { total_raw_poverty = 0 }
+	# --- CONFIGURABLE WEIGHT ---
+	set_variable = { poverty_variation_weight = 0.5 }
+	
+    # --- Pass 1: Assign raw values & sum ---
+    every_controlled_state = {
+        add_to_temp_variable = { PREV.total_states = 1 }
+
+        # Start with baseline = national poverty rate
+        set_temp_variable = { state_poverty_rate_temp = PREV.poverty_rate }
+
+        # --- Infra factor --- (higher infra = lower poverty)
+        set_temp_variable = { infra = infrastructure_level }
+		if = {
+			limit = {
+				check_variable = { infra < 1 }
+			}
+			add_to_temp_variable = { infra = 1 }						# avoid div/0
+		}
+        divide_temp_variable = { state_poverty_rate_temp = infra }		# poverty ~ 1/infra
+		
+		# --- Population factor ---
+		#set_temp_variable = { pop = state_population_k }
+		#multiply_temp_variable = { pop = 0.001 }
+		#if = {
+		#	limit = {
+		#		check_variable = { pop < 1 }
+		#	}
+		#	add_to_temp_variable = { pop = 1 }							# avoid div/0
+		#}
+		#divide_temp_variable = { state_poverty_rate_temp = pop }
+		#log = "[THIS.GetName]: pop - [?pop]"
+		
+		# --- Category factor ---
+		if = {
+			limit = {
+				is_rural_state = yes
+			}
+			multiply_temp_variable = { state_poverty_rate_temp = 1.05 }
+		}
+		else_if = {
+			limit = {
+				is_urban_state = yes
+			}
+			multiply_temp_variable = { state_poverty_rate_temp = 0.95 }
+		}
+		else_if = {
+			limit = {
+				state_category = wasteland
+			}
+			multiply_temp_variable = { state_poverty_rate_temp = 2 }
+		}
+		
+		# --- Colony factor ---
+		if = {
+			limit = {
+				THIS = {
+					NOT = { is_core_of = PREV }
+				}
+			}
+			multiply_temp_variable = { state_poverty_rate_temp = 1.5 }
+		}
+		
+		# --- Blend with baseline ---
+		set_temp_variable = { blended = PREV.poverty_rate }
+		multiply_temp_variable = { state_poverty_rate_temp = PREV.poverty_variation_weight } # scale adjustment
+		set_temp_variable = { t = 1 }
+		subtract_from_temp_variable = { t = PREV.poverty_variation_weight }
+		multiply_temp_variable = { blended = t }
+		add_to_temp_variable = { state_poverty_rate_temp = blended }
+
+        # Save the raw poverty for this state
+        set_variable = { raw_poverty = state_poverty_rate_temp }
+        # Add to national total
+        add_to_temp_variable = { PREV.total_raw_poverty = raw_poverty }
+    }
+	#log = "total_raw_poverty - [?total_raw_poverty]"
+	
+    # --- Step 2: Calculate scale factor ---
+    set_temp_variable = { target_total_poverty = poverty_rate }
+    multiply_temp_variable = { target_total_poverty = total_states }
+    set_variable = { poverty_scale_factor = target_total_poverty }
+    divide_variable = { poverty_scale_factor = total_raw_poverty }
+	
+	#log = "total_states - [?total_states]"
+	#log = "poverty_scale_factor - [?poverty_scale_factor]"
+
+    # --- Pass 2: Normalize to match national rate ---
+    every_controlled_state = {
+		set_temp_variable = { final_poverty = raw_poverty }
+		#log = "final_poverty - [?final_poverty]"
+		multiply_temp_variable = { final_poverty = PREV.poverty_scale_factor }
+		#log = "final_poverty - [?final_poverty]"
+		
+		set_variable = { state_poverty_rate = final_poverty }
+		
+        # Clean up (optional)
+        #clr_variable = raw_poverty
+    }
+	
+	clr_variable = poverty_scale_factor
+	
+	# --- Pass 3: Clamp + Correct ---
+	set_temp_variable = { clamped_total = 0 }
+	set_temp_variable = { free_states = 0 }
+	
+	# Step A: Clamp & mark states
+	every_controlled_state = {
+		set_temp_variable = { p = state_poverty_rate }
+	
+		if = {
+			limit = { check_variable = { p > 100 } }
+			set_temp_variable = { p = 100 }
+			set_state_flag = capped
+			#log = "[THIS.GetName]: state_poverty_rate greater than 100 - clamping"
+		}
+		else_if = {
+			limit = { check_variable = { p < 0 } }
+			set_temp_variable = { p = 0 }
+			set_state_flag = capped
+			#log = "[THIS.GetName]: state_poverty_rate less than 0 - clamping"
+		}
+		else = {
+			add_to_temp_variable = { PREV.free_states = 1 }
+		}
+		
+		set_variable = { state_poverty_rate = p }
+		add_to_temp_variable = { PREV.clamped_total = p }
+	}
+	
+	#log = "clamped_total - [?clamped_total]"
+	#log = "free_states - [?free_states]/[?num_owned_states]"
+	
+	# Step B: Redistribute remainder to free states
+	set_variable = { remainder = target_total_poverty }
+	subtract_from_variable = { remainder = clamped_total }
+	
+	if = {
+		limit = { check_variable = { free_states > 0 } }
+		divide_variable = { remainder = free_states }
+	
+		every_controlled_state = {
+			limit = {
+				NOT = { has_state_flag = capped }
+			}
+			add_to_variable = { state_poverty_rate = PREV.remainder }
+			clr_state_flag = capped
+		}
+	}
+	clr_variable = remainder
+}
+
+ECON_log_poverty_avg = {
+	
+	set_temp_variable = { temp_total_poverty = 0 }
+	set_temp_variable = { temp_total_states = 0 }
+	
+	every_controlled_state = {
+		add_to_temp_variable = { PREV.temp_total_poverty = state_poverty_rate }
+		add_to_temp_variable = { PREV.temp_total_states = 1 }
+	}
+	
+	divide_temp_variable = { temp_total_poverty = temp_total_states }
+	
+	log = "temp_total_poverty - [?temp_total_poverty]"
+	log = "temp_total_states - [?temp_total_states]"
+}
