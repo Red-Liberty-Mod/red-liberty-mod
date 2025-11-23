@@ -153,6 +153,13 @@ guiTypes = {
 			clicksound = click_checkbox
 		}		
 		
+		buttonType = {
+			name = "country_shine"
+			quadTextureSprite = "GFX_country_selection_entry_shine"
+			position = { x=0 y =0 }
+			clicksound = click_checkbox
+		}
+		
 		instantTextBoxType = {
 			name = "country_name"
 			position = { x = 8 y = 247 }
@@ -177,14 +184,21 @@ guiTypes = {
 			position = { x = 26 y = 22 }
 			Orientation = "UPPER_LEFT"
 			alwaystransparent = yes
-		}		
-		
+		}
+
 		buttonType = {
-			name = "country"	
+			name = "country"
 			quadTextureSprite = "GFX_country_selection_minor_entry"
 			position = { x=0 y =0 }
 			clicksound = click_checkbox
-		}		
+		}
+		
+		buttonType = {
+			name = "country_shine"
+			quadTextureSprite = "GFX_minor_country_selector_shine"
+			position = { x=0 y =0 }
+			clicksound = click_checkbox
+		}
 	}
 	
 	### country entry
@@ -204,7 +218,14 @@ guiTypes = {
 			quadTextureSprite = "GFX_mini_country_selector"
 			position = { x=0 y =0 }
 			clicksound = click_checkbox
-		}		
+		}
+		
+		buttonType = {
+			name = "country_shine"
+			quadTextureSprite = "GFX_mini_country_selector_shine"
+			position = { x=0 y =0 }
+			clicksound = click_checkbox
+		}
 	}
 	
 	
@@ -427,15 +448,15 @@ guiTypes = {
 			textureFile = ""
 			font = "hoi_20bs"
 			borderSize = {x = 0 y = 0}
-			text = "MENU_BAR_CLOUDGAMES"	
+			text = "MENU_BAR_CLOUDGAMES"
 			maxWidth = 100
-			maxHeight = 20	
+			maxHeight = 20
 			fixedsize = yes
 
 			Orientation = "UPPER_LEFT"
 			format = centre
 		}
-		
+
 				instantTextBoxType = {
 			name = "menu_label"
 			position = { x = 145 y = 85 }
@@ -697,22 +718,7 @@ guiTypes = {
 				format = "UPPER_LEFT"
 			}
 		}
-		
-		iconType = {
-			name = "minor_country_leader"
-			quadTextureSprite ="GFX_leader_unknown"
-			position = { x = 289 y = 441 }
-			scale=0.696
-			rotation=-0.04
-		}
-		
-		iconType = {
-				name ="minor_portrait_overlay"
-				spriteType = "GFX_minor_portrait_overlay"
-				position = { x= 280 y = 430 }
-		}
-		
-		
+
 		instantTextBoxType = {
 			name = "info_title"
 			position = { x = 10 y = 450 }
@@ -826,6 +832,20 @@ guiTypes = {
 				maxWidth = 340
 				format = left
 			}
+		}
+		
+		iconType = {
+			name = "minor_country_leader"
+			quadTextureSprite ="GFX_leader_unknown"
+			position = { x = 289 y = 441 }
+			scale=0.696
+			rotation=-0.04
+		}
+
+		iconType = {
+				name ="minor_portrait_overlay"
+				spriteType = "GFX_minor_portrait_overlay"
+				position = { x= 280 y = 430 }
 		}
 		
 		instantTextBoxType = {
@@ -1939,11 +1959,15 @@ guiTypes = {
 			size = { width=102% height =128}
 			clipping = no
 		
-			Background =
-			{
-				name ="top_bg"
-				spriteType = "GFX_tiled_frontend_upper_bar"
-				position = { x=-10 y=0 }
+			containerWindowType = {
+                name = background
+                size = { width=102% height=100% }
+                Background =
+                {
+                    name ="top_bg"
+                    spriteType = "GFX_tiled_frontend_upper_bar"
+                    position = { x=-10 y=0 }
+                }
 			}
 
 			containerWindowType = {
