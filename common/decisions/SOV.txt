@@ -96,6 +96,33 @@ SOV_factionalism_category = {
 		}
 	}
 	
+	SOV_dismantle_the_democrats = {
+		
+		visible = {
+			has_completed_focus = SOV_strengthen_the_gensec
+		}
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SOV_dismantle_the_democrats_trigger_tt
+				check_variable = { SOV_democrat_influence < 11 }
+			}
+		}
+		
+		cost = 50
+		fire_only_once = yes
+		days_remove = 14
+		
+		complete_effect = {
+			
+		}
+		
+		remove_effect = {
+			custom_effect_tooltip = SOV_dismantle_the_democrats_tt
+			SOV_remove_democrat_faction = yes
+		}
+	}
+	
 	SOV_organize_anarchist_veterans = {
 		icon = ger_mefo_bills
 

@@ -608,46 +608,75 @@
  
  SOV_factionalism_modifier:0 "Effects of Factionalism"
  
- industrialist_icon_tt:0 "The 'Centralists' are a faction that advocates, unsurprisingly, for a centralization of the soviet state and economy. They fundamentally oppose the NEP and ardently support centralized army control and industrial planning. As staunch vanguardists they oppose the weakening of democratic centralism, and should they come to power they would likely attempt to quash the other factions, perhaps violently."
- rightist_icon_tt:0 "Led by Grigory Sokolnikov, derided by their enemies as 'ekonomisty' and 'rightists', are a group of pragmatic thinkers, who see clearly the only way out of the situation - to deepen the NEP, loosen regulations on concessions and trade, promote a strong currency and austerity policies for fiscal stabilization, and re-entrance into the global market."
- decist_icon_tt:0 " The 'Decists' are a group oriented on demands of loosening party control over the army and the workers. As a left-wing group within the context of the RSFSR, they are in favor of cooperating with anarchists and other left-socialist organizations and view the NEP as a mistake and a capitalist restoration."
- syndicalist_icon_tt:0 "All political power to the Soviets! is the rallying cry of the Worker's Opposition, led by Alexander Shliapnikov. This faction seeks to radically reform the nation along syndicalist lines, granting the job of economic planning to a trade-union congress, and to have the RKP remain solely as an 'overseer'."
- democrat_icon_tt:0 "Led by 'moderate bolshevik' Lev Kamenev, he and his followers desire to transform the party into a big-tent socialist organization strongly interconnected with the state. An uphill battle, no doubt, but should they succeed they will have a nation governed by all the socialist forces, democratically and peacefully."
+ # Factions #
+ SOV_faction_1_name:0 "Centralist"
+ SOV_faction_1_name_plural:0 "Centralists"
+ SOV_faction_1_desc:0 "The 'Centralists' are a faction that advocates for a centralization of the soviet state and economy. They fundamentally oppose the NEP and ardently support centralized army control and industrial planning. As staunch vanguardists they oppose the weakening of democratic centralism, and should they come to power they would likely attempt to quash the other factions, perhaps violently."
  
- SOV_white_line:0 "---------------------------------------------------------"
- SOV_minor_factions_title:0 "Minor Factions"
+ SOV_faction_2_name:0 "Rightist-Economist Group"
+ SOV_faction_2_name_plural:0 "Rightists"
+ SOV_faction_2_desc:0 "Led by Grigory Sokolnikov, derided by their enemies as 'ekonomisty' and 'rightists', are a group of pragmatic thinkers, who see clearly the only way out of the situation - to deepen the NEP, loosen regulations on concessions and trade, promote a strong currency and austerity policies for fiscal stabilization, and re-entrance into the global market."
+ 
+ SOV_faction_3_name:0 "Group of Dem. Centralism"
+ SOV_faction_3_name_plural:0 "Decists"
+ SOV_faction_3_desc:0 "The 'Decists' are a group oriented on demands of loosening party control over the army and the workers. As a left-wing group within the context of the RSFSR, they are in favor of cooperating with anarchists and other left-socialist organizations and view the NEP as a mistake and a capitalist restoration."
+ 
+ SOV_faction_4_name:0 "Worker's Opposition"
+ SOV_faction_4_name_plural:0 "Syndicalists"
+ SOV_faction_4_desc:0 "All political power to the Soviets! is the rallying cry of the Worker's Opposition, led by Alexander Shliapnikov. This faction seeks to radically reform the nation along syndicalist lines, granting the job of economic planning to a trade-union congress, and to have the RKP remain solely as an 'overseer'."
+ 
+ SOV_faction_5_name:0 "Democratic Group"
+ SOV_faction_5_name_plural:0 "Democrats"
+ SOV_faction_5_desc:0 "Led by 'moderate bolshevik' Lev Kamenev, he and his followers desire to transform the party into a big-tent socialist organization strongly interconnected with the state. Agnostic towards the NEP, they wish (when the time is right) to slowly transition towards a planned economy. An uphill battle, no doubt, but should they succeed they will have a nation governed by all the socialist forces, democratically and peacefully."
+ 
+ SOV_faction_6_name:0 "Technocrat"
+ SOV_faction_6_name_plural:0 "Technocrats"
+ 
+ SOV_faction_7_name:0 "Bloc of Mensheviks & SRs"
+ SOV_faction_7_name_plural:0 "Esery"
+ 
+ SOV_faction_8_name:0 "United Left Opposition"
+ SOV_faction_8_name_plural:0 "Ultra-Leftist"
+ 
+ #SOV_white_line:0 "---------------------------------------------------------"
+ #SOV_minor_factions_title:0 "Minor Factions"
  
  SOV_industrialist_advisor_req:0 "§YCentralist§! opinion is at least §YNeutral§!"
  
+ # Opinion #
+ SOV_faction_1_opinion_status:0 "[GetCentralistOpinion] ([?SOV_industrialist_opinion])"
+ SOV_faction_2_opinion_status:0 "[GetRightistOpinion] ([?SOV_rightist_opinion])"
+ SOV_faction_3_opinion_status:0 "[GetDecistOpinion] ([?SOV_decist_opinion])"
+ SOV_faction_4_opinion_status:0 "[GetSyndicalistOpinion] ([?SOV_syndicalist_opinion])"
+ SOV_faction_5_opinion_status:0 "[GetDemocratOpinion] ([?SOV_democrat_opinion])"
+ SOV_faction_6_opinion_status:0 "([?SOV_technocrat_opinion])"
+ SOV_faction_7_opinion_status:0 "([?SOV_esery_opinion])"
+ SOV_faction_8_opinion_status:0 "([?SOV_ultraleftist_opinion])"
  SOV_friendly:0 "§GFriendly§!"
  SOV_cordial:0 "§GCordial§!"
  SOV_neutral:0 "§YNeutral§!"
  SOV_annoyed:0 "§RAngry§!"
  SOV_angry:0 "§ROutraged§!"
  
+ SOV_opinions_reset_tt:0 "Factional opinions have been §Yreset§!."
+ SOV_opinion_change:0 "The $FACTION|Y$ $CHANGE$ $RIGHT|0=G$ opinion."
+ 
+ # Influence #
+ SOV_faction_1_influence_status:0 "[GetCentralistInfluence] ([?SOV_industrialist_influence])"
+ SOV_faction_2_influence_status:0 "[GetRightistInfluence] ([?SOV_rightist_influence])"
+ SOV_faction_3_influence_status:0 "[GetDecistInfluence] ([?SOV_decist_influence])"
+ SOV_faction_4_influence_status:0 "[GetSyndicalistInfluence] ([?SOV_syndicalist_influence])"
+ SOV_faction_5_influence_status:0 "[GetDemocratInfluence] ([?SOV_democrat_influence])"
+ SOV_faction_6_influence_status:0 "([?SOV_technocrat_influence])"
+ SOV_faction_7_influence_status:0 "([?SOV_esery_influence])"
+ SOV_faction_8_influence_status:0 "([?SOV_ultraleftist_influence])"
  SOV_very_high:0 "Very High"
  SOV_high:0 "High"
  SOV_middling:0 "Middling"
  SOV_low:0 "Low"
  SOV_irrelevant:0 "Irrelevant"
  
- SOV_opinions_reset_tt:0 "Factional opinions have been §Yreset§!."
- 
- SOV_industrialist_opinion_status:0 "[GetCentralistOpinion] ([?SOV_industrialist_opinion])"
- SOV_rightist_opinion_status:0 "[GetRightistOpinion] ([?SOV_rightist_opinion])"
- SOV_decist_opinion_status:0 "[GetDecistOpinion] ([?SOV_decist_opinion])"
- SOV_syndicalist_opinion_status:0 "[GetSyndicalistOpinion] ([?SOV_syndicalist_opinion])"
- SOV_democrat_opinion_status:0 "[GetDemocratOpinion] ([?SOV_democrat_opinion])"
- 
- SOV_industrialist_influence_status:0 "[GetCentralistInfluence] ([?SOV_industrialist_influence])"
- SOV_rightist_influence_status:0 "[GetRightistInfluence] ([?SOV_rightist_influence])"
- SOV_decist_influence_status:0 "[GetDecistInfluence] ([?SOV_decist_influence])"
- SOV_syndicalist_influence_status:0 "[GetSyndicalistInfluence] ([?SOV_syndicalist_influence])"
- SOV_democrat_influence_status:0 "[GetDemocratInfluence] ([?SOV_democrat_influence])"
- 
- SOV_opinion_change:0 "The $FACTION|Y$ $CHANGE$ $RIGHT|0=G$ opinion."
- 
- 
+ # Gain/Lose #
  SOV_industrialist_opinion_gain:0 "The §YCentralists§! gain $RIGHT|0=G$ opinion."
  SOV_industrialist_opinion_lose:0 "The §YCentralists§! lose $RIGHT|0=R$ opinion."
  SOV_industrialist_influence_gain:0 "The §YCentralists§! gain $RIGHT|0=G$ influence."
@@ -675,6 +704,9 @@
  
  ## Tooltips ##
  SOV_crush_the_rightists_trigger_tt:0 "The §YRightists§! have §Y10§! or less influence\n"
+ SOV_dismantle_the_democrats_trigger_tt:0 "The §YDemocrats§! have §Y10§! or less influence\n"
+ SOV_dismantle_the_democrats_tt:0 "The §YDemocratic Group§! shall §Rcease to exist§! as an organized faction.\n"
+ SOV_Get_Faction_Desc:0 "[SOV_GetFactionDesc]"
  
  ## Shared ##
  SOV_form_a_new_government_mission:0 "The Government Falls"
@@ -685,6 +717,8 @@
  SOV_confiscate_sidearms:0 "Confiscate Sidearms"
  SOV_strengthen_the_control_commission:0 "Strengthen the Control Commission"
  SOV_strengthen_the_control_commission_desc:0 "The Central Control Commission oversees discipline and administers punishments, up to and including expulsion from the Party."
+ SOV_dismantle_the_democrats:0 "Dismantle the Democrats"
+ SOV_dismantle_the_democrats_desc:0 "The so-called \"Democratic Group\" represents a dangerous liberal tendency that has no place in a proletarian party."
  
  ## Decist ##
  SOV_organize_anarchist_veterans:0 "Organize Anarchist Veterans"

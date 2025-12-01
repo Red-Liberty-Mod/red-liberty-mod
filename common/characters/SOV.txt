@@ -79,25 +79,24 @@ characters = {
 			ledger = civilian
 			
 			on_add = {
-				add_to_variable = {
-					tooltip = SOV_rightist_opinion_gain
-					SOV_rightist_opinion = 1
-				}
-				add_to_variable = {
-					tooltip = SOV_rightist_influence_gain
-					SOV_rightist_influence = 3
-				}
+				set_temp_variable = { SOV_opinion_change_temp = SOV_rightist_opinion }
+				multiply_temp_variable = { SOV_opinion_change_temp = 0.2 }
+				round_temp_variable = SOV_opinion_change_temp
+				SOV_change_rightist_opinion = yes
+				
+				set_temp_variable = { SOV_influence_change_temp = 3 }
+				SOV_change_rightist_influence = yes
 			}
 			
 			on_remove = {
-				add_to_variable = {
-					tooltip = SOV_rightist_opinion_lose
-					SOV_rightist_opinion = -1
-				}
-				add_to_variable = {
-					tooltip = SOV_rightist_influence_lose
-					SOV_rightist_influence = -3
-				}
+				set_temp_variable = { SOV_opinion_change_temp = SOV_rightist_opinion }
+				multiply_temp_variable = { SOV_opinion_change_temp = 0.2 }
+				multiply_temp_variable = { SOV_opinion_change_temp = -1 }
+				round_temp_variable = SOV_opinion_change_temp
+				SOV_change_rightist_opinion = yes
+				
+				set_temp_variable = { SOV_influence_change_temp = -3 }
+				SOV_change_rightist_influence = yes
 			}
 			
 			available = {

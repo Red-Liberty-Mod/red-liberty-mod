@@ -1,4 +1,86 @@
 
+SOV_setup_faction_mechanic = {
+	clear_array = SOV_faction_array
+	
+	set_temp_variable = { faction_id = 1 }
+	add_to_array = {
+		SOV_faction_array = faction_id
+	}
+	
+	set_temp_variable = { faction_id = 2 }
+	add_to_array = {
+		SOV_faction_array = faction_id
+	}
+	
+	set_temp_variable = { faction_id = 3 }
+	add_to_array = {
+		SOV_faction_array = faction_id
+	}
+	
+	set_temp_variable = { faction_id = 4 }
+	add_to_array = {
+		SOV_faction_array = faction_id
+	}
+	
+	set_temp_variable = { faction_id = 5 }
+	add_to_array = {
+		SOV_faction_array = faction_id
+	}
+}
+
+SOV_remove_decist_faction = {
+	set_temp_variable = { faction_id = 3 }
+	if = {
+		limit = { is_in_array = { SOV_faction_array = faction_id } }
+		remove_from_array = { array = SOV_faction_array value = faction_id }
+	}
+}
+SOV_remove_syndicalist_faction = {
+	set_temp_variable = { faction_id = 4 }
+	if = {
+		limit = { is_in_array = { SOV_faction_array = faction_id } }
+		remove_from_array = { array = SOV_faction_array value = faction_id }
+	}
+}
+SOV_remove_democrat_faction = {
+	set_temp_variable = { faction_id = 5 }
+	if = {
+		limit = { is_in_array = { SOV_faction_array = faction_id } }
+		remove_from_array = { array = SOV_faction_array value = faction_id }
+	}
+}
+
+SOV_add_technocrat_faction = {
+	set_temp_variable = { faction_id = 6 }
+	add_to_array = {
+		SOV_faction_array = faction_id
+	}
+}
+SOV_remove_technocrat_faction = {
+	set_temp_variable = { faction_id = 6 }
+	if = {
+		limit = { is_in_array = { SOV_faction_array = faction_id } }
+		remove_from_array = { array = SOV_faction_array value = faction_id }
+	}
+}
+
+SOV_add_esery_faction = {
+	set_temp_variable = { faction_id = 7 }
+	add_to_array = {
+		SOV_faction_array = faction_id
+	}
+}
+
+SOV_add_united_left_faction = {
+	SOV_remove_decist_faction = yes
+	SOV_remove_syndicalist_faction = yes
+	
+	set_temp_variable = { faction_id = 8 }
+	add_to_array = {
+		SOV_faction_array = faction_id
+	}
+}
+
 SOV_reduce_turmoil = {
 	if = {
 		limit = {
@@ -737,4 +819,50 @@ SOV_setup_kamenev_vars = {
 	set_variable = { SOV_decist_opinion = 8 }
 	set_variable = { SOV_syndicalist_opinion = 16 }
 	set_variable = { SOV_democrat_opinion = 27 }
+}
+
+SOV_change_rightist_opinion = {
+	if = {
+		limit = {
+			check_variable = { SOV_opinion_change_temp > 0 }
+		}
+		add_to_variable = {
+			tooltip = SOV_rightist_opinion_gain
+			SOV_rightist_opinion = SOV_opinion_change_temp
+		}
+	}
+	else = {
+		add_to_variable = {
+			tooltip = SOV_rightist_opinion_lose
+			SOV_rightist_opinion = SOV_opinion_change_temp
+		}
+	}
+	clamp_variable = {
+		var = SOV_rightist_opinion
+		min = 0
+		max = 30
+	}
+}
+
+SOV_change_rightist_influence = {
+	if = {
+		limit = {
+			check_variable = { SOV_influence_change_temp > 0 }
+		}
+		add_to_variable = {
+			tooltip = SOV_rightist_influence_gain
+			SOV_rightist_influence = SOV_influence_change_temp
+		}
+	}
+	else = {
+		add_to_variable = {
+			tooltip = SOV_rightist_influence_lose
+			SOV_rightist_influence = SOV_influence_change_temp
+		}
+	}
+	clamp_variable = {
+		var = SOV_rightist_influence
+		min = 0
+		max = 30
+	}
 }
