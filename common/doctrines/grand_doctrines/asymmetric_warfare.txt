@@ -1,0 +1,119 @@
+asymmetric_warfare = {
+    folder = land
+
+    name = GRAND_DOCTRINE_ASYMMETRIC_WARFARE_NAME
+    description = GRAND_DOCTRINE_ASYMMETRIC_WARFARE_DESC
+    icon = GFX_doctrine_guerilla_warfare_medium
+    available = {
+        always = yes
+    }
+
+    xp_cost = 100
+    xp_type = army
+
+    ai_will_do = {
+        base = 1
+
+        modifier = {
+            factor = 0
+            is_major = yes
+        }
+    }
+
+    tracks = {
+        infantry
+        combat_support
+        armor
+        operations
+    }
+
+    # EFFECTS
+	no_supply_grace = 48
+	army_core_defence_factor = 0.1
+	enable_tactic = tactic_delay
+
+    milestones = {
+        {
+            #Infantry
+	        org_loss_when_moving = -0.15
+            attrition = -0.05
+            enable_tactic = tactic_elastic_defense
+
+            effect = {
+                if = {
+                    limit = {
+                        NOT = {
+                            has_variable = infantry_milestone_var
+                        }
+                    }
+                    set_variable = { infantry_milestone_var = 1 }
+                }
+                else = {
+                    add_to_variable = { infantry_milestone_var = 1 }
+                }
+            }
+        }
+        {
+            #Artillery/Support
+	        planning_speed = 0.1
+            supply_consumption_factor = -0.15
+            enable_tactic = tactic_barrage
+			
+            effect = {
+                if = {
+                    limit = {
+                        NOT = {
+                            has_variable = support_milestone_var
+                        }
+                    }
+                    set_variable = { support_milestone_var = 1 }
+                }
+                else = {
+                    add_to_variable = { support_milestone_var = 1 }
+                }
+            }
+        }
+        {
+            #Armor
+			weekly_casualties_war_support = 0.001
+			category_army = {
+                default_morale = 0.15
+            }
+            enable_tactic = tactic_breakthrough
+
+            effect = {
+                if = {
+                    limit = {
+                        NOT = {
+                            has_variable = armor_milestone_var
+                        }
+                    }
+                    set_variable = { armor_milestone_var = 1 }
+                }
+                else = {
+                    add_to_variable = { armor_milestone_var = 1 }
+                }
+            }
+        }
+        {
+            #Operations
+	        planning_speed = 0.2
+			additional_brigade_column_size = 1
+            enable_tactic = tactic_tactical_withdrawal
+
+            effect = {
+                if = {
+                    limit = {
+                        NOT = {
+                            has_variable = operations_milestone_var
+                        }
+                    }
+                    set_variable = { operations_milestone_var = 1 }
+                }
+                else = {
+                    add_to_variable = { operations_milestone_var = 1 }
+                }
+            }
+        }
+    }
+}
