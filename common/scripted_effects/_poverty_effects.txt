@@ -328,8 +328,8 @@ ECON_generate_state_poverty_from_national = {
     # --- Step 2: Calculate scale factor ---
     set_temp_variable = { target_total_poverty = poverty_rate }
     multiply_temp_variable = { target_total_poverty = total_states }
-    set_variable = { poverty_scale_factor = target_total_poverty }
-    divide_variable = { poverty_scale_factor = total_raw_poverty }
+    set_temp_variable = { poverty_scale_factor = target_total_poverty }
+    divide_temp_variable = { poverty_scale_factor = total_raw_poverty }
 	
 	#log = "total_states - [?total_states]"
 	#log = "poverty_scale_factor - [?poverty_scale_factor]"
@@ -347,7 +347,7 @@ ECON_generate_state_poverty_from_national = {
         #clr_variable = raw_poverty
     }
 	
-	clr_variable = poverty_scale_factor
+	#clr_variable = poverty_scale_factor
 	
 	# --- Pass 3: Clamp + Correct ---
 	set_temp_variable = { clamped_total = 0 }
