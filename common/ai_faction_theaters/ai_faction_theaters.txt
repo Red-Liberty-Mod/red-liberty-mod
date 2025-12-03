@@ -14,7 +14,7 @@ warsaw_pact_eastern_europe = {
 		215		#Karelia
 		238		#Southern Ukraine
 	}
-	can_skip_first_region = yes
+	#can_skip_first_region = yes
 	preferred_countries = {
 		UKR BLR BAL LIT POL AUS FIN GER GEO AZR ARM
 	}
@@ -34,6 +34,45 @@ warsaw_pact_eastern_europe = {
 	}
 }
 
+warsaw_pact_northern_europe = {
+	name = warsaw_pact_theatre_northern_europe
+	regions = {
+		6		#Northern Germany
+		10		#Southern Sweden
+		11		#Southern Norway
+		192		#Northern Sweden
+		207		#Danish Belts
+	}
+	#can_skip_first_region = yes
+	preferred_countries = {
+		GER NOR DEN SWE FIN
+	}
+	cancel = {
+		NOT = {
+			any_enemy_country = {
+				any_owned_state = {
+					OR = {
+						region = 6		#Northern Germany
+						region = 10		#Southern Sweden
+						region = 11		#Southern Norway
+						region = 192	#Northern Sweden
+						region = 207	#Danish Belts
+					}
+				}
+			}
+		}
+
+	}
+
+	ai_will_do = {
+		base = 0
+		modifier = {
+			add = 90
+			original_tag = GER
+		}
+	}
+}
+
 entente_western_europe = {
 	name = entente_theatre_western_europe
 	regions = {
@@ -46,7 +85,7 @@ entente_western_europe = {
 		43 		#Western Approaches
 		208 	#Western France
 	}
-	can_skip_first_region = yes
+	#can_skip_first_region = yes
 	preferred_countries = {
 		ENG FRA BEL USA HOL RAJ SPR AST SAF IRE
 	}

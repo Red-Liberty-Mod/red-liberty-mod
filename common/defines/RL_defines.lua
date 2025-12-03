@@ -28,11 +28,15 @@ NDefines.NCountry.MIN_STABILITY = 0
 NDefines.NCountry.MIN_WAR_SUPPORT = 0
 
 -- Buildings
-NDefines.NBuildings.INFRASTRUCTURE_RESOURCE_BONUS = 0.1						-- multiplicative resource bonus for each level of (non damaged) infrastructure, vanilla is 0.2
+NDefines.NBuildings.INFRASTRUCTURE_RESOURCE_BONUS = 0.05						-- multiplicative resource bonus for each level of (non damaged) infrastructure, vanilla is 0.2
 
 -- Production
 NDefines.NProduction.MAX_CIV_FACTORIES_PER_LINE = 12						-- Vanilla is 15
 NDefines.NProduction.CAPITAL_SHIP_MAX_NAV_FACTORIES_PER_LINE = 10			-- Vanilla is 5
+
+NDefines.NProduction.RESOURCE_TO_ENERGY_COEFFICIENT = 9.0					-- How much energy per coal produces, vanilla is 9.0
+NDefines.NProduction.ENERGY_SCALING_COST_BY_FACTORY_COUNT = 0.03			-- Scales energy cost based on the total number of factories, vanilla is 0.0225
+NDefines.NProduction.BASE_ENERGY_COST = 0.25								-- How much energy per factory consumes, vanilla is 0.25
 
 -- Supply
 NDefines.NSupply.INFRA_TO_SUPPLY = 0.15										-- each level of infra gives this many supply, vanilla is 0.3
