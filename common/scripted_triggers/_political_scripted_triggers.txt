@@ -28,6 +28,22 @@ has_reactionary_govt = {
 has_same_govt_as_ROOT = {
 	has_government = var:ROOT.current_party_ideology_group
 }
+same_government_type_as_ROOT = {
+	OR = {
+		AND = {
+			has_socialist_govt = yes
+			ROOT = { has_socialist_govt = yes }
+		}
+		AND = {
+			has_democratic_govt = yes
+			ROOT = { has_democratic_govt = yes }
+		}
+		AND = {
+			has_reactionary_govt = yes
+			ROOT = { has_reactionary_govt = yes }
+		}
+	}
+}
 
 has_same_govt_as_PREV = {
 	has_government = PREV
