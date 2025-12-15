@@ -115,8 +115,8 @@ shared_focus = {
 	
 	completion_reward = {
 		add_doctrine_cost_reduction = {
-			cost_reduction = 0.25
-			uses = 2
+			cost_reduction = 0.35
+			uses = 1
 			category = land_doctrine
 		}
 	}
@@ -146,8 +146,8 @@ shared_focus = {
 		custom_effect_tooltip = FRA_sweep_out_the_old_guard_tt
 		add_political_power = -100
 		add_doctrine_cost_reduction = {
-			cost_reduction = 0.25
-			uses = 2
+			cost_reduction = 0.35
+			uses = 1
 			category = land_doctrine
 		}
 		hidden_effect = {
@@ -671,9 +671,9 @@ shared_focus = {
 	
 	completion_reward = {
 		add_doctrine_cost_reduction = {
-			cost_reduction = 0.25
-			uses = 2
-			category = cat_fleet_in_being
+			cost_reduction = 0.35
+			uses = 1
+			category = naval_doctrine
 		}
 	}
 	
@@ -699,9 +699,9 @@ shared_focus = {
 	
 	completion_reward = {
 		add_doctrine_cost_reduction = {
-			cost_reduction = 0.25
-			uses = 2
-			category = cat_trade_interdiction
+			cost_reduction = 0.35
+			uses = 1
+			category = naval_doctrine
 		}
 	}
 	
@@ -726,9 +726,9 @@ shared_focus = {
 	}
 	completion_reward = {
 		add_doctrine_cost_reduction = {
-			cost_reduction = 0.25
-			uses = 2
-			category = cat_base_strike
+			cost_reduction = 0.35
+			uses = 1
+			category = naval_doctrine
 		}
 	}
 	
@@ -1165,8 +1165,8 @@ shared_focus = {
 	completion_reward = {
 		add_doctrine_cost_reduction = {
 			name = FRA_establish_the_ecole_de_lair
-			cost_reduction = 0.25
-			uses = 2
+			cost_reduction = 0.35
+			uses = 1
 			category = air_doctrine
 		}
 	}
@@ -1295,19 +1295,27 @@ shared_focus = {
 	y = 1
 	cost = 4
 	
-	available = {
-		is_special_project_completed = sp:sp_air_radar
-	}
+	#available = {
+	#	is_special_project_completed = sp:sp_air_radar
+	#}
 	
 	relative_position_id = FRA_modernize_bombers
 	prerequisite = { focus = FRA_modernize_bombers }
 	
 	completion_reward = {
-		add_tech_bonus = {
-			name = FRA_invest_in_radar
-			bonus = 0.25
-			uses = 2
-			category = radar_tech
+		if = {
+			limit = {
+				is_special_project_completed = sp:sp_air_radar
+			}
+			add_tech_bonus = {
+				name = FRA_invest_in_radar
+				bonus = 0.25
+				uses = 2
+				category = radar_tech
+			}
+		}
+		else = {
+			sp:sp_air_radar = { add_project_progress_ratio = 0.1 }
 		}
 	}
 	
