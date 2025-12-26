@@ -29,11 +29,37 @@ USA_party_faction_percent = {
 	divide_variable = { SPA_moderate_influence_percent = SPA_influence_total }
 }
 
-USA_spa_unity_small = {
+USA_gain_spa_unity_small = {
 	add_to_variable = {
 		var = USA_socialist_unity
 		value = 3
 		tooltip = USA_spa_unity_small_gain_tt
+	}
+	clamp_variable = {
+		var = USA_socialist_unity
+		min = 0
+		max = 30
+	}
+}
+
+USA_lose_spa_unity_small = {
+	add_to_variable = {
+		var = USA_socialist_unity
+		value = -3
+		tooltip = USA_spa_unity_small_loss_tt
+	}
+	clamp_variable = {
+		var = USA_socialist_unity
+		min = 0
+		max = 30
+	}
+}
+
+USA_lose_spa_unity_large = {
+	add_to_variable = {
+		var = USA_socialist_unity
+		value = -6
+		tooltip = USA_spa_unity_large_loss_tt
 	}
 	clamp_variable = {
 		var = USA_socialist_unity

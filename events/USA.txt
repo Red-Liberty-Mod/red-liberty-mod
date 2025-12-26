@@ -1519,3 +1519,328 @@ country_event = { # chief justice devanter dies ~1941
 		USA_clamp_supreme_court = yes
 	}
 }
+
+### NRTA EVENT CHAIN ###
+country_event = { # supreme court strikes down the NRTA
+	id = united_states_supreme_court.10
+	title = united_states_supreme_court.10.title
+	desc = united_states_supreme_court.10.desc
+	picture = GFX_report_event_white_house
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	after = {
+		country_event = {
+			id = united_states_supreme_court.11
+			days = 14
+			random_days = 7
+		}
+	}
+
+	option = { # 
+		name = united_states_supreme_court.10.a
+		add_stability = 0.05
+		add_political_power = -50
+		USA_lose_spa_unity_small = yes
+		
+		#every_owned_controlled_state = {
+		#	limit = {
+		#		is_urban_state = yes
+		#	}
+		#	add_to_variable = {
+		#		socialist_popularity = -0.02
+		#		tooltip = USA_decrease_SPA_popularity_low
+		#	}
+		#}
+		
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0.5
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = { # 
+		name = united_states_supreme_court.10.b
+		add_political_power = -35
+		
+		ai_chance = {
+			base = 55
+		}
+	}
+	
+	option = { # 
+		name = united_states_supreme_court.10.c
+		add_stability = -0.05
+		add_political_power = -15
+		add_to_variable = { USA_radical_counter_var = 1 }
+		
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0.5
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+country_event = { # rail workers strike across the country
+	id = united_states_supreme_court.11
+	title = united_states_supreme_court.11.title
+	desc = united_states_supreme_court.11.desc
+	picture = GFX_report_event_white_house
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	after = {
+		country_event = {
+			id = united_states_supreme_court.12
+			days = 7
+		}
+	}
+
+	option = { # call for arbitration
+		name = united_states_supreme_court.11.a
+		add_stability = 0.05
+		add_timed_idea = {
+			idea = USA_railway_strikes_2
+			days = 135
+		}
+		
+		ai_chance = {
+			base = 35
+			modifier = {
+				factor = 0.5
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = { # forced mediation
+		name = united_states_supreme_court.11.b
+		add_timed_idea = {
+			idea = USA_railway_strikes_2
+			days = 90
+		}
+		
+		ai_chance = {
+			base = 50
+		}
+	}
+	
+	option = { # support the workers unconditionally
+		name = united_states_supreme_court.11.c
+		add_stability = -0.1
+		every_owned_state = {
+			limit = {
+				can_have_elections_in_state = yes
+			}
+			add_to_variable = {
+				socialist_popularity = 0.015
+				tooltip = USA_increase_SPA_popularity_low
+			}
+		}
+		add_timed_idea = {
+			idea = USA_railway_strikes_1
+			days = 35
+		}
+		add_to_variable = { USA_radical_counter_var = 1 }
+		
+		ai_chance = {
+			base = 15
+			modifier = {
+				factor = 0.5
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+country_event = { # VP reed speaks in support of the strikers
+	id = united_states_supreme_court.12
+	title = united_states_supreme_court.12.title
+	desc = united_states_supreme_court.12.desc
+	picture = GFX_report_event_jack_reed
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	after = {
+		country_event = {
+			id = united_states_supreme_court.13
+			days = 7
+		}
+	}
+	
+	option = { # 
+		name = united_states_supreme_court.12.a
+		USA_gain_spa_unity_small = yes
+		
+		ai_chance = {
+			base = 45
+		}
+	}
+	
+	option = { # 
+		name = united_states_supreme_court.12.b
+		add_to_variable = { USA_radical_counter_var = 1 }
+		
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0.5
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = { # 
+		name = united_states_supreme_court.12.c
+		add_stability = 0.05
+		USA_lose_spa_unity_large = yes
+		
+		country_event = {
+			id = united_states_supreme_court.15
+			days = 2
+		}
+		
+		ai_chance = {
+			base = 45
+			modifier = {
+				factor = 0.5
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+country_event = { # 
+	id = united_states_supreme_court.13
+	title = united_states_supreme_court.13.title
+	desc = united_states_supreme_court.13.desc
+	picture = GFX_report_event_white_house
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	after = {
+		country_event = {
+			id = united_states_supreme_court.14
+			days = 9
+		}
+	}
+
+	option = { # 
+		name = united_states_supreme_court.13.a
+		add_stability = 0.03
+		every_owned_state = {
+			limit = {
+				can_have_elections_in_state = yes
+			}
+			add_to_variable = {
+				socialist_popularity = 0.01
+				tooltip = USA_increase_SPA_popularity_low
+			}
+		}
+		
+		ai_chance = {
+			base = 50
+		}
+	}
+	
+	option = { # 
+		name = united_states_supreme_court.13.b
+		add_stability = -0.03
+		every_owned_state = {
+			limit = {
+				can_have_elections_in_state = yes
+			}
+			add_to_variable = {
+				democrat_popularity = 0.015
+				tooltip = USA_increase_DP_popularity_low
+			}
+		}
+		
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0.5
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+country_event = { # 
+	id = united_states_supreme_court.14
+	title = united_states_supreme_court.14.title
+	desc = united_states_supreme_court.14.desc
+	picture = GFX_report_event_white_house
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # 
+		name = united_states_supreme_court.14.a
+		custom_effect_tooltip = event_chain_over
+		every_owned_state = {
+			limit = {
+				can_have_elections_in_state = yes
+			}
+			if = {
+				limit = { check_variable = { USA.USA_radical_counter_var = 3 } }
+				add_to_variable = {
+					democrat_popularity = 0.03
+					tooltip = USA_increase_DP_popularity_low
+				}
+			}
+			else_if = {
+				limit = { check_variable = { USA.USA_radical_counter_var = 2 } }
+				add_to_variable = {
+					democrat_popularity = 0.02
+					tooltip = USA_increase_DP_popularity_low
+				}
+			}
+			else_if = {
+				limit = { check_variable = { USA.USA_radical_counter_var = 1 } }
+				add_to_variable = {
+					democrat_popularity = 0.01
+					tooltip = USA_increase_DP_popularity_low
+				}
+			}
+			else = {
+				add_to_variable = {
+					democrat_popularity = 0.005
+					tooltip = USA_increase_DP_popularity_low
+				}
+			}
+		}
+		clear_variable = USA_radical_counter_var
+	}
+}
+
+country_event = { # reed among the workers
+	id = united_states_supreme_court.15
+	title = united_states_supreme_court.15.title
+	desc = united_states_supreme_court.15.desc
+	picture = GFX_report_event_white_house
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # 
+		name = united_states_supreme_court.15.a
+		add_political_power = -15
+	}
+	
+	option = { # 
+		name = united_states_supreme_court.15.b
+		add_stability = 0.03
+		USA_lose_spa_unity_small = yes
+	}
+}
