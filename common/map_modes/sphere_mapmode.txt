@@ -1,0 +1,70 @@
+scripted_map_modes = {
+	economic_spheres_map_mode = {
+		top = {
+			type = country
+			color = {
+				set_temp_variable = { alpha = 0.7 }
+				if = {
+					limit = {
+						is_in_array = { global.mitteleuropa_members = FROM.id }
+					}
+					set_temp_variable = { red = 0.3 }
+					set_temp_variable = { green = 0.3 }
+					set_temp_variable = { blue = 0.3 }
+				}
+				else_if = {
+					limit = {
+						is_in_array = { global.latin_union_members = FROM.id }
+					}
+					set_temp_variable = { red = 0.55 }
+					set_temp_variable = { green = 0.5 }
+					set_temp_variable = { blue = 0.2 }
+				}
+				else_if = {
+					limit = {
+						is_in_array = { global.organization_of_american_states_members = FROM.id }
+					}
+					set_temp_variable = { red = 0.33 }
+					set_temp_variable = { green = 0.43 }
+					set_temp_variable = { blue = 0.53 }
+				}
+				else_if = {
+					limit = {
+						is_in_array = { global.comintern_members = FROM.id }
+					}
+					set_temp_variable = { red = 0.46 }
+					set_temp_variable = { green = 0.24 }
+					set_temp_variable = { blue = 0.30 }
+				}
+				else = {
+					set_temp_variable = { red = 0.5 }
+					set_temp_variable = { green = 0.5 }
+					set_temp_variable = { blue = 0.5 }
+					set_temp_variable = { alpha = 0.35 }
+				}
+				
+				#if = {
+				#	limit = { check_variable = { FROM.econ_sphere_member_status_var = 2 } }
+				#	add_to_temp_variable = { red = 0.05 }
+				#	add_to_temp_variable = { green = 0.05 }
+				#	add_to_temp_variable = { blue = 0.05 }
+				#}
+				#else_if = {
+				#	limit = { check_variable = { FROM.econ_sphere_member_status_var = 3 } }
+				#	add_to_temp_variable = { red = 0.07 }
+				#	add_to_temp_variable = { green = 0.07 }
+				#	add_to_temp_variable = { blue = 0.07 }
+				#}
+			}
+			thickness = yes
+		}
+		bottom = {
+			type = none
+		}
+
+		far_text = country
+		near_text = country
+
+		update_daily = yes
+	}
+}

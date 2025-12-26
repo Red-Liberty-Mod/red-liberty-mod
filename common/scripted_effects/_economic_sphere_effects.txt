@@ -1,0 +1,200 @@
+@MEMBER_STATUS_LEADER = 1
+@MEMBER_STATUS_MEMBER = 2
+@MEMBER_STATUS_OBSERVER = 3
+
+create_mitteleuropa_sphere = {
+	GER = {
+		add_THIS_to_mitteleuropa_sphere = yes
+		set_variable = { econ_sphere_member_status_var = @MEMBER_STATUS_LEADER }
+	}
+	AHE = { add_THIS_to_mitteleuropa_sphere = yes }
+	
+	FIN = { add_THIS_to_mitteleuropa_sphere = yes }
+	BUL = {
+		add_THIS_to_mitteleuropa_sphere = yes
+		set_variable = { econ_sphere_member_status_var = @MEMBER_STATUS_OBSERVER }
+	}
+	BAL = { add_THIS_to_mitteleuropa_sphere = yes }
+	POL = { add_THIS_to_mitteleuropa_sphere = yes }
+	LIT = { add_THIS_to_mitteleuropa_sphere = yes }
+	BLR = { add_THIS_to_mitteleuropa_sphere = yes }
+	UKR = { add_THIS_to_mitteleuropa_sphere = yes }
+	GEO = { add_THIS_to_mitteleuropa_sphere = yes }
+}
+add_THIS_to_mitteleuropa_sphere = {
+	custom_effect_tooltip = add_to_mitteleuropa_tt
+	add_to_array = { global.mitteleuropa_members = THIS }
+	set_variable = { econ_sphere_member_status_var = 2 }
+	log = "[GetDateText]: [THIS.GetName]: effect add_THIS_to_mitteleuropa_sphere"
+	
+	for_each_scope_loop = {
+		array = global.mitteleuropa_members
+		if = {
+			limit = {
+				NOT = { has_market_access_with = PREV }
+				NOT = { tag = PREV }
+			}
+			diplomatic_relation = {
+				country = PREV
+				relation = market_access_rights
+			}
+		}
+	}
+}
+remove_THIS_from_mitteleuropa_sphere = {
+	custom_effect_tooltip = remove_from_mitteleuropa_tt
+	remove_from_array = { global.mitteleuropa_members = THIS }
+	clear_variable = econ_sphere_member_status_var
+	
+	for_each_scope_loop = {
+		array = global.mitteleuropa_members
+		if = {
+			limit = { has_market_access_with = PREV }
+			diplomatic_relation = {
+				country = PREV
+				relation = market_access_rights
+				active = no
+			}
+		}
+	}
+}
+
+### Latin Union ###
+create_latin_union_sphere = {
+	custom_override_tooltip = {
+		tooltip = create_latin_union_sphere_tt
+		FRA = { add_THIS_to_latin_union_sphere = yes }
+	}
+	
+}
+add_THIS_to_latin_union_sphere = {
+	custom_effect_tooltip = add_to_latin_union_tt
+	add_to_array = { global.latin_union_members = THIS }
+	set_variable = { econ_sphere_member_status_var = 2 }
+	log = "[GetDateText]: [THIS.GetName]: effect add_THIS_to_latin_union_sphere"
+	
+	for_each_scope_loop = {
+		array = global.latin_union_members
+		if = {
+			limit = {
+				NOT = { has_market_access_with = PREV }
+				NOT = { tag = PREV }
+			}
+			diplomatic_relation = {
+				country = PREV
+				relation = market_access_rights
+			}
+		}
+	}
+}
+remove_THIS_from_latin_union_sphere = {
+	custom_effect_tooltip = remove_from_latin_union_tt
+	remove_from_array = { global.latin_union_members = THIS }
+	clear_variable = econ_sphere_member_status_var
+	
+	for_each_scope_loop = {
+		array = global.latin_union_members
+		if = {
+			limit = { has_market_access_with = PREV }
+			diplomatic_relation = {
+				country = PREV
+				relation = market_access_rights
+				active = no
+			}
+		}
+	}
+}
+
+### Organization of American States ###
+create_organization_of_american_states_sphere = {
+	USA = { add_THIS_to_organization_of_american_states_sphere = yes }
+	
+	HAI = { add_THIS_to_organization_of_american_states_sphere = yes }
+	COL = { add_THIS_to_organization_of_american_states_sphere = yes }
+}
+add_THIS_to_organization_of_american_states_sphere = {
+	custom_effect_tooltip = add_to_organization_of_american_states_tt
+	add_to_array = { global.organization_of_american_states_members = THIS }
+	set_variable = { econ_sphere_member_status_var = 2 }
+	log = "[GetDateText]: [THIS.GetName]: effect add_THIS_to_organization_of_american_states_sphere"
+	
+	for_each_scope_loop = {
+		array = global.organization_of_american_states_members
+		if = {
+			limit = {
+				NOT = { has_market_access_with = PREV }
+				NOT = { tag = PREV }
+			}
+			diplomatic_relation = {
+				country = PREV
+				relation = market_access_rights
+			}
+		}
+	}
+}
+remove_THIS_from_organization_of_american_states_sphere = {
+	custom_effect_tooltip = remove_from_organization_of_american_states_tt
+	remove_from_array = { global.organization_of_american_states_members = THIS }
+	clear_variable = econ_sphere_member_status_var
+	
+	for_each_scope_loop = {
+		array = global.organization_of_american_states_members
+		if = {
+			limit = { has_market_access_with = PREV }
+			diplomatic_relation = {
+				country = PREV
+				relation = market_access_rights
+				active = no
+			}
+		}
+	}
+}
+
+### Comintern ###
+create_comintern_sphere = {
+	custom_override_tooltip = {
+		tooltip = create_comintern_sphere_tt
+		SOV = {
+			add_THIS_to_comintern_sphere = yes
+			set_variable = { econ_sphere_member_status_var = @MEMBER_STATUS_LEADER }
+		}
+	}
+	
+}
+add_THIS_to_comintern_sphere = {
+	custom_effect_tooltip = add_to_comintern_tt
+	add_to_array = { global.comintern_members = THIS }
+	set_variable = { econ_sphere_member_status_var = 2 }
+	log = "[GetDateText]: [THIS.GetName]: effect add_THIS_to_comintern_sphere"
+	
+	for_each_scope_loop = {
+		array = global.comintern_members
+		if = {
+			limit = {
+				NOT = { has_market_access_with = PREV }
+				NOT = { tag = PREV }
+			}
+			diplomatic_relation = {
+				country = PREV
+				relation = market_access_rights
+			}
+		}
+	}
+}
+remove_THIS_from_comintern_sphere = {
+	custom_effect_tooltip = remove_from_comintern_tt
+	remove_from_array = { global.comintern_members = THIS }
+	clear_variable = econ_sphere_member_status_var
+	
+	for_each_scope_loop = {
+		array = global.comintern_members
+		if = {
+			limit = { has_market_access_with = PREV }
+			diplomatic_relation = {
+				country = PREV
+				relation = market_access_rights
+				active = no
+			}
+		}
+	}
+}

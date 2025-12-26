@@ -1568,21 +1568,34 @@ shared_focus = {
 	cost = 4
 	
 	available = {
-		has_country_leader = {
-			character = FRA_charles_maurras
-			ruling_only = yes
+		OR = {
+			has_country_leader = {
+				character = FRA_charles_maurras
+				ruling_only = yes
+			}
+			has_country_leader = {
+				character = FRA_francois_de_la_rocque
+				ruling_only = yes
+			}
 		}
 	}
 	
+	#allow_branch = {
+	#	has_country_leader = {
+	#		character = FRA_charles_maurras
+	#		ruling_only = yes
+	#	}
+	#}
+	
 	relative_position_id = FRA_foreign_relations
 	prerequisite = { focus = FRA_foreign_relations }
-	mutually_exclusive = {
-		focus = FRA_maintain_flexibility
-		focus = FRA_reaffirm_old_ties
-	}
+	#mutually_exclusive = {
+	#	focus = FRA_maintain_flexibility
+	#	focus = FRA_reaffirm_old_ties
+	#}
 	
 	completion_reward = {
-		create_faction = "Latin Union"
+		create_latin_union_sphere = yes
 		unlock_decision_category_tooltip = FRA_latin_entente_category
 	}
 	
@@ -1614,13 +1627,12 @@ shared_focus = {
 	relative_position_id = FRA_foreign_relations
 	prerequisite = { focus = FRA_foreign_relations }
 	mutually_exclusive = {
-		focus = FRA_an_integralist_internationale
+		#focus = FRA_an_integralist_internationale
 		focus = FRA_reaffirm_old_ties
 	}
 	
 	completion_reward = {
-		create_faction = FRA_continental_entente
-		unlock_decision_category_tooltip = FRA_anti_german_pact_category
+		create_faction_from_template = faction_template_continental_entente
 	}
 	
 	search_filters = {
@@ -1640,7 +1652,7 @@ shared_focus = {
 	id = FRA_reaffirm_old_ties
 	icon = GFX_FRA_reaffirm_old_ties
 	
-	x = 3
+	x = 2
 	y = 1
 	cost = 4
 
@@ -1651,7 +1663,7 @@ shared_focus = {
 	relative_position_id = FRA_foreign_relations
 	prerequisite = { focus = FRA_foreign_relations }
 	mutually_exclusive = {
-		focus = FRA_an_integralist_internationale
+		#focus = FRA_an_integralist_internationale
 		focus = FRA_maintain_flexibility
 	}
 	
@@ -1709,36 +1721,8 @@ shared_focus = {
 }
 
 shared_focus = {
-	id = FRA_supply_rebels
-	icon = GFX_FRA_supply_rebels
-	
-	x = -2
-	y = 1
-	cost = 4
-	
-	relative_position_id = FRA_maintain_flexibility
-	prerequisite = { focus = FRA_maintain_flexibility }
-	
-	completion_reward = {
-		BAL = {
-			add_stability = -0.05
-		}
-		POL = {
-			add_stability = -0.05
-		}
-		UKR = {
-			add_stability = -0.05
-		}
-	}
-	
-	search_filters = {
-		FOCUS_FILTER_ANNEXATION
-	}
-}
-
-shared_focus = {
-	id = FRA_isolating_the_germans
-	icon = GFX_FRA_isolating_the_germans
+	id = FRA_anti_german_pact
+	icon = GFX_FRA_anti_german_pact
 	
 	x = 0
 	y = 1
@@ -1746,13 +1730,12 @@ shared_focus = {
 	
 	relative_position_id = FRA_maintain_flexibility
 	prerequisite = { focus = FRA_maintain_flexibility }
-	
 	completion_reward = {
-		send_embargo = GER
+		unlock_decision_category_tooltip = FRA_anti_german_pact_category
 	}
 	
 	search_filters = {
-		FOCUS_FILTER_ANNEXATION
+		
 	}
 }
 
@@ -1772,11 +1755,11 @@ shared_focus = {
 		date > 1938.1.1
 	}
 	
-	relative_position_id = FRA_maintain_flexibility
-	prerequisite = {
-		focus = FRA_maintain_flexibility
-		focus = FRA_reaffirm_old_ties
-	}
+	#relative_position_id = FRA_maintain_flexibility
+	#prerequisite = {
+	#	focus = FRA_maintain_flexibility
+	#	focus = FRA_reaffirm_old_ties
+	#}
 	
 	completion_reward = {
 		if = {
@@ -1848,7 +1831,7 @@ shared_focus = {
 	id = FRA_the_belgian_question
 	icon = GFX_FRA_the_belgian_question
 	
-	x = -1
+	x = -2
 	y = 1
 	cost = 4
 	
@@ -1882,8 +1865,8 @@ shared_focus = {
 	id = FRA_align_the_norwegians
 	icon = GFX_FRA_align_the_norwegians
 	
-	x = 3
-	y = 1
+	x = 2
+	y = 2
 	cost = 4
 	
 	relative_position_id = FRA_reaffirm_old_ties
@@ -1912,11 +1895,11 @@ shared_focus = {
 	icon = GFX_FRA_in_defense_of_tradition
 	
 	x = -1
-	y = 1
+	y = 2
 	cost = 4
 	
-	relative_position_id = FRA_promote_pan_latinism
-	prerequisite = { focus = FRA_promote_pan_latinism }
+	relative_position_id = FRA_an_integralist_internationale
+	prerequisite = { focus = FRA_an_integralist_internationale }
 	
 	completion_reward = {
 		
@@ -1932,14 +1915,31 @@ shared_focus = {
 	icon = GFX_FRA_recognize_italian_conquests
 	
 	x = 1
-	y = 1
+	y = 2
 	cost = 4
 	
-	relative_position_id = FRA_promote_pan_latinism
-	prerequisite = { focus = FRA_promote_pan_latinism }
+	available = {
+		ETH = { exists = no }
+	}
+	
+	bypass = {
+		ETH = {
+			exists = yes
+			has_war = no
+		}
+	}
+	
+	relative_position_id = FRA_an_integralist_internationale
+	prerequisite = { focus = FRA_an_integralist_internationale }
 	
 	completion_reward = {
-		custom_effect_tooltip = FRA_recognize_italian_conquests_tt
+		#custom_effect_tooltip = FRA_recognize_italian_conquests_tt
+		FRA = {
+			add_to_variable = {
+				tooltip = FRA_italian_influence_gain
+				FRA_italian_influence = 15
+			}
+		}
 	}
 	
 	search_filters = {
@@ -1948,22 +1948,50 @@ shared_focus = {
 }
 
 shared_focus = {
-	id = FRA_anti_german_pact
-	icon = GFX_FRA_anti_german_pact
+	id = FRA_supply_rebels
+	icon = GFX_FRA_supply_rebels
 	
-	x = 1
+	x = -2
 	y = 1
 	cost = 4
 	
-	relative_position_id = FRA_supply_rebels
-	prerequisite = { focus = FRA_supply_rebels }
-	prerequisite = { focus = FRA_isolating_the_germans }
+	relative_position_id = FRA_maintain_flexibility
+	prerequisite = { focus = FRA_maintain_flexibility }
+	
 	completion_reward = {
-		
+		BAL = {
+			add_stability = -0.05
+		}
+		POL = {
+			add_stability = -0.05
+		}
+		UKR = {
+			add_stability = -0.05
+		}
 	}
 	
 	search_filters = {
-		
+		FOCUS_FILTER_ANNEXATION
+	}
+}
+
+shared_focus = {
+	id = FRA_isolating_the_germans
+	icon = GFX_FRA_isolating_the_germans
+	
+	x = 1
+	y = 2
+	cost = 4
+	
+	#relative_position_id = FRA_maintain_flexibility
+	#prerequisite = { focus = FRA_maintain_flexibility }
+	
+	completion_reward = {
+		send_embargo = GER
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_ANNEXATION
 	}
 }
 
@@ -1989,7 +2017,7 @@ shared_focus = {
 	prerequisite = { focus = FRA_renew_our_friendship_with_the_british }
 	prerequisite = {
 		focus = FRA_the_belgian_question
-		focus = FRA_align_the_norwegians
+		#focus = FRA_align_the_norwegians
 	}
 	
 	completion_reward = {
@@ -2058,12 +2086,15 @@ shared_focus = {
 	y = 2
 	cost = 4
 	
-	relative_position_id = FRA_the_russians
-	prerequisite = { focus = FRA_the_russians }
-	prerequisite = {
-		focus = FRA_anti_german_pact
-		focus = FRA_a_second_entente_cordiale
-	}
+	#relative_position_id = FRA_the_russians
+	#prerequisite = { focus = FRA_the_russians }
+	#prerequisite = {
+	#	focus = FRA_a_second_entente_cordiale
+	#}
+	#prerequisite = {
+	#	focus = FRA_isolating_the_germans
+	#	focus = FRA_supply_rebels
+	#}
 	
 	completion_reward = {
 		custom_effect_tooltip = FRA_dividing_up_europe_tt
@@ -2093,13 +2124,13 @@ shared_focus = {
 	
 	completion_reward = {
 		add_doctrine_cost_reduction = {
-			cost_reduction = 0.5
+			cost_reduction = 0.35
 			uses = 1
 			category = naval_doctrine
 		}
 		ENG = {
 			add_doctrine_cost_reduction = {
-				cost_reduction = 0.5
+				cost_reduction = 0.35
 				uses = 1
 				category = naval_doctrine
 			}
@@ -2119,11 +2150,11 @@ shared_focus = {
 	y = 1
 	cost = 4
 	
-	relative_position_id = FRA_dividing_up_europe
-	prerequisite = {
-		focus = FRA_catholic_network
-		focus = FRA_dividing_up_europe
-	}
+	#relative_position_id = FRA_dividing_up_europe
+	#prerequisite = {
+	#	focus = FRA_catholic_network
+	#	focus = FRA_dividing_up_europe
+	#}
 	mutually_exclusive = { focus = FRA_our_lost_territories }
 	
 	completion_reward = {
@@ -2154,8 +2185,8 @@ shared_focus = {
 	y = 1
 	cost = 4
 	
-	relative_position_id = FRA_dividing_up_europe
-	prerequisite = { focus = FRA_dividing_up_europe }
+	#relative_position_id = FRA_dividing_up_europe
+	#prerequisite = { focus = FRA_dividing_up_europe }
 	mutually_exclusive = { focus = FRA_natural_borders_of_france }
 	
 	completion_reward = {
@@ -2282,8 +2313,8 @@ shared_focus = {
 		has_global_flag = austrian_civil_war_started
 	}
 	
-	relative_position_id = FRA_foreign_relations
-	prerequisite = { focus = FRA_foreign_relations }
+	#relative_position_id = FRA_foreign_relations
+	#prerequisite = { focus = FRA_foreign_relations }
 	
 	search_filters = {
 		FOCUS_FILTER_ANNEXATION

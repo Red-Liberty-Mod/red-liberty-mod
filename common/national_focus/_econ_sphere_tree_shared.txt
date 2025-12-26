@@ -1,0 +1,201 @@
+shared_focus = {
+    id = shared_league_of_american_states
+	icon = GFX_focus_shared_league_of_american_states
+	
+    x = 0
+	y = 0
+	cost = 5
+	
+	offset = {
+		x = 20
+		trigger = {
+			has_focus_tree = generic_focus
+		}
+	}
+	
+	allow_branch = {
+		is_in_americas = yes
+	}
+	
+	available = {
+		is_in_league_of_american_states = yes
+	}
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = shared_inter_american_development
+	icon = GFX_focus_shared_inter_american_development
+	
+    x = -1
+	y = 1
+	cost = 4
+	
+	available = {
+		is_in_league_of_american_states = yes
+	}
+	
+	relative_position_id = shared_league_of_american_states
+	prerequisite = { focus = shared_league_of_american_states }
+    completion_reward = {
+        add_political_power = 25
+		add_offsite_building = { type = industrial_complex level = 1 }
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = shared_promote_cooperation
+	icon = GFX_focus_shared_promote_cooperation
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	available = {
+		is_in_league_of_american_states = yes
+	}
+	
+	relative_position_id = shared_league_of_american_states
+	prerequisite = { focus = shared_league_of_american_states }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+joint_focus = {
+    id = shared_league_general_assembly
+	icon = GFX_focus_shared_league_general_assembly
+	text_icon = USA_focus_style
+	
+    x = 3
+	y = 1
+	cost = 4
+	
+	available = {
+		original_tag = USA
+		is_in_league_of_american_states = yes
+	}
+	
+	relative_position_id = shared_league_of_american_states
+	prerequisite = { focus = shared_league_of_american_states }
+    completion_reward = {
+        
+    }
+	completion_reward_joint_originator = {
+		
+	}
+	completion_reward_joint_member = {
+		
+	}
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = shared_research_sharing
+	icon = GFX_focus_shared_promote_cooperation
+	
+    x = -3
+	y = 1
+	cost = 4
+	
+	available = {
+		is_in_league_of_american_states = yes
+	}
+	
+	relative_position_id = shared_inter_american_development
+	prerequisite = { focus = shared_inter_american_development }
+    completion_reward = {
+        add_to_tech_sharing_group = league_of_american_states_research
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = shared_break_down_trade_barriers
+	icon = GFX_focus_shared_promote_cooperation
+	
+    x = -1
+	y = 1
+	cost = 4
+	
+	available = {
+		is_in_league_of_american_states = yes
+	}
+	
+	relative_position_id = shared_inter_american_development
+	prerequisite = { focus = shared_inter_american_development }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = shared_poverty_relief_fund
+	icon = GFX_focus_shared_promote_cooperation
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	available = {
+		is_in_league_of_american_states = yes
+	}
+	
+	relative_position_id = shared_inter_american_development
+	prerequisite = { focus = shared_inter_american_development }
+    completion_reward = {
+		ECON_poverty_change_medium = yes
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = shared_electoral_oversight
+	icon = GFX_focus_shared_promote_cooperation
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	available = {
+		is_in_league_of_american_states = yes
+	}
+	
+	relative_position_id = shared_promote_cooperation
+	prerequisite = { focus = shared_promote_cooperation }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}

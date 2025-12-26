@@ -97,17 +97,18 @@ FRA_local_development_category = {
 FRA_latin_entente_category = {
 	
 	allowed = {
-		tag = FRA
+		OR = {
+			tag = FRA
+			tag = ITA
+			tag = SPR
+			
+			tag = POR
+			tag = ROM
+		}
 	}
 	
 	visible = {
-		OR = {
-			tag = FRA
-			is_in_faction_with = FRA
-		}
-		FRA = {
-			has_completed_focus = FRA_an_integralist_internationale
-		}
+		is_in_latin_union = yes
 	}
 }
 

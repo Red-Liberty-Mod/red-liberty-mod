@@ -429,6 +429,13 @@ DIPLOMACY_REQUEST_EXP_FORCE_ENABLE_TRIGGER = {
 
 DIPLOMACY_EMBARGO_ENABLE_TRIGGER = {
 	if = {
+		limit = { is_in_same_economic_sphere_as_FROM = yes }
+		custom_override_tooltip = {
+			tooltip = EMBARGO_ENABLE_SAME_ECONOMIC_SPHERE_TT
+			always = no
+		}
+	}
+	else = {
 		limit = { threat < 0.5 }
 		custom_override_tooltip = {
 			tooltip = DIPLO_EMBARGO_LIMITED_TT
@@ -449,11 +456,11 @@ DIPLOMACY_REVOKE_EMBARGO_ENABLE_TRIGGER = {
 }
 
 DIPLOMACY_REVOKE_INTERNATIONAL_MARKET_ACCESS_RIGHTS_ENABLE_TRIGGER = {
-	#if = {
-	#	limit = { is_in_same_economic_sphere_as_FROM = yes }
-	#	custom_override_tooltip = {
-	#		tooltip = REVOKE_MARKET_ACCESS_SAME_ECONOMIC_SPHERE_TT
-	#		always = no
-	#	}
-	#}
+	if = {
+		limit = { is_in_same_economic_sphere_as_FROM = yes }
+		custom_override_tooltip = {
+			tooltip = REVOKE_MARKET_ACCESS_SAME_ECONOMIC_SPHERE_TT
+			always = no
+		}
+	}
 }
