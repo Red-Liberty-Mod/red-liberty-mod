@@ -79,6 +79,22 @@ allied_european_countries = {
 	}
 }
 
+south_american_countries = {
+	input = game:all_countries
+	name = collection_south_american_countries
+	operators = {
+		limit = { is_in_south_america = yes }
+	}
+}
+
+allied_south_american_countries = {
+	input = collection:south_american_countries
+	name = collection_allied_south_american_countries
+	operators = {
+		limit = { is_ally_with = ROOT }
+	}
+}
+
 non_american_countries = {
 	input = game:all_countries
 	name = collection_non_american_countries
