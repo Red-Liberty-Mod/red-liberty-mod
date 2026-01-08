@@ -200,6 +200,8 @@ shared_focus = {
 			hours = 6
 		}
 		add_political_power = 75
+		
+		add_to_variable = { SOV_technocrat_influence = 1 }
     }
 	
 	ai_will_do = {
@@ -242,6 +244,8 @@ shared_focus = {
 			id = sov_rightist.6
 			hours = 6
 		}
+		
+		add_to_variable = { SOV_technocrat_influence = 1 }
     }
 	
 	ai_will_do = {
@@ -272,6 +276,10 @@ shared_focus = {
 	ai_will_do = {
 		base = 10
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
 }
 
 shared_focus = {
@@ -286,11 +294,15 @@ shared_focus = {
 	prerequisite = { focus = SOV_streamline_the_bureaucracy }
 	
     completion_reward = {
-		
+		add_stability = 0.05
     }
 	
 	ai_will_do = {
 		base = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_STABILITY
 	}
 }
 
@@ -329,7 +341,7 @@ shared_focus = {
 	prerequisite = { focus = SOV_modernize_the_farms }
 	
     completion_reward = {
-		
+		add_to_variable = { SOV_technocrat_influence = 1 }
     }
 	
 	ai_will_do = {
@@ -414,7 +426,7 @@ shared_focus = {
 	prerequisite = { focus = SOV_join_the_world_market }
 	
     completion_reward = {
-		
+		add_to_variable = { SOV_technocrat_influence = 1 }
     }
 	
 	ai_will_do = {

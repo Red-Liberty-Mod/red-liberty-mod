@@ -23,7 +23,66 @@ sp_land_pencillin = {
 	
 	resource_cost = {
 		resources = {
-			chromium = 3
+			#chromium = 3
+		}
+	}
+	
+	generic_prototype_rewards = {
+		sp_land_generic_reward_scientist_xp_1
+		sp_land_generic_reward_scientist_xp_2
+		sp_land_generic_reward_scientist_xp_3
+		sp_land_generic_reward_army_xp_1
+		sp_land_generic_reward_army_xp_2
+		sp_land_generic_reward_army_xp_3
+		sp_land_generic_reward_major_progress_1
+		sp_land_generic_reward_major_progress_2
+		sp_land_generic_reward_major_progress_3
+		sp_land_generic_reward_test_failure_1
+		sp_land_generic_reward_test_failure_2
+		sp_land_generic_reward_test_failure_3
+		sp_land_generic_reward_resource_scarcity
+	}
+	
+	project_output = {
+		country_effects = {
+			custom_override_tooltip = {
+				tooltip = {
+					localization_key = tooltip_enable_hidden_tech
+					TECH = country_culture|tech_penicillin
+					EFFECT = tech_effect|tech_penicillin
+				}
+				set_technology = { tech_penicillin = 1 popup = no }
+			}
+		}
+	}
+}
+
+sp_land_blood_transfusion = {
+	specialization = specialization_land
+	icon = GFX_sp_land_blood_transfusion
+	
+	project_tags = sp_tag_medical
+	
+	breakthrough_cost = {
+		specialization_land = 2
+	}
+
+	ai_will_do = {
+		base = 1
+	}
+	
+	prototype_time = sp_time.prototype.short
+	complexity = sp_complexity.medium
+	
+	available = {
+		FROM = {
+			has_tech = tech_field_hospital2
+		}
+	}
+	
+	resource_cost = {
+		resources = {
+			#chromium = 3
 		}
 	}
 	
@@ -48,24 +107,74 @@ sp_land_pencillin = {
 			add_unit_bonus = {
 				category_all_infantry = {
 					casualty_trickleback = 0.05
-					experience_loss_factor = -0.03
+					experience_loss_factor = -0.1
 				}
-				
 				field_hospital = {
 					battalion_mult = {
 						category = category_all_infantry
-						default_morale = 0.05
+						default_morale = 0.1
 					}
 				}
 			}
-			#custom_override_tooltip = {
-			#	tooltip = {
-			#		localization_key = tooltip_enable_hidden_tech
-			#		TECH = country_culture|tech_penicillin
-			#		EFFECT = tech_effect|tech_penicillin
-			#	}
-			#	set_technology = { tech_penicillin = 1 popup = no }
-			#}
+		}
+	}
+}
+
+sp_land_mass_vaccination = {
+	specialization = specialization_land
+	icon = GFX_sp_land_penicillin
+	
+	project_tags = sp_tag_medical
+	
+	breakthrough_cost = {
+		specialization_land = 1
+	}
+
+	ai_will_do = {
+		base = 1
+	}
+	
+	prototype_time = sp_time.prototype.medium
+	complexity = sp_complexity.small
+	
+	available = {
+		FROM = {
+			has_tech = tech_field_hospital
+		}
+	}
+	
+	resource_cost = {
+		resources = {
+			steel = 1
+		}
+	}
+	
+	generic_prototype_rewards = {
+		sp_land_generic_reward_scientist_xp_1
+		sp_land_generic_reward_scientist_xp_2
+		sp_land_generic_reward_scientist_xp_3
+		sp_land_generic_reward_army_xp_1
+		sp_land_generic_reward_army_xp_2
+		sp_land_generic_reward_army_xp_3
+		sp_land_generic_reward_major_progress_1
+		sp_land_generic_reward_major_progress_2
+		sp_land_generic_reward_major_progress_3
+		sp_land_generic_reward_test_failure_1
+		sp_land_generic_reward_test_failure_2
+		sp_land_generic_reward_test_failure_3
+		sp_land_generic_reward_resource_scarcity
+	}
+	
+	project_output = {
+		country_effects = {
+			custom_override_tooltip = {
+				tooltip = {
+					localization_key = tooltip_enable_hidden_tech
+					TECH = country_culture|tech_mass_vaccinations
+					EFFECT = tech_effect|tech_mass_vaccinations
+				}
+				set_technology = { tech_mass_vaccinations = 1 popup = no }
+			}
 		}
 	}
 }

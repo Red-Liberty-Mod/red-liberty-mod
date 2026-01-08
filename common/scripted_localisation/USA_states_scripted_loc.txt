@@ -234,6 +234,23 @@ defined_text = {
 ### State Layers - should be prefixed with state id to give context ###
 defined_text = {
 	name = GetStateBottomLayer
+	
+	text = {
+		trigger = {
+			USA = { check_variable = { USA_states_map_view < 3 } }
+		}
+		localization_key = "[GetStateBottomLayerSenate]"
+	}
+	text = {
+		trigger = {
+			USA = { check_variable = { USA_states_map_view = 3 } }
+		}
+		localization_key = "[GetStateBottomLayerElection]"
+	}
+}
+defined_text = {
+	name = GetStateBottomLayerSenate
+	
 	text = {
 		trigger = {
 			check_variable = { senator_1 = 1 }
@@ -260,7 +277,60 @@ defined_text = {
 	}
 }
 defined_text = {
+	name = GetStateBottomLayerElection
+	
+	text = {
+		trigger = {
+			check_variable = { senator_1 = 1 }
+			has_state_flag = elections_senator_1
+		}
+		localization_key = "GFX_USA_states_gui_[?THIS.GetID]_socialist_layer_1"
+	}
+	text = {
+		trigger = {
+			check_variable = { senator_1 = 2 }
+			has_state_flag = elections_senator_1
+		}
+		localization_key = "GFX_USA_states_gui_[?THIS.GetID]_republican_layer_1"
+	}
+	text = {
+		trigger = {
+			check_variable = { senator_1 = 3 }
+			has_state_flag = elections_senator_1
+		}
+		localization_key = "GFX_USA_states_gui_[?THIS.GetID]_democrat_layer_1"
+	}
+	text = {
+		trigger = {
+			check_variable = { senator_1 = 4 }
+			has_state_flag = elections_senator_1
+		}
+		localization_key = "GFX_USA_states_gui_[?THIS.GetID]_afp_layer_1"
+	}
+	text = {
+		localization_key = "GFX_unknown"
+	}
+}
+
+defined_text = {
 	name = GetStateTopLayer
+	
+	text = {
+		trigger = {
+			USA = { check_variable = { USA_states_map_view < 3 } }
+		}
+		localization_key = "[GetStateTopLayerSenate]"
+	}
+	text = {
+		trigger = {
+			USA = { check_variable = { USA_states_map_view = 3 } }
+		}
+		localization_key = "[GetStateTopLayerElection]"
+	}
+}
+defined_text = {
+	name = GetStateTopLayerSenate
+	
 	text = {
 		trigger = {
 			check_variable = { senator_2 = senator_1 }
@@ -290,6 +360,58 @@ defined_text = {
 			check_variable = { senator_2 = 4 }
 		}
 		localization_key = "GFX_USA_states_gui_[?THIS.GetID]_afp_layer_2"
+	}
+}
+defined_text = {
+	name = GetStateTopLayerElection
+	
+	text = {
+		trigger = {
+			check_variable = { senator_2 = 1 }
+			has_state_flag = elections_senator_2
+		}
+		localization_key = "GFX_USA_states_gui_[?THIS.GetID]_socialist_layer_1"
+	}
+	text = {
+		trigger = {
+			check_variable = { senator_2 = 2 }
+			has_state_flag = elections_senator_2
+		}
+		localization_key = "GFX_USA_states_gui_[?THIS.GetID]_republican_layer_1"
+	}
+	text = {
+		trigger = {
+			check_variable = { senator_2 = 3 }
+			has_state_flag = elections_senator_2
+		}
+		localization_key = "GFX_USA_states_gui_[?THIS.GetID]_democrat_layer_1"
+	}
+	text = {
+		trigger = {
+			check_variable = { senator_2 = 4 }
+			has_state_flag = elections_senator_2
+		}
+		localization_key = "GFX_USA_states_gui_[?THIS.GetID]_afp_layer_1"
+	}
+	text = {
+		localization_key = "GFX_unknown"
+	}
+}
+
+defined_text = {
+	name = GetStateTooltip
+	
+	text = {
+		trigger = {
+			USA = { check_variable = { USA_states_map_view < 3 } }
+		}
+		localization_key = "USA_states_gui_[?THIS.GetID]_senate_tt"
+	}
+	text = {
+		trigger = {
+			USA = { check_variable = { USA_states_map_view = 3 } }
+		}
+		localization_key = "USA_states_gui_[?THIS.GetID]_election_tt"
 	}
 }
 

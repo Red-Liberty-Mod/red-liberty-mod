@@ -46,32 +46,77 @@ scripted_gui = {
 		}
 		
 		triggers = {
-			#USA_states_hide_checkbox_click_enabled = {
-			#	USA = {
-			#		has_active_election = yes
-			#	}
-			#}
-		}
-
-		effects = {
-			#USA_states_hide_checkbox_click = {
-			#	if = {
-			#		limit = {
-			#			check_variable = { hide_non_election_states = 0 }
-			#		}
-			#		set_variable = { hide_non_election_states = 1 }
-			#	}
-			#	else = {
-			#		set_variable = { hide_non_election_states = 0 }
-			#	}
-			#	add_to_variable = { USA_states_map_dirty = 1 }
-			#}
-			button_close_click = {
-				clr_country_flag = USA_states_map_open
+			USA_button_senate_view_click_enabled = {
+				always = yes
+				
+				if = {
+					limit = {
+						check_variable = { USA_states_map_view = 1 }
+					}
+					set_temp_variable = { USA_states_map_senate_view_frame = 2 }
+				}
+				else = {
+					set_temp_variable = { USA_states_map_senate_view_frame = 1 }
+				}
+			}
+			USA_button_house_view_click_enabled = {
+				always = yes
+				
+				if = {
+					limit = {
+						check_variable = { USA_states_map_view = 2 }
+					}
+					set_temp_variable = { USA_states_map_house_view_frame = 2 }
+				}
+				else = {
+					set_temp_variable = { USA_states_map_house_view_frame = 1 }
+				}
+			}
+			USA_button_election_view_click_enabled = {
+				has_active_election = yes
+				
+				if = {
+					limit = {
+						check_variable = { USA_states_map_view = 3 }
+					}
+					set_temp_variable = { USA_states_map_election_view_frame = 2 }
+				}
+				else = {
+					set_temp_variable = { USA_states_map_election_view_frame = 1 }
+				}
 			}
 		}
 
+		effects = {
+			button_close_click = {
+				clr_country_flag = USA_states_map_open
+			}
+			
+			USA_button_senate_view_click = {
+				set_variable = { USA_states_map_view = 1 }
+				add_to_variable = { USA_states_map_dirty = 1 }
+			}
+			USA_button_house_view_click = {
+				set_variable = { USA_states_map_view = 2 }
+				add_to_variable = { USA_states_map_dirty = 1 }
+			}
+			USA_button_election_view_click = {
+				set_variable = { USA_states_map_view = 3 }
+				add_to_variable = { USA_states_map_dirty = 1 }
+			}
+		}
+		
 		properties = {
+			USA_button_senate_view = {
+				frame = USA_states_map_senate_view_frame
+			}
+			USA_button_house_view = {
+				frame = USA_states_map_house_view_frame
+			}
+			USA_button_election_view = {
+				frame = USA_states_map_election_view_frame
+			}
+			
 			USA_states_gui_speaker = {
 				image = [Get_USA_speaker]
 			}

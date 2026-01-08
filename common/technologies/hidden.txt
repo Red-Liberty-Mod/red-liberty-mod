@@ -78,23 +78,27 @@ technologies = {
 		allow = { always = no } #only added by effect
 
 		on_research_complete = {
-			custom_effect_tooltip = tech_penicillin_effect #TODO: remove if tech_effect terrain tooltips are fixed
+			#custom_effect_tooltip = tech_penicillin_effect #TODO: remove if tech_effect terrain tooltips are fixed
 		}
 		show_effect_as_desc = yes
-
-		field_hospital = {
-			casualty_trickleback = 0.03
-			experience_loss_factor = -0.03
-			battalion_mult = {
-				category = category_all_infantry
-				default_morale = 0.05
-			}
-		}
 		
-		helicopter_field_hospital = {
-			casualty_trickleback = 0.3
-			experience_loss_factor = -0.02
+		attrition = -0.08
+		army_morale_factor = 0.08
+		land_reinforce_rate = 0.02
+	}
+	
+	tech_mass_vaccinations = {
+		research_cost = 1
+
+		allow = { always = no } #only added by effect
+
+		on_research_complete = {
+			#custom_effect_tooltip = tech_mass_vaccinations_effect #TODO: remove if tech_effect terrain tooltips are fixed
 		}
+		show_effect_as_desc = yes
+		
+		conscription_factor = 0.07
+		terrain_penalty_reduction = 0.05
 	}
 	
 	tech_camel_corps = {

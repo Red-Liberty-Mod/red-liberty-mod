@@ -115,6 +115,7 @@ NDefines_Graphics.NGraphics.RAILWAY_BRIDGE_Y_OFFSET = 0.1					-- Railway bridges
 -- Factions
 NDefines.NFactions.FACTION_INTELLIGENCE_ALLOWED_ADVISOR_TRAIT  = {
 	"head_of_intelligence",
+	"spymaster",
 	"USA_fbi_director",
 	"ENG_infiltration_expert"
 }

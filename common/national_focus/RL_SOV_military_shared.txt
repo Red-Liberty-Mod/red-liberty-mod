@@ -239,6 +239,12 @@ shared_focus = {
 			has_focus_tree = SOV_democrat_tree
 		}
 	}
+	offset = {
+		x = 17
+		trigger = {
+			has_focus_tree = SOV_technocrat_tree
+		}
+	}
 	
 	available = {
 		has_global_flag = russian_civil_war_started
@@ -450,10 +456,22 @@ shared_focus = {
 	prerequisite = { focus = SOV_tukhachevsky_doctrine }
     completion_reward = {
 		add_ideas = SOV_expanded_tank_production
+		220 = {
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
     }
 	
 	ai_will_do = {
 		factor = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
 	}
 }
 
@@ -540,10 +558,22 @@ shared_focus = {
 	prerequisite = { focus = SOV_svechin_doctrine }
     completion_reward = {
 		add_ideas = SOV_expanded_rifle_production
+		399 = {
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
     }
 	
 	ai_will_do = {
 		factor = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
 	}
 }
 

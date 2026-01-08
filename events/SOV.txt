@@ -5,6 +5,7 @@ add_namespace = sov_rightist
 add_namespace = sov_syndicalist
 add_namespace = sov_democrat
 add_namespace = sov_military
+add_namespace = sov_technocrat
 
 country_event = { # the secretarys woes
 	id = soviet_union.1
@@ -157,9 +158,9 @@ country_event = { # sverdlov retires as gensec
 		trigger = {
 			has_government = vanguard_socialism
 		}
-		SOV_valerian_kuibyshev = {
-			
-		}
+		#SOV_valerian_kuibyshev = {
+		#	
+		#}
 	}
 	
 	option = { # rightists
@@ -167,9 +168,9 @@ country_event = { # sverdlov retires as gensec
 		trigger = {
 			has_government = vanguard_socialism
 		}
-		SOV_aleksei_rykov = {
-			
-		}
+		#SOV_aleksei_rykov = {
+		#	
+		#}
 	}
 	
 	option = { # syndicalists
@@ -216,9 +217,9 @@ country_event = { # sverdlov retires as gensec
 		trigger = {
 			has_government = democratic_socialism
 		}
-		SOV_lev_karakhan = {
-			
-		}
+		#SOV_lev_karakhan = {
+		#	
+		#}
 	}
 	
 	option = { # red army
@@ -1373,5 +1374,83 @@ country_event = { # Centralists outraged
 				popularity = -0.03
 			}
 		}
+	}
+}
+
+### Technocrats ###
+
+country_event = { # Bogdanov's Circle Reconvenes
+	id = sov_technocrat.1
+	title = sov_technocrat.1.title
+	desc = sov_technocrat.1.desc
+	
+	trigger = {
+		tag = SOV
+		SOV = {
+			OR = {
+				has_completed_focus = SOV_the_rightists
+				has_completed_focus = SOV_memories_of_moscow
+			}
+			check_variable = { SOV_technocrat_influence > 6 }
+		}
+	}
+	
+	fire_only_once = yes
+
+	option = {
+		name = sov_technocrat.1.a
+		set_country_flag = SOV_vpered_reconvened_flag
+	}
+}
+
+country_event = { # The Limits of Politics
+	id = sov_technocrat.2
+	title = sov_technocrat.2.title
+	desc = sov_technocrat.2.desc
+	
+	trigger = {
+		tag = SOV
+		SOV = {
+			has_country_flag = SOV_vpered_reconvened_flag
+			stability < 0.51
+			check_variable = { SOV_technocrat_influence > 9 }
+		}
+	}
+	
+	fire_only_once = yes
+	
+	after = {
+		country_event = {
+			id = sov_technocrat.3
+			days = 35
+			random_days = 7
+		}
+	}
+
+	option = {
+		name = sov_technocrat.2.a
+	}
+}
+
+country_event = { # The Technocratic Memorandum
+	id = sov_technocrat.3
+	title = sov_technocrat.3.title
+	desc = sov_technocrat.3.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	after = {
+		hidden_effect = {
+			SOV_add_technocrat_faction = yes
+		}
+	}
+
+	option = {
+		name = sov_technocrat.3.a
+	}
+	
+	option = {
+		name = sov_technocrat.3.b
 	}
 }

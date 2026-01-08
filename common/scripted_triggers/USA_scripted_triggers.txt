@@ -5,16 +5,16 @@ can_have_elections_in_state = {
 
 has_senator_1_elections_in_state = {
 	has_state_flag = elections_senator_1
-	NOT = {
-		has_state_flag = elections_senator_2
-	}
+	#NOT = {
+	#	has_state_flag = elections_senator_2
+	#}
 }
 
 has_senator_2_elections_in_state = {
 	has_state_flag = elections_senator_2
-	NOT = {
-		has_state_flag = elections_senator_1
-	}
+	#NOT = {
+	#	has_state_flag = elections_senator_1
+	#}
 }
 
 is_presidential_election_year = {
@@ -35,9 +35,12 @@ is_presidential_election_year = {
 }
 
 has_active_election = {
-	OR = {
-		has_country_flag = USA_senate_elections
-		has_country_flag = USA_presidential_elections
+	custom_trigger_tooltip = {
+		tooltip = USA_has_active_election_tt
+		OR = {
+			has_country_flag = USA_senate_elections
+			has_country_flag = USA_presidential_elections
+		}
 	}
 }
 
@@ -46,6 +49,10 @@ has_active_election_in_state = {
 		has_state_flag = elections_senator_1
 		has_state_flag = elections_senator_2
 	}
+}
+
+USA_elections_are_over = {
+	has_country_flag = USA_senate_conclusion
 }
 
 has_socialist_president = {
