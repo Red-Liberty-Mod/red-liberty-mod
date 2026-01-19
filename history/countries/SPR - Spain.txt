@@ -2,16 +2,25 @@
 
 set_research_slots = 3
 set_convoys = 15
-set_stability = 0.3
+set_stability = 0.55
 
 oob = "SPR"
 set_naval_oob = "SPR_naval"
 
-165 = {
-	force_enable_resistance = SPR
-	start_resistance = SPR
+165 = { # Catalonia
+	force_enable_resistance = {
+		occupier = SPR
+		occupied = CAT
+	}
+	start_resistance = yes
 	set_resistance = 12
 	set_compliance = 53
+	add_resistance_target = 10
+}
+290 = { # Spanish Africa
+	set_resistance = 7
+	set_compliance = 47
+	add_resistance_target = 5
 }
 
 set_technology = {
@@ -89,7 +98,7 @@ set_country_flag = authoritarian_democracy_coalition
 
 add_ideas = {
 	SPR_corporatist_constitution
-	SPR_republican_agitation
+	SPR_republican_agitation_1
 	SPR_stagnant_economy_1
 }
 

@@ -23,7 +23,10 @@ country_event = { # this is a hidden event that fires at the beginning of the ga
 			modifier = {
 				factor = 0
 				OR = {
-					is_historical_focus_on = yes
+					has_game_rule = {
+						rule = JAP_POST_INUKAI_OUTCOME
+						option = JAP_POST_INUKAI_STATUS_QUO
+					}
 					has_game_rule = {
 						rule = JAP_POST_INUKAI_OUTCOME
 						option = JAP_POST_INUKAI_KONOE_GOVT
@@ -41,10 +44,13 @@ country_event = { # this is a hidden event that fires at the beginning of the ga
 			modifier = {
 				factor = 0
 				OR = {
-					is_historical_focus_on = yes
 					has_game_rule = {
 						rule = JAP_POST_INUKAI_OUTCOME
-						option = JAP_POST_INUKAI_STATUS_QUO
+						option = JAP_POST_INUKAI_CONSTITUTIONAL_AMENDMENT
+					}
+					has_game_rule = {
+						rule = JAP_POST_INUKAI_OUTCOME
+						option = JAP_POST_INUKAI_KONOE_GOVT
 					}
 				}
 			}
@@ -512,6 +518,7 @@ country_event = {
 		add_ultracon_coalition = yes
 		add_fash_coalition = yes
 		
+		set_country_flag = JAP_military_reform_available
 		set_country_flag = JAP_the_spiders_web_flag
 		load_focus_tree = JAP_nationalist_tree
 		mark_focus_tree_layout_dirty = yes
@@ -557,6 +564,7 @@ country_event = {
 			}
 		}
 		
+		set_country_flag = JAP_military_reform_available
 		load_focus_tree = JAP_taisho_democracy_tree
 		mark_focus_tree_layout_dirty = yes
 	}

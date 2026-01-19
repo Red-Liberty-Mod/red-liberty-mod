@@ -220,7 +220,14 @@ shared_focus = {
 	prerequisite = { focus = JAP_expand_the_engineering_corps }
 	
     completion_reward = {
-        set_technology = { jungle_warfare = 1 }
+		custom_override_tooltip = {
+			tooltip = {
+				localization_key = tooltip_enable_hidden_tech
+				TECH = country_culture|jungle_warfare
+				EFFECT = tech_effect|jungle_warfare
+			}
+			set_technology = { jungle_warfare = 1 popup = no }
+		}
     }
 	
 	ai_will_do = {

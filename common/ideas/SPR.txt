@@ -21,7 +21,28 @@ ideas = {
 			}
 		}
 		
-		SPR_republican_agitation = {
+		SPR_the_new_state = {
+			picture = generic_constitutional_guarantees
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				political_power_factor = 0.15
+				consumer_goods_factor = 0.1
+				production_factory_max_efficiency_factor = 0.05
+				industrial_capacity_factory = 0.05
+				stability_factor = -0.1
+			}
+		}
+		
+		SPR_republican_agitation_1 = {
+			name = SPR_republican_agitation
 			picture = MEX_revolutionary_army
 			
 			allowed = {
@@ -37,6 +58,26 @@ ideas = {
 				war_support_factor = 0.05
 				social_democracy_drift = 0.01
 				progressive_liberalism_drift = 0.01
+			}
+		}
+		
+		SPR_republican_agitation_2 = {
+			name = SPR_republican_agitation
+			picture = MEX_revolutionary_army
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				stability_factor = -0.1
+				war_support_factor = 0.05
+				social_democracy_drift = 0.02
+				progressive_liberalism_drift = 0.02
 			}
 		}
 		
@@ -75,6 +116,41 @@ ideas = {
 				production_factory_max_efficiency_factor = -0.05
 				industrial_capacity_factory = -0.05
 				production_speed_buildings_factor = -0.05
+			}
+		}
+		
+		### Military ###
+		
+		SPR_preservation_of_order_idea = {
+			name = SPR_preservation_of_order
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				resistance_activity = -0.05
+				max_command_power = 20
+			}
+		}
+		
+		SPR_defense_of_the_nation_idea = {
+			name = SPR_defense_of_the_nation
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				army_core_defence_factor = 0.1
 			}
 		}
 	}

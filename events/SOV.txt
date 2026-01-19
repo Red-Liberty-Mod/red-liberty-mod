@@ -352,6 +352,23 @@ country_event = { # fate of the nep
 			tooltip = SOV_democrat_influence_gain
 			SOV_democrat_influence = 1
 		}
+		
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = SOV_CONGRESS_OUTCOME
+						option = SOV_CONGRESS_OUTCOME_CENTRALIST
+					}
+					has_game_rule = {
+						rule = SOV_CONGRESS_OUTCOME
+						option = SOV_CONGRESS_OUTCOME_SYNDICALIST
+					}
+				}
+			}
+		}
 	}
 	
 	option = { # abolished
@@ -371,6 +388,23 @@ country_event = { # fate of the nep
 		add_to_variable = {
 			tooltip = SOV_syndicalist_influence_gain
 			SOV_syndicalist_influence = 2
+		}
+		
+		ai_chance = {
+			base = 70
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = SOV_CONGRESS_OUTCOME
+						option = SOV_CONGRESS_OUTCOME_RIGHTIST
+					}
+					has_game_rule = {
+						rule = SOV_CONGRESS_OUTCOME
+						option = SOV_CONGRESS_OUTCOME_DEMOCRAT
+					}
+				}
+			}
 		}
 	}
 }
@@ -403,6 +437,23 @@ country_event = { # expand/limit the gensecs influence
 			tooltip = SOV_decist_influence_gain
 			SOV_decist_influence = 1
 		}
+		
+		ai_chance = {
+			base = 55
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = SOV_CONGRESS_OUTCOME
+						option = SOV_CONGRESS_OUTCOME_SYNDICALIST
+					}
+					has_game_rule = {
+						rule = SOV_CONGRESS_OUTCOME
+						option = SOV_CONGRESS_OUTCOME_DEMOCRAT
+					}
+				}
+			}
+		}
 	}
 	
 	option = { # limit
@@ -414,6 +465,23 @@ country_event = { # expand/limit the gensecs influence
 		add_to_variable = {
 			tooltip = SOV_democrat_influence_gain
 			SOV_democrat_influence = 2
+		}
+		
+		ai_chance = {
+			base = 45
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = SOV_CONGRESS_OUTCOME
+						option = SOV_CONGRESS_OUTCOME_CENTRALIST
+					}
+					has_game_rule = {
+						rule = SOV_CONGRESS_OUTCOME
+						option = SOV_CONGRESS_OUTCOME_RIGHTIST
+					}
+				}
+			}
 		}
 	}
 }
@@ -436,6 +504,23 @@ country_event = { # democratic centralism
 			tooltip = SOV_rightist_influence_gain
 			SOV_rightist_influence = 1
 		}
+		
+		ai_chance = {
+			base = 65
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = SOV_CONGRESS_OUTCOME
+						option = SOV_CONGRESS_OUTCOME_SYNDICALIST
+					}
+					has_game_rule = {
+						rule = SOV_CONGRESS_OUTCOME
+						option = SOV_CONGRESS_OUTCOME_DEMOCRAT
+					}
+				}
+			}
+		}
 	}
 	
 	option = { # kept the same
@@ -447,6 +532,23 @@ country_event = { # democratic centralism
 		add_to_variable = {
 			tooltip = SOV_rightist_influence_gain
 			SOV_rightist_influence = 4
+		}
+		
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = SOV_CONGRESS_OUTCOME
+						option = SOV_CONGRESS_OUTCOME_SYNDICALIST
+					}
+					has_game_rule = {
+						rule = SOV_CONGRESS_OUTCOME
+						option = SOV_CONGRESS_OUTCOME_DEMOCRAT
+					}
+				}
+			}
 		}
 	}
 	
@@ -467,6 +569,23 @@ country_event = { # democratic centralism
 		add_to_variable = {
 			tooltip = SOV_democrat_influence_gain
 			SOV_democrat_influence = 3
+		}
+		
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = SOV_CONGRESS_OUTCOME
+						option = SOV_CONGRESS_OUTCOME_CENTRALIST
+					}
+					has_game_rule = {
+						rule = SOV_CONGRESS_OUTCOME
+						option = SOV_CONGRESS_OUTCOME_RIGHTIST
+					}
+				}
+			}
 		}
 	}
 }
@@ -544,6 +663,10 @@ country_event = { #
 		trigger = {
 			OR = {
 				has_country_flag = SOV_industrialist_chairman_option
+				has_game_rule = {
+					rule = SOV_CONGRESS_OUTCOME
+					option = SOV_CONGRESS_OUTCOME_CENTRALIST
+				}
 				is_debug = yes
 			}
 		}
@@ -560,6 +683,27 @@ country_event = { #
 			}
 			set_country_flag = SOV_centralists_flag
 		}
+		
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = SOV_CONGRESS_OUTCOME
+						option = SOV_CONGRESS_OUTCOME_RIGHTIST
+					}
+					has_game_rule = {
+						rule = SOV_CONGRESS_OUTCOME
+						option = SOV_CONGRESS_OUTCOME_SYNDICALIST
+					}
+					has_game_rule = {
+						rule = SOV_CONGRESS_OUTCOME
+						option = SOV_CONGRESS_OUTCOME_DEMOCRAT
+					}
+				}
+			}
+		}
 	}
 	
 	option = { # 
@@ -567,8 +711,16 @@ country_event = { #
 		trigger = {
 			OR = {
 				has_country_flag = SOV_rightist_chairman_option
+				has_game_rule = {
+					rule = SOV_CONGRESS_OUTCOME
+					option = SOV_CONGRESS_OUTCOME_RIGHTIST
+				}
 				is_debug = yes
 			}
+		}
+		country_event = {
+			id = sov_congress.10
+			hours = 6
 		}
 		hidden_effect = {
 			promote_character = SOV_grigory_sokolnikov
@@ -578,6 +730,27 @@ country_event = { #
 				name = SOV_vanguard_socialism_party
 			}
 			set_country_flag = SOV_rightists_flag
+		}
+		
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = SOV_CONGRESS_OUTCOME
+						option = SOV_CONGRESS_OUTCOME_CENTRALIST
+					}
+					has_game_rule = {
+						rule = SOV_CONGRESS_OUTCOME
+						option = SOV_CONGRESS_OUTCOME_SYNDICALIST
+					}
+					has_game_rule = {
+						rule = SOV_CONGRESS_OUTCOME
+						option = SOV_CONGRESS_OUTCOME_DEMOCRAT
+					}
+				}
+			}
 		}
 	}
 	
@@ -597,6 +770,10 @@ country_event = { #
 				name = SOV_kpr_neodecists
 			}
 		}
+		
+		ai_chance = {
+			base = 0
+		}
 	}
 	
 	option = { # 
@@ -604,8 +781,16 @@ country_event = { #
 		trigger = {
 			OR = {
 				has_country_flag = SOV_syndicalist_chairman_option
+				has_game_rule = {
+					rule = SOV_CONGRESS_OUTCOME
+					option = SOV_CONGRESS_OUTCOME_SYNDICALIST
+				}
 				is_debug = yes
 			}
+		}
+		country_event = {
+			id = sov_congress.12
+			hours = 6
 		}
 		hidden_effect = {
 			promote_character = SOV_alexander_shliapnikov
@@ -616,6 +801,27 @@ country_event = { #
 			}
 		}
 		set_country_flag = SOV_syndicalists_flag
+		
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = SOV_CONGRESS_OUTCOME
+						option = SOV_CONGRESS_OUTCOME_CENTRALIST
+					}
+					has_game_rule = {
+						rule = SOV_CONGRESS_OUTCOME
+						option = SOV_CONGRESS_OUTCOME_RIGHTIST
+					}
+					has_game_rule = {
+						rule = SOV_CONGRESS_OUTCOME
+						option = SOV_CONGRESS_OUTCOME_DEMOCRAT
+					}
+				}
+			}
+		}
 	}
 	
 	option = { # 
@@ -623,10 +829,39 @@ country_event = { #
 		trigger = {
 			OR = {
 				has_country_flag = SOV_democrat_chairman_option
+				has_game_rule = {
+					rule = SOV_CONGRESS_OUTCOME
+					option = SOV_CONGRESS_OUTCOME_DEMOCRAT
+				}
 				is_debug = yes
 			}
 		}
+		country_event = {
+			id = sov_congress.13
+			hours = 6
+		}
 		set_country_flag = SOV_democrats_flag
+		
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = SOV_CONGRESS_OUTCOME
+						option = SOV_CONGRESS_OUTCOME_CENTRALIST
+					}
+					has_game_rule = {
+						rule = SOV_CONGRESS_OUTCOME
+						option = SOV_CONGRESS_OUTCOME_RIGHTIST
+					}
+					has_game_rule = {
+						rule = SOV_CONGRESS_OUTCOME
+						option = SOV_CONGRESS_OUTCOME_SYNDICALIST
+					}
+				}
+			}
+		}
 	}
 }
 
