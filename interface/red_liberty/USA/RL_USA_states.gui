@@ -91,7 +91,7 @@ guiTypes = {
 		}
 		
 		containerWindowType = {
-			name = "USA_states_speaker"
+			name = "USA_states_speaker_container"
 			size = { width = 0 height = 0 }
 			position = { x = 950 y = 80 }
 			
@@ -99,8 +99,8 @@ guiTypes = {
 				name = "USA_states_gui_speaker"
 				position = { x = 0 y = 0 }
 				quadTextureSprite = ""
-				pdx_tooltip = "USA_speaker_name"
-				pdx_tooltip_delayed = "USA_speaker_desc"
+				pdx_tooltip = "USA_position_name"
+				pdx_tooltip_delayed = "USA_position_desc"
 			}
 			
 			iconType = {
@@ -112,41 +112,11 @@ guiTypes = {
 			
 			instantTextBoxType = {
 				name = "USA_states_gui_speaker_title"
-				position = { x = -23 y = 217 }
+				position = { x = -23 y = 220 }
 				format = center
 				maxHeight = 50
-				font = hoi_24header
-				text = "Mr. Speaker"
-			}
-		}
-		
-		containerWindowType = {
-			name = "USA_states_vice_president"
-			size = { width = 0 height = 0 }
-			position = { x = 950 y = 370 }
-			
-			iconType = { # vice president
-				name = "USA_states_gui_vp"
-				position = { x = 0 y = 0 }
-				quadTextureSprite = ""
-				pdx_tooltip = "USA_vice_president_name"
-				pdx_tooltip_delayed = "USA_vice_president_desc"
-			}
-			
-			iconType = {
-				name = "USA_states_gui_vp_frame"
-				spriteType = "GFX_pol_leader_frame"
-				position = { x = -8 y = -7 }		
-				alwaystransparent = yes
-			}
-			
-			instantTextBoxType = {
-				name = "USA_states_gui_vp_title"
-				position = { x = -23 y = 217 }
-				format = center
-				maxHeight = 50
-				font = hoi_24header
-				text = "Vice President"
+				font = hoi_18mbs
+				text = "[USA_GetCongressTitle]"
 			}
 		}
 		
@@ -489,7 +459,7 @@ guiTypes = {
 				iconType = {
 					name = "USA_states_gui_827_layer_1"
 					quadTextureSprite = ""
-					pdx_tooltip = "GFX_USA_states_gui_827_tt"
+					pdx_tooltip = "USA_states_gui_827_tt"
 					pdx_tooltip_delayed = "USA_states_gui_827_selected_info_tt"
 				}
 				iconType = {

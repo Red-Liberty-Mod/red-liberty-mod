@@ -17,116 +17,90 @@ defined_text = {
 }
 
 defined_text = {
-	name = Get_USA_speaker
+	name = USA_GetCongressImg
+	
+	### Senate ###
 	text = {
 		trigger = {
-			check_variable = { representatives_socialist > representatives_democrat  }
-		}
-		localization_key = "GFX_portrait_USA_james_maurer"
-	}
-	text = {
-		localization_key = ""
-	}
-}
-
-defined_text = {
-	name = Get_USA_speaker_name
-	text = {
-		trigger = {
-			check_variable = { representatives_socialist > representatives_democrat  }
-		}
-		localization_key = "USA_james_maurer"
-	}
-	text = {
-		localization_key = ""
-	}
-}
-
-defined_text = {
-	name = Get_USA_speaker_desc
-	text = {
-		trigger = {
-			check_variable = { representatives_socialist > representatives_democrat  }
-		}
-		localization_key = "POLITICS_JAMES_MAURER_DESC"
-	}
-	text = {
-		localization_key = ""
-	}
-}
-
-defined_text = {
-	name = Get_USA_vice_president
-	text = {
-		trigger = {
+			check_variable = { USA_states_map_senate_view_frame = 2 }
 			USA = {
 				has_idea = USA_jack_reed_hog
 			}
 		}
 		localization_key = "GFX_portrait_USA_john_reed"
 	}
+	
+	### House ###
 	text = {
 		trigger = {
-			USA = {
-				has_idea = USA_earl_browder_hog
-			}
+			check_variable = { USA_states_map_senate_view_frame = 1 }
+			check_variable = { representatives_socialist > representatives_democrat  }
 		}
-		localization_key = "GFX_portrait_USA_earl_russell_browder"
-	}
-	text = {
-		trigger = {
-			USA = {
-				has_idea = USA_henry_wallace_hog
-			}
-		}
-		localization_key = "GFX_portrait_USA_henry_wallace"
+		localization_key = "GFX_portrait_USA_james_maurer"
 	}
 }
 
 defined_text = {
-	name = Get_USA_vp_name
+	name = USA_GetCongressName
+	
+	### Senate ###
 	text = {
 		trigger = {
-			has_idea = USA_jack_reed_hog
+			check_variable = { USA_states_map_senate_view_frame = 2 }
+			USA = {
+				has_idea = USA_jack_reed_hog
+			}
 		}
 		localization_key = "USA_jack_reed"
 	}
+	
+	### House ###
 	text = {
 		trigger = {
-			has_idea = USA_earl_browder_hog
+			check_variable = { USA_states_map_senate_view_frame = 1 }
+			check_variable = { representatives_socialist > representatives_democrat  }
 		}
-		localization_key = "USA_earl_russell_browder"
-	}
-	text = {
-		trigger = {
-			has_idea = USA_henry_wallace_hog
-		}
-		localization_key = "USA_henry_wallace"
-	}
-	text = {
-		localization_key = ""
+		localization_key = "USA_james_maurer"
 	}
 }
 
 defined_text = {
-	name = Get_USA_vp_desc
+	name = USA_GetCongressDesc
+	
+	### Senate ###
 	text = {
 		trigger = {
-			has_idea = USA_jack_reed_hog
+			check_variable = { USA_states_map_senate_view_frame = 2 }
+			USA = {
+				has_idea = USA_jack_reed_hog
+			}
 		}
 		localization_key = "POLITICS_JACK_REED_DESC"
 	}
+	
+	### House ###
 	text = {
 		trigger = {
-			has_idea = USA_earl_browder_hog
+			check_variable = { USA_states_map_senate_view_frame = 1 }
+			check_variable = { representatives_socialist > representatives_democrat  }
 		}
-		localization_key = "POLITICS_EARL_BROWDER_DESC"
+		localization_key = "POLITICS_JAMES_MAURER_DESC"
+	}
+}
+
+defined_text = {
+	name = USA_GetCongressTitle
+	text = {
+		trigger = {
+			check_variable = { USA_states_map_senate_view_frame = 1 }
+		}
+		localization_key = "House Speaker"
 	}
 	text = {
 		trigger = {
-			has_idea = USA_henry_wallace_hog
+			check_variable = { USA_states_map_senate_view_frame = 2 }
 		}
-		localization_key = "POLITICS_HENRY_WALLACE_DESC"
+		localization_key = "Vice President"
 	}
 	text = {
 		localization_key = ""
