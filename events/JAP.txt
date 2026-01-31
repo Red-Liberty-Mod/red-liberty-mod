@@ -445,12 +445,19 @@ country_event = {
 	id = japan.14
 	title = japan.14.title
 	desc = japan.14.desc
-	
 	immediate = { log = "[GetDateText]: [Root.GetName]: event japan.14 FROM = [From.GetName]" }
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
+	
+	after = {
+		hidden_effect = {
+			add_named_threat = { 
+				threat = -1
+				name = JAP_new_democracy
+			}
+		}
+	}
 	
 	option = {
 		name = japan.14.a
@@ -541,8 +548,16 @@ country_event = {
 	desc = japan.16.desc
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
+	
+	after = {
+		hidden_effect = {
+			add_named_threat = {
+				threat = -2
+				name = JAP_status_quo
+			}
+		}
+	}
 	
 	option = {
 		name = japan.16.a
@@ -577,7 +592,6 @@ news_event = { # inukai dies world event
 	picture = GFX_report_event_inukai_ded
 	
 	is_triggered_only = yes
-	
 	major = yes
 	
 	option = {
@@ -591,7 +605,6 @@ news_event = { # status quo news event
 	desc = japan_news.2.desc
 	
 	is_triggered_only = yes
-	
 	major = yes
 	
 	option = {
@@ -605,7 +618,6 @@ news_event = { # constitutional amendment news event
 	desc = japan_news.3.desc
 	
 	is_triggered_only = yes
-	
 	major = yes
 	
 	option = {
@@ -620,7 +632,6 @@ news_event = { # konoe news event
 	picture = GFX_report_event_rising_sun
 	
 	is_triggered_only = yes
-	
 	major = yes
 	
 	option = {
