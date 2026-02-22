@@ -7,7 +7,6 @@ on_actions = {
 						state = 325
 						state = 593
 						state = 595
-						state = 596
 						state = 597
 						state = 598
 						state = 599
@@ -21,6 +20,8 @@ on_actions = {
 						state = 749
 						state = 864
 						state = 865
+						state = 1046
+						state = 1047
 					}
 				}
 				add_dynamic_modifier = { modifier = CHI_dense_rural_infrastructure }
@@ -33,7 +34,10 @@ on_actions = {
 				add_to_tech_sharing_group = china_empire_research
 			}
 			
+			# Gansu
+			283 = { set_state_flag = gansu_province_state }
 			756 = { # Jiuquan
+				set_state_flag = gansu_province_state
 				add_province_modifier = {
 					static_modifiers = { the_great_wall }
 					province = {
@@ -45,7 +49,117 @@ on_actions = {
 					}
 				}
 			}
+			949 = { set_state_flag = gansu_province_state }
+			
+			# Xinjiang
+			287 = { set_state_flag = xinjiang_province_state }
+			617 = { set_state_flag = xinjiang_province_state }
+			618 = { set_state_flag = xinjiang_province_state }
+			619 = { set_state_flag = xinjiang_province_state }
+			759 = { set_state_flag = xinjiang_province_state }
+			
+			# Zhejiang
+			596 = { set_state_flag = zhejiang_province_state }
+			1045 = { set_state_flag = zhejiang_province_state }
+			1046 = { set_state_flag = zhejiang_province_state }
+			1047 = { set_state_flag = zhejiang_province_state }
+			
+			# Shandong
+			597 = { set_state_flag = shandong_province_state }
+			
+			# Sichuan
+			598 = { set_state_flag = jiangsu_province_state }
+			613 = { set_state_flag = jiangsu_province_state }
+			922 = { set_state_flag = jiangsu_province_state }
+			
+			# Qinghai
+			604 = { set_state_flag = qinghai_province_state }
+			754 = { set_state_flag = qinghai_province_state }
+			755 = { set_state_flag = qinghai_province_state }
+			
+			# Sichuan
+			605 = { set_state_flag = sichuan_province_state }
+			751 = { set_state_flag = sichuan_province_state }
+			752 = { set_state_flag = sichuan_province_state }
+			753 = { set_state_flag = sichuan_province_state }
+			825 = { set_state_flag = sichuan_province_state }
+			864 = { set_state_flag = sichuan_province_state }
+			867 = { set_state_flag = sichuan_province_state }
+			
+			# Anhui
+			606 = { set_state_flag = anhui_province_state }
+			749 = { set_state_flag = anhui_province_state }
+			
+			# Henan
+			607 = {
+				set_state_flag = henan_province_state
+				add_province_modifier = {
+					static_modifiers = { the_great_wall }
+					province = {
+						id = 4058
+					}
+				}
+			}
+			
+			# Zhili
+			608 = {
+				set_state_flag = zhili_province_state
+				add_province_modifier = {
+					static_modifiers = { the_great_wall }
+					province = {
+						id = 1134
+						id = 9843
+					}
+				}
+			}
+			609 = { set_state_flag = zhili_province_state }
+			614 = {
+				set_state_flag = zhili_province_state
+				add_province_modifier = {
+					static_modifiers = { the_great_wall }
+					province = {
+						id = 4093
+						id = 7000
+						id = 7109
+						id = 10022
+						id = 10053
+						id = 12062
+					}
+				}
+			}
+			839 = { set_state_flag = zhili_province_state }
+			
+			# Chahar
+			611 = { set_state_flag = chahar_province_state }
+			612 = { set_state_flag = chahar_province_state }
+			
+			# Shanxi
+			615 = { # Taiyuan
+				set_state_flag = shanxi_province_state
+				add_province_modifier = {
+					static_modifiers = { the_great_wall }
+					province = {
+						id = 4469
+						id = 1203
+					}
+				}
+			}
+			824 = { # Luliang
+				set_state_flag = shanxi_province_state
+				add_province_modifier = {
+					static_modifiers = { the_great_wall }
+					province = {
+						id = 4074
+						id = 12300
+					}
+				}
+			}
+			868 = { set_state_flag = shanxi_province_state }
+			921 = { set_state_flag = shanxi_province_state }
+			
+			# Ningxia
 			616 = { # Ningxia
+				set_state_flag = ningxia_province_state
 				add_province_modifier = {
 					static_modifiers = { the_great_wall }
 					province = {
@@ -55,7 +169,20 @@ on_actions = {
 					}
 				}
 			}
+			947 = { set_state_flag = ningxia_province_state }
+			
+			# Hubei
+			620 = { set_state_flag = hubei_province_state }
+			1044 = { set_state_flag = hubei_province_state }
+			
+			# Suiyuan
+			621 = { set_state_flag = suiyuan_province_state }
+			746 = { set_state_flag = suiyuan_province_state }
+			920 = { set_state_flag = suiyuan_province_state }
+			
+			# Shaanxi
 			622 = { # Shaanxi
+				set_state_flag = shaanxi_province_state
 				add_province_modifier = {
 					static_modifiers = { the_great_wall }
 					province = {
@@ -65,24 +192,8 @@ on_actions = {
 					}
 				}
 			}
-			824 = { # Luliang
-				add_province_modifier = {
-					static_modifiers = { the_great_wall }
-					province = {
-						id = 4074
-						id = 12300
-					}
-				}
-			}
-			615 = { # Taiyuan
-				add_province_modifier = {
-					static_modifiers = { the_great_wall }
-					province = {
-						id = 4469
-						id = 1203
-					}
-				}
-			}
+			744 = { set_state_flag = shaanxi_province_state }
+			863 = { set_state_flag = shaanxi_province_state }
 		}
 	}
 }

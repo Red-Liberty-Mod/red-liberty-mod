@@ -1573,7 +1573,7 @@ shared_focus = {
     completion_reward = {
 		add_doctrine_cost_reduction = {
 			name SOV_expand_the_naval_academy
-			cost_reduction = 0.25
+			cost_reduction = 0.35
 			uses = 2
 			category = naval_doctrine
 		}
@@ -2022,7 +2022,7 @@ shared_focus = {
 	
     completion_reward = {
 		add_doctrine_cost_reduction = {
-			cost_reduction = 0.25
+			cost_reduction = 0.35
 			uses = 2
 			category = air_doctrine
 		}
@@ -2452,6 +2452,368 @@ shared_focus = {
 			specialization = specialization_nuclear
 			value = 0.5
 		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_form_the_comintern
+	icon = GFX_focus_SOV_form_the_comintern
+	
+    x = 0
+	y = 0
+	cost = 5
+	
+	offset = {
+		x = 63
+		trigger = {
+			has_focus_tree = SOV_initial_tree
+		}
+	}
+	
+	available = {
+		has_global_flag = russian_civil_war_ended
+	}
+	
+    completion_reward = {
+		create_comintern_sphere = yes
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_reawaken_the_revolution
+	icon = GFX_focus_SOV_form_the_comintern
+	
+    x = -6
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_form_the_comintern
+	prerequisite = { focus = SOV_form_the_comintern }
+    completion_reward = {
+		add_war_support = 0.05
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_form_the_comecon
+	icon = GFX_focus_SOV_the_comecon
+	
+    x = -3
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_form_the_comintern
+	prerequisite = { focus = SOV_form_the_comintern }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_prepare_the_liberation
+	icon = GFX_focus_SOV_form_the_comintern
+	
+    x = 0
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_form_the_comintern
+	prerequisite = { focus = SOV_form_the_comintern }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_the_bear_and_the_dragon
+	icon = GFX_focus_SOV_form_the_comintern
+	
+    x = 5
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_form_the_comintern
+	prerequisite = { focus = SOV_form_the_comintern }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_reclaim_murmansk
+	icon = GFX_focus_SOV_form_the_comintern
+	
+    x = -2
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_prepare_the_liberation
+	prerequisite = { focus = SOV_prepare_the_liberation }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_support_the_ukapists
+	icon = GFX_focus_SOV_form_the_comintern
+	
+    x = 0
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_prepare_the_liberation
+	prerequisite = { focus = SOV_prepare_the_liberation }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_sever_the_pipeline
+	icon = GFX_goal_generic_oil_refinery
+	
+    x = 2
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_prepare_the_liberation
+	prerequisite = { focus = SOV_prepare_the_liberation }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_support_mongolian_revolutionaries
+	icon = GFX_focus_generic_attack_mongolia
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_the_bear_and_the_dragon
+	prerequisite = { focus = SOV_the_bear_and_the_dragon }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_strengthen_siberian_logistics
+	icon = GFX_focus_generic_road_investment
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_the_bear_and_the_dragon
+	prerequisite = { focus = SOV_the_bear_and_the_dragon }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_support_anti_colonial_movements
+	icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+	
+    x = 3
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_the_bear_and_the_dragon
+	prerequisite = { focus = SOV_the_bear_and_the_dragon }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_international_solidarity_brigades
+	icon = GFX_focus_SOV_international_solidarity_brigades
+	
+    x = -1
+	y = 2
+	cost = 5
+	
+	relative_position_id = SOV_reawaken_the_revolution
+	prerequisite = { focus = SOV_reawaken_the_revolution }
+	mutually_exclusive = { focus = SOV_seek_an_accord_with_the_west }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_seek_an_accord_with_the_west
+	icon = GFX_focus_SOV_form_the_comintern
+	
+    x = 1
+	y = 2
+	cost = 5
+	
+	relative_position_id = SOV_reawaken_the_revolution
+	prerequisite = { focus = SOV_prepare_the_liberation }
+	mutually_exclusive = { focus = SOV_international_solidarity_brigades }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_align_scandinavia
+	icon = GFX_focus_SOV_align_scandinavia
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_reclaim_murmansk
+	prerequisite = { focus = SOV_reclaim_murmansk }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_support_chinese_communists
+	icon = GFX_focus_SOV_align_scandinavia
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_support_mongolian_revolutionaries
+	prerequisite = { focus = SOV_support_mongolian_revolutionaries }
+	mutually_exclusive = { focus = SOV_support_the_goumindang }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_support_the_goumindang
+	icon = GFX_focus_SOV_align_scandinavia
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_support_mongolian_revolutionaries
+	prerequisite = { focus = SOV_support_mongolian_revolutionaries }
+	mutually_exclusive = { focus = SOV_support_chinese_communists }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_operation_meteor
+	icon = GFX_focus_SOV_operation_meteor
+	
+    x = 0
+	y = 2
+	cost = 5
+	
+	relative_position_id = SOV_support_the_ukapists
+	prerequisite = {
+		focus = SOV_reclaim_murmansk
+		focus = SOV_support_the_ukapists
+		focus = SOV_sever_the_pipeline
+	}
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_eclipse_the_sun
+	icon = GFX_focus_SOV_eclipse_the_sun
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_support_chinese_communists
+	prerequisite = {
+		focus = SOV_support_chinese_communists
+		focus = SOV_support_the_goumindang
+	}
+    completion_reward = {
+		
     }
 	
 	ai_will_do = {
