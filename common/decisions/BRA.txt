@@ -8,15 +8,17 @@ BRA_balance_of_power_category = {
 		
 		cost = 15
 		days_remove = 7
-		days_re_enable = 30
+		fire_only_once = yes
 		
 		remove_effect = {
 			custom_effect_tooltip = BRA_integrate_the_green_shirts_tt
 			hidden_effect = {
-				create_unit = {
-					division = "division_template = \"Camisas Verdes\" start_experience_factor = 0.3"
-					owner = ROOT
-					count = 2
+				capital_scope = {
+					create_unit = {
+						division = "division_template = \"Camisas Verdes\" start_experience_factor = 0.3"
+						owner = ROOT
+						count = 2
+					}
 				}
 			}
 			add_power_balance_value = {

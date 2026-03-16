@@ -41,6 +41,13 @@ scripted_gui = {
 						has_state_flag = taiwan_province_state
 					}
 				}
+				
+				AND = {
+					owner = { tag = GER }
+					OR = { ### German State ###
+						has_state_flag = kingdom_of_bavaria_state
+					}
+				}
 			}
 		}
 	}
@@ -83,6 +90,21 @@ scripted_gui = {
 				has_state_flag = chahar_province_state
 				has_state_flag = xinjiang_province_state
 				has_state_flag = taiwan_province_state
+			}
+		}
+	}
+	
+	state_of_interest_german_state = {
+		context_type = selected_state_context
+		window_name = state_of_interest_german_state
+		parent_window_token = selected_state_view
+
+		ai_enabled = { always = no }
+
+		visible = {
+			owner = { tag = GER }
+			OR = { ### German State ###
+				has_state_flag = kingdom_of_bavaria_state
 			}
 		}
 	}

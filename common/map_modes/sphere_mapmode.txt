@@ -3,7 +3,7 @@ scripted_map_modes = {
 		top = {
 			type = country
 			color = {
-				set_temp_variable = { alpha = 0.7 }
+				set_temp_variable = { alpha = 0.95 }
 				if = {
 					limit = {
 						is_in_array = { global.mitteleuropa_members = FROM.id }
@@ -40,21 +40,8 @@ scripted_map_modes = {
 					set_temp_variable = { red = 0.5 }
 					set_temp_variable = { green = 0.5 }
 					set_temp_variable = { blue = 0.5 }
-					set_temp_variable = { alpha = 0.35 }
+					set_temp_variable = { alpha = 0.95 }
 				}
-				
-				#if = {
-				#	limit = { check_variable = { FROM.econ_sphere_member_status_var = 2 } }
-				#	add_to_temp_variable = { red = 0.05 }
-				#	add_to_temp_variable = { green = 0.05 }
-				#	add_to_temp_variable = { blue = 0.05 }
-				#}
-				#else_if = {
-				#	limit = { check_variable = { FROM.econ_sphere_member_status_var = 3 } }
-				#	add_to_temp_variable = { red = 0.07 }
-				#	add_to_temp_variable = { green = 0.07 }
-				#	add_to_temp_variable = { blue = 0.07 }
-				#}
 			}
 			thickness = yes
 		}

@@ -1,0 +1,47 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			497 = {
+				add_dynamic_modifier = { modifier = BRA_cangaceiro }
+			}
+			498 = {
+				add_dynamic_modifier = { modifier = BRA_cangaceiro }
+			}
+			499 = {
+				add_dynamic_modifier = { modifier = BRA_cangaceiro }
+			}
+			955 = {
+				add_dynamic_modifier = { modifier = BRA_cangaceiro }
+			}
+			956 = {
+				add_dynamic_modifier = { modifier = BRA_cangaceiro }
+			}
+			1048 = {
+				add_dynamic_modifier = { modifier = BRA_cangaceiro }
+			}
+		}
+	}
+	
+	on_annex = {
+		effect = {
+			if = {
+				limit = { # BRA Winner
+					FROM = { tag = BRA }
+					ROOT = { tag = UOB }
+				}
+			}
+			else_if = {
+				limit = { # UOB Winner
+					FROM = { tag = UOB }
+					ROOT = { tag = BRA }
+				}
+				UOB = {
+					country_event = {
+						id = red_brazil.10
+						hours = 22
+					}
+				}
+			}
+		}
+	}
+}

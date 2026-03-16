@@ -294,22 +294,38 @@ TUR_straits_council_category ={
 		
 		custom_cost_trigger = {
 			has_equipment = {
-				infantry_equipment > 499
+				infantry_equipment > 249
 			}
 		}
-		custom_cost_text = IE_500
+		custom_cost_text = IE_250
 		fire_only_once = yes
+		days_remove = 7
 		
-		complete_effect = {
+		remove_effect = {
 			SCM = {
 				add_stability = -0.05
 			}
 			hidden_effect = {
 				add_equipment_to_stockpile = {
 					type = infantry_equipment
-					amount = -500
+					amount = -250
 				}
 			}
+		}
+	}
+	
+	TUR_emphasize_the_italian_threat = {
+		icon = generic_operation
+		
+		visible = {
+			tag = TUR
+		}
+		
+		cost = 25
+		fire_only_once = yes
+		
+		complete_effect = {
+			
 		}
 	}
 	
@@ -323,9 +339,7 @@ TUR_straits_council_category ={
 		}
 		
 		activation = {
-			NOT = {
-				has_global_flag = straits_conference_over
-			}
+			TUR_straits_conference_is_over = no
 			tag = TUR
 		}
 		
@@ -351,10 +365,8 @@ TUR_straits_council_category ={
 		}
 		
 		activation = {
-			NOT = {
-				has_global_flag = straits_conference_over
-				tag = TUR
-			}
+			TUR_straits_conference_is_over = no
+			NOT = { tag = TUR }
 		}
 		
 		is_good = yes
