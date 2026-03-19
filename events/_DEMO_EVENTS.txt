@@ -33,7 +33,9 @@ add_namespace = demo_usa_jap_peace
 add_namespace = demo_jap_usa_war
 add_namespace = demo_jap_chi_war
 
+# Wars #
 add_namespace = demo_ww2
+add_namespace = demo_sa_war
 
 country_event = { # 1938 election
 	id = demo_col.1
@@ -4299,5 +4301,73 @@ news_event = {
 	
 	option = {
 		name = demo_crt.2.a
+	}
+}
+
+country_event = { # 
+	id = demo_sa_war.1
+	title = demo_sa_war.1.title
+	desc = demo_sa_war.1.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	immediate = {
+		country_event = {
+			id = demo_sa_war.2
+			hours = 6
+		}
+	}
+
+	option = { # 
+		name = demo_sa_war.1.a
+		
+		ARG = {
+			declare_war_on = {
+				target = CHL
+				type = annex_everything
+			}
+		}
+		
+		ai_chance = {
+			base = 60
+			modifier = {
+				factor = 0.5
+				BRA = { is_in_faction_with = CHL }
+			}
+		}
+	}
+	
+	option = { # 
+		name = demo_sa_war.1.a
+		
+		CHL = {
+			declare_war_on = {
+				target = ARG
+				type = annex_everything
+			}
+		}
+		
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 2
+				BRA = { is_in_faction_with = CHL }
+			}
+		}
+	}
+}
+
+news_event = { # 
+	id = demo_sa_war.2
+	title = demo_sa_war.2.title
+	desc = demo_sa_war.2.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	major = yes
+
+	option = { # 
+		name = demo_sa_war.2.a
 	}
 }

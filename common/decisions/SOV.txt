@@ -164,6 +164,29 @@ SOV_factionalism_category = {
 	}
 }
 
+SOV_openness_category = {
+	
+	SOV_invite_leaders_to_moscow = {
+		icon = ger_mefo_bills
+		
+		available = {
+			check_variable = { SOV_menshevik_integration_var > 2 }
+			check_variable = { SOV_left_sr_integration_var > 2 }
+			check_variable = { SOV_right_sr_integration_var > 2 }
+		}
+		
+		cost = 60
+		fire_only_once = yes
+		
+		complete_effect = {
+			add_to_variable = { SOV_openness_var = 5 }
+			add_to_variable = { SOV_menshevik_integration_var = 1 }
+			add_to_variable = { SOV_left_sr_integration_var = 1 }
+			add_to_variable = { SOV_right_sr_integration_var = 1 }
+		}
+	}
+}
+
 SOV_war_communism_category = {
 
 	SOV_crack_down_on_dissent = {
