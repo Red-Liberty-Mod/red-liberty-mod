@@ -1,6 +1,7 @@
 add_namespace = worldnews
 add_namespace = worldnews_war
 add_namespace = worldnews_faction
+add_namespace = worldnews_middleeast
 add_namespace = worldnews_southamerica
 add_namespace = worldnews_ww2
 
@@ -29,12 +30,7 @@ news_event = { # thomas election news event
 	option = {
 		name = worldnews.1.a
 		trigger = {
-			OR = {
-				has_government = vanguard_socialism
-				has_government = revolutionary_socialism
-				has_government = democratic_socialism
-				has_government = social_democracy
-			}
+			has_socialist_govt = yes
 			NOT = {
 				original_tag = USA
 			}
@@ -44,12 +40,7 @@ news_event = { # thomas election news event
 	option = {
 		name = worldnews.1.b
 		trigger = {
-			OR = {
-				has_government = progressive_liberalism
-				has_government = liberal_conservatism
-				has_government = national_conservatism
-				has_government = authoritarian_democracy
-			}
+			has_democratic_govt = yes
 			NOT = {
 				original_tag = USA
 			}
@@ -59,16 +50,8 @@ news_event = { # thomas election news event
 	option = {
 		name = worldnews.1.c
 		trigger = {
-			NOT = {
-				has_government = vanguard_socialism
-				has_government = revolutionary_socialism
-				has_government = democratic_socialism
-				has_government = social_democracy
-				has_government = progressive_liberalism
-				has_government = liberal_conservatism
-				has_government = national_conservatism
-				has_government = authoritarian_democracy
-			}
+			has_socialist_govt = no
+			has_democratic_govt = no
 			NOT = {
 				original_tag = USA
 			}
@@ -489,15 +472,13 @@ news_event = { # palacio nacional bombing
 }
 
 news_event = { # succesful straits conference
-	id = worldnews.14
-	title = worldnews.14.title
-	desc = worldnews.14.desc
+	id = worldnews_middleeast.1
+	title = worldnews_middleeast.1.title
+	desc = worldnews_middleeast.1.desc
 	picture = GFX_news_event_TUR_parade
 	
-	is_triggered_only = yes
-	
 	major = yes
-	
+	is_triggered_only = yes
 	trigger = {
 		wants_world_news = yes
 	}
@@ -505,32 +486,86 @@ news_event = { # succesful straits conference
 	show_major = {
 		or = {
 			regional_europe_news = yes
-			regional_north_america_news = yes
+			regional_middle_east_news = yes
 		}
 	}
 	
 	immediate = {
-		log = "event worldnews.14"
+		log = "event worldnews_middleeast.1"
 	}
 
 	option = {
-		name = worldnews.14.a
+		name = worldnews_middleeast.1.a
 		trigger = {
 			has_socialist_govt = yes
 		}
 	}
 	
 	option = {
-		name = worldnews.14.b
+		name = worldnews_middleeast.1.b
 		trigger = {
 			has_democratic_govt = yes
 		}
 	}
 	
 	option = {
-		name = worldnews.14.c
+		name = worldnews_middleeast.1.c
 		trigger = {
 			has_reactionary_govt = yes
+		}
+	}
+}
+
+news_event = { # failed straits conference
+	id = worldnews_middleeast.2
+	title = worldnews_middleeast.2.title
+	desc = worldnews_middleeast.2.desc
+	picture = GFX_news_event_TUR_parade
+	
+	major = yes
+	is_triggered_only = yes
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	show_major = {
+		or = {
+			regional_europe_news = yes
+			regional_middle_east_news = yes
+		}
+	}
+	
+	immediate = {
+		log = "event worldnews_middleeast.2"
+	}
+
+	option = {
+		name = worldnews_middleeast.2.a
+		trigger = {
+			has_socialist_govt = yes
+		}
+		effect_tooltip = {
+			add_threat = 5
+		}
+	}
+	
+	option = {
+		name = worldnews_middleeast.2.b
+		trigger = {
+			has_democratic_govt = yes
+		}
+		effect_tooltip = {
+			add_threat = 5
+		}
+	}
+	
+	option = {
+		name = worldnews_middleeast.2.c
+		trigger = {
+			has_reactionary_govt = yes
+		}
+		effect_tooltip = {
+			add_threat = 5
 		}
 	}
 }

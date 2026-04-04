@@ -1,41 +1,213 @@
 TUR_straits_council_category ={
 	
-	TUR_demands_header = {
-		icon = GFX_decision_generic_operation
+	### Phase 1 ###
+	TUR_assure_freedom_of_navigation = {
+		icon = GFX_decision_SWI_swiss_democratic_tradition_campaign
+		
+		visible = {
+			tag = TUR
+			check_variable = { TUR_conference_phase_var = 1 }
+		}
+		
+		cost = 15
+		fire_only_once = yes
+		
+		complete_effect = {
+			add_to_variable = {
+				tooltip = TUR_atmosphere_var_tt
+				TUR_atmosphere_var = 8
+			}
+			add_to_variable = {
+				tooltip = TUR_nationalist_pressure_var_tt
+				TUR_nationalist_pressure_var = 5
+			}
+			set_country_flag = TUR_assure_freedom_of_navigation_flag
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+	}
+	
+	TUR_invite_legal_observers = {
+		
+		visible = {
+			tag = TUR
+			check_variable = { TUR_conference_phase_var = 1 }
+		}
+		
+		cost = 15
+		fire_only_once = yes
+		
+		complete_effect = {
+			add_to_variable = {
+				tooltip = TUR_atmosphere_var_tt
+				TUR_atmosphere_var = 10
+			}
+			add_to_variable = {
+				tooltip = TUR_nationalist_pressure_var_tt
+				TUR_nationalist_pressure_var = -5
+			}
+		}
+		
+		ai_will_do = {
+			base = 5
+		}
+	}
+	
+	TUR_consult_the_french_foreign_ministry = {
+		
+		visible = {
+			tag = TUR
+			check_variable = { TUR_conference_phase_var = 1 }
+		}
+		
+		cost = 15
+		fire_only_once = yes
+		
+		complete_effect = {
+			add_to_variable = {
+				tooltip = TUR_atmosphere_var_tt
+				TUR_atmosphere_var = 8
+			}
+			FRA = {
+				add_opinion_modifier = {
+					target = TUR
+					modifier = small_increase
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 5
+		}
+	}
+	
+	TUR_defensive_naval_excercises = {
+		icon = GFX_decision_generic_naval
+		
+		visible = {
+			tag = TUR
+			check_variable = { TUR_conference_phase_var = 1 }
+		}
+		
+		cost = 15
+		fire_only_once = yes
+		
+		complete_effect = {
+			add_to_variable = {
+				tooltip = TUR_atmosphere_var_tt
+				TUR_atmosphere_var = -3
+			}
+			add_to_variable = {
+				tooltip = TUR_nationalist_pressure_var_tt
+				TUR_nationalist_pressure_var = 5
+			}
+			navy_experience = 10
+			set_country_flag = TUR_defensive_naval_excercises_flag
+		}
+		
+		ai_will_do = {
+			base = 8
+			modifier = {
+				factor = 2
+				has_country_flag = TUR_conference_ai_aggressive
+			}
+		}
+	}
+	
+	TUR_reaffirm_demilitarization = {
+		icon = GFX_decision_FIN_stop_motti_tactics
+		
+		visible = {
+			tag = TUR
+			check_variable = { TUR_conference_phase_var = 1 }
+		}
+		
+		cost = 15
+		fire_only_once = yes
+		
+		complete_effect = {
+			add_to_variable = {
+				tooltip = TUR_atmosphere_var_tt
+				TUR_atmosphere_var = 6
+			}
+			add_to_variable = {
+				tooltip = TUR_nationalist_pressure_var_tt
+				TUR_nationalist_pressure_var = 3
+			}
+			
+			set_country_flag = TUR_reaffirm_demilitarization_flag
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 0
+				has_country_flag = TUR_conference_ai_aggressive
+			}
+		}
+	}
+	
+	### Phase 2 ###
+	TUR_propose_limited_rearmament = {
+		icon = GFX_decision_generic_industry
+		
+		visible = {
+			tag = TUR
+			check_variable = { TUR_conference_phase_var = 2 }
+		}
 		
 		available = {
-			hidden_trigger = {
-				always = no
+			NOT = {
+				custom_override_tooltip = {
+					not_tooltip = {
+						localization_key = has_completed_decision_NOT
+						DECISION = TUR_reaffirm_demilitarization
+					}
+					has_country_flag = TUR_reaffirm_demilitarization_flag
+				}
 			}
 		}
 		
-		cost = 0
+		cost = 35
+		fire_only_once = yes
+		
+		complete_effect = {
+			add_to_variable = {
+				tooltip = TUR_atmosphere_var_tt
+				TUR_atmosphere_var = 7
+			}
+			add_to_variable = {
+				tooltip = TUR_nationalist_pressure_var_tt
+				TUR_nationalist_pressure_var = 5
+			}
+		}
 		
 		ai_will_do = {
-			base = 0
+			base = 10
+			modifier = {
+				factor = 0
+				has_country_flag = TUR_conference_ai_aggressive
+			}
 		}
 	}
 	
-	TUR_demand_remil_manisa = {
-		icon = border_war
+	TUR_submit_draft_convention_terms = {
+		icon = GFX_decision_eng_trade_unions_support
 		
 		visible = {
 			tag = TUR
-			NOT = {
-				has_country_flag = TUR_demanded_manisa
-			}
+			check_variable = { TUR_conference_phase_var = 2 }
 		}
 		
-		cost = 25
+		cost = 10
+		fire_only_once = yes
 		
 		complete_effect = {
-			set_country_flag = TUR_demanded_manisa
-			add_to_variable = { TUR_demand_val = 10 }
-			custom_effect_tooltip = TUR_if_entente_accepts
-			effect_tooltip = {
-				339 = {
-					set_demilitarized_zone = no
-				}
+			add_to_variable = {
+				tooltip = TUR_atmosphere_var_tt
+				TUR_atmosphere_var = 10
 			}
 		}
 		
@@ -44,252 +216,534 @@ TUR_straits_council_category ={
 		}
 	}
 	
-	TUR_withdraw_demand_remil_manisa = {
-		icon = ger_mefo_bills
+	TUR_push_for_multilateral_guarantees = {
+		icon = GFX_decision_eng_trade_unions_demand
 		
 		visible = {
 			tag = TUR
-			has_country_flag = TUR_demanded_manisa
-		}
-		
-		cost = 0
-		
-		complete_effect = {
-			clr_country_flag = TUR_demanded_manisa
-			add_to_variable = { TUR_demand_val = -10 }
-		}
-	}
-	
-	TUR_demand_debt_renegotiation = {
-		icon = generic_break_treaty
-		
-		visible = {
-			tag = TUR
-			NOT = {
-				has_country_flag = TUR_renegotiated_debt
-			}
+			check_variable = { TUR_conference_phase_var = 2 }
 		}
 		
 		cost = 25
+		fire_only_once = yes
 		
 		complete_effect = {
-			set_country_flag = TUR_renegotiated_debt
-			add_to_variable = { TUR_demand_val = 5 }
-			custom_effect_tooltip = TUR_if_entente_accepts
-			effect_tooltip = {
-				add_timed_idea = {
-					idea = TUR_renegotiated_debt
-					days = 360
-				}
+			add_to_variable = {
+				tooltip = TUR_atmosphere_var_tt
+				TUR_atmosphere_var = 6
+			}
+			add_to_variable = {
+				tooltip = TUR_nationalist_pressure_var_tt
+				TUR_nationalist_pressure_var = -3
 			}
 		}
 		
 		ai_will_do = {
 			base = 10
+			modifier = {
+				factor = 2
+				has_country_flag = TUR_conference_ai_conciliatory
+			}
 		}
 	}
 	
-	TUR_withdraw_demand_debt_renegotiation = {
-		icon = ger_mefo_bills
+	TUR_reinforce_the_garrisons = {
+		icon = GFX_decision_generic_fortification
 		
 		visible = {
 			tag = TUR
-			has_country_flag = TUR_renegotiated_debt
+			check_variable = { TUR_conference_phase_var = 2 }
 		}
 		
-		cost = 0
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		custom_cost_text = decision_cost_CP_25
+		fire_only_once = yes
 		
 		complete_effect = {
-			clr_country_flag = TUR_renegotiated_debt
-			add_to_variable = { TUR_demand_val = -5 }
-		}
-	}
-	
-	TUR_demand_claim_thrace = {
-		icon = ger_mefo_bills
-		
-		visible = {
-			tag = TUR
-			NOT = {
-				has_country_flag = TUR_claimed_thrace
+			hidden_effect = {
+				add_command_power = -25
 			}
-		}
-		
-		cost = 25
-		
-		complete_effect = {
-			set_country_flag = TUR_claimed_thrace
-			add_to_variable = { TUR_demand_val = 5 }
-			custom_effect_tooltip = TUR_if_entente_accepts
-			effect_tooltip = {
-				TUR = {
-					add_state_claim = 821
-				}
+			add_to_variable = {
+				tooltip = TUR_atmosphere_var_tt
+				TUR_atmosphere_var = -8
 			}
-		}
-		
-		ai_will_do = {
-			base = 10
-		}
-	}
-	
-	TUR_withdraw_demand_claim_thrace = {
-		icon = ger_mefo_bills
-		
-		visible = {
-			tag = TUR
-			has_country_flag = TUR_claimed_thrace
-		}
-		
-		cost = 0
-		
-		complete_effect = {
-			clr_country_flag = TUR_claimed_thrace
-			add_to_variable = { TUR_demand_val = -5 }
-		}
-	}
-	
-	TUR_concessions_header = {
-		icon = GFX_decision_generic_operation
-		
-		available = {
-			hidden_trigger = {
-				always = no
+			add_to_variable = {
+				tooltip = TUR_nationalist_pressure_var_tt
+				TUR_nationalist_pressure_var = 10
 			}
-		}
-		
-		cost = 0
-		
-		ai_will_do = {
-			base = 0
-		}
-	}
-	
-	TUR_offer_remil_lemnos = {
-		icon = border_war
-		
-		visible = {
-			tag = TUR
-			NOT = {
-				has_country_flag = TUR_remil_lemnos
-			}
-		}
-		
-		cost = 25
-		
-		complete_effect = {
-			set_country_flag = TUR_remil_lemnos
-			add_to_variable = { TUR_concession_val = 5 }
 		}
 		
 		ai_will_do = {
 			base = 5
 			modifier = {
 				factor = 2
-				check_variable = { TUR.TUR_demand_val > TUR.TUR_concession_val }
+				has_country_flag = TUR_conference_ai_aggressive
 			}
 		}
 	}
 	
-	TUR_offer_econ_liberalization = {
-		icon = generic_construction
+	TUR_leak_military_reports = {
 		
 		visible = {
 			tag = TUR
-			NOT = {
-				has_country_flag = TUR_econ_liberalization
-			}
-		}
-		
-		cost = 15
-		
-		complete_effect = {
-			set_country_flag = TUR_econ_liberalization
-			add_to_variable = { TUR_concession_val = 5 }
-		}
-		
-		ai_will_do = {
-			base = 10
-			modifier = {
-				factor = 2
-				check_variable = { TUR.TUR_demand_val > TUR.TUR_concession_val }
-			}
-		}
-	}
-	
-	TUR_offer_pol_democratization = {
-		icon = ger_mefo_bills
-		
-		visible = {
-			tag = TUR
-			NOT = {
-				has_country_flag = TUR_pol_democratization
-			}
-		}
-		
-		cost = 15
-		
-		complete_effect = {
-			set_country_flag = TUR_pol_democratization
-			add_to_variable = { TUR_concession_val = 5 }
-		}
-		
-		ai_will_do = {
-			base = 10
-			modifier = {
-				factor = 2
-				check_variable = { TUR.TUR_demand_val > TUR.TUR_concession_val }
-			}
-		}
-	}
-	
-	TUR_offer_free_passage = {
-		icon =  infiltrate_state
-		
-		visible = {
-			tag = TUR
-			NOT = {
-				has_country_flag = TUR_free_passage
-			}
+			check_variable = { TUR_conference_phase_var = 2 }
 		}
 		
 		cost = 25
+		fire_only_once = yes
 		
 		complete_effect = {
-			set_country_flag = TUR_free_passage
-			add_to_variable = { TUR_concession_val = 5 }
+			add_to_variable = {
+				tooltip = TUR_atmosphere_var_tt
+				TUR_atmosphere_var = -6
+			}
+			add_to_variable = {
+				tooltip = TUR_nationalist_pressure_var_tt
+				TUR_nationalist_pressure_var = 8
+			}
 		}
 		
 		ai_will_do = {
 			base = 5
 			modifier = {
 				factor = 2
-				check_variable = { TUR.TUR_demand_val > TUR.TUR_concession_val }
+				has_country_flag = TUR_conference_ai_aggressive
 			}
 		}
 	}
 	
-	TUR_special_actions_header = {
-		icon = GFX_decision_generic_operation
-		
-		available = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		
-		cost = 0
-		
-		ai_will_do = {
-			base = 0
-		}
-	}
-	
-	TUR_destabilize_the_commission = {
-		icon = generic_operation
+	TUR_encourage_press_nationalism = {
+		icon = GFX_decision_generic_speech
 		
 		visible = {
 			tag = TUR
+			check_variable = { TUR_conference_phase_var = 2 }
+		}
+		
+		cost = 25
+		fire_only_once = yes
+		
+		complete_effect = {
+			add_to_variable = {
+				tooltip = TUR_atmosphere_var_tt
+				TUR_atmosphere_var = -7
+			}
+			add_to_variable = {
+				tooltip = TUR_nationalist_pressure_var_tt
+				TUR_nationalist_pressure_var = 12
+			}
+			add_war_support = 0.05
+		}
+		
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 2
+				has_country_flag = TUR_conference_ai_aggressive
+			}
+		}
+	}
+	
+	### Phase 3 ###
+	TUR_offer_inspection_mechanisms = {
+		
+		visible = {
+			tag = TUR
+			check_variable = { TUR_conference_phase_var = 3 }
+		}
+		
+		cost = 25
+		fire_only_once = yes
+		
+		complete_effect = {
+			add_to_variable = {
+				tooltip = TUR_atmosphere_var_tt
+				TUR_atmosphere_var = 12
+			}
+			add_to_variable = {
+				tooltip = TUR_nationalist_pressure_var_tt
+				TUR_nationalist_pressure_var = 8
+			}
+		}
+		
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 2
+				has_country_flag = TUR_conference_ai_conciliatory
+			}
+		}
+	}
+	
+	TUR_authorize_war_planning = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		
+		visible = {
+			tag = TUR
+			check_variable = { TUR_conference_phase_var = 3 }
+		}
+		
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		custom_cost_text = decision_cost_CP_25
+		
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+			add_to_variable = {
+				tooltip = TUR_atmosphere_var_tt
+				TUR_atmosphere_var = -15
+			}
+			add_to_variable = {
+				tooltip = TUR_nationalist_pressure_var_tt
+				TUR_nationalist_pressure_var = 20
+			}
+			set_country_flag = TUR_authorize_war_planning_flag
+			
+			custom_effect_tooltip = TUR_dangerous_action_tt
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 10
+				has_country_flag = TUR_conference_ai_aggressive
+			}
+		}
+	}
+	
+	TUR_unity_campaign = {
+		icon = GFX_decision_generic_political_address
+		
+		visible = {
+			tag = TUR
+			check_variable = { TUR_conference_phase_var = 3 }
+		}
+		
+		cost = 25
+		fire_only_once = yes
+		
+		complete_effect = {
+			add_to_variable = {
+				tooltip = TUR_atmosphere_var_tt
+				TUR_atmosphere_var = 5
+			}
+			add_to_variable = {
+				tooltip = TUR_nationalist_pressure_var_tt
+				TUR_nationalist_pressure_var = -10
+			}
+			add_stability = 0.05
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+	}
+	
+	TUR_permit_mass_demonstrations = {
+		icon = GFX_decision_generic_political_rally
+		
+		visible = {
+			tag = TUR
+			check_variable = { TUR_conference_phase_var = 3 }
+		}
+		
+		cost = 25
+		fire_only_once = yes
+		
+		complete_effect = {
+			add_to_variable = {
+				tooltip = TUR_atmosphere_var_tt
+				TUR_atmosphere_var = -10
+			}
+			add_to_variable = {
+				tooltip = TUR_nationalist_pressure_var_tt
+				TUR_nationalist_pressure_var = 15
+			}
+		}
+		
+		ai_will_do = {
+			base = 5
+		}
+	}
+	
+	TUR_private_reassurances = {
+		icon = GFX_decision_eng_ally_imperialist_coup
+		
+		visible = {
+			tag = TUR
+			check_variable = { TUR_conference_phase_var = 3 }
+		}
+		
+		cost = 25
+		fire_only_once = yes
+		
+		complete_effect = {
+			add_to_variable = {
+				tooltip = TUR_atmosphere_var_tt
+				TUR_atmosphere_var = 10
+			}
+			add_to_variable = {
+				tooltip = TUR_nationalist_pressure_var_tt
+				TUR_nationalist_pressure_var = -5
+			}
+			ENG = {
+				add_opinion_modifier = {
+					target = TUR
+					modifier = small_increase
+				}
+			}
+			set_country_flag = TUR_private_reassurances_flag
+		}
+		
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 2
+				has_country_flag = TUR_conference_ai_conciliatory
+			}
+		}
+	}
+	
+	### Phase 4 ###
+	TUR_insist_on_immediate_sovereignty = {
+		icon = GFX_decision_eng_trade_unions_demand
+		
+		visible = {
+			tag = TUR
+			check_variable = { TUR_conference_phase_var = 4 }
+		}
+		
+		cost = 25
+		fire_only_once = yes
+		
+		available = {
+			NOT = {
+				custom_override_tooltip = {
+					not_tooltip = {
+						localization_key = has_completed_decision_NOT
+						DECISION = TUR_accept_gradual_implementation
+					}
+					has_country_flag = TUR_accept_gradual_implementation_flag
+				}
+			}
+		}
+		
+		complete_effect = {
+			add_to_variable = {
+				tooltip = TUR_atmosphere_var_tt
+				TUR_atmosphere_var = -10
+			}
+			add_to_variable = {
+				tooltip = TUR_nationalist_pressure_var_tt
+				TUR_nationalist_pressure_var = 10
+			}
+			set_country_flag = TUR_insist_on_immediate_sovereignty_flag
+		}
+		
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 2
+				has_country_flag = TUR_conference_ai_aggressive
+			}
+		}
+	}
+	
+	TUR_accept_gradual_implementation = {
+		icon = GFX_decision_eng_trade_unions_support
+		
+		visible = {
+			tag = TUR
+			check_variable = { TUR_conference_phase_var = 4 }
+		}
+		
+		available = {
+			custom_override_tooltip = {
+				tooltip = {
+					localization_key = var_less_than
+					VARIABLE = TUR_nationalist_pressure_var
+					VALUE = 55
+				}
+				check_variable = { TUR_nationalist_pressure_var < 55 }
+			}
+		}
+		
+		available = {
+			NOT = {
+				custom_override_tooltip = {
+					not_tooltip = {
+						localization_key = has_completed_decision_NOT
+						DECISION = TUR_insist_on_immediate_sovereignty
+					}
+					has_country_flag = TUR_insist_on_immediate_sovereignty_flag
+				}
+			}
+		}
+		
+		cost = 25
+		fire_only_once = yes
+		
+		complete_effect = {
+			add_to_variable = {
+				tooltip = TUR_atmosphere_var_tt
+				TUR_atmosphere_var = 10
+			}
+			add_to_variable = {
+				tooltip = TUR_nationalist_pressure_var_tt
+				TUR_nationalist_pressure_var = -5
+			}
+			set_country_flag = TUR_accept_gradual_implementation_flag
+		}
+		
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 2
+				has_country_flag = TUR_conference_ai_conciliatory
+			}
+		}
+	}
+	
+	TUR_stand_down_military_forces = {
+		icon = GFX_decision_FIN_stop_motti_tactics
+		
+		visible = {
+			tag = TUR
+			check_variable = { TUR_conference_phase_var = 4 }
+		}
+		
+		available = {
+			custom_override_tooltip = {
+				tooltip = {
+					localization_key = has_completed_decision
+					DECISION = TUR_authorize_war_planning
+				}
+				has_country_flag = TUR_authorize_war_planning_flag
+			}
+		}
+		
+		cost = 25
+		fire_only_once = yes
+		
+		complete_effect = {
+			add_to_variable = {
+				tooltip = TUR_atmosphere_var_tt
+				TUR_atmosphere_var = 15
+			}
+			add_to_variable = {
+				tooltip = TUR_nationalist_pressure_var_tt
+				TUR_nationalist_pressure_var = -10
+			}
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+	}
+	
+	TUR_maintain_high_alert_status = {
+		icon = GFX_decision_generic_operation
+		
+		visible = {
+			tag = TUR
+			check_variable = { TUR_conference_phase_var = 4 }
+		}
+		
+		available = {
+			custom_override_tooltip = {
+				tooltip = {
+					localization_key = has_completed_decision
+					DECISION = TUR_authorize_war_planning
+				}
+				has_country_flag = TUR_authorize_war_planning_flag
+			}
+		}
+		
+		cost = 25
+		fire_only_once = yes
+		
+		complete_effect = {
+			add_to_variable = {
+				tooltip = TUR_atmosphere_var_tt
+				TUR_atmosphere_var = -8
+			}
+			add_to_variable = {
+				tooltip = TUR_nationalist_pressure_var_tt
+				TUR_nationalist_pressure_var = 8
+			}
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+	}
+	
+	TUR_threaten_independent_action = {
+		icon = GFX_decision_generic_nationalism
+		
+		visible = {
+			tag = TUR
+			check_variable = { TUR_conference_phase_var = 4 }
+		}
+		
+		available = {
+			NOT = {
+				custom_override_tooltip = {
+					not_tooltip = {
+						localization_key = has_completed_decision_NOT
+						DECISION = TUR_private_reassurances
+					}
+					has_country_flag = TUR_private_reassurances_flag
+				}
+			}
+		}
+		
+		cost = 35
+		fire_only_once = yes
+		
+		complete_effect = {
+			add_to_variable = {
+				tooltip = TUR_atmosphere_var_tt
+				TUR_atmosphere_var = -20
+			}
+			add_to_variable = {
+				tooltip = TUR_nationalist_pressure_var_tt
+				TUR_nationalist_pressure_var = 20
+			}
+		}
+		
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 2
+				has_country_flag = TUR_conference_ai_aggressive
+			}
+		}
+	}
+	
+	### Conditional ###
+	TUR_arm_rebels_in_the_commission = {
+		icon = GFX_decision_generic_reorganize_irregulars
+		
+		visible = {
+			tag = TUR
+		}
+		
+		available = {
+			check_variable = { TUR_conference_phase_var > 0 }
+			custom_override_tooltip = {
+				tooltip = {
+					localization_key = var_greater_than
+					VARIABLE = TUR_nationalist_pressure_var
+					VALUE = 49
+				}
+				check_variable = { TUR_nationalist_pressure_var > 49 }
+			}
 		}
 		
 		custom_cost_trigger = {
@@ -299,235 +753,359 @@ TUR_straits_council_category ={
 		}
 		custom_cost_text = IE_250
 		fire_only_once = yes
-		days_remove = 7
 		
-		remove_effect = {
-			SCM = {
-				add_stability = -0.05
-			}
+		complete_effect = {
 			hidden_effect = {
 				add_equipment_to_stockpile = {
 					type = infantry_equipment
 					amount = -250
 				}
 			}
-		}
-	}
-	
-	TUR_emphasize_the_italian_threat = {
-		icon = generic_operation
-		
-		visible = {
-			tag = TUR
-		}
-		
-		cost = 25
-		fire_only_once = yes
-		
-		complete_effect = {
-			
-		}
-	}
-	
-	TUR_conference_opening = {
-		icon = generic_political_discourse
-		
-		available = {
-			hidden_trigger = {
-				always = no
+			add_to_variable = {
+				tooltip = TUR_atmosphere_var_tt
+				TUR_atmosphere_var = -20
 			}
-		}
-		
-		activation = {
-			TUR_straits_conference_is_over = no
-			tag = TUR
-		}
-		
-		is_good = yes
-		days_mission_timeout = 200
-		fire_only_once = yes
-		
-		timeout_effect = {
-			country_event = {
-				id = anatalia_conference.1
-				hours = 6
-			}
-		}
-	}
-	
-	TUR_conference_opening_other = {
-		icon = generic_political_discourse
-		
-		available = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		
-		activation = {
-			TUR_straits_conference_is_over = no
-			NOT = { tag = TUR }
-		}
-		
-		is_good = yes
-		days_mission_timeout = 200
-		fire_only_once = yes
-		
-		timeout_effect = {
-			
-		}
-	}
-	
-	TUR_invest_in_influence = {
-		icon = ger_mefo_bills
-		
-		visible = {
-			OR = {
-				tag = TUR
-				tag = ENG
-				tag = FRA
-				tag = GER
-			}
-			always = no
-		}
-		
-		available = {
-			
-		}
-		
-		days_remove = 14
-		days_re_enable = 14
-		
-		cost = 25
-		
-		remove_effect = {
-			if = {
-				limit = {
-					tag = TUR
-				}
-				add_to_variable = {
-					TUR.TUR_anatolian_influence = 2
-					tooltip = TUR_invest_in_influence_tt
-				}
-			}
-			else_if = {
-				limit = {
-					tag = ENG
-				}
-				add_to_variable = {
-					TUR.TUR_british_influence = 2
-					tooltip = TUR_invest_in_influence_tt
-				}
-			}
-			else_if = {
-				limit = {
-					tag = FRA
-				}
-				add_to_variable = {
-					TUR.TUR_french_influence = 2
-					tooltip = TUR_invest_in_influence_tt
-				}
-			}
-			else_if = {
-				limit = {
-					tag = GER
-				}
-				add_to_variable = {
-					TUR.TUR_german_influence = 2
-					tooltip = TUR_invest_in_influence_tt
-				}
-			}
-		}
-	}
-	
-	TUR_promote_riots = {
-		icon = ger_mefo_bills
-		
-		visible = {
-			tag = TUR
-			always = no
-		}
-		
-		available = {
-			
-		}
-		
-		days_remove = 7
-		days_re_enable = 14
-		
-		cost = 25
-		
-		complete_effect = {
-			
-		}
-		
-		remove_effect = {
 			SCM = {
-				add_stability = -0.025
+				add_stability = -0.15
+			}
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 10
+				has_country_flag = TUR_conference_ai_aggressive
+			}
+		}
+	}
+	
+	### Missions ###
+	TUR_conference_phase_1_mission = {
+		icon = generic_political_discourse
+		
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		
+		activation = {
+			TUR_straits_conference_is_over = no
+			tag = TUR
+		}
+		
+		is_good = yes
+		days_mission_timeout = 50
+		fire_only_once = yes
+		
+		timeout_effect = {
+			TUR = {
+				set_variable = { TUR_conference_phase_var = 2 }
+				activate_mission = TUR_conference_phase_2_mission
+			}
+		}
+	}
+	
+	TUR_conference_phase_2_mission = {
+		icon = generic_political_discourse
+		
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		
+		activation = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		
+		is_good = yes
+		days_mission_timeout = 50
+		fire_only_once = yes
+		
+		timeout_effect = {
+			TUR = {
+				set_variable = { TUR_conference_phase_var = 3 }
+				activate_mission = TUR_conference_phase_3_mission
+			}
+		}
+	}
+	
+	TUR_conference_phase_3_mission = {
+		icon = generic_political_discourse
+		
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		
+		activation = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		
+		is_good = yes
+		days_mission_timeout = 50
+		fire_only_once = yes
+		
+		timeout_effect = {
+			TUR = {
+				set_variable = { TUR_conference_phase_var = 4 }
+				activate_mission = TUR_conference_phase_4_mission
+			}
+		}
+	}
+	
+	TUR_conference_phase_4_mission = {
+		icon = generic_political_discourse
+		
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		
+		activation = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		
+		is_good = yes
+		days_mission_timeout = 50
+		fire_only_once = yes
+		
+		timeout_effect = {
+			TUR = {
+				set_variable = { TUR_conference_phase_var = 0 }
+				country_event = {
+					id = anatalia_conference.1
+					hours = 6
+				}
+				hidden_effect = {
+					country_event = {
+						id = anatalia_conference.3
+						hours = 12
+					}
+				}
+			}
+			ENG = {
+				country_event = {
+					id = anatalia_conference.2
+					hours = 6
+				}
+			}
+			FRA = {
+				country_event = {
+					id = anatalia_conference.2
+					hours = 7
+				}
+			}
+		}
+	}
+	
+	### ENG ###
+	
+	ENG_acknowledge_turkish_concerns = {
+		
+		visible = {
+			tag = ENG
+			#check_variable = { TUR.TUR_conference_phase_var = 1 }
+		}
+		
+		available = {
+			NOT = {
+				custom_override_tooltip = {
+					not_tooltip = {
+						localization_key = has_completed_decision_NOT
+						DECISION = ENG_reaffirm_the_status_quo
+					}
+					has_country_flag = ENG_reaffirm_the_status_quo_flag
+				}
+			}
+		}
+		
+		cost = 15
+		fire_only_once = yes
+		
+		complete_effect = {
+			add_to_variable = {
+				tooltip = TUR_atmosphere_var_tt
+				TUR.TUR_atmosphere_var = 8
+			}
+			set_country_flag = ENG_acknowledge_turkish_concerns_flag
+		}
+		
+		ai_will_do = {
+			base = 9
+			modifier = {
+				subtract = 4
+				TUR = { has_country_flag = TUR_conference_ai_aggressive }
+			}
+		}
+	}
+	
+	ENG_reaffirm_the_status_quo = {
+		
+		visible = {
+			tag = ENG
+			#check_variable = { TUR.TUR_conference_phase_var = 1 }
+		}
+		
+		available = {
+			NOT = {
+				custom_override_tooltip = {
+					not_tooltip = {
+						localization_key = has_completed_decision_NOT
+						DECISION = ENG_acknowledge_turkish_concerns
+					}
+					has_country_flag = ENG_acknowledge_turkish_concerns_flag
+				}
+			}
+		}
+		
+		cost = 25
+		fire_only_once = yes
+		
+		complete_effect = {
+			add_to_variable = {
+				tooltip = TUR_atmosphere_var_tt
+				TUR.TUR_atmosphere_var = -5
+			}
+			set_country_flag = ENG_reaffirm_the_status_quo_flag
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 4
+				TUR = { has_country_flag = TUR_conference_ai_aggressive }
+			}
+		}
+	}
+	
+	ENG_reject_remilitarization_proposals = {
+		
+		visible = {
+			tag = ENG
+		}
+		
+		available = {
+			TUR = {
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = has_completed_decision
+						DECISION = TUR_propose_limited_rearmament
+					}
+					has_country_flag = TUR_propose_limited_rearmament_flag
+				}
+			}
+		}
+		
+		cost = 25
+		fire_only_once = yes
+		
+		complete_effect = {
+			add_to_variable = {
+				tooltip = TUR_atmosphere_var_tt
+				TUR.TUR_atmosphere_var = -10
 			}
 			add_to_variable = {
-				TUR.TUR_anatolian_influence = 1
-				tooltip = TUR_invest_in_influence_tt
+				tooltip = TUR_nationalist_pressure_var_tt
+				TUR.TUR_nationalist_pressure_var = 8
+			}
+		}
+		
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 0
+				TUR = { has_country_flag = TUR_assure_freedom_of_navigation_flag }
 			}
 		}
 	}
 	
-	TUR_smuggle_guns = {
-		icon = ger_mefo_bills
+	ENG_mediterranean_fleet_excercises = {
 		
 		visible = {
-			tag = TUR
-			always = no
+			tag = ENG
 		}
 		
 		available = {
-			
+			TUR = {
+				custom_override_tooltip = {
+					tooltip = {
+						localization_key = has_completed_decision
+						DECISION = TUR_defensive_naval_excercises
+					}
+					has_country_flag = ENG_acknowledge_turkish_concerns_flag
+				}
+			}
 		}
 		
-		days_remove = 7
-		days_re_enable = 14
-		
-		cost = 25
 		custom_cost_trigger = {
 			command_power > 24
 		}
-		custom_cost_text = decision_cost_CP_25_pp_25
+		custom_cost_text = decision_cost_CP_25
+		fire_only_once = yes
 		
 		complete_effect = {
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = -100
+			hidden_effect = {
+				add_command_power = -25
 			}
+			navy_experience = 15
 		}
 		
-		remove_effect = {
-			SCM = {
-				add_stability = -0.075
-				add_war_support = 0.025
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 2
+				TUR = { has_country_flag = TUR_conference_ai_aggressive }
 			}
 		}
 	}
 	
-	TUR_operation_ebul_feth = {
-		icon = ger_mefo_bills
+	ENG_reinforce_the_sdf = {
 		
 		visible = {
-			tag = TUR
-			always = no
+			tag = ENG
 		}
 		
-		available = {
+		custom_cost_trigger = {
+			has_equipment = {
+				infantry_equipment > 249
+			}
+		}
+		custom_cost_text = IE_250
+		fire_only_once = yes
+		
+		complete_effect = {
+			hidden_effect = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = -250
+				}
+			}
 			SCM = {
-				has_stability < 0.1
+				add_stability = 0.05
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 250
+					producer = ENG
+				}
 			}
 		}
 		
-		days_remove = 7
-		
-		cost = 0
-		
-		remove_effect = {
-			
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 5
+				TUR = { has_country_flag = TUR_conference_ai_aggressive }
+			}
 		}
 	}
 }
