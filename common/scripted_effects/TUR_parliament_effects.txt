@@ -4,50 +4,42 @@ TUR_recalc_parliament = {
 	
 	### COMMUNISTS ###
 	set_variable = {
-		communist_seats = party_popularity@revolutionary_autocracy
+		communist_seats = party_popularity@vanguard_socialism
 	}
 	add_to_variable = {
-		communist_seats = party_popularity@proletarian_dictatorship
+		communist_seats = party_popularity@revolutionary_socialism
 	}
 	if = {
 		limit = {
-			communist_seats < 0.1
+			check_variable = { communist_seats < 0.1 }
 		}
-		multiply_variable = {
-			communist_seats = 0.25
-		}
+		multiply_variable = { communist_seats = 0.25 }
 	}
 	else_if = {
 		limit = {
-			communist_seats < 0.2
+			check_variable = { communist_seats < 0.2 }
 		}
-		multiply_variable = {
-			communist_seats = 0.75
-		}
+		multiply_variable = { communist_seats = 0.75 }
 	}
 	
 	### SOCIALISTS ###
 	set_variable = {
-		socialist_seats = party_popularity@libertarian_socialism
+		socialist_seats = party_popularity@democratic_socialism
 	}
 	add_to_variable = {
 		socialist_seats = party_popularity@social_democracy
 	}
 	if = {
 		limit = {
-			socialist_seats < 0.1
+			check_variable = { socialist_seats < 0.1 }
 		}
-		multiply_variable = {
-			socialist_seats = 0.7
-		}
+		multiply_variable = { socialist_seats = 0.7 }
 	}
 	else_if = {
 		limit = {
-			socialist_seats < 0.2
+			check_variable = { socialist_seats < 0.2 }
 		}
-		multiply_variable = {
-			socialist_seats = 0.9
-		}
+		multiply_variable = { socialist_seats = 0.9 }
 	}
 	
 	### LIBERALS ###
@@ -56,16 +48,14 @@ TUR_recalc_parliament = {
 	}
 	if = {
 		limit = {
-			liberal_seats < 0.1
+			check_variable = { liberal_seats < 0.1 }
 		}
-		multiply_variable = {
-			socialist_seats = 0.9
-		}
+		multiply_variable = { socialist_seats = 0.9 }
 	}
 	
 	### MODERATES ###
 	set_variable = {
-		moderate_seats = party_popularity@market_libertarianism
+		moderate_seats = party_popularity@liberal_conservatism
 	}
 	
 	### ISLAMISTS ###
@@ -76,7 +66,7 @@ TUR_recalc_parliament = {
 		conservative_seats = party_popularity@authoritarian_democracy
 	}
 	add_to_variable = {
-		conservative_seats = party_popularity@autocratic_despotism
+		conservative_seats = party_popularity@despotism
 	}
 	
 	### MINORITIES ###
@@ -226,7 +216,7 @@ TUR_recalc_coalition_seats = {
 	}
 	if = {
 		limit = {
-			has_country_flag = progressive_coalition
+			has_country_flag = progressive_liberalism_coalition
 		}
 		add_to_variable = {
 			coalition_seats = liberal_seats
@@ -234,7 +224,7 @@ TUR_recalc_coalition_seats = {
 	}
 	if = {
 		limit = {
-			has_country_flag = market_libertarian_coalition
+			has_country_flag = liberal_conservatism_coalition
 		}
 		add_to_variable = {
 			coalition_seats = moderate_seats
