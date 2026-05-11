@@ -2461,7 +2461,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_form_the_comintern
-	icon = GFX_focus_SOV_form_the_comintern
+	icon = GFX_focus_generic_join_comintern
 	
     x = 0
 	y = 0
@@ -2479,6 +2479,10 @@ shared_focus = {
 	}
 	
     completion_reward = {
+		country_event = {
+			id = sov_forpol.1
+			hours = 6
+		}
 		create_comintern_sphere = yes
     }
 	
@@ -2517,7 +2521,19 @@ shared_focus = {
 	relative_position_id = SOV_form_the_comintern
 	prerequisite = { focus = SOV_form_the_comintern }
     completion_reward = {
-		
+		add_ideas = SOV_comecon_leader
+		hidden_effect = {
+			every_other_country = {
+				limit = {
+					OR = {
+						is_subject_of = ROOT
+						is_in_faction_with = ROOT
+						is_in_same_economic_sphere_as_ROOT = yes
+					}
+				}
+				add_ideas = SOV_comecon_member
+			}
+		}
     }
 	
 	ai_will_do = {
@@ -2536,7 +2552,8 @@ shared_focus = {
 	relative_position_id = SOV_form_the_comintern
 	prerequisite = { focus = SOV_form_the_comintern }
     completion_reward = {
-		
+		add_political_power = 60
+		unlock_decision_category_tooltip = SOV_revolution_category
     }
 	
 	ai_will_do = {
@@ -2548,7 +2565,7 @@ shared_focus = {
     id = SOV_the_bear_and_the_dragon
 	icon = GFX_focus_SOV_form_the_comintern
 	
-    x = 5
+    x = 7
 	y = 1
 	cost = 5
 	
@@ -2564,7 +2581,61 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = SOV_reclaim_murmansk
+    id = SOV_support_danubian_revolutionaries
+	icon = GFX_focus_SOV_support_danubian_revolutionaries
+	
+    x = -2
+	y = 1
+	cost = 5
+	
+	available = {
+		has_global_flag = austrian_civil_war_started
+	}
+	
+	relative_position_id = SOV_reawaken_the_revolution
+	prerequisite = { focus = SOV_reawaken_the_revolution }
+    completion_reward = {
+		activate_targeted_decision = { decision = SOV_invite_alliance_target target = APR }
+		if = {
+			limit = { HUN = { has_socialist_govt = yes } }
+			activate_targeted_decision = { decision = SOV_invite_alliance_target target = HUN }
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_support_south_american_communists
+	icon = GFX_focus_ARG_unify_south_america
+	
+    x = 0
+	y = 1
+	cost = 5
+	
+	available = {
+		UOB = { exists = yes }
+	}
+	
+	relative_position_id = SOV_reawaken_the_revolution
+	prerequisite = { focus = SOV_reawaken_the_revolution }
+    completion_reward = {
+		activate_targeted_decision = { decision = SOV_invite_alliance_target target = UOB }
+		add_relation_modifier = {
+			target = UOB
+			modifier = volunteer_limit_plus_one
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_secure_the_northern_frontier
 	icon = GFX_focus_SOV_form_the_comintern
 	
     x = -2
@@ -2574,7 +2645,16 @@ shared_focus = {
 	relative_position_id = SOV_prepare_the_liberation
 	prerequisite = { focus = SOV_prepare_the_liberation }
     completion_reward = {
-		
+		FIN = {
+			country_event = {
+				id = SOV_forpol.2
+				hours = 6
+			}
+		}
+		hidden_effect = {
+			activate_targeted_decision = { decision = SOV_attack_target target = EST }
+			activate_targeted_decision = { decision = SOV_attack_target target = LAT }
+		}
     }
 	
 	ai_will_do = {
@@ -2593,7 +2673,9 @@ shared_focus = {
 	relative_position_id = SOV_prepare_the_liberation
 	prerequisite = { focus = SOV_prepare_the_liberation }
     completion_reward = {
-		
+		UKR = {
+			add_stability = -0.05
+		}
     }
 	
 	ai_will_do = {
@@ -2611,8 +2693,28 @@ shared_focus = {
 	
 	relative_position_id = SOV_prepare_the_liberation
 	prerequisite = { focus = SOV_prepare_the_liberation }
+	
+	select_effect = {
+		TUR = {
+			country_event = {
+				id = sov_forpol.8
+				days = 7
+			}
+		}
+	}
+	
     completion_reward = {
+		custom_effect_tooltip = effect_upon_focus_start_tt
+		effect_tooltip = {
+			TUR = {
+				country_event = sov_forpol.8
+			}
+		}
 		
+		custom_effect_tooltip = tooltip_white_line
+		custom_effect_tooltip = effect_upon_focus_complete_tt
+		activate_targeted_decision = { decision = SOV_attack_target target = AZR }
+		activate_targeted_decision = { decision = SOV_attack_target target = GEO }
     }
 	
 	ai_will_do = {
@@ -2631,7 +2733,13 @@ shared_focus = {
 	relative_position_id = SOV_the_bear_and_the_dragon
 	prerequisite = { focus = SOV_the_bear_and_the_dragon }
     completion_reward = {
-		
+		if = {
+			MON = { has_socialist_govt = yes }
+			activate_targeted_decision = { decision = SOV_invite_alliance_target target = MON }
+		}
+		else = {
+			activate_targeted_decision = { decision = SOV_attack_target target = MON }
+		}
     }
 	
 	ai_will_do = {
@@ -2650,7 +2758,22 @@ shared_focus = {
 	relative_position_id = SOV_the_bear_and_the_dragon
 	prerequisite = { focus = SOV_the_bear_and_the_dragon }
     completion_reward = {
-		
+		563 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		564 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
     }
 	
 	ai_will_do = {
@@ -2725,8 +2848,74 @@ shared_focus = {
 	y = 1
 	cost = 5
 	
-	relative_position_id = SOV_reclaim_murmansk
-	prerequisite = { focus = SOV_reclaim_murmansk }
+	relative_position_id = SOV_secure_the_northern_frontier
+	prerequisite = { focus = SOV_secure_the_northern_frontier }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_seize_the_straits
+	icon = GFX_focus_SOV_seize_the_straits
+	
+    x = -1
+	y = 1
+	cost = 5
+	will_lead_to_war_with = TUR
+	
+	available = {
+		has_completed_focus = SOV_operation_meteor
+		can_declare_war_on = TUR
+		NOT = { has_non_aggression_pact_with = TUR }
+		NOT = { has_guaranteed = TUR }
+	}
+	
+	relative_position_id = SOV_sever_the_pipeline
+	prerequisite = { focus = SOV_sever_the_pipeline }
+	mutually_exclusive = { focus = SOV_accord_with_the_turks }
+	
+    completion_reward = {
+		add_state_claim = 341
+		create_wargoal = {
+			type = take_state_focus
+			target = TUR
+			generator = { 341 }
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_accord_with_the_turks
+	icon = GFX_focus_generic_befriend_turkey
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	available = {
+		country_exists = TUR
+		NOT = {
+			has_war_with = TUR
+		}
+		TUR = {
+			is_subject = no
+			is_in_faction = no
+		}
+	}
+	
+	relative_position_id = SOV_sever_the_pipeline
+	prerequisite = { focus = SOV_sever_the_pipeline }
+	mutually_exclusive = { focus = SOV_seize_the_straits }
+	
     completion_reward = {
 		
     }
@@ -2777,19 +2966,171 @@ shared_focus = {
 }
 
 shared_focus = {
+    id = SOV_support_african_revolutionaries
+	icon = GFX_focus_SOV_support_african_revolutionaries
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_international_solidarity_brigades
+	prerequisite = { focus = SOV_international_solidarity_brigades }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
     id = SOV_operation_meteor
 	icon = GFX_focus_SOV_operation_meteor
 	
     x = 0
 	y = 2
 	cost = 5
+	cancelable = no
+	
+	bypass = {
+		NOT = { can_declare_war_on = GER }
+	}
+	
+	available = {
+		second_great_war_can_start = yes
+	}
+	
+	will_lead_to_war_with = GER
+	will_lead_to_war_with = BLR
+	will_lead_to_war_with = UKR
+	will_lead_to_war_with = BAL
 	
 	relative_position_id = SOV_support_the_ukapists
 	prerequisite = {
-		focus = SOV_reclaim_murmansk
+		focus = SOV_secure_the_northern_frontier
 		focus = SOV_support_the_ukapists
 		focus = SOV_sever_the_pipeline
 	}
+	
+	select_effect = {
+		
+	}
+	
+    completion_reward = {
+		custom_effect_tooltip = effect_upon_focus_start_tt
+		unlock_decision_tooltip = SOV_strategic_objective_kiev
+		unlock_decision_tooltip = SOV_strategic_objective_minsk
+		unlock_decision_tooltip = SOV_strategic_objective_riga
+		
+		custom_effect_tooltip = tooltip_white_line
+		custom_effect_tooltip = effect_upon_focus_complete_tt
+		if = {
+			limit = { can_declare_war_on = GER }
+			declare_war_on = {
+				target = GER
+				type = annex_everything
+			}
+		}
+		if = {
+			limit = {
+				can_declare_war_on = BLR
+			}
+			declare_war_on = {
+				target = BLR
+				type = annex_everything
+			}
+		}
+		if = {
+			limit = {
+				can_declare_war_on = UKR
+			}
+			declare_war_on = {
+				target = UKR
+				type = annex_everything
+			}
+		}
+		if = {
+			limit = {
+				can_declare_war_on = BAL
+			}
+			declare_war_on = {
+				target = BAL
+				type = annex_everything
+			}
+		}
+		
+		SOV_activate_operation_meteor = yes
+		hidden_effect = {
+			news_event = {
+				id = worldnews_ww2.2
+				hours = 6
+			}
+			add_named_threat = {
+				threat = 15
+				name = SOV_strike_down_the_eagle
+			}
+		}
+    }
+	
+	ai_will_do = {
+		base = 100
+		modifier = {
+			factor = 0
+			fighting_army_strength_ratio = {
+				tag = GER
+				ratio < 1
+			}
+		}
+		modifier = {
+			factor = 0.5
+			fighting_army_strength_ratio = {
+				tag = GER
+				ratio < 1.15
+			}
+		}
+	}
+}
+
+shared_focus = {
+    id = SOV_a_new_superpower
+	icon = GFX_focus_SOV_a_new_superpower
+	
+    x = 0
+	y = 1
+	cost = 5
+	
+	available = {
+		
+	}
+	
+	relative_position_id = SOV_operation_meteor
+	prerequisite = { focus = SOV_operation_meteor }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_arise_for_sacred_war
+	icon = GFX_focus_SOV_arise_for_sacred_war
+	
+    x = 2
+	y = 1
+	cost = 5
+	
+	available = {
+		
+	}
+	
+	relative_position_id = SOV_operation_meteor
+	prerequisite = { focus = SOV_operation_meteor }
+	
     completion_reward = {
 		
     }
@@ -2801,19 +3142,35 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_eclipse_the_sun
-	icon = GFX_focus_SOV_eclipse_the_sun
+	icon = GFX_focus_attack_japan
 	
     x = 1
-	y = 1
+	y = 2
 	cost = 5
+	will_lead_to_war_with = JAP
+	
+	available = {
+		NOT = {
+			has_war_with = GER
+		}
+	}
 	
 	relative_position_id = SOV_support_chinese_communists
+	prerequisite = { focus = SOV_operation_meteor }
 	prerequisite = {
 		focus = SOV_support_chinese_communists
 		focus = SOV_support_the_goumindang
 	}
+	
     completion_reward = {
-		
+		add_state_claim = 537 #South Sakhalin
+		add_state_claim = 555 #Kuril Islands
+		add_state_claim = 655 #North Sakhalin
+		create_wargoal = {
+			type = take_state_focus
+			target = JAP
+			generator = { 537 555 655 }
+		}
     }
 	
 	ai_will_do = {

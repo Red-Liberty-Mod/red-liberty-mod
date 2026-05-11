@@ -295,7 +295,7 @@ ECON_generate_state_poverty_from_national = {
 		}
 		else_if = {
 			limit = {
-				state_category = wasteland
+				has_state_category = wasteland
 			}
 			multiply_temp_variable = { state_poverty_rate_temp = 2 }
 		}
@@ -344,10 +344,10 @@ ECON_generate_state_poverty_from_national = {
 		set_variable = { state_poverty_rate = final_poverty }
 		
         # Clean up (optional)
-        #clr_variable = raw_poverty
+        #clear_variable = raw_poverty
     }
 	
-	#clr_variable = poverty_scale_factor
+	#clear_variable = poverty_scale_factor
 	
 	# --- Pass 3: Clamp + Correct ---
 	set_temp_variable = { clamped_total = 0 }
@@ -396,7 +396,7 @@ ECON_generate_state_poverty_from_national = {
 			clr_state_flag = capped
 		}
 	}
-	clr_variable = remainder
+	clear_variable = remainder
 }
 
 ECON_log_poverty_avg = {

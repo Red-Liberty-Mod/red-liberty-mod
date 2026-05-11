@@ -167,6 +167,14 @@ add_THIS_to_comintern_sphere = {
 	set_variable = { econ_sphere_member_status_var = 2 }
 	log = "[GetDateText]: [THIS.GetName]: effect add_THIS_to_comintern_sphere"
 	
+	if = {
+		limit = {
+			SOV = { has_completed_focus = SOV_form_the_comintern }
+		}
+		THIS = {
+			add_ideas = SOV_comecon_member
+		}
+	}
 	for_each_scope_loop = {
 		array = global.comintern_members
 		if = {
@@ -186,6 +194,14 @@ remove_THIS_from_comintern_sphere = {
 	remove_from_array = { global.comintern_members = THIS }
 	clear_variable = econ_sphere_member_status_var
 	
+	if = {
+		limit = {
+			THIS = { has_idea = SOV_comecon_member }
+		}
+		THIS = {
+			remove_ideas = SOV_comecon_member
+		}
+	}
 	for_each_scope_loop = {
 		array = global.comintern_members
 		if = {

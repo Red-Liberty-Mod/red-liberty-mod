@@ -6,6 +6,7 @@ add_namespace = sov_syndicalist
 add_namespace = sov_democrat
 add_namespace = sov_military
 add_namespace = sov_technocrat
+add_namespace = sov_forpol
 
 country_event = { # the secretarys woes
 	id = soviet_union.1
@@ -1687,5 +1688,300 @@ country_event = { # The Technocratic Memorandum
 	
 	option = {
 		name = sov_technocrat.3.b
+	}
+}
+
+### FORPOL ###
+country_event = { # formation of the comintern
+	id = sov_forpol.1
+	title = sov_forpol.1.title
+	desc = sov_forpol.1.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = sov_forpol.1.a
+	}
+}
+
+country_event = { # demand for murmansk
+	id = sov_forpol.2
+	title = sov_forpol.2.title
+	desc = sov_forpol.2.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = sov_forpol.2.a
+		SOV = {
+			country_event = {
+				id = sov_forpol.3
+				hours = 6
+			}
+		}
+		diplomatic_relation = {
+			country = NRR
+			relation = guarantee
+			active = no
+		}
+		diplomatic_relation = {
+			country = NRR
+			relation = military_access
+			active = no
+		}
+		
+		ai_chance = {
+			base = 7
+		}
+	}
+	
+	option = {
+		name = sov_forpol.2.b
+		SOV = {
+			country_event = {
+				id = sov_forpol.4
+				hours = 6
+			}
+		}
+		
+		ai_chance = {
+			base = 3
+		}
+	}
+}
+
+country_event = { # finland accepts
+	id = sov_forpol.3
+	title = sov_forpol.3.title
+	desc = sov_forpol.3.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # go further, demand all of our territory back
+		name = sov_forpol.3.a
+		FIN = {
+			country_event = {
+				id = sov_forpol.5
+				hours = 6
+			}
+		}
+		
+		ai_chance = {
+			base = 3
+		}
+	}
+	
+	option = { # we'll leave it here for now
+		name = sov_forpol.3.b
+		activate_targeted_decision = { decision = SOV_attack_target target = NRR }
+		
+		ai_chance = {
+			base = 7
+		}
+	}
+}
+
+country_event = { # finland refuses
+	id = sov_forpol.4
+	title = sov_forpol.4.title
+	desc = sov_forpol.4.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = sov_forpol.4.a
+		activate_targeted_decision = { decision = SOV_attack_target target = NRR }
+	}
+}
+
+country_event = { # further demands
+	id = sov_forpol.5
+	title = sov_forpol.5.title
+	desc = sov_forpol.5.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # whatever it takes to avoid war
+		name = sov_forpol.5.a
+		SOV = {
+			country_event = {
+				id = sov_forpol.6
+				hours = 6
+			}
+		}
+		
+		ai_chance = {
+			base = 4
+			modifier = {
+				factor = 0
+				OR = {
+					is_in_faction = yes
+					is_guaranteed_by = GER
+				}
+			}
+		}
+	}
+	
+	option = { # hell no
+		name = sov_forpol.5.b
+		SOV = {
+			country_event = {
+				id = sov_forpol.7
+				hours = 6
+			}
+		}
+		
+		ai_chance = {
+			base = 6
+		}
+	}
+}
+
+country_event = { # finland accepts
+	id = sov_forpol.6
+	title = sov_forpol.6.title
+	desc = sov_forpol.6.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # hell no
+		name = sov_forpol.6.a
+		activate_targeted_decision = { decision = SOV_attack_target target = NRR }
+		transfer_state = 216
+		NRR = { transfer_state = 1041 }
+	}
+}
+
+country_event = { # refuses
+	id = sov_forpol.7
+	title = sov_forpol.7.title
+	desc = sov_forpol.7.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # 
+		name = sov_forpol.7.a
+		activate_targeted_decision = { decision = SOV_attack_target target = NRR }
+	}
+}
+
+country_event = { # for TUR - soviets make moves in the caucasus
+	id = sov_forpol.8
+	title = sov_forpol.8.title
+	desc = sov_forpol.8.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # defend both GEO and AZR
+		name = sov_forpol.8.a
+		give_guarantee = GEO
+		give_guarantee = AZR
+		
+		SOV = {
+			country_event = {
+				id = sov_forpol.9
+				hours = 6
+			}
+		}
+	}
+	
+	option = { # defend AZR
+		name = sov_forpol.8.b
+		give_guarantee = AZR
+		
+		SOV = {
+			country_event = {
+				id = sov_forpol.9
+				hours = 6
+			}
+		}
+	}
+	
+	option = { # dont care
+		name = sov_forpol.8.c
+	}
+}
+
+country_event = { # turkey blocks us
+	id = sov_forpol.9
+	title = sov_forpol.9.title
+	desc = sov_forpol.9.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # 
+		name = sov_forpol.9.a
+	}
+}
+
+country_event = { # generic invite to alliance
+	id = sov_forpol.10
+	title = sov_forpol.10.title
+	desc = sov_forpol.10.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # yes
+		name = sov_forpol.10.a
+		SOV = {
+			country_event = sov_forpol.11
+		}
+		
+		ai_chance = {
+			base = 9
+		}
+	}
+	
+	option = { # no
+		name = sov_forpol.10.b
+		SOV = {
+			country_event = sov_forpol.12
+		}
+		
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				ROOT = {
+					has_socialist_govt = yes
+				}
+			}
+		}
+	}
+}
+
+country_event = { # country accepts
+	id = sov_forpol.11
+	title = sov_forpol.11.title
+	desc = sov_forpol.11.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # yes
+		name = sov_forpol.11.a
+	}
+}
+
+country_event = { # country refuses
+	id = sov_forpol.12
+	title = sov_forpol.12.title
+	desc = sov_forpol.12.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # yes
+		name = sov_forpol.12.a
 	}
 }

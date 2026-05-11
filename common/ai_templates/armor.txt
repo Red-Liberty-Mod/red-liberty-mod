@@ -54,10 +54,6 @@ armor_light_generic = {
 				factor = 0
 				NOT = { has_tech = mechanised_infantry }
 			}
-			modifier = {
-				factor = 0.25
-				num_of_military_factories > 49
-			}
 		}
 
 		target_template = {
@@ -173,6 +169,80 @@ armor_medium_generic = {
 		target_template = {
 			regiments = {
 				modern_armor = 6
+				mechanized = 6
+			}
+
+			support = {
+				mot_recon = 1
+				artillery = 1
+				anti_air = 1
+				logistics_company = 1
+				maintenance_company = 1
+			}
+		}
+	}
+}
+
+armor_heavy_generic = {
+	
+	upgrade_prio = {
+		factor = 10
+		modifier = {
+			factor = 0
+			NOT = { has_tech = motorised_infantry }
+		}
+		modifier = {
+			factor = 0
+			NOT = { has_tech = basic_heavy_tank }
+			NOT = { has_tech = basic_heavy_tank_chassis }
+		}
+		modifier = {
+			factor = 20
+			NOT = { ai_has_role_template = armor }
+		}
+	}
+	
+	motorized_heavy_armor_template = {
+		reinforce_prio = 2
+
+		upgrade_prio = {
+			base = 1
+		}
+
+		target_template = {
+			regiments = {
+				heavy_armor = 6
+				motorized = 6
+			}
+
+			support = {
+				mot_recon = 1
+				artillery = 1
+				anti_air = 1
+				logistics_company = 1
+				maintenance_company = 1
+			}
+		}
+	}
+
+	mechanized_heavy_armor_template = {
+		reinforce_prio = 2
+
+		upgrade_prio = {
+			base = 1
+			modifier = {
+				factor = 0
+				NOT = { has_tech = mechanised_infantry }
+			}
+			modifier = {
+				factor = 2
+				num_of_military_factories > 99
+			}
+		}
+
+		target_template = {
+			regiments = {
+				heavy_armor = 6
 				mechanized = 6
 			}
 

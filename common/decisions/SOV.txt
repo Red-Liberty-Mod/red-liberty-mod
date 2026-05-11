@@ -587,12 +587,15 @@ SOV_industrialization_category = {
 
 SOV_revolution_category = {
 	
-	SOV_form_cominform = {
-		icon = ger_mefo_bills
+	SOV_proclamation_of_the_soviet_union = {
+		icon = GFX_decision_SOV_secure_the_administration
 		
 		available = {
-			RUS = {
-				exists = no
+			UKR = {
+				OR = {
+					is_subject_of = SOV
+					exists = no
+				}
 			}
 		}
 		
@@ -600,10 +603,172 @@ SOV_revolution_category = {
 		fire_only_once = yes
 		
 		complete_effect = {
-			create_faction = "Communist International"
-			add_named_threat = {
-				threat = 3
-				name = SOV_form_cominform
+			add_stability = 0.1
+			add_war_support = 0.1
+			set_cosmetic_tag = SOV_soviet_union
+		}
+		
+		ai_will_do = {
+			base = 1000
+		}
+	}
+	
+	#SOV_form_cominform = {
+	#	icon = ger_mefo_bills
+	#	
+	#	available = {
+	#		RUS = {
+	#			exists = no
+	#		}
+	#	}
+	#	
+	#	cost = 0
+	#	fire_only_once = yes
+	#	
+	#	complete_effect = {
+	#		create_faction = "Communist International"
+	#		add_named_threat = {
+	#			threat = 3
+	#			name = SOV_form_cominform
+	#		}
+	#	}
+	#	
+	#	ai_will_do = {
+	#		base = 10
+	#	}
+	#}
+	
+	#SOV_strike_down_the_eagle = {
+	#	icon = ger_mefo_bills
+	#	
+	#	available = {
+	#		has_war = no
+	#		is_subject = no
+	#		if = {
+	#			limit = {
+	#				FRA = {
+	#					has_war_with = GER
+	#				}
+	#			}
+	#			fighting_army_strength_ratio = {
+	#				tag = GER
+	#				ratio > 1.25
+	#			}
+	#		}
+	#		else = {
+	#			fighting_army_strength_ratio = {
+	#				tag = GER
+	#				ratio > 1.5
+	#			}
+	#		}
+	#	}
+	#	
+	#	cost = 15
+	#	fire_only_once = yes
+	#	days_remove = 30
+	#	
+	#	war_with_on_remove = GER
+	#	
+	#	remove_effect = {
+	#		every_country = {
+	#			limit = {
+	#				OR = {
+	#					tag = GER
+	#					is_in_faction_with = GER
+	#					tag = BLR
+	#				}
+	#			}
+	#			SOV = {
+	#				declare_war_on = {
+	#					target = PREV
+	#					type = annex_everything
+	#				}
+	#			}
+	#		}
+	#		hidden_effect = {
+	#			news_event = {
+	#				id = worldnews_ww2.2
+	#				hours = 6
+	#			}
+	#			add_named_threat = {
+	#				threat = 15
+	#				name = SOV_strike_down_the_eagle
+	#			}
+	#		}
+	#	}
+	#	
+	#	ai_will_do = {
+	#		base = 10
+	#		modifier = {
+	#			factor = 2
+	#			date > 1941.1.1
+	#		}
+	#	}
+	#}
+	
+	SOV_attack_target = {
+		name = SOV_attack_target
+		icon = hol_draw_up_staff_plans
+		
+		allowed = { always = no }
+
+		available = {
+			threat > 0.5
+			OR = {
+				is_neighbor_of = FROM
+				FROM = { any_home_area_neighbor_country = { is_ally_with = ROOT } }
+			}
+			if = {
+				limit = {
+					FROM = {
+						OR = {
+							tag = TUR
+							is_in_faction = yes
+							is_guaranteed_by = GER
+						}
+					}
+				}
+				has_completed_focus = SOV_operation_meteor
+			}
+			NOT = { has_non_aggression_pact_with = FROM }
+			if = {
+				limit = { FROM = { tag = AZR } }
+				NOT = { has_non_aggression_pact_with = TUR }
+			}
+			NOT = { has_guaranteed = FROM }
+		}
+
+		visible = {
+			can_declare_war_on = FROM
+			FROM = { has_socialist_govt = no }
+		}
+
+		target_trigger = {
+			can_declare_war_on = FROM
+			FROM = { has_socialist_govt = no }
+		}
+		
+		cost = 20
+		days_remove = 30
+		fire_only_once = yes
+		cancel_if_not_visible = yes
+		war_with_target_on_remove = yes
+		fixed_random_seed = no
+
+		cancel_effect = {
+			log = "[GetLogRoot][GetLogFrom]: Decision cancel SOV_attack_target"
+			hidden_effect = { add_political_power = 10 }
+		}
+
+		complete_effect = {
+			log = "[GetLogRoot][GetLogFrom]: Decision complete SOV_attack_target"
+		}
+
+		remove_effect = {
+			log = "[GetLogRoot][GetLogFrom]: Decision remove SOV_attack_target"
+			declare_war_on = {
+				target = FROM
+				type = annex_everything
 			}
 		}
 		
@@ -612,73 +777,301 @@ SOV_revolution_category = {
 		}
 	}
 	
-	SOV_strike_down_the_eagle = {
-		icon = ger_mefo_bills
+	SOV_invite_alliance_target = {
+		icon = GFX_decision_generic_agreement
+		
+		allowed = { always = no } #activated by effect
+
+		available = {
+			FROM = { at_peace_or_same_major_enemies_as_ROOT = yes }
+		}
+
+		visible = {
+			is_faction_leader = yes
+			FROM = {
+				exists = yes
+				is_valid_peace_target = yes
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		
+		cost = 10
+		fire_only_once = yes
+		fixed_random_seed = no
+		
+		complete_effect = {
+			log = "[GetLogRoot][GetLogFrom]: Decision complete SOV_invite_alliance_target"
+			FROM = { country_event = { id = sov_forpol.10 hours = 6 } }
+		}
+		
+		ai_will_do = {
+			factor = 1000
+			modifier = {
+				factor = 0
+				FROM = { any_owned_state = { is_claim_or_core_of_ROOT = yes } }
+			}
+			modifier = {
+				factor = 0
+				surrender_progress > 0.05
+			}
+		}
+	}
+	
+	SOV_strategic_objective_kiev = {
+		icon = GFX_decision_infiltrate_state
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 202
+			}
+		}
 		
 		available = {
-			has_war = no
-			is_subject = no
-			if = {
-				limit = {
-					FRA = {
-						has_war_with = GER
-					}
-				}
-				fighting_army_strength_ratio = {
-					tag = GER
-					ratio > 1.25
-				}
-			}
-			else = {
-				fighting_army_strength_ratio = {
-					tag = GER
-					ratio > 1.5
+			has_completed_focus = SOV_operation_meteor
+		}
+		
+		visible = {
+			NOT = {
+				OR = {
+					has_country_flag = SOV_strategic_objective_minsk_flag
+					has_country_flag = SOV_strategic_objective_riga_flag
 				}
 			}
 		}
 		
-		cost = 15
+		cost = 10
 		fire_only_once = yes
-		days_remove = 30
 		
-		war_with_on_remove = GER
-		
-		remove_effect = {
-			every_country = {
-				limit = {
-					OR = {
-						tag = GER
-						is_in_faction_with = GER
-						tag = BLR
-					}
-				}
-				SOV = {
-					declare_war_on = {
-						target = PREV
-						type = annex_everything
-					}
-				}
-			}
-			hidden_effect = {
-				news_event = {
-					id = worldnews_ww2.2
-					hours = 6
-				}
-				add_named_threat = {
-					threat = 15
-					name = SOV_strike_down_the_eagle
-				}
-			}
+		complete_effect = {
+			set_country_flag = SOV_strategic_objective_kiev_flag
 		}
 		
 		ai_will_do = {
 			base = 10
-			modifier = {
-				factor = 2
-				date > 1941.1.1
-			}
 		}
 	}
+	
+	SOV_take_kiev = {
+		icon = hol_draw_up_staff_plans
+		
+		allowed = { always = no } # activated by event
+		available = {
+			202 = { is_controlled_by_ROOT_or_ally = yes }
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 202
+			}
+		}
+		
+		selectable_mission = no
+		is_good = no
+		days_mission_timeout = 120
+		
+		complete_effect = {
+			set_country_flag = SOV_taken_kiev_flag
+		}
+		
+		timeout_effect = {
+			add_war_support = -0.04
+			SOV_weaken_operation_meteor = yes
+		}
+	}
+	
+	SOV_strategic_objective_minsk = {
+		icon = GFX_decision_infiltrate_state
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 206
+			}
+		}
+		
+		available = {
+			has_completed_focus = SOV_operation_meteor
+		}
+		
+		visible = {
+			NOT = {
+				OR = {
+					has_country_flag = SOV_strategic_objective_kiev_flag
+					has_country_flag = SOV_strategic_objective_riga_flag
+				}
+			}
+		}
+		
+		cost = 10
+		fire_only_once = yes
+		
+		complete_effect = {
+			set_country_flag = SOV_strategic_objective_minsk_flag
+		}
+		
+		ai_will_do = {
+			base = 6
+		}
+	}
+	
+	SOV_take_minsk = {
+		icon = hol_draw_up_staff_plans
+		
+		allowed = { always = no } # activated by event
+		available = {
+			206 = { is_controlled_by_ROOT_or_ally = yes }
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 206
+			}
+		}
+		
+		selectable_mission = no
+		is_good = no
+		days_mission_timeout = 90
+		
+		complete_effect = {
+			set_country_flag = SOV_taken_minsk_flag
+		}
+		
+		timeout_effect = {
+			add_war_support = -0.04
+			SOV_weaken_operation_meteor = yes
+		}
+	}
+	
+	SOV_strategic_objective_riga = {
+		icon = GFX_decision_infiltrate_state
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 888
+			}
+		}
+		
+		available = {
+			has_completed_focus = SOV_operation_meteor
+		}
+		
+		visible = {
+			NOT = {
+				OR = {
+					has_country_flag = SOV_strategic_objective_kiev_flag
+					has_country_flag = SOV_strategic_objective_minsk_flag
+				}
+			}
+		}
+		
+		cost = 10
+		fire_only_once = yes
+		
+		complete_effect = {
+			set_country_flag = SOV_strategic_objective_riga_flag
+		}
+		
+		ai_will_do = {
+			base = 3
+		}
+	}
+	
+	SOV_take_riga = {
+		icon = hol_draw_up_staff_plans
+		
+		allowed = { always = no } # activated by event
+		available = {
+			888 = { is_controlled_by_ROOT_or_ally = yes }
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 888
+			}
+		}
+		
+		selectable_mission = no
+		is_good = no
+		days_mission_timeout = 60
+		
+		complete_effect = {
+			set_country_flag = SOV_taken_riga_flag
+		}
+		
+		timeout_effect = {
+			add_war_support = -0.04
+			SOV_weaken_operation_meteor = yes
+		}
+	}
+	
+	#SOV_launch_operation_meteor = {
+	#	icon = GFX_decision_generic_ignite_civil_war
+	#	
+	#	available = {
+	#		has_completed_focus = SOV_operation_meteor
+	#		has_war = no
+	#		is_subject = no
+	#		if = {
+	#			limit = {
+	#				FRA = {
+	#					has_war_with = GER
+	#				}
+	#			}
+	#			fighting_army_strength_ratio = {
+	#				tag = GER
+	#				ratio > 1.25
+	#			}
+	#		}
+	#		else = {
+	#			fighting_army_strength_ratio = {
+	#				tag = GER
+	#				ratio > 1.5
+	#			}
+	#		}
+	#	}
+	#	
+	#	cost = 15
+	#	fire_only_once = yes
+	#	days_remove = 30
+	#	
+	#	war_with_on_remove = GER
+	#	
+	#	remove_effect = {
+	#		every_country = {
+	#			limit = {
+	#				OR = {
+	#					tag = GER
+	#					is_in_faction_with = GER
+	#					tag = BLR
+	#				}
+	#			}
+	#			SOV = {
+	#				declare_war_on = {
+	#					target = PREV
+	#					type = annex_everything
+	#				}
+	#			}
+	#		}
+	#		SOV_activate_operation_meteor = yes
+	#		hidden_effect = {
+	#			news_event = {
+	#				id = worldnews_ww2.2
+	#				hours = 6
+	#			}
+	#			add_named_threat = {
+	#				threat = 15
+	#				name = SOV_strike_down_the_eagle
+	#			}
+	#		}
+	#	}
+	#	
+	#	ai_will_do = {
+	#		base = 10
+	#		modifier = {
+	#			factor = 2
+	#			date > 1941.1.1
+	#		}
+	#	}
+	#}
 }
 
 SOV_stavka_category = {
@@ -830,249 +1223,6 @@ SOV_stavka_category = {
 		
 		ai_will_do = {
 			base = 10
-		}
-	}
-	
-	SOV_strategic_objective_kiev = {
-		icon = GFX_decision_infiltrate_state
-		
-		highlight_states = {
-			highlight_state_targets = {
-				state = 202
-			}
-		}
-		
-		visible = {
-			NOT = {
-				OR = {
-					has_country_flag = SOV_strategic_objective_minsk_flag
-					has_country_flag = SOV_strategic_objective_riga_flag
-				}
-			}
-		}
-		
-		cost = 10
-		fire_only_once = yes
-		
-		complete_effect = {
-			set_country_flag = SOV_strategic_objective_kiev_flag
-		}
-		
-		ai_will_do = {
-			base = 10
-		}
-	}
-	
-	SOV_take_kiev = {
-		icon = hol_draw_up_staff_plans
-		
-		allowed = { always = no } # activated by event
-		available = {
-			202 = { is_controlled_by_ROOT_or_ally = yes }
-		}
-		
-		highlight_states = {
-			highlight_state_targets = {
-				state = 202
-			}
-		}
-		
-		selectable_mission = no
-		is_good = no
-		days_mission_timeout = 120
-		
-		complete_effect = {
-			set_country_flag = SOV_taken_kiev_flag
-		}
-		
-		timeout_effect = {
-			add_war_support = -0.04
-			SOV_weaken_operation_meteor = yes
-		}
-	}
-	
-	SOV_strategic_objective_minsk = {
-		icon = GFX_decision_infiltrate_state
-		
-		highlight_states = {
-			highlight_state_targets = {
-				state = 206
-			}
-		}
-		
-		visible = {
-			NOT = {
-				OR = {
-					has_country_flag = SOV_strategic_objective_kiev_flag
-					has_country_flag = SOV_strategic_objective_riga_flag
-				}
-			}
-		}
-		
-		cost = 10
-		fire_only_once = yes
-		
-		complete_effect = {
-			set_country_flag = SOV_strategic_objective_minsk_flag
-		}
-		
-		ai_will_do = {
-			base = 6
-		}
-	}
-	
-	SOV_take_minsk = {
-		icon = hol_draw_up_staff_plans
-		
-		allowed = { always = no } # activated by event
-		available = {
-			206 = { is_controlled_by_ROOT_or_ally = yes }
-		}
-		
-		highlight_states = {
-			highlight_state_targets = {
-				state = 206
-			}
-		}
-		
-		selectable_mission = no
-		is_good = no
-		days_mission_timeout = 90
-		
-		complete_effect = {
-			set_country_flag = SOV_taken_minsk_flag
-		}
-		
-		timeout_effect = {
-			add_war_support = -0.04
-			SOV_weaken_operation_meteor = yes
-		}
-	}
-	
-	SOV_strategic_objective_riga = {
-		icon = GFX_decision_infiltrate_state
-		
-		highlight_states = {
-			highlight_state_targets = {
-				state = 888
-			}
-		}
-		
-		visible = {
-			NOT = {
-				OR = {
-					has_country_flag = SOV_strategic_objective_kiev_flag
-					has_country_flag = SOV_strategic_objective_minsk_flag
-				}
-			}
-		}
-		
-		cost = 10
-		fire_only_once = yes
-		
-		complete_effect = {
-			set_country_flag = SOV_strategic_objective_riga_flag
-		}
-		
-		ai_will_do = {
-			base = 3
-		}
-	}
-	
-	SOV_take_riga = {
-		icon = hol_draw_up_staff_plans
-		
-		allowed = { always = no } # activated by event
-		available = {
-			888 = { is_controlled_by_ROOT_or_ally = yes }
-		}
-		
-		highlight_states = {
-			highlight_state_targets = {
-				state = 888
-			}
-		}
-		
-		selectable_mission = no
-		is_good = no
-		days_mission_timeout = 60
-		
-		complete_effect = {
-			set_country_flag = SOV_taken_riga_flag
-		}
-		
-		timeout_effect = {
-			add_war_support = -0.04
-			SOV_weaken_operation_meteor = yes
-		}
-	}
-	
-	SOV_launch_operation_meteor = {
-		icon = GFX_decision_generic_ignite_civil_war
-		
-		available = {
-			has_war = no
-			is_subject = no
-			if = {
-				limit = {
-					FRA = {
-						has_war_with = GER
-					}
-				}
-				fighting_army_strength_ratio = {
-					tag = GER
-					ratio > 1.25
-				}
-			}
-			else = {
-				fighting_army_strength_ratio = {
-					tag = GER
-					ratio > 1.5
-				}
-			}
-		}
-		
-		cost = 15
-		fire_only_once = yes
-		days_remove = 30
-		
-		war_with_on_remove = GER
-		
-		remove_effect = {
-			every_country = {
-				limit = {
-					OR = {
-						tag = GER
-						is_in_faction_with = GER
-						tag = BLR
-					}
-				}
-				SOV = {
-					declare_war_on = {
-						target = PREV
-						type = annex_everything
-					}
-				}
-			}
-			SOV_activate_operation_meteor = yes
-			hidden_effect = {
-				news_event = {
-					id = worldnews_ww2.2
-					hours = 6
-				}
-				add_named_threat = {
-					threat = 15
-					name = SOV_strike_down_the_eagle
-				}
-			}
-		}
-		
-		ai_will_do = {
-			base = 10
-			modifier = {
-				factor = 2
-				date > 1941.1.1
-			}
 		}
 	}
 }

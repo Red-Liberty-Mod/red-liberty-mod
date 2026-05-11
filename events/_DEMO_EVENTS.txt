@@ -3790,6 +3790,10 @@ country_event = { #
 				id = demo_pol.4
 				days = 10
 			}
+			country_event = {
+				id = country_event = demo_ukr.3
+				days = 55
+			}
 		}
 		ai_chance = {
 			base = 3
@@ -3891,6 +3895,7 @@ country_event = { #
 			annex_country = {
 				target = WUK
 			}
+			add_THIS_to_mitteleuropa_sphere = yes
 		}
 		GER = {
 			add_to_faction = UKR
@@ -3923,11 +3928,13 @@ country_event = { # ukrainian revolution
 	title = demo_ukr.1.title
 	desc = demo_ukr.1.desc
 	
+	fire_only_once = yes
 	is_triggered_only = yes
 	
 	option = { # succeeds
 		name = demo_ukr.1.a
 		UKR = {
+			white_peace = GER
 			set_politics = {
 				ruling_party = democratic_socialism
 				last_election = "1936.1.1"
@@ -3935,6 +3942,7 @@ country_event = { # ukrainian revolution
 				elections_allowed = no
 			}
 			remove_ideas = UKR_unpopular_govt
+			remove_THIS_from_mitteleuropa_sphere = yes
 		}
 		GER = {
 			diplomatic_relation = {
@@ -3968,11 +3976,33 @@ news_event = {
 	}
 }
 
+country_event = {
+	id = demo_ukr.3
+	title = demo_ukr.3.title
+	desc = demo_ukr.3.desc
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = demo_ukr.3.a
+		UKR = {
+			set_politics = {
+				ruling_party = national_conservatism
+				last_election = "1936.1.1"
+				election_frequency = 48
+				elections_allowed = no
+			}
+		}
+	}
+}
+
 country_event = { # venezuelan revolution
 	id = demo_ven.1
 	title = demo_ven.1.title
 	desc = demo_ven.1.desc
 	
+	fire_only_once = yes
 	is_triggered_only = yes
 	
 	option = { # succeeds
