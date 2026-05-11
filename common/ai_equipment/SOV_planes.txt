@@ -1,0 +1,208 @@
+SOV_fighter = {
+	category = air
+
+	available_for = { SOV }
+
+	roles = {
+		air_fighter
+	}
+
+	priority = {
+		factor = 1000
+		modifier = {
+			has_War = yes
+			factor = 2
+		}
+	}
+	
+	basic_fighter_1 = {
+		name = "Yak-1"
+		
+		priority = {
+			factor = 100
+			modifier = { 
+				has_tech = improved_small_airframe 
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		target_variant = {
+			match_value = 3000
+			type = small_plane_airframe_1
+			modules = {
+				fixed_main_weapon_slot = aircraft_cannon_1_1x
+				fixed_auxiliary_weapon_slot_1 = heavy_mg_2x
+				fixed_auxiliary_weapon_slot_2 = empty
+				engine_type_slot = engine_2_1x
+				special_type_slot_1 = empty
+				special_type_slot_2 = empty
+			}
+		}
+	}
+	
+	basic_fighter_2 = {
+		name = "LaGG-1"
+		
+		priority = {
+			factor = 100
+			modifier = { 
+				has_tech = improved_small_airframe 
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		target_variant = {
+			match_value = 3000
+			type = small_plane_airframe_1
+			modules = {
+				fixed_main_weapon_slot = aircraft_cannon_1_1x
+				fixed_auxiliary_weapon_slot_1 = light_mg_2x
+				fixed_auxiliary_weapon_slot_2 = empty
+				engine_type_slot = engine_2_1x
+				special_type_slot_1 = empty
+				special_type_slot_2 = empty
+			}
+		}
+	}
+	
+	improved_fighter_1 = {
+		name = "Yak-7"
+		
+		priority = {
+			factor = 100
+			modifier = { 
+				has_tech = advanced_small_airframe 
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		target_variant = {
+			match_value = 3000
+			type = small_plane_airframe_2
+			modules = {
+				fixed_main_weapon_slot = aircraft_cannon_1_1x
+				fixed_auxiliary_weapon_slot_1 = light_mg_2x
+				fixed_auxiliary_weapon_slot_2 = empty
+				engine_type_slot = engine_3_1x
+				special_type_slot_1 = self_sealing_fuel_tanks_small
+				special_type_slot_2 = empty
+			}
+		}
+	}
+	
+	improved_fighter_2 = {
+		name = "Yak-9"
+		
+		priority = {
+			factor = 100
+			modifier = { 
+				has_tech = advanced_small_airframe 
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		target_variant = {
+			match_value = 3000
+			type = small_plane_airframe_2
+			modules = {
+				fixed_main_weapon_slot = aircraft_cannon_1_1x
+				fixed_auxiliary_weapon_slot_1 = heavy_mg_2x
+				fixed_auxiliary_weapon_slot_2 = empty
+				engine_type_slot = engine_3_1x
+				special_type_slot_1 = fuel_tanks_small
+				special_type_slot_2 = empty
+			}
+		}
+	}
+	
+	advanced_fighter_1 = {
+		name = "Yak-3"
+		
+		priority = {
+			factor = 100
+		}
+
+		target_variant = {
+			match_value = 4000
+			type = small_plane_airframe_3
+			modules = {
+				fixed_main_weapon_slot = aircraft_cannon_1_2x
+				fixed_auxiliary_weapon_slot_1 = heavy_mg_2x
+				engine_type_slot = engine_4_1x
+				special_type_slot_1 = empty
+				special_type_slot_2 = empty
+				special_type_slot_3 = empty
+			}
+		}
+	}
+	
+	jet_fighter_1 = {
+		
+		priority = {
+			factor = 10
+		}
+
+		target_variant = {
+			match_value = 4000
+			type = small_plane_airframe_4
+			modules = {
+				fixed_main_weapon_slot = aircraft_cannon_2_2x
+				fixed_auxiliary_weapon_slot_1 = aircraft_cannon_2_2x
+				engine_type_slot = jet_engine_2x
+				special_type_slot_1 = armor_plate_small
+				special_type_slot_2 = empty	
+			}
+		}
+
+		allowed_modules = { 
+			aircraft_cannon_2_2x
+			aircraft_cannon_2_2x
+			jet_engine_2x
+			armor_plate_small
+		}
+	}
+}
+
+SOV_cas = {
+	category = air
+
+	available_for = { SOV }
+
+	roles = {
+		air_cas
+	}
+
+	priority = {
+		factor = 1000
+		modifier = {
+			has_War = yes
+			factor = 2
+		}
+	}
+	
+	improved_cas_1 = {
+		name = "Il-2 'Shturmovik'"
+		
+		priority = {
+			factor = 100
+			modifier = { 
+				has_tech = advanced_small_airframe 
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		target_variant = {
+			match_value = 3000
+			type = small_plane_cas_airframe_2
+			modules = {
+				fixed_main_weapon_slot = bomb_locks
+				fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_2x
+				fixed_auxiliary_weapon_slot_2 = light_mg_2x
+				engine_type_slot = engine_3_1x
+				special_type_slot_1 = armor_plate_small
+				special_type_slot_2 = hmg_defense_turret
+				special_type_slot_3 = empty
+			}
+		}
+	}
+}

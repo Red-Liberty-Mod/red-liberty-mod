@@ -2,20 +2,80 @@ add_namespace = japan
 add_namespace = japan_flavor
 add_namespace = japan_news
 add_namespace = japan_konoe
+add_namespace = japan_saito
 
-country_event = { # intro event
+country_event = { # this is a hidden event that fires at the beginning of the game only for the ai
 	id = japan.1
-	title = "Tenno Haika..."
+	title = japan.1.title
 	desc = japan.1.desc
 	
 	immediate = { log = "[GetDateText]: [Root.GetName]: event japan.1 FROM = [From.GetName]" }
 	
+	hidden = yes
 	is_triggered_only = yes
-	
 	fire_only_once = yes
 
-	option = {
-		name = "Banzai!"
+	option = { # go liberal
+		name = japan.1.a
+		set_country_flag = JAP_liberal_ai
+		ai_chance = {
+			base = 35
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = JAP_POST_INUKAI_OUTCOME
+						option = JAP_POST_INUKAI_STATUS_QUO
+					}
+					has_game_rule = {
+						rule = JAP_POST_INUKAI_OUTCOME
+						option = JAP_POST_INUKAI_KONOE_GOVT
+					}
+				}
+			}
+		}
+	}
+	
+	option = { # go conservative
+		name = japan.1.b
+		set_country_flag = JAP_conservative_ai
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = JAP_POST_INUKAI_OUTCOME
+						option = JAP_POST_INUKAI_CONSTITUTIONAL_AMENDMENT
+					}
+					has_game_rule = {
+						rule = JAP_POST_INUKAI_OUTCOME
+						option = JAP_POST_INUKAI_KONOE_GOVT
+					}
+				}
+			}
+		}
+	}
+	
+	option = { # go militarist
+		name = japan.1.c
+		set_country_flag = JAP_militarist_ai
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = JAP_POST_INUKAI_OUTCOME
+						option = JAP_POST_INUKAI_CONSTITUTIONAL_AMENDMENT
+					}
+					has_game_rule = {
+						rule = JAP_POST_INUKAI_OUTCOME
+						option = JAP_POST_INUKAI_STATUS_QUO
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -53,8 +113,9 @@ country_event = { # inukai dies
 	option = {
 		name = japan.3.a
 		add_stability = -0.15
-		set_country_flag = inukai_ded
+		set_country_flag = JAP_inukai_ded
 		kill_country_leader = yes
+		mark_focus_tree_layout_dirty = yes
 		
 		add_country_leader_role = {
 			character = JAP_hirohito_showa
@@ -105,7 +166,7 @@ country_event = {
 
 country_event = {
 	id = japan.6
-	title = "Vote Seiyukai!"
+	title = japan.6.title
 	desc = japan.6.desc
 	
 	is_triggered_only = yes
@@ -113,7 +174,7 @@ country_event = {
 	fire_only_once = yes
 	
 	option = {
-		name = "Maybe the past didn’t go anywhere..."
+		name = japan.6.a
 		add_popularity = {
 			ideology = democratic_socialism
 			popularity = -0.02
@@ -127,7 +188,7 @@ country_event = {
 
 country_event = {
 	id = japan.7
-	title = "Vote Minseito!"
+	title = japan.7.title
 	desc = japan.7.desc
 	
 	is_triggered_only = yes
@@ -135,7 +196,7 @@ country_event = {
 	fire_only_once = yes
 	
 	option = {
-		name = "Sounds rosy!"
+		name = japan.7.a
 		add_popularity = {
 			ideology = liberal_conservatism
 			popularity = 0.05
@@ -145,7 +206,7 @@ country_event = {
 
 country_event = {
 	id = japan.8
-	title = "Vote Ronoto!"
+	title = japan.8.title
 	desc = japan.8.desc
 	
 	is_triggered_only = yes
@@ -153,7 +214,7 @@ country_event = {
 	fire_only_once = yes
 	
 	option = {
-		name = "Incisive."
+		name = japan.8.a
 		add_popularity = {
 			ideology = national_conservatism
 			popularity = -0.04
@@ -171,7 +232,7 @@ country_event = {
 
 country_event = {
 	id = japan.9
-	title = "And the Winner is..."
+	title = japan.9.title
 	desc = japan.9.desc
 	
 	immediate = { log = "[GetDateText]: [Root.GetName]: event japan.9 FROM = [From.GetName]" }
@@ -181,7 +242,7 @@ country_event = {
 	fire_only_once = yes
 	
 	option = {
-		name = "The ball is in the Liberals’ court now..."
+		name = japan.9.a
 		set_politics = {
 			ruling_party = progressive_liberalism
 			last_election = "1936.7.15"
@@ -223,17 +284,16 @@ country_event = {
 
 country_event = {
 	id = japan.10
-	title = "The Coalition"
+	title = japan.10.title
 	desc = japan.10.desc
 	
 	immediate = { log = "[GetDateText]: [Root.GetName]: event japan.10 FROM = [From.GetName]" }
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
 	
 	option = {
-		name = "Dear Ichiro-san..."
+		name = japan.10.a
 		set_country_flag = JAP_status_quo_upheld
 		complete_national_focus = JAP_status_quo
 		
@@ -243,13 +303,16 @@ country_event = {
 			base = 33
 			modifier = {
 				factor = 0
-				is_historical_focus_on = yes
+				OR = {
+					has_country_flag = JAP_liberal_ai
+					has_country_flag = JAP_militarist_ai
+				}
 			}
 		}
 	}
 	
 	option = {
-		name = "Dear Abe-san..."
+		name = japan.10.b
 		country_event = {
 			id = japan.11
 			days = 14
@@ -271,10 +334,7 @@ country_event = {
 			base = 67
 			modifier = {
 				factor = 0
-				has_game_rule = {
-					rule = JAP_POST_INUKAI_OUTCOME
-					option = JAP_POST_INUKAI_STATUS_QUO
-				}
+				has_country_flag = JAP_conservative_ai
 			}
 		}
 	}
@@ -282,17 +342,16 @@ country_event = {
 
 country_event = {
 	id = japan.11
-	title = "The July Crisis"
+	title = japan.11.title
 	desc = japan.11.desc
 	
 	immediate = { log = "[GetDateText]: [Root.GetName]: event japan.11 FROM = [From.GetName]" }
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
 	
 	option = {
-		name = "That’s ridiculous. His Majesty would never agree to that."
+		name = japan.11.a
 		add_stability = -0.1
 		set_country_flag = JAP_the_july_crisis
 		complete_national_focus = JAP_july_crisis
@@ -304,16 +363,13 @@ country_event = {
 			base = 70
 			modifier = {
 				factor = 0
-				has_game_rule = {
-					rule = JAP_POST_INUKAI_OUTCOME
-					option = JAP_POST_INUKAI_KONOE_GOVT
-				}
+				has_country_flag = JAP_liberal_ai
 			}
 		}
 	}
 	
 	option = {
-		name = "I'm listening..."
+		name = japan.11.b
 		add_political_power = -50
 		complete_national_focus = JAP_july_crisis
 		country_event = {
@@ -324,7 +380,7 @@ country_event = {
 			base = 30
 			modifier = {
 				factor = 0
-				is_historical_focus_on = yes
+				has_country_flag = JAP_militarist_ai
 			}
 		}
 	}
@@ -332,44 +388,37 @@ country_event = {
 
 country_event = {
 	id = japan.12
-	title = "A Petition to His Imperial Majesty"
+	title = japan.12.title
 	desc = japan.12.desc
 	
 	immediate = { log = "[GetDateText]: [Root.GetName]: event japan.12 FROM = [From.GetName]" }
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
 	
 	option = {
-		name = "Approved."
+		name = japan.12.a
 		set_country_flag = JAP_allowed_amendment
 		ai_chance = {
-			base = 100
+			base = 90
 			modifier = {
 				factor = 0
-				has_game_rule = {
-					rule = JAP_POST_INUKAI_OUTCOME
-					option = JAP_POST_INUKAI_KONOE_GOVT
-				}
+				has_country_flag = JAP_militarist_ai
 			}
 		}
 	}
 	
 	option = {
-		name = "Denied."
+		name = japan.12.b
 		country_event = {
 			id = japan.13
 			days = 1
 		}
 		ai_chance = {
-			base = 0
+			base = 10
 			modifier = {
-				factor = 100
-				has_game_rule = {
-					rule = JAP_POST_INUKAI_OUTCOME
-					option = JAP_POST_INUKAI_KONOE_GOVT
-				}
+				factor = 0
+				has_country_flag = JAP_liberal_ai
 			}
 		}
 	}
@@ -377,7 +426,7 @@ country_event = {
 
 country_event = {
 	id = japan.13
-	title = "A Petition to His Imperial Majesty"
+	title = japan.13.title
 	desc = japan.13.desc
 	
 	immediate = { log = "[GetDateText]: [Root.GetName]: event japan.13 FROM = [From.GetName]" }
@@ -387,26 +436,37 @@ country_event = {
 	fire_only_once = yes
 	
 	option = {
-		name = "Approved."
+		name = japan.13.a
 		set_country_flag = JAP_allowed_konoe
 	}
 }
 
 country_event = {
 	id = japan.14
-	title = "A Crisis Averted"
+	title = japan.14.title
 	desc = japan.14.desc
-	
 	immediate = { log = "[GetDateText]: [Root.GetName]: event japan.14 FROM = [From.GetName]" }
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
 	
+	after = {
+		hidden_effect = {
+			add_named_threat = { 
+				threat = -1
+				name = JAP_new_democracy
+			}
+		}
+	}
+	
 	option = {
-		name = "That was my idea, Saito-sama."
+		name = japan.14.a
 		
-		#load_focus_tree = JAP_showa_democracy_tree
+		load_focus_tree = JAP_showa_democracy_tree
+		mark_focus_tree_layout_dirty = yes
+		
+		set_country_flag = JAP_dawn_of_showa_democracy_flag
+		set_country_flag = JAP_military_reform_available
 		
 		add_political_power = 25
 		add_popularity = {
@@ -432,17 +492,25 @@ country_event = {
 
 country_event = {
 	id = japan.15
-	title = "The Rising Sun"
+	title = japan.15.title
 	desc = japan.15.desc
 	
 	immediate = { log = "[GetDateText]: [Root.GetName]: event japan.15 FROM = [From.GetName]" }
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
 	
+	after = {
+		hidden_effect = {
+			add_named_threat = { 
+				threat = 2
+				name = JAP_end_of_democracy
+			}
+		}
+	}
+	
 	option = {
-		name = "Unruly children will need disciplining."
+		name = japan.15.a
 		set_politics = {
 			ruling_party = authoritarian_democracy
 			last_election = "1933.2.25"
@@ -457,7 +525,10 @@ country_event = {
 		add_ultracon_coalition = yes
 		add_fash_coalition = yes
 		
-		#load_focus_tree = JAP_nationalist_tree
+		set_country_flag = JAP_military_reform_available
+		set_country_flag = JAP_the_spiders_web_flag
+		load_focus_tree = JAP_nationalist_tree
+		mark_focus_tree_layout_dirty = yes
 		
 		hidden_effect = {
 			random_other_country = {
@@ -473,15 +544,23 @@ country_event = {
 
 country_event = {
 	id = japan.16
-	title = "The Masterstroke"
+	title = japan.16.title
 	desc = japan.16.desc
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
 	
+	after = {
+		hidden_effect = {
+			add_named_threat = {
+				threat = -2
+				name = JAP_status_quo
+			}
+		}
+	}
+	
 	option = {
-		name = "They’ll have to look elsewhere for a Prime Minister."
+		name = japan.16.a
 		add_stability = 0.05
 		add_popularity = {
 			ideology = progressive_liberalism
@@ -500,7 +579,9 @@ country_event = {
 			}
 		}
 		
-		#load_focus_tree = JAP_taisho_democracy_tree
+		set_country_flag = JAP_military_reform_available
+		load_focus_tree = JAP_taisho_democracy_tree
+		mark_focus_tree_layout_dirty = yes
 	}
 }
 
@@ -511,7 +592,6 @@ news_event = { # inukai dies world event
 	picture = GFX_report_event_inukai_ded
 	
 	is_triggered_only = yes
-	
 	major = yes
 	
 	option = {
@@ -525,7 +605,6 @@ news_event = { # status quo news event
 	desc = japan_news.2.desc
 	
 	is_triggered_only = yes
-	
 	major = yes
 	
 	option = {
@@ -539,7 +618,6 @@ news_event = { # constitutional amendment news event
 	desc = japan_news.3.desc
 	
 	is_triggered_only = yes
-	
 	major = yes
 	
 	option = {
@@ -554,88 +632,87 @@ news_event = { # konoe news event
 	picture = GFX_report_event_rising_sun
 	
 	is_triggered_only = yes
-	
 	major = yes
 	
 	option = {
 		name = japan_news.4.a
+		effect_tooltip = { add_threat = 2 }
 	}
 }
 
+### Flavor ###
 country_event = {
 	id = japan_flavor.1
-	title = "The Statesman"
+	title = japan_flavor.1.title
 	desc = japan_flavor.1.desc
-	picture = GFX_report_event_inukai_takeru
+	picture = GFX_report_event_inukai_tsuyoshi_family
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
 
 	option = {
-		name = "Thank you, my son."
+		name = japan_flavor.1.a
 	}
 }
 
 country_event = {
 	id = japan_flavor.2
-	title = "The Maverick"
+	title = japan_flavor.2.title
 	desc = japan_flavor.2.desc
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
 
 	option = {
-		name = "There was a web here, and Konoe was the spider."
+		name = japan_flavor.2.a
 	}
 }
 
 country_event = {
 	id = japan_flavor.3
-	title = "The Spider"
+	title = japan_flavor.3.title
 	desc = japan_flavor.3.desc
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
 
 	option = {
-		name = "Now get out and don’t bother me with this nonsense again."
+		name = japan_flavor.3.a
 	}
 }
 
 country_event = {
 	id = japan_flavor.4
-	title = "The Workhorse"
+	title = japan_flavor.4.title
 	desc = japan_flavor.4.desc
+	picture = GFX_report_event_ichiro_hatoyama
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
 
 	option = {
-		name = "He would decide what to tell the recruit tomorrow."
+		name = japan_flavor.4.a
 	}
 }
 
 country_event = {
 	id = japan_flavor.5
-	title = "The Idealists"
+	title = japan_flavor.5.title
 	desc = japan_flavor.5.desc
+	picture = GFX_report_event_kato_shidzue
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
 
 	option = {
-		name = "...sometimes we must stick to our principles."
+		name = japan_flavor.5.a
 	}
 }
 
+### Konoe ###
 country_event = {
 	id = japan_konoe.1
-	title = "Blood on the Cobblestones"
+	title = japan_konoe.1.title
 	desc = japan_konoe.1.desc
 	
 	is_triggered_only = yes
@@ -643,13 +720,14 @@ country_event = {
 	fire_only_once = yes
 
 	option = {
-		name = "Iwao to na~rite, koke no~ musu ma~de..."
+		name = japan_konoe.1.a
+		add_stability = -0.01
 	}
 }
 
 country_event = {
 	id = japan_konoe.2
-	title = "Knock, Knock!"
+	title = japan_konoe.2.title
 	desc = japan_konoe.2.desc
 	
 	is_triggered_only = yes
@@ -657,7 +735,8 @@ country_event = {
 	fire_only_once = yes
 
 	option = {
-		name = "She would never know for sure what happened to him."
+		name = japan_konoe.2.a
+		add_stability = -0.01
 	}
 }
 
@@ -672,6 +751,7 @@ country_event = {
 
 	option = {
 		name = "Was he really guilty of Konoe's crimes?"
+		add_war_support = -0.03
 	}
 }
 
@@ -686,6 +766,7 @@ country_event = {
 
 	option = {
 		name = "Thank you, Your Majesty."
+		add_stability = 0.01
 	}
 }
 
@@ -700,6 +781,7 @@ country_event = {
 
 	option = {
 		name = "Traitors must be dealt with for the nation to be whole."
+		add_stability = -0.01
 	}
 }
 
@@ -714,5 +796,145 @@ country_event = {
 
 	option = {
 		name = "To the Future."
+		add_stability = 0.1
+	}
+}
+
+### Liberal ###
+country_event = { # 
+	id = japan_saito.1
+	title = japan_saito.1.title
+	desc = japan_saito.1.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = japan_saito.1.a
+		unlock_decision_category_tooltip = JAP_liberal_socialist_influence_category
+		set_country_flag = JAP_coalition_mechanic_enabled
+		set_variable = { JAP_coalition_stability = 67 }
+		activate_mission = JAP_fulfill_campaign_promises_mission
+	}
+}
+
+country_event = { # 
+	id = japan_saito.2
+	title = japan_saito.2.title
+	desc = japan_saito.2.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = japan_saito.2.a
+	}
+}
+
+country_event = { # 
+	id = japan_saito.3
+	title = japan_saito.3.title
+	desc = japan_saito.3.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = japan_saito.3.a
+	}
+}
+
+country_event = { # 
+	id = japan_saito.4
+	title = japan_saito.4.title
+	desc = japan_saito.4.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = japan_saito.4.a
+	}
+}
+
+country_event = { # 
+	id = japan_saito.5
+	title = japan_saito.5.title
+	desc = japan_saito.5.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = japan_saito.5.a
+	}
+}
+
+country_event = { # 
+	id = japan_saito.50
+	title = japan_saito.50.title
+	desc = japan_saito.50.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = japan_saito.50.a
+		clr_country_flag = JAP_coalition_mechanic_enabled
+		add_popularity = {
+			ideology = progressive_liberalism
+			popularity = -0.03
+		}
+		set_politics = {
+			ruling_party = social_democracy
+			#last_election = "[?date]"
+			election_frequency = 24
+			elections_allowed = yes
+		}
+		hidden_effect = {
+			add_country_leader_role = {
+				character = JAP_abe_isoo
+				promote_leader = yes
+				country_leader = {
+					ideology = social_democracy_subtype
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = japan_saito.50.b
+		clr_country_flag = JAP_coalition_mechanic_enabled
+		trigger = {
+			has_completed_focus = JAP_expand_womens_rights
+		}
+		add_popularity = {
+			ideology = progressive_liberalism
+			popularity = -0.03
+		}
+		set_politics = {
+			ruling_party = social_democracy
+			#last_election = "[?date]"
+			election_frequency = 24
+			elections_allowed = yes
+		}
+		hidden_effect = {
+			promote_character = JAP_kato_shidzue
+		}
+	}
+	
+	option = {
+		name = japan_saito.50.c
+		clr_country_flag = JAP_coalition_mechanic_enabled
+		add_popularity = {
+			ideology = progressive_liberalism
+			popularity = -0.03
+		}
+		set_politics = {
+			ruling_party = liberal_conservatism
+			#last_election = "[?date]"
+			election_frequency = 24
+			elections_allowed = yes
+		}
 	}
 }

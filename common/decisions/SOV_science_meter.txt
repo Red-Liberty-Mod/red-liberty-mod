@@ -1,21 +1,20 @@
 SOV_science_meter_category = {
 	
-	SOV_science = {
-	
-		icon = ger_mefo_bills
-		
-		visible = {
-			always = yes
-		}
+	SOV_standardize_admin_procedures = {
+		icon = GFX_decision_eng_trade_unions_support
 		
 		available = {
 			
 		}
 		
-		cost = 0
+		cost = 25
+		days_re_enable = 30
 		
 		complete_effect = {
-			add_to_variable = { SOV_SCIENCE_level = 10 }
+			add_to_variable = {
+				tooltip = SOV_SCIENCE_tt
+				SOV_SCIENCE_level = 2
+			}
 			clamp_variable = {
 				var = SOV_SCIENCE_level
 				min = 0
@@ -24,22 +23,74 @@ SOV_science_meter_category = {
 		}
 	}
 	
-	SOV_reduce_science = {
-	
-		icon = ger_mefo_bills
-		
-		visible = {
-			always = yes
-		}
+	SOV_expand_systems_modelling = {
+		icon = GFX_decision_gre_paying_ifc_debt
 		
 		available = {
 			
 		}
 		
-		cost = 0
+		cost = 50
+		days_re_enable = 30
 		
 		complete_effect = {
-			subtract_from_variable = { SOV_SCIENCE_level = 10 }
+			add_to_variable = {
+				tooltip = SOV_SCIENCE_tt
+				SOV_SCIENCE_level = 5
+			}
+			add_stability = -0.01
+			clamp_variable = {
+				var = SOV_SCIENCE_level
+				min = 0
+				max = 100
+			}
+		}
+	}
+	
+	SOV_conduct_public_consultations = {
+		icon = GFX_decision_generic_political_address
+		
+		available = {
+			
+		}
+		
+		cost = 25
+		days_re_enable = 30
+		
+		complete_effect = {
+			add_to_variable = {
+				tooltip = SOV_SCIENCE_tt
+				SOV_SCIENCE_level = -3
+			}
+			add_stability = 0.02
+			clamp_variable = {
+				var = SOV_SCIENCE_level
+				min = 0
+				max = 100
+			}
+		}
+	}
+	
+	SOV_suspend_optimaization_targets = {
+		icon = GFX_decision_generic_break_treaty
+		
+		available = {
+			
+		}
+		
+		cost = 50
+		days_remove = 30
+		days_re_enable = 30
+		
+		modifier = {
+			industrial_capacity_factory = -0.05
+		}
+		
+		complete_effect = {
+			add_to_variable = {
+				tooltip = SOV_SCIENCE_tt
+				SOV_SCIENCE_level = -4
+			}
 			clamp_variable = {
 				var = SOV_SCIENCE_level
 				min = 0

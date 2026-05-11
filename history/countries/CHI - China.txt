@@ -1,6 +1,7 @@
-﻿capital = 922
+﻿capital = 608
 
 oob = "CHI_1936"
+set_naval_oob = "CHI_naval_mtg"
 country_lock_all_division_template = yes
 
 set_country_flag = social_democracy_coalition
@@ -22,10 +23,18 @@ set_technology = {
 	
 	tech_support = 1
 	tech_recon = 1
+	basic_train = 1
 	
 	gw_artillery = 1
-
-	basic_train = 1
+	
+	basic_naval_mines = 1
+	early_ship_hull_light = 1
+	early_ship_hull_cruiser = 1
+	basic_ship_hull_cruiser = 1
+	early_ship_hull_submarine = 1
+	basic_battery = 1
+	basic_torpedo = 1
+	coastal_defense_ships = 1
 }
 if = {
 	limit = {
@@ -45,24 +54,6 @@ if = {
 	}
 	add_ideas = {
 		nepotism_academy_spirit
-	}
-}
-if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
-	set_technology = {
-		early_destroyer = 1
-		early_light_cruiser = 1
-	}
-}
-if = {
-	limit = { has_dlc = "Man the Guns" }
-	set_technology = {
-		basic_naval_mines = 1
-		early_ship_hull_light = 1
-		early_ship_hull_cruiser = 1
-		basic_battery = 1
-		basic_torpedo = 1
-		coastal_defense_ships = 1
 	}
 }
 
@@ -113,10 +104,6 @@ if = {
 		autonomous_state = autonomy_RL_warlord
 	}
 	set_autonomy = {
-		target = SHX
-		autonomous_state = autonomy_RL_warlord
-	}
-	set_autonomy = {
 		target = SIK
 		autonomous_state = autonomy_RL_warlord
 	}
@@ -134,27 +121,17 @@ if = {
 	}
 	else = {
 		puppet = SHD
-		puppet = SHX
 		puppet = HNN
 	}
 }
 
-set_country_flag = can_integrate_SHX
-
-add_to_array = { CHI.CHI_empire_aligned_tags = GUD }
-add_to_array = { CHI.CHI_empire_aligned_tags = HNN }
-add_to_array = { CHI.CHI_empire_aligned_tags = SZC }
-add_to_array = { CHI.CHI_empire_aligned_tags = FNG }
-add_to_array = { CHI.CHI_empire_aligned_tags = SIK }
-
-add_to_array = { CHI.CHI_koumintang_aligned_tags = GNS }
+XSM = {
+	create_faction = "Xibei San Ma"
+}
 
 add_ideas = {
-	CHI_beiyang_army
-	CHI_japanese_influence
-	CHI_unpopular_government
-
-	semi_industrial_economy
+	CHI_institutionalized_warlordism
+	CHI_japanese_capital_entrenchment
 }
 
 add_equipment_to_stockpile = {

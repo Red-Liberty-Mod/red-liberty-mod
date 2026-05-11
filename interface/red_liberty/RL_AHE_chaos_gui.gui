@@ -1,0 +1,105 @@
+guiTypes = {
+	
+	containerWindowType = {
+		name = "AHE_danubian_wars_container"
+		position = { x = 0 y = 0 }
+		size = { width = 496 height = 130 }
+		
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_tiled_window_thin_border2"
+		}
+		
+		containerWindowType = {
+			name = "escalation_progressbar"
+			position = { x = 27 y = 50 }
+			
+			instantTextBoxType = {
+				name = "escalation_title"
+				position = { x = 75 y = -30 }
+				format = center
+				text = "Escalation"
+				font = "hoi_24header"
+				maxWidth = 290
+				maxHeight = 500
+			}
+			
+			iconType = {
+				name = "progressbar"
+				position = { x = 0 y = -2 }
+				spriteType = "GFX_escalation_progressbar"
+				alwaystransparent = yes
+			}
+			
+			iconType = {
+				name = "escalation_level_0_icon"
+				position = { x = -12 y = -6 }
+				spriteType = "GFX_escalation_level_0"
+				pdx_tooltip = "escalation_level_0_tt"
+				pdx_tooltip_delayed = "escalation_level_0_tt_desc"
+			}
+			
+			iconType = {
+				name = "escalation_level_1_icon"
+				position = { x = 93 y = -6 }
+				spriteType = "GFX_escalation_level_1"
+				pdx_tooltip = "escalation_level_1_tt"
+				pdx_tooltip_delayed = "escalation_level_1_tt_desc"
+			}
+			
+			iconType = {
+				name = "escalation_level_2_icon"
+				position = { x = 205 y = -6 }
+				spriteType = "GFX_escalation_level_2"
+				pdx_tooltip = "escalation_level_2_tt"
+				pdx_tooltip_delayed = "escalation_level_2_tt_desc"
+			}
+			
+			iconType = {
+				name = "escalation_level_3_icon"
+				position = { x = 314 y = -6 }
+				spriteType = "GFX_escalation_level_3"
+				pdx_tooltip = "escalation_level_3_tt"
+				pdx_tooltip_delayed = "escalation_level_3_tt_desc"
+			}
+			
+			iconType = {
+				name = "escalation_level_4_icon"
+				position = { x = 416 y = -6 }
+				spriteType = "GFX_escalation_level_4"
+				pdx_tooltip = "escalation_level_4_tt"
+				pdx_tooltip_delayed = "escalation_level_4_tt_desc"
+			}
+			
+			containerWindowType = {
+				name = "indicator_window"
+				position = { x = -37 y = 20 }
+				size = { width = 100%% height = 100%% }
+				
+				iconType = {
+					name = "indicator_icon"
+					position = { x = 0 y = 0 }
+					spriteType = "GFX_indicator"
+				}
+				
+				containerWindowType = {
+						name = "value_window"
+						position = { x = 20 y = 18 }
+						size = { width = 32 height = 17 }
+
+					instantTextBoxType = {
+						name = "indicator_value_text"
+						position = { x = 0 y = 0 }
+						font = "hoi_16mbs"
+						format = center
+						text = "[?global.austria_escalation]"
+						maxWidth = 34
+						maxHeight = 10
+						fixedsize = yes
+						alwaystransparent = yes
+					}
+				}
+			}
+		}
+	}
+}

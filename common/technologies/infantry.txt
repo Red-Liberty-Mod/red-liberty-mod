@@ -824,6 +824,125 @@ technologies = {
 		}
 	}
 
+	rangers_tech = {
+
+		allow_branch = {
+			has_dlc = "No Compromise, No Surrender"
+		}
+
+		enable_subunits = {
+			ranger_battalion
+		}
+		
+		on_research_complete_limit = {
+			NOT = {
+				has_template_containing_unit = ranger_battalion
+			}
+		}
+		on_research_complete = {
+			hidden_effect = {
+				load_oob = "unlock_rangers"
+			}			
+			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
+		}
+
+		path = {
+			leads_to_tech = rangers_tech2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 1936
+		folder = {
+			name = infantry_folder
+			position = { x = 4 y = @1936 }
+		}
+		
+		categories = {
+			infantry_tech
+			rangers_tech_cat
+			cat_special_forces_generic
+		}
+		
+		ai_will_do = {
+			factor = 0.7
+			
+			modifier = {
+				factor = 2
+				tag = USA
+			}
+			
+			modifier = {
+				factor = 5
+				tag = JAP
+			}
+
+			modifier = {
+				factor = 5
+				tag = BRA
+			}
+			
+			modifier = {
+				factor = 2
+				tag = ENG
+			}
+		}
+	}
+
+	rangers_tech2 = {
+
+		ranger_battalion = {
+			max_organisation = 5
+			soft_attack = 0.05
+		}
+		path = {
+			leads_to_tech = rangers_tech3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.5
+		start_year = 1939
+		folder = {
+			name = infantry_folder
+			position = { x = 4 y = @1939 }
+		}
+		
+		categories = {
+			infantry_tech
+			rangers_tech_cat
+			cat_special_forces_generic
+		}
+		
+		ai_will_do = {
+			factor = 0.7
+		}
+	}
+
+	rangers_tech3 = {
+
+		ranger_battalion = {
+			max_organisation = 5
+		}
+		
+		research_cost = 1.5
+		start_year = 1943
+		folder = {
+			name = infantry_folder
+			position = { x = 4 y = @1943 }
+		}
+		
+		categories = {
+			infantry_tech
+			rangers_tech_cat
+			cat_special_forces_generic
+		}
+		
+		ai_will_do = {
+			factor = 0.7
+		}
+	}
+
+
 	tech_special_forces = {
 		category_special_forces = {
 			acclimatization_hot_climate_gain_factor = 0.05
@@ -854,7 +973,7 @@ technologies = {
 		start_year = 1938
 		folder = {
 			name = infantry_folder
-			position = { x = 4 y = @1938 }
+			position = { x = 6 y = @1938 }
 		}
 		
 		categories = {
@@ -891,7 +1010,7 @@ technologies = {
 		start_year = 1940
 		folder = {
 			name = infantry_folder
-			position = { x = 3 y = @1940 }
+			position = { x = 5 y = @1940 }
 		}
 		
 		categories = {
@@ -923,7 +1042,7 @@ technologies = {
 		start_year = 1940
 		folder = {
 			name = infantry_folder
-			position = { x = 5 y = @1940 }
+			position = { x = 7 y = @1940 }
 		}
 		
 		categories = {
@@ -958,7 +1077,7 @@ technologies = {
 		start_year = 1942
 		folder = {
 			name = infantry_folder
-			position = { x = 3 y = @1942 }
+			position = { x = 5 y = @1942 }
 		}
 		
 		categories = {
@@ -992,7 +1111,7 @@ technologies = {
 		start_year = 1942
 		folder = {
 			name = infantry_folder
-			position = { x = 5 y = @1942 }
+			position = { x = 7 y = @1942 }
 		}
 		
 		categories = {
@@ -1020,7 +1139,7 @@ technologies = {
 		start_year = 1944
 		folder = {
 			name = infantry_folder
-			position = { x = 4 y = @1944 }
+			position = { x = 6 y = @1944 }
 		}
 		
 		categories = {
@@ -1070,6 +1189,133 @@ technologies = {
 
 	}
 
+	jungle_training_tech = { #A GoE version of the tech above targetting also infantry - RAJ
+		research_cost = 1
+		# only from focus!!! #####
+		allow = {
+			always = no
+		}
+		marine = {
+			jungle = {
+				attack = 0.05
+				movement = 0.1
+			}
+		}
+		mountaineers = {
+			jungle = {
+				attack = 0.05
+				movement = 0.1
+			}
+		}
+		paratrooper = {
+			jungle = {
+				attack = 0.05
+				movement = 0.1
+			}
+		}
+		infantry = {
+			jungle = {
+				attack = 0.03
+				movement = 0.05
+			}
+		}
+	}
+
+	desert_training_tech = { # RAJ
+		research_cost = 1
+		# only from focus!!! #####
+		allow = {
+			always = no
+		}
+		marine = {
+			desert = {
+				attack = 0.05
+				movement = 0.1
+			}
+		}
+		mountaineers = {
+			desert = {
+				attack = 0.05
+				movement = 0.1
+			}
+		}
+		paratrooper = {
+			desert = {
+				attack = 0.05
+				movement = 0.1
+			}
+		}
+		infantry = {
+			desert = {
+				attack = 0.03
+				movement = 0.05
+			}
+		}
+	}
+
+	hills_training_tech = { # RAJ
+		research_cost = 1
+		# only from focus!!! #####
+		allow = {
+			always = no
+		}
+		marine = {
+			hills = {
+				attack = 0.05
+				movement = 0.1
+			}
+		}
+		mountaineers = {
+			hills = {
+				attack = 0.05
+				movement = 0.1
+			}
+		}
+		paratrooper = {
+			hills = {
+				attack = 0.05
+				movement = 0.1
+			}
+		}
+		infantry = {
+			hills = {
+				attack = 0.03
+				movement = 0.05
+			}
+		}
+	}
+
+	urban_training_tech = { # RAJ
+		research_cost = 1
+		# only from focus!!! #####
+		allow = {
+			always = no
+		}
+		marine = {
+			urban = {
+				attack = 0.05
+				movement = 0.1
+			}
+		}
+		mountaineers = {
+			urban = {
+				attack = 0.05
+				movement = 0.1
+			}
+		}
+		paratrooper = {
+			urban = {
+				attack = 0.05
+				movement = 0.1
+			}
+		}
+		infantry = {
+			urban = {
+				attack = 0.03
+				movement = 0.05
+			}
+		}
+	}
 	HUN_light_infantry_tech = {
 
 		research_cost = 1
@@ -1891,6 +2137,10 @@ technologies = {
 
 	mechanised_infantry = {
 
+		enable_subunits = {
+			mechanized
+		}
+
 		enable_equipments = {
 			mechanized_equipment_1
 		}
@@ -1934,6 +2184,7 @@ technologies = {
 		
 		categories = {
 			motorized_equipment
+			mio_cat_tech_all_motorized_mechanized
 			infantry_tech
 			cat_mechanized_equipment
 		}
@@ -1976,6 +2227,7 @@ technologies = {
 		
 		categories = {
 			motorized_equipment
+			mio_cat_tech_all_motorized_mechanized
 			infantry_tech
 			cat_mechanized_equipment
 			tp_tech
@@ -2080,74 +2332,13 @@ technologies = {
 			factor = 1
 		}
 	}
-	
-	######### FROM JAPANESE FOCUS ##########
-	bicycle_infantry = {
-		
-		allow = {
-			always = no
+
+	revolutionary_mass_assault = {
+
+		conscription = 0.02
+		infantry = {
+			combat_width = -0.2
 		}
 
-		research_cost = 1
-		start_year = 1936
-
-		enable_subunits = {
-			bicycle_battalion
-		}
-	}
-
-	camelry = {
-		
-		allow = {
-			always = no
-		}
-
-		research_cost = 1
-		start_year = 1936
-
-		enable_subunits = {
-			camelry
-		}		
-	}
-
-	######### FROM SOVIET FOCUS ##########
-	penal_infantry = {
-		
-		allow = {
-			always = no
-		}
-
-		research_cost = 1
-		start_year = 1936
-
-		enable_subunits = {
-			penal_battalion
-		}
-	}
-	
-	tech_irregulars = {
-
-		research_cost = 1
-
-		allow = {
-			always = no
-		}
-
-		enable_subunits = {
-			irregular_infantry
-		}
-	}
-
-	tech_militias = {
-
-		research_cost = 1
-
-		allow = {
-			always = no
-		}
-
-		enable_subunits = {
-			militia
-		}
 	}
 }

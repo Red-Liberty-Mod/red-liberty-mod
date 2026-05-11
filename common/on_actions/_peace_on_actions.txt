@@ -118,6 +118,10 @@ on_actions = {
 					ROOT = {
 						diplomatic_relation = { country = FROM relation = war_relation active = no }
 					}
+					event_target:winning_country = {
+						ECON_poverty_from_annexation = yes
+					}
+					
 					RAJ = {
 						annex_country = {
 							target = BRM
@@ -144,6 +148,10 @@ on_actions = {
 					ROOT = {
 						diplomatic_relation = { country = FROM relation = war_relation active = no }
 					}
+					event_target:winning_country = {
+						ECON_poverty_from_annexation = yes
+					}
+					
 					BRA = {
 						annex_country = {
 							target = UOB
@@ -155,6 +163,18 @@ on_actions = {
 						remove_ideas = {
 							BRA_civil_war
 							BRA_right_wing_coalition
+						}
+						add_popularity = {
+							ideology = vanguard_socialism
+							popularity = 0.1
+						}
+						add_popularity = {
+							ideology = revolutionary_socialism
+							popularity = 0.07
+						}
+						add_popularity = {
+							ideology = democratic_socialism
+							popularity = 0.03
 						}
 					}
 					random_other_country = {
@@ -180,17 +200,17 @@ on_actions = {
 					ROOT = {
 						diplomatic_relation = { country = FROM relation = war_relation active = no }
 					}
+					event_target:winning_country = {
+						ECON_poverty_from_annexation = yes
+					}
+					
 					UOB = {
 						annex_country = {
 							target = BRA
 						}
 						country_event = {
-							id = demo_uob.5
-							days = 25
-						}
-						remove_ideas = {
-							UOB_civil_war
-							UOB_left_wing_coalition
+							id = red_brazil.10
+							hours = 22
 						}
 					}
 					random_other_country = {
@@ -206,7 +226,10 @@ on_actions = {
 				else_if = {
 					limit = {
 						FROM = {
-							original_tag = SOV
+							OR = {
+								original_tag = SOV
+								original_tag = FER
+							}
 						}
 						ROOT = {
 							original_tag = RUS
@@ -218,12 +241,25 @@ on_actions = {
 					ROOT = {
 						diplomatic_relation = { country = FROM relation = war_relation active = no }
 					}
+					event_target:winning_country = {
+						ECON_poverty_from_annexation = yes
+					}
+					
+					FER = {
+						every_controlled_state = {
+							#limit = {
+							#	is_core_of = RUS
+							#}
+							set_state_owner_to = PREV
+						}
+						country_event = {
+							id = far_east_forpol.1
+							days = 5
+						}
+					}
 					FROM = {
 						annex_country = {
 							target = ROOT
-						}
-						annex_country = {
-							target = FER
 						}
 						annex_country = {
 							target = TMS
@@ -231,14 +267,11 @@ on_actions = {
 						annex_country = {
 							target = KHV
 						}
-						country_event = {
-							id = demo_sov.2
-							days = 15
-						}
 					}
+					set_global_flag = russian_civil_war_ended
 					random_other_country = {
 						limit = { is_ai = yes }
-						news_event = { id = demo_rus.4 hours = 6 }
+						news_event = { id = demo_rus.7 hours = 6 }
 					}
 					set_global_flag = skip_default_capitulation
 				}
@@ -259,6 +292,10 @@ on_actions = {
 					ROOT = {
 						diplomatic_relation = { country = FROM relation = war_relation active = no }
 					}
+					event_target:winning_country = {
+						ECON_poverty_from_annexation = yes
+					}
+					
 					FROM = {
 						annex_country = {
 							target = ROOT
@@ -266,7 +303,7 @@ on_actions = {
 					}
 					random_other_country = {
 						limit = { is_ai = yes }
-						news_event = { id = demo_rus.5 hours = 6 }
+						news_event = { id = demo_rus.8 hours = 6 }
 					}
 					set_global_flag = skip_default_capitulation
 				}
@@ -285,6 +322,10 @@ on_actions = {
 					ROOT = {
 						diplomatic_relation = { country = FROM relation = war_relation active = no }
 					}
+					event_target:winning_country = {
+						ECON_poverty_from_annexation = yes
+					}
+					
 					FROM = {
 						annex_country = {
 							target = ROOT
@@ -525,8 +566,11 @@ on_actions = {
 								original_tag = CRO
 							}
 						}
-						SER = {
-							end_puppet = BOS
+						CRO = {
+							annex_country = {
+								target = SER
+							}
+							set_cosmetic_tag = CRO_illyria
 						}
 					}
 					set_global_flag = skip_default_capitulation
@@ -585,6 +629,18 @@ on_actions = {
 						annex_country = {
 							target = CRO
 						}
+						every_owned_state = {
+							limit = {
+								OR = {
+									is_core_of = CRO
+									is_core_of = BOS
+								}
+							}
+							add_core_of = SER
+							remove_core_of = CRO
+							remove_core_of = BOS
+						}
+						set_cosmetic_tag = SER_yugoslavia
 					}
 					set_global_flag = skip_default_capitulation
 				}
@@ -651,14 +707,15 @@ on_actions = {
 							tag = UKR
 						}
 					}
-					FROM = {
-						diplomatic_relation = { country = ROOT relation = war_relation active = no }
+					every_country = {
+						limit = { has_war_with = ROOT }
+						white_peace = ROOT
 					}
-					ROOT = {
-						diplomatic_relation = { country = FROM relation = war_relation active = no }
-					}
-					FROM = {
-						GER_create_ukraine_occupation = yes
+					GER = {
+						transfer_state = 137
+						transfer_state = 196
+						#puppet = UKR
+						add_to_faction = BLR
 					}
 					POL = {
 						transfer_state = 93
@@ -722,6 +779,10 @@ on_actions = {
 					ROOT = {
 						diplomatic_relation = { country = FROM relation = war_relation active = no }
 					}
+					event_target:winning_country = {
+						ECON_poverty_from_annexation = yes
+					}
+					
 					FROM = {
 						annex_country = {
 							target = ROOT
@@ -992,6 +1053,9 @@ on_actions = {
 						}
 					}
 					set_global_flag = skip_default_capitulation
+					event_target:winning_country = {
+						ECON_poverty_from_annexation = yes
+					}
 				}
 				
 				### TURKEY WARS ###

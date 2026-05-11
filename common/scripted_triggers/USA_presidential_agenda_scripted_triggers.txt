@@ -1,0 +1,45 @@
+USA_thomas_agenda_1_active = {
+	check_variable = { USA_socialist_unity > 24 }
+}
+
+USA_thomas_agenda_2_active = {
+	has_war = no
+	NOT = {
+		OR = {
+			has_idea = USA_the_great_depression_1
+			has_idea = USA_the_great_depression_2
+			has_idea = USA_the_great_depression_3
+			has_idea = USA_the_great_depression_4
+			has_idea = USA_the_great_depression_5
+		}
+	}
+}
+
+#USA_thomas_agenda_3_active = {
+#	done via events
+#}
+
+USA_lister_agenda_1_active = {
+	NOT = {
+		any_owned_state = {
+			impassable = no
+			infrastructure < 3
+		}
+	}
+}
+
+USA_lister_agenda_2_active = {
+	any_other_country = {
+		limit = {
+			OR = {
+				is_in_central_america = yes
+				is_in_south_america = yes
+			}
+		}
+		OR = {
+			is_guaranteed_by = USA
+			gives_military_access_to = USA
+			has_non_aggression_pact_with = USA
+		}
+	}
+}

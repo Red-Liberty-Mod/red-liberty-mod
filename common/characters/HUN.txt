@@ -1,11 +1,38 @@
 characters = {
-
+	
+	HUN_sandor_csizmadia = {
+		name = HUN_sandor_csizmadia
+	
+		portraits = {
+			civilian = {
+				#large = ""
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_SANDOR_CSIZMADIA_DESC"
+			ideology = anarchism_subtype
+			traits = {
+				
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = HUN_sandor_csizmadia_political_advisor
+			traits = {
+				agricultural_economist
+			}
+		}
+	}
+	
 	HUN_matyas_rakosi = {
 		name = HUN_matyas_rakosi
 	
 		portraits = {
 			civilian = {
-				large = "gfx/leaders/HUN/Portrait_HUN_Matyas_Rakosi.png"
+				large = "gfx/leaders/HUN/Portrait_HUN_Rakosi_Matyas.png"
 			}
 		}
 		
@@ -16,9 +43,19 @@ characters = {
 				
 			}
 		}
+	}
+	
+	HUN_otto_korvin = {
+		name = HUN_otto_korvin
+	
+		portraits = {
+			civilian = {
+				#large = ""
+			}
+		}
 		
 		country_leader = {
-			desc = "POLITICS_MATYAS_RAKOSI_DESC"
+			desc = "POLITICS_OTTO_KORVIN_DESC"
 			ideology = revolutionary_socialism_subtype
 			traits = {
 				
@@ -122,13 +159,60 @@ characters = {
 		
 		corps_commander = {
 			traits = {
-				
+				militia_officer
 			}
 			skill = 2
 			attack_skill = 2
 			defense_skill = 1
 			planning_skill = 2
 			logistics_skill = 2
+		}
+	}
+	
+	### Admirals ###
+	
+	HUN_miklos_horthy_de_nagybanya = { # starts in AHE, moves to PNB
+		name = HUN_miklos_horthy_de_nagybanya
+		
+		portraits = {
+			army = {
+				large = "gfx/leaders/HUN/Portrait_HUN_Miklos_Horthy.png"
+				#small = "GFX_minister_AUS_georg_von_trapp"
+			}
+		}
+		
+		advisor = {
+			slot = navy_chief
+			idea_token = HUN_miklos_horthy_de_nagybanya_navy_chief
+			available = {
+				not_already_hired_except_as = navy_chief
+			}
+			traits = { navy_chief_decisive_battle_2 }
+			cost = 100
+		}
+		
+		advisor = {
+			slot = theorist
+			idea_token = HUN_miklos_horthy_de_nagybanya_theorist
+			ledger = navy
+			available = {
+				not_already_hired_except_as = theorist
+			}
+			traits = { naval_theorist }
+			cost = 100
+		}
+		
+		navy_leader = {
+			traits = {
+				old_guard_navy
+				bold ironside
+				inshore_fighter
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			maneuvering_skill = 2
+			coordination_skill = 3
 		}
 	}
 }

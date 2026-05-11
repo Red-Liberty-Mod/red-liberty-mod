@@ -1,20 +1,19 @@
 ﻿capital = 327
 
-oob = "PHI_1936"
+oob = "PHI"
 
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
-	infantry_weapons1 = 1
 	tech_support = 1		
 	tech_engineers = 1
 	gw_artillery = 1
 }
 
-set_convoys = 5
+set_convoys = 25
 
 set_politics = {
-	ruling_party = national_conservatism
+	ruling_party = authoritarian_democracy
 	last_election = "1935.9.16"
 	election_frequency = 72
 	elections_allowed = yes
@@ -25,25 +24,35 @@ set_popularities = {
 	revolutionary_socialism = 1
 	democratic_socialism = 11
 	social_democracy = 9
-	progressive_liberalism = 17
-	liberal_conservatism = 11
-	national_conservatism = 43
+	progressive_liberalism = 11
+	liberal_conservatism = 27
+	national_conservatism = 33
 	authoritarian_democracy = 4
 	despotism = 0
 	ultraconservatism = 0
 	fascism = 2
 }
 
-set_country_flag = progressive_liberalism_coalition
+USA = {
+	give_guarantee = PHI
+	diplomatic_relation = {
+		country = PHI
+		relation = docking_rights
+		active = yes
+	}
+}
+
 set_country_flag = liberal_conservatism_coalition
 set_country_flag = national_conservatism_coalition
 set_country_flag = authoritarian_democracy_coalition
-set_cosmetic_tag = PHI_USA_commonwealth
+#set_cosmetic_tag = PHI_USA_commonwealth
 
 add_ideas = {
-	PHI_towards_independence
-	PHI_american_military_support
-	PHI_american_economy_support
+	free_trade
+	laissez_faire
+	
+	PHI_fragmented_archipelago
+	PHI_agrarian_inequality
 }
 
 add_offsite_building = {
@@ -55,11 +64,15 @@ add_offsite_building = {
 recruit_character = PHI_crisanto_evangelista
 recruit_character = PHI_luis_taruc
 recruit_character = PHI_pedro_abad_santos
+recruit_character = PHI_juan_sumulong
 recruit_character = PHI_gregorio_aglipay
-recruit_character = PHI_jose_yulo
 recruit_character = PHI_manuel_roxas
 recruit_character = PHI_manuel_quezon
+recruit_character = PHI_sergio_osmena
 recruit_character = PHI_jose_laurel
+
+### ADVISORS ###
+recruit_character = PHI_emilio_aguinaldo
 
 ### GENERALS ###
 recruit_character = PHI_basilio_valdes

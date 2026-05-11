@@ -276,7 +276,7 @@ majors_make_less_purchases = {
 
 less_rifles_to_market_if_large_army = {
 	enable = {
-		has_army_manpower = { size > 700000 } #GER/RUS/China
+		has_army_manpower = { size > 700000 }
 	}
 	abort_when_not_enabled = yes
 
@@ -284,5 +284,42 @@ less_rifles_to_market_if_large_army = {
 		type = equipment_market_for_sale_factor
 		id = infantry
 		value = -50
+	}
+}
+
+want_access_to_arms_producers = {
+	enable = {
+		NOT = {
+			tag = USA
+			tag = GER
+			tag = ENG
+			tag = FRA
+		}
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = diplo_action_desire
+		id = USA
+		target = market_access_rights
+		value = 50
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = GER
+		target = market_access_rights
+		value = 50
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = ENG
+		target = market_access_rights
+		value = 50
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = FRA
+		target = market_access_rights
+		value = 50
 	}
 }

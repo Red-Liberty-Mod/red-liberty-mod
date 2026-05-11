@@ -22,9 +22,6 @@ set_technology = {
 	interwar_antiair = 1
 	tech_support = 1		
 	tech_engineers = 1
-	early_fighter = 1
-	early_bomber = 1
-	CAS1 = 1
 }
 if = {
 	limit = { not = { has_dlc = "Man the Guns" } }
@@ -48,6 +45,26 @@ if = {
 		basic_torpedo = 1
 		basic_depth_charges = 1
 		mtg_transport = 1
+	}
+}
+if = {
+	limit = { has_dlc_bba = yes }
+	set_technology = {
+		aa_lmg = 1
+		aa_cannon_1 = 1
+		engines_1 = 1
+		early_bombs = 1
+		aircraft_construction = 1
+		iw_small_airframe = 1
+		iw_medium_airframe = 1
+		basic_medium_airframe = 1
+	}
+	else = {
+		set_technology = {
+			early_fighter = 1
+			early_bomber = 1
+			CAS1 = 1
+		}
 	}
 }
 
@@ -90,7 +107,10 @@ recruit_character = POR_jose_carlos_rates
 recruit_character = POR_jose_domingues_dos_santos
 recruit_character = POR_alvaro_de_castro
 recruit_character = POR_oscar_carmona
+recruit_character = POR_antonio_de_oliviera_salazar
 recruit_character = POR_jose_hipolito_raposo
+
+activate_advisor = POR_antonio_de_oliviera_salazar_hog
 
 ### GENERALS ###
 recruit_character = POR_jose_norton_de_matos

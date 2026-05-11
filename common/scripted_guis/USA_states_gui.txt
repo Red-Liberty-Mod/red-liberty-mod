@@ -46,280 +46,430 @@ scripted_gui = {
 		}
 		
 		triggers = {
-			#USA_states_hide_checkbox_click_enabled = {
-			#	USA = {
-			#		has_active_election = yes
-			#	}
-			#}
+			USA_button_senate_view_click_enabled = {
+				always = yes
+				
+				if = {
+					limit = {
+						check_variable = { USA_states_map_view = 1 }
+					}
+					set_temp_variable = { USA_states_map_senate_view_frame = 2 }
+				}
+				else = {
+					set_temp_variable = { USA_states_map_senate_view_frame = 1 }
+				}
+			}
+			USA_button_house_view_click_enabled = {
+				always = yes
+				
+				if = {
+					limit = {
+						check_variable = { USA_states_map_view = 2 }
+					}
+					set_temp_variable = { USA_states_map_house_view_frame = 2 }
+				}
+				else = {
+					set_temp_variable = { USA_states_map_house_view_frame = 1 }
+				}
+			}
+			USA_button_election_view_click_enabled = {
+				has_active_election = yes
+				
+				if = {
+					limit = {
+						check_variable = { USA_states_map_view = 3 }
+					}
+					set_temp_variable = { USA_states_map_election_view_frame = 2 }
+				}
+				else = {
+					set_temp_variable = { USA_states_map_election_view_frame = 1 }
+				}
+			}
 		}
 
 		effects = {
-			#USA_states_hide_checkbox_click = {
-			#	if = {
-			#		limit = {
-			#			check_variable = { hide_non_election_states = 0 }
-			#		}
-			#		set_variable = { hide_non_election_states = 1 }
-			#	}
-			#	else = {
-			#		set_variable = { hide_non_election_states = 0 }
-			#	}
-			#	add_to_variable = { USA_states_map_dirty = 1 }
-			#}
 			button_close_click = {
 				clr_country_flag = USA_states_map_open
 			}
+			
+			USA_button_senate_view_click = {
+				set_variable = { USA_states_map_view = 1 }
+				add_to_variable = { USA_states_map_dirty = 1 }
+			}
+			USA_button_house_view_click = {
+				set_variable = { USA_states_map_view = 2 }
+				add_to_variable = { USA_states_map_dirty = 1 }
+			}
+			USA_button_election_view_click = {
+				set_variable = { USA_states_map_view = 3 }
+				add_to_variable = { USA_states_map_dirty = 1 }
+			}
 		}
-
+		
 		properties = {
+			USA_button_senate_view = {
+				frame = USA_states_map_senate_view_frame
+			}
+			USA_button_house_view = {
+				frame = USA_states_map_house_view_frame
+			}
+			USA_button_election_view = {
+				frame = USA_states_map_election_view_frame
+			}
+			
 			USA_states_gui_speaker = {
-				image = [Get_USA_speaker]
+				image = [USA_GetCongressImg]
 			}
-			USA_states_gui_vp = {
-				image = [Get_USA_vice_president]
+			
+			### Alabama ###
+			USA_states_gui_367_layer_1 = {
+				image = [367.GetStateBottomLayer]
 			}
-
-			USA_states_gui_AL_layer_1 = {
-				image = [Get_USA_states_gui_AL_layer_1]
+			USA_states_gui_367_layer_2 = {
+				image = [367.GetStateTopLayer]
 			}
-			USA_states_gui_AL_layer_2 = {
-				image = [Get_USA_states_gui_AL_layer_2]
+			
+			### Arkansas ###
+			USA_states_gui_372_layer_1 = {
+				image = [372.GetStateBottomLayer]
+			}
+			USA_states_gui_372_layer_2 = {
+				image = [372.GetStateTopLayer]
+			}
+			
+			### Arizona ###
+			USA_states_gui_377_layer_1 = {
+				image = [377.GetStateBottomLayer]
+			}
+			USA_states_gui_377_layer_2 = {
+				image = [377.GetStateTopLayer]
 			}
 		
-			USA_states_gui_AR_layer_1 = {
-				image = [Get_USA_states_gui_AR_layer_1]
+			USA_states_gui_378_layer_1 = {
+				image = "[378.GetStateBottomLayer]"
 			}
-			USA_states_gui_AR_layer_2 = {
-				image = [Get_USA_states_gui_AR_layer_2]
-			}
-			
-			USA_states_gui_AZ_layer_1 = {
-				image = [Get_USA_states_gui_AZ_layer_1]
-			}
-			USA_states_gui_AZ_layer_2 = {
-				image = [Get_USA_states_gui_AZ_layer_2]
-			}
-		
-			USA_states_gui_CA_layer_1 = {
-				image = "[Get_USA_states_gui_CA_layer_1]"
-			}
-			USA_states_gui_CA_layer_2 = {
-				image = "[Get_USA_states_gui_CA_layer_2]"
+			USA_states_gui_378_layer_2 = {
+				image = "[378.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_CO_layer_1 = {
-				image = "[Get_USA_states_gui_CO_layer_1]"
+			USA_states_gui_382_layer_1 = {
+				image = "[382.GetStateBottomLayer]"
 			}
-			USA_states_gui_CO_layer_2 = {
-				image = "[Get_USA_states_gui_CO_layer_2]"
-			}
-			
-			USA_states_gui_CT_layer_1 = {
-				image = "[Get_USA_states_gui_CT_layer_1]"
-			}
-			USA_states_gui_CT_layer_2 = {
-				image = "[Get_USA_states_gui_CT_layer_2]"
+			USA_states_gui_382_layer_2 = {
+				image = "[382.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_DE_layer_1 = {
-				image = "[Get_USA_states_gui_DE_layer_1]"
+			USA_states_gui_830_layer_1 = {
+				image = "[830.GetStateBottomLayer]"
 			}
-			USA_states_gui_DE_layer_2 = {
-				image = "[Get_USA_states_gui_DE_layer_2]"
-			}
-			
-			USA_states_gui_FL_layer_1 = {
-				image = "[Get_USA_states_gui_FL_layer_1]"
-			}
-			USA_states_gui_FL_layer_2 = {
-				image = "[Get_USA_states_gui_FL_layer_2]"
+			USA_states_gui_830_layer_2 = {
+				image = "[830.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_GA_layer_1 = {
-				image = "[Get_USA_states_gui_GA_layer_1]"
+			USA_states_gui_833_layer_1 = {
+				image = "[833.GetStateBottomLayer]"
 			}
-			USA_states_gui_GA_layer_2 = {
-				image = "[Get_USA_states_gui_GA_layer_2]"
-			}
-			
-			USA_states_gui_IA_layer_1 = {
-				image = "[Get_USA_states_gui_IA_layer_1]"
-			}
-			USA_states_gui_IA_layer_2 = {
-				image = "[Get_USA_states_gui_IA_layer_2]"
+			USA_states_gui_833_layer_2 = {
+				image = "[833.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_ID_layer_1 = {
-				image = "[Get_USA_states_gui_ID_layer_1]"
+			USA_states_gui_366_layer_1 = {
+				image = "[366.GetStateBottomLayer]"
 			}
-			USA_states_gui_ID_layer_2 = {
-				image = "[Get_USA_states_gui_ID_layer_2]"
-			}
-			
-			USA_states_gui_IL_layer_1 = {
-				image = "[Get_USA_states_gui_IL_layer_1]"
-			}
-			USA_states_gui_IL_layer_2 = {
-				image = "[Get_USA_states_gui_IL_layer_2]"
+			USA_states_gui_366_layer_2 = {
+				image = "[366.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_IN_layer_1 = {
-				image = "[Get_USA_states_gui_IN_layer_1]"
+			USA_states_gui_365_layer_1 = {
+				image = "[365.GetStateBottomLayer]"
 			}
-			USA_states_gui_IN_layer_2 = {
-				image = "[Get_USA_states_gui_IN_layer_2]"
-			}
-			
-			USA_states_gui_KS_layer_1 = {
-				image = "[Get_USA_states_gui_KS_layer_1]"
-			}
-			USA_states_gui_KS_layer_2 = {
-				image = "[Get_USA_states_gui_KS_layer_2]"
+			USA_states_gui_365_layer_2 = {
+				image = "[365.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_KY_layer_1 = {
-				image = "[Get_USA_states_gui_KY_layer_1]"
+			USA_states_gui_392_layer_1 = {
+				image = "[392.GetStateBottomLayer]"
 			}
-			USA_states_gui_KY_layer_2 = {
-				image = "[Get_USA_states_gui_KY_layer_2]"
-			}
-			
-			USA_states_gui_LA_layer_1 = {
-				image = "[Get_USA_states_gui_LA_layer_1]"
-			}
-			USA_states_gui_LA_layer_2 = {
-				image = "[Get_USA_states_gui_LA_layer_2]"
+			USA_states_gui_392_layer_2 = {
+				image = "[392.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_ME_layer_1 = {
-				image = "[Get_USA_states_gui_ME_layer_1]"
+			USA_states_gui_387_layer_1 = {
+				image = "[387.GetStateBottomLayer]"
 			}
-			USA_states_gui_ME_layer_2 = {
-				image = "[Get_USA_states_gui_ME_layer_2]"
-			}
-			
-			USA_states_gui_MA ={
-				image = "[Get_USA_states_gui_MA]"
+			USA_states_gui_387_layer_2 = {
+				image = "[387.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_MD ={
-				image = "[Get_USA_states_gui_MD]"
+			USA_states_gui_395_layer_1 = {
+				image = "[395.GetStateBottomLayer]"
+			}
+			USA_states_gui_395_layer_2 = {
+				image = "[395.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_MI ={
-				image = "[Get_USA_states_gui_MI]"
+			USA_states_gui_396_layer_1 = {
+				image = "[396.GetStateBottomLayer]"
+			}
+			USA_states_gui_396_layer_2 = {
+				image = "[396.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_MN ={
-				image = "[Get_USA_states_gui_MN]"
+			USA_states_gui_383_layer_1 = {
+				image = "[383.GetStateBottomLayer]"
+			}
+			USA_states_gui_383_layer_2 = {
+				image = "[383.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_MO ={
-				image = "[Get_USA_states_gui_MO]"
+			USA_states_gui_369_layer_1 = {
+				image = "[369.GetStateBottomLayer]"
+			}
+			USA_states_gui_369_layer_2 = {
+				image = "[369.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_MS ={
-				image = "[Get_USA_states_gui_MS]"
+			USA_states_gui_371_layer_1 = {
+				image = "[371.GetStateBottomLayer]"
+			}
+			USA_states_gui_371_layer_2 = {
+				image = "[371.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_MT ={
-				image = "[Get_USA_states_gui_MT]"
+			USA_states_gui_827_layer_1 = {
+				image = "[827.GetStateBottomLayer]"
+			}
+			USA_states_gui_827_layer_2 = {
+				image = "[827.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_NC ={
-				image = "[Get_USA_states_gui_NC]"
+			USA_states_gui_357_layer_1 = {
+				image = "[357.GetStateBottomLayer]"
+			}
+			USA_states_gui_357_layer_2 = {
+				image = "[357.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_ND ={
-				image = "[Get_USA_states_gui_ND]"
+			USA_states_gui_361_layer_1 = {
+				image = "[361.GetStateBottomLayer]"
+			}
+			USA_states_gui_361_layer_2 = {
+				image = "[361.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_NE ={
-				image = "[Get_USA_states_gui_NE]"
+			USA_states_gui_393_layer_1 = {
+				image = "[393.GetStateBottomLayer]"
+			}
+			USA_states_gui_393_layer_2 = {
+				image = "[393.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_NH ={
-				image = "[Get_USA_states_gui_NH]"
+			USA_states_gui_391_layer_1 = {
+				image = "[391.GetStateBottomLayer]"
+			}
+			USA_states_gui_391_layer_2 = {
+				image = "[391.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_NJ ={
-				image = "[Get_USA_states_gui_NJ]"
+			USA_states_gui_370_layer_1 = {
+				image = "[370.GetStateBottomLayer]"
+			}
+			USA_states_gui_370_layer_2 = {
+				image = "[370.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_NM ={
-				image = "[Get_USA_states_gui_NM]"
+			USA_states_gui_373_layer_1 = {
+				image = "[373.GetStateBottomLayer]"
+			}
+			USA_states_gui_373_layer_2 = {
+				image = "[373.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_NV ={
-				image = "[Get_USA_states_gui_NV]"
+			USA_states_gui_388_layer_1 = {
+				image = "[388.GetStateBottomLayer]"
+			}
+			USA_states_gui_388_layer_2 = {
+				image = "[388.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_NY ={
-				image = "[Get_USA_states_gui_NY]"
+			USA_states_gui_384_layer_1 = {
+				image = "[384.GetStateBottomLayer]"
+			}
+			USA_states_gui_384_layer_2 = {
+				image = "[384.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_OH ={
-				image = "[Get_USA_states_gui_OH]"
+			USA_states_gui_379_layer_1 = {
+				image = "[379.GetStateBottomLayer]"
+			}
+			USA_states_gui_379_layer_2 = {
+				image = "[379.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_OK ={
-				image = "[Get_USA_states_gui_OK]"
+			USA_states_gui_359_layer_1 = {
+				image = "[359.GetStateBottomLayer]"
+			}
+			USA_states_gui_359_layer_2 = {
+				image = "[359.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_OR ={
-				image = "[Get_USA_states_gui_OR]"
+			USA_states_gui_358_layer_1 = {
+				image = "[358.GetStateBottomLayer]"
+			}
+			USA_states_gui_358_layer_2 = {
+				image = "[358.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_PA ={
-				image = "[Get_USA_states_gui_PA]"
+			USA_states_gui_828_layer_1 = {
+				image = "[828.GetStateBottomLayer]"
+			}
+			USA_states_gui_828_layer_2 = {
+				image = "[828.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_RI ={
-				image = "[Get_USA_states_gui_RI]"
+			USA_states_gui_363_layer_1 = {
+				image = "[363.GetStateBottomLayer]"
+			}
+			USA_states_gui_363_layer_2 = {
+				image = "[363.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_SC ={
-				image = "[Get_USA_states_gui_SC]"
+			USA_states_gui_389_layer_1 = {
+				image = "[389.GetStateBottomLayer]"
+			}
+			USA_states_gui_389_layer_2 = {
+				image = "[389.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_SD ={
-				image = "[Get_USA_states_gui_SD]"
+			USA_states_gui_261_layer_1 = {
+				image = "[261.GetStateBottomLayer]"
+			}
+			USA_states_gui_261_layer_2 = {
+				image = "[261.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_TN ={
-				image = "[Get_USA_states_gui_TN]"
+			USA_states_gui_385_layer_1 = {
+				image = "[385.GetStateBottomLayer]"
+			}
+			USA_states_gui_385_layer_2 = {
+				image = "[385.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_TX ={
-				image = "[Get_USA_states_gui_TX]"
+			USA_states_gui_360_layer_1 = {
+				image = "[360.GetStateBottomLayer]"
+			}
+			USA_states_gui_360_layer_2 = {
+				image = "[360.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_UT ={
-				image = "[Get_USA_states_gui_UT]"
+			USA_states_gui_831_layer_1 = {
+				image = "[831.GetStateBottomLayer]"
+			}
+			USA_states_gui_831_layer_2 = {
+				image = "[831.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_VA ={
-				image = "[Get_USA_states_gui_VA]"
+			USA_states_gui_364_layer_1 = {
+				image = "[364.GetStateBottomLayer]"
+			}
+			USA_states_gui_364_layer_2 = {
+				image = "[364.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_VT ={
-				image = "[Get_USA_states_gui_VT]"
+			### South Dakota ###
+			USA_states_gui_390_layer_1 = {
+				image = "[390.GetStateBottomLayer]"
+			}
+			USA_states_gui_390_layer_2 = {
+				image = "[390.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_WA ={
-				image = "[Get_USA_states_gui_WA]"
+			### Tennessee ###
+			USA_states_gui_368_layer_1 = {
+				image = "[368.GetStateBottomLayer]"
+			}
+			USA_states_gui_368_layer_2 = {
+				image = "[368.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_WI ={
-				image = "[Get_USA_states_gui_WI]"
+			### Texas ###
+			USA_states_gui_375_layer_1 = {
+				image = "[375.GetStateBottomLayer]"
+			}
+			USA_states_gui_375_layer_2 = {
+				image = "[375.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_WV ={
-				image = "[Get_USA_states_gui_WV]"
+			### New Mexico ###
+			USA_states_gui_376_layer_1 = {
+				image = "[376.GetStateBottomLayer]"
+			}
+			USA_states_gui_376_layer_2 = {
+				image = "[376.GetStateTopLayer]"
 			}
 			
-			USA_states_gui_WY ={
-				image = "[Get_USA_states_gui_WY]"
+			### Oklahoma ###
+			USA_states_gui_374_layer_1 = {
+				image = "[374.GetStateBottomLayer]"
+			}
+			USA_states_gui_374_layer_2 = {
+				image = "[374.GetStateTopLayer]"
+			}
+			
+			### Utah ###
+			USA_states_gui_380_layer_1 = {
+				image = "[380.GetStateBottomLayer]"
+			}
+			USA_states_gui_380_layer_2 = {
+				image = "[380.GetStateTopLayer]"
+			}
+			
+			### Vermont ###
+			USA_states_gui_829_layer_1 = {
+				image = "[829.GetStateBottomLayer]"
+			}
+			USA_states_gui_829_layer_2 = {
+				image = "[829.GetStateTopLayer]"
+			}
+			
+			### Virginia ###
+			USA_states_gui_362_layer_1 = {
+				image = "[362.GetStateBottomLayer]"
+			}
+			USA_states_gui_362_layer_2 = {
+				image = "[362.GetStateTopLayer]"
+			}
+			
+			### Washington ###
+			USA_states_gui_386_layer_1 = {
+				image = "[386.GetStateBottomLayer]"
+			}
+			USA_states_gui_386_layer_2 = {
+				image = "[386.GetStateTopLayer]"
+			}
+			
+			### West Virginia ###
+			USA_states_gui_832_layer_1 = {
+				image = "[832.GetStateBottomLayer]"
+			}
+			USA_states_gui_832_layer_2 = {
+				image = "[832.GetStateTopLayer]"
+			}
+			
+			### Wisconsin ###
+			USA_states_gui_394_layer_1 = {
+				image = "[394.GetStateBottomLayer]"
+			}
+			USA_states_gui_394_layer_2 = {
+				image = "[394.GetStateTopLayer]"
+			}
+			
+			### Wyoming ###
+			USA_states_gui_381_layer_1 = {
+				image = "[381.GetStateBottomLayer]"
+			}
+			USA_states_gui_381_layer_2 = {
+				image = "[381.GetStateTopLayer]"
 			}
 		}
 	}

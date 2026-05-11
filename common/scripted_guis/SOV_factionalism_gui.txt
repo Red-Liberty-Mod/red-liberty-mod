@@ -1,0 +1,25 @@
+scripted_gui = {
+	
+	SOV_factionalism_scripted_gui = {
+		window_name = "SOV_factionalism_decision_ui_window"
+		context_type = decision_category
+		
+		dynamic_lists = {
+			SOV_faction_gridbox = {
+				array = SOV_faction_array
+				value = faction_id
+				entry_container = "SOV_factionalism_faction_container"
+			}
+		}
+
+		properties = {
+			SOV_faction_icon = {
+				image = [SOV_GetFactionIcon]
+			}
+		}
+		
+		effects = {
+			
+		}
+	}
+}

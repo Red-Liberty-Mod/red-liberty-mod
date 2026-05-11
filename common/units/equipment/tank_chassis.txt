@@ -21,7 +21,15 @@ equipments = {
 
 		
 
-		module_slots = {
+		module_slots = {			
+
+			turret_type_slot = { #Turrets must go at the top
+				required = yes
+				allowed_module_categories = {
+					tank_light_turret_type
+				}
+			}
+			
 			main_armament_slot = {
 				required = yes
 				allowed_module_categories = {
@@ -29,13 +37,7 @@ equipments = {
 					tank_flamethrower
 				}
 			}
-
-			turret_type_slot = {
-				required = yes
-				allowed_module_categories = {
-					tank_light_turret_type
-				}
-			}
+			
 			suspension_type_slot = {
 				required = yes
 				allowed_module_categories = {
@@ -256,19 +258,20 @@ equipments = {
 		priority = 2000
 
 		module_slots = {
-			main_armament_slot = {
-				required = yes
-				allowed_module_categories = {
-					tank_small_main_armament
-					tank_flamethrower
-				}
-			}
 
 			turret_type_slot = {
 				required = yes
 				allowed_module_categories = {
 					tank_light_turret_type
 					tank_medium_turret_type
+				}
+			}
+			
+			main_armament_slot = {
+				required = yes
+				allowed_module_categories = {
+					tank_small_main_armament
+					tank_flamethrower
 				}
 			}
 
@@ -491,13 +494,6 @@ equipments = {
 		priority = 2000
 
 		module_slots = {
-			main_armament_slot = {
-				required = yes
-				allowed_module_categories = {
-					tank_small_main_armament
-					tank_flamethrower
-				}
-			}
 
 			turret_type_slot = {
 				required = yes
@@ -505,6 +501,14 @@ equipments = {
 					tank_light_turret_type
 					tank_medium_turret_type
 					tank_heavy_turret_type
+				}
+			}
+			
+			main_armament_slot = {
+				required = yes
+				allowed_module_categories = {
+					tank_small_main_armament
+					tank_flamethrower
 				}
 			}
 
@@ -635,6 +639,8 @@ equipments = {
 			steel = 1
 		}
 
+		lend_lease_cost = 14
+
 		manpower = 2
 
 	}
@@ -686,7 +692,7 @@ equipments = {
 		armor_value = 60
 		resources = {
 			steel = 1
-			chromium = 1
+			rare_metals = 1
 		}
 	}
 
@@ -705,7 +711,7 @@ equipments = {
 		armor_value = 75
 		resources = {
 			steel = 2
-			chromium = 1
+			rare_metals = 1
 		}
 	}
 
@@ -723,12 +729,6 @@ equipments = {
 		priority = 2000
 
 		module_slots = {
-			main_armament_slot = {
-				required = yes
-				allowed_module_categories = {
-					tank_small_main_armament
-				}
-			}
 
 			turret_type_slot = {
 				required = yes
@@ -737,6 +737,13 @@ equipments = {
 					tank_medium_turret_type
 					tank_heavy_turret_type
 					tank_modern_turret_type
+				}
+			}
+			
+			main_armament_slot = {
+				required = yes
+				allowed_module_categories = {
+					tank_small_main_armament
 				}
 			}
 
@@ -863,7 +870,7 @@ equipments = {
 		hardness = 0.95
 		resources = {
 			steel = 2
-			chromium = 1
+			rare_metals = 1
 		}
 
 		lend_lease_cost = 13
@@ -901,20 +908,17 @@ equipments = {
 		priority = 2000
 
 		module_slots = {
+			turret_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					tank_super_heavy_turret_type
+				}
+			}
+		
 			main_armament_slot = {
 				required = yes
 				allowed_module_categories = {
 					tank_small_main_armament
-				}
-			}
-
-			turret_type_slot = {
-				required = yes
-				allowed_module_categories = {
-					tank_light_turret_type
-					tank_medium_turret_type
-					tank_heavy_turret_type
-					tank_super_heavy_turret_type
 				}
 			}
 
@@ -1043,7 +1047,7 @@ equipments = {
 		
 		resources = {
 			steel = 3
-			chromium = 2
+			rare_metals = 2
 		}
 
 		lend_lease_cost = 20
@@ -1080,18 +1084,18 @@ equipments = {
 		priority = 2000
 
 		module_slots = {
-			main_armament_slot = {
-				required = yes
-				allowed_module_categories = {
-					tank_small_main_armament
-				}
-			}
 
 			turret_type_slot = {
 				required = yes
 				allowed_module_categories = {
 					tank_light_turret_type
-					tank_medium_turret_type
+				}
+			}
+			
+			main_armament_slot = {
+				required = yes
+				allowed_module_categories = {
+					tank_small_main_armament
 				}
 			}
 
@@ -1379,7 +1383,7 @@ equipments = {
 		}
 
 		module_count_limit = {
-			module = lc_aerial_deployment
+			category = lc_aerial_deployment
 			count < 2
 		}
 		
@@ -1423,7 +1427,7 @@ equipments = {
 		
 		resources = {
 			steel = 8
-			chromium = 4
+			rare_metals = 4
 		}
 
 		lend_lease_cost = 80

@@ -1,5 +1,41 @@
 characters = {
 	
+	SOV_life_and_labour_commune = {
+		name = SOV_life_and_labour_commune
+		
+		portraits = {
+			civilian = {
+				#large = ""
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_LIFE_AND_LABOUR_COMMUNE_DESC"
+			ideology = anarchism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	SOV_nestor_makhno = {
+		name = SOV_nestor_makhno
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_SOV_nestor_makhno"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_NESTOR_MAKHNO_DESC"
+			ideology = anarcho_socialism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
 	SOV_nikolai_bukharin = {
 		name = SOV_nikolai_bukharin
 		
@@ -13,7 +49,7 @@ characters = {
 			desc = "POLITICS_NIKOLAI_BUKHARIN_DESC"
 			ideology = right_communism_subtype
 			traits = {
-				
+				SOV_dejected_idealist
 			}
 		}
 	}
@@ -24,6 +60,7 @@ characters = {
 		portraits = {
 			civilian = {
 				large = "GFX_portrait_SOV_grigory_sokolnikov"
+				small = "gfx/interface/ministers/SOV/SOV_grigory_sokolnikov.png"
 			}
 		}
 		
@@ -38,11 +75,28 @@ characters = {
 		advisor = {
 			cost = 100
 			slot = political_advisor
-			idea_token = SOV_grigory_sokolnikov
+			idea_token = SOV_grigory_sokolnikov_political_advisor
 			ledger = civilian
 			
-			allowed = {
-				original_tag = SOV
+			on_add = {
+				set_temp_variable = { SOV_opinion_change_temp = SOV_rightist_opinion }
+				multiply_temp_variable = { SOV_opinion_change_temp = 0.2 }
+				round_temp_variable = SOV_opinion_change_temp
+				SOV_change_rightist_opinion = yes
+				
+				set_temp_variable = { SOV_influence_change_temp = 3 }
+				SOV_change_rightist_influence = yes
+			}
+			
+			on_remove = {
+				set_temp_variable = { SOV_opinion_change_temp = SOV_rightist_opinion }
+				multiply_temp_variable = { SOV_opinion_change_temp = 0.2 }
+				multiply_temp_variable = { SOV_opinion_change_temp = -1 }
+				round_temp_variable = SOV_opinion_change_temp
+				SOV_change_rightist_opinion = yes
+				
+				set_temp_variable = { SOV_influence_change_temp = -3 }
+				SOV_change_rightist_influence = yes
 			}
 			
 			available = {
@@ -66,9 +120,9 @@ characters = {
 		
 		country_leader = {
 			desc = "POLITICS_ALEXANDER_BOGDANOV_DESC"
-			ideology = scientific_socialism_subtype
+			ideology = technocratic_communism_subtype
 			traits = {
-				
+				SOV_engineering_the_revolution
 			}
 		}
 	}
@@ -86,7 +140,7 @@ characters = {
 			desc = "POLITICS_SERGEI_KIROV_DESC"
 			ideology = leninism_subtype
 			traits = {
-				
+				SOV_charismatic_orator
 			}
 		}
 	}
@@ -97,6 +151,7 @@ characters = {
 		portraits = {
 			civilian = {
 				large = "GFX_portrait_SOV_joseph_stalin"
+				small = "gfx/interface/ministers/SOV/SOV_iosef_stalin.png"
 			}
 		}
 		
@@ -105,6 +160,22 @@ characters = {
 			ideology = leninism_subtype
 			traits = {
 				
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = SOV_joseph_stalin_political_advisor
+			ledger = civilian
+			available = {
+				is_country_leader = no
+			}
+			visible = {
+				has_country_flag = SOV_iosef_stalin_flag
+			}
+			traits = {
+				iron_fisted_brute
 			}
 		}
 	}
@@ -132,8 +203,8 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				large = "GFX_portrait_SOV_alexander_shliapnikov"
-				small = "GFX_minister_SOV_alexander_shliapnikov"
+				large = "gfx/leaders/SOV/Portrait_SOV_Aleksandr_Shliapnikov.png"
+				small = "gfx/interface/ministers/SOV/SOV_alexander_shliapnikov.png"
 			}
 		}
 		
@@ -141,26 +212,20 @@ characters = {
 			desc = "POLITICS_ALEXANDER_SHLIAPNIKOV_DESC"
 			ideology = syndicalism_subtype
 			traits = {
-				
+				SOV_voice_of_the_proletariat
 			}
 		}
 		
 		advisor = {
 			cost = 100
 			slot = political_advisor
-			idea_token = SOV_alexander_shliapnikov
+			idea_token = SOV_alexander_shliapnikov_political_advisor
 			ledger = civilian
-			
-			allowed = {
-				original_tag = SOV
-			}
-			
 			available = {
 				is_country_leader = no
 			}
-			
 			traits = {
-				
+				trade_unionist
 			}
 		}
 	}
@@ -202,7 +267,7 @@ characters = {
 		}
 	}
 	
-	### Ministers ###
+	### Deputy Leaders ###
 	
 	SOV_mikhail_kalinin = {
 		name = SOV_mikhail_kalinin
@@ -222,8 +287,13 @@ characters = {
 			traits = {
 				hog_national_figurehead
 			}
+			modifier = {
+				party_popularity_stability_factor = 0.25
+			}
 		}
 	}
+	
+	### Ministers ###
 	
 	SOV_yakov_sverdlov = {
 		name = SOV_yakov_sverdlov
@@ -238,10 +308,53 @@ characters = {
 			cost = 100
 			can_be_fired = no
 			slot = political_advisor
-			idea_token = SOV_yakov_sverdlov
+			idea_token = SOV_yakov_sverdlov_political_advisor
 			ledger = civilian
 			traits = {
-				SOV_general_secretary
+				SOV_general_secretary_sverdlov
+			}
+		}
+	}
+	
+	SOV_lazar_kaganovich = {
+		name = SOV_lazar_kaganovich
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/SOV/SOV_lazar_kaganovich.png"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = SOV_lazar_kaganovich_political_advisor
+			ledger = civilian
+			
+			on_add = {
+				add_to_variable = {
+					tooltip = SOV_industrialist_opinion_gain
+					SOV_industrialist_opinion = 1
+				}
+				add_to_variable = {
+					tooltip = SOV_industrialist_influence_gain
+					SOV_industrialist_influence = 3
+				}
+			}
+			
+			on_remove = {
+				add_to_variable = {
+					tooltip = SOV_industrialist_opinion_lose
+					SOV_industrialist_opinion = -1
+				}
+				add_to_variable = {
+					tooltip = SOV_industrialist_influence_lose
+					SOV_industrialist_influence = -3
+				}
+			}
+			
+			traits = {
+				railway_magnate
 			}
 		}
 	}
@@ -251,14 +364,14 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				small = "GFX_minister_SOV_maxim_litvinov"
+				small = "gfx/interface/ministers/SOV/SOV_maxim_litvinov.png"
 			}
 		}
 		
 		advisor = {
 			cost = 100
 			slot = political_advisor
-			idea_token = SOV_maxim_litvinov
+			idea_token = SOV_maxim_litvinov_political_advisor
 			ledger = civilian
 			
 			allowed = {
@@ -276,14 +389,14 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				small = "GFX_minister_SOV_anatoly_lunacharsky"
+				small = "gfx/interface/ministers/SOV/SOV_anatoly_lunacharsky.png"
 			}
 		}
 		
 		advisor = {
 			cost = 100
 			slot = political_advisor
-			idea_token = SOV_anatoly_lunacharsky
+			idea_token = SOV_anatoly_lunacharsky_political_advisor
 			ledger = civilian
 			
 			allowed = {
@@ -301,22 +414,40 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				small = "GFX_minister_SOV_karl_radek"
+				small = "gfx/interface/ministers/SOV/SOV_karl_radek.png"
 			}
 		}
 		
 		advisor = {
 			cost = 100
 			slot = political_advisor
-			idea_token = SOV_karl_radek
+			idea_token = SOV_karl_radek_political_advisor
 			ledger = civilian
 			
-			allowed = {
-				original_tag = SOV
+			on_add = {
+				add_to_variable = {
+					tooltip = SOV_industrialist_opinion_gain
+					SOV_industrialist_opinion = 1
+				}
+				add_to_variable = {
+					tooltip = SOV_industrialist_influence_gain
+					SOV_industrialist_influence = 3
+				}
+			}
+			
+			on_remove = {
+				add_to_variable = {
+					tooltip = SOV_industrialist_opinion_lose
+					SOV_industrialist_opinion = -1
+				}
+				add_to_variable = {
+					tooltip = SOV_industrialist_influence_lose
+					SOV_industrialist_influence = -3
+				}
 			}
 			
 			traits = {
-				
+				ideological_crusader
 			}
 		}
 	}
@@ -326,18 +457,36 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				small = "GFX_minister_SOV_martemyan_ryutin"
+				small = "gfx/interface/ministers/SOV/SOV_martemyan_ryutin.png"
 			}
 		}
 		
 		advisor = {
 			cost = 100
 			slot = political_advisor
-			idea_token = SOV_martemyan_ryutin
+			idea_token = SOV_martemyan_ryutin_political_advisor
 			ledger = civilian
 			
-			allowed = {
-				original_tag = SOV
+			on_add = {
+				add_to_variable = {
+					tooltip = SOV_rightist_opinion_gain
+					SOV_rightist_opinion = 1
+				}
+				add_to_variable = {
+					tooltip = SOV_rightist_influence_gain
+					SOV_rightist_influence = 3
+				}
+			}
+			
+			on_remove = {
+				add_to_variable = {
+					tooltip = SOV_rightist_opinion_lose
+					SOV_rightist_opinion = -1
+				}
+				add_to_variable = {
+					tooltip = SOV_rightist_influence_lose
+					SOV_rightist_influence = -3
+				}
 			}
 			
 			traits = {
@@ -351,14 +500,14 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				small = "GFX_minister_SOV_nikolai_yezhov"
+				small = "gfx/interface/ministers/SOV/SOV_nikolai_yezhov.png"
 			}
 		}
 		
 		advisor = {
 			cost = 100
 			slot = political_advisor
-			idea_token = SOV_nikolai_yezhov
+			idea_token = SOV_nikolai_yezhov_political_advisor
 			ledger = civilian
 			
 			allowed = {
@@ -376,14 +525,14 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				small = "GFX_minister_SOV_grigory_zinoviev"
+				small = "gfx/interface/ministers/SOV/SOV_grigory_zinoviev.png"
 			}
 		}
 		
 		advisor = {
 			cost = 100
 			slot = political_advisor
-			idea_token = SOV_grigory_zinoviev
+			idea_token = SOV_grigory_zinoviev_political_advisor
 			ledger = civilian
 			
 			allowed = {
@@ -391,7 +540,7 @@ characters = {
 			}
 			
 			traits = {
-				
+				iron_fisted_brute
 			}
 		}
 	}
@@ -401,22 +550,132 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				small = "GFX_minister_SOV_ivar_smilga"
+				small = "gfx/interface/ministers/SOV/SOV_ivar_smilga.png"
 			}
 		}
 		
 		advisor = {
 			cost = 100
 			slot = political_advisor
-			idea_token = SOV_ivar_smilga
+			idea_token = SOV_ivar_smilga_political_advisor
 			ledger = civilian
-			
-			allowed = {
-				original_tag = SOV
+			available = {
+				has_country_flag = SOV_nep_abolished
 			}
-			
 			traits = {
 				planned_economy_proponent
+			}
+		}
+	}
+	
+	SOV_alexandra_kollontai = {
+		name = SOV_alexandra_kollontai
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/SOV/SOV_alexandra_kollontai.png"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = SOV_alexandra_kollontai_political_advisor
+			ledger = civilian
+			traits = {
+				feminist_champion
+			}
+		}
+	}
+	
+	SOV_nadezhda_krupskaya = {
+		name = SOV_nadezhda_krupskaya
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/SOV/SOV_nadezhda_krupskaya.png"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = SOV_nadezhda_krupskaya_political_advisor
+			ledger = civilian
+			traits = {
+				sov_lenins_widow
+			}
+		}
+	}
+	
+	## Mensheviks ##
+	SOV_fyodor_dan = {
+		name = SOV_fyodor_dan
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/SOV/SOV_fyodor_dan.png"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = SOV_fyodor_dan_political_advisor
+			ledger = civilian
+			available = {
+				has_completed_focus = SOV_lift_menshevik_exiles
+			}
+			traits = {
+				
+			}
+		}
+	}
+	
+	SOV_boris_nicolaevsky = {
+		name = SOV_boris_nicolaevsky
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/SOV/SOV_boris_nicolaevsky.png"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = SOV_boris_nicolaevsky_political_advisor
+			ledger = civilian
+			available = {
+				has_completed_focus = SOV_lift_menshevik_exiles
+			}
+			traits = {
+				
+			}
+		}
+	}
+	
+	## Esers ##
+	
+	SOV_andrei_kolegayev = {
+		name = SOV_andrei_kolegayev
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/SOV/SOV_andrei_kolegayev.png"
+			}
+		}
+		
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			idea_token = SOV_andrei_kolegayev_political_advisor
+			ledger = civilian
+			available = {
+				has_completed_focus = SOV_reconcile_the_esers
+			}
+			traits = {
+				agricultural_economist
 			}
 		}
 	}
@@ -429,44 +688,40 @@ characters = {
 		portraits = {
 			army = {
 				large = "gfx/leaders/SOV/Portrait_SOV_Mikhail_Tukhachevsky.png"
+				small = "gfx/interface/ministers/SOV/military/SOV_mikhail_tukhachevsky.png"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_MIKHAIL_TUKHACHEVSKY_DESC"
+			ideology = military_socialism_subtype
+			traits = {
+				
 			}
 		}
 		
 		advisor = {
 			cost = 200
-			
 			slot = army_chief
 			idea_token = SOV_mikhail_tukhachevsky_army_chief
 			ledger = army
-			
-			allowed = {
-				original_tag = SOV
-			}
-			
 			available = {
 				not_already_hired_except_as = army_chief
 			}
-			
 			traits = {
 				army_chief_offensive_3
 			}
 		}
 		
 		advisor = {
-			cost = 100
-			
+			cost = 150
 			slot = theorist
 			idea_token = SOV_mikhail_tukhachevsky_theorist
 			ledger = army
-			
-			allowed = {
-				original_tag = SOV
-			}
-			
 			available = {
 				not_already_hired_except_as = theorist
+				has_completed_focus = SOV_tukhachevsky_doctrine
 			}
-			
 			traits = {
 				mass_assault_expert
 			}
@@ -520,24 +775,15 @@ characters = {
 		portraits = {
 			army = {
 				large = "gfx/leaders/SOV/Portrait_SOV_Alexander_Yegorov.png"
+				small = "gfx/interface/ministers/SOV/military/SOV_alexander_yegorov.png"
 			}
 		}
 		
 		advisor = {
 			cost = 100
-			
 			slot = high_command
 			idea_token = SOV_alexander_yegorov_high_command
 			ledger = army
-			
-			allowed = {
-				original_tag = SOV
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
 				army_regrouping_2
 			}
@@ -563,26 +809,17 @@ characters = {
 		portraits = {
 			army = {
 				large = "gfx/leaders/SOV/Portrait_SOV_Semyon_Budyonny.png"
+				small = "gfx/interface/ministers/SOV/military/SOV_semyon_budyonny.png"
 			}
 		}
 		
 		advisor = {
-			cost = 100
-			
-			slot = high_command
+			cost = 50
+			slot = army_chief
 			idea_token = SOV_semyon_budyonny_high_command
 			ledger = army
-			
-			allowed = {
-				original_tag = SOV
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
-				army_cavalry_2
+				army_chief_old_guard
 			}
 		}
 		
@@ -609,6 +846,18 @@ characters = {
 		portraits = {
 			army = {
 				large = "gfx/leaders/SOV/Portrait_SOV_Vasily_Blyukher.png"
+				small = "gfx/interface/ministers/SOV/military/SOV_vasily_blyukher.png"
+			}
+		}
+		
+		advisor = {
+			cost = 0
+			can_be_fired = no
+			slot = head_of_government
+			idea_token = SOV_vasily_blyukher_hog
+			ledger = civilian
+			traits = {
+				hog_old_general
 			}
 		}
 		
@@ -940,6 +1189,199 @@ characters = {
 		}
 	}
 	
+	SOV_vitaly_primakov = {
+		name = SOV_vitaly_primakov
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_SOV_vitaly_primakov"
+			}
+		}
+			
+		corps_commander = {
+			traits = {
+				cavalry_officer
+				cavalry_leader
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		
+		advisor = {
+			cost = 100
+			slot = high_command
+			idea_token = SOV_vitaly_primakov_high_command
+			ledger = army
+			traits = {
+				army_cavalry_2
+			}
+		}
+	}
+	
+	## Promotable ##
+	
+	SOV_georgy_zhukov = {
+		name = SOV_georgy_zhukov
+		
+		portraits = {
+			army = {
+				#large = "GFX_portrait_SOV_georgy_zhukov"
+			}
+		}
+			
+		corps_commander = {
+			traits = {
+				armor_officer
+				brilliant_strategist
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+			visible = {
+				has_country_flag = SOV_promote_armor_officers_flag
+			}
+		}
+		
+		advisor = {
+			cost = 150
+			slot = high_command
+			idea_token = SOV_georgy_zhukov_high_command
+			ledger = army
+			available = {
+				has_country_flag = SOV_promote_armor_officers_flag
+			}
+			traits = {
+				army_armored_3
+			}
+		}
+	}
+	
+	### High Command ###
+	SOV_boris_feldman = {
+		name = SOV_boris_feldman
+		
+		portraits = {
+			army = {
+				small= "gfx/interface/ministers/SOV/military/SOV_boris_feldman.png"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = high_command
+			idea_token = SOV_boris_feldman
+			ledger = army
+			traits = {
+				army_infantry_2
+			}
+		}
+	}
+	
+	SOV_yakov_alksnis = {
+		name = SOV_yakov_alksnis
+		
+		portraits = {
+			army = {
+				small = "gfx/interface/ministers/SOV/military/SOV_yakov_alksnis.png"
+			}
+		}
+		
+		advisor = {
+			slot = air_chief
+			idea_token = SOV_yakov_alksnis_air_chief
+			ledger = air
+			traits = { air_chief_safety_2 }
+			cost = 100
+		}
+	}
+	
+	SOV_aleksandr_novikov = {
+		name = SOV_aleksandr_novikov
+		
+		portraits = {
+			army = {
+				small = "gfx/interface/ministers/SOV/military/SOV_alexander_novikov.png"
+			}
+		}
+		
+		advisor = {
+			slot = air_chief
+			idea_token = SOV_aleksandr_novikov_air_chief
+			ledger = air
+			traits = { air_chief_reform_2 }
+			cost = 100
+		}
+		
+		advisor = {
+			slot = theorist
+			idea_token = SOV_aleksandr_novikov_theorist
+			ledger = air
+			traits = { air_warfare_theorist }
+			cost = 100
+		}
+	}
+	
+	SOV_vladimir_orlov = {
+		name = SOV_vladimir_orlov
+		
+		portraits = {
+			army = {
+				small = "gfx/interface/ministers/SOV/military/SOV_vladimir_orlov.png"
+			}
+		}
+		
+		advisor = {
+			slot = navy_chief
+			idea_token = SOV_vladimir_orlov_navy_chief
+			ledger = air
+			traits = { navy_chief_decisive_battle_2 }
+			cost = 100
+		}
+	}
+	
+	SOV_aleksandr_samoylo = {
+		name = SOV_aleksandr_samoylo
+		
+		portraits = {
+			army = {
+				small = "gfx/interface/ministers/SOV/military/SOV_alexander_samoylo.png"
+			}
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = SOV_aleksandr_samoylo
+			ledger = air
+			traits = { air_tactical_bombing_1 }
+			cost = 50
+		}
+	}
+	
+	SOV_sergey_khudyakov = {
+		name = SOV_sergey_khudyakov
+		
+		portraits = {
+			army = {
+				small = "gfx/interface/ministers/SOV/military/SOV_sergey_khudyakov.png"
+			}
+		}
+
+		advisor = {
+			cost = 100
+			slot = high_command
+			idea_token = SOV_sergey_khudyakov
+			ledger = air
+			traits = {
+				air_close_air_support_2
+			}
+		}
+	}
+	
 	### THEORISTS ###
 	
 	SOV_vladimir_triandafillov = {
@@ -953,21 +1395,326 @@ characters = {
 			
 		advisor = {
 			cost = 100
-			
 			slot = theorist
 			idea_token = SOV_vladimir_triandafillov
 			ledger = army
-			
-			allowed = {
-				original_tag = SOV
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
 				military_theorist
+			}
+		}
+	}
+	
+	SOV_alexander_svechin = {
+		name = SOV_alexander_svechin
+		
+		portraits = {
+			army = {
+				small = "GFX_portrait_SOV_alexander_svechin"
+			}
+		}
+			
+		advisor = {
+			cost = 150
+			slot = theorist
+			idea_token = SOV_alexander_svechin
+			ledger = army
+			available = {
+				has_completed_focus = SOV_svechin_doctrine
+			}
+			traits = {
+				grand_battle_plan_expert
+			}
+		}
+	}
+	
+	SOV_aleksandr_nemits = {
+		name = SOV_aleksandr_nemits
+		
+		portraits = {
+			army = {
+				small = "GFX_portrait_SOV_aleksandr_nemits"
+			}
+		}
+		
+		advisor = {
+			slot = theorist
+			idea_token = SOV_aleksandr_nemits
+			ledger = navy
+			traits = { naval_theorist }
+			cost = 100
+		}
+	}
+	
+	#SOV_igor_kurchatov = {
+	#	name = SOV_igor_kurchatov
+	#	portraits = {
+	#		army = {
+	#			small = "GFX_portrait_SOV_igor_kurchatov"
+	#		}
+	#	}
+	#	advisor = {
+	#		slot = theorist
+	#		idea_token = SOV_igor_kurchatov
+	#		ledger = army
+	#		traits = { nuclear_scientist }
+	#		research_bonus = {
+	#			nuclear = 0.150
+	#		}
+	#		cost = 100
+	#	}
+	#}
+	
+	### Admirals ###
+	
+	SOV_lev_galler = {
+		name = SOV_lev_galler
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_SOV_lev_galler"
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				navy_career_officer
+				superior_tactician
+				ironside
+			}
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			maneuvering_skill = 2
+			coordination_skill = 3
+		}
+	}
+	
+	SOV_gordey_levchenko = {
+		name = SOV_gordey_levchenko
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_SOV_gordey_levchenko"
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				green_water_expert 
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			maneuvering_skill = 1
+			coordination_skill = 2
+		}
+		
+		advisor = {
+			slot = navy_chief
+			idea_token = RUS_gordey_levchenko_navy_chief
+			available = {
+				not_already_hired_except_as = navy_chief
+			}
+			traits = { navy_chief_reform_1 }
+			cost = 50
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = RUS_gordey_levchenko_high_command
+			ledger = navy
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = { navy_anti_submarine_1 }
+			cost = 50
+		}
+	}
+	
+	SOV_vladimir_kasatonov = {
+		name = SOV_vladimir_kasatonov
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_SOV_vladimir_kasatonov"
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				seawolf
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			maneuvering_skill = 2
+			coordination_skill = 2
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = SOV_vladimir_kasatonov
+			ledger = navy
+			traits = {
+				navy_submarine_2
+			}
+			cost = 100
+		}
+	}
+	
+	SOV_neon_antonov = {
+		name = SOV_neon_antonov
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_SOV_neon_antonov"
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			maneuvering_skill = 1
+			coordination_skill = 1
+		}
+	}
+	
+	SOV_grigory_kireev = {
+		name = SOV_grigory_kireev
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_SOV_grigory_kireev"
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				chief_engineer
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			maneuvering_skill = 1
+			coordination_skill = 2
+		}
+	}
+	
+	### Scientists ###
+	
+	SOV_mikhail_koshkin = {
+		name = SOV_mikhail_koshkin
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/scientist/Portrait_SOV_Mikhail_Koshkin.png"
+			}
+		}
+
+		scientist = {
+			traits = { scientist_trait_armored_specialist }
+			skills = {
+				specialization_land = 2
+			}
+		}
+	}
+	
+	SOV_igor_kurchatov = {
+		name = SOV_igor_kurchatov
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/scientist/portrait_SOV_igor_kurchatov.dds"
+			}
+		}
+
+		scientist = {
+			traits = { scientist_trait_nuclear_specialist scientist_trait_fast_learner }
+			skills = {
+				specialization_nuclear = 2
+				specialization_naval = 2
+			}
+		}
+	}
+
+	SOV_abram_ioffe = {
+		name = SOV_abram_ioffe
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/scientist/portrait_SOV_abram_ioffe.dds"
+			}
+		}
+
+		scientist = {
+			traits = { scientist_trait_nuclear_power_expert }
+			skills = {
+				specialization_nuclear = 2
+			}
+		}
+	}
+
+	SOV_sergey_korolyov = {
+		name = SOV_sergey_korolyov
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/scientist/portrait_SOV_sergei_korolev.dds"
+			}
+		}
+
+		scientist = {
+			traits = { scientist_trait_rocketry_specialist scientist_trait_gifted_engineer }
+			skills = {
+				specialization_air = 2
+			}
+		}
+	}
+
+	SOV_boris_stechkin = {
+		name = SOV_boris_stechkin
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/scientist/portrait_SOV_boris_stechkin.dds"
+			}
+		}
+
+		scientist = {
+			traits = { scientist_trait_jet_expert scientist_trait_brilliant_theorist }
+			skills = {
+				specialization_air = 2
+			}
+		}
+	}
+
+	SOV_arkady_nazarov = {
+		name = SOV_arkady_nazarov
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/scientist/portrait_SOV_arkady_nazarov.dds"
+			}
+		}
+
+		scientist = {
+			traits = { scientist_trait_aircraft_specialist scientist_trait_fast_learner }
+			skills = {
+				specialization_air = 2
+			}
+		}
+	}
+
+	SOV_vladimir_kotelnikov = {
+		name = SOV_vladimir_kotelnikov
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/scientist/portrait_SOV_vladimir_kotelnikov.dds"
+			}
+		}
+
+		scientist = {
+			traits = { scientist_trait_electronics_specialist }
+			skills = {
+				specialization_air = 2
 			}
 		}
 	}

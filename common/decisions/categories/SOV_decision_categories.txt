@@ -1,19 +1,84 @@
-SOV_foreign_policy_category = {
-	#icon = usa_congress
+SOV_factionalism_category = {
+	icon = generic_communism
 	
 	allowed = {
 		original_tag = SOV
 	}
-
+	
 	visible = {
-		check_variable = { active_conflicts^num > 0 }
+		
 	}
-
+	
+	scripted_gui = SOV_factionalism_scripted_gui
+	
 	visible_when_empty = yes
+	
+	priority = 100
+}
 
-	scripted_gui = foreign_conflicts_container
+SOV_war_communism_category = {
+	allowed = {
+		original_tag = SOV
+	}
+	
+	visible = {
+		has_completed_focus = SOV_and_the_battle_is_going_again
+		NOT = {
+			has_global_flag = russian_civil_war_ended
+		}
+	}
+	
+	visible_when_empty = yes
+}
 
-	priority = 101
+SOV_industrialization_category = {
+	allowed = {
+		original_tag = SOV
+	}
+	
+	visible = {
+		#has_completed_focus = SOV_and_the_battle_is_going_again
+		#NOT = {
+		#	has_global_flag = russian_civil_war_ended
+		#}
+		has_global_flag = russian_civil_war_ended
+	}
+	
+	visible_when_empty = yes
+}
+
+SOV_stavka_category = {
+	
+	allowed = {
+		original_tag = SOV
+	}
+	
+	visible = {
+		has_completed_focus = SOV_form_the_stavka
+	}
+}
+
+SOV_evacuation_of_industry_category = {
+	
+	allowed = {
+		original_tag = SOV
+	}
+	
+	visible = {
+		has_completed_focus = SOV_preemptive_industrial_relocation
+		#always = yes
+	}
+}
+
+SOV_foreign_trade_category = {
+	
+	allowed = {
+		original_tag = SOV
+	}
+	
+	visible = {
+		always = no
+	}
 }
 
 SOV_revolution_category = {
@@ -21,29 +86,48 @@ SOV_revolution_category = {
 	allowed = {
 		original_tag = SOV
 	}
+	
 	visible = {
-		always = no
+		#has_completed_focus = SOV_prepare_the_liberation
+	}
+}
+
+SOV_openness_category = {
+	
+	allowed = {
+		original_tag = SOV
+	}
+	
+	visible = {
+		has_completed_focus = SOV_memories_of_moscow
+		#always = yes
 	}
 }
 
 SOV_science_meter_category = {
+	icon = GFX_decision_category_SOV_permanent_revolution
+	picture = GFX_decision_cat_picture_soviet_comecon
 
 	allowed = {
 		original_tag = SOV
 	}
+	
 	visible = {
-		always = no
+		has_completed_focus = SOV_society_as_a_system
+		#always = yes
 	}
 
 	scripted_gui = SOV_science_meter_gui
 }
 
-SOV_regional_autonomy_category = {
-
+SOV_foreign_policy_category = {
+	
 	allowed = {
 		original_tag = SOV
 	}
+	
 	visible = {
-		always = yes
+		always = no
 	}
+
 }

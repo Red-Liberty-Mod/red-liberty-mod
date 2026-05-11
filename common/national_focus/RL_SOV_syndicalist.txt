@@ -1,0 +1,400 @@
+shared_focus = {
+    id = SOV_the_workers_opposition
+	icon = GFX_SOV_the_syndicalists
+	
+    x = 4
+	y = 0
+	cost = 5
+	
+	offset = {
+		x = 18
+		y = 8
+		trigger = {
+			has_focus_tree = SOV_initial_tree
+		}
+	}
+	
+	available = {
+		has_country_flag = SOV_syndicalists_flag
+	}
+	
+    completion_reward = {
+		country_event = {
+			id = sov_syndicalist.1
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_promises_of_true_democracy
+	icon = GFX_focus_generic_workers_rights
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_the_workers_opposition
+	prerequisite = { focus = SOV_the_workers_opposition }
+	
+    completion_reward = {
+		add_to_variable = {
+			tooltip = SOV_democrat_opinion_gain
+			SOV_democrat_opinion = 3
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_reconcile_the_decists
+	icon = GFX_goal_generic_improve_relations
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_the_workers_opposition
+	prerequisite = { focus = SOV_the_workers_opposition }
+	
+    completion_reward = {
+		add_to_variable = {
+			tooltip = SOV_decist_opinion_gain
+			SOV_decist_opinion = 3
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_roll_up_our_sleeves
+	icon = GFX_focus_YUG_pan_slavic_congress
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_promises_of_true_democracy
+	prerequisite = { focus = SOV_promises_of_true_democracy }
+	prerequisite = { focus = SOV_reconcile_the_decists }
+	
+    completion_reward = {
+		country_event = {
+			id = sov_syndicalist.2
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_end_the_nep
+	icon = GFX_goal_generic_soviet_construction
+	
+    x = -2
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_roll_up_our_sleeves
+	prerequisite = { focus = SOV_roll_up_our_sleeves }
+	
+    completion_reward = {
+		add_political_power = 50
+		remove_ideas = SOV_nep_1
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_all_power_to_the_soviets
+	icon = GFX_focus_generic_workers_revolution
+	
+    x = 2
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_roll_up_our_sleeves
+	prerequisite = { focus = SOV_roll_up_our_sleeves }
+	
+    completion_reward = {
+		country_event = {
+			id = sov_syndicalist.3
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_expand_welfare
+	icon = GFX_focus_generic_welfare
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_end_the_nep
+	prerequisite = { focus = SOV_end_the_nep }
+	
+    completion_reward = {
+		ECON_poverty_change_large = yes
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_end_bourgeois_specialism
+	icon = GFX_focus_SOV_organize_wreckers
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_end_the_nep
+	prerequisite = { focus = SOV_end_the_nep }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_revolutionary_women
+	icon = GFX_focus_ARG_women_in_industry
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_all_power_to_the_soviets
+	prerequisite = { focus = SOV_all_power_to_the_soviets }
+	
+    completion_reward = {
+		add_ideas = SOV_revolutionary_women_syndicalist
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_seperate_the_party_and_state
+	icon = GFX_SOV_promises_of_true_democracy
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_all_power_to_the_soviets
+	prerequisite = { focus = SOV_all_power_to_the_soviets }
+	
+    completion_reward = {
+		add_stability = 0.1
+		add_to_variable = {
+			tooltip = SOV_industrialist_influence_lose
+			SOV_industrialist_influence = -5
+		}
+		add_to_variable = {
+			tooltip = SOV_industrialist_opinion_lose
+			SOV_industrialist_opinion = -5
+		}
+		add_to_variable = {
+			tooltip = SOV_rightist_influence_lose
+			SOV_rightist_influence = -3
+		}
+		add_to_variable = {
+			tooltip = SOV_rightist_opinion_lose
+			SOV_rightist_opinion = -3
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_modernize_factory_equipment
+	icon = GFX_SOV_modernize_factory_equipment
+	
+    x = 0
+	y = 2
+	cost = 5
+	
+	relative_position_id = SOV_end_the_nep
+	prerequisite = { focus = SOV_end_the_nep }
+	
+    completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.25
+			uses = 1
+			category = cat_production
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_intensify_class_warfare
+	icon = GFX_SOV_intensify_class_warfare
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_end_bourgeois_specialism
+	prerequisite = { focus = SOV_end_bourgeois_specialism }
+	prerequisite = { focus = SOV_revolutionary_women }
+	
+    completion_reward = {
+		add_political_power = 50
+		add_stability = -0.1
+		add_popularity = {
+			ideology = revolutionary_socialism
+			popularity = 0.03
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_combat_careerism
+	icon = GFX_SOV_combat_careerism
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_seperate_the_party_and_state
+	prerequisite = { focus = SOV_seperate_the_party_and_state }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_voluntary_collectivization
+	icon = GFX_focus_chi_mission_to_the_soviet_union
+	
+    x = 0
+	y = 2
+	cost = 5
+	
+	relative_position_id = SOV_expand_welfare
+	prerequisite = { focus = SOV_expand_welfare }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_empower_the_factory_comittees
+	icon = GFX_SOV_empower_the_factory_comittees
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_modernize_factory_equipment
+	prerequisite = { focus = SOV_modernize_factory_equipment }
+	prerequisite = { focus = SOV_intensify_class_warfare }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_eliminate_bureacratic_formations
+	icon = GFX_SOV_empower_the_factory_comittees
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_intensify_class_warfare
+	prerequisite = { focus = SOV_intensify_class_warfare }
+	prerequisite = { focus = SOV_combat_careerism }
+	mutually_exclusive = { focus = SOV_proletarianize_the_ministries }
+	
+    completion_reward = {
+		add_political_power = -75
+		add_stability = -0.1
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_proletarianize_the_ministries
+	icon = GFX_SOV_proletarianize_the_ministries
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_combat_careerism
+	prerequisite = { focus = SOV_combat_careerism }
+	#prerequisite = { focus = SOV_intensify_class_warfare }
+	mutually_exclusive = { focus = SOV_eliminate_bureacratic_formations }
+	
+    completion_reward = {
+		add_popularity = {
+			ideology = revolutionary_socialism
+			popularity = -0.05
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}

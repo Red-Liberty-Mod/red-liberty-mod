@@ -28,192 +28,55 @@ USA_appalachian_insurgency_category = {
 		}
 	}
 	
-	USA_finish_ohio = {
+	USA_finish_state = {
 		icon = GFX_decision_infiltrate_state
 		
-		highlight_states = {
-			highlight_state_targets = { state = 261 }
-		}
-		
-		visible = {
-			has_country_flag = USA_insurgency_start
-			NOT = {
-				has_country_flag = USA_insurgency_end
-			}
-			261 = {
+		state_target = yes
+		target_trigger = {
+			FROM = {
 				has_state_flag = USA_active_insurgency
 			}
 		}
+		target_array = USA.core_states
+		on_map_mode = map_only
 		
 		available = {
-			divisions_in_state = {
+			army_manpower_in_state = {
 				type = infantry
-				size > 4
-				state = 261
+				amount > 20000
+				state = FROM
 			}
 		}
 		
 		cancel_trigger = {
-			divisions_in_state = {
+			army_manpower_in_state = {
 				type = infantry
-				size < 5
-				state = 261
+				amount < 20000
+				state = FROM
 			}
 		}
 		
-		fire_only_once = yes
-		
-		days_remove = 14
+		days_remove = 21
 		
 		remove_effect = {
-			261 = {
+			FROM = {
 				clr_state_flag = USA_active_insurgency
 			}
 			custom_effect_tooltip = USA_insurgency_strength_loss
-			set_country_flag = USA_ohio_clear
-		}
-	}
-	
-	USA_finish_michigan = {
-		icon = GFX_decision_infiltrate_state
-		
-		highlight_states = {
-			highlight_state_targets = { state = 393 }
-		}
-		
-		visible = {
-			has_country_flag = USA_insurgency_start
-			NOT = {
-				has_country_flag = USA_insurgency_end
+			subtract_from_variable = { USA.USA_insurgency_states = 1 }
+			if = {
+				limit = {
+					FROM = {
+						state = 393
+					}
+				}
+				USA = {
+					country_event = {
+						id = united_states_insurgency.9
+						hours = 6
+					}
+				}
 			}
-			393 = {
-				has_state_flag = USA_active_insurgency
-			}
-		}
-		
-		available = {
-			divisions_in_state = {
-				type = infantry
-				size > 4
-				state = 393
-			}
-			has_country_flag = USA_ohio_clear
-		}
-		
-		cancel_trigger = {
-			divisions_in_state = {
-				type = infantry
-				size < 5
-				state = 393
-			}
-		}
-		
-		fire_only_once = yes
-		
-		days_remove = 14
-		
-		remove_effect = {
-			country_event = {
-				id = united_states_insurgency.9
-				hours = 6
-			}
-			custom_effect_tooltip = USA_insurgency_strength_loss
-			393 = {
-				clr_state_flag = USA_active_insurgency
-			}
-			set_country_flag = USA_michigan_clear
-		}
-	}
-	
-	USA_finish_virginia = {
-		icon = GFX_decision_infiltrate_state
-		
-		highlight_states = {
-			highlight_state_targets = { state = 362 }
-		}
-		
-		visible = {
-			has_country_flag = USA_insurgency_start
-			NOT = {
-				has_country_flag = USA_insurgency_end
-			}
-			362 = {
-				has_state_flag = USA_active_insurgency
-			}
-		}
-		
-		available = {
-			divisions_in_state = {
-				type = infantry
-				size > 4
-				state = 362
-			}
-		}
-		
-		cancel_trigger = {
-			divisions_in_state = {
-				type = infantry
-				size < 5
-				state = 362
-			}
-		}
-		
-		fire_only_once = yes
-		
-		days_remove = 14
-		
-		remove_effect = {
-			custom_effect_tooltip = USA_insurgency_strength_loss
-			362 = {
-				clr_state_flag = USA_active_insurgency
-			}
-			set_country_flag = USA_virginia_clear
-		}
-	}
-	
-	USA_finish_north_carolina = {
-		icon = GFX_decision_infiltrate_state
-		
-		highlight_states = {
-			highlight_state_targets = { state = 363 }
-		}
-		
-		visible = {
-			has_country_flag = USA_insurgency_start
-			NOT = {
-				has_country_flag = USA_insurgency_end
-			}
-			363 = {
-				has_state_flag = USA_active_insurgency
-			}
-		}
-		
-		available = {
-			divisions_in_state = {
-				type = infantry
-				size > 4
-				state = 363
-			}
-		}
-		
-		cancel_trigger = {
-			divisions_in_state = {
-				type = infantry
-				size < 5
-				state = 363
-			}
-		}
-		
-		fire_only_once = yes
-		
-		days_remove = 14
-		
-		remove_effect = {
-			custom_effect_tooltip = USA_insurgency_strength_loss
-			363 = {
-				clr_state_flag = USA_active_insurgency
-			}
-			set_country_flag = USA_north_carolina_clear
 		}
 	}
 
@@ -230,7 +93,7 @@ USA_appalachian_insurgency_category = {
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = USA_insurgency_end_req
-				check_variable = { USA_insurgency_states < 3 }
+				check_variable = { USA_insurgency_states < 4 }
 			}
 		}
 		

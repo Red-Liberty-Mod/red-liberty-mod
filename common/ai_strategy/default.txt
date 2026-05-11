@@ -1,4 +1,14 @@
 default_unit_production = {
+	
+	allowed = {
+		NOT = {
+			OR = {
+				original_tag = GER
+				original_tag = SOV
+			}
+		}
+	}
+	
 	enable = {
 		always = yes
 	}
@@ -78,6 +88,34 @@ default_unit_production = {
 	}
 }
 
+default_transition_production = {
+	enable = {
+		num_of_military_factories > 9
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = infantry
+		value = 2
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = artillery_equipment
+		value = 1
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = anti_air
+		value = 1
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = motorized_equipment
+		value = 1
+	}
+}
+
 default_specialised_unit_production = {
 	enable = {
 		num_of_military_factories > 19
@@ -86,48 +124,65 @@ default_specialised_unit_production = {
 
 	ai_strategy = {
 		type = equipment_production_min_factories
-		id = artillery
-		value = 4
+		id = infantry
+		value = 2
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = artillery_equipment
+		value = 3
 	}
 	ai_strategy = {
 		type = equipment_production_factor
 		id = artillery
-		value = 100
+		value = 55
 	}
 
 	ai_strategy = {
 		type = equipment_production_min_factories
 		id = anti_air
-		value = 2
+		value = 1
 	}
 	ai_strategy = {
 		type = equipment_production_factor
 		id = anti_air
-		value = 25
+		value = 15
+	}
+
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = motorized_equipment
+		value = 1
 	}
 
 	ai_strategy = {
 		type = equipment_variant_production_factor
-		id = support_equipment
-		value = 30
+		id = medium_tank_chassis
+		value = 5
 	}
 }
 
 default_armored_production = {
 	enable = {
-		ai_wants_divisions > 49
+		num_divisions > 49
 	}
 	abort_when_not_enabled = yes
 
 	ai_strategy = {
+		type = equipment_variant_production_factor
+		id = medium_tank_chassis
+		value = 15
+	}
+	ai_strategy = {
 		type = role_ratio
 		id = armor
-		value = 5
+		value = 8
 	}
 }
 
 default_higher_armored_production = {
 	enable = {
+		num_divisions > 49
 		num_of_military_factories > 109
 	}
 	abort_when_not_enabled = yes
@@ -135,7 +190,7 @@ default_higher_armored_production = {
 	ai_strategy = {
 		type = role_ratio
 		id = armor
-		value = 20
+		value = 8
 	}
 }
 
@@ -145,6 +200,7 @@ default_armor_focused_nation = {
 			original_tag = FRA
 			original_tag = GER
 			original_tag = SOV
+			original_tag = USA
 		}
 	}
 	enable = {
@@ -414,25 +470,238 @@ default_pp_spend_amount = {
 		id = idea
 		value = 100
 	}
-
 	ai_strategy = {
 		type = pp_spend_amount
 		id = decision
 		value = 100
 	}
-}
-
-do_not_waste_pp_befriend = {
-	enable = {
-		has_political_power < 200
-	}
-	abort = {
-		has_political_power > 199
-	}
-
+	
 	ai_strategy = {
 		type = pp_spend_priority
 		id = relation
 		value = -9999
+	}
+}
+
+put_garrisons_on_high_prio = {
+	enable = {
+		always = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = garrison_reinforcement_priority
+		value = 100 # positive is high prio, negative is low prio
+	}
+}
+
+avoid_tanks_in_mountains = {
+	enable = { always = yes }
+	abort_when_not_enabled = yes
+
+	ai_strategy = { type = front_armor_score id = "GRE" value = -100 }
+	ai_strategy = { type = front_armor_score id = "SWI" value = -100 }
+	ai_strategy = { type = front_armor_score id = "ARM" value = -100 }
+	ai_strategy = { type = front_armor_score id = "GEO" value = -100 }
+	ai_strategy = { type = front_armor_score id = "AZR" value = -100 }
+	ai_strategy = { type = front_armor_score id = "TIB" value = -100 }
+	ai_strategy = { type = front_armor_score id = "BHU" value = -100 }
+	ai_strategy = { type = front_armor_score id = "NEP" value = -100 }
+	ai_strategy = { type = front_armor_score id = "ETH" value = -100 }
+	ai_strategy = { type = front_armor_score id = "PRU" value = -100 }
+}
+
+### SPECIAL PROJECT STRATEGIES
+default_build_a_nl_facility = {
+	enable = {
+		has_tech = atomic_research
+		NOT = { has_facility_specialization = specialization_nuclear }
+		num_of_civilian_factories > 25
+		num_of_military_factories > 25
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = nuclear_facility
+		value = 100
+	}
+}
+
+default_build_a_nav_facility = {
+	enable = {
+		num_of_naval_factories > 25
+		NOT = { has_facility_specialization = specialization_naval }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = naval_facility
+		value = 100
+	}
+}
+
+default_build_a_lw_facility = {
+	enable = {
+		is_major = yes
+		NOT = { has_facility_specialization = specialization_land }
+		num_of_civilian_factories > 40
+		num_of_military_factories > 40
+		OR = {
+			has_tech = improved_light_tank_chassis
+			has_tech = basic_medium_tank_chassis
+			has_tech = improved_heavy_tank_chassis
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = land_facility
+		value = 1
+	}
+}
+
+default_build_an_air_facility = {
+	enable = {
+		is_major = yes
+		NOT = { has_facility_specialization = specialization_air }
+		num_of_military_factories > 40
+		if = {
+			limit = { has_dlc_bba = yes }
+			OR = {
+				has_tech = basic_small_airframe
+				has_tech = basic_medium_airframe
+				has_tech = basic_large_airframe
+			}
+		}
+		else = {
+			OR = {
+				has_tech = fighter1
+				has_tech = heavy_fighter1
+				has_tech = tactical_bomber1
+				has_tech = strategic_bomber1
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = air_facility
+		value = 1
+	}
+}
+
+default_recruit_land_scientist = {
+	enable = {
+		has_facility_specialization = specialization_land
+		NOT = { has_scientist_specialization = specialization_land }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = recruit_scientist
+		id = specialization_land
+		value = 100
+	}
+}
+
+default_recruit_nuclear_scientist = {
+	enable = {
+		has_facility_specialization = specialization_nuclear
+		NOT = { has_scientist_specialization = specialization_nuclear }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = recruit_scientist
+		id = specialization_nuclear
+		value = 100
+	}
+}
+
+default_recruit_naval_scientist = {
+	enable = {
+		has_facility_specialization = specialization_naval
+		NOT = { has_scientist_specialization = specialization_naval }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = recruit_scientist
+		id = specialization_naval
+		value = 100
+	}
+}
+
+default_recruit_air_scientist = {
+	enable = {
+		has_facility_specialization = specialization_air
+		NOT = { has_scientist_specialization = specialization_air }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = recruit_scientist
+		id = specialization_air
+		value = 100
+	}
+}
+
+default_build_guided_missiles = {
+	enable = {
+		is_special_project_completed = sp:sp_rockets_flying_bomb
+		num_of_military_factories > 40
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = guided_missile_equipment
+		value = 1
+	}
+}
+
+default_build_ballistic_missiles = {
+	enable = {
+		is_special_project_completed = sp:sp_rockets_ballistic_missile
+		num_of_military_factories > 60
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = ballistic_missile_equipment
+		value = 1
+	}
+}
+
+default_build_sam_missiles = {
+	enable = {
+		is_special_project_completed = sp:sp_rockets_ground_to_air_missile
+		num_of_military_factories > 80
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = sam_missile_equipment
+		value = 1
+	}
+}
+
+default_build_nuclear_missiles = {
+	enable = {
+		is_special_project_completed = sp:sp_nuclear_warheads
+		num_of_military_factories > 100
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = nuclear_missile_equipment
+		value = 1
 	}
 }

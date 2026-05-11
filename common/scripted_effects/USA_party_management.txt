@@ -7,7 +7,7 @@ USA_setup_party_faction_vars = {
 	set_variable = { SPA_moderate_influence = 19 }
 	set_variable = { SPA_moderate_approval = 23 }
 	
-	set_variable = { USA_socialist_unity = 23 }
+	set_variable = { USA_socialist_unity = 25 }
 	set_variable = { USA_democrat_unity = 27 }
 	
 	USA_party_faction_percent = yes
@@ -27,4 +27,96 @@ USA_party_faction_percent = {
 	
 	set_variable = { SPA_moderate_influence_percent = SPA_moderate_influence }
 	divide_variable = { SPA_moderate_influence_percent = SPA_influence_total }
+}
+
+USA_gain_spa_unity_small = {
+	add_to_variable = {
+		var = USA_socialist_unity
+		value = 3
+		tooltip = USA_spa_unity_small_gain_tt
+	}
+	clamp_variable = {
+		var = USA_socialist_unity
+		min = 0
+		max = 30
+	}
+}
+
+USA_lose_spa_unity_small = {
+	add_to_variable = {
+		var = USA_socialist_unity
+		value = -3
+		tooltip = USA_spa_unity_small_loss_tt
+	}
+	clamp_variable = {
+		var = USA_socialist_unity
+		min = 0
+		max = 30
+	}
+}
+
+USA_lose_spa_unity_large = {
+	add_to_variable = {
+		var = USA_socialist_unity
+		value = -6
+		tooltip = USA_spa_unity_large_loss_tt
+	}
+	clamp_variable = {
+		var = USA_socialist_unity
+		min = 0
+		max = 30
+	}
+}
+
+USA_spa_left_small = {
+	if = {
+		limit = {
+			has_power_balance = { id = USA_socialist_party_balance }
+		}
+		add_power_balance_value = {
+			id = USA_socialist_party_balance
+			value = -0.05
+			tooltip_side = USA_left_side
+		}
+	}
+}
+
+
+USA_spa_left_large = {
+	if = {
+		limit = {
+			has_power_balance = { id = USA_socialist_party_balance }
+		}
+		add_power_balance_value = {
+			id = USA_socialist_party_balance
+			value = -0.1
+			tooltip_side = USA_left_side
+		}
+	}
+}
+
+USA_spa_right_small = {
+	if = {
+		limit = {
+			has_power_balance = { id = USA_socialist_party_balance }
+		}
+		add_power_balance_value = {
+			id = USA_socialist_party_balance
+			value = 0.05
+			tooltip_side = USA_right_side
+		}
+	}
+}
+
+USA_spa_right_large = {
+	if = {
+		limit = {
+			has_power_balance = { id = USA_socialist_party_balance }
+		}
+		add_power_balance_value = {
+			id = USA_socialist_party_balance
+			value = 0.05
+			tooltip_side = USA_right_side
+		}
+	}
 }

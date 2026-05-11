@@ -1,3 +1,30 @@
+FRA_hates_GER_faction = {
+	reversed = yes
+
+	enable_reverse = {
+		GER = {
+			is_faction_leader = yes
+		}
+	}
+	enable = {
+		is_in_faction_with = GER
+	}
+	abort_when_not_enabled = yes
+
+	target_array = GER.faction_members
+
+	ai_strategy = {
+		type = antagonize
+		id = FRA
+		value = 1000
+	}
+	ai_strategy = {
+		type = diplo_action_acceptance
+		target = market_access_rights
+		id = FRA
+		value = -1000
+	}
+}
 
 FRA_focus_on_germany = {
 	allowed = {
@@ -99,5 +126,23 @@ FRA_commit_less_against_ALG = {
 		type = invasion_unit_request
 		tag = ALG
 		priority = -50
+	}
+}
+
+FRA_dont_defend_indochina = {
+	allowed = {
+		original_tag = FRA
+	}
+	enable = {
+		FIC = {
+			has_war_with = VIN
+		}
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		id = FIC
+		value = 100
 	}
 }

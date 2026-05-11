@@ -580,9 +580,13 @@ country_event = { # the violence explodes - unrest period starts
 			IRE_ica_strength = 5
 		}
 		
-		activate_mission_tooltip = IRE_the_chaos
+		activate_mission = IRE_the_chaos
 		
 		hidden_effect = {
+			add_named_threat = { 
+				threat = 3
+				name = IRE_civil_unrest
+			}
 			random_other_country = {
 				limit = { is_ai = yes }
 				news_event = { id = ireland_news.2 hours = 6 }
@@ -635,6 +639,10 @@ country_event = { # battle of kilkenny
 				damage = 1
 			}
 		}
+		
+		ai_chance = {
+			base = 0
+		}
 	}
 	
 	option = { # ica wins
@@ -653,6 +661,10 @@ country_event = { # battle of kilkenny
 				type = industrial_complex
 				damage = 1
 			}
+		}
+		
+		ai_chance = {
+			base = 10
 		}
 	}
 }
@@ -679,6 +691,10 @@ country_event = { # battle on the river shannon
 				damage = 1
 			}
 		}
+		
+		ai_chance = {
+			base = 0
+		}
 	}
 	
 	option = { # ica wins
@@ -693,6 +709,10 @@ country_event = { # battle on the river shannon
 				type = infrastructure
 				damage = 1
 			}
+		}
+		
+		ai_chance = {
+			base = 10
 		}
 	}
 }
@@ -723,23 +743,36 @@ country_event = { # the big battle
 	desc = ireland_civil_war.5.desc
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
 
 	option = {
 		name = ireland_civil_war.5.a
-		random_list = {
-			var:IRE_ira_strength = {
-				country_event = {
-					id = ireland_civil_war.6
-					days = 1
-				}
+		country_event = {
+			id = ireland_civil_war.6
+			days = 1
+		}
+		
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 10
+				IRE = { check_variable = { IRE_ira_strength > IRE_ica_strength } }
 			}
-			var:IRE_ica_strength = {
-				country_event = {
-					id = ireland_civil_war.7
-					days = 1
-				}
+		}
+	}
+	
+	option = {
+		name = ireland_civil_war.5.b
+		country_event = {
+			id = ireland_civil_war.7
+			days = 1
+		}
+		
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 10
+				IRE = { check_variable = { IRE_ica_strength > IRE_ira_strength } }
 			}
 		}
 	}
@@ -763,12 +796,6 @@ country_event = { # ira wins
 			id = ireland_civil_war.8
 			days = 7
 		}
-		
-		hidden_effect = {
-			135 = {
-				set_demilitarized_zone = no
-			}
-		}
 	}
 }
 
@@ -790,15 +817,6 @@ country_event = { # ica wins
 			id = ireland_civil_war.9
 			days = 7
 		}
-		
-		hidden_effect = {
-			134 = {
-				set_demilitarized_zone = no
-			}
-			860 = {
-				set_demilitarized_zone = no
-			}
-		}
 	}
 }
 
@@ -808,11 +826,38 @@ country_event = { # ira turns on govt
 	desc = ireland_civil_war.8.desc
 	
 	is_triggered_only = yes
-	
 	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = IRE_civil_war_started
+			
+			add_named_threat = { 
+				threat = 2
+				name = IRE_civil_war
+			}
+		}
+	}
 
 	option = {
 		name = ireland_civil_war.8.a
+		country_event = {
+			id = ireland_civil_war.11
+			days = 45
+			random_days = 15
+		}
+		
+		ai_chance = {
+			base = 10
+		}
+	}
+	
+	option = {
+		name = ireland_civil_war.8.b
+		
+		ai_chance = {
+			base = 0
+		}
 	}
 }
 
@@ -827,11 +872,11 @@ country_event = { # ica turns on govt
 	
 	immediate = {
 		hidden_effect = {
-			start_irish_civil_war_ICA = yes
+			#start_irish_civil_war_ICA = yes
 			set_global_flag = IRE_civil_war_started
 			
 			add_named_threat = { 
-				threat = 5
+				threat = 2
 				name = IRE_civil_war
 			}
 		}
@@ -839,13 +884,123 @@ country_event = { # ica turns on govt
 
 	option = {
 		name = ireland_civil_war.9.a
-		custom_effect_tooltip = IRE_ica_uprising_tt
+		country_event = {
+			id = ireland_civil_war.10
+			days = 45
+			random_days = 15
+		}
+		
+		ai_chance = {
+			base = 10
+		}
 	}
 	
 	option = {
 		name = ireland_civil_war.9.b
-		ICA = {
-			change_tag_from = ROOT
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+country_event = { # ica wins civil war
+	id = ireland_civil_war.10
+	title = ireland_civil_war.10.title
+	desc = ireland_civil_war.10.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+
+	option = {
+		name = ireland_civil_war.10.a
+		set_politics = {
+			ruling_party = anarchism
+			elections_allowed = no
+		}
+		clear_all_coalitions = yes
+		add_anarchism_coalition = yes
+		add_authsoc_coalition = yes
+		add_revsoc_coalition = yes
+		add_demsoc_coalition = yes
+		
+		set_capital = { state = 135 }
+		set_cosmetic_tag = IRE_limerick_soviet
+		
+		set_country_flag = can_join_international
+		set_global_flag = IRE_civil_war_ended
+		hidden_effect = {
+			load_oob = "IRE_citizens_army"
+			134 = {
+				set_demilitarized_zone = no
+			}
+			135 = {
+				set_demilitarized_zone = no
+			}
+			860 = {
+				set_demilitarized_zone = no
+			}
+		}
+	}
+}
+
+country_event = { # ira wins civil war
+	id = ireland_civil_war.11
+	title = ireland_civil_war.11.title
+	desc = ireland_civil_war.11.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+
+	option = {
+		name = ireland_civil_war.11.a
+		set_politics = {
+			ruling_party = despotism
+			elections_allowed = no
+		}
+		clear_all_coalitions = yes
+		add_autdes_coalition = yes
+		
+		set_global_flag = IRE_civil_war_ended
+		hidden_effect = {
+			134 = {
+				set_demilitarized_zone = no
+			}
+			135 = {
+				set_demilitarized_zone = no
+			}
+			860 = {
+				set_demilitarized_zone = no
+			}
+		}
+	}
+}
+
+country_event = { # government wins civil war
+	id = ireland_civil_war.12
+	title = ireland_civil_war.12.title
+	desc = ireland_civil_war.12.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+
+	option = {
+		name = ireland_civil_war.12.a
+		add_stability = 0.1
+		set_global_flag = IRE_civil_war_ended
+		hidden_effect = {
+			134 = {
+				set_demilitarized_zone = no
+			}
+			135 = {
+				set_demilitarized_zone = no
+			}
+			860 = {
+				set_demilitarized_zone = no
+			}
 		}
 	}
 }

@@ -4,9 +4,39 @@ technology_sharing_group = {
 	desc = latin_entente_research_desc
 	picture = GFX_technology_sharing_default
     
-	research_sharing_per_country_bonus = 0.1
+	research_sharing_per_country_bonus = 0.04
 
     available = {
         is_in_faction_with = FRA
+    }
+}
+
+technology_sharing_group = {
+	id = china_empire_research
+	name = china_empire_research_name
+	desc = china_empire_research_desc
+	picture = GFX_technology_sharing_default
+    
+	research_sharing_per_country_bonus = 0.05
+
+    available = {
+        CHI = { is_ally_with = ROOT }
+    }
+}
+
+technology_sharing_group = {
+	id = league_of_american_states_research
+	name = league_of_american_states_research_name
+	desc = league_of_american_states_research_desc
+	picture = GFX_technology_sharing_default
+    
+	research_sharing_per_country_bonus = 0.05
+	categories = {
+		electronics
+		industry
+	}
+
+    available = {
+        is_in_league_of_american_states = yes
     }
 }

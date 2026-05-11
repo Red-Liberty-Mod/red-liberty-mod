@@ -1,7 +1,7 @@
 characters = {
 	
-	SIK_ma_shaowu = {
-		name = SIK_ma_shaowu
+	SIK_sheng_shicai = {
+		name = SIK_sheng_shicai
 		
 		portraits = {
 			army = {
@@ -10,24 +10,28 @@ characters = {
 			}
 		}
 		
+		#country_leader = {
+		#	desc = "POLITICS_SHENG_SHICAI_DESC"
+		#	ideology = social_democracy_subtype
+		#}
+		
 		country_leader = {
-			desc = "POLITICS_MA_SHAOWU_DESC"
-			ideology = authoritarian_democracy_subtype
+			desc = "POLITICS_SHENG_SHICAI_DESC"
+			ideology = interim_government_subtype
 		}
 		
 		corps_commander = {
 			traits = {
-				old_guard
+				career_officer
 				politically_connected
-				harsh_leader
-				irregulars_officer
-				trickster
+				trait_cautious
+				organizer
 			}
-			skill = 2
-			attack_skill = 3
+			skill = 1
+			attack_skill = 1
 			defense_skill = 1
 			planning_skill = 1
-			logistics_skill = 2
+			logistics_skill = 1
 		}
 	}
 	
@@ -62,6 +66,39 @@ characters = {
 		}
 	}
 	
+	SIK_ma_shaowu = {
+		name = SIK_ma_shaowu
+		
+		portraits = {
+			army = {
+				#small = ""
+				#large = ""
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_MA_SHAOWU_DESC"
+			ideology = ultraconservatism_subtype
+		}
+		
+		corps_commander = {
+			traits = {
+				old_guard
+				politically_connected
+				harsh_leader
+				irregulars_officer
+				trickster
+			}
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 2
+		}
+	}
+	
+	### Generals ###
+	
 	SIK_jin_shuren = {
 		name = SIK_jin_shuren
 		
@@ -84,6 +121,40 @@ characters = {
 			defense_skill = 1
 			planning_skill = 3
 			logistics_skill = 2
+		}
+	}
+	
+	SIK_zhang_peiyuan = {
+		name = SIK_zhang_peiyuan
+		
+		portraits = {
+			army = {
+				#large = ""
+				#small = ""
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = army_chief
+			idea_token = SIK_zhang_peiyuan_army_chief
+			traits = {
+				army_chief_offensive_2
+			}
+		}
+
+		
+		corps_commander = {
+			traits = {
+				cavalry_officer
+				harsh_leader
+				trait_reckless
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
 		}
 	}
 }

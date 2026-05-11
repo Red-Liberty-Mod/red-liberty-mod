@@ -1,0 +1,294 @@
+shared_focus = {
+    id = ETH_fighting_for_our_lives
+	icon = GFX_ETH_fighting_for_our_lives
+	
+    x = 8
+	y = 0
+	
+	cost = 4
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ETH_expand_the_airforce
+	icon = GFX_ETH_expand_the_airforce
+	
+    x = -5
+	y = 1
+	cost = 4
+	
+	relative_position_id = ETH_fighting_for_our_lives
+	prerequisite = { focus = ETH_fighting_for_our_lives }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ETH_expand_the_levies
+	icon = GFX_ETH_expand_the_levies
+	
+    x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = ETH_fighting_for_our_lives
+	prerequisite = { focus = ETH_fighting_for_our_lives }
+	mutually_exclusive = { focus = ETH_expand_professional_units }
+	
+    completion_reward = {
+		custom_effect_tooltip = ETH_expand_the_levies_tt
+        hidden_effect = {
+			add_units_to_division_template = {
+				template_name = "Chitet Sefari" 
+				regiments = {
+					irregular_infantry = 0 
+					irregular_infantry = 1 
+				}
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ETH_expand_professional_units
+	icon = GFX_ETH_expand_professional_units
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = ETH_fighting_for_our_lives
+	prerequisite = { focus = ETH_fighting_for_our_lives }
+	mutually_exclusive = { focus = ETH_expand_the_levies }
+	
+    completion_reward = {
+        custom_effect_tooltip = ETH_expand_professional_units_tt
+        hidden_effect = {
+			
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ETH_international_aid
+	icon = GFX_ETH_international_aid
+	
+    x = 3
+	y = 1
+	cost = 4
+	
+	relative_position_id = ETH_fighting_for_our_lives
+	prerequisite = { focus = ETH_fighting_for_our_lives }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ETH_fortify_addis_ababa
+	icon = GFX_ETH_fortify_addis_ababa
+	
+    x = 5
+	y = 1
+	cost = 4
+	
+	relative_position_id = ETH_fighting_for_our_lives
+	prerequisite = { focus = ETH_fighting_for_our_lives }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ETH_hire_air_experts
+	icon = GFX_ETH_hire_air_experts
+	
+    x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = ETH_expand_the_airforce
+	prerequisite = { focus = ETH_expand_the_airforce }
+	
+    completion_reward = {
+        air_experience = 25
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ETH_purchase_planes
+	icon = GFX_ETH_purchase_planes
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = ETH_expand_the_airforce
+	prerequisite = { focus = ETH_expand_the_airforce }
+	
+    completion_reward = {
+        add_equipment_to_stockpile = {
+			type = small_plane_airframe_0
+			amount = 10
+			#variant_name = "Bristol Bulldog"
+			producer = ENG
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ETH_regional_training
+	icon = GFX_ETH_regional_training
+	
+    x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = ETH_expand_the_levies
+	prerequisite = { focus = ETH_expand_the_levies }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ETH_expand_the_royal_guard
+	icon = GFX_ETH_expand_the_royal_guard
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = ETH_expand_the_levies
+	prerequisite = {
+		focus = ETH_expand_the_levies
+		focus = ETH_expand_professional_units
+	}
+	
+    completion_reward = {
+        custom_effect_tooltip = ETH_expand_the_royal_guard_tt	
+		hidden_effect = {
+			random_owned_controlled_state = {
+				prioritize = { 271 }
+				create_unit = {
+					division = "division_template = \"Kebur Zabagna\" start_experience_factor = 0.15 start_equipment_factor = 1"
+					owner = ETH
+					count = 1
+				}
+			} 	
+			if = {
+				limit = { has_tech = tech_recon  }
+				add_units_to_division_template = {
+					template_name = "Kebur Zabagna" 
+					support = {
+							recon = 0 
+					}
+				}
+			}
+			if = {
+				limit = { has_tech = gw_artillery  }
+				add_units_to_division_template = {
+					template_name = "Kebur Zabagna" 
+					support = {
+						artillery = 0 
+					}
+				}
+			}
+			if = {
+				limit = { has_tech = interwar_antitank }
+				add_units_to_division_template = {
+					template_name = "Kebur Zabagna" 
+					support = {
+						anti_tank = 0 
+					}
+				}
+			}
+			if = {
+				limit = { has_tech = interwar_antiair }
+				add_units_to_division_template = {
+					template_name = "Kebur Zabagna" 
+					support = {
+						anti_air = 0 
+					}
+				}
+			}
+			add_units_to_division_template = {
+				template_name = "Kebur Zabagna" 
+				regiments = {
+					infantry = 1 
+					infantry = 1 
+					infantry = 1
+					infantry = 1
+					cavalry = 1 
+				}
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = ETH_foreign_advisors
+	icon = GFX_ETH_foreign_advisors
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = ETH_expand_professional_units
+	prerequisite = { focus = ETH_expand_professional_units }
+	
+    completion_reward = {
+        army_experience = 25
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}

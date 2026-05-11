@@ -1,6 +1,6 @@
 line_infantry = {
 	blocked_for = {
-		FRA USA GER
+		FRA USA GER SOV
 	}
 
 	role = infantry
@@ -30,7 +30,7 @@ line_infantry = {
 		}
 	}
 
-	infantry_motorised = {
+	infantry_motorized = {
 
 		upgrade_prio = {
 			base = 1
@@ -64,7 +64,7 @@ line_infantry = {
 		}
 	}
 
-	infantry_mechanised = {
+	infantry_mechanized = {
 
 		upgrade_prio = {
 			base = 1
@@ -94,6 +94,59 @@ line_infantry = {
 				engineer = 1
 				logistics_company = 1
 				field_hospital = 1
+			}
+		}
+	}
+	
+	infantry_irregular = {
+		can_upgrade_in_field = { always = yes }
+		
+		upgrade_prio = {
+			base = 0 #never, only here so the AI recognises irregulars as part of the infantry line
+		}
+
+		target_template = {
+			regiments = {
+				irregular_infantry = 5
+			}
+		}
+	}
+
+	infantry_militia = {
+		can_upgrade_in_field = { always = yes }
+
+		upgrade_prio = {
+			base = 0 #never, only here so the AI recognises militias as part of the infantry line
+		}
+
+		target_template = {
+			regiments = {
+				militia = 5
+			}
+		}
+	}
+}
+
+line_militia = {
+	role = militia
+
+	upgrade_prio = {
+		factor = 0 #don't waste XP on this
+	}
+
+	militia_default = {
+		upgrade_prio = {
+			base = 1
+		}
+
+		target_template = {
+			regiments = {
+				militia = 6
+			}
+
+			support = {
+				artillery = 1
+				engineer = 1
 			}
 		}
 	}

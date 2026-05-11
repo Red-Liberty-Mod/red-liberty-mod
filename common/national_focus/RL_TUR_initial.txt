@@ -293,13 +293,32 @@ shared_focus = {
 			ideology = revolutionary_socialism
 			popularity = 0.04
 		}
+		
+		### halve demosoc pop ###
+		set_temp_variable = {
+			democratic_socialism_temp = party_popularity@democratic_socialism
+		}
+		multiply_temp_variable = {
+			democratic_socialism_temp = 0.5
+		}
+		multiply_temp_variable = {
+			democratic_socialism_temp = -1
+		}
 		add_popularity = {
 			ideology = democratic_socialism
-			popularity = -0.01
+			popularity = democratic_socialism_temp
+		}
+		
+		### Remove socdem pop ###
+		set_temp_variable = {
+			social_democracy_temp = party_popularity@social_democracy
+		}
+		multiply_temp_variable = {
+			social_democracy_temp = -1
 		}
 		add_popularity = {
 			ideology = social_democracy
-			popularity = -0.04
+			popularity = social_democracy_temp
 		}
     }
 	
@@ -362,7 +381,13 @@ shared_focus = {
 	relative_position_id = TUR_reprimand_karabekir
 	prerequisite = { focus = TUR_reprimand_karabekir }
     completion_reward = {
-        
+		hidden_effect = {
+			remove_ideas = TUR_kazim_karabekir_army_chief
+			TUR_kazim_karabekir = {
+				set_can_be_fired_in_advisor_role = yes
+			}
+		}
+		add_ideas = TUR_fevzi_cakmak_army_chief
     }
 	
 	ai_will_do = {

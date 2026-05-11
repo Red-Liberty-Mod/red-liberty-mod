@@ -796,6 +796,15 @@ country_event = { # national healthcare act
 	option = { # bill fails
 		name = us_bill.16.b
 		trigger = { NOT = { has_country_flag = bill_passed } }
+		
+		hidden_effect = {
+			country_event = {
+				id = united_states_thomas.44
+				days = 120
+				random_days = 30
+			}
+		}
+		
 		USA_bill_clear = yes # ALWAYS DO THIS
 	}
 }
@@ -919,11 +928,33 @@ country_event = { #
 		trigger = { has_country_flag = bill_passed }
 		complete_national_focus = USA_congress_reigns_supreme
 		set_country_flag = USA_war_declaration_passed
+		
+		add_to_war = {
+			targeted_alliance = FRA
+			enemy = GER
+			hostility_reason = asked_to_join
+		}
+		
+		USA_bill_clear = yes # ALWAYS DO THIS
+	}
+	
+	option = { # bill passes
+		name = us_bill.19.b
+		trigger = { has_country_flag = bill_passed }
+		complete_national_focus = USA_congress_reigns_supreme
+		set_country_flag = USA_war_declaration_passed
+		
+		add_to_war = {
+			targeted_alliance = GER
+			enemy = FRA
+			hostility_reason = asked_to_join
+		}
+		
 		USA_bill_clear = yes # ALWAYS DO THIS
 	}
 	
 	option = { # bill fails
-		name = us_bill.19.b
+		name = us_bill.19.c
 		trigger = { NOT = { has_country_flag = bill_passed } }
 		complete_national_focus = USA_peace_in_our_time
 		set_country_flag = USA_war_declaration_failed
@@ -1143,5 +1174,22 @@ country_event = { # activates filibuster
 	option = {
 		name = us_bill.1001.a
 		USA_activate_filibuster = yes
+	}
+}
+
+country_event = { # disables filibuster
+	id = us_bill.1002
+	title = us_bill.1002.title
+	desc = us_bill.1002.desc
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event us_bill.1002"
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = us_bill.1002.a
+		USA_clear_filibuster = yes
 	}
 }

@@ -1,9 +1,9 @@
 ideas = {
 	country = {
 
-		IRQ_sectarianism = {
+		IRQ_khazal_gamble = {
 			removal_cost = -1 
-			
+			picture = BEL_fonderie_royale_de_canons_liege
 			allowed = {
 				always = no
 			}
@@ -13,15 +13,15 @@ ideas = {
 			}
 			
 			modifier = {
-				stability_factor = -0.20
-				war_support_factor = -0.15
-				recruitable_population_factor = -0.15
+				political_advisor_cost_factor = 0.1
+				party_popularity_stability_factor = -0.05
+				stability_factor = -0.1
 			}
 		}
 
-		IRQ_warlord = {
+		IRQ_ethnic_tension = {
 			removal_cost = -1 
-			
+			picture = SPR_political_violence
 			allowed = {
 				always = no
 			}
@@ -31,9 +31,31 @@ ideas = {
 			}
 			
 			modifier = {
-				stability_factor = 0.10
-				army_org_factor	= 0.10
-				political_power_factor = -0.15
+				conscription_factor = -0.1
+				army_org_factor	= -0.1
+				resistance_activity = 0.1
+				compliance_growth = -0.1
+			}
+		}
+		IRQ_1922_Anglo_Iraqi_treaty = {
+			removal_cost = -1 
+			picture = ARG_british_monopoly
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = { 
+				always = no
+			}
+			
+			modifier = {
+				max_fuel_factor = 0.3
+				custom_modifier_tooltip = IRQ_treaty_tt
+			}
+			targeted_modifier = {
+				tag = ENG
+				trade_cost_for_target_factor = -0.1
+				cic_to_target_factor = 0.1
 			}
 		}
 	}

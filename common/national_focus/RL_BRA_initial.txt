@@ -23,6 +23,10 @@ shared_focus = {
 	y = 1
 	cost = 5
 	
+	available = {
+		NOT = { has_country_flag = BRA_rightists_coup_flag }
+	}
+	
 	relative_position_id = BRA_the_civil_war
 	prerequisite = { focus = BRA_the_civil_war }
     completion_reward = {
@@ -95,6 +99,10 @@ shared_focus = {
 	y = 1
 	cost = 5
 	
+	available = {
+		NOT = { has_country_flag = BRA_democrats_coup_flag }
+	}
+	
 	relative_position_id = BRA_the_civil_war
 	prerequisite = { focus = BRA_the_civil_war }
 	completion_reward = {
@@ -120,6 +128,10 @@ shared_focus = {
     x = 0
 	y = 1
 	cost = 5
+	
+	available = {
+		NOT = { has_country_flag = BRA_rightists_coup_flag }
+	}
 	
 	relative_position_id = BRA_align_with_the_democrats
 	prerequisite = { focus = BRA_align_with_the_democrats }
@@ -200,6 +212,10 @@ shared_focus = {
 	y = 1
 	cost = 5
 	
+	available = {
+		NOT = { has_country_flag = BRA_democrats_coup_flag }
+	}
+	
 	relative_position_id = BRA_align_with_the_right
 	prerequisite = { focus = BRA_align_with_the_right }
 	mutually_exclusive = { focus = BRA_integrate_the_green_shirts }
@@ -231,6 +247,10 @@ shared_focus = {
     x = 1
 	y = 1
 	cost = 5
+	
+	available = {
+		NOT = { has_country_flag = BRA_democrats_coup_flag }
+	}
 	
 	relative_position_id = BRA_align_with_the_right
 	prerequisite = { focus = BRA_align_with_the_right }
@@ -264,6 +284,10 @@ shared_focus = {
 	y = 1
 	cost = 5
 	
+	available = {
+		NOT = { has_country_flag = BRA_rightists_coup_flag }
+	}
+	
 	relative_position_id = BRA_approach_the_regionalists
 	prerequisite = { focus = BRA_approach_the_regionalists }
 	mutually_exclusive = { focus = BRA_disband_state_militias }
@@ -274,7 +298,7 @@ shared_focus = {
 		}
 		add_power_balance_value = {
 			id = BRA_civil_war_balance
-			value = -0.05
+			value = -0.15
 			tooltip_side = BRA_democrat_side
 		}
     }
@@ -336,6 +360,10 @@ shared_focus = {
 	y = 1
 	cost = 5
 	
+	available = {
+		NOT = { has_country_flag = BRA_democrats_coup_flag }
+	}
+	
 	relative_position_id = BRA_integrate_the_white_shirts
 	prerequisite = {
 		focus = BRA_integrate_the_white_shirts
@@ -362,6 +390,10 @@ shared_focus = {
     x = -1
 	y = 1
 	cost = 5
+	
+	available = {
+		NOT = { has_country_flag = BRA_rightists_coup_flag }
+	}
 	
 	relative_position_id = BRA_utilize_state_militias
 	prerequisite = { focus = BRA_utilize_state_militias }
@@ -477,6 +509,10 @@ shared_focus = {
 	y = 1
 	cost = 5
 	
+	available = {
+		NOT = { has_country_flag = BRA_democrats_coup_flag }
+	}
+	
 	relative_position_id = BRA_navy_support
 	prerequisite = { focus = BRA_navy_support }
     completion_reward = {
@@ -499,6 +535,14 @@ shared_focus = {
     x = 1
 	y = 1
 	cost = 5
+	
+	available = {
+		is_power_balance_in_range = {
+			id = BRA_civil_war_balance
+			range < BRA_vargas_side
+		}
+		NOT = { has_country_flag = BRA_rightists_coup_flag }
+	}
 	
 	relative_position_id = BRA_promises_of_autonomy
 	prerequisite = { focus = BRA_promises_of_autonomy }
@@ -564,6 +608,14 @@ shared_focus = {
     x = 1
 	y = 1
 	cost = 5
+	
+	available = {
+		is_power_balance_in_range = {
+			id = BRA_civil_war_balance
+			range > BRA_vargas_side
+		}
+		NOT = { has_country_flag = BRA_democrats_coup_flag }
+	}
 	
 	relative_position_id = BRA_appeal_to_nationalism
 	prerequisite = { focus = BRA_appeal_to_nationalism }

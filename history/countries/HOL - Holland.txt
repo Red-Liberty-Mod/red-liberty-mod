@@ -1,6 +1,6 @@
 ﻿capital = 7
 
-oob = "HOL_1936"
+oob = "HOL"
 
 set_research_slots = 3
 set_convoys = 150
@@ -10,43 +10,35 @@ set_war_support = 0.1
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
+	marines = 1
+	
 	tech_support = 1		
 	tech_recon = 1
+	basic_train = 1
+	
 	gw_artillery = 1
 	interwar_antiair = 1
 	
 	fuel_silos = 1
 	fuel_refining = 1
-	marines = 1
 }
 
 if = {
 	limit = {
-		has_dlc = "Man the Guns"
+		has_dlc_mtg = yes
 	}
 	set_technology = { bicycle_infantry = 1 }
 }
 
 if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
-	set_technology = {
-		early_submarine = 1
-		basic_destroyer = 1
-		early_destroyer = 1
-		early_light_cruiser = 1
-		basic_light_cruiser = 1
-		early_heavy_cruiser = 1
-		early_battlecruiser = 1
-		transport = 1
+	limit = {
+		has_dlc_mtg = yes
 	}
-	set_naval_oob = "HOL_1936_naval_legacy"
-}
-if = {
-	limit = { has_dlc = "Man the Guns" }
 	set_technology = {
 		basic_naval_mines = 1
 		submarine_mine_laying = 1
 		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
 		early_ship_hull_submarine = 1
 		basic_ship_hull_submarine = 1
 		early_ship_hull_cruiser = 1
@@ -60,22 +52,37 @@ if = {
 		mtg_transport = 1
 	}
 	set_naval_oob = "HOL_naval_mtg"
-}
-
-# DIPLOMACY
-if = {
-	limit = {
-		OR = {
-			has_dlc = "Together for Victory"
-			has_dlc = "Man the Guns"
+	else = {
+		set_technology = {
+			early_submarine = 1
+			basic_destroyer = 1
+			early_destroyer = 1
+			early_light_cruiser = 1
+			basic_light_cruiser = 1
+			early_heavy_cruiser = 1
+			early_battlecruiser = 1
+			transport = 1
 		}
+		set_naval_oob = "HOL_1936_naval_legacy"
 	}
-	set_autonomy = {
-		target = INS
-		autonomous_state = autonomy_RL_colonial_regime
+}
+if = {
+	limit = { has_dlc_bba = yes }
+	set_air_oob = "HOL_1936_air_bba"
+	set_technology = {
+		aa_lmg = 1
+		engines_1 = 1
+		aircraft_construction = 1
+		iw_small_airframe = 1
+		iw_medium_airframe = 1
+		early_bombs = 1
 	}
 	else = {
-		puppet = INS
+		set_air_oob = "HOL_1936_air_legacy"
+		set_technology = {
+			early_fighter = 1
+			early_bomber = 1
+		}
 	}
 }
 
@@ -108,13 +115,44 @@ set_country_flag = progressive_liberalism_coalition
 set_country_flag = liberal_conservatism_coalition
 set_country_flag = national_conservatism_coalition
 
-create_country_leader = {
-	name = "Wilhelmina"
-	desc = ""
-	picture = "gfx/leaders/HOL/Portrait_HOL_Wihelmina.png"
-	expire = "1965.1.1"
-	ideology = christian_democracy_subtype
-	traits = {
-		
+set_autonomy = {
+	target = INS
+	autonomous_state = autonomy_RL_colonial_regime
+}
+
+### LEADERS ###
+recruit_character = HOL_johan_willem_albarda
+recruit_character = HOL_harm_van_houten
+recruit_character = HOL_adolf_joekes
+recruit_character = HOL_willem_carel_wendelaar
+recruit_character = HOL_hendrikus_colijn
+recruit_character = HOL_gerrit_hendrik_kersten
+recruit_character = HOL_wilhelmina_van_oranje_nassau
+recruit_character = HOL_cornelis_jacobus_snijders
+
+activate_advisor = HOL_wilhelmina_van_oranje_nassau_hog
+
+if = {
+	limit = {
+		has_dlc_bba = yes
+	}
+	
+	create_equipment_variant = {
+		name = "Koolhoven F.K.51"
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+	}
+	create_equipment_variant = {
+		name = "Koolhoven F.K.52"
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = bomb_locks
+		}
 	}
 }

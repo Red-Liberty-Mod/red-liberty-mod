@@ -51,6 +51,10 @@ if = {
 		target = MAD
 		autonomous_state = autonomy_RL_colonial_regime
 	}
+	set_autonomy = {
+		target = FIC
+		autonomous_state = autonomy_RL_colonial_regime
+	}
 	else = {
 		puppet = MOR
 		puppet = TUN
@@ -58,9 +62,9 @@ if = {
 		puppet = FCA
 		puppet = SYR
 		puppet = MAD
+		puppet = FIC
 	}
 }
-
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
@@ -145,6 +149,7 @@ if = {
 		early_ship_hull_submarine = 1
 		basic_ship_hull_submarine = 1
 		early_ship_hull_cruiser = 1
+		basic_ship_hull_cruiser = 1
 		early_ship_hull_heavy = 1
 		basic_ship_hull_heavy = 1
 		early_ship_hull_carrier = 1
@@ -319,6 +324,8 @@ recruit_character = FRA_alfred_heurtaux
 
 ### THEORISTS ###
 recruit_character = FRA_victor_denain
+recruit_character = FRA_jean_marie_bergeret
+recruit_character = FRA_louis_kahn
 
 ### SCIENTISTS ###
 recruit_character = FRA_irene_joliot_curie
@@ -439,7 +446,7 @@ if = {
 		obsolete = yes
 	}
 	create_equipment_variant = {
-		name = "D1"
+		name = "Char D1"
 		type = light_tank_chassis_0
 		parent_version = 3
 		modules = {
@@ -464,7 +471,7 @@ if = {
 		parent_version = 0
 		modules = {
 			main_armament_slot = tank_heavy_machine_gun
-			turret_type_slot = tank_light_fixed_superstructure_turret
+			turret_type_slot = tank_light_one_man_tank_turret
 			suspension_type_slot = tank_bogie_suspension
 			armor_type_slot = tank_riveted_armor
 			engine_type_slot = tank_gasoline_engine
@@ -479,7 +486,7 @@ if = {
 	
 	create_equipment_variant = {
 		name = "Char D2"
-		type = light_tank_chassis_1
+		type = medium_tank_chassis_0
 		parent_version = 1
 		design_team = mio:FRA_renault_organization
 		modules = {
@@ -551,10 +558,11 @@ if = {
 			tank_nsb_armor_upgrade = 4
 		}
 		icon = "GFX_FRA_basic_heavy_tank_medium"
+		obsolete = yes
 	}
 	create_equipment_variant = {
 		name = "Char B1 bis" 
-		type = heavy_tank_chassis_1
+		type = heavy_tank_chassis_0
 		parent_version = 0
 		modules = {
 			main_armament_slot = tank_medium_howitzer

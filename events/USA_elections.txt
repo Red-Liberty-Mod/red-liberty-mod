@@ -37,7 +37,6 @@ country_event = {
 	immediate = {
 		hidden_effect = {
 			#country_event = { id = us_election_trigger.12 days = 30 }
-			clr_country_flag = USA_presidential_elections
 			set_country_flag = USA_1936_election_over
 		}
 	}
@@ -235,7 +234,7 @@ country_event = { # lister inaug day
 	option = { # 
 		name = us_election.7.a
 		USA_lister_pres_setup = yes
-		add_ideas = USA_john_nance_garner_hog
+		activate_advisor = USA_john_nance_garner_hog
 	}
 }
 
@@ -480,7 +479,7 @@ country_event = { #mark states for election
 				factor = 0
 				has_game_rule = {
 					rule = USA_ELECTION_1936_OUTCOME
-					option = USA_ELECTION_1936_OUTCOME_DEMOCRAT
+					option = USA_ELECTION_1936_OUTCOME_HILL
 				}
 			}
 		}
@@ -505,7 +504,7 @@ country_event = { #mark states for election
 				factor = 0
 				has_game_rule = {
 					rule = USA_ELECTION_1936_OUTCOME
-					option = USA_ELECTION_1936_OUTCOME_SOCIALIST
+					option = USA_ELECTION_1936_OUTCOME_THOMAS
 				}
 			}
 		}
@@ -699,6 +698,7 @@ country_event = { # clear variables a month after election
 			clr_country_flag = USA_campaigning_for_democrats
 			clr_country_flag = USA_campaigning_for_socialists
 			clr_country_flag = currently_campaigning
+			clr_country_flag = USA_presidential_elections
  		}
 	}
 

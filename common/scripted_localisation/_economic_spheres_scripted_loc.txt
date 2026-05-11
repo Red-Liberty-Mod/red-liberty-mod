@@ -1,0 +1,61 @@
+defined_text = {
+	name = GetSphereMemberStatus
+	text = {
+		trigger = {
+			check_variable = { econ_sphere_member_status_var = 1 }
+		}
+		localization_key = econ_sphere_leader
+	}
+	text = {
+		trigger = {
+			check_variable = { econ_sphere_member_status_var = 2 }
+			is_puppet = no
+		}
+		localization_key = econ_sphere_member
+	}
+	text = {
+		trigger = {
+			check_variable = { econ_sphere_member_status_var = 2 }
+			is_puppet = yes
+		}
+		localization_key = econ_sphere_dependent_member
+	}
+	text = {
+		trigger = {
+			check_variable = { econ_sphere_member_status_var = 3 }
+		}
+		localization_key = econ_sphere_observer
+	}
+	text = {
+		localization_key = econ_sphere_not_member
+	}
+}
+
+defined_text = {
+	name = GetSphereName
+	text = {
+		trigger = {
+			is_in_array = { global.mitteleuropa_members = THIS.id }
+		}
+		localization_key = econ_sphere_mitteleuropa_name
+	}
+	text = {
+		trigger = {
+			is_in_array = { global.latin_union_members = THIS.id }
+		}
+		localization_key = econ_sphere_latin_union_name_def
+	}
+	text = {
+		trigger = {
+			is_in_array = { global.organization_of_american_states_members = THIS.id }
+		}
+		localization_key = econ_sphere_organization_of_american_states_name_def
+	}
+	text = {
+		trigger = {
+			is_in_array = { global.comintern_members = THIS.id }
+		}
+		localization_key = econ_sphere_comintern_name_def
+	}
+}
+

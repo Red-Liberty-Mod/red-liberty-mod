@@ -1,7 +1,38 @@
 ideas = {
 	
 	country = {
-	
+		
+		CHI_institutionalized_warlordism = {
+			picture = CHI_beiyang_army
+			
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				army_org_factor = 0.15
+				political_power_gain = -0.35
+				command_power_gain_mult = 0.2
+				training_time_army_factor = -0.3
+			}
+		}
+		
+		CHI_japanese_capital_entrenchment = {
+			picture = CHI_japanese_influence
+			
+			allowed = {
+				always = no
+			}
+			
+			modifier = {  
+				consumer_goods_factor = 0.35
+				production_factory_max_efficiency_factor = 0.1
+				production_factory_efficiency_gain_factor = 0.1
+			}
+		}
+		
+		
+		
        	CHI_beiyang_army = {
 			removal_cost = -1
 			
@@ -66,45 +97,6 @@ ideas = {
 				stability_factor = -0.15
 				war_support_factor = -0.2
 				conscription_factor = -0.15
-			}
-		}
-		
-		CHI_the_three_advisors = {
-			removal_cost = -1
-			
-			allowed = {
-				always = no
-			} 
-			available = {
-				tag = CHI
-			}
-			
-			allowed_civil_war = { 
-				always = no
-			}
-			
-			modifier = {  
-				
-			}
-		}
-		
-		
-		CHI_an_empire_shattered = {
-			removal_cost = -1
-			
-			allowed = {
-				always = no
-			} 
-			available = {
-				has_country_flag = china_nation
-			}
-			
-			allowed_civil_war = { 
-				always = no
-			}
-			
-			modifier = {  
-				
 			}
 		}
 	}

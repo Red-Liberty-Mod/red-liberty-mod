@@ -1,4 +1,241 @@
-# Government Arsenal - based of of the Detroit Arsenal
+# name pending - based off of FCM
+generic_armor_forge_organization = {
+	icon = GFX_idea_generic_tank_manufacturer_1
+	
+	allowed = {
+		always = no #only used as archetype
+	}
+	
+	equipment_type = {
+		armor
+		mio_cat_eq_all_battleship
+		mio_cat_eq_all_cruiser
+	}
+	research_categories = {
+		mio_cat_tech_all_armor_and_modules
+		mio_cat_tech_all_capital_ship_and_modules
+		mio_cat_tech_all_cruiser_and_modules
+	}
+	
+	tree_header_text = {
+		text = mio_header_armor_department
+		x = 2
+	}
+
+	tree_header_text = {
+		text = mio_header_naval_department
+		x = 7
+	}
+	
+	initial_trait = {
+		name = generic_mio_initial_trait_armor_forge
+	}
+	
+	trait = {
+		token = generic_mio_trait_super_heavy_tanks
+		name = generic_mio_trait_super_heavy_tanks
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_quality
+		
+		limit_to_equipment_type = { mio_cat_eq_all_heavy_tank }
+		
+		position = { x = 3 y = 0 }
+		relative_position_id = generic_mio_trait_infantry_tanks
+		
+		equipment_bonus = {
+			armor_value = 0.05
+			maximum_speed = -0.03
+		}
+	}
+	
+	trait = {
+		token = generic_mio_trait_infantry_tanks
+		name = generic_mio_trait_infantry_tanks
+		icon = GFX_generic_mio_department_icon_tank_light_tank_weapons
+		
+		limit_to_equipment_type = { mio_cat_eq_all_medium_tank mio_cat_eq_all_light_tank }
+		
+		position = { x = 1 y = 0 }
+		mutually_exclusive = { generic_mio_trait_cruiser_tanks }
+
+		equipment_bonus = {
+			soft_attack = 0.05
+			armor_value = 0.02
+			maximum_speed = -0.05
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_cruiser_tanks
+		name = generic_mio_trait_cruiser_tanks
+		icon = GFX_generic_mio_department_icon_tank_general_engine
+
+		limit_to_equipment_type = { mio_cat_eq_all_medium_tank mio_cat_eq_all_light_tank }
+
+		position = { x = 2 y = 0 }
+		relative_position_id = generic_mio_trait_infantry_tanks
+		mutually_exclusive = { generic_mio_trait_infantry_tanks }
+
+		equipment_bonus = {
+			soft_attack = 0.02
+			armor_value = -0.05
+			maximum_speed = 0.05
+		}
+	}
+	
+	trait = {
+		token = generic_mio_trait_armor_production_facilities
+		name = generic_mio_trait_armor_production_facilities
+		icon = GFX_generic_mio_department_icon_tank_general_line_efficiency
+		
+		limit_to_equipment_type = { armor }
+		
+		position = { x = -1 y = 0 }
+		relative_position_id = generic_mio_trait_infantry_tanks
+
+		production_bonus = {
+			production_efficiency_gain_factor = 0.1
+		}
+		
+		organization_modifier = {
+			military_industrial_organization_task_capacity = 1
+		}
+		
+		on_complete = {
+			if = {
+				limit = {
+					FROM = { tag = FRA }
+				}
+				FROM = {
+					21 = {
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+			}
+			else = {
+				FROM = {
+					random_owned_controlled_state = {
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	trait = {
+		token = generic_mio_trait_superfiring_turrets
+		name = generic_mio_trait_superfiring_turrets
+		icon = GFX_generic_mio_trait_icon_hard_attack
+		
+		limit_to_equipment_type = { mio_cat_eq_all_heavy_tank }
+		
+		position = { x = 0 y = 2 }
+		relative_position_id = generic_mio_trait_super_heavy_tanks
+		any_parent = { generic_mio_trait_super_heavy_tanks }
+		
+		equipment_bonus = {
+			breakthrough = 0.05
+			reliability = -0.03
+		}
+	}
+	
+	trait = {
+		token = generic_mio_trait_protected_suspension
+		name = generic_mio_trait_protected_suspension
+		icon = GFX_generic_mio_trait_icon_defense
+		
+		limit_to_equipment_type = { mio_cat_eq_all_medium_tank mio_cat_eq_all_light_tank }
+		
+		position = { x = 1 y = 2 }
+		relative_position_id = generic_mio_trait_infantry_tanks
+		any_parent = { generic_mio_trait_infantry_tanks generic_mio_trait_cruiser_tanks }
+		
+		equipment_bonus = {
+			reliability = 0.05
+			armor_value = 0.02
+		}
+	}
+	
+	trait = {
+		token = generic_mio_trait_quality_welding
+		name = generic_mio_trait_quality_welding
+		icon = GFX_generic_mio_trait_icon_armor_value
+		
+		limit_to_equipment_type = { armor }
+		
+		position = { x = -1 y = 2 }
+		relative_position_id = generic_mio_trait_protected_suspension
+		any_parent = { generic_mio_trait_protected_suspension }
+		
+		equipment_bonus = {
+			armor_value = 0.03
+			build_cost_ic = 0.02
+		}
+	}
+	
+	trait = {
+		token = generic_mio_trait_stroboscopic_cupola
+		name = generic_mio_trait_stroboscopic_cupola
+		icon = GFX_generic_mio_trait_icon_breakthrough
+		
+		limit_to_equipment_type = {	mio_cat_eq_all_heavy_tank mio_cat_eq_all_medium_tank }
+		
+		position = { x = 1 y = 2 }
+		relative_position_id = generic_mio_trait_protected_suspension
+		all_parents = { generic_mio_trait_protected_suspension generic_mio_trait_superfiring_turrets }
+
+		equipment_bonus = {
+			breakthrough = 0.05
+		}
+	}
+	
+	### Naval Department ###
+	trait = {
+		token = generic_mio_trait_naval_forges
+		name = generic_mio_trait_naval_forges
+		icon = GFX_generic_mio_department_icon_ship_general_production
+		
+		limit_to_equipment_type = { mio_cat_eq_all_battleship mio_cat_eq_all_cruiser }
+		
+		position = { x = 7 y = 0 }
+		
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+		
+		organization_modifier = {
+			military_industrial_organization_task_capacity = 1
+		}
+	}
+	
+	trait = {
+		token = generic_mio_trait_innovative_welding_technique
+		name = generic_mio_trait_innovative_welding_technique
+		icon = GFX_generic_mio_trait_icon_armor_value
+		
+		limit_to_equipment_type = { mio_cat_eq_all_battleship mio_cat_eq_all_cruiser }
+		
+		position = { x = -1 y = 1 }
+		relative_position_id = generic_mio_trait_naval_forges
+		all_parents = { generic_mio_trait_naval_forges }
+		
+		equipment_bonus = {
+			armor_value = 0.05
+			build_cost_ic = -0.02
+		}
+	}
+}
+
+# Government Arsenal - based off of the Detroit Arsenal
 generic_government_arsenal_organization = {
 	icon = GFX_idea_generic_tank_manufacturer_1
 

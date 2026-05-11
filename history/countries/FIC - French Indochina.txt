@@ -1,11 +1,14 @@
-﻿capital = 671
+﻿capital = 286
 
 oob = "FIC"
-set_stability = 0.45
-set_war_support = 0.05
+set_stability = 0.65
+set_war_support = 0.55
 
 set_technology = {
-	# inherit from FRA
+	infantry_weapons = 1
+	tech_support = 1
+	tech_recon = 1
+	gw_artillery = 1
 }
 
 set_research_slots = 1
@@ -32,15 +35,33 @@ set_popularities = {
 }
 
 add_ideas = {
-	FIC_railway_debate
-	FIC_communist_guerillas
+	#FIC_railway_debate
+	#FIC_communist_guerillas
+}
+
+if = {
+	limit = {
+		has_start_date < 1936.01.02
+	}
+	declare_war_on = {
+		target = VIN
+		type = annex_everything
+	}
+	declare_war_on = {
+		target = LAO
+		type = annex_everything
+	}
+	declare_war_on = {
+		target = CAM
+		type = annex_everything
+	}
 }
 
 create_country_leader = {
 	name = "Eugène Jean Louis René Robin"
 	desc = ""
-	picture = ""
-	ideology = despotism_subtype
+	picture = "GFX_portrait_unknown"
+	ideology = colonial_regime_subtype
 	traits = {
 		
 	}

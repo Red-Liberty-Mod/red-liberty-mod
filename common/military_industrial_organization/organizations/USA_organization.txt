@@ -15,6 +15,22 @@ USA_marmon_herrington_organization = {
 	allowed = {	
 		tag = USA
 	}
+	
+	add_trait = { 
+		token = USA_mio_trait_export_models
+		name = USA_mio_trait_export_models
+		icon = GFX_generic_mio_department_icon_facilities
+		special_trait_background = yes
+
+		position = { x = 0 y = 1 }
+		relative_position_id = generic_mio_streamlined_production
+		all_parents = { generic_mio_streamlined_production }
+
+		production_bonus = {
+			production_efficiency_cap_factor = 0.03
+			production_efficiency_gain_factor = 0.03
+		}
+	}
 }
 
 USA_chrysler_organization = {
@@ -153,6 +169,10 @@ USA_detroit_arsenal_organization = {
 		all_parents = { generic_mio_trait_standardized_components }
 		production_bonus = {
 			production_efficiency_cap_factor = 0.1
+		}
+		
+		organization_modifier = {
+			military_industrial_organization_task_capacity = 2
 		}
 	}
 }
@@ -654,6 +674,14 @@ USA_vought_organization = {
 	}
 	visible = {
 		
+	}
+}
+
+USA_consolidated_aircraft_organization = {
+	include = generic_general_aircraft_organization
+	icon = GFX_idea_consolidated_aircraft
+	allowed = {	 
+		tag = USA 
 	}
 }
 

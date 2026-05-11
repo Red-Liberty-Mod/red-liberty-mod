@@ -71,10 +71,10 @@ USA_social_security_act_setup = { # social security act
 	set_variable = { average_boost_fascist = 0.05 }
 	
 	set_variable = { communist_flip_cost = 0 }
-	set_variable = { socialist_flip_cost = 50 }
-	set_variable = { republican_flip_cost = 125 }
-	set_variable = { democrat_flip_cost = 140 }
-	set_variable = { fascist_flip_cost = 170 }
+	set_variable = { socialist_flip_cost = 15 }
+	set_variable = { republican_flip_cost = 25 }
+	set_variable = { democrat_flip_cost = 40 }
+	set_variable = { fascist_flip_cost = 70 }
 	
 	if = {
 		limit = {
@@ -160,43 +160,38 @@ USA_judicial_reform_act_setup = { # court packing plan
 	set_country_flag = USA_socialist_discussing
 	set_country_flag = USA_democrat_discussing
 	set_country_flag = USA_republican_discussing
+	set_country_flag = USA_fascist_discussing
 	
-	set_variable = { USA_republican_bill_support = 0.1 } # GOVERNMENT OVERREACH
-	set_variable = { USA_democrat_bill_support = 0.15 } # DICTATORSHIP ALERT
+	set_variable = { USA_republican_bill_support = 0 } # GOVERNMENT OVERREACH
+	set_variable = { USA_democrat_bill_support = 0 } # DICTATORSHIP ALERT
 	set_variable = { USA_communist_bill_support = 1 } # DESTROY CAPITALIST INSTITUTIONS
 	set_variable = { USA_socialist_bill_support = 0.75 } # arent we going a bit far?
-	set_variable = { USA_fascist_bill_support = 0 } # FACKING COMMIES RUINING MURICA
+	set_variable = { USA_fascist_bill_support = 0.05 } # FACKING COMMIES RUINING MURICA
 	
-	set_variable = { average_boost_democrat = 0.075 }
-	set_variable = { average_boost_socialist = 0.7 }
-	set_variable = { average_boost_republican = 0.075 }
+	set_variable = { average_boost_socialist = 0.9 }
+	set_variable = { average_boost_democrat = 0.15 }
+	set_variable = { average_boost_republican = 0.1 }
+	set_variable = { average_boost_fascist = 0.1 }
 	
 	set_variable = { republican_flip_cost = 130 }
 	set_variable = { democrat_flip_cost = 100 }
 	set_variable = { socialist_flip_cost = 50 }
-	
-	if = {
-		limit = {
-			has_country_flag = USA_judicial_reform_consulting
-		}
-		add_to_variable = { USA_republican_bill_support = 0.05 }
-		add_to_variable = { USA_democrat_bill_support = 0.05 }
-	}
+	set_variable = { fascist_flip_cost = 100 }
 	
 	if = {
 		limit = {
 			has_country_flag = USA_added_judicial_review_section_lite
 		}
-		subtract_from_variable = { USA_republican_bill_support = 0.02 }
-		subtract_from_variable = { USA_democrat_bill_support = 0.02 }
+		add_to_variable = { average_boost_socialist = 0.1 }
+		add_to_variable = { average_boost_democrat = 0.05 }
 	}
 	
 	if = {
 		limit = {
 			has_country_flag = USA_added_judicial_review_section
 		}
-		subtract_from_variable = { USA_republican_bill_support = 0.05 }
-		subtract_from_variable = { USA_democrat_bill_support = 0.05 }
+		add_to_variable = { average_boost_socialist = 0.05 }
+		add_to_variable = { average_boost_democrat = 0.03 }
 	}
 	
 	USA_bill_setup = yes # always required
@@ -1040,11 +1035,28 @@ USA_senate_phase = {
 }
 
 USA_activate_filibuster = {
-	set_country_flag = filibuster_active
+	set_country_flag = USA_filibuster_active
+	set_variable = { USA_filibuster_support = 3 }
+	
+	add_days_mission_timeout = {
+		mission = USA_senate_phase
+		days = 14
+	}
+}
+
+USA_weaken_filibuster = {
+	custom_effect_tooltip = USA_filibuster_support_diminishes_tt
+	subtract_from_variable = { USA_filibuster_support = 1 }
+	if = {
+		limit = {
+			check_variable = { USA_filibuster_support < 1 }
+		}
+		country_event = us_bill.1002
+	}
 }
 
 USA_clear_filibuster = {
-	clr_country_flag = filibuster_active
+	clr_country_flag = USA_filibuster_active
 }
 
 check_if_bill_passed = {
@@ -1052,7 +1064,7 @@ check_if_bill_passed = {
 	divide_variable = { percent_support = senators_total }
 	set_variable = { votes_needed = 0.5 }
 	if = {
-		limit = { has_country_flag = filibuster_active }
+		limit = { has_country_flag = USA_filibuster_active }
 		set_variable = { votes_needed = 0.6 }
 	}
 
@@ -1127,7 +1139,7 @@ USA_bill_clear = {
 	clr_country_flag = bill_passed
 	clr_country_flag = bill_enable_mission
 	
-	clr_country_flag = filibuster_active
+	clr_country_flag = USA_filibuster_active
 	clr_country_flag = USA_bill_is_amendment
 	
 	clear_variable = USA_bill_strength
@@ -1502,202 +1514,13 @@ USA_calc_unity_bonus = {
 }
 
 USA_bill_vote = {
-	if = {
-		limit = {
-			check_variable = { bill_id = 1 } # debug act
+	meta_effect = {
+		text = {
+			country_event = {
+				id = us_bill.[EVENT_ID]
+				hours = 1
+			}
 		}
-		country_event = {
-			id = us_bill.1
-			hours = 1
-		}
-	}
-	else_if = {
-		limit = {
-			check_variable = { bill_id = 2 } # social security act
-		}
-		country_event = {
-			id = us_bill.2
-			hours = 1
-		}
-	}
-	else_if = {
-		limit = {
-			check_variable = { bill_id = 3 } # farm tenant act
-		}
-		country_event = {
-			id = us_bill.3
-			hours = 1
-		}
-	}
-	else_if = {
-		limit = {
-			check_variable = { bill_id = 4 } # 
-		}
-		country_event = {
-			id = us_bill.4
-			hours = 1
-		}
-	}
-	else_if = {
-		limit = {
-			check_variable = { bill_id = 5 } # 
-		}
-		country_event = {
-			id = us_bill.5
-			hours = 1
-		}
-	}
-	else_if = {
-		limit = {
-			check_variable = { bill_id = 6 } # 
-		}
-		country_event = {
-			id = us_bill.6
-			hours = 1
-		}
-	}
-	else_if = {
-		limit = {
-			check_variable = { bill_id = 7 } # pension act
-		}
-		country_event = {
-			id = us_bill.7
-			hours = 1
-		}
-	}
-	else_if = {
-		limit = {
-			check_variable = { bill_id = 8 } # housing act
-		}
-		country_event = {
-			id = us_bill.8
-			hours = 1
-		}
-	}
-	else_if = {
-		limit = {
-			check_variable = { bill_id = 9 } # wealth tax act
-		}
-		country_event = {
-			id = us_bill.9
-			hours = 1
-		}
-	}
-	else_if = {
-		limit = {
-			check_variable = { bill_id = 10 } # ban kkk act
-		}
-		country_event = {
-			id = us_bill.10
-			hours = 1
-		}
-	}
-	else_if = {
-		limit = {
-			check_variable = { bill_id = 11 } # voting rights act
-		}
-		country_event = {
-			id = us_bill.11
-			hours = 1
-		}
-	}
-	else_if = {
-		limit = {
-			check_variable = { bill_id = 12 } # public contracts act
-		}
-		country_event = {
-			id = us_bill.12
-			hours = 1
-		}
-	}
-	else_if = {
-		limit = {
-			check_variable = { bill_id = 13 } # labor standards act
-		}
-		country_event = {
-			id = us_bill.13
-			hours = 1
-		}
-	}
-	else_if = {
-		limit = {
-			check_variable = { bill_id = 14 } # equal education act
-		}
-		country_event = {
-			id = us_bill.14
-			hours = 1
-		}
-	}
-	else_if = {
-		limit = {
-			check_variable = { bill_id = 15 } # economic equality act
-		}
-		country_event = {
-			id = us_bill.15
-			hours = 1
-		}
-	}
-	else_if = {
-		limit = {
-			check_variable = { bill_id = 16 } # national healthcare act
-		}
-		country_event = {
-			id = us_bill.16
-			hours = 1
-		}
-	}
-	else_if = {
-		limit = {
-			check_variable = { bill_id = 17 } # second bill of rights
-		}
-		country_event = {
-			id = us_bill.17
-			hours = 1
-		}
-	}
-	else_if = {
-		limit = {
-			check_variable = { bill_id = 18 } # pr statehood
-		}
-		country_event = {
-			id = us_bill.18
-			hours = 1
-		}
-	}
-	else_if = {
-		limit = {
-			check_variable = { bill_id = 19 } # usa joins ww2
-		}
-		country_event = {
-			id = us_bill.19
-			hours = 1
-		}
-	}
-	else_if = {
-		limit = {
-			check_variable = { bill_id = 20 }
-		}
-		country_event = {
-			id = us_bill.20
-			hours = 1
-		}
-	}
-	else_if = {
-		limit = {
-			check_variable = { bill_id = 21 } # nationalize defense industry
-		}
-		country_event = {
-			id = us_bill.21
-			hours = 1
-		}
-	}
-	else_if = {
-		limit = {
-			check_variable = { bill_id = 22 }
-		}
-		country_event = {
-			id = us_bill.22
-			hours = 1
-		}
+		EVENT_ID = "[?bill_id]"
 	}
 }
