@@ -1,0 +1,100 @@
+﻿instant_effect = {
+	### Destroyers ###
+	create_equipment_variant = {
+		name = "Chang Feng Class"
+		type = ship_hull_light_1
+		name_group = CHL_DD_HISTORICAL
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = empty
+			rear_1_custom_slot = empty
+		}
+	}
+
+	### Light Cruisers ###
+	create_equipment_variant = {
+		name = "Hairong/Haiqi/Zhaohe Class"
+		type = ship_hull_cruiser_1
+		name_group = CHL_CA_HISTORICAL
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_1
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			mid_1_custom_slot = empty
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = ship_light_medium_battery_1
+		}
+	}
+	
+	create_equipment_variant = {
+		name = "Ning Hai Class"
+		type = ship_hull_cruiser_2
+		name_group = CHL_CA_HISTORICAL
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_1
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			mid_1_custom_slot = empty
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = ship_light_medium_battery_1
+		}
+	}
+	
+	create_equipment_variant = { # renamed yat sen class
+		name = "Shikai Class"
+		type = ship_hull_cruiser_2
+		name_group = CHL_CA_HISTORICAL
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_1
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			mid_1_custom_slot = empty
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = ship_light_medium_battery_1
+		}
+	}
+}
+
+units = {
+	fleet = {
+		name = "Beiyang Navy"
+		naval_base = 10068
+		task_force = {
+			name = "Beiyang Navy"
+			location = 10068
+			ship = { name = "Ning Hai" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = CHI version_name = "Ning Hai Class" } } }
+			ship = { name = "Ping Hai" pride_of_the_fleet = yes definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = CHI version_name = "Ning Hai Class" } } }
+			
+			ship = { name = "Shikai" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = CHI version_name = "Shikai Class" } } }
+			
+			ship = { name = "Hairong" definition = light_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = CHI version_name = "Hairong/Haiqi/Zhaohe Class" } } }
+			ship = { name = "Haichou" definition = light_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = CHI version_name = "Hairong/Haiqi/Zhaohe Class" } } }
+			ship = { name = "Haichen" definition = light_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = CHI version_name = "Hairong/Haiqi/Zhaohe Class" } } }
+			
+			ship = { name = "Hai Qi" definition = light_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = CHI version_name = "Hairong/Haiqi/Zhaohe Class" } } }
+			ship = { name = "Hai Tien" definition = light_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = CHI version_name = "Hairong/Haiqi/Zhaohe Class" } } }
+			
+			ship = { name = "Zhao He" definition = light_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = CHI version_name = "Hairong/Haiqi/Zhaohe Class" } } }
+			ship = { name = "Ying Rui" definition = light_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = CHI version_name = "Hairong/Haiqi/Zhaohe Class" } } }
+			ship = { name = "Fei Hong" definition = light_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = CHI version_name = "Hairong/Haiqi/Zhaohe Class" } } }
+			
+			ship = { name = "Chang Feng" definition = destroyer equipment = { ship_hull_destroyer_1 = { amount = 1 owner = CHI version_name = "Chang Feng Class" } } }
+			ship = { name = "Fu Po" definition = destroyer equipment = { ship_hull_destroyer_1 = { amount = 1 owner = CHI version_name = "Chang Feng Class" } } }
+			ship = { name = "Fei Yuen" definition = destroyer equipment = { ship_hull_destroyer_1 = { amount = 1 owner = CHI version_name = "Chang Feng Class" } } }
+		}
+	}
+}

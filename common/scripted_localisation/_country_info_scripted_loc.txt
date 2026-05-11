@@ -1,22 +1,51 @@
 defined_text = {
+	name = GetCountryInfoEntryContainer
+	text = {
+		trigger = { check_variable = { f > 100 } }
+		localization_key = "country_info_folder_entry"
+	}
+	text = {
+		localization_key = "country_info_content_entry"
+	}
+}
+
+defined_text = {
+	name = GetCountryInfoFolderTitle
+	text = {
+		trigger = { check_variable = { f = 101 } }
+		localization_key = "country_intro_label_lore"
+	}
+	text = {
+		trigger = { check_variable = { f = 102 } }
+		localization_key = "country_intro_label_path_guides"
+	}
+	text = {
+		trigger = { check_variable = { f = 103 } }
+		localization_key = "country_intro_label_mechanics"
+	}
+}
+
+defined_text = {
 	name = GetCountryInfoEntryTitle
 	text = {
-		trigger = {
-			original_tag = AHE
-		}
-		localization_key = "[GetCountryInfoEntryTitleAHE]"
+		trigger = { original_tag = AHE }
+		localization_key = "AHE_country_intro_title_[?f]"
 	}
 	text = {
-		trigger = {
-			original_tag = USA
-		}
-		localization_key = "[GetCountryInfoEntryTitleUSA]"
+		trigger = { original_tag = FRA }
+		localization_key = "FRA_country_intro_title_[?f]"
 	}
 	text = {
-		trigger = {
-			original_tag = FRA
-		}
-		localization_key = "[GetCountryInfoEntryTitleFRA]"
+		trigger = { original_tag = IRE }
+		localization_key = "IRE_country_intro_title_[?f]"
+	}
+	text = {
+		trigger = { original_tag = SOV }
+		localization_key = "SOV_country_intro_title_[?f]"
+	}
+	text = {
+		trigger = { original_tag = USA }
+		localization_key = "USA_country_intro_title_[?f]"
 	}
 }
 
@@ -36,25 +65,24 @@ defined_text = {
 	}
 	
 	text = {
-		trigger = {
-			original_tag = AHE
-			check_variable = { f > 0 }
-		}
-		localization_key = "[GetCountryInfoTitleAHE]"
+		trigger = { original_tag = AHE }
+		localization_key = "AHE_country_intro_title_[?country_info_selected]"
 	}
 	text = {
-		trigger = {
-			original_tag = USA
-			check_variable = { f > 0 }
-		}
-		localization_key = "[GetCountryInfoTitleUSA]"
+		trigger = { original_tag = FRA }
+		localization_key = "FRA_country_intro_title_[?country_info_selected]"
 	}
 	text = {
-		trigger = {
-			original_tag = FRA
-			check_variable = { f > 0 }
-		}
-		localization_key = "[GetCountryInfoTitleFRA]"
+		trigger = { original_tag = IRE }
+		localization_key = "IRE_country_intro_title_[?country_info_selected]"
+	}
+	text = {
+		trigger = { original_tag = SOV }
+		localization_key = "SOV_country_intro_title_[?country_info_selected]"
+	}
+	text = {
+		trigger = { original_tag = USA }
+		localization_key = "USA_country_intro_title_[?country_info_selected]"
 	}
 	text = {
 		localization_key = "red_liberty_intro_title"
@@ -76,379 +104,49 @@ defined_text = {
 		}
 	}
 	
+	### Chapter Descs ###
 	text = {
-		trigger = {
-			original_tag = AHE
-			check_variable = { f > 0 }
-		}
-		localization_key = "[GetCountryInfoDescAHE]"
+		trigger = { original_tag = AHE }
+		localization_key = "AHE_country_intro_desc_[?country_info_selected]"
 	}
 	text = {
-		trigger = {
-			original_tag = USA
-			check_variable = { f > 0 }
-		}
-		localization_key = "[GetCountryInfoDescUSA]"
+		trigger = { original_tag = FRA }
+		localization_key = "FRA_country_intro_desc_[?country_info_selected]"
 	}
 	text = {
+		trigger = { original_tag = IRE }
+		localization_key = "IRE_country_intro_desc_[?country_info_selected]"
+	}
+	text = {
+		trigger = { original_tag = SOV }
+		localization_key = "SOV_country_intro_desc_[?country_info_selected]"
+	}
+	text = {
+		trigger = { original_tag = USA }
+		localization_key = "USA_country_intro_desc_[?country_info_selected]"
+	}
+	
+	### Credits ###
+	text = {
+		localization_key = "[GetCountryInfoCredits]"
+	}
+}
+
+### Credits ###
+defined_text = {
+	name = GetCountryInfoCredits
+	text = {
 		trigger = {
-			original_tag = FRA
-			check_variable = { f > 0 }
+			original_tag = SOV
 		}
-		localization_key = "[GetCountryInfoDescFRA]"
+		localization_key = "SOV_credits_desc"
 	}
 	text = {
 		localization_key = "red_liberty_intro_desc"
 	}
 }
 
-### Entry Titles ###
-defined_text = {
-	name = GetCountryInfoEntryTitleAHE
-	
-	text = {
-		trigger = {
-			check_variable = { f = 1 }
-		}
-		localization_key = "AHE_country_intro_title_1"
-	}
-	text = {
-		trigger = {
-			check_variable = { f = 2 }
-		}
-		localization_key = "AHE_country_intro_title_2"
-	}
-	text = {
-		trigger = {
-			check_variable = { f = 3 }
-		}
-		localization_key = "AHE_country_intro_title_3"
-	}
-	text = {
-		trigger = {
-			check_variable = { f = 4 }
-		}
-		localization_key = "AHE_country_intro_title_4"
-	}
-	text = {
-		trigger = {
-			check_variable = { f = 5 }
-		}
-		localization_key = "AHE_country_intro_title_5"
-	}
-	text = {
-		trigger = {
-			check_variable = { f = 6 }
-		}
-		localization_key = "TAG_country_intro_title_appendix"
-	}
-}
-
-defined_text = {
-	name = GetCountryInfoEntryTitleUSA
-	
-	text = {
-		trigger = {
-			check_variable = { f = 1 }
-		}
-		localization_key = "USA_country_intro_title_1"
-	}
-	text = {
-		trigger = {
-			check_variable = { f = 2 }
-		}
-		localization_key = "USA_country_intro_title_2"
-	}
-	text = {
-		trigger = {
-			check_variable = { f = 3 }
-		}
-		localization_key = "USA_country_intro_title_3"
-	}
-	text = {
-		trigger = {
-			check_variable = { f = 4 }
-		}
-		localization_key = "USA_country_intro_title_4"
-	}
-	text = {
-		trigger = {
-			check_variable = { f = 5 }
-		}
-		localization_key = "USA_country_intro_title_5"
-	}
-	text = {
-		trigger = {
-			check_variable = { f = 6 }
-		}
-		localization_key = "TAG_country_intro_title_appendix"
-	}
-}
-
-defined_text = {
-	name = GetCountryInfoEntryTitleFRA
-	text = {
-		trigger = {
-			check_variable = { f = 1 }
-		}
-		localization_key = "FRA_country_intro_title_1"
-	}
-	text = {
-		trigger = {
-			check_variable = { f = 2 }
-		}
-		localization_key = "FRA_country_intro_title_2"
-	}
-	text = {
-		trigger = {
-			check_variable = { f = 3 }
-		}
-		localization_key = "FRA_country_intro_title_3"
-	}
-	text = {
-		trigger = {
-			check_variable = { f = 4 }
-		}
-		localization_key = "FRA_country_intro_title_4"
-	}
-	text = {
-		trigger = {
-			check_variable = { f = 5 }
-		}
-		localization_key = "TAG_country_intro_title_appendix"
-	}
-}
-
-### Headers ###
-defined_text = {
-	name = GetCountryInfoTitleAHE
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 1 }
-		}
-		localization_key = "AHE_country_intro_title_1"
-	}
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 2 }
-		}
-		localization_key = "AHE_country_intro_title_2"
-	}
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 3 }
-		}
-		localization_key = "AHE_country_intro_title_3"
-	}
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 4 }
-		}
-		localization_key = "AHE_country_intro_title_4"
-	}
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 5 }
-		}
-		localization_key = "AHE_country_intro_title_5"
-	}
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 6 }
-		}
-		localization_key = "TAG_country_intro_title_appendix"
-	}
-}
-
-defined_text = {
-	name = GetCountryInfoTitleUSA
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 1 }
-		}
-		localization_key = "USA_country_intro_title_1"
-	}
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 2 }
-		}
-		localization_key = "USA_country_intro_title_2"
-	}
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 3 }
-		}
-		localization_key = "USA_country_intro_title_3"
-	}
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 4 }
-		}
-		localization_key = "USA_country_intro_title_4"
-	}
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 5 }
-		}
-		localization_key = "USA_country_intro_title_5"
-	}
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 6 }
-		}
-		localization_key = "TAG_country_intro_title_appendix"
-	}
-}
-
-defined_text = {
-	name = GetCountryInfoTitleFRA
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 1 }
-		}
-		localization_key = "FRA_country_intro_title_1"
-	}
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 2 }
-		}
-		localization_key = "FRA_country_intro_title_2"
-	}
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 3 }
-		}
-		localization_key = "FRA_country_intro_title_3"
-	}
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 4 }
-		}
-		localization_key = "FRA_country_intro_title_4"
-	}
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 5 }
-		}
-		localization_key = "TAG_country_intro_title_appendix"
-	}
-}
-
-### Descriptions ###
-defined_text = {
-	name = GetCountryInfoDescAHE
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 1 }
-		}
-		localization_key = "AHE_country_intro_desc_1"
-	}
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 2 }
-		}
-		localization_key = "AHE_country_intro_desc_2"
-	}
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 3 }
-		}
-		localization_key = "AHE_country_intro_desc_3"
-	}
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 4 }
-		}
-		localization_key = "AHE_country_intro_desc_4"
-	}
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 5 }
-		}
-		localization_key = "AHE_country_intro_desc_5"
-	}
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 6 }
-		}
-		localization_key = "AHE_country_intro_desc_6"
-	}
-}
-
-defined_text = {
-	name = GetCountryInfoDescUSA
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 1 }
-		}
-		localization_key = "USA_country_intro_desc_1"
-	}
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 2 }
-		}
-		localization_key = "USA_country_intro_desc_2"
-	}
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 3 }
-		}
-		localization_key = "USA_country_intro_desc_3"
-	}
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 4 }
-		}
-		localization_key = "USA_country_intro_desc_4"
-	}
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 5 }
-		}
-		localization_key = "USA_country_intro_desc_5"
-	}
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 6 }
-		}
-		localization_key = "USA_country_intro_desc_6"
-	}
-}
-
-defined_text = {
-	name = GetCountryInfoDescFRA
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 1 }
-		}
-		localization_key = "FRA_country_intro_desc_1"
-	}
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 2 }
-		}
-		localization_key = "FRA_country_intro_desc_2"
-	}
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 3 }
-		}
-		localization_key = "FRA_country_intro_desc_3"
-	}
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 4 }
-		}
-		localization_key = "FRA_country_intro_desc_4"
-	}
-	text = {
-		trigger = {
-			check_variable = { country_info_selected = 5 }
-		}
-		localization_key = "FRA_country_intro_desc_5"
-	}
-}
-
+### Posters ###
 defined_text = {
 	name = GetPoster
 	text = {
@@ -460,6 +158,14 @@ defined_text = {
 	text = {
 		trigger = {
 			original_tag = USA
+			check_variable = { country_info_selected = 1 }
+		}
+		localization_key = "GFX_intro_splash_screen_mckinley"
+	}
+	text = {
+		trigger = {
+			original_tag = USA
+			#check_variable = { country_info_selected > 1 }
 		}
 		localization_key = "GFX_intro_splash_screen_debs"
 	}
@@ -468,6 +174,12 @@ defined_text = {
 			original_tag = FRA
 		}
 		localization_key = "GFX_intro_splash_screen_france"
+	}
+	text = {
+		trigger = {
+			original_tag = SOV
+		}
+		localization_key = "GFX_intro_splash_screen_lenin"
 	}
 }
 
@@ -490,5 +202,11 @@ defined_text = {
 			original_tag = USA
 		}
 		localization_key = "For Liberty!"
+	}
+	text = {
+		trigger = {
+			original_tag = SOV
+		}
+		localization_key = "Za Svobodu!"
 	}
 }

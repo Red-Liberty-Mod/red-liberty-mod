@@ -28,46 +28,65 @@ has_reactionary_govt = {
 has_same_govt_as_ROOT = {
 	has_government = var:ROOT.current_party_ideology_group
 }
+same_government_type_as_ROOT = {
+	OR = {
+		AND = {
+			has_socialist_govt = yes
+			ROOT = { has_socialist_govt = yes }
+		}
+		AND = {
+			has_democratic_govt = yes
+			ROOT = { has_democratic_govt = yes }
+		}
+		AND = {
+			has_reactionary_govt = yes
+			ROOT = { has_reactionary_govt = yes }
+		}
+	}
+}
 
 has_same_govt_as_PREV = {
 	has_government = PREV
 }
 
 has_similar_close_govt_to_ROOT = {
-	OR = {
-		AND = {
-			OR = {
-				has_government = social_democracy
-				has_government = progressive_liberalism
-			}
-			ROOT = {
+	custom_trigger_tooltip = {
+		tooltip = has_similar_close_govt_to_ROOT_tt
+		OR = {
+			AND = {
 				OR = {
 					has_government = social_democracy
 					has_government = progressive_liberalism
 				}
+				ROOT = {
+					OR = {
+						has_government = social_democracy
+						has_government = progressive_liberalism
+					}
+				}
 			}
-		}
-		AND = {
-			OR = {
-				has_government = social_democracy
-				has_government = democratic_socialism
-			}
-			ROOT = {
+			AND = {
 				OR = {
 					has_government = social_democracy
 					has_government = democratic_socialism
 				}
+				ROOT = {
+					OR = {
+						has_government = social_democracy
+						has_government = democratic_socialism
+					}
+				}
 			}
-		}
-		AND = {
-			OR = {
-				has_government = vanguard_socialism
-				has_government = revolutionary_socialism
-			}
-			ROOT = {
+			AND = {
 				OR = {
 					has_government = vanguard_socialism
 					has_government = revolutionary_socialism
+				}
+				ROOT = {
+					OR = {
+						has_government = vanguard_socialism
+						has_government = revolutionary_socialism
+					}
 				}
 			}
 		}

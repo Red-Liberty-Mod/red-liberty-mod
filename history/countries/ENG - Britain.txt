@@ -15,7 +15,7 @@ set_technology = {
 	infantry_weapons1 = 1
 	tech_trucks = 1
 	motorised_infantry = 1
-	camelry = 1
+	tech_camel_corps = 1
 	
 	tech_support = 1
 	tech_engineers = 1
@@ -30,13 +30,16 @@ set_technology = {
 	fuel_refining = 1
 
 	basic_train = 1
-	
-	fleet_in_being = 1
 }
 
 complete_special_project = {
 	project = sp:sp_air_radar
 	#scientist = ENG_robert_watson_watt
+}
+complete_special_project = {
+	project = sp:sp_naval_support_ships
+	#scientist = USA_william_francis_gibbs
+	#state = 361
 }
 
 add_breakthrough_progress = {
@@ -194,10 +197,6 @@ if = {
 		autonomous_state = autonomy_RL_protectorate
 	}
 	set_autonomy = {
-		target = EGY
-		autonomous_state = autonomy_RL_protectorate
-	}
-	set_autonomy = {
 		target = SCM
 		autonomous_state = autonomy_RL_occupied_puppet
 	}
@@ -206,7 +205,6 @@ if = {
 		puppet = RAJ
 		puppet = IRQ
 		puppet = EGY
-		puppet = SCM
 	}
 }
 
@@ -237,7 +235,7 @@ set_country_flag = national_conservatism_coalition
 set_country_flag = authoritarian_democracy_coalition
 set_country_flag = despotism_coalition
 
-create_faction = Commonwealth
+create_faction_from_template = faction_template_commonwealth
 add_to_faction = ENG
 add_to_faction = CAN
 add_to_faction = NFL
@@ -275,7 +273,7 @@ recruit_character = ENG_hugh_dalton
 recruit_character = ENG_walter_runciman
 recruit_character = ENG_samuel_hoare
 recruit_character = ENG_vere_posonby
-recruit_character = ENG_alliott_vernon_roe
+recruit_character = ENG_alliott_verdon_roe
 recruit_character = ENG_arthur_chesterton
 recruit_character = ENG_william_joyce
 recruit_character = ENG_maxwell_knight

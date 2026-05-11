@@ -124,7 +124,7 @@ IRE_paramilitary_orgs_category = {
 		
 		cost = 0
 		days_remove = 7
-		days_re_enable = 14
+		days_re_enable = 30
 		
 		complete_effect = {
 			set_country_flag = IRE_taking_action
@@ -155,7 +155,7 @@ IRE_paramilitary_orgs_category = {
 		
 		cost = 0
 		days_remove = 14
-		days_re_enable = 21
+		days_re_enable = 30
 		
 		complete_effect = {
 			set_country_flag = IRE_taking_action
@@ -363,17 +363,14 @@ IRE_paramilitary_orgs_category = {
 				OR = {
 					has_country_flag = IRE_unrest_started
 					has_country_flag = IRE_paramilitary_violence_over
+					has_global_flag = IRE_civil_war_avoided
+					has_global_flag = IRE_civil_war_started
 				}
 			}
 		}
 		
 		activation = {
-			NOT = {
-				OR = {
-					has_country_flag = IRE_unrest_started
-					has_country_flag = IRE_paramilitary_violence_over
-				}
-			}
+			always = no
 		}
 		
 		is_good = yes
@@ -429,22 +426,17 @@ IRE_paramilitary_orgs_category = {
 				OR = {
 					has_global_flag = IRE_civil_war_avoided
 					has_global_flag = IRE_civil_war_started
+					has_global_flag = IRE_civil_war_ended
 				}
 			}
 		}
 		
 		activation = {
-			has_country_flag = IRE_unrest_started
-			NOT = {
-				OR = {
-					has_global_flag = IRE_civil_war_avoided
-					has_global_flag = IRE_civil_war_started
-				}
-			}
+			always = no # activated by event ireland_civil_war.1
 		}
 		
 		is_good = no
-		days_mission_timeout = 180
+		days_mission_timeout = 120
 		fire_only_once = yes
 		
 		complete_effect = {

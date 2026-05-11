@@ -183,28 +183,25 @@ USA_foreign_policy_category = {
 		}
 	}
 	
-	USA_brazil_blockade_ports = {
-		
+	### Brazilian Civil War ###
+	
+	USA_pressure_argentina = {
+
 		visible = {
 			check_variable = { selected_conflict_id = 2 }
 		}
-		
+
 		available = {
-			check_variable = { selected_conflict_id = 2 }
-			ships_in_area = { area = 66 size > 25 } 
+			
 		}
-		
+
 		cost = 25
-		
-		fire_only_once = yes
-		
-		days_remove = 14
+		days_re_enable = 25
 
-		remove_effect = {
-			set_global_flag = USA_blockading_brazil
-			custom_effect_tooltip = USA_brazil_blockade_ports_tt
+		complete_effect = {
+			
 		}
-		
+
 		cancel_trigger = {
 			OR = {
 				UOB = {
@@ -217,198 +214,23 @@ USA_foreign_policy_category = {
 		}
 	}
 	
-	USA_brazil_send_volunteers = {
-		
+	USA_pressure_chile = {
+
 		visible = {
 			check_variable = { selected_conflict_id = 2 }
 		}
-		
+
 		available = {
-			check_variable = { selected_conflict_id = 2 }
+			
 		}
-		
+
 		cost = 25
-		
 		days_re_enable = 25
 
 		complete_effect = {
-			add_manpower = -500
-			UOB = {
-				add_manpower = 500
-			}
+			
 		}
-		
-		cancel_trigger = {
-			OR = {
-				UOB = {
-					exists = no
-				}
-				BRA = {
-					exists = no
-				}
-			}
-		}
-	}
-	
-	USA_brazil_send_light_equipment = {
-		
-		visible = {
-			check_variable = { selected_conflict_id = 2 }
-		}
-		
-		available = {
-			check_variable = { selected_conflict_id = 2 }
-		}
-		
-		cost = 25
-		
-		days_re_enable = 25
 
-		complete_effect = {
-			send_equipment = {
-				equipment = infantry_equipment
-				amount = 1000
-				target = UOB
-			}
-		}
-		
-		cancel_trigger = {
-			OR = {
-				UOB = {
-					exists = no
-				}
-				BRA = {
-					exists = no
-				}
-			}
-		}
-	}
-	
-	USA_brazil_send_heavy_equipment = {
-		
-		visible = {
-			check_variable = { selected_conflict_id = 2 }
-		}
-		
-		available = {
-			check_variable = { selected_conflict_id = 2 }
-		}
-		
-		cost = 50
-		
-		days_re_enable = 25
-
-		complete_effect = {
-			send_equipment = {
-				equipment = artillery_equipment
-				amount = 50
-				target = UOB
-			}
-		}
-		
-		cancel_trigger = {
-			OR = {
-				UOB = {
-					exists = no
-				}
-				BRA = {
-					exists = no
-				}
-			}
-		}
-	}
-	
-	USA_brazil_send_trucks = {
-		
-		visible = {
-			check_variable = { selected_conflict_id = 2 }
-		}
-		
-		available = {
-			check_variable = { selected_conflict_id = 2 }
-		}
-		
-		cost = 50
-		
-		days_re_enable = 25
-
-		complete_effect = {
-			send_equipment = {
-				equipment = motorized_equipment
-				amount = 50
-				target = UOB
-			}
-		}
-		
-		cancel_trigger = {
-			OR = {
-				UOB = {
-					exists = no
-				}
-				BRA = {
-					exists = no
-				}
-			}
-		}
-	}
-	
-	USA_send_military_observers = {
-		
-		visible = {
-			check_variable = { selected_conflict_id = 2 }
-		}
-		
-		available = {
-			check_variable = { selected_conflict_id = 2 }
-			NOT = {
-				UOB = {
-					has_idea = USA_military_observers
-				}
-			}
-		}
-		
-		cost = 75
-
-		complete_effect = {
-			UOB = {
-				add_timed_idea = {
-					idea = USA_military_observers
-					days = 75
-				}
-			}
-		}
-		
-		cancel_trigger = {
-			OR = {
-				UOB = {
-					exists = no
-				}
-				BRA = {
-					exists = no
-				}
-			}
-		}
-	}
-	
-	USA_brazil_send_military_formations = {
-		
-		visible = {
-			check_variable = { selected_conflict_id = 2 }
-		}
-		
-		available = {
-			check_variable = { selected_conflict_id = 2 }
-		}
-		
-		cost = 100
-		
-		fire_only_once = yes
-
-		complete_effect = {
-			set_country_flag = may_send_volunteers_to_UOB
-			custom_effect_tooltip = unlock_volunteers
-		}
-		
 		cancel_trigger = {
 			OR = {
 				UOB = {

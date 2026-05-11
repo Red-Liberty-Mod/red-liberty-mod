@@ -2,11 +2,23 @@ shared_focus = {
     id = SOV_red_star_rising
 	icon = GFX_SOV_red_star_rising
 	
-    x = 8
-	
+    x = 5
 	cost = 5
+	
+	offset = {
+		x = 37
+		y = 8
+		trigger = {
+			has_focus_tree = SOV_initial_tree
+		}
+	}
+	
+	available = {
+		has_country_flag = SOV_technocrat_coup
+	}
+	
     completion_reward = {
-        
+		
     }
 	
 	ai_will_do = {
@@ -25,26 +37,35 @@ shared_focus = {
 	relative_position_id = SOV_red_star_rising
 	prerequisite = { focus = SOV_red_star_rising }
     completion_reward = {
-        
+        add_political_power = 50
+		unlock_decision_category_tooltip = SOV_science_meter_category
+        set_variable = { SOV_SCIENCE_level = 45 }
     }
 	
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
 }
 
 shared_focus = {
-    id = SOV_scientific_society
-	icon = GFX_SOV_scientific_society
+    id = SOV_society_as_a_system
+	icon = GFX_SOV_society_as_a_system
 	
-    x = -4
+    x = -1
 	y = 1
 	
 	cost = 5
 	relative_position_id = SOV_the_great_purge
 	prerequisite = { focus = SOV_the_great_purge }
     completion_reward = {
-        
+        add_to_variable = {
+			tooltip = SOV_SCIENCE_tt
+			SOV_SCIENCE_level = 7
+		}
     }
 	
 	ai_will_do = {
@@ -53,34 +74,44 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = SOV_scientific_economy
+    id = SOV_central_planning_laboratory
 	icon = GFX_SOV_scientific_economy
 	
-    x = 4
+    x = 1
 	y = 1
 	
 	cost = 5
 	relative_position_id = SOV_the_great_purge
 	prerequisite = { focus = SOV_the_great_purge }
     completion_reward = {
-        
+        if = {
+			limit = { has_idea = SOV_nep_1 }
+			swap_ideas = {
+				remove_idea = SOV_nep_1
+				add_idea = SOV_central_planning_laboratory_1
+			}
+		}
     }
 	
 	ai_will_do = {
 		factor = 10
 	}
+	
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
+	}
 }
 
 shared_focus = {
-    id = SOV_womens_place
-	icon = GFX_SOV_womens_place
+    id = SOV_proletarian_education
+	icon = GFX_SOV_scientific_economy
 	
-    x = -2
+    x = -3
 	y = 1
 	
 	cost = 5
-	relative_position_id = SOV_scientific_society
-	prerequisite = { focus = SOV_scientific_society }
+	relative_position_id = SOV_society_as_a_system
+	prerequisite = { focus = SOV_society_as_a_system }
     completion_reward = {
         
     }
@@ -91,15 +122,15 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = SOV_curing_the_addiction
-	icon = GFX_SOV_curing_the_addiction
+    id = SOV_the_proletkult_revisited
+	icon = GFX_SOV_scientific_economy
 	
-    x = 0
+    x = -1
 	y = 1
 	
 	cost = 5
-	relative_position_id = SOV_scientific_society
-	prerequisite = { focus = SOV_scientific_society }
+	relative_position_id = SOV_society_as_a_system
+	prerequisite = { focus = SOV_society_as_a_system }
     completion_reward = {
         
     }
@@ -111,14 +142,189 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_reform_the_komsomol
-	icon = GFX_SOV_reform_the_komsomol
+	icon = GFX_SOV_scientific_economy
 	
-    x = 2
+    x = 1
 	y = 1
 	
 	cost = 5
-	relative_position_id = SOV_scientific_society
-	prerequisite = { focus = SOV_scientific_society }
+	relative_position_id = SOV_society_as_a_system
+	prerequisite = { focus = SOV_society_as_a_system }
+	prerequisite = { focus = SOV_central_planning_laboratory }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_algorithmic_allocation
+	icon = GFX_SOV_scientific_economy
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = SOV_central_planning_laboratory
+	prerequisite = { focus = SOV_central_planning_laboratory }
+    completion_reward = {
+        swap_ideas = {
+			remove_idea = SOV_central_planning_laboratory_1
+			add_idea = SOV_central_planning_laboratory_2
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_human_engineering
+	icon = GFX_SOV_scientific_economy
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = SOV_proletarian_education
+	prerequisite = { focus = SOV_proletarian_education }
+	prerequisite = { focus = SOV_the_proletkult_revisited }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_participatory_feedback
+	icon = GFX_SOV_scientific_economy
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = SOV_the_proletkult_revisited
+	prerequisite = { focus = SOV_the_proletkult_revisited }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_committee_for_scientific_requisitions
+	icon = GFX_SOV_scientific_economy
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = SOV_algorithmic_allocation
+	prerequisite = { focus = SOV_algorithmic_allocation }
+    completion_reward = {
+        add_tech_bonus = {
+			name = SOV_committee_for_scientific_requisitions
+			bonus = 0.35
+			uses = 2
+			category = electronics
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
+}
+
+shared_focus = {
+    id = SOV_rationalize_agriculture
+	icon = GFX_SOV_scientific_economy
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = SOV_algorithmic_allocation
+	prerequisite = { focus = SOV_algorithmic_allocation }
+    completion_reward = {
+        add_stability = 0.1
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_STABILITY
+	}
+}
+
+shared_focus = {
+    id = SOV_restructure_the_commissariats
+	icon = GFX_SOV_scientific_economy
+	
+    x = 3
+	y = 1
+	
+	cost = 5
+	relative_position_id = SOV_algorithmic_allocation
+	prerequisite = { focus = SOV_algorithmic_allocation }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_the_gender_variable
+	icon = GFX_SOV_scientific_economy
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = SOV_human_engineering
+	prerequisite = { focus = SOV_human_engineering }
+    completion_reward = {
+        add_ideas = SOV_revolutionary_women_technocrat
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
+		FOCUS_FILTER_MANPOWER
+	}
+}
+
+shared_focus = {
+    id = SOV_sexuality_as_a_social_fact
+	icon = GFX_SOV_scientific_economy
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = SOV_human_engineering
+	prerequisite = { focus = SOV_human_engineering }
     completion_reward = {
         
     }
@@ -130,113 +336,13 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_a_new_face_for_pravda
-	icon = GFX_SOV_a_new_face_for_pravda
-	
-    x = 4
-	y = 1
-	
-	cost = 5
-	relative_position_id = SOV_scientific_society
-	prerequisite = {
-		focus = SOV_scientific_society
-		focus = SOV_scientific_economy
-	}
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = SOV_higher_education
-	icon = GFX_SOV_higher_education
-	
-    x = -2
-	y = 1
-	
-	cost = 5
-	relative_position_id = SOV_scientific_economy
-	prerequisite = { focus = SOV_scientific_economy }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = SOV_technocratic_soviets
-	icon = GFX_SOV_technocratic_soviets
+	icon = GFX_SOV_scientific_economy
 	
     x = 0
-	y = 1
+	y = 2
 	
 	cost = 5
-	relative_position_id = SOV_scientific_economy
-	prerequisite = { focus = SOV_scientific_economy }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = SOV_strengthen_workplace_democracy
-	icon = GFX_SOV_strengthen_workplace_democracy
-	
-    x = 2
-	y = 1
-	
-	cost = 5
-	relative_position_id = SOV_scientific_economy
-	prerequisite = { focus = SOV_scientific_economy }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = SOV_into_the_workforce
-	icon = GFX_SOV_into_the_workforce
-	
-    x = 1
-	y = 1
-	
-	cost = 5
-	relative_position_id = SOV_womens_place
-	prerequisite = { focus = SOV_womens_place }
-	prerequisite = { focus = SOV_curing_the_addiction }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = SOV_out_of_the_closets
-	icon = GFX_SOV_out_of_the_closets
-	
-    x = 1
-	y = 1
-	
-	cost = 5
-	relative_position_id = SOV_curing_the_addiction
-	prerequisite = { focus = SOV_curing_the_addiction }
+	relative_position_id = SOV_reform_the_komsomol
 	prerequisite = { focus = SOV_reform_the_komsomol }
     completion_reward = {
         
@@ -248,10 +354,85 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = SOV_mostly_free_speech
-	icon = GFX_SOV_mostly_free_speech
+    id = SOV_extend_public_works
+	icon = GFX_SOV_scientific_economy
 	
     x = 0
+	y = 2
+	
+	cost = 5
+	relative_position_id = SOV_algorithmic_allocation
+	prerequisite = { focus = SOV_algorithmic_allocation }
+    completion_reward = {
+        random_owned_state = {
+			limit = {
+				is_urban_state = yes
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 2
+		}
+		random_owned_state = {
+			limit = {
+				is_rural_state = yes
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_state = {
+			limit = {
+				is_rural_state = yes
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
+	}
+}
+
+shared_focus = {
+    id = SOV_god_building
+	icon = GFX_SOV_god_building
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = SOV_the_gender_variable
+	prerequisite = { focus = SOV_the_gender_variable }
+	prerequisite = { focus = SOV_sexuality_as_a_social_fact }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_the_future_of_the_party
+	icon = GFX_SOV_the_future_of_the_party
+	
+    x = -1
 	y = 1
 	
 	cost = 5
@@ -267,187 +448,15 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = SOV_scientific_requisitions
-	icon = GFX_SOV_scientific_requisitions
+    id = SOV_remove_the_luddite_reactionaries
+	icon = GFX_SOV_the_future_of_the_party
 	
     x = 1
 	y = 1
 	
 	cost = 5
-	relative_position_id = SOV_higher_education
-	prerequisite = { focus = SOV_higher_education }
-	prerequisite = { focus = SOV_technocratic_soviets }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = SOV_voluntary_collectivization
-	icon = GFX_SOV_voluntary_collectivization
-	
-    x = 1
-	y = 1
-	
-	cost = 5
-	relative_position_id = SOV_technocratic_soviets
-	prerequisite = { focus = SOV_technocratic_soviets }
-	prerequisite = { focus = SOV_strengthen_workplace_democracy }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = SOV_the_march_of_progress
-	icon = GFX_SOV_the_march_of_progress
-	
-    x = 20
-	y = 0
-	
-	cost = 5
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = SOV_assess_material_conditions
-	icon = GFX_SOV_assess_material_conditions
-	
-    x = -1
-	y = 1
-	
-	cost = 5
-	relative_position_id = SOV_the_march_of_progress
-	prerequisite = { focus = SOV_the_march_of_progress }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = SOV_assess_personnel
-	icon = GFX_SOV_assess_personnel
-	
-    x = 1
-	y = 1
-	
-	cost = 5
-	relative_position_id = SOV_the_march_of_progress
-	prerequisite = { focus = SOV_the_march_of_progress }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = SOV_specialization
-	icon = GFX_SOV_specialization
-	
-    x = 1
-	y = 1
-	
-	cost = 5
-	relative_position_id = SOV_assess_material_conditions
-	prerequisite = { focus = SOV_assess_material_conditions }
-	prerequisite = { focus = SOV_assess_personnel }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = SOV_eternal_youth
-	icon = GFX_SOV_eternal_youth
-	
-    x = -3
-	y = 1
-	
-	cost = 5
-	relative_position_id = SOV_specialization
-	prerequisite = { focus = SOV_specialization }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = SOV_power
-	icon = GFX_SOV_power
-	
-    x = -1
-	y = 1
-	
-	cost = 5
-	relative_position_id = SOV_specialization
-	prerequisite = { focus = SOV_specialization }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = SOV_heaven
-	icon = GFX_SOV_heaven
-	
-    x = 1
-	y = 1
-	
-	cost = 5
-	relative_position_id = SOV_specialization
-	prerequisite = { focus = SOV_specialization }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = SOV_the_stars
-	icon = GFX_SOV_the_stars
-	
-    x = 3
-	y = 1
-	
-	cost = 5
-	relative_position_id = SOV_specialization
-	prerequisite = { focus = SOV_specialization }
+	relative_position_id = SOV_a_new_face_for_pravda
+	prerequisite = { focus = SOV_a_new_face_for_pravda }
     completion_reward = {
         
     }

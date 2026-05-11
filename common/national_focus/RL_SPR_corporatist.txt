@@ -1,0 +1,455 @@
+shared_focus = {
+    id = SPR_renovacion
+	icon = GFX_focus_SPR_renovacion
+	
+    x = 0
+	y = 0
+	cost = 4
+	
+	offset = {
+		x = 17
+		y = 0
+		trigger = {
+			has_focus_tree = SPR_initial_tree
+		}
+	}
+	
+	available = {
+		has_government = despotism
+	}
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_crush_the_crimson_menace
+	icon = GFX_focus_SPR_crush_the_crimson_menace
+	
+    x = -3
+	y = 1
+	cost = 5
+	
+	relative_position_id = SPR_renovacion
+	prerequisite = { focus = SPR_renovacion }
+	
+    completion_reward = {
+		add_popularity = {
+			ideology = democratic_socialism
+			popularity = -0.02
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_condemn_liberalism
+	icon = GFX_focus_SPR_condemn_liberalism
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SPR_renovacion
+	prerequisite = { focus = SPR_renovacion }
+	
+    completion_reward = {
+		add_popularity = {
+			ideology = liberal_conservatism
+			popularity = -0.02
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_spain_social_and_corporate
+	icon = GFX_focus_SPR_condemn_liberalism
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SPR_renovacion
+	prerequisite = { focus = SPR_renovacion }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+
+shared_focus = {
+    id = SPR_expand_the_exterior_bank
+	icon = GFX_focus_SPR_condemn_liberalism
+	
+    x = 3
+	y = 1
+	cost = 5
+	
+	relative_position_id = SPR_renovacion
+	prerequisite = { focus = SPR_renovacion }
+	
+    completion_reward = {
+		if = {
+			limit = { has_idea = SPR_stagnant_economy_1 }
+			swap_ideas = {
+				remove_idea = SPR_stagnant_economy_1
+				add_idea = SPR_stagnant_economy_2
+			}
+		}
+		else = {
+			remove_ideas = SPR_stagnant_economy_2
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_ensure_army_loyalty
+	icon = GFX_focus_SPR_condemn_liberalism
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SPR_crush_the_crimson_menace
+	prerequisite = { focus = SPR_crush_the_crimson_menace }
+	prerequisite = { focus = SPR_condemn_liberalism }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_catholic_unionism
+	icon = GFX_focus_SPR_condemn_liberalism
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SPR_spain_social_and_corporate
+	prerequisite = { focus = SPR_spain_social_and_corporate }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_militarize_the_state_apparatus
+	icon = GFX_focus_SPR_militarize_the_state_apparatus
+	
+    x = 2
+	y = 2
+	cost = 5
+	
+	relative_position_id = SPR_renovacion
+	prerequisite = { focus = SPR_renovacion }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_rely_on_the_radical_coporatists
+	icon = GFX_focus_spa_the_phalanx_ascendant
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SPR_ensure_army_loyalty
+	prerequisite = { focus = SPR_ensure_army_loyalty }
+	mutually_exclusive = { focus = SPR_support_from_the_traditionalists }
+	
+    completion_reward = {
+		add_fash_coalition = yes
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.02
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_support_from_the_traditionalists
+	icon = GFX_focus_spa_no_compromise_on_carlist_ideals
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SPR_ensure_army_loyalty
+	prerequisite = { focus = SPR_ensure_army_loyalty }
+	mutually_exclusive = { focus = SPR_rely_on_the_radical_coporatists }
+	
+    completion_reward = {
+		add_ultracon_coalition = yes
+		add_popularity = {
+			ideology = ultraconservatism
+			popularity = 0.02
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_monarchy_above_party
+	icon = GFX_focus_SPR_monarchy_above_party
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SPR_catholic_unionism
+	prerequisite = { focus = SPR_catholic_unionism }
+	prerequisite = { focus = SPR_militarize_the_state_apparatus }
+	
+    completion_reward = {
+		add_stability = 0.1
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_progressive_taxation
+	icon = GFX_focus_SPR_progressive_taxation
+	
+    x = 0
+	y = 2
+	cost = 5
+	
+	relative_position_id = SPR_expand_the_exterior_bank
+	prerequisite = { focus = SPR_expand_the_exterior_bank }
+	
+    completion_reward = {
+		if = {
+			limit = { has_idea = SPR_stagnant_economy_2 }
+			remove_ideas = SPR_stagnant_economy_2
+		}
+		else_if = {
+			limit = { has_idea = SPR_stagnant_economy_1 }
+			remove_ideas = SPR_stagnant_economy_1
+		}
+		else = {
+			add_political_power = 25
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_duty_heirarchy_humanity
+	icon = GFX_focus_SPR_duty_heirarchy_humanity
+	
+    x = 0
+	y = 1
+	cost = 5
+	
+	relative_position_id = SPR_rely_on_the_radical_coporatists
+	prerequisite = { focus = SPR_rely_on_the_radical_coporatists }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_embrace_the_new_state
+	icon = GFX_focus_SPR_embrace_the_new_state
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SPR_support_from_the_traditionalists
+	prerequisite = {
+		focus = SPR_rely_on_the_radical_coporatists
+		focus = SPR_support_from_the_traditionalists
+	}
+	prerequisite = { focus = SPR_monarchy_above_party }
+	prerequisite = { focus = SPR_progressive_taxation }
+	
+    completion_reward = {
+		swap_ideas = {
+			remove_idea = SPR_corporatist_constitution
+			add_idea = SPR_the_new_state
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_national_syndicates
+	icon = GFX_focus_SPR_national_syndicates
+	
+    x = -2
+	y = 1
+	cost = 5
+	
+	relative_position_id = SPR_embrace_the_new_state
+	prerequisite = { focus = SPR_embrace_the_new_state }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_state_direction_of_industry
+	icon = GFX_focus_SPR_state_direction_of_industry
+	
+    x = 0
+	y = 1
+	cost = 5
+	
+	relative_position_id = SPR_embrace_the_new_state
+	prerequisite = { focus = SPR_embrace_the_new_state }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_eliminate_parliamentarism
+	icon = GFX_focus_SPR_national_syndicates
+	
+    x = 2
+	y = 1
+	cost = 5
+	
+	relative_position_id = SPR_embrace_the_new_state
+	prerequisite = { focus = SPR_embrace_the_new_state }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_arbitration_courts
+	icon = GFX_focus_SPR_arbitration_courts
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SPR_national_syndicates
+	prerequisite = { focus = SPR_national_syndicates }
+	prerequisite = { focus = SPR_state_direction_of_industry }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_armed_police_corps
+	icon = GFX_focus_SPR_armed_police_corps
+	
+    x = 1
+	y = 2
+	cost = 5
+	
+	relative_position_id = SPR_embrace_the_new_state
+	prerequisite = { focus = SPR_embrace_the_new_state }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_political_surveillance_bureau
+	icon = GFX_focus_SPR_political_surveillance_bureau
+	
+    x = 0
+	y = 1
+	cost = 5
+	
+	relative_position_id = SPR_armed_police_corps
+	prerequisite = { focus = SPR_armed_police_corps }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}

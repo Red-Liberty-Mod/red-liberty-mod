@@ -88,6 +88,37 @@ characters = {
 				
 			}
 		}
+		
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			idea_token = SPR_alejandro_lerroux_political_advisors
+			ledger = civilian
+			available = {
+				is_country_leader = no
+			}
+			traits = {
+				administrative_genius
+			}
+		}
+	}
+	
+	SPR_melquiades_alvarez_gonzalez_posada = {
+		name = SPR_melquiades_alvarez_gonzalez_posada
+		
+		portraits = {
+			civilian = {
+				#large = ""
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_MELQUIADES_ALVAREZ_DESC"
+			ideology = liberal_conservatism_subtype
+			traits = {
+				
+			}
+		}
 	}
 	
 	SPR_royo_villanova = {
@@ -108,20 +139,70 @@ characters = {
 		}
 	}
 	
-	SPR_alfonso_xiii = {
-		name = SPR_alfonso_xiii
+	SPR_angel_ossorio_y_gallardo = {
+		name = SPR_angel_ossorio_y_gallardo
 		
 		portraits = {
 			civilian = {
-				large = "gfx/leaders/SPR/Portrait_SPR_Alfonso_XIII.png"
+				#large = ""
 			}
 		}
 		
 		country_leader = {
-			desc = "POLITICS_ALFONSO_XIII_DESC"
+			desc = "POLITICS_RANGEL_OSSORIO_DESC"
+			ideology = christian_democracy_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	SPR_gabriel_maura_gamazo = {
+		name = SPR_gabriel_maura_gamazo
+		
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SPR/Portrait_SPR_Gabriel_Maura.png"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_GABRIEL_MAURA_DESC"
+			ideology = semi_constitutional_monarchy_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	SPR_jose_calvo_sotelo = {
+		name = SPR_jose_calvo_sotelo
+		
+		portraits = {
+			civilian = {
+				#large = "gfx/leaders/SPR/Portrait_SPR_Jose_Sotelo.png"
+				#small = ""
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_JOSE_SOTELO_DESC"
 			ideology = despotism_subtype
 			traits = {
 				
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = SPR_jose_calvo_sotelo_political_advisors
+			ledger = civilian
+			available = {
+				is_country_leader = no
+			}
+			traits = {
+				corporatist_economist
 			}
 		}
 	}
@@ -144,6 +225,37 @@ characters = {
 		}
 	}
 	
+	SPR_tomas_dominguez_arevalo = {
+		name = SPR_tomas_dominguez_arevalo
+		
+		portraits = {
+			civilian = {
+				#large = "gfx/leaders/SPR/.png"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_TOMAS_DOMINGUEZ_AREVALO_DESC"
+			ideology = carlism_subtype
+			traits = {
+				
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = SPR_tomas_dominguez_arevalo_political_advisors
+			ledger = civilian
+			available = {
+				is_country_leader = no
+			}
+			traits = {
+				
+			}
+		}
+	}
+	
 	SPR_jose_antonio_primo_de_rivera = {
 		name = SPR_jose_antonio_primo_de_rivera
 		
@@ -155,10 +267,388 @@ characters = {
 		
 		country_leader = {
 			desc = "POLITICS_JOSE_ANTONIO_PRIMO_DE_RIVERA_DESC"
-			ideology = fascism_subtype
+			ideology = clerical_fascism_subtype
 			traits = {
 				
 			}
+		}
+	}
+	
+	### Deputy Leaders ###
+	
+	SPR_alfonso_xiii = {
+		name = SPR_alfonso_xiii
+		
+		portraits = {
+			civilian = {
+				#large = "gfx/leaders/SPR/Portrait_SPR_Alfonso_XIII.png"
+				small = "gfx/interface/ministers/SPR/SPR_Alfonso_XIII.png"
+			}
+		}
+		
+		advisor = {
+			slot = head_of_government
+			idea_token = SPR_alfonso_xiii_hog
+			ledger = civilian
+			can_be_fired = no
+			traits = {
+				
+			}
+		}
+	}
+	
+	### ADVISORS ###
+	
+	SPR_manuel_azana_diaz = {
+		name = SPR_manuel_azana_diaz
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/SPR/SPR_Manuel_Azana.png"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = SPR_manuel_azana_diaz_political_advisor
+			traits = {
+				#great_compromiser?
+			}
+		}
+	}
+	
+	SPR_niceto_alcala_zamora = {
+		name = SPR_niceto_alcala_zamora
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/SPR/SPR_Niceto_Alcala_Zamora.png"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = SPR_niceto_alcala_zamora_political_advisor
+			traits = {
+				
+			}
+		}
+	}
+	
+	SPR_francisco_serrat_y_bonastre = {
+		name = SPR_francisco_serrat_y_bonastre
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/SPR/SPR_Fransisco_Serrat.png"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = SPR_francisco_serrat_y_bonastre_political_advisor
+			ledger = civilian
+			traits = {
+				accomplished_diplomat
+			}
+		}
+	}
+	
+	SPR_miguel_maura_gamazo = {
+		name = SPR_miguel_maura_gamazo
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/SPR/SPR_Miguel_Maura.png"
+			}
+		}
+		
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			idea_token = SPR_miguel_maura_gamazo_political_advisors
+			ledger = civilian
+			traits = {
+				economic_reformer
+			}
+		}
+	}
+	
+	SPR_juan_march_ordinas = {
+		name = SPR_juan_march_ordinas
+		
+		portraits = {
+			civilian = {
+				#small = ""
+			}
+		}
+		
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			idea_token = SPR_juan_march_ordinas_political_advisors
+			ledger = civilian
+			traits = {
+				SPR_rockefeller_of_spain
+			}
+		}
+	}
+	
+	SPR_german_gil_y_yuste = {
+		name = SPR_german_gil_y_yuste
+		
+		portraits = {
+			civilian = {
+				#small = ""
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = SPR_german_gil_y_yuste_political_advisors
+			ledger = civilian
+			traits = {
+				infantry_proponent
+			}
+		}
+	}
+	
+	SPR_ramiro_ledesma_ramos = {
+		name = SPR_ramiro_ledesma_ramos
+		
+		portraits = {
+			civilian = {
+				#small = ""
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = SPR_ramiro_ledesma_ramos_political_advisors
+			ledger = civilian
+			available = {
+				OR = {
+					has_government = fascism
+					has_country_flag = fascism_coalition
+				}
+			}
+			traits = {
+				ideological_crusader
+			}
+		}
+	}
+	
+	SPR_onesimo_redondo_ortega = {
+		name = SPR_onesimo_redondo_ortega
+		
+		portraits = {
+			civilian = {
+				#small = ""
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = SPR_onesimo_redondo_ortega_political_advisors
+			ledger = civilian
+			available = {
+				OR = {
+					has_government = fascism
+					has_country_flag = fascism_coalition
+				}
+			}
+			traits = {
+				iron_fisted_brute
+			}
+		}
+	}
+	
+	### Generals ###
+	
+	SPR_jose_sanjurjo_y_sacanell = {
+		name = SPR_jose_sanjurjo_y_sacanell
+		
+		portraits = {
+			army = {
+				#large = ""
+			}
+		}
+		
+		field_marshal = {
+			traits = {
+				old_guard
+				politically_connected
+				logistics_wizard
+				#SPR_falangist_officer
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	
+	SPR_francisco_franco_bahamonde = {
+		name = SPR_francisco_franco_bahamonde
+		
+		portraits = {
+			army = {
+				#large = ""
+				#small = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				politically_connected
+				infantry_leader
+				#SPR_monarchist_officer
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
+		}
+		
+		advisor = {
+			slot = army_chief
+			idea_token = SPR_francisco_franco_bahamonde_army_chief
+			traits = { army_chief_offensive_2 }
+			cost = 100
+		}
+	}
+	
+	SPR_jose_millan_astray_y_terreros = {
+		name = SPR_jose_millan_astray_y_terreros
+		
+		portraits = {
+			army = {
+				#large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				media_personality
+				war_hero
+				#SPR_monarchist_officer
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 3
+		}
+	}
+	
+	SPA_leopoldo_de_saro_y_marin = {
+		name = SPA_leopoldo_de_saro_y_marin
+		
+		portraits = {
+			army = {
+				#large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				politically_connected
+				trait_cautious
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	
+	SPR_emilio_barrera_luyando = {
+		name = SPR_emilio_barrera_luyando
+		
+		portraits = {
+			army = {
+				large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				#SPR_carlist_officer
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	
+	SPR_manuel_goded_llopis = {
+		name = SPR_manuel_goded_llopis
+		
+		portraits = {
+			army = {
+				large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				#SPR_monarchist_officer
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	
+	### Admirals ###
+	
+	SPA_manuel_vierna_belando = {
+		name = SPA_manuel_vierna_belando
+		
+		portraits = {
+			army = {
+				large = ""
+			}
+		}
+		
+		navy_leader = {
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			maneuvering_skill = 1
+			coordination_skill = 1
+		}
+	}
+	
+	### High Command ###
+	
+	SPR_segismundo_casado_lopez = {
+		name = SPR_segismundo_casado_lopez
+		
+		portraits = {
+			army = {
+				small = ""
+			}
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = SPR_segismundo_casado_lopez_high_command
+			traits = { army_armored_2 }
+			cost = 100
 		}
 	}
 }

@@ -63,7 +63,7 @@ defined_text = {
 	text = {
 		trigger = {
 			OR = {
-				has_country_flag = filibuster_active
+				has_country_flag = USA_filibuster_active
 				has_country_flag = USA_bill_is_amendment
 			}
 		}
@@ -73,7 +73,7 @@ defined_text = {
 	text = {
 		trigger = {
 			NOT = {
-				has_country_flag = filibuster_active
+				has_country_flag = USA_filibuster_active
 			}
 		}
 		localization_key = "USA_senate_quorum_med"
@@ -93,7 +93,7 @@ defined_text = {
 	text = {
 		trigger = {
 			NOT = {
-				has_country_flag = filibuster_active
+				has_country_flag = USA_filibuster_active
 			}
 		}
 		localization_key = "USA_house_quorum_med"
@@ -129,7 +129,7 @@ defined_text = {
         trigger = {
 			has_country_flag = USA_bill_senate_phase
 			NOT = {
-				has_country_flag = filibuster_active
+				has_country_flag = USA_filibuster_active
 			}
         }
         localization_key = "USA_bill_being_considered"
@@ -138,7 +138,7 @@ defined_text = {
 	text = { 
         trigger = {
 			has_country_flag = USA_bill_senate_phase
-			has_country_flag = filibuster_active
+			has_country_flag = USA_filibuster_active
         }
         localization_key = "USA_bill_being_filibustered"
     }
@@ -779,7 +779,7 @@ defined_text = {
 			check_variable = { senators_support > quorum_medium }
 			NOT = {
 				OR = {
-					has_country_flag = filibuster_active
+					has_country_flag = USA_filibuster_active
 					has_country_flag = USA_bill_is_amendment
 				}
 			}
@@ -792,7 +792,7 @@ defined_text = {
 			check_variable = { senators_support = quorum_medium }
 			NOT = {
 				OR = {
-					has_country_flag = filibuster_active
+					has_country_flag = USA_filibuster_active
 					has_country_flag = USA_bill_is_amendment
 				}
 			}
@@ -805,7 +805,7 @@ defined_text = {
 			check_variable = { senators_support < quorum_medium }
 			NOT = {
 				OR = {
-					has_country_flag = filibuster_active
+					has_country_flag = USA_filibuster_active
 					has_country_flag = USA_bill_is_amendment
 				}
 			}
@@ -817,7 +817,7 @@ defined_text = {
         trigger = {
 			check_variable = { senators_support > quorum_high }
 			OR = {
-				has_country_flag = filibuster_active
+				has_country_flag = USA_filibuster_active
 				has_country_flag = USA_bill_is_amendment
 			}
         }
@@ -828,7 +828,7 @@ defined_text = {
         trigger = {
 			check_variable = { senators_support = quorum_high }
 			OR = {
-				has_country_flag = filibuster_active
+				has_country_flag = USA_filibuster_active
 				has_country_flag = USA_bill_is_amendment
 			}
         }
@@ -839,10 +839,54 @@ defined_text = {
         trigger = {
 			check_variable = { senators_support < quorum_high }
 			OR = {
-				has_country_flag = filibuster_active
+				has_country_flag = USA_filibuster_active
 				has_country_flag = USA_bill_is_amendment
 			}
         }
         localization_key = "senator_support_red"
+    }
+}
+
+defined_text = {
+	name = get_filibuster_status
+	
+	text = { 
+		trigger = {
+			has_country_flag = USA_filibuster_active
+		}
+		localization_key = "USA_filibuster_status"
+	}
+	
+	text = { 
+        localization_key = ""
+    }
+}
+
+defined_text = {
+	name = GetFilibusterSupport
+	
+	text = { 
+		trigger = {
+			check_variable = { USA_filibuster_support = 3 }
+		}
+		localization_key = "USA_filibuster_high"
+	}
+	
+	text = { 
+		trigger = {
+			check_variable = { USA_filibuster_support = 2 }
+		}
+		localization_key = "USA_filibuster_middling"
+	}
+	
+	text = { 
+		trigger = {
+			check_variable = { USA_filibuster_support = 1 }
+		}
+		localization_key = "USA_filibuster_low"
+	}
+	
+	text = { 
+        localization_key = "Collapsed"
     }
 }

@@ -1,7 +1,8 @@
 shared_focus = {
     id = USA_the_thomas_admin
 	icon = GFX_USA_the_thomas_admin
-	text_icon = joint_focus_style
+	text_icon = USA_focus_style
+	overlay = GFX_focus_fast_overlay_america 
 	
     x = 6
 	
@@ -421,7 +422,16 @@ shared_focus = {
 	}
 	
     completion_reward = {
-        
+        country_event = {
+			id = united_states_thomas.41
+			hours = 6
+		}
+		hidden_effect = {
+			country_event = {
+				id = united_states_thomas.42
+				days = 21
+			}
+		}
     }
 	
 	ai_will_do = {

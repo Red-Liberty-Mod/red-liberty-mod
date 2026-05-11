@@ -79,7 +79,41 @@ set_technology = {
 	basic_train = 1
 }
 
+if = {
+	limit = {
+		has_dlc_aat = yes
+	}
+	mio:USA_springfield_armory_organization = {
+		add_mio_size = 1
+	}
+	mio:USA_norfolk_naval_yard_organization = {
+		add_mio_size = 1
+	}
+	mio:USA_electric_boat_company_organization = {
+		add_mio_size = 1
+	}
+	create_equipment_variant = {
+		name = "U.S. Rifle, Caliber .30, M1903A1"
+		type = infantry_equipment_0
+		design_team = mio:USA_springfield_armory_organization
+	}
+	else = {
+		create_equipment_variant = {
+			name = "U.S. Rifle, Caliber .30, M1903A1"
+			type = infantry_equipment_0
+		}
+	}
+}
 oob = "USA_army"
+
+add_breakthrough_progress = {
+	specialization = specialization_land
+	value = 0.25
+}
+add_breakthrough_progress = {
+	specialization = specialization_naval
+	value = 0.4
+}
 
 if = {
 	limit = {
@@ -123,6 +157,7 @@ if = {
 		aa_lmg = 1
 		early_bombs = 1
 		aircraft_construction = 1
+		air_torpedoe_1 = 1
 	}
 	set_air_oob = "USA_air_bba"
 	else = {
@@ -189,35 +224,15 @@ if = {
 		set_naval_oob = "USA_naval_legacy"
 	}
 }
-if = {
-	limit = {
-		has_dlc_aat = yes
-	}
-	mio:USA_springfield_armory_organization = {
-		add_mio_size = 1
-	}
-	mio:USA_norfolk_naval_yard_organization = {
-		add_mio_size = 1
-	}
-	mio:USA_electric_boat_company_organization = {
-		add_mio_size = 1
-	}
-	create_equipment_variant = {
-		name = "M1903A1 Springfield"								
-		type = infantry_equipment_0
-		design_team = mio:USA_springfield_armory_organization
-	}
-	else = {
-		create_equipment_variant = {
-			name = "M1903A1 Springfield"								
-			type = infantry_equipment_0
-		}
-	}
-}
 
 complete_special_project = {
 	project = sp:sp_naval_cruiser_submarine
 	scientist = USA_andrew_mckee
+	state = 361
+}
+complete_special_project = {
+	project = sp:sp_naval_support_ships
+	scientist = USA_william_francis_gibbs
 	state = 361
 }
 
@@ -246,10 +261,10 @@ set_country_flag = revolutionary_socialism_coalition
 set_country_flag = democratic_socialism_coalition
 set_country_flag = social_democracy_coalition
 
-# DIPLOMACY
-set_autonomy = {
-	target = PHI
-	autonomous_state =  autonomy_RL_nominal_puppet
+set_party_name = {
+    ideology = revolutionary_socialism
+    long_name = USA_spa_marxist_party_long
+    name = USA_spa_marxist_party
 }
 
 ### LEADERS ###
@@ -259,16 +274,23 @@ recruit_character = USA_jack_reed
 recruit_character = USA_earl_russell_browder
 recruit_character = USA_norman_thomas
 recruit_character = USA_henry_wallace
+recruit_character = USA_franklin_delano_roosevelt
 recruit_character = USA_alben_william_barkley
 recruit_character = USA_warren_austen
 recruit_character = USA_joseph_lister_hill
+recruit_character = USA_eugene_talmadge
 recruit_character = USA_charles_lindbergh
 recruit_character = USA_gerald_lyman_smith
+
+# Fascists #
 recruit_character = USA_william_dudley_pelley
+recruit_character = USA_george_deatherage
 
 ### VICE PRESIDENTS ###
+recruit_character = USA_william_foster
 recruit_character = USA_clarence_senior
 recruit_character = USA_john_nance_garner
+recruit_character = USA_harry_flood_byrd_sr
 
 ### ADVISORS ###
 recruit_character = USA_martin_abern
@@ -279,6 +301,7 @@ recruit_character = USA_maynard_krueger
 recruit_character = USA_max_hayes
 recruit_character = USA_harry_hopkins
 recruit_character = USA_joseph_arthur_padway
+recruit_character = USA_john_andrew_simpson
 recruit_character = USA_john_edgar_hoover
 recruit_character = USA_john_dewey
 recruit_character = USA_smedley_butler
@@ -289,7 +312,6 @@ recruit_character = USA_douglas_macarthur
 recruit_character = USA_malin_craig
 recruit_character = USA_henry_harley_arnold
 recruit_character = USA_walter_krueger
-recruit_character = USA_george_van_horn_moseley
 recruit_character = USA_john_dewitt
 recruit_character = USA_william_cole
 recruit_character = USA_johnson_hagood
@@ -411,7 +433,7 @@ if = {
 			tank_nsb_armor_upgrade = 1
 			tank_nsb_engine_upgrade = 3
 		}
-		icon = "gfx/interface/equipmentdesigner/tanks/designer/USA/light_0/USA_M1917_30_m1919_browning_mg.png"
+		#icon = "gfx/interface/equipmentdesigner/tanks/designer/USA/light_0/USA_M1917_30_m1919_browning_mg.png"
 		obsolete = yes
 	}
 	create_equipment_variant = {

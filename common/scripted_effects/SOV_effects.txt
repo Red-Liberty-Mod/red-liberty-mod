@@ -1,0 +1,868 @@
+
+SOV_setup_faction_mechanic = {
+	clear_array = SOV_faction_array
+	
+	set_temp_variable = { faction_id = 1 }
+	add_to_array = {
+		SOV_faction_array = faction_id
+	}
+	
+	set_temp_variable = { faction_id = 2 }
+	add_to_array = {
+		SOV_faction_array = faction_id
+	}
+	
+	set_temp_variable = { faction_id = 3 }
+	add_to_array = {
+		SOV_faction_array = faction_id
+	}
+	
+	set_temp_variable = { faction_id = 4 }
+	add_to_array = {
+		SOV_faction_array = faction_id
+	}
+	
+	set_temp_variable = { faction_id = 5 }
+	add_to_array = {
+		SOV_faction_array = faction_id
+	}
+}
+
+SOV_remove_decist_faction = {
+	set_temp_variable = { faction_id = 3 }
+	if = {
+		limit = { is_in_array = { SOV_faction_array = faction_id } }
+		remove_from_array = { array = SOV_faction_array value = faction_id }
+	}
+}
+SOV_remove_syndicalist_faction = {
+	set_temp_variable = { faction_id = 4 }
+	if = {
+		limit = { is_in_array = { SOV_faction_array = faction_id } }
+		remove_from_array = { array = SOV_faction_array value = faction_id }
+	}
+}
+SOV_remove_democrat_faction = {
+	set_temp_variable = { faction_id = 5 }
+	if = {
+		limit = { is_in_array = { SOV_faction_array = faction_id } }
+		remove_from_array = { array = SOV_faction_array value = faction_id }
+	}
+}
+
+SOV_add_technocrat_faction = {
+	set_temp_variable = { faction_id = 6 }
+	add_to_array = {
+		SOV_faction_array = faction_id
+	}
+}
+SOV_remove_technocrat_faction = {
+	set_temp_variable = { faction_id = 6 }
+	if = {
+		limit = { is_in_array = { SOV_faction_array = faction_id } }
+		remove_from_array = { array = SOV_faction_array value = faction_id }
+	}
+}
+
+SOV_add_esery_faction = {
+	set_temp_variable = { faction_id = 7 }
+	add_to_array = {
+		SOV_faction_array = faction_id
+	}
+}
+
+SOV_add_united_left_faction = {
+	SOV_remove_decist_faction = yes
+	SOV_remove_syndicalist_faction = yes
+	
+	set_temp_variable = { faction_id = 8 }
+	add_to_array = {
+		SOV_faction_array = faction_id
+	}
+}
+
+SOV_reduce_turmoil = {
+	if = {
+		limit = {
+			has_idea = SOV_political_turmoil_1
+		}
+		swap_ideas = {
+			remove_idea = SOV_political_turmoil_1
+			add_idea = SOV_political_turmoil_2
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = SOV_political_turmoil_2
+		}
+		swap_ideas = {
+			remove_idea = SOV_political_turmoil_2
+			add_idea = SOV_political_turmoil_3
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = SOV_political_turmoil_3
+		}
+		swap_ideas = {
+			remove_idea = SOV_political_turmoil_3
+			add_idea = SOV_political_turmoil_4
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = SOV_political_turmoil_4
+		}
+		swap_ideas = {
+			remove_idea = SOV_political_turmoil_4
+			add_idea = SOV_political_turmoil_5
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = SOV_political_turmoil_5
+		}
+		remove_ideas = SOV_political_turmoil_5
+	}
+}
+
+SOV_activate_operation_meteor = {
+	if = {
+		limit = {
+			has_country_flag = SOV_strategic_objective_kiev_flag
+			#has_completed_focus = SOV_tukhachevsky_doctrine
+		}
+		add_ideas = SOV_operation_meteor_tukhachevsky_kiev
+		activate_mission = SOV_take_kiev
+	}
+	else_if = {
+		limit = {
+			has_country_flag = SOV_strategic_objective_kiev_flag
+			#has_completed_focus = SOV_tukhachevsky_doctrine
+		}
+		add_ideas = SOV_operation_meteor_tukhachevsky_minsk
+		activate_mission = SOV_take_minsk
+	}
+	else_if = {
+		limit = {
+			has_country_flag = SOV_strategic_objective_riga_flag
+			#has_completed_focus = SOV_tukhachevsky_doctrine
+		}
+		add_ideas = SOV_operation_meteor_tukhachevsky_minsk
+		activate_mission = SOV_take_riga
+	}
+}
+
+SOV_weaken_operation_meteor = {
+	
+	if = {
+		limit = {
+			has_idea = SOV_operation_meteor_tukhachevsky_kiev
+		}
+		remove_ideas = SOV_operation_meteor_tukhachevsky_kiev
+	}
+	else_if = {
+		limit = {
+			has_idea = SOV_operation_meteor_tukhachevsky_minsk
+		}
+		remove_ideas = SOV_operation_meteor_tukhachevsky_minsk
+	}
+	else_if = {
+		limit = {
+			has_idea = SOV_operation_meteor_tukhachevsky_riga
+		}
+		remove_ideas = SOV_operation_meteor_tukhachevsky_riga
+	}
+	else_if = {
+		limit = {
+			has_idea = SOV_operation_meteor_svechin_kiev
+		}
+		remove_ideas = SOV_operation_meteor_svechin_kiev
+	}
+	else_if = {
+		limit = {
+			has_idea = SOV_operation_meteor_svechin_minsk
+		}
+		remove_ideas = SOV_operation_meteor_svechin_minsk
+	}
+	else_if = {
+		limit = {
+			has_idea = SOV_operation_meteor_svechin_riga
+		}
+		remove_ideas = SOV_operation_meteor_svechin_riga
+	}
+}
+
+SOV_start_eser_revolt = {
+	
+	SRU = {
+		add_state_core = 217
+		add_state_core = 218
+		add_state_core = 236
+		add_state_core = 237
+		add_state_core = 238
+		add_state_core = 245
+		add_state_core = 265
+		
+		SOV = {
+			every_owned_state = {
+				limit = { is_core_of = SRU }
+				
+				SRU = { transfer_state = PREV }
+				teleport_armies = {
+					limit = { tag = SOV }
+					to_state_array = owned_controlled_states
+				}
+			}
+		}
+	}
+}
+
+SOV_upgrade_attritional_warfare_idea = {
+	if = {
+		limit = {
+			has_idea = SOV_attritional_warfare_2
+		}
+		swap_ideas = {
+			remove_idea = SOV_attritional_warfare_2
+			add_idea = SOV_attritional_warfare_3
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = SOV_attritional_warfare_3
+		}
+		swap_ideas = {
+			remove_idea = SOV_attritional_warfare_3
+			add_idea = SOV_attritional_warfare_4
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = SOV_attritional_warfare_4
+		}
+		swap_ideas = {
+			remove_idea = SOV_attritional_warfare_4
+			add_idea = SOV_attritional_warfare_5
+		}
+	}
+	else = {
+		swap_ideas = {
+			remove_idea = SOV_attritional_warfare_1
+			add_idea = SOV_attritional_warfare_2
+		}
+	}
+}
+
+SOV_improve_turmoil_idea = {
+	if = {
+		limit = {
+			has_idea = SOV_political_turmoil_1
+		}
+		swap_ideas = {
+			remove_idea = SOV_political_turmoil_1
+			add_idea = SOV_political_turmoil_2
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = SOV_political_turmoil_2
+		}
+		swap_ideas = {
+			remove_idea = SOV_political_turmoil_2
+			add_idea = SOV_political_turmoil_3
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = SOV_political_turmoil_3
+		}
+		swap_ideas = {
+			remove_idea = SOV_political_turmoil_3
+			add_idea = SOV_political_turmoil_4
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = SOV_political_turmoil_4
+		}
+		swap_ideas = {
+			remove_idea = SOV_political_turmoil_4
+			add_idea = SOV_political_turmoil_5
+		}
+	}
+	else = {
+		remove_ideas = SOV_political_turmoil_5
+	}
+}
+
+SOV_find_chairman_options = {
+
+	add_to_temp_array = {
+		array = chairman_options
+		value = SOV_industrialist_influence
+	}
+	add_to_temp_array = {
+		array = chairman_options
+		value = SOV_rightist_influence
+	}
+	add_to_temp_array = {
+		array = chairman_options
+		value = SOV_decist_influence
+	}
+	add_to_temp_array = {
+		array = chairman_options
+		value = SOV_syndicalist_influence
+	}
+	add_to_temp_array = {
+		array = chairman_options
+		value = SOV_democrat_influence
+	}
+	
+	# find the faction with the highest influence
+	find_highest_in_array = {
+		array = chairman_options 
+		index = chairman_options_index # (default 'i') index of highest value in array will be stored in this temp variable
+	}
+	if = {
+		limit = {
+			check_variable = { chairman_options_index = 0 }
+		}
+		set_country_flag = SOV_industrialist_chairman_option
+		remove_from_temp_array = {
+			array = chairman_options
+			index = 0
+		}
+		add_to_temp_array = {
+			array = chairman_options
+			index = 0
+			value = 1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { chairman_options_index = 1 }
+		}
+		set_country_flag = SOV_rightist_chairman_option
+		remove_from_temp_array = {
+			array = chairman_options
+			index = 1
+		}
+		add_to_temp_array = {
+			array = chairman_options
+			index = 1
+			value = 1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { chairman_options_index = 2 }
+		}
+		set_country_flag = SOV_decist_chairman_option
+		remove_from_temp_array = {
+			array = chairman_options
+			index = 2
+		}
+		add_to_temp_array = {
+			array = chairman_options
+			index = 2
+			value = 1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { chairman_options_index = 3 }
+		}
+		set_country_flag = SOV_syndicalist_chairman_option
+		remove_from_temp_array = {
+			array = chairman_options
+			index = 3
+		}
+		add_to_temp_array = {
+			array = chairman_options
+			index = 3
+			value = 1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { chairman_options_index = 4 }
+		}
+		set_country_flag = SOV_democrat_chairman_option
+		remove_from_temp_array = {
+			array = chairman_options
+			index = 4
+		}
+		add_to_temp_array = {
+			array = chairman_options
+			index = 4
+			value = 1
+		}
+	}
+	
+	# run the effect again, finding the second strongest faction
+	find_highest_in_array = {
+		array = chairman_options
+		index = chairman_options_index_2 # (default 'i') index of highest value in array will be stored in this temp variable
+	}
+	#log = "chairman_options_index_2 = [?chairman_options_index_2]"
+	if = {
+		limit = {
+			check_variable = { chairman_options_index_2 = 0 }
+		}
+		set_country_flag = SOV_industrialist_chairman_option
+	}
+	else_if = {
+		limit = {
+			check_variable = { chairman_options_index_2 = 1 }
+		}
+		set_country_flag = SOV_rightist_chairman_option
+	}
+	else_if = {
+		limit = {
+			check_variable = { chairman_options_index_2 = 2 }
+		}
+		set_country_flag = SOV_decist_chairman_option
+	}
+	else_if = {
+		limit = {
+			check_variable = { chairman_options_index_2 = 3 }
+		}
+		set_country_flag = SOV_syndicalist_chairman_option
+	}
+	else_if = {
+		limit = {
+			check_variable = { chairman_options_index_2 = 4 }
+		}
+		set_country_flag = SOV_democrat_chairman_option
+	}
+}
+
+### Industrial Evacuation ###
+SOV_init_evacuation_vars = {
+	set_variable = { SOV_industrial_relocation_max_factories = 4 }
+	set_variable = { SOV_industrial_relocation_trains_decision = 1 }
+	set_variable = { SOV_industrial_relocation_trains_decision_negative = -1 }
+}
+
+SOV_damage_relocated_military_factories_effect = {
+	if = {
+		limit = {
+			FROM = {
+				NOT = { is_fully_controlled_by = ROOT }
+			}
+		}
+		damage_building = { type = arms_factory damage = 0.9 }
+	}
+	else = {
+		damage_building = { type = arms_factory damage = 0.5 }
+	}
+}
+
+SOV_damage_relocated_civilian_factories_effect = {
+	if = {
+		limit = {
+			FROM = {
+				NOT = { is_fully_controlled_by = ROOT }
+			}
+		}
+		damage_building = { type = industrial_complex damage = 0.9 }
+	}
+	else = {
+		damage_building = { type = industrial_complex damage = 0.5 }
+	}
+}
+
+#RELOCATE INDUSTRY - ROOT = TAG // FROM = TARGETED STATE (to remove industry) // THIS = TARGETED STATE (to remove industry) [Effect assumed to be called inside FROM scope]
+SOV_relocate_industry_in_appropriate_state_effect = {
+	if = {
+		limit = {
+			OR = {
+				has_state_flag = SOV_civs_removed_flag
+				has_state_flag = SOV_mils_removed_flag
+			}
+		}
+		ROOT = {
+			if = { #Prio the Urals
+				limit = {
+					any_controlled_state = {
+						SOV_is_industrial_relocation_destiny_state = yes
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+				}
+				random_controlled_state = {
+					limit = {
+						SOV_is_industrial_relocation_destiny_state = yes
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					set_state_flag = SOV_evacuated_industry_flag
+					#FIRST FACTORY - Prio Mil
+					if = {
+						limit = {
+							FROM = { has_state_flag = SOV_mils_removed_flag }
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+						}
+						FROM = { modify_state_flag = { flag = SOV_mils_removed_flag value = -1 } }
+						SOV_damage_relocated_military_factories_effect = yes
+					}
+					else_if = {
+						limit = {
+							FROM = { has_state_flag = SOV_civs_removed_flag }
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}
+						FROM = { modify_state_flag = { flag = SOV_civs_removed_flag value = -1 } }
+						SOV_damage_relocated_civilian_factories_effect = yes
+					}
+					#SECOND FACTORY - Prio Civ
+					if = {
+						limit = {
+							FROM = { has_state_flag = SOV_civs_removed_flag }
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}
+						FROM = { modify_state_flag = { flag = SOV_civs_removed_flag value = -1 } }
+						SOV_damage_relocated_civilian_factories_effect = yes
+					}
+					else_if = {
+						limit = {
+							FROM = { has_state_flag = SOV_mils_removed_flag }
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+						}
+						FROM = { modify_state_flag = { flag = SOV_mils_removed_flag value = -1 } }
+						SOV_damage_relocated_military_factories_effect = yes
+					}
+				}
+			}
+			else_if = { #A bunch of historical fallbacks
+				limit = {
+					any_controlled_state = {
+						SOV_is_industrial_relocation_destiny_fallback_state = yes
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+				}
+				set_state_flag = SOV_evacuated_industry_flag
+				random_controlled_state = {
+					limit = {
+						SOV_is_industrial_relocation_destiny_fallback_state = yes
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					#FIRST FACTORY
+					if = {
+						limit = {
+							FROM = { has_state_flag = SOV_mils_removed_flag }
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+						}
+						FROM = { modify_state_flag = { flag = SOV_mils_removed_flag value = -1 } }
+						SOV_damage_relocated_military_factories_effect = yes
+					}
+					else_if = {
+						limit = {
+							FROM = { has_state_flag = SOV_civs_removed_flag }
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}
+						FROM = { modify_state_flag = { flag = SOV_civs_removed_flag value = -1 } }
+						SOV_damage_relocated_civilian_factories_effect = yes
+					}
+					#SECOND FACTORY
+					if = {
+						limit = {
+							FROM = { has_state_flag = SOV_mils_removed_flag }
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+						}
+						FROM = { modify_state_flag = { flag = SOV_mils_removed_flag value = -1 } }
+						SOV_damage_relocated_military_factories_effect = yes
+					}
+					else_if = {
+						limit = {
+							FROM = { has_state_flag = SOV_civs_removed_flag }
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}
+						FROM = { modify_state_flag = { flag = SOV_civs_removed_flag value = -1 } }
+						SOV_damage_relocated_civilian_factories_effect = yes
+					}
+				}
+			}
+			else_if = { #what the hell man? Your country is in flames you know?
+				limit = {
+					any_controlled_state = {
+						SOV_is_industrial_relocation_destiny_state = no
+						SOV_is_industrial_relocation_destiny_fallback_state = no
+						is_on_continent = asia
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+				}
+				set_state_flag = SOV_evacuated_industry_flag
+				random_controlled_state = {
+					limit = {
+						SOV_is_industrial_relocation_destiny_state = no
+						SOV_is_industrial_relocation_destiny_fallback_state = no
+						is_on_continent = asia
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					#FIRST FACTORY
+					if = {
+						limit = {
+							FROM = { has_state_flag = SOV_mils_removed_flag }
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+						}
+						FROM = { modify_state_flag = { flag = SOV_mils_removed_flag value = -1 } }
+						SOV_damage_relocated_military_factories_effect = yes
+					}
+					else_if = {
+						limit = {
+							FROM = { has_state_flag = SOV_civs_removed_flag }
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}
+						FROM = { modify_state_flag = { flag = SOV_civs_removed_flag value = -1 } }
+						SOV_damage_relocated_civilian_factories_effect = yes
+					}
+					#SECOND FACTORY
+					if = {
+						limit = {
+							FROM = { has_state_flag = SOV_mils_removed_flag }
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+						}
+						FROM = { modify_state_flag = { flag = SOV_mils_removed_flag value = -1 } }
+						SOV_damage_relocated_military_factories_effect = yes
+					}
+					else_if = {
+						limit = {
+							FROM = { has_state_flag = SOV_civs_removed_flag }
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}
+						FROM = { modify_state_flag = { flag = SOV_civs_removed_flag value = -1 } }
+						SOV_damage_relocated_civilian_factories_effect = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+SOV_calc_faction_effects = {
+	
+	### Centralists ###
+	if = {
+		limit = {
+			check_variable = { SOV_industrialist_opinion < 15 }
+		}
+		set_variable = { SOV_centralist_stability_factor = -0.1 }
+	}
+	else = {
+		set_variable = { SOV_centralist_stability_factor = 0.1 }
+	}
+	
+	set_temp_variable = { SOV_centralist_effect_factor = SOV_industrialist_influence }
+	divide_temp_variable = { SOV_centralist_effect_factor = 30 }
+	multiply_variable = { SOV_centralist_stability_factor = SOV_centralist_effect_factor }
+	
+	### Rightists ###
+	if = {
+		limit = {
+			check_variable = { SOV_rightist_opinion < 15 }
+		}
+		set_variable = { SOV_rightist_political_power_factor = -0.1 }
+	}
+	else = {
+		set_variable = { SOV_rightist_political_power_factor = 0.1 }
+	}
+	
+	set_temp_variable = { SOV_rightist_effect_factor = SOV_rightist_influence }
+	divide_temp_variable = { SOV_rightist_effect_factor = 30 }
+	multiply_variable = { SOV_rightist_political_power_factor = SOV_rightist_effect_factor }
+	
+	### Syndicalist ###
+	if = {
+		limit = {
+			check_variable = { SOV_syndicalist_opinion < 15 }
+		}
+		set_variable = { SOV_syndicalist_industrial_capacity_factory = -0.1 }
+	}
+	else = {
+		set_variable = { SOV_syndicalist_industrial_capacity_factory = 0.1 }
+	}
+	
+	set_temp_variable = { SOV_syndicalist_effect_factor = SOV_syndicalist_influence }
+	divide_temp_variable = { SOV_syndicalist_effect_factor = 30 }
+	multiply_variable = { SOV_syndicalist_industrial_capacity_factory = SOV_syndicalist_effect_factor }
+	
+	### Democrat ###
+	if = {
+		limit = {
+			check_variable = { SOV_democrat_opinion < 15 }
+		}
+		set_variable = { SOV_democrat_consumer_goods_factor = 0.1 }
+	}
+	else = {
+		set_variable = { SOV_democrat_consumer_goods_factor = -0.1 }
+	}
+	
+	set_temp_variable = { SOV_democrat_effect_factor = SOV_democrat_influence }
+	divide_temp_variable = { SOV_democrat_effect_factor = 30 }
+	multiply_variable = { SOV_democrat_consumer_goods_factor = SOV_democrat_effect_factor }
+}
+
+SOV_setup_kirov_vars = {
+	custom_effect_tooltip = SOV_opinions_reset_tt
+	set_variable = { SOV_industrialist_opinion = 30 }
+	set_variable = { SOV_rightist_opinion = 17 }
+	set_variable = { SOV_decist_opinion = 7 }
+	set_variable = { SOV_syndicalist_opinion = 9 }
+	set_variable = { SOV_democrat_opinion = 3 }
+}
+
+SOV_setup_sokolnikov_vars = {
+	custom_effect_tooltip = SOV_opinions_reset_tt
+	set_variable = { SOV_industrialist_opinion = 14 }
+	set_variable = { SOV_rightist_opinion = 27 }
+	set_variable = { SOV_decist_opinion = 11 }
+	set_variable = { SOV_syndicalist_opinion = 6 }
+	set_variable = { SOV_democrat_opinion = 13 }
+}
+
+SOV_setup_shliapnikov_vars = {
+	custom_effect_tooltip = SOV_opinions_reset_tt
+	set_variable = { SOV_industrialist_opinion = 5 }
+	set_variable = { SOV_rightist_opinion = 9 }
+	set_variable = { SOV_decist_opinion = 15 }
+	set_variable = { SOV_syndicalist_opinion = 27 }
+	set_variable = { SOV_democrat_opinion = 17 }
+}
+
+SOV_setup_kamenev_vars = {
+	custom_effect_tooltip = SOV_opinions_reset_tt
+	set_variable = { SOV_industrialist_opinion = 7 }
+	set_variable = { SOV_rightist_opinion = 14 }
+	set_variable = { SOV_decist_opinion = 8 }
+	set_variable = { SOV_syndicalist_opinion = 16 }
+	set_variable = { SOV_democrat_opinion = 27 }
+}
+
+SOV_change_rightist_opinion = {
+	if = {
+		limit = {
+			check_variable = { SOV_opinion_change_temp > 0 }
+		}
+		add_to_variable = {
+			tooltip = SOV_rightist_opinion_gain
+			SOV_rightist_opinion = SOV_opinion_change_temp
+		}
+	}
+	else = {
+		add_to_variable = {
+			tooltip = SOV_rightist_opinion_lose
+			SOV_rightist_opinion = SOV_opinion_change_temp
+		}
+	}
+	clamp_variable = {
+		var = SOV_rightist_opinion
+		min = 0
+		max = 30
+	}
+}
+
+SOV_change_rightist_influence = {
+	if = {
+		limit = {
+			check_variable = { SOV_influence_change_temp > 0 }
+		}
+		add_to_variable = {
+			tooltip = SOV_rightist_influence_gain
+			SOV_rightist_influence = SOV_influence_change_temp
+		}
+	}
+	else = {
+		add_to_variable = {
+			tooltip = SOV_rightist_influence_lose
+			SOV_rightist_influence = SOV_influence_change_temp
+		}
+	}
+	clamp_variable = {
+		var = SOV_rightist_influence
+		min = 0
+		max = 30
+	}
+}

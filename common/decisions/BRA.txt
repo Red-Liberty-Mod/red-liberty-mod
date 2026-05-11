@@ -1,0 +1,59 @@
+BRA_balance_of_power_category = {
+	
+	BRA_recruit_additional_greenshirts = {
+		
+		available = {
+			has_completed_focus = BRA_integrate_the_green_shirts
+		}
+		
+		cost = 15
+		days_remove = 7
+		fire_only_once = yes
+		
+		remove_effect = {
+			custom_effect_tooltip = BRA_integrate_the_green_shirts_tt
+			hidden_effect = {
+				capital_scope = {
+					create_unit = {
+						division = "division_template = \"Camisas Verdes\" start_experience_factor = 0.3"
+						owner = ROOT
+						count = 2
+					}
+				}
+			}
+			add_power_balance_value = {
+				id = BRA_civil_war_balance
+				value = 0.05
+				tooltip_side = BRA_integralist_side
+			}
+		}
+	}
+	
+	BRA_strengthen_greenshirts = {
+		
+		available = {
+			has_completed_focus = BRA_integrate_the_green_shirts
+		}
+		
+		cost = 30
+		days_remove = 14
+		fire_only_once = yes
+		
+		remove_effect = {
+			custom_effect_tooltip = BRA_strengthen_greenshirts_tt
+			hidden_effect = {
+				add_units_to_division_template = {
+					template_name = "Camisas Verdes"
+					support = {
+						artillery = 0
+					}
+				}
+			}
+			add_power_balance_value = {
+				id = BRA_civil_war_balance
+				value = 0.05
+				tooltip_side = BRA_integralist_side
+			}
+		}
+	}
+}

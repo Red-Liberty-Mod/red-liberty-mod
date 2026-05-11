@@ -408,3 +408,162 @@ TAG_support_FER = {
 		value = 75
 	}
 }
+
+SER_support_allies = {
+	allowed = {
+		original_tag = SER
+	}
+	enable = {
+		OR = {
+			is_in_faction_with = ROM
+			has_military_access_to = ROM
+		}
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = force_defend_ally_borders
+		id = ROM
+		value = 50
+	}
+}
+
+GRE_support_allies = {
+	allowed = {
+		original_tag = GRE
+	}
+	enable = {
+		OR = {
+			is_in_faction_with = ROM
+			has_military_access_to = ROM
+		}
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = force_defend_ally_borders
+		id = ROM
+		value = 50
+	}
+}
+
+#TAG_support_ICA = {
+#	allowed = {
+#		OR = {
+#			original_tag = SOV
+#			original_tag = UOB
+#			original_tag = USA
+#		}
+#	}
+#	enable = {
+#		ICA = {
+#			has_war_with = IRE
+#		}
+#		has_war = no
+#	}
+#	abort_when_not_enabled = yes
+#
+#	ai_strategy = {
+#		type = send_lend_lease_desire
+#		id = ICA
+#		value = 150
+#	}
+#}
+
+TAG_support_SOV = {
+	allowed = {
+		OR = {
+			original_tag = UOB
+			original_tag = CHL
+			original_tag = MON
+			original_tag = PER
+		}
+	}
+	enable = {
+		SOV = {
+			has_war_with = RUS
+		}
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = SOV
+		value = 150
+	}
+	#ai_strategy = {
+	#	type = send_volunteers_desire
+	#	id = SOV
+	#	value = 150
+	#}
+}
+
+TAG_support_VIN = {
+	allowed = {
+		OR = {
+			original_tag = JAP
+		}
+	}
+	enable = {
+		VIN = {
+			has_war_with = FIC
+		}
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = VIN
+		value = 50
+	}
+}
+
+TAG_support_CAM_LAO = {
+	allowed = {
+		OR = {
+			original_tag = SIA
+		}
+	}
+	enable = {
+		OR = {
+			CAM = { has_war_with = FIC }
+			LAO = { has_war_with = FIC }
+		}
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = CAM
+		value = 150
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = LAO
+		value = 150
+	}
+}
+
+TAG_support_FIC = {
+	allowed = {
+		OR = {
+			original_tag = FRA
+		}
+	}
+	enable = {
+		FIC = {
+			has_war_with = VIN
+		}
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = FIC
+		value = 150
+	}
+}

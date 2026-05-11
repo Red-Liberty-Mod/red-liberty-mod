@@ -4,7 +4,6 @@ oob = "SIK"
 
 set_technology = {
 	infantry_weapons = 1
-	
 }
 
 set_politics = {
@@ -28,25 +27,17 @@ set_popularities = {
 	fascism = 0
 }
 
-if = {
-	limit = {
-		OR = {
-			has_dlc = "Together for Victory"
-			has_dlc = "Man the Guns"
-		}
-	}
-	set_autonomy = {
-		target = KUM
-		autonomous_state = autonomy_RL_protectorate
-	}
-	else = {
-		puppet = KUM
-	}
+add_ideas = {
+	SIK_uneasy_peace
+	
+	warlord_conscription
 }
 
 ### LEADERS ###
+recruit_character = SIK_sheng_shicai
 recruit_character = SIK_ma_shaowu
 recruit_character = SIK_yang_zengxin
 
 ### GENERALS ###
 recruit_character = SIK_jin_shuren
+recruit_character = SIK_zhang_peiyuan

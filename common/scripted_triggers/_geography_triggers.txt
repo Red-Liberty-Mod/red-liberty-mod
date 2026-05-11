@@ -1,3 +1,11 @@
+is_in_americas = {
+	OR = {
+		is_in_north_america = yes
+		is_in_central_america = yes
+		is_in_south_america = yes
+	}
+}
+
 is_north_american_tag = {
 	OR = {
 		tag = USA
@@ -96,6 +104,11 @@ is_chinese_tag = {
 		tag = SIK
 		tag = SHX
 		tag = GUD
+		tag = KMT
+		tag = ZHE
+		tag = ZHI
+		tag = ANH
+		tag = SZC
 	}
 }
 
@@ -108,7 +121,17 @@ is_in_china = {
 	}
 }
 
+is_central_asian_tag = {
+	OR = {
+		original_tag = KAZ
+		original_tag = TMS
+		original_tag = UZB
+		original_tag = KHV
+	}
+}
+
 is_urban_state = {
+	impassable = no
 	OR = {
 		has_state_category = large_town
 		has_state_category = city
@@ -119,10 +142,20 @@ is_urban_state = {
 }
 
 is_rural_state = {
+	impassable = no
 	OR = {
 		has_state_category = pastoral
 		has_state_category = rural
 		has_state_category = developing_rural
 		has_state_category = town
+	}
+}
+
+is_valid_state_for_development = {
+	impassable = no
+	NOT = {
+		has_state_category = wasteland
+		has_state_category = tiny_island
+		has_state_category = small_island
 	}
 }

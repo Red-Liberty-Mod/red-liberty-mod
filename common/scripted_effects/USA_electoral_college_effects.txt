@@ -232,11 +232,11 @@ USA_start_elections_system = {
 		set_variable = { electoral_votes = 5 } # was 4
 	}
 	
-	395 = { # Illinois, core socialist state
+	395 = { # Illinois, chicago has messy ethnic and mob politics, rest of the state pretty conservative
 		set_state_flag = US_election_state
-		set_variable = { socialist_popularity = 0.7 }
-		set_variable = { democrat_popularity = 0.25 }
-		set_variable = { commonwealth_popularity = 0.05 }
+		set_variable = { socialist_popularity = 0.51 }
+		set_variable = { democrat_popularity = 0.45 }
+		set_variable = { commonwealth_popularity = 0.04 }
 		
 		set_variable = { senator_1 = 1 }
 		set_variable = { senator_2 = 1 }
@@ -998,6 +998,66 @@ USA_calculate_senators = {
 	log = "[This.GetName] : senators_democrat - [?senators_democrat]"
 	log = "[This.GetName] : senators_fascist - [?senators_fascist]"
 	log = "[This.GetName] : senators_total - [?senators_total]"
+	
+	#USA_calc_democratic_split = yes
+}
+
+USA_calc_democratic_split = {
+	
+	clear_variable = senators_northern_democrat
+	clear_variable = senators_southern_democrat
+	
+	every_owned_state = {
+		limit = {
+			can_have_elections_in_state = yes
+			NOT = {
+				OR = {
+					is_deep_south_state = yes
+					is_upper_south_state = yes
+					is_southwest_state = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				check_variable = { senator_1 = 3 }
+			}
+			add_to_variable = { USA.senators_northern_democrat = 1 }
+		}
+		if = {
+			limit = {
+				check_variable = { senator_2 = 3 }
+			}
+			add_to_variable = { USA.senators_northern_democrat = 1 }
+		}
+		
+		log = "[This.GetName] : senators_northern_democrat - [?senators_northern_democrat]"
+	}
+	
+	every_owned_state = {
+		limit = {
+			can_have_elections_in_state = yes
+			OR = {
+				is_deep_south_state = yes
+				is_upper_south_state = yes
+				is_southwest_state = yes
+			}
+		}
+		if = {
+			limit = {
+				check_variable = { senator_1 = 3 }
+			}
+			add_to_variable = { USA.senators_southern_democrat = 1 }
+		}
+		if = {
+			limit = {
+				check_variable = { senator_2 = 3 }
+			}
+			add_to_variable = { USA.senators_southern_democrat = 1 }
+		}
+		
+		log = "[This.GetName] : senators_southern_democrat - [?senators_southern_democrat]"
+	}
 }
 
 USA_calculate_reps = {
@@ -1177,6 +1237,11 @@ USA_prepare_presidential_election = {
 }
 
 USA_convert_party_pop_percentage = {
+	USA_convert_party_pop_percentage_presidential = yes
+	USA_convert_party_pop_percentage_senate = yes
+}
+
+USA_convert_party_pop_percentage_presidential = {
 	
 	### log the previous value ###
 	set_variable = { communist_prev_election_pop = communist_election_pop }
@@ -1266,6 +1331,65 @@ USA_convert_party_pop_percentage = {
 	USA_state_generate_list = yes
 }
 
+USA_convert_party_pop_percentage_senate = {
+
+	### log the previous value ###
+	set_variable = { communist_prev_senate_election_pop = communist_senate_election_pop }
+	set_variable = { socialist_prev_senate_election_pop = socialist_senate_election_pop }
+	set_variable = { republican_prev_senate_election_pop = republican_senate_election_pop }
+	set_variable = { democrat_prev_senate_election_pop = democrat_senate_election_pop }
+	set_variable = { commonwealth_prev_senate_election_pop = commonwealth_senate_election_pop }
+	
+	#make party pop into percentages
+	#convert temp party pops into percentages
+	set_temp_variable = { communist_temp_pop = communist_popularity }
+	set_temp_variable = { socialist_temp_pop = socialist_popularity }
+	set_temp_variable = { republican_temp_pop = republican_popularity }
+	set_temp_variable = { democrat_temp_pop = democrat_popularity }
+	set_temp_variable = { afp_temp_pop = commonwealth_popularity }
+	
+	### various bonuses/maluses
+	USA_party_unity_bonus = yes
+	
+	### final calculations
+	set_temp_variable = { total_party_pop = communist_temp_pop }
+	add_to_temp_variable = { total_party_pop = socialist_temp_pop }
+	add_to_temp_variable = { total_party_pop = republican_temp_pop }
+	add_to_temp_variable = { total_party_pop = democrat_temp_pop }
+	add_to_temp_variable = { total_party_pop = afp_temp_pop }
+	
+	divide_temp_variable = { communist_temp_pop = total_party_pop }
+	divide_temp_variable = { socialist_temp_pop = total_party_pop }
+	divide_temp_variable = { republican_temp_pop = total_party_pop }
+	divide_temp_variable = { democrat_temp_pop = total_party_pop }
+	divide_temp_variable = { afp_temp_pop = total_party_pop }
+
+	### convert to non-temp variables
+	set_variable = { communist_senate_election_pop = communist_temp_pop }
+	set_variable = { socialist_senate_election_pop = socialist_temp_pop }
+	set_variable = { republican_senate_election_pop = republican_temp_pop }
+	set_variable = { democrat_senate_election_pop = democrat_temp_pop }
+	set_variable = { commonwealth_senate_election_pop = afp_temp_pop }
+	
+	#log = "[This.GetName] : communist_senate_election_pop - [?communist_senate_election_pop]"
+	#log = "[This.GetName] : socialist_senate_election_pop - [?socialist_senate_election_pop]"
+	#log = "[This.GetName] : republican_senate_election_pop - [?republican_senate_election_pop]"
+	#log = "[This.GetName] : democrat_senate_election_pop - [?democrat_senate_election_pop]"
+	#log = "[This.GetName] : commonwealth_senate_election_pop - [?commonwealth_senate_election_pop]"
+	
+	set_variable = { total_senate_election_pop = communist_senate_election_pop }
+	add_to_variable = { total_senate_election_pop = socialist_senate_election_pop }
+	add_to_variable = { total_senate_election_pop = republican_senate_election_pop }
+	add_to_variable = { total_senate_election_pop = democrat_senate_election_pop }
+	add_to_variable = { total_senate_election_pop = commonwealth_senate_election_pop }
+	
+	add_to_variable = { total_senate_election_pop = -1 }
+	#log = "[This.GetName] : total_senate_election_pop - [?total_senate_election_pop]"
+	
+	### discrepancy check
+	USA_discrepancy_check = yes
+}
+
 USA_discrepancy_check = {
 	if = {
 		limit = {
@@ -1273,7 +1397,7 @@ USA_discrepancy_check = {
 				check_variable = { total_election_pop = 0 }
 			}
 		}
-		log = "[This.GetName] : total_election_pop discrepancy found - [?total_election_pop]"
+		#log = "[This.GetName] : total_election_pop discrepancy found - [?total_election_pop]"
 		
 		if = {
 			limit = {
@@ -1290,86 +1414,171 @@ USA_discrepancy_check = {
 			}
 		}
 	}
+	
+	if = {
+		limit = {
+			NOT = {
+				check_variable = { total_senate_election_pop = 0 }
+			}
+		}
+		#log = "[This.GetName] : total_senate_election_pop discrepancy found - [?total_senate_election_pop]"
+		
+		if = {
+			limit = {
+				check_variable = { total_senate_election_pop < 0 }
+			}
+			multiply_variable = { total_senate_election_pop = -1 }
+		}
+		random_list = {
+			50 = {
+				add_to_variable = { socialist_election_pop = total_senate_election_pop }
+			}
+			50 = {
+				add_to_variable = { democrat_election_pop = total_senate_election_pop }
+			}
+		}
+	}
 }
 
 USA_hold_presidential_election_in_state = {
 	
-	#check which party is largest
 	if = {
-		limit = {
-			check_variable = { socialist_election_pop > republican_election_pop }
-			check_variable = { socialist_election_pop > democrat_election_pop }
-			check_variable = { socialist_election_pop > commonwealth_election_pop }
-		}
-		add_to_variable = { ROOT.socialist_electoral_votes = electoral_votes }
-		add_to_variable = { ROOT.socialist_states_taken = 1 }
-		log = "[This.GetName] : Voted for socialists with [?electoral_votes] electoral votes"
-		set_state_flag = voted_socialist
-	}
-	else_if = {
-		limit = {
-			check_variable = { republican_election_pop > democrat_election_pop }
-			check_variable = { republican_election_pop > commonwealth_election_pop }
-			check_variable = { republican_election_pop > socialist_election_pop }
-		}
-		add_to_variable = { ROOT.republican_electoral_votes = electoral_votes }
-		add_to_variable = { ROOT.republican_states_taken = 1 }
-	    log = "[This.GetName] : Voted for republicans with [?electoral_votes] electoral votes"
-		set_state_flag = voted_republican
-		
-		if = {
-			limit = {
-				USA = {
-					has_country_flag = USA_democratic_republican_coalition
-				}
-			}
-			subtract_from_variable = { ROOT.republican_electoral_votes = electoral_votes }
-			add_to_variable = { ROOT.democrat_electoral_votes = electoral_votes }
-			
-			subtract_from_variable = { ROOT.republican_states_taken = 1 }
-			add_to_variable = { ROOT.democrat_states_taken = 1 }
-			
-			log = "[This.GetName] : Vote was changed to democrats with [?electoral_votes] electoral votes"
-			clr_state_flag = voted_republican
-			set_state_flag = voted_democrat
-		}
-	}
-	else_if = {
-		limit = {
-			check_variable = { democrat_election_pop > republican_election_pop }
-			check_variable = { democrat_election_pop > commonwealth_election_pop }
-			check_variable = { democrat_election_pop > socialist_election_pop }
-		}
-		add_to_variable = { ROOT.democrat_electoral_votes = electoral_votes }
-		add_to_variable = { ROOT.democrat_states_taken = 1 }
-		log = "[This.GetName] : Voted for democrats with [?electoral_votes] electoral votes"
-		set_state_flag = voted_democrat
-	}
-	else_if = {
-		limit = {
-			check_variable = { commonwealth_election_pop > republican_election_pop }
-			check_variable = { commonwealth_election_pop > democrat_election_pop }
-			check_variable = { commonwealth_election_pop > socialist_election_pop }
-		}
-		add_to_variable = { ROOT.afp_electoral_votes = electoral_votes }
-		add_to_variable = { ROOT.afp_states_taken = 1 }
-		log = "[This.GetName] : Voted for afp with [?electoral_votes] electoral votes"
-		set_state_flag = voted_afp
+		limit = { check_variable = { THIS.id = 358.id } }
+		USA_split_state_votes_by_pop = yes
+		add_to_variable = { ROOT.socialist_electoral_votes = soc_votes }
+		add_to_variable = { ROOT.republican_electoral_votes = rep_votes }
+		add_to_variable = { ROOT.democrat_electoral_votes = dem_votes }
 	}
 	else = {
-		random_list = {
-			50 = {
-				add_to_variable = { ROOT.socialist_electoral_votes = electoral_votes }
-				log = "[This.GetName] : Voted for socialists with [?electoral_votes] electoral votes"
-				set_state_flag = voted_socialist
+		#check which party is largest
+		if = {
+			limit = {
+				check_variable = { socialist_election_pop > republican_election_pop }
+				check_variable = { socialist_election_pop > democrat_election_pop }
+				check_variable = { socialist_election_pop > commonwealth_election_pop }
 			}
-			50 = {
+			add_to_variable = { ROOT.socialist_electoral_votes = electoral_votes }
+			add_to_variable = { ROOT.total_electoral_votes = electoral_votes }
+			add_to_variable = { ROOT.socialist_states_taken = 1 }
+			log = "[This.GetName] : Voted for socialists with [?electoral_votes] electoral votes"
+			set_state_flag = voted_socialist
+		}
+		else_if = {
+			limit = {
+				check_variable = { republican_election_pop > democrat_election_pop }
+				check_variable = { republican_election_pop > commonwealth_election_pop }
+				check_variable = { republican_election_pop > socialist_election_pop }
+			}
+			add_to_variable = { ROOT.republican_electoral_votes = electoral_votes }
+			add_to_variable = { ROOT.total_electoral_votes = electoral_votes }
+			add_to_variable = { ROOT.republican_states_taken = 1 }
+			log = "[This.GetName] : Voted for republicans with [?electoral_votes] electoral votes"
+			set_state_flag = voted_republican
+			
+			if = {
+				limit = {
+					USA = {
+						has_country_flag = USA_democratic_republican_coalition
+					}
+				}
+				subtract_from_variable = { ROOT.republican_electoral_votes = electoral_votes }
 				add_to_variable = { ROOT.democrat_electoral_votes = electoral_votes }
-				log = "[This.GetName] : Voted for democrats with [?electoral_votes] electoral votes"
+				
+				subtract_from_variable = { ROOT.republican_states_taken = 1 }
+				add_to_variable = { ROOT.democrat_states_taken = 1 }
+				
+				log = "[This.GetName] : Vote was changed to democrats with [?electoral_votes] electoral votes"
+				clr_state_flag = voted_republican
 				set_state_flag = voted_democrat
 			}
 		}
+		else_if = {
+			limit = {
+				check_variable = { democrat_election_pop > republican_election_pop }
+				check_variable = { democrat_election_pop > commonwealth_election_pop }
+				check_variable = { democrat_election_pop > socialist_election_pop }
+			}
+			add_to_variable = { ROOT.democrat_electoral_votes = electoral_votes }
+			add_to_variable = { ROOT.total_electoral_votes = electoral_votes }
+			add_to_variable = { ROOT.democrat_states_taken = 1 }
+			log = "[This.GetName] : Voted for democrats with [?electoral_votes] electoral votes"
+			set_state_flag = voted_democrat
+		}
+		else_if = {
+			limit = {
+				check_variable = { commonwealth_election_pop > republican_election_pop }
+				check_variable = { commonwealth_election_pop > democrat_election_pop }
+				check_variable = { commonwealth_election_pop > socialist_election_pop }
+			}
+			add_to_variable = { ROOT.afp_electoral_votes = electoral_votes }
+			add_to_variable = { ROOT.total_electoral_votes = electoral_votes }
+			add_to_variable = { ROOT.afp_states_taken = 1 }
+			log = "[This.GetName] : Voted for afp with [?electoral_votes] electoral votes"
+			set_state_flag = voted_afp
+		}
+		else = {
+			random_list = {
+				50 = {
+					add_to_variable = { ROOT.socialist_electoral_votes = electoral_votes }
+					log = "[This.GetName] : Voted for socialists with [?electoral_votes] electoral votes"
+					set_state_flag = voted_socialist
+				}
+				50 = {
+					add_to_variable = { ROOT.democrat_electoral_votes = electoral_votes }
+					log = "[This.GetName] : Voted for democrats with [?electoral_votes] electoral votes"
+					set_state_flag = voted_democrat
+				}
+			}
+		}
 	}
+	#log = "[USA.GetName] : total_electoral_votes = [?USA.total_electoral_votes]"
+}
+
+USA_split_state_votes_by_pop = {
+	
+	set_variable = { soc_votes = socialist_election_pop }
+	add_to_variable = { soc_votes = communist_election_pop }
+	set_variable = { rep_votes = republican_election_pop }
+	set_variable = { dem_votes = democrat_election_pop }
+	
+	multiply_variable = { soc_votes = electoral_votes }
+	multiply_variable = { rep_votes = electoral_votes }
+	multiply_variable = { dem_votes = electoral_votes }
+	round_variable = soc_votes
+	round_variable = rep_votes
+	round_variable = dem_votes
+	
+	#log = "soc_votes = [?soc_votes]"
+	#log = "rep_votes = [?rep_votes]"
+	#log = "dem_votes = [?dem_votes]"
+	
+	set_temp_variable = { total_votes_temp = soc_votes }
+	add_to_temp_variable = { total_votes_temp = rep_votes }
+	add_to_temp_variable = { total_votes_temp = dem_votes }
+	subtract_from_temp_variable = { total_votes_temp = electoral_votes }
+	
+	#log = "total_votes_temp = [?total_votes_temp]"
+	
+	if = {
+		limit = {
+			check_variable = { total_votes_temp > 0 }
+		}
+		subtract_from_variable = { soc_votes = total_votes_temp }
+		#log = "soc_votes = [?soc_votes]"
+		#log = "rep_votes = [?rep_votes]"
+		#log = "dem_votes = [?dem_votes]"
+	}
+	else_if = {
+		limit = {
+			check_variable = { total_votes_temp < 0 }
+		}
+		subtract_from_variable = { dem_votes = total_votes_temp }
+		#log = "soc_votes = [?soc_votes]"
+		#log = "rep_votes = [?rep_votes]"
+		#log = "dem_votes = [?dem_votes]"
+	}
+	
+	add_to_variable = { ROOT.total_electoral_votes = electoral_votes }
 }
 
 clear_election_results = {
@@ -1402,7 +1611,7 @@ clear_election_results = {
 	set_variable = { democrat_states_taken = 0 }
 	set_variable = { afp_states_taken = 0 }
 	
-	log = "[This.GetName] : election results cleared"
+	#log = "[This.GetName] : election results cleared"
 }
 
 USA_clear_presidential_election_values = {
@@ -1463,7 +1672,7 @@ USA_presidential_popularity_bonus = {
 		USA_president_popularity_temp = 30
 	}
 	multiply_temp_variable = {
-		USA_president_popularity_temp = 0.04
+		USA_president_popularity_temp = 0.08
 	}
 	
 	if = {
@@ -1471,7 +1680,7 @@ USA_presidential_popularity_bonus = {
 			check_variable = { USA.USA_president_popularity < 15 }
 		}
 		add_to_temp_variable = {
-			USA_president_popularity_temp = 0.96
+			USA_president_popularity_temp = 0.88
 		}
 	}
 	else_if = {

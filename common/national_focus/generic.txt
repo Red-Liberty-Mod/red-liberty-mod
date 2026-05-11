@@ -32,4 +32,1406 @@ focus_tree = {
 	
 	default = yes
 	reset_on_civilwar = no
+	
+	shared_focus = generic_army_effort
+	shared_focus = generic_aviation_effort
+	shared_focus = generic_naval_effort
+	shared_focus = generic_industrial_effort
+	
+	#shared_focus = shared_league_of_american_states
+	
+	continuous_focus_position = { x = 50 y = 1050 }
+	
 }
+
+### Army ###
+
+	shared_focus = {
+		id = generic_army_effort
+		icon = GFX_goal_generic_allies_build_infantry
+		cost = 10
+
+		x = 1
+		y = 0
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_army_effort"
+			army_experience = 25
+			add_doctrine_cost_reduction = {
+				name = generic_army_effort
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = generic_equipment_effort
+		icon = GFX_goal_generic_small_arms
+		cost = 10
+
+		relative_position_id = generic_army_effort
+		x = -1
+		y = 1
+
+		prerequisite = { focus = generic_army_effort }
+
+		available_if_capitulated = yes
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_equipment_effort"
+			add_breakthrough_progress = {
+				specialization = specialization_land
+				value = 0.1
+			}
+			add_tech_bonus = {
+				name = generic_equipment_effort
+				bonus = 1
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = generic_motorization_effort
+		icon = GFX_goal_generic_army_motorized
+		cost = 10
+
+		relative_position_id = generic_army_effort
+		x = 1
+		y = 1
+
+		prerequisite = { focus = generic_army_effort }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_motorization_effort"
+			add_tech_bonus = {
+				name = generic_motorization_effort
+				bonus = 1
+				uses = 1
+				category = motorized_equipment
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = generic_doctrine_effort
+		icon = GFX_goal_generic_army_doctrines
+		cost = 10
+
+		relative_position_id = generic_army_effort
+		x = 0
+		y = 2
+
+		prerequisite = { focus = generic_army_effort }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_doctrine_effort"
+			army_experience = 25
+			add_doctrine_cost_reduction = {
+				name = generic_doctrine_effort
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = generic_equipment_effort_2
+		icon = GFX_goal_generic_army_artillery
+		cost = 10
+
+		relative_position_id = generic_army_effort
+		x = -1
+		y = 3
+
+		prerequisite = { focus = generic_equipment_effort }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_equipment_effort_2"
+			add_breakthrough_progress = {
+				specialization = specialization_land
+				value = 0.1
+			}
+			add_tech_bonus = {
+				name = generic_equipment_effort_2
+				bonus = 1
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = generic_mechanization_effort
+		icon = GFX_goal_generic_build_tank
+		cost = 10
+
+		relative_position_id = generic_army_effort
+		x = 1
+		y = 3
+
+		prerequisite = { focus = generic_motorization_effort }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_mechanization_effort"
+			add_tech_bonus = {
+				name = generic_mechanization_effort
+				ahead_reduction = 2
+				uses = 1
+				category = motorized_equipment
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = generic_doctrine_effort_2
+		icon = GFX_goal_generic_army_doctrines
+		cost = 10
+
+		relative_position_id = generic_army_effort
+		x = 0
+		y = 4
+
+		prerequisite = { focus = generic_doctrine_effort }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_doctrine_effort_2"
+			army_experience = 25
+			add_doctrine_cost_reduction = {
+				name = generic_doctrine_effort_2
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = generic_equipment_effort_3
+		icon = GFX_goal_generic_army_artillery2
+		cost = 10
+
+		relative_position_id = generic_army_effort
+		x = -1
+		y = 5
+
+		prerequisite = { focus = generic_equipment_effort_2 }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_equipment_effort_3"
+			add_breakthrough_progress = {
+				specialization = specialization_land
+				value = 0.1
+			}
+			add_tech_bonus = {
+				name = generic_equipment_effort_3
+				bonus = 1
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = generic_armor_effort
+		icon = GFX_goal_generic_army_tanks
+		cost = 10
+
+		relative_position_id = generic_army_effort
+		x = 1
+		y = 5
+
+		prerequisite = { focus = generic_mechanization_effort }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_armor_effort"
+			add_tech_bonus = {
+				name = generic_armor_effort
+				bonus = 1
+				uses = 2
+				category = armor
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = generic_special_forces
+		icon = GFX_goal_generic_special_forces
+		cost = 10
+
+		relative_position_id = generic_army_effort
+		x = 0
+		y = 6
+
+		prerequisite = { focus = generic_equipment_effort_3 }
+		prerequisite = { focus = generic_doctrine_effort_2 }
+		prerequisite = { focus = generic_armor_effort }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_special_forces"
+			add_tech_bonus = {
+				name = generic_special_forces
+				bonus = 1
+				uses = 1
+				category = cat_special_forces_generic
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+### Aerial ###
+
+	shared_focus = {
+		id = generic_aviation_effort
+		icon = GFX_goal_generic_build_airforce
+		cost = 10
+
+		x = 4
+		y = 0
+		
+		relative_position_id = generic_army_effort
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_aviation_effort"
+			air_experience = 25
+			if = {
+				limit = {
+					capital_scope = { free_building_slots = { building = air_base size > 1 } }
+				}
+				capital_scope = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			else = {
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = ROOT
+						free_building_slots = { building = air_base size > 1 }
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			add_doctrine_cost_reduction = {
+				name = generic_aviation_effort
+				cost_reduction = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+		search_filters = { FOCUS_FILTER_AIR_XP FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+	}
+
+	shared_focus = {
+		id = generic_fighter_focus
+		icon = GFX_goal_generic_air_fighter
+		cost = 10
+
+		relative_position_id = generic_aviation_effort
+		x = -1
+		y = 1
+
+		prerequisite = { focus = generic_aviation_effort }
+		mutually_exclusive = { focus = generic_bomber_focus }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_fighter_focus"
+			add_tech_bonus = {
+				name = generic_fighter_focus
+				bonus = 1
+				uses = 2
+				category = light_fighter
+				category = cat_heavy_fighter
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = generic_bomber_focus
+		icon = GFX_goal_generic_air_bomber
+		cost = 10
+
+		relative_position_id = generic_aviation_effort
+		x = 1
+		y = 1
+
+		prerequisite = { focus = generic_aviation_effort }
+		mutually_exclusive = { focus = generic_fighter_focus }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_bomber_focus"
+			add_tech_bonus = {
+				name = generic_bomber_focus
+				bonus = 1
+				uses = 2
+				category = tactical_bomber
+				category = cat_strategic_bomber
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = generic_aviation_effort_2
+		icon = GFX_goal_generic_air_doctrine
+		cost = 10
+
+		relative_position_id = generic_aviation_effort
+		x = 0
+		y = 2
+
+		prerequisite = { focus = generic_bomber_focus focus = generic_fighter_focus }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_aviation_effort_2"
+			air_experience = 25
+			if = {
+				limit = {
+					capital_scope = { free_building_slots = { building = air_base size > 1 } }
+				}
+				capital_scope = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			else = {
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = ROOT
+						free_building_slots = { building = air_base size > 1 }
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			add_doctrine_cost_reduction = {
+				name = generic_aviation_effort_2
+				cost_reduction = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+		search_filters = { FOCUS_FILTER_AIR_XP FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+	}
+
+	shared_focus = {
+		id = generic_CAS_effort
+		icon = GFX_goal_generic_CAS
+		cost = 10
+
+		relative_position_id = generic_aviation_effort
+		x = -1
+		y = 3
+
+		prerequisite = { focus = generic_aviation_effort_2 }
+		prerequisite = { focus = generic_motorization_effort }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_CAS_effort"
+			add_tech_bonus = {
+				name = generic_CAS_effort
+				bonus = 1
+				uses = 1
+				category = cas_bomber
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = generic_rocket_effort
+		icon = GFX_focus_rocketry
+		cost = 10
+
+		relative_position_id = generic_aviation_effort
+		x = 0
+		y = 4
+
+		prerequisite = { focus = generic_aviation_effort_2 }
+		prerequisite = { focus = generic_infrastructure_effort }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_rocket_effort"
+			add_breakthrough_progress = {
+				specialization = specialization_air
+				value = 0.5
+			}
+			add_tech_bonus = {
+				name = generic_rocket_effort
+				ahead_reduction = 2
+				uses = 1
+				category = rocketry
+				category = jet_technology
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		ai_will_do = { factor = 0.25 }
+	}
+
+	shared_focus = {
+		id = generic_NAV_effort
+		icon = GFX_goal_generic_air_naval_bomber
+		cost = 10
+
+		relative_position_id = generic_aviation_effort
+		x = 1
+		y = 3
+
+		prerequisite = { focus = generic_aviation_effort_2 }
+		prerequisite = { focus = generic_flexible_navy }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_NAV_effort"
+			add_tech_bonus = {
+				name = generic_NAV_effort
+				bonus = 1
+				uses = 1
+				category = naval_bomber
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+### Navy ###
+
+	shared_focus = {
+		id = generic_naval_effort
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 10
+
+		x = 4
+		y = 0
+		
+		relative_position_id = generic_aviation_effort
+
+		available = {
+			any_owned_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_naval_effort"
+			navy_experience = 25
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = dockyard
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_NAVY_XP FOCUS_FILTER_INDUSTRY }
+	}
+
+	shared_focus = {
+		id = generic_flexible_navy
+		icon = GFX_goal_generic_build_navy
+		cost = 10
+
+		relative_position_id = generic_naval_effort
+		x = -1
+		y = 1
+
+		prerequisite = { focus = generic_naval_effort }
+		mutually_exclusive = { focus = generic_large_navy }
+
+		available_if_capitulated = yes
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.1
+				num_of_naval_factories < 1
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_flexible_navy"
+			add_doctrine_cost_reduction = {
+				name = generic_flexible_navy
+				cost_reduction = 0.5
+				uses = 2
+				category = submarine_doctrine
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = generic_large_navy
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		cost = 10
+
+		relative_position_id = generic_naval_effort
+		x = 1
+		y = 1
+
+		prerequisite = { focus = generic_naval_effort }
+		mutually_exclusive = { focus = generic_flexible_navy }
+
+		available_if_capitulated = yes
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.1
+				num_of_naval_factories < 1
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_large_navy"
+			add_doctrine_cost_reduction = {
+				name = generic_large_navy
+				cost_reduction = 0.5
+				uses = 2
+				category = naval_doctrine
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = generic_submarine_effort
+		icon = GFX_goal_generic_navy_submarine
+		cost = 10
+
+		relative_position_id = generic_naval_effort
+		x = -1
+		y = 2
+
+		prerequisite = { focus = generic_flexible_navy focus = generic_large_navy }
+
+		available_if_capitulated = yes
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.1
+				num_of_naval_factories < 1
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_submarine_effort"
+			add_tech_bonus = {
+				name = generic_submarine_effort
+				bonus = 1
+				uses = 1
+				category = ss_tech
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = generic_cruiser_effort
+		icon = GFX_goal_generic_navy_cruiser
+		cost = 10
+
+		relative_position_id = generic_naval_effort
+		x = 1
+		y = 2
+
+		prerequisite = { focus = generic_large_navy focus = generic_flexible_navy }
+
+		available_if_capitulated = yes
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.1
+				num_of_naval_factories < 1
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_cruiser_effort"
+			add_tech_bonus = {
+				name = generic_cruiser_effort
+				bonus = 1
+				uses = 1
+				category = cl_tech
+				category = ca_tech
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = generic_destroyer_effort
+		icon = GFX_goal_generic_wolf_pack
+		cost = 10
+
+		relative_position_id = generic_naval_effort
+		x = -1
+		y = 3
+
+		prerequisite = { focus = generic_submarine_effort }
+
+		available_if_capitulated = yes
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.1
+				num_of_naval_factories < 1
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_destroyer_effort"
+			add_tech_bonus = {
+				name = generic_destroyer_effort
+				bonus = 1
+				uses = 1
+				category = dd_tech
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = generic_capital_ships_effort
+		icon = GFX_goal_generic_navy_battleship
+		cost = 10
+
+		relative_position_id = generic_naval_effort
+		x = 1
+		y = 3
+
+		prerequisite = { focus = generic_cruiser_effort }
+
+		available_if_capitulated = yes
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.1
+				num_of_naval_factories < 1
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_capital_ships_effort"
+			navy_experience = 25
+			add_tech_bonus = {
+				name = generic_capital_ships_effort
+				bonus = 1
+				uses = 1
+				category = ca_tech
+				category = bb_tech
+				category = cv_tech
+			}
+		}
+		search_filters = { FOCUS_FILTER_NAVY_XP FOCUS_FILTER_RESEARCH }
+	}
+
+### Industry ###
+
+	shared_focus = {
+		id = generic_industrial_effort
+		icon = GFX_goal_generic_production
+		cost = 10
+
+		x = 4
+		y = 0
+		
+		relative_position_id = generic_naval_effort
+
+		available = {
+			OR = {
+				num_of_controlled_factories > 10
+				AND = {
+					is_subject = yes
+					overlord = { num_of_controlled_factories > 10 }
+				}
+				is_ai = no
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_industrial_effort"
+			add_tech_bonus = {
+				name = generic_industrial_effort
+				bonus = 1
+				uses = 1
+				category = industry
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		ai_will_do = { factor = 2 }
+	}
+
+	shared_focus = {
+		id = generic_construction_effort
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10
+
+		relative_position_id = generic_industrial_effort
+		x = -1
+		y = 1
+
+		prerequisite = { focus = generic_industrial_effort }
+
+		ai_will_do = { factor = 2 }
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = generic_construction_effort_tt
+				NOT = {
+					any_owned_state = {
+						is_controlled_by = ROOT
+						free_building_slots = { building = industrial_complex size > 0 include_locked = yes }
+						is_valid_state_for_development = yes
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_construction_effort"
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	shared_focus = {
+		id = generic_production_effort
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10
+
+		relative_position_id = generic_industrial_effort
+		x = 1
+		y = 1
+
+		prerequisite = { focus = generic_industrial_effort }
+
+		ai_will_do = { factor = 2 }
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = generic_production_effort_tt
+				NOT = {
+					any_owned_state = {
+						is_controlled_by = ROOT
+						free_building_slots = { building = arms_factory size > 0 include_locked = yes }
+						is_valid_state_for_development = yes
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_production_effort"
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	shared_focus = {
+		id = generic_construction_effort_2
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10
+
+		relative_position_id = generic_industrial_effort
+		x = -1
+		y = 2
+
+		prerequisite = { focus = generic_construction_effort }
+
+		ai_will_do = { factor = 2 }
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = generic_construction_effort_tt
+				NOT = {
+					any_owned_state = {
+						is_controlled_by = ROOT
+						free_building_slots = { building = industrial_complex size > 0 include_locked = yes }
+						is_valid_state_for_development = yes
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_construction_effort_2"
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	shared_focus = {
+		id = generic_production_effort_2
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10
+
+		relative_position_id = generic_industrial_effort
+		x = 1
+		y = 2
+
+		prerequisite = { focus = generic_production_effort }
+
+		ai_will_do = { factor = 2 }
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = generic_production_effort_tt
+				NOT = {
+					any_owned_state = {
+						is_controlled_by = ROOT
+						free_building_slots = { building = arms_factory size > 0 include_locked = yes }
+						is_valid_state_for_development = yes
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_production_effort_2"
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	shared_focus = {
+		id = generic_infrastructure_effort
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 10
+
+		relative_position_id = generic_industrial_effort
+		x = -1
+		y = 3
+
+		prerequisite = { focus = generic_construction_effort_2 }
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = generic_infrastructure_effort_tt
+				NOT = {
+					any_owned_state = {
+						is_controlled_by = ROOT
+						free_building_slots = { building = infrastructure size > 0 }
+						is_valid_state_for_development = yes
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_infrastructure_effort"
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 1
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	shared_focus = {
+		id = generic_production_effort_3
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10
+
+		relative_position_id = generic_industrial_effort
+		x = 1
+		y = 3
+
+		prerequisite = { focus = generic_production_effort_2 }
+
+		ai_will_do = { factor = 2 }
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = generic_production_effort_tt
+				NOT = {
+					any_owned_state = {
+						is_controlled_by = ROOT
+						free_building_slots = { building = arms_factory size > 0 include_locked = yes }
+						is_valid_state_for_development = yes
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_production_effort_3"
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	shared_focus = {
+		id = generic_infrastructure_effort_2
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 10
+
+		relative_position_id = generic_industrial_effort
+		x = -1
+		y = 4
+
+		prerequisite = { focus = generic_infrastructure_effort }
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = generic_infrastructure_effort_tt
+				NOT = {
+					any_owned_state = {
+						is_controlled_by = ROOT
+						free_building_slots = { building = infrastructure size > 0 }
+						is_valid_state_for_development = yes
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_infrastructure_effort_2"
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 1
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	shared_focus = {
+		id = generic_construction_effort_3
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10
+
+		relative_position_id = generic_industrial_effort
+		x = 1
+		y = 4
+
+		prerequisite = { focus = generic_infrastructure_effort }
+
+		ai_will_do = { factor = 2 }
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = generic_construction_effort_tt
+				NOT = {
+					any_owned_state = {
+						is_controlled_by = ROOT
+						free_building_slots = { building = industrial_complex size > 0 include_locked = yes }
+						is_valid_state_for_development = yes
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_construction_effort_3"
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 1
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	shared_focus = {
+		id = generic_extra_tech_slot
+		icon = GFX_focus_research
+		cost = 10
+
+		relative_position_id = generic_industrial_effort
+		x = -1
+		y = 5
+
+		prerequisite = { focus = generic_infrastructure_effort_2 }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_extra_tech_slot"
+			add_research_slot = 1
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = generic_extra_tech_slot_2
+		icon = GFX_focus_research2
+		cost = 10
+
+		relative_position_id = generic_industrial_effort
+		x = -1
+		y = 6
+
+		prerequisite = { focus = generic_extra_tech_slot }
+		available = {
+			num_of_factories > 50
+		}
+
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus generic_extra_tech_slot_2"
+			add_research_slot = 1
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}

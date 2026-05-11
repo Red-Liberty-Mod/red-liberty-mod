@@ -23,7 +23,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -59,7 +63,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 	
 	search_filters = {  }
@@ -69,7 +77,7 @@ shared_focus = {
     id = USA_butler_reform_plan
 	icon = GFX_USA_butler_reform_plan
 	
-    x = -8
+    x = -9
 	y = 1
 	
 	available = {
@@ -79,14 +87,39 @@ shared_focus = {
 	cost = 4
 	relative_position_id = USA_reforming_the_military
 	prerequisite = { focus = USA_reforming_the_military }
+	mutually_exclusive = { focus = USA_marshall_reform_plan }
+	
     completion_reward = {
         army_experience = 25
 		custom_effect_tooltip = available_political_advisor
 		show_ideas_tooltip = USA_smedley_butler_political_advisor
+		
+		swap_ideas = {
+			remove_idea = USA_the_tame_army
+			add_idea = USA_army_reforms
+			days = 500
+		}
+		
+		country_event = {
+			id = united_states_butler.2
+			hours = 6
+		}
+		
+		hidden_effect = {
+			country_event = tree_reload.1
+		}
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+		modifier = {
+			factor = 0
+			has_socialist_govt = no
+		}
 	}
 	
 	search_filters = { FOCUS_FILTER_ARMY_XP }
@@ -96,8 +129,12 @@ shared_focus = {
     id = USA_20_division_plan
 	icon = GFX_USA_20_division_plan
 	
-    x = -2
+    x = -1
 	y = 1
+	
+	allow_branch = {
+		has_completed_focus = USA_butler_reform_plan
+	}
 	
 	available = {
 		has_character = USA_smedley_butler
@@ -109,10 +146,19 @@ shared_focus = {
     completion_reward = {
 		army_experience = 15
         add_ideas = { USA_20_division_plan_a }
+		
+		modify_timed_idea = {
+			idea = USA_army_reforms
+			months = -1
+		}
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 	
 	search_filters = { FOCUS_FILTER_ARMY_XP }
@@ -179,7 +225,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -210,7 +260,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -246,10 +300,18 @@ shared_focus = {
 				add_idea = USA_20_division_plan_abd
 			}
 		}
+		modify_timed_idea = {
+			idea = USA_army_reforms
+			months = -1
+		}
 	}
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 	
 	search_filters = { FOCUS_FILTER_ARMY_XP }
@@ -295,10 +357,18 @@ shared_focus = {
 				add_idea = USA_20_division_plan_abcd
 			}
 		}
+		modify_timed_idea = {
+			idea = USA_army_reforms
+			months = -1
+		}
 	}
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -336,7 +406,11 @@ shared_focus = {
 	}
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -344,8 +418,12 @@ shared_focus = {
     id = USA_ending_war_as_business
 	icon = GFX_USA_ending_war_as_business
 	
-    x = 2
+    x = 3
 	y = 1
+	
+	allow_branch = {
+		has_completed_focus = USA_butler_reform_plan
+	}
 	
 	available = {
 		has_character = USA_smedley_butler
@@ -360,7 +438,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -384,7 +466,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -407,7 +493,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -431,7 +521,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -508,7 +602,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 	
 	search_filters = { FOCUS_FILTER_USA_CONGRESS FOCUS_FILTER_INDUSTRY }
@@ -534,7 +632,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 	
 	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
@@ -562,7 +664,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 	
 	search_filters = { FOCUS_FILTER_POLITICAL }
@@ -587,14 +693,354 @@ shared_focus = {
 	prerequisite = { focus = USA_fight_your_own_wars }
 	
     completion_reward = {
-		unlock_decision_tooltip = start_ludlow_amendment
+		unlock_decision_tooltip = start_USA_ludlow_amendment
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 	
 	search_filters = { FOCUS_FILTER_STABILITY }
+}
+
+shared_focus = {
+    id = USA_marshall_reform_plan
+	icon = GFX_focus_generic_combined_arms
+	
+    x = -7
+	y = 1
+	
+	cost = 4
+	relative_position_id = USA_reforming_the_military
+	prerequisite = { focus = USA_reforming_the_military }
+	mutually_exclusive = { focus = USA_butler_reform_plan }
+	
+    completion_reward = {
+		army_experience = 25
+		swap_ideas = {
+			remove_idea = USA_the_tame_army
+			add_idea = USA_army_reforms
+			days = 365
+		}
+		
+		hidden_effect = {
+			country_event = tree_reload.1
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+	
+	search_filters = { FOCUS_FILTER_ARMY_XP }
+}
+
+shared_focus = {
+    id = USA_90_division_plan
+	icon = GFX_focus_generic_manpower
+	
+    x = -3
+	y = 1
+	
+	allow_branch = {
+		NOT = { has_completed_focus = USA_butler_reform_plan }
+	}
+	
+	cost = 5
+	relative_position_id = USA_marshall_reform_plan
+	prerequisite = { focus = USA_marshall_reform_plan }
+	mutually_exclusive = { focus = USA_256_division_plan }
+	
+    completion_reward = {
+		modify_timed_idea = {
+			idea = USA_army_reforms
+			months = -1
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_256_division_plan
+	icon = GFX_USA_20_division_plan
+	
+    x = -1
+	y = 1
+	
+	allow_branch = {
+		NOT = { has_completed_focus = USA_butler_reform_plan }
+	}
+	
+	cost = 5
+	relative_position_id = USA_marshall_reform_plan
+	prerequisite = { focus = USA_marshall_reform_plan }
+	mutually_exclusive = { focus = USA_90_division_plan }
+	
+    completion_reward = {
+		add_political_power = -100
+		modify_timed_idea = {
+			idea = USA_army_reforms
+			months = -1
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 0
+			has_government = democratic_socialism
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_utilize_american_industry
+	icon = GFX_focus_generic_support_equipment
+	
+    x = 1
+	y = 1
+	
+	allow_branch = {
+		NOT = { has_completed_focus = USA_butler_reform_plan }
+	}
+	
+	cost = 5
+	relative_position_id = USA_marshall_reform_plan
+	prerequisite = { focus = USA_marshall_reform_plan }
+	
+    completion_reward = {
+		modify_timed_idea = {
+			idea = USA_army_reforms
+			months = -1
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_joint_chiefs_of_staff
+	icon = GFX_focus_usa_build_the_pentagon
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_90_division_plan
+	prerequisite = {
+		focus = USA_90_division_plan
+		focus = USA_256_division_plan
+	}
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_equipment_modernization
+	icon = GFX_focus_generic_design_equipment
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_90_division_plan
+	prerequisite = {
+		focus = USA_90_division_plan
+		focus = USA_256_division_plan
+	}
+	
+    completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.5
+			ahead_reduction = 1
+			uses = 1
+			category = infantry_weapons
+			name = USA_equipment_modernization
+		}
+		modify_timed_idea = {
+			idea = USA_army_reforms
+			months = -1
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_mass_motorization
+	icon = GFX_focus_generic_truck
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_utilize_american_industry
+	prerequisite = { focus = USA_utilize_american_industry }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_support_federal_arsenals
+	icon = GFX_goal_generic_army_artillery
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_utilize_american_industry
+	prerequisite = { focus = USA_utilize_american_industry }
+	
+    completion_reward = {
+		if = {
+			limit = {
+				has_dlc_aat = yes
+			}
+			mio:USA_springfield_armory_organization = {
+				add_mio_size = 1
+				add_mio_research_bonus = 0.05
+			}
+			mio:USA_rock_island_arsenal_organization = {
+				add_mio_size = 1
+				add_mio_research_bonus = 0.05
+			}
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_marshall_scrap_the_reserves
+	icon = GFX_USA_scrap_reserves
+	
+    x = -1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_equipment_modernization
+	prerequisite = { focus = USA_equipment_modernization }
+	
+    completion_reward = {
+		delete_unit_template_and_units = {
+			division_template = "Organized Reserve"
+		}
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 5000
+			producer = USA
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_raise_armored_divisions
+	icon = GFX_focus_generic_armor_doctrine
+	
+    x = 1
+	y = 1
+	
+	cost = 5
+	relative_position_id = USA_equipment_modernization
+	prerequisite = { focus = USA_equipment_modernization }
+	prerequisite = { focus = USA_mass_motorization }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_infantry_mechanization
+	icon = GFX_focus_generic_mechanized
+	
+    x = 0
+	y = 2
+	
+	cost = 5
+	relative_position_id = USA_mass_motorization
+	prerequisite = { focus = USA_mass_motorization }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
 }
 
 shared_focus = {
@@ -612,7 +1058,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 	
 	search_filters = { FOCUS_FILTER_AIR_XP }
@@ -640,7 +1090,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -656,14 +1110,19 @@ shared_focus = {
 	prerequisite = { focus = USA_under_the_army }
     completion_reward = {
 		add_doctrine_cost_reduction = {
-			cost_reduction = 0.5
+			name = USA_support_doctrine
+			cost_reduction = 0.25
 			uses = 2
-			category = battlefield_support_tree
+			category = air_doctrine
 		}
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -692,7 +1151,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 	
 	search_filters = { FOCUS_FILTER_RESEARCH }
@@ -714,11 +1177,16 @@ shared_focus = {
 			bonus = 0.75
 			uses = 1
 			category = cat_scout_plane
+			name = USA_recon_aircraft
 		}
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 	
 	search_filters = { FOCUS_FILTER_RESEARCH }
@@ -753,7 +1221,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -786,7 +1258,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -809,7 +1285,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -863,7 +1343,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -895,13 +1379,20 @@ shared_focus = {
 			}
 		}
 		else = {
-			custom_effect_tooltip = USA_streamline_production_cas_tt
+			custom_effect_tooltip = {
+				localization_key = has_completed_focus_tt
+				FOCUS_NAME = USA_under_the_army
+			}
 			effect_tooltip = {
 				add_ideas = {
 					USA_streamlined_prod_cas
 				}
 			}
-			custom_effect_tooltip = USA_streamline_production_bomber_tt
+			custom_effect_tooltip = white_line_tt
+			custom_effect_tooltip = {
+				localization_key = has_completed_focus_tt
+				FOCUS_NAME = USA_independent_air_force
+			}
 			effect_tooltip = {
 				add_ideas = {
 					USA_streamlined_prod_bomber
@@ -911,7 +1402,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -931,11 +1426,16 @@ shared_focus = {
 			bonus = 0.75
 			uses = 1
 			category = naval_bomber
+			name = USA_modernize_naval_bombers
 		}
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 	
 	search_filters = { FOCUS_FILTER_RESEARCH }
@@ -957,11 +1457,16 @@ shared_focus = {
 			bonus = 0.75
 			uses = 1
 			category = cat_strategic_bomber
+			name = USA_flying_fortresses
 		}
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 	
 	search_filters = { FOCUS_FILTER_RESEARCH }
@@ -986,7 +1491,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -1006,15 +1515,34 @@ shared_focus = {
 	}
     completion_reward = {
         # add event here about air force
-		add_tech_bonus = {
-			bonus = 0.5
-			uses = 1
-			category = para_tech
+		if = {
+			limit = {
+				has_dlc_aat = yes
+			}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.25
+				uses = 2
+				category = cat_paratroopers_doctrine
+				name = USA_the_eagle_flies
+			}
+			add_potential_special_forces_tree = yes
+		}
+		else = {
+			add_tech_bonus = {
+				bonus = 0.25
+				uses = 2
+				category = para_tech
+				name = USA_the_eagle_flies
+			}
 		}
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -1035,12 +1563,16 @@ shared_focus = {
         add_ideas = {
 			USA_usaaf_1
 		}
-		custom_effect_tooltip = available_chief_of_airforce
-		show_ideas_tooltip = USA_frank_maxwell_andrews_air_chief
+		custom_effect_tooltip = available_military_high_command
+		show_ideas_tooltip = USA_frank_maxwell_andrews_high_command
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -1063,7 +1595,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -1079,14 +1615,21 @@ shared_focus = {
 	prerequisite = { focus = USA_independent_air_force }
     completion_reward = {
 		add_doctrine_cost_reduction = {
-			cost_reduction = 0.5
+			name = USA_strat_destruction
+			cost_reduction = 0.25
 			uses = 2
-			category = strategic_destruction_tree
+			category = air_doctrine
 		}
+		custom_effect_tooltip = available_theorist
+		show_ideas_tooltip = USA_robert_olds_theorist
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -1108,7 +1651,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -1131,7 +1678,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 	
 	search_filters = { FOCUS_FILTER_RESEARCH }
@@ -1152,7 +1703,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 	
 	search_filters = { FOCUS_FILTER_NAVY_XP }
@@ -1180,7 +1735,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -1244,7 +1803,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -1301,7 +1864,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -1329,7 +1896,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -1358,7 +1929,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 	
 	search_filters = { FOCUS_FILTER_RESEARCH }
@@ -1415,7 +1990,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -1443,7 +2022,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -1464,7 +2047,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -1487,7 +2074,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -1540,7 +2131,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 	
 	search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -1570,7 +2165,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 	
 	search_filters = { FOCUS_FILTER_RESEARCH }
@@ -1596,7 +2195,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 	
 	search_filters = { FOCUS_FILTER_RESEARCH }
@@ -1630,7 +2233,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -1672,7 +2279,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -1695,7 +2306,11 @@ shared_focus = {
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }
 
@@ -1703,7 +2318,7 @@ shared_focus = {
 	id = USA_the_manhattan_project
 	icon = GFX_USA_the_utmost_secrecy
 	
-    x = 16
+    x = 4
 	y = 1
 	
 	available = {
@@ -1718,43 +2333,6 @@ shared_focus = {
 			specialization = specialization_nuclear
 			value = 0.25
 		}
-	}
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_uranium_fever
-	icon = GFX_USA_uranium_fever
-	
-    x = -1
-	y = 1
-	
-	cost = 6
-	relative_position_id = USA_the_manhattan_project
-	prerequisite = { focus = USA_the_manhattan_project }
-    completion_reward = {
-		
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = USA_the_utmost_secrecy
-	icon = GFX_USA_the_utmost_secrecy
-	
-    x = 1
-	y = 1
-	
-	cost = 6
-	relative_position_id = USA_the_manhattan_project
-	prerequisite = { focus = USA_the_manhattan_project }
-    completion_reward = {
 		376 = {
 			add_building_construction = {
 				type = nuclear_facility
@@ -1763,9 +2341,889 @@ shared_focus = {
 				province = 12552 # Los Alamos
 			}
 		}
+	}
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+### WAR TREE ###
+
+## PACIFIC ##
+shared_focus = {
+    id = USA_war_in_the_pacific
+	icon = GFX_USA_day_of_infamy
+	
+    x = 0
+	y = 0
+	cost = 6
+	
+	offset = {
+		x = 24
+		y = 9
+		trigger = {
+			has_focus_tree = USA_thomas_tree
+		}
+	}
+	
+	available = {
+		custom_override_tooltip = {
+			tooltip = USA_war_in_the_pacific_trigger_tt
+			any_enemy_country = {
+				is_major = yes
+				is_in_asia = yes
+			}
+		}
+	}
+	
+	bypass = {
+		custom_override_tooltip = {
+			tooltip = USA_war_in_the_pacific_trigger_tt
+			any_enemy_country = {
+				is_major = yes
+				is_in_asia = yes
+			}
+		}
+	}
+	
+    completion_reward = {
+		
     }
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_fortify_the_islands
+	icon = GFX_focus_generic_coastal_fort
+	
+    x = -1
+	y = 1
+	cost = 6
+	
+	relative_position_id = USA_war_in_the_pacific
+	prerequisite = { focus = USA_war_in_the_pacific }
+    completion_reward = {
+		if = {
+			limit = { controls_state = 629 }
+			629 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 1
+					instant_build = yes
+					province = 4180
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 1
+					instant_build = yes
+					province = 12021
+				}
+			}
+		}
+		if = {
+			limit = { controls_state = 630 }
+			630 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 1
+					instant_build = yes
+					province = 13051
+				}
+			}
+		}
+		if = {
+			limit = { controls_state = 631 }
+			631 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 1
+					instant_build = yes
+					province = 13052
+				}
+			}
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_office_of_naval_intelligence
+	icon = GFX_focus_USA_fortify_the_islands
+	
+    x = 1
+	y = 1
+	cost = 6
+	
+	relative_position_id = USA_war_in_the_pacific
+	prerequisite = { focus = USA_war_in_the_pacific }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_code_talkers
+	icon = GFX_focus_USA_code_talkers
+	
+    x = 3
+	y = 1
+	cost = 6
+	
+	relative_position_id = USA_war_in_the_pacific
+	prerequisite = { focus = USA_war_in_the_pacific }
+    completion_reward = {
+		if = {
+			limit = { has_dlc_lar = yes }
+			add_ideas = {
+				USA_code_talkers_idea_lar
+			}
+		}
+		else = {
+			add_ideas = {
+				USA_code_talkers_idea
+			}
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_amphibious_warfare
+	icon = GFX_goal_generic_amphibious_assault
+	
+    x = -1
+	y = 1
+	cost = 6
+	
+	relative_position_id = USA_fortify_the_islands
+	prerequisite = { focus = USA_fortify_the_islands }
+    completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.35
+			uses = 1
+			technology = amphibious_mechanized_infantry
+			technology = amphibious_mechanized_infantry_2
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_expand_marines
+	icon = GFX_focus_USA_expand_marines
+	
+    x = 1
+	y = 1
+	cost = 6
+	
+	relative_position_id = USA_fortify_the_islands
+	prerequisite = { focus = USA_fortify_the_islands }
+    completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 1
+			category = marine_tech
+		}
+		364 = {
+			create_unit = {
+				division = "name = \"Marine Brigade\" division_template = \"Marine Brigade\" start_experience_factor = 0.5" 
+				owner = ROOT
+			}
+			create_unit = {
+				division = "name = \"Marine Brigade\" division_template = \"Marine Brigade\" start_experience_factor = 0.5" 
+				owner = ROOT
+			}
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_island_hopping_campaign
+	icon = GFX_focus_generic_naval_invasion
+	
+    x = 1
+	y = 1
+	cost = 6
+	
+	relative_position_id = USA_amphibious_warfare
+	prerequisite = { focus = USA_amphibious_warfare }
+	prerequisite = { focus = USA_expand_marines }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+## EUROPE ##
+shared_focus = {
+    id = USA_war_in_europe
+	icon = GFX_USA_europe_aflame
+	
+    x = 11
+	y = 0
+	cost = 6
+	
+	available = {
+		custom_override_tooltip = {
+			tooltip = USA_war_in_europe_trigger_tt
+			any_enemy_country = {
+				is_major = yes
+				is_in_europe = yes
+			}
+		}
+	}
+	
+	bypass = {
+		custom_override_tooltip = {
+			tooltip = USA_war_in_europe_trigger_tt
+			any_enemy_country = {
+				is_major = yes
+				is_in_europe = yes
+			}
+		}
+	}
+	
+	relative_position_id = USA_war_in_the_pacific
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_through_africa
+	icon = GFX_focus_USA_war_in_europe
+	
+    x = -1
+	y = 1
+	cost = 6
+	
+	available = {
+		any_other_country = {
+			has_war_with = USA
+			any_controlled_state = {
+				is_on_continent = africa
+			}
+		}
+	}
+	
+	relative_position_id = USA_war_in_europe
+	prerequisite = { focus = USA_war_in_europe }
+	mutually_exclusive = {
+		focus = USA_through_iberia
+		focus = USA_through_britain
+	}
+    completion_reward = {
+		#add_timed_idea = {
+		#	idea = USA_through_africa_idea
+		#	days = 90
+		#}
+		custom_override_tooltip = {
+			tooltip = {
+				localization_key = tooltip_enable_hidden_tech
+				TECH = country_culture|tech_desert_warfare
+				EFFECT = tech_effect|tech_desert_warfare
+			}
+			set_technology = { tech_desert_warfare = 1 popup = no }
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_through_iberia
+	icon = GFX_focus_USA_war_in_europe
+	
+    x = 1
+	y = 1
+	cost = 6
+	
+	available = {
+		custom_override_tooltip = {
+			tooltip = USA_through_iberia_trigger_tt
+			OR = {
+				has_war_with = SPR
+				is_in_faction_with = SPR
+				has_war_with = POR
+				is_in_faction_with = POR
+			}
+		}
+	}
+	
+	relative_position_id = USA_war_in_europe
+	prerequisite = { focus = USA_war_in_europe }
+	mutually_exclusive = {
+		focus = USA_through_africa
+		focus = USA_through_britain
+	}
+    completion_reward = {
+		custom_override_tooltip = {
+			tooltip = {
+				localization_key = tooltip_enable_hidden_tech
+				TECH = country_culture|tech_mountain_warfare
+				EFFECT = tech_effect|tech_mountain_warfare
+			}
+			set_technology = { tech_mountain_warfare = 1 popup = no }
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_through_britain
+	icon = GFX_focus_USA_war_in_europe
+	
+    x = 3
+	y = 1
+	cost = 6
+	
+	available = {
+		OR = {
+			has_war_with = ENG
+			is_in_faction_with = ENG
+		}
+	}
+	
+	relative_position_id = USA_war_in_europe
+	prerequisite = { focus = USA_war_in_europe }
+	mutually_exclusive = {
+		focus = USA_through_africa
+		focus = USA_through_iberia
+	}
+    completion_reward = {
+		custom_override_tooltip = {
+			tooltip = {
+				localization_key = tooltip_enable_hidden_tech
+				TECH = country_culture|tech_urban_warfare
+				EFFECT = tech_effect|tech_urban_warfare
+			}
+			set_technology = { tech_urban_warfare = 1 popup = no }
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+## SHARED ##
+shared_focus = {
+    id = USA_the_homefront
+	icon = GFX_USA_full_commitment
+	
+    x = 7
+	y = 1
+	cost = 6
+	
+	relative_position_id = USA_war_in_the_pacific
+	prerequisite = {
+		focus = USA_war_in_the_pacific
+		focus = USA_war_in_europe
+	}
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_office_of_war_information
+	icon = GFX_goal_generic_propaganda
+	
+    x = -5
+	y = 1
+	cost = 6
+	
+	relative_position_id = USA_the_homefront
+	prerequisite = { focus = USA_the_homefront }
+    completion_reward = {
+		add_political_power = 50
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_war_production_board
+	icon = GFX_focus_generic_reorient_production
+	
+    x = -1
+	y = 1
+	cost = 6
+	
+	relative_position_id = USA_the_homefront
+	prerequisite = { focus = USA_the_homefront }
+	mutually_exclusive = { focus = USA_fight_war_profiteering }
+    completion_reward = {
+		add_ideas = USA_war_production_board_idea
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_fight_war_profiteering
+	icon = GFX_focus_USA_office_of_war_information
+	
+    x = 1
+	y = 1
+	cost = 6
+	
+	relative_position_id = USA_the_homefront
+	prerequisite = { focus = USA_the_homefront }
+	mutually_exclusive = { focus = USA_war_production_board }
+    completion_reward = {
+		random_owned_state = {
+			limit = {
+				is_urban_state = yes
+			}
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+		random_owned_state = {
+			limit = {
+				is_urban_state = yes
+			}
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+		random_owned_state = {
+			limit = {
+				is_urban_state = yes
+			}
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+		random_owned_state = {
+			limit = {
+				is_urban_state = yes
+			}
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_double_v_campaign
+	icon = GFX_focus_USA_double_v_campaign
+	
+    x = -1
+	y = 1
+	cost = 6
+	
+	relative_position_id = USA_office_of_war_information
+	prerequisite = { focus = USA_office_of_war_information }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_just_war_theory
+	icon = GFX_focus_USA_just_war_theory
+	
+    x = 1
+	y = 1
+	cost = 6
+	
+	relative_position_id = USA_office_of_war_information
+	prerequisite = { focus = USA_office_of_war_information }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_work_with_hollywood
+	icon = GFX_USA_federal_project_one
+	
+    x = 3
+	y = 1
+	cost = 6
+	
+	relative_position_id = USA_office_of_war_information
+	prerequisite = { focus = USA_office_of_war_information }
+    completion_reward = {
+		add_war_support = 0.075
+		add_stability = 0.05
+		add_political_power = -25
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_office_of_civil_defense
+	icon = GFX_USA_wartime_measures
+	
+    x = 1
+	y = 1
+	cost = 6
+	
+	relative_position_id = USA_war_production_board
+	prerequisite = {
+		focus = USA_war_production_board
+		focus = USA_fight_war_profiteering
+	}
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_war_rationing
+	icon = GFX_focus_SWE_rations
+	
+    x = 1
+	y = 1
+	cost = 6
+	
+	relative_position_id = USA_fight_war_profiteering
+	prerequisite = {
+		focus = USA_war_production_board
+		focus = USA_fight_war_profiteering
+	}
+    completion_reward = {
+		if = {
+			limit = { has_completed_focus = USA_war_production_board }
+			swap_ideas = {
+				remove_idea = USA_war_production_board_idea
+				add_idea = USA_war_production_board_rationing_idea
+			}
+		}
+		else_if = {
+			limit = { has_completed_focus = USA_fight_war_profiteering }
+			add_ideas = USA_rationing_idea
+		}
+		else = {
+			custom_effect_tooltip = {
+				localization_key = has_completed_focus_tt
+				FOCUS_NAME = USA_war_production_board
+			}
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = USA_war_production_board_idea
+					add_idea = USA_war_production_board_rationing_idea
+				}
+			}
+			
+			custom_effect_tooltip = {
+				localization_key = has_completed_focus_tt
+				FOCUS_NAME = USA_fight_war_profiteering
+			}
+			effect_tooltip = {
+				add_ideas = USA_rationing_idea
+			}
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_women_in_the_workforce
+	icon = GFX_focus_AUS_womens_education_initiative
+	
+    x = 2
+	y = 2
+	cost = 6
+	
+	relative_position_id = USA_office_of_war_information
+	prerequisite = { focus = USA_office_of_war_information }
+	prerequisite = { focus = USA_office_of_civil_defense }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_emergency_price_controls
+	icon = GFX_focus_generic_price_controls
+	
+    x = 1
+	y = 1
+	cost = 6
+	
+	relative_position_id = USA_office_of_civil_defense
+	prerequisite = { focus = USA_office_of_civil_defense }
+    completion_reward = {
+		add_stability = 0.1
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_production_priority
+	icon = GFX_focus_USA_production_priority
+	
+    x = -1
+	y = 1
+	cost = 6
+	
+	relative_position_id = USA_women_in_the_workforce
+	prerequisite = { focus = USA_women_in_the_workforce }
+	mutually_exclusive = { focus = USA_towards_service_equality }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_towards_service_equality
+	icon = GFX_focus_USA_towards_service_equality
+	
+    x = 1
+	y = 1
+	cost = 6
+	
+	relative_position_id = USA_women_in_the_workforce
+	prerequisite = { focus = USA_women_in_the_workforce }
+	mutually_exclusive = { focus = USA_production_priority }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_rubber_survey_committee
+	icon = GFX_focus_generic_rubber
+	
+    x = 1
+	y = 1
+	cost = 6
+	
+	relative_position_id = USA_emergency_price_controls
+	prerequisite = { focus = USA_emergency_price_controls }
+	prerequisite = { focus = USA_war_rationing }
+    completion_reward = {
+		add_tech_bonus = {
+			name = USA_rubber_survey_committee
+			bonus = 0.75
+			uses = 2
+			category = cat_synth_rubber
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_all_as_one
+	icon = GFX_focus_USA_all_as_one
+	
+    x = 1
+	y = 1
+	cost = 6
+	
+	relative_position_id = USA_towards_service_equality
+	prerequisite = {
+		focus = USA_production_priority
+		focus = USA_towards_service_equality
+	}
+	prerequisite = { focus = USA_rubber_survey_committee }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
 	}
 }

@@ -7,6 +7,10 @@ can_create_intelligence_agency = {
 		limit = { tag = FRA }
 		has_completed_focus = FRA_reform_military_intelligence
 	}
+	if = {
+		limit = { tag = SOV }
+		has_completed_focus = SOV_reform_the_intelligence_agency
+	}
 	else = {
 		always = yes
 	}
@@ -16,5 +20,6 @@ has_blocked_intelligence_agency = {
 	OR = {
 		tag = USA
 		tag = FRA
+		tag = SOV
 	}
 }

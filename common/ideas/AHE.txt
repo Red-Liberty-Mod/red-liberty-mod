@@ -16,7 +16,7 @@ ideas = {
 			on_remove = {
 				country_lock_all_division_template = no
 			}
-				
+			
 			allowed_civil_war = { 
 				always = yes
 			}
@@ -89,8 +89,34 @@ ideas = {
 			}
 				
 			modifier = {
-				disabled_ideas = 1
-				poverty_monthly_rate = -0.01
+				#disabled_ideas = 1
+				#poverty_monthly_rate = -0.01
+				political_advisor_cost_factor = 0.5
+				army_advisor_cost_factor = 0.25
+				navy_advisor_cost_factor = 0.25
+				air_advisor_cost_factor = 0.25
+			}
+		}
+		
+		### Intro Tree ###
+		
+		AHE_austerity_regime = {
+			removal_cost = -1
+			
+			allowed = {
+				always = no
+			}  
+
+			available = {
+				
+			}
+			
+			allowed_civil_war = { 
+				always = yes
+			}
+			
+			modifier = {
+				consumer_goods_factor = -0.1
 			}
 		}
 		
@@ -120,7 +146,7 @@ ideas = {
 		}
 		
 		AHE_winter = {
-			picture = GFX_NRR_northern_isolation
+			picture = NRR_northern_isolation
 		
 			allowed = {
 				always = no

@@ -10,30 +10,17 @@ add_equipment_to_stockpile = {
     producer = GER
 }
 
-if = {
-	limit = {
-		OR = {
-			has_dlc_tfv = yes
-			has_dlc_mtg = yes
-		}
-	}
-	set_autonomy = {
-		target = POL
-		autonomous_state = autonomy_RL_occupied_puppet
-	}
-	set_autonomy = {
-		target = LIT
-		autonomous_state = autonomy_RL_occupied_puppet
-	}
-	set_autonomy = {
-		target = BAL
-		autonomous_state = autonomy_RL_occupied_puppet
-	}
-	else = {
-		puppet = POL
-		puppet = LIT
-		puppet = BAL
-	}
+set_autonomy = {
+	target = LIT
+	autonomous_state = autonomy_RL_occupied_puppet
+}
+set_autonomy = {
+	target = BAL
+	autonomous_state = autonomy_RL_nominal_puppet
+}
+set_autonomy = {
+	target = POL
+	autonomous_state = autonomy_RL_nominal_puppet
 }
 
 # Starting tech
@@ -212,9 +199,9 @@ set_country_flag = liberal_conservatism_coalition
 set_country_flag = national_conservatism_coalition
 set_country_flag = authoritarian_democracy_coalition
 
-create_faction = "Warschauer Pakt"
+create_mitteleuropa_sphere = yes
+create_faction_from_template = faction_template_reichspakt
 add_to_faction = BAL
-remove_from_faction = CRI
 
 give_guarantee = BLR
 give_guarantee = UKR
@@ -244,6 +231,7 @@ recruit_character = GER_franz_seldte
 
 ### Ministers ###
 recruit_character = GER_wilhelm_ii
+recruit_character = GER_wilhelm_iii
 
 ### Generals ###
 recruit_character = GER_kurt_von_hammerstein_equord

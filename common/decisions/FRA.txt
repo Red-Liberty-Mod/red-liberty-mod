@@ -750,7 +750,7 @@ FRA_industrialization_category = {
 		}
 		custom_cost_text = decision_cost_5_industry_point
 		
-		days_remove = 30
+		days_remove = 90
 		
 		complete_effect = {
 			subtract_from_variable = { FRA_industry_points = 1 }
@@ -763,7 +763,11 @@ FRA_industrialization_category = {
 		}
 		
 		ai_will_do = {
-			base = 15
+			base = 0
+			modifier = {
+				add = 15
+				check_variable = { FRA_industry_points > 4 }
+			}
 		}
 	}
 	
@@ -791,7 +795,15 @@ FRA_industrialization_category = {
 		}
 		
 		ai_will_do = {
-			base = 10
+			base = 0
+			modifier = {
+				add = 10
+				has_political_power > 124
+			}
+			modifier = {
+				factor = 0
+				check_variable = { FRA_industry_points > 14 }
+			}
 		}
 	}
 	
@@ -819,7 +831,15 @@ FRA_industrialization_category = {
 		}
 		
 		ai_will_do = {
-			base = 10
+			base = 0
+			modifier = {
+				add = 10
+				has_political_power > 124
+			}
+			modifier = {
+				factor = 0
+				check_variable = { FRA_industry_points > 14 }
+			}
 		}
 	}
 	
@@ -854,6 +874,10 @@ FRA_industrialization_category = {
 		
 		ai_will_do = {
 			base = 5
+			modifier = {
+				factor = 2
+				check_variable = { FRA_industry_points > 9 }
+			}
 		}
 	}
 	
@@ -888,6 +912,10 @@ FRA_industrialization_category = {
 		
 		ai_will_do = {
 			base = 5
+			modifier = {
+				factor = 2
+				check_variable = { FRA_industry_points > 9 }
+			}
 		}
 	}
 	
@@ -922,6 +950,10 @@ FRA_industrialization_category = {
 		
 		ai_will_do = {
 			base = 5
+			modifier = {
+				factor = 2
+				check_variable = { FRA_industry_points > 9 }
+			}
 		}
 	}
 	
@@ -963,7 +995,11 @@ FRA_industrialization_category = {
 		}
 		
 		ai_will_do = {
-			base = 15
+			base = 0
+			modifier = {
+				add = 15
+				check_variable = { FRA_industry_points > 4 }
+			}
 		}
 	}
 }
@@ -1055,7 +1091,7 @@ FRA_latin_entente_category = {
 		
 		available = {
 			FRA = {
-				is_faction_leader = yes
+				is_in_economic_sphere = yes
 			}
 		}
 		
@@ -1070,6 +1106,11 @@ FRA_latin_entente_category = {
 		complete_effect = {
 			add_to_tech_sharing_group = latin_entente_research
 			set_country_flag = latin_entente_research_formed
+			
+			for_each_scope_loop = {
+				array = global.latin_union_members
+				add_to_tech_sharing_group = latin_entente_research
+			}
 		}
 		
 		ai_will_do = {
@@ -1084,6 +1125,9 @@ FRA_latin_entente_category = {
 			FRA = {
 				has_country_flag = latin_entente_research_formed
 			}
+			NOT = {
+				is_in_tech_sharing_group = latin_entente_research
+			}
 		}
 		
 		visible = {
@@ -1093,8 +1137,7 @@ FRA_latin_entente_category = {
 		}
 		
 		fire_only_once = yes
-		
-		cost = 25
+		cost = 0
 		
 		complete_effect = {
 			add_to_tech_sharing_group = latin_entente_research
@@ -1110,7 +1153,7 @@ FRA_latin_entente_category = {
 		
 		available = {
 			FRA = {
-				is_faction_leader = yes
+				is_economic_sphere_leader = yes
 			}
 		}
 		
@@ -1119,7 +1162,6 @@ FRA_latin_entente_category = {
 		}
 		
 		fire_only_once = yes
-		
 		cost = 25
 		
 		complete_effect = {
@@ -1134,21 +1176,21 @@ FRA_latin_entente_category = {
 	FRA_invite_to_latin_entente = {
 		
 		targets = {
-			SPR POR SWI ROM BRA
+			SPR POR SWI ROM BRA ITA
 		}
 		
 		available = {
 			FROM = {
 				has_war = no
 			}
-			if = {
-				limit = {
-					FROM = {
-						original_tag = BRA
-					}
-				}
-				has_completed_focus = FRA_catholic_network
-			}
+			#if = {
+			#	limit = {
+			#		FROM = {
+			#			original_tag = BRA
+			#		}
+			#	}
+			#	has_completed_focus = FRA_catholic_network
+			#}
 		}
 		
 		visible = {
@@ -1381,20 +1423,9 @@ FRA_italian_great_game_category = {
 		days_re_enable = 60
 		
 		complete_effect = {
-			if = {
-				limit = {
-					has_completed_focus = FRA_recognize_italian_conquests
-				}
-				add_to_variable = {
-					tooltip = FRA_italian_influence_gain
-					FRA_italian_influence = 10
-				}
-			}
-			else = {
-				add_to_variable = {
-					tooltip = FRA_italian_influence_gain
-					FRA_italian_influence = 5
-				}
+			add_to_variable = {
+				tooltip = FRA_italian_influence_gain
+				FRA_italian_influence = 5
 			}
 		}
 		

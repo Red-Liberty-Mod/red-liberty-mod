@@ -1,0 +1,284 @@
+shared_focus = {
+    id = SPR_constitutionalist_victory
+	icon = GFX_focus_SPR_constitutionalist_victory
+	
+    x = 0
+	y = 0
+	cost = 4
+	
+	offset = {
+		x = 6
+		y = 6
+		trigger = {
+			has_focus_tree = SPR_initial_tree
+		}
+	}
+	
+	available = {
+		has_government = national_conservatism
+	}
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_affirm_parliamentary_supremacy
+	icon = GFX_focus_SPR_affirm_parliamentary_supremacy
+	
+    x = -3
+	y = 1
+	cost = 5
+	
+	relative_position_id = SPR_constitutionalist_victory
+	prerequisite = { focus = SPR_constitutionalist_victory }
+	
+    completion_reward = {
+		add_political_power = 35
+		add_popularity = {
+			ideology = despotism
+			popularity = -0.02
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_limit_royal_decrees
+	icon = GFX_focus_SPR_limit_royal_decrees
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SPR_constitutionalist_victory
+	prerequisite = { focus = SPR_constitutionalist_victory }
+	
+    completion_reward = {
+		add_stability = 0.05
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_budgetary_transparency
+	icon = GFX_focus_SPR_budgetary_transparency
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SPR_constitutionalist_victory
+	prerequisite = { focus = SPR_constitutionalist_victory }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_recognize_regional_particularism
+	icon = GFX_focus_SPR_recognize_regional_particularism
+	
+    x = 3
+	y = 1
+	cost = 5
+	
+	relative_position_id = SPR_constitutionalist_victory
+	prerequisite = { focus = SPR_constitutionalist_victory }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_bring_in_the_libdems
+	icon = GFX_focus_SPR_bring_in_the_libdems
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SPR_affirm_parliamentary_supremacy
+	prerequisite = { focus = SPR_affirm_parliamentary_supremacy }
+	prerequisite = { focus = SPR_limit_royal_decrees }
+	mutually_exclusive = { focus = SPR_maintain_the_royal_coalition }
+	
+    completion_reward = {
+		add_libcon_coalition = yes
+		add_popularity = {
+			ideology = liberal_conservatism
+			popularity = 0.02
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_maintain_the_royal_coalition
+	icon = GFX_focus_SPR_maintain_the_royal_coalition
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SPR_limit_royal_decrees
+	prerequisite = { focus = SPR_limit_royal_decrees }
+	mutually_exclusive = { focus = SPR_bring_in_the_libdems }
+	
+    completion_reward = {
+		add_popularity = {
+			ideology = authoritarian_democracy
+			popularity = 0.02
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_catalan_statute_of_autonomy
+	icon = GFX_focus_SPR_catalan_statute_of_autonomy
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SPR_recognize_regional_particularism
+	prerequisite = { focus = SPR_recognize_regional_particularism }
+	
+    completion_reward = {
+		165 = {
+			add_resistance = -5
+			add_compliance = 7
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_basque_self_government
+	icon = GFX_focus_SPR_basque_self_government
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SPR_recognize_regional_particularism
+	prerequisite = { focus = SPR_recognize_regional_particularism }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_public_works
+	icon = GFX_focus_SPR_basque_self_government
+	
+    x = 0
+	y = 2
+	cost = 5
+	
+	relative_position_id = SPR_budgetary_transparency
+	prerequisite = { focus = SPR_budgetary_transparency }
+	
+    completion_reward = {
+		if = {
+			limit = { has_idea = SPR_stagnant_economy_1 }
+			swap_ideas = {
+				remove_idea = SPR_stagnant_economy_1
+				add_idea = SPR_stagnant_economy_2
+			}
+		}
+		else = {
+			remove_ideas = SPR_stagnant_economy_2
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_devolution_of_powers
+	icon = GFX_focus_SPR_devolution_of_powers
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SPR_catalan_statute_of_autonomy
+	prerequisite = { focus = SPR_catalan_statute_of_autonomy }
+	prerequisite = { focus = SPR_basque_self_government }
+	
+    completion_reward = {
+		add_stability = 0.05
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_rewrite_the_constitution
+	icon = GFX_focus_SPR_rewrite_the_constitution
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	available = {
+		despotism < 0.2
+	}
+	
+	relative_position_id = SPR_public_works
+	prerequisite = {
+		focus = SPR_bring_in_the_libdems
+		focus = SPR_maintain_the_royal_coalition
+	}
+	prerequisite = { focus = SPR_public_works }
+	prerequisite = { focus = SPR_devolution_of_powers }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}

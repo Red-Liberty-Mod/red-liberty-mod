@@ -72,6 +72,43 @@ characters = {
 		}
 	}
 	
+	HAI_paul_magloire = {
+		name = HAI_paul_magloire
+		
+		portraits = {
+			civilian = {
+				#small = "GFX_minister_HAI_paul_magloire"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_PAUL_MAGLOIRE_DESC"
+			ideology = liberal_conservatism_subtype
+			traits = {
+				
+			}
+		}
+		
+		#advisor = {
+		#	cost = 0
+		#	can_be_fired = no
+		#	slot = head_of_government
+		#	idea_token = HAI_paul_magloire_hog
+		#	traits = {
+		#		hog_old_general
+		#	}
+		#}
+		
+		corps_commander = {
+			traits = { politically_connected }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	
 	HAI_francois_duvalier = {
 		name = HAI_francois_duvalier
 		
@@ -100,48 +137,14 @@ characters = {
 		}
 		
 		advisor = {
-			cost = 100
-			
+			cost = 0
+			can_be_fired = no
 			slot = head_of_government
 			idea_token = HAI_senate_hog
 			ledger = civilian
 			
-			cost = 0
-			removal_cost = -1
-			
-			allowed = {
-				original_tag = HAI
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
 				hog_empowered_legislature
-			}
-		}
-	}
-	
-	HAI_paul_magloire = {
-		name = HAI_paul_magloire
-		
-		portraits = {
-			civilian = {
-				small = "GFX_minister_HAI_paul_magloire"
-			}
-		}
-		
-		advisor = {
-			cost = 100
-			slot = head_of_government
-			idea_token = HAI_paul_magloire
-			traits = {
-				
 			}
 		}
 	}
@@ -151,16 +154,16 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				small = "GFX_minister_HAI_jean_price_mars"
+				#small = "GFX_minister_HAI_jean_price_mars"
 			}
 		}
 		
 		advisor = {
 			cost = 100
-			slot = head_of_government
-			idea_token = HAI_jean_price_mars
+			slot = political_advisor
+			idea_token = HAI_jean_price_mars_political_advisor
 			traits = {
-				sec_compassionate_gentleman
+				compassionate_gentleman
 			}
 		}
 	}
@@ -170,14 +173,14 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				small = "GFX_minister_HAI_louis_dejoie"
+				#small = "GFX_minister_HAI_louis_dejoie"
 			}
 		}
 		
 		advisor = {
 			cost = 100
-			slot = head_of_government
-			idea_token = HAI_louis_dejoie
+			slot = political_advisor
+			idea_token = HAI_louis_dejoie_political_advisor
 			traits = {
 				eco_laissez_faire_capitalist
 			}

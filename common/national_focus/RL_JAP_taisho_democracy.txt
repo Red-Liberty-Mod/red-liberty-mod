@@ -1,16 +1,650 @@
 shared_focus = {
-    id = JAP_taisho_lives
-	icon = GFX_JAP_taisho_lives
+    id = JAP_preservation_of_constitutional_governance
+	icon = GFX_JAP_seiyukai_platform
 	
     x = 8
 	y = 0
-	
 	cost = 2
-    completion_reward = {
-        
-    }
+	
+	offset = {
+		y = 9
+		trigger = {
+			has_focus_tree = JAP_initial_tree
+		}
+	}
+	
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = focus_will_be_bypassed_tt
+			always = no
+		}
+	}
+	
+	completion_reward = {
+		
+	}
 	
 	ai_will_do = {
-		factor = 10
+		base = 10
+	}
+}
+
+shared_focus = {
+	id = JAP_secure_the_coalition_conservative
+	icon = GFX_JAP_bipartisanship
+	
+	x = -2
+	y = 1
+	cost = 2
+	
+	relative_position_id = JAP_preservation_of_constitutional_governance
+	prerequisite = { focus = JAP_preservation_of_constitutional_governance }
+	
+    completion_reward = {
+		
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+	id = JAP_secure_military_approval
+	icon = GFX_focus_JAP_secure_military_approval
+	
+	x = 2
+	y = 1
+	cost = 2
+	
+	relative_position_id = JAP_preservation_of_constitutional_governance
+	prerequisite = { focus = JAP_preservation_of_constitutional_governance }
+	
+    completion_reward = {
+		add_stability = 0.05
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+	id = JAP_token_reform
+	icon = GFX_goal_generic_neutrality_focus
+	
+	x = -4
+	y = 1
+	cost = 4
+	
+	relative_position_id = JAP_secure_the_coalition_conservative
+	prerequisite = { focus = JAP_secure_the_coalition_conservative }
+	prerequisite = { focus = JAP_secure_military_approval }
+	
+    completion_reward = {
+		
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+	id = JAP_renewed_enforcement
+	icon = GFX_focus_GER_end_european_communism
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = JAP_secure_the_coalition_conservative
+	prerequisite = { focus = JAP_secure_the_coalition_conservative }
+	prerequisite = { focus = JAP_secure_military_approval }
+	mutually_exclusive = { focus = JAP_keeping_the_peace }
+	
+    completion_reward = {
+		add_political_power = 75
+		add_stability = -0.1
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+	id = JAP_keeping_the_peace
+	icon = GFX_focus_JAP_token_reform
+	
+	x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = JAP_secure_military_approval
+	prerequisite = { focus = JAP_secure_the_coalition_conservative }
+	prerequisite = { focus = JAP_secure_military_approval }
+	mutually_exclusive = { focus = JAP_renewed_enforcement }
+	
+    completion_reward = {
+		add_stability = 0.05
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+	id = JAP_buy_japanese
+	icon = GFX_focus_JAP_buy_japanese
+	
+	x = 3
+	y = 1
+	cost = 4
+	
+	relative_position_id = JAP_secure_military_approval
+	prerequisite = { focus = JAP_secure_the_coalition_conservative }
+	prerequisite = { focus = JAP_secure_military_approval }
+	
+    completion_reward = {
+		
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+	id = JAP_expand_democracy
+	icon = GFX_focus_generic_parliament
+	
+	x = -2
+	y = 1
+	cost = 4
+	
+	relative_position_id = JAP_token_reform
+	prerequisite = { focus = JAP_token_reform }
+	
+    completion_reward = {
+		
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+	id = JAP_lower_the_voting_age
+	icon = GFX_focus_JAP_token_reform
+	
+	x = 0
+	y = 1
+	cost = 4
+	
+	relative_position_id = JAP_token_reform
+	prerequisite = { focus = JAP_token_reform }
+	
+    completion_reward = {
+		set_temp_variable = { temp = party_popularity@national_conservatism }
+		multiply_temp_variable = { temp = 0.05 }
+		add_popularity = {
+			ideology = national_conservatism
+			popularity = temp
+		}
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+	id = JAP_emphasise_meritocracy
+	icon = GFX_focus_JAP_token_reform
+	
+	x = 2
+	y = 1
+	cost = 4
+	
+	relative_position_id = JAP_token_reform
+	prerequisite = { focus = JAP_token_reform }
+	
+    completion_reward = {
+		
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+	id = JAP_crack_down
+	icon = GFX_focus_RAJ_union_busting
+	
+	x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = JAP_renewed_enforcement
+	prerequisite = { focus = JAP_renewed_enforcement }
+	
+    completion_reward = {
+		set_temp_variable = { temp = party_popularity@democratic_socialism }
+		multiply_temp_variable = { temp = -1 }
+		multiply_temp_variable = { temp = 0.25 }
+		add_popularity = {
+			ideology = democratic_socialism
+			popularity = temp
+		}
+		
+		set_temp_variable = { temp = party_popularity@social_democracy }
+		multiply_temp_variable = { temp = -1 }
+		multiply_temp_variable = { temp = 0.25 }
+		add_popularity = {
+			ideology = social_democracy
+			popularity = temp
+		}
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+	id = JAP_disband_the_societies
+	icon = GFX_focus_generic_shadow_government
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = JAP_renewed_enforcement
+	prerequisite = {
+		focus = JAP_renewed_enforcement
+		focus = JAP_keeping_the_peace
+	}
+	
+    completion_reward = {
+		set_temp_variable = { temp = party_popularity@ultraconservatism }
+		multiply_temp_variable = { temp = -1 }
+		multiply_temp_variable = { temp = 0.25 }
+		add_popularity = {
+			ideology = ultraconservatism
+			popularity = temp
+		}
+		
+		set_temp_variable = { temp = party_popularity@fascism }
+		multiply_temp_variable = { temp = -1 }
+		multiply_temp_variable = { temp = 0.25 }
+		add_popularity = {
+			ideology = fascism
+			popularity = temp
+		}
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+	id = JAP_stigmatize_the_left
+	icon = GFX_focus_JAP_stigmatize_the_left
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = JAP_keeping_the_peace
+	prerequisite = { focus = JAP_keeping_the_peace }
+	
+    completion_reward = {
+		set_temp_variable = { temp = party_popularity@vanguard_socialism }
+		multiply_temp_variable = { temp = -1 }
+		multiply_temp_variable = { temp = 0.25 }
+		add_popularity = {
+			ideology = vanguard_socialism
+			popularity = temp
+		}
+		
+		set_temp_variable = { temp = party_popularity@revolutionary_socialism }
+		multiply_temp_variable = { temp = -1 }
+		multiply_temp_variable = { temp = 0.25 }
+		add_popularity = {
+			ideology = revolutionary_socialism
+			popularity = temp
+		}
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+	id = JAP_rural_outreach
+	icon = GFX_focus_generic_agrarian_reform
+	
+	x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = JAP_buy_japanese
+	prerequisite = { focus = JAP_buy_japanese }
+	
+    completion_reward = {
+		
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+	id = JAP_market_regulations
+	icon = GFX_focus_DEN_limited_regulations
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = JAP_buy_japanese
+	prerequisite = { focus = JAP_buy_japanese }
+	
+    completion_reward = {
+		
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+	id = JAP_progressive_taxation
+	icon = GFX_focus_JAP_rural_outreach
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = JAP_expand_democracy
+	prerequisite = { focus = JAP_expand_democracy }
+	prerequisite = { focus = JAP_lower_the_voting_age }
+	
+    completion_reward = {
+		
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+	id = JAP_streamline_the_bureacracy
+	icon = GFX_focus_JAP_token_reform
+	
+	x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = JAP_emphasise_meritocracy
+	prerequisite = { focus = JAP_emphasise_meritocracy }
+	mutually_exclusive = { focus = JAP_expand_the_bureacracy }
+	
+    completion_reward = {
+		
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+	id = JAP_expand_the_bureacracy
+	icon = GFX_focus_JAP_token_reform
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = JAP_emphasise_meritocracy
+	prerequisite = { focus = JAP_emphasise_meritocracy }
+	mutually_exclusive = { focus = JAP_streamline_the_bureacracy }
+	
+    completion_reward = {
+		add_political_power = 100
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+	id = JAP_expand_the_tokko_conservative
+	icon = GFX_focus_generic_secret_police
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = JAP_crack_down
+	prerequisite = { focus = JAP_crack_down }
+	prerequisite = { focus = JAP_disband_the_societies }
+	
+    completion_reward = {
+		add_ideas = JAP_expanded_tokko
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+	id = JAP_promote_labor_conciliation
+	icon = GFX_focus_generic_solidarity
+	
+	x = 0
+	y = 2
+	cost = 4
+	
+	relative_position_id = JAP_keeping_the_peace
+	prerequisite = { focus = JAP_keeping_the_peace }
+	
+    completion_reward = {
+		custom_effect_tooltip = {
+			localization_key = add_stability_from_ideology_tt
+			IDEOLOGY = national_conservatism
+		}
+		set_temp_variable = { temp = party_popularity@national_conservatism }
+		multiply_temp_variable = { temp = 0.25 }
+		add_stability = temp
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+	id = JAP_invest_in_resource_extraction
+	icon = GFX_focus_generic_mining_industry
+	
+	x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = JAP_rural_outreach
+	prerequisite = { focus = JAP_rural_outreach }
+	
+    completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.25
+			uses = 2
+			category = excavation_tech
+		}
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+	id = JAP_foster_innovation
+	icon = GFX_focus_generic_research
+	
+	x = -1
+	y = 1
+	cost = 4
+	
+	relative_position_id = JAP_market_regulations
+	prerequisite = { focus = JAP_market_regulations }
+	
+    completion_reward = {
+		
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+	id = JAP_small_business_loans
+	icon = GFX_focus_generic_banking
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = JAP_market_regulations
+	prerequisite = { focus = JAP_market_regulations }
+	
+    completion_reward = {
+		
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+	id = JAP_fight_corruption
+	icon = GFX_focus_ARG_crackdown_on_corruption
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = JAP_streamline_the_bureacracy
+	prerequisite = {
+		focus = JAP_streamline_the_bureacracy
+		focus = JAP_expand_the_bureacracy
+	}
+	
+    completion_reward = {
+		
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+	id = JAP_inukais_legacy
+	icon = GFX_JAP_inukais_legacy
+	
+	x = 1
+	y = 1
+	cost = 4
+	
+	relative_position_id = JAP_expand_the_tokko_conservative
+	prerequisite = {
+		focus = JAP_expand_the_tokko_conservative
+		focus = JAP_promote_labor_conciliation
+	}
+	
+    completion_reward = {
+		
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+	id = JAP_nationalize_the_defense_industry
+	icon = GFX_focus_generic_reorient_production
+	
+	x = 0
+	y = 2
+	cost = 4
+	
+	relative_position_id = JAP_rural_outreach
+	prerequisite = { focus = JAP_rural_outreach }
+	prerequisite = { focus = JAP_foster_innovation }
+	prerequisite = { focus = JAP_small_business_loans }
+	
+    completion_reward = {
+		
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+	id = JAP_shinkansen_plan_conservative
+	icon = GFX_focus_generic_railway_construction
+	
+	x = 1
+	y = 1
+	cost = 6
+	
+	relative_position_id = JAP_foster_innovation
+	prerequisite = { focus = JAP_foster_innovation }
+	prerequisite = { focus = JAP_small_business_loans }
+	
+    completion_reward = {
+		
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+	id = JAP_greater_east_asian_railroad_conservative
+	icon = GFX_focus_generic_railroad
+	
+	x = 0
+	y = 1
+	cost = 6
+	
+	relative_position_id = JAP_shinkansen_plan_conservative
+	prerequisite = { focus = JAP_shinkansen_plan_conservative }
+	
+    completion_reward = {
+		
+	}
+	
+	ai_will_do = {
+		base = 10
 	}
 }

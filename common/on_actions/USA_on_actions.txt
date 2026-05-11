@@ -1,23 +1,30 @@
 on_actions = {
 	on_startup = {
 		effect = {
-			USA = {
-				if = {
-					limit = {
-						is_debug = yes
-					}
-					set_country_flag = USA_state_full_info
-				}
-			}
 			
 			### POLITICAL SETUP ###
 			USA = {
-				add_to_array = { country_info_array = 1 }
-				add_to_array = { country_info_array = 2 }
-				add_to_array = { country_info_array = 3 }
-				add_to_array = { country_info_array = 4 }
-				add_to_array = { country_info_array = 5 }
-				add_to_array = { country_info_array = 6 }
+				add_to_array = { country_info_array = 101 }
+				#add_to_array = { country_info_array = 1 }
+				#add_to_array = { country_info_array = 2 }
+				#add_to_array = { country_info_array = 3 }
+				#add_to_array = { country_info_array = 4 }
+				#add_to_array = { country_info_array = 5 }
+				add_to_array = { country_info_folder_array_101 = 1 }
+				add_to_array = { country_info_folder_array_101 = 2 }
+				add_to_array = { country_info_folder_array_101 = 3 }
+				add_to_array = { country_info_folder_array_101 = 4 }
+				add_to_array = { country_info_folder_array_101 = 5 }
+				
+				add_to_array = { country_info_array = 102 }
+				#add_to_array = { country_info_array = 6 }
+				add_to_array = { country_info_folder_array_102 = 6 }
+				
+				add_to_array = { country_info_array = 103 }
+				#add_to_array = { country_info_array = 50 }
+				#add_to_array = { country_info_array = 51 }
+				add_to_array = { country_info_folder_array_103 = 50 }
+				add_to_array = { country_info_folder_array_103 = 51 }
 			}
 			
 			USA = {
@@ -72,6 +79,10 @@ on_actions = {
 				country_event = { # Chief Justice Devanter Dies
 					id = united_states_supreme_court.3
 					days = 1865
+				}
+				country_event = { # Court strikes down the NRTA
+					id = united_states_supreme_court.10
+					days = 213
 				}
 			}
 			
@@ -224,10 +235,20 @@ on_actions = {
 					days = 900
 					random_days = 30 # early to mid 1938
 				}
-				country_event = {  # charles lindbergh returns
+				country_event = { # charles lindbergh returns
 					id = united_states_flavor.12
 					days = 1100
 					random_days = 30 # late 1938
+				}
+				country_event = { # formation of the ANC
+					id = united_states_flavor.14
+					days = 520
+					random_days = 60 # mid 1937
+				}
+				country_event = { # seversky reorganized as republic aviation
+					id = united_states_flavor.16
+					days = 1350
+					random_days = 15 # september 1939
 				}
 			}
 			
@@ -249,10 +270,21 @@ on_actions = {
 				add_dynamic_modifier = {
 					modifier = USA_dry_state
 				}
+				add_dynamic_modifier = {
+					modifier = USA_silver_legion_presence
+				}
 			}
 			365 = {
 				add_dynamic_modifier = {
 					modifier = USA_dry_state
+				}
+				add_dynamic_modifier = {
+					modifier = USA_klan_presence
+				}
+			}
+			367 = {
+				add_dynamic_modifier = {
+					modifier = USA_klan_presence
 				}
 			}
 			368 = {
@@ -308,6 +340,9 @@ on_actions = {
 				add_dynamic_modifier = {
 					modifier = USA_dry_state
 				}
+				add_dynamic_modifier = {
+					modifier = USA_klan_presence
+				}
 			}
 			388 = {
 				add_dynamic_modifier = {
@@ -323,15 +358,23 @@ on_actions = {
 				add_dynamic_modifier = {
 					modifier = USA_dry_state
 				}
+				add_dynamic_modifier = {
+					modifier = USA_black_legion_presence
+				}
+			}
+			396 = {
+				add_dynamic_modifier = {
+					modifier = USA_klan_presence
+				}
 			}
 			832 = {
 				add_dynamic_modifier = {
 					modifier = USA_dry_state
 				}
 			}
-			852 = {
+			827 = {
 				add_dynamic_modifier = {
-					modifier = USA_dust_bowl_modifier
+					modifier = USA_klan_presence
 				}
 			}
 		}
@@ -355,46 +398,6 @@ on_actions = {
 		effect = {
 			if = {
 				limit = {
-					has_country_flag = USA_insurgency_start
-				}
-				random_list = {
-					75 = {
-						random_owned_controlled_state = {
-							limit = {
-								has_state_flag = USA_active_insurgency
-								infrastructure > 0
-							}
-							damage_building = {
-								type = infrastructure
-								damage = 1
-							}
-						}
-					}
-					25 = {
-						
-					}
-				}
-				random_list = {
-					75 = {
-						random_owned_controlled_state = {
-							limit = {
-								has_state_flag = USA_active_insurgency
-								infrastructure > 0
-							}
-							damage_building = {
-								type = industrial_complex
-								damage = 1
-							}
-						}
-					}
-					25 = {
-						
-					}
-				}
-			}
-			
-			if = {
-				limit = {
 					check_variable = { USA.poverty_rate < USA_poverty_threshold }
 				}
 				USA = {
@@ -403,6 +406,63 @@ on_actions = {
 						id = united_states.15
 						hours = 6
 					}
+				}
+			}
+			
+			### Agenda Checks ###
+			if = {
+				limit = {
+					norman_thomas_is_president = yes
+					USA_norman_thomas = {
+						NOT = { has_character_flag = USA_thomas_agenda_completed_flag }
+					}
+				}
+				
+				## Agenda 1 ##
+				if = {
+					limit = {
+						USA_norman_thomas = { has_trait = USA_all_inclusive_socialist_inactive }
+						USA_thomas_agenda_1_active = yes
+					}
+					remove_country_leader_trait = USA_all_inclusive_socialist_inactive
+					add_country_leader_trait = USA_all_inclusive_socialist_active
+				}
+				else_if = {
+					limit = {
+						USA_norman_thomas = { has_trait = USA_all_inclusive_socialist_active }
+						USA_thomas_agenda_1_active = no
+					}
+					remove_country_leader_trait = USA_all_inclusive_socialist_active
+					add_country_leader_trait = USA_all_inclusive_socialist_inactive
+				}
+				
+				## Agenda 2 ##
+				if = {
+					limit = {
+						USA_norman_thomas = { has_trait = USA_the_last_idealist_inactive }
+						USA_thomas_agenda_2_active = yes
+					}
+					remove_country_leader_trait = USA_the_last_idealist_inactive
+					add_country_leader_trait = USA_the_last_idealist_active
+				}
+				else_if = {
+					limit = {
+						USA_norman_thomas = { has_trait = USA_the_last_idealist_active }
+						USA_thomas_agenda_2_active = no
+					}
+					remove_country_leader_trait = USA_the_last_idealist_active
+					add_country_leader_trait = USA_the_last_idealist_inactive
+				}
+				
+				USA_norman_thomas = {
+					if = {
+						limit = {
+							has_trait = USA_all_inclusive_socialist_active
+							has_trait = USA_the_last_idealist_active
+							has_trait = USA_americas_promise_active
+						}
+					}
+					set_character_flag = USA_thomas_agenda_completed_flag
 				}
 			}
 		}
@@ -427,12 +487,12 @@ on_actions = {
 			USA_calculate_senators = yes
 			USA_calc_congress_control = yes
 			
-			if = {
-				limit = {
-					check_variable = { USA_mproject_phase > 0 }
-				}
-				USA_mproject_monthly_pulse = yes
-			}
+			#if = {
+			#	limit = {
+			#		check_variable = { USA_mproject_phase > 0 }
+			#	}
+			#	USA_mproject_monthly_pulse = yes
+			#}
 			
 			### very hacky method to naturally improve the spirit over time ###
 			#add_to_variable = { USA_month_counter = 1 }

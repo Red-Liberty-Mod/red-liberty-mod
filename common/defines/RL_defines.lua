@@ -28,11 +28,15 @@ NDefines.NCountry.MIN_STABILITY = 0
 NDefines.NCountry.MIN_WAR_SUPPORT = 0
 
 -- Buildings
-NDefines.NBuildings.INFRASTRUCTURE_RESOURCE_BONUS = 0.1						-- multiplicative resource bonus for each level of (non damaged) infrastructure, vanilla is 0.2
+NDefines.NBuildings.INFRASTRUCTURE_RESOURCE_BONUS = 0.05						-- multiplicative resource bonus for each level of (non damaged) infrastructure, vanilla is 0.2
 
 -- Production
 NDefines.NProduction.MAX_CIV_FACTORIES_PER_LINE = 12						-- Vanilla is 15
 NDefines.NProduction.CAPITAL_SHIP_MAX_NAV_FACTORIES_PER_LINE = 10			-- Vanilla is 5
+
+NDefines.NProduction.RESOURCE_TO_ENERGY_COEFFICIENT = 9.0					-- How much energy per coal produces, vanilla is 9.0
+NDefines.NProduction.ENERGY_SCALING_COST_BY_FACTORY_COUNT = 0.03			-- Scales energy cost based on the total number of factories, vanilla is 0.0225
+NDefines.NProduction.BASE_ENERGY_COST = 0.25								-- How much energy per factory consumes, vanilla is 0.25
 
 -- Supply
 NDefines.NSupply.INFRA_TO_SUPPLY = 0.15										-- each level of infra gives this many supply, vanilla is 0.3
@@ -62,6 +66,8 @@ NDefines.NDiplomacy.TENSION_PUPPET = 0										-- Vanilla is 1.25
 NDefines.NDiplomacy.TENSION_FORCE_GOVERNMENT = 0							-- Vanilla is 0.75
 NDefines.NDiplomacy.TENSION_GUARANTEE = 0									-- Vanilla is -5
 NDefines.NDiplomacy.TENSION_FACTION_JOIN = 0								-- Vanilla is 4
+NDefines.NDiplomacy.TENSION_PEACE_FACTOR = 0								-- Vanilla is 0.8
+NDefines.NDiplomacy.TENSION_PEACE_FACTOR_THREAT_FACTOR = 0					-- Vanilla is 0.6
 NDefines.NDiplomacy.TENSION_JOIN_ATTACKER = 0								-- Vanilla is 2
 NDefines.NDiplomacy.TENSION_LIBERATE = 0									-- Vanilla is -1
 NDefines.NDiplomacy.TENSION_TAKE_ONE_CAPITAL_SHIP = 0						-- Vanilla is 0.25
@@ -76,6 +82,13 @@ NDefines.NDiplomacy.TENSION_DECAY_DAILY = 0.003								-- Vanilla is 0.005
 NDefines.NDiplomacy.OPINION_FOR_DEMO_FROM_WT_GENERATION = 0					-- Vanilla is -2.0
 NDefines.NAI.MAX_THREAT_FOR_FIRST_YEAR_CIVILIAN_MODE = 30					-- Vanilla is 60
 
+-- Volunteers
+NDefines.NAI.SEND_VOLUNTEER_EVAL_BASE_DISTANCE = 1000.0  					-- Vanilla is 175.0
+NDefines.NAI.SEND_VOLUNTEER_EVAL_CONTAINMENT_FACTOR = 0						-- Vanilla is 0.1
+NDefines.NDiplomacy.VOLUNTEERS_DIVISIONS_REQUIRED = 6						-- Vanilla is 30
+NDefines.NDiplomacy.VOLUNTEERS_PER_TARGET_PROVINCE = 0.025					-- Vanilla is 0.05
+NDefines.NDiplomacy.VOLUNTEERS_PER_COUNTRY_ARMY = 0.025						-- Vanilla is 0.05
+
 -- Resistance
 NDefines.NResistance.RESISTANCE_TARGET_MODIFIER_PER_STABILITY_LOSS = 0.1	-- Vanilla is 0.2
 NDefines.NResistance.SUPPRESSION_NEEDED_BY_RESISTANCE_POINT = 0.5			-- Vanilla is 0.75
@@ -85,7 +98,7 @@ NDefines.NResistance.GARRISON_MANPOWER_LOST_BY_ATTACK = 0.012				-- Vanilla is 0
 NDefines.NTrade.BASE_TRADE_FACTOR = 100										-- Vanilla is 150
 
 -- MIOs
-NDefines.NIndustrialOrganisation.ASSIGN_DESIGN_TEAM_PP_COST_PER_DAY = 0.1	-- Cost in Political Power daily generation when one MIO is assigned to a research slot. If 0, cost is entirely disabled.
+NDefines.NIndustrialOrganisation.ASSIGN_DESIGN_TEAM_PP_COST_PER_DAY = 0.05	-- Cost in Political Power daily generation when one MIO is assigned to a research slot. If 0, cost is entirely disabled.
 NDefines.NIndustrialOrganisation.ENABLE_TASK_CAPACITY = true				-- Enable limited task capacity for MIOs
 NDefines.NIndustrialOrganisation.DEFAULT_INITIAL_TASK_CAPACITY = 5			-- Default start task capacity for each MIO (may be overriden in DB)
 NDefines.NIndustrialOrganisation.DESIGN_TEAM_CHANGE_XP_COST = 0				-- Flat cost added to the XP cost of a new equipment design. If 0, cost is entirely disabled. Vanilla is 5
@@ -98,3 +111,11 @@ NDefines.NAI.BASE_RELUCTANCE = 10											-- Vanilla is 20
 
 -- Graphics
 NDefines_Graphics.NGraphics.RAILWAY_BRIDGE_Y_OFFSET = 0.1					-- Railway bridges are offset by this amount vertically from the map. Vanilla is 0.6
+
+-- Factions
+NDefines.NFactions.FACTION_INTELLIGENCE_ALLOWED_ADVISOR_TRAIT  = {
+	"head_of_intelligence",
+	"spymaster",
+	"USA_fbi_director",
+	"ENG_infiltration_expert"
+}

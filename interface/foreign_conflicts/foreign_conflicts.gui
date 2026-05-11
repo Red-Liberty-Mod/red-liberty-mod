@@ -1,9 +1,53 @@
 guiTypes = {
+	
+	extendedScrollbarType = { # horizontal slider, appears if you have more than 4 tabs
+		name = "top_horizontal_slider"
+		position = { x = 0 y = -6 }
+		size = { width = 18 height = 18 }
+		tileSize = { width = 12 height = 12 }
+		maxValue = 1
+		minValue = 0
+		stepSize = 0.01
+		startValue = 0
+		horizontal = yes
+		orientation = upper_left
+		origo = upper_left
 
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_scrollbar_horisontal_bg"
+		}
+
+		slider = {
+			name = "Slider"
+			quadTextureSprite = "GFX_scroll_drager"
+			position = { x = 0 y = -2 }
+		}
+
+		track = {
+			name = "Track"
+			quadTextureSprite = "GFX_scroll_track_horisontal"
+			position = { x = 0 y = 3 }
+			alwaystransparent = yes
+		}
+
+		decreaseButton = {
+			name = "Decrease"
+			quadTextureSprite = "GFX_scroll_left"
+			position = { x = 3 y = 1 }
+		}
+
+		increaseButton = {
+			name = "Increase"
+			quadTextureSprite = "GFX_scroll_right"
+			position = { x = -19 y = -17 }
+		}
+	}
+	
 	containerWindowType = {
 		name = "foreign_conflicts_container"
 		position = { x = 18 y = 200 }
-        size = { height = 518 width = 500 }
+        size = { height = 430 width = 500 }
 		
 		#background = {
 		#	name = "Background"
@@ -14,9 +58,14 @@ guiTypes = {
 			name = "tabs_container"
 			horizontalScrollbar = "top_horizontal_slider"
 			size = { width = 500 height = 127 }
-			position = { x = 2 y = -12  }
+			position = { x = -10 y = -26  }
 			margin = { top = 0 left = 0 bottom = 0 right = 0 }
-	
+			
+			#background = {
+			#	name = "Background"
+			#	quadTextureSprite = "GFX_tiled_window_thin_border2"
+			#}
+			
 			gridboxtype = {
 				name = "conflict_tabs"
 				position = { x = 0 y = 15 }
@@ -28,12 +77,12 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "conflict_guis_container"
-			position = { x = 4 y = 112 }
+			position = { x = 4 y = 90 }
 		}
 		
         gridboxtype = {
 		    name = "conflict_guis"
-			position = { x = -176 y = 112 }
+			position = { x = -176 y = 90 }
 			size = { width = 480 height = 45 }
 			slotsize = { width = 120 height = 45 }
 			add_horizontal = yes
@@ -63,12 +112,12 @@ guiTypes = {
     containerWindowType = {
 		name = "foreign_conflict_generic"
 		position = { x = 0 y = 0 }
-		size = { width = 496 height = 406 }
+		size = { width = 100% height = 100% }
 		
-		background = {
-			name = "Background"
-			quadTextureSprite = "GFX_tiled_window_thin_border2"
-		}
+		#background = {
+		#	name = "Background"
+		#	quadTextureSprite = "GFX_tiled_window_thin_border2"
+		#}
 
         instantTextBoxType = {
             name = "conflict_desc"
@@ -83,12 +132,12 @@ guiTypes = {
 	containerWindowType = {
 		name = "foreign_conflict_danubian_wars"
 		position = { x = 0 y = 0 }
-		size = { width = 496 height = 406 }
+		size = { width = 100% height = 100% }
 		
-		background = {
-			name = "Background"
-			quadTextureSprite = "GFX_tiled_window_thin_border2"
-		}
+		#background = {
+		#	name = "Background"
+		#	quadTextureSprite = "GFX_tiled_window_thin_border2"
+		#}
 
         instantTextBoxType = {
             name = "conflict_desc"
@@ -101,7 +150,7 @@ guiTypes = {
 		
 		containerWindowType = {
 			name = "escalation_progressbar"
-			position = { x = 27 y = 200 }
+			position = { x = 27 y = 275 }
 			
 			instantTextBoxType = {
 				name = "escalation_title"
@@ -195,12 +244,12 @@ guiTypes = {
 	containerWindowType = {
 		name = "foreign_conflict_silver_legion"
 		position = { x = 0 y = 0 }
-		size = { width = 496 height = 506 }
+		size = { width = 100% height = 100% }
 		
-		background = {
-			name = "Background"
-			quadTextureSprite = "GFX_tiled_window_thin_border2"
-		}
+		#background = {
+		#	name = "Background"
+		#	quadTextureSprite = "GFX_tiled_paper_flat_bg"
+		#}
 		
 		containerWindowType = {
 			name = "USA_pelley"
@@ -226,7 +275,7 @@ guiTypes = {
 				position = { x = -21 y = 221 }
 				format = center
 				maxHeight = 50
-				font = "hoi_18"
+				font = "hoi_18mbs"
 				text = "USA_william_dudley_pelley"
 			}
 		}
@@ -235,53 +284,9 @@ guiTypes = {
             name = "conflict_desc"
 			position = { x = 190 y = 20 }
             text = conflict_desc_text
-            font = "hoi_18"
+            font = "hoi_18mbs"
 			maxWidth = 290
 			maxHeight = 500
         }
-	}
-	
-	extendedScrollbarType = { # horizontal slider, appears if you have more than 4 tabs
-		name = "top_horizontal_slider"
-		position = { x = 0 y = -6 }
-		size = { width = 18 height = 18 }
-		tileSize = { width = 12 height = 12}
-		maxValue = 1
-		minValue = 0
-		stepSize = 0.01
-		startValue = 0
-		horizontal = yes
-		orientation = upper_left
-		origo = upper_left
-
-		background = {
-			name = "Background"
-			quadTextureSprite = "GFX_scrollbar_horisontal_bg"
-		}
-
-		slider = {
-			name = "Slider"
-			quadTextureSprite = "GFX_scroll_drager"
-			position = { x = 0 y = -2 }
-		}
-
-		track = {
-			name = "Track"
-			quadTextureSprite = "GFX_scroll_track_horisontal"
-			position = { x = 0 y = 3 }
-			alwaystransparent = yes
-		}
-
-		decreaseButton = {
-			name = "Decrease"
-			quadTextureSprite = "GFX_scroll_left"
-			position = { x = 3 y = 1 }
-		}
-
-		increaseButton = {
-			name = "Increase"
-			quadTextureSprite = "GFX_scroll_right"
-			position = { x = -19 y = -17 }
-		}
 	}
 }

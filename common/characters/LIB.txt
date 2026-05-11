@@ -86,6 +86,7 @@ characters = {
 		portraits = {
 			civilian = {
 				large = ""
+				small = "gfx/interface/ministers/LIB/LIB_didwho_twe.png"
 			}
 		}
 		
@@ -100,11 +101,9 @@ characters = {
 			slot = political_advisor
 			idea_token = LIB_didwho_twe
 			ledger = civilian
-			
 			available = {
 				is_country_leader = no
 			}
-			
 			traits = {
 				popular_advocate
 			}
@@ -189,6 +188,18 @@ characters = {
 			ideology = military_government_subtype
 			traits = {  }
 		}
+		
+		field_marshal = {
+			traits = {
+				infantry_leader
+				trait_engineer
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+		}
 	}
 	
 	LIB_william_davies_bright = {
@@ -243,6 +254,28 @@ characters = {
 			defense_skill = 2
 			planning_skill = 1
 			logistics_skill = 3
+		}
+	}
+	
+	### High Command ###
+	
+	LIB_joseph_dennis = {
+		name = LIB_joseph_dennis
+		
+		portraits = {
+			army = {
+				#small = ""
+			}
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = LIB_joseph_dennis_high_command
+			ledger = army
+			traits = {
+				army_entrenchment_1
+			}
+			cost = 50
 		}
 	}
 }

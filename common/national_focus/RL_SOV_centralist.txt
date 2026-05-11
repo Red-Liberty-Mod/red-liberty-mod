@@ -1,0 +1,468 @@
+shared_focus = {
+    id = SOV_the_centralists
+	icon = GFX_SOV_the_centralists
+	
+    x = 4
+	y = 0
+	cost = 5
+	
+	offset = {
+		y = 8
+		trigger = {
+			has_focus_tree = SOV_initial_tree
+		}
+	}
+	
+	available = {
+		has_country_flag = SOV_centralists_flag
+	}
+	
+    completion_reward = {
+		swap_ideas = {
+			remove_idea = SOV_political_turmoil_1
+			add_idea = SOV_political_turmoil_2
+		}
+		country_event = {
+			id = sov_centralist.1
+			hours = 6
+		}
+		hidden_effect = {
+			country_event = {
+				id = sov_centralist.2
+				days = 90
+				random_days = 15
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_fan_revolutionary_idealism
+	icon = GFX_focus_FIN_socialist_welfare
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_the_centralists
+	prerequisite = { focus = SOV_the_centralists }
+	mutually_exclusive = { focus = SOV_pull_back_on_class_warfare }
+	
+    completion_reward = {
+		add_war_support = 0.05
+		country_event = {
+			id = sov_centralist.4
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_pull_back_on_class_warfare
+	icon = GFX_focus_spr_class_war
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_the_centralists
+	prerequisite = { focus = SOV_the_centralists }
+	mutually_exclusive = { focus = SOV_fan_revolutionary_idealism }
+	
+    completion_reward = {
+		add_stability = 0.05
+		country_event = {
+			id = sov_centralist.5
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_strengthen_the_gensec
+	icon = GFX_focus_generic_soviet_politics
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_fan_revolutionary_idealism
+	prerequisite = {
+		focus = SOV_fan_revolutionary_idealism
+		focus = SOV_pull_back_on_class_warfare
+	}
+	
+    completion_reward = {
+		swap_ideas = {
+			remove_idea = SOV_political_turmoil_2
+			add_idea = SOV_political_turmoil_3
+		}
+		#add_political_power = 25
+		unlock_decision_tooltip = SOV_moratorium_on_new_members
+		unlock_decision_tooltip = SOV_confiscate_sidearms
+		unlock_decision_tooltip = SOV_strengthen_the_control_commission
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_wind_down_the_nep
+	icon = GFX_SOV_wind_down_the_nep
+	
+    x = 2
+	y = 2
+	cost = 5
+	
+	relative_position_id = SOV_the_centralists
+	prerequisite = { focus = SOV_the_centralists }
+	
+    completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.25
+			uses = 2
+			category = industry
+		}
+		swap_ideas = {
+			remove_idea = SOV_nep_1
+			add_idea = SOV_nep_3a
+			days = 120
+		}
+		country_event = {
+			id = sov_centralist.6
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_beclown_the_rightists
+	icon = GFX_SOV_beclown_the_rightists
+	
+    x = -3
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_strengthen_the_gensec
+	prerequisite = { focus = SOV_strengthen_the_gensec }
+	
+    completion_reward = {
+		add_political_power = 25
+		add_to_variable = {
+			tooltip = SOV_rightist_opinion_lose
+			SOV_rightist_opinion = -5
+		}
+		add_to_variable = {
+			tooltip = SOV_rightist_influence_lose
+			SOV_rightist_influence = -5
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_downscale_the_trade_unions
+	icon = GFX_focus_eng_concessions_to_the_trade_unions
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_strengthen_the_gensec
+	prerequisite = { focus = SOV_strengthen_the_gensec }
+	
+    completion_reward = {
+		add_political_power = 25
+		add_to_variable = {
+			tooltip = SOV_syndicalist_opinion_lose
+			SOV_syndicalist_opinion = -5
+		}
+		add_to_variable = {
+			tooltip = SOV_syndicalist_influence_lose
+			SOV_syndicalist_influence = -5
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_empower_the_rabkrin
+	icon = GFX_SOV_empower_the_rabkrin
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_wind_down_the_nep
+	prerequisite = { focus = SOV_wind_down_the_nep }
+	
+    completion_reward = {
+		add_political_power = 50
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_forced_collectivization
+	icon = GFX_focus_generic_forced_labor
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_wind_down_the_nep
+	prerequisite = { focus = SOV_wind_down_the_nep }
+	
+    completion_reward = {
+		add_stability = -0.05
+		random_owned_controlled_state = {
+			limit = {
+				is_rural_state = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_rural_state = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_rural_state = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_rural_state = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_rural_state = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		country_event = {
+			id = sov_centralist.7
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_dissolve_anarchist_communes
+	icon = GFX_SOV_dissolve_anarchist_communes
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_beclown_the_rightists
+	prerequisite = { focus = SOV_beclown_the_rightists }
+	prerequisite = { focus = SOV_downscale_the_trade_unions }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_control_the_army
+	icon = GFX_focus_chi_army_reform
+	
+    x = 0
+	y = 2
+	cost = 5
+	
+	relative_position_id = SOV_strengthen_the_gensec
+	prerequisite = { focus = SOV_strengthen_the_gensec }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_centralized_economic_planning
+	icon = GFX_focus_SOV_merge_plants
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_empower_the_rabkrin
+	prerequisite = { focus = SOV_empower_the_rabkrin }
+	prerequisite = { focus = SOV_forced_collectivization }
+	
+    completion_reward = {
+		add_ideas = SOV_central_planning_committee_centralist
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_promote_loyal_officers
+	icon = GFX_SOV_promote_loyal_officers
+	
+    x = 0
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_control_the_army
+	prerequisite = { focus = SOV_control_the_army }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_five_year_plan
+	icon = GFX_focus_generic_central_planning
+	
+    x = 0
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_centralized_economic_planning
+	prerequisite = { focus = SOV_centralized_economic_planning }
+	
+    completion_reward = {
+		unlock_decision_category_tooltip = SOV_industrialization_category
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_empower_the_security_service
+	icon = GFX_focus_generic_shadow_government
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_promote_loyal_officers
+	prerequisite = { focus = SOV_promote_loyal_officers }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_militarization_of_labour
+	icon = GFX_goal_generic_construct_mil_factory
+	
+    x = 1
+	y = 2
+	cost = 5
+	
+	relative_position_id = SOV_control_the_army
+	prerequisite = { focus = SOV_five_year_plan }
+	prerequisite = { focus = SOV_control_the_army }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_suppress_the_nepmen
+	icon = GFX_SOV_suppress_the_nepmen
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_forced_collectivization
+	prerequisite = { focus = SOV_forced_collectivization }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_one_union_one_party
+	icon = GFX_focus_SOV_the_path_of_marxism_leninism
+	
+    x = 1
+	y = 1
+	cost = 7
+	
+	relative_position_id = SOV_empower_the_security_service
+	prerequisite = { focus = SOV_empower_the_security_service }
+	prerequisite = { focus = SOV_militarization_of_labour }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}

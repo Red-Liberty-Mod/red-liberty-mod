@@ -1,0 +1,36 @@
+add_namespace = iraq
+
+news_event = {
+	id = iraq.15
+	title = iraq.15.t
+	desc = iraq.15.d
+	picture = GFX_news_event_Iraqirevolt
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = iraq.15.a
+		IRQ={
+			set_politics = {
+				ruling_party = democratic_socialism
+			}
+			add_popularity = {
+				ideology = democratic_socialism
+				popularity = 0.4
+			}
+			remove_ideas={
+				IRQ_ethnic_tension
+				IRQ_khazal_gamble
+			}
+		}
+		ENG={
+			end_puppet = IRQ
+			remove_from_faction = IRQ
+		}
+		AHZ={
+			transfer_state = 413
+		}
+	}
+}

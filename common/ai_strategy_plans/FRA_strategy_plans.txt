@@ -52,8 +52,49 @@ FRA_canon_strategy_plan = {
 	
 	weight = {
 		factor = 1.0
-		modifier = {
-			factor = 1.0
-		}
 	}
 }
+
+FRA_popular_front_strategy_plan = {
+	name = ""
+	desc = ""
+	
+	allowed = {
+		original_tag = FRA
+	}
+
+	enable = {
+		has_completed_focus = FRA_popular_front
+	}
+	
+	abort = {
+		NOT = {
+			original_tag = FRA
+		}
+		is_historical_focus_on = no
+	}
+
+	ai_national_focuses = {
+		FRA_isolate_the_rocquists
+	}
+	
+	research = {
+		infantry_weapons = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		
+	}
+
+	traits = {
+		
+	}
+	
+	weight = {
+		factor = 1.0
+	}
+}
+

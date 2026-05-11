@@ -13,26 +13,13 @@ characters = {
 		### country leader added by event ###
 		
 		advisor = {
+			cost = 0
 			slot = head_of_government
 			idea_token = JAP_hirohito_showa_hog
 			ledger = civilian
-			
 			can_be_fired = no
-			
-			allowed = {
-				original_tag = JAP
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
-				hog_national_figurehead
+				JAP_scion_of_yamato
 			}
 		}
 	}
@@ -42,34 +29,21 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				large = "GFX_portrait_JAP_yasuhito_chichibu"
-				small = "GFX_minister_JAP_yasuhito_chichibu"
+				#large = ""
+				small = "gfx/interface/ministers/JAP/JAP_Yasuhito.png"
 			}
 		}
 		
 		### country leader added by event ###
 		
 		advisor = {
+			cost = 0
 			slot = head_of_government
 			idea_token = JAP_yasuhito_chichibu_hog
 			ledger = civilian
-			
 			can_be_fired = no
-			
-			allowed = {
-				original_tag = JAP
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
-				
+				JAP_nationalist_figurehead
 			}
 		}
 	}
@@ -97,8 +71,15 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				large = "GFX_portrait_JAP_kanson_arahata"
+				#large = ""
+				small = "gfx/interface/ministers/JAP/JAP_Kanson_Arahata.png"
 			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_KANSON_ARAHATA_DESC"
+			ideology = vanguard_socialism_subtype
+			traits = {  }
 		}
 		
 		country_leader = {
@@ -272,62 +253,285 @@ characters = {
 	
 	### Ministers ###
 	
-	JAP_inejiro_asanuma = {
-		name = JAP_inejiro_asanuma
+	## Socialists ##
+	JAP_osugi_sakae = {
+		name = JAP_osugi_sakae
 		
 		portraits = {
 			civilian = {
-				small = "GFX_minister_JAP_inejiro_asanuma"
+				small = "gfx/interface/ministers/JAP/JAP_Osugi_Sakae.png"
 			}
 		}
 		
 		advisor = {
 			slot = political_advisor
-			idea_token = JAP_inejiro_asanuma_political_advisor
+			idea_token = JAP_osugi_sakae
+			cost = 100
 			available = {
-				has_socialist_govt = yes
+				OR = {
+					has_government = anarchism
+					has_country_flag = anarchism_coalition
+				}
 			}
-			
+			traits = {
+				veteran_activist
+			}
+		}
+	}
+	
+	JAP_ishikawa_sanshiro = {
+		name = JAP_ishikawa_sanshiro
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/JAP/JAP_Ishikawa_Sanshiro.png"
+			}
+		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = JAP_ishikawa_sanshiro
+			cost = 100
+			available = {
+				OR = {
+					has_government = anarchism
+					has_country_flag = anarchism_coalition
+				}
+			}
 			traits = {
 				
 			}
 		}
 	}
 	
-	JAP_matsuoka_yosuke = {
-		name = JAP_matsuoka_yosuke
+	JAP_nosaka_sanzo = {
+		name = JAP_nosaka_sanzo
 		
 		portraits = {
 			civilian = {
-				small = GFX_portrait_JAP_matsuoka_yosuke_army_small
+				small = "gfx/interface/ministers/JAP/JAP_Nosaka_Sanzo.png"
+			}
+			#army = {
+			#	large = "gfx/leaders/JAP/Portrait_JAP_Nosaka_Sanzo_LKMT.png"
+			#	small = "gfx/interface/advisors/JAP/JAP_nosaka_sanzo_army.png"
+			#}
+		}
+		
+		#corps_commander = {
+		#	desc = JAP_nosaka_sanzo_commander_desc
+		#	traits = { politically_connected }
+		#	skill = 1
+		#	attack_skill = 1
+		#	defense_skill = 1
+		#	planning_skill = 1
+		#	logistics_skill = 1
+		#}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = JAP_nosaka_sanzo
+			cost = 100
+			available = {
+				OR = {
+					has_government = vanguard_socialism
+					has_country_flag = vanguard_socialism_coalition
+				}
+			}
+			traits = {
+				#JAP_lovable_populist
+			}
+		}
+	}
+	
+	JAP_yamakawa_hitoshi = {
+		name = JAP_yamakawa_hitoshi
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/JAP/JAP_Yamakawa_Hitoshi.png"
 			}
 		}
 		
 		advisor = {
 			slot = political_advisor
-			idea_token = JAP_matsuoka_yosuke_political_advisor
-			traits = { railway_magnate }
+			idea_token = JAP_yamakawa_hitoshi
+			cost = 100
+			available = {
+				OR = {
+					has_government = revolutionary_socialism
+					has_country_flag = revolutionary_socialism_coalition
+					has_country_leader = {
+						character = JAP_kato_shidzue
+						ruling_only = yes
+					}
+				}
+			}
+			traits = {
+				
+			}
 		}
 	}
 	
+	JAP_yamakawa_kikue = {
+		name = JAP_yamakawa_kikue
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/JAP/JAP_Yamakawa_Kikue.png"
+			}
+		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = JAP_yamakawa_kikue
+			cost = 100
+			available = {
+				OR = {
+					has_government = revolutionary_socialism
+					has_country_flag = revolutionary_socialism_coalition
+					has_country_leader = {
+						character = JAP_kato_shidzue
+						ruling_only = yes
+					}
+				}
+			}
+			traits = {
+				feminist_champion
+			}
+		}
+	}
+	
+	JAP_inejiro_asanuma = {
+		name = JAP_inejiro_asanuma
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/JAP/JAP_Inejiro_Asanuma.png"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = JAP_inejiro_asanuma
+			available = {
+				has_socialist_govt = yes
+			}
+			traits = {
+				ideological_crusader
+			}
+		}
+	}
+	
+	## Democrats ##
+	JAP_minobe_tatsukichi = {
+		name = JAP_minobe_tatsukichi
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/JAP/JAP_Minobe_Tatsukichi.png"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = JAP_minobe_tatsukichi
+			available = {
+				has_democratic_govt = yes
+			}
+			traits = {
+				JAP_constitutional_scholar
+			}
+		}
+	}
+	
+	JAP_kijuro_shidehara = {
+		name = JAP_kijuro_shidehara
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/JAP/JAP_Kijuro_Shidehara.png"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = JAP_kijuro_shidehara
+			cost = 100
+			available = {
+				has_democratic_govt = yes
+			}
+			traits = {
+				compassionate_gentleman
+			}
+		}
+	}
+	
+	JAP_ishibashi_tanzan = {
+		name = JAP_ishibashi_tanzan
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/JAP/JAP_Ishibashi_Tanzan.png"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = JAP_ishibashi_tanzan
+			available = {
+				has_democratic_govt = yes
+			}
+			traits = {
+				media_magnate
+			}
+		}
+	}
+	
+	JAP_ozaki_yukio = {
+		name = JAP_ozaki_yukio
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/JAP/JAP_Yukio_Ozaki.png"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = JAP_ozaki_yukio
+			available = {
+				has_democratic_govt = yes
+			}
+			traits = {
+				
+			}
+		}
+	}
+	
+	## Authoritarians ##
 	JAP_fujiwara_ginjiro = {
 		name = JAP_fujiwara_ginjiro
 		
 		portraits = {
 			civilian = {
-				small = "GFX_minister_JAP_fujiwara_ginjiro"
+				small = "gfx/interface/ministers/JAP/JAP_Fujiwara_Ginjiro.png"
 			}
 		}
 		
 		advisor = {
+			cost = 100
 			slot = political_advisor
 			idea_token = JAP_fujiwara_ginjiro
 			available = {
 				has_reactionary_govt = yes
 			}
-			
 			traits = {
-				resource_industrialist
+				industrializer
 			}
 		}
 	}
@@ -337,28 +541,19 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				small = "GFX_minister_JAP_koichi_kido"
+				small = "gfx/interface/ministers/JAP/JAP_Koichi_Kido.png"
 			}
 		}
 		
 		advisor = {
+			cost = 100
 			slot = political_advisor
 			idea_token = JAP_koichi_kido
-			
-			allowed = {
-				original_tag = JAP
-			}
-			
-			visible = {
-				
-			}
-			
 			available = {
 				has_reactionary_govt = yes
 			}
-			
 			traits = {
-				
+				interventionist_economist
 			}
 		}
 	}
@@ -368,33 +563,19 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				large = "GFX_portrait_JAP_seigo_nakano"
-				small = "GFX_minister_JAP_seigo_nakano"
+				small = "gfx/interface/ministers/JAP/JAP_Seigo_Nakano.png"
 			}
 		}
 		
 		advisor = {
 			cost = 100
-			
 			slot = political_advisor
 			idea_token = JAP_seigo_nakano
 			ledger = civilian
-			
-			allowed = {
-				original_tag = JAP
-			}
-			
-			visible = {
-				
-			}
-			
 			available = {
 				has_reactionary_govt = yes
 			}
-			
-			traits = {
-				
-			}
+			traits = { nationalist_ideologue }
 		}
 	}
 	
@@ -403,27 +584,39 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				large = "GFX_portrait_JAP_okawa_shumei"
-				small = "GFX_minister_JAP_okawa_shumei"
+				small = "gfx/interface/ministers/JAP/JAP_Okawa_Shumei.png"
 			}
 		}
 		
 		advisor = {
+			cost = 100
 			slot = political_advisor
 			idea_token = JAP_okawa_shumei
-			
 			available = {
 				has_reactionary_govt = yes
 			}
-			
-			traits = {
-				war_propagandist
+			traits = { war_propagandist }
+		}
+	}
+	
+	JAP_matsuoka_yosuke = {
+		name = JAP_matsuoka_yosuke
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/JAP/JAP_Matsouka_Yosuke.png"
 			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = JAP_matsuoka_yosuke_political_advisor
+			traits = { railway_magnate }
 		}
 	}
 	
 	### Generals ###
-	
 	JAP_terauchi_hisaichi = {
 		name = JAP_terauchi_hisaichi
 		
@@ -620,6 +813,7 @@ characters = {
 		corps_commander = {
 			traits = {
 				JAP_samurai_lineage
+				political_outcast
 				offensive_doctrine
 			}
 			skill = 3
@@ -696,6 +890,61 @@ characters = {
 			defense_skill = 1
 			planning_skill = 1
 			logistics_skill = 1
+		}
+	}
+	
+	JAP_araki_sadao = {
+		name = JAP_araki_sadao
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_JAP_araki_sadao"
+				small = "GFX_minister_JAP_araki_sadao"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				JAP_samurai_lineage
+				#JAP_kodoha_faction
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	
+	JAP_heisuke_yanagawa = {
+		name = JAP_heisuke_yanagawa
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_JAP_heisuke_yanagawa"
+				small = "GFX_minister_JAP_heisuke_yanagawa"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				cavalry_officer
+				cavalry_leader
+				#JAP_kodoha_faction
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = JAP_heisuke_yanagawa
+			traits = { army_cavalry_2 }
+			cost = 100
 		}
 	}
 	
@@ -817,7 +1066,7 @@ characters = {
 	}
 	
 	JAP_mineichi_koga = {
-		name = JAP_isoroku_yamamoto
+		name = JAP_mineichi_koga
 		
 		portraits = {
 			navy = {
@@ -1065,6 +1314,27 @@ characters = {
 			defense_skill = 2
 			maneuvering_skill = 2
 			coordination_skill = 1
+		}
+	}
+	
+	## THEORISTS ##
+	JAP_yoshio_nishida = {
+		name = JAP_yoshio_nishida
+		
+		portraits = {
+			army = {
+				small = "GFX_minister_JAP_yoshio_nishida"
+			}
+		}
+		
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = JAP_yoshio_nishida
+			ledger = army
+			traits = {
+				nuclear_scientist
+			}
 		}
 	}
 }

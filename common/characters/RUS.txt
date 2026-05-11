@@ -1,5 +1,23 @@
 characters = {
 
+	RUS_viktor_chernov = {
+		name = RUS_viktor_chernov
+		
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/RUS/Portrait_RUS_Viktor_Chernov.png"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_VIKTOR_CHERNOV_DESC"
+			ideology = interim_government_subtype
+			traits = {
+				
+			}
+		}
+	}
+
 	RUS_alexander_kolchak = {
 		name = RUS_alexander_kolchak
 		
@@ -26,6 +44,35 @@ characters = {
 			defense_skill = 3
 			planning_skill = 2
 			logistics_skill = 2
+		}
+		
+		advisor = {
+			slot = high_command
+			ledger = navy
+			idea_token = RUS_aleksandr_kolchak_high_command
+			
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			
+			traits = {
+				navy_capital_ship_3
+			}
+			cost = 200
+		}
+		
+		advisor = {
+			slot = navy_chief
+			idea_token = RUS_aleksandr_kolchak_navy_chief
+			
+			available = {
+				not_already_hired_except_as = navy_chief
+			}
+			
+			traits = {
+				navy_chief_decisive_battle_3
+			}
+			cost = 200
 		}
 	}
 	
@@ -149,5 +196,226 @@ characters = {
 			planning_skill = 2
 			logistics_skill = 3
 		}
+		
+		advisor = {
+			slot = political_advisor
+			idea_token = RUS_grigory_semyonov
+			
+			available = {
+				
+			}
+			
+			traits = {
+				old_general
+			}
+		}
 	}
+	
+	RUS_vladimir_kappel = {
+		name = RUS_vladimir_kappel
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_unknown"
+			}
+		}
+			
+		corps_commander = {
+			traits = {
+				brilliant_strategist
+				winter_specialist
+				winter_expert
+			}
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 4
+		}
+	}
+	
+	RUS_alexander_dutov = {
+		name = RUS_alexander_dutov
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_unknown"
+			}
+		}
+			
+		corps_commander = {
+			traits = {
+				cavalry_leader
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+	}
+	
+	RUS_boris_annenkov = {
+		name = RUS_boris_annenkov
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_unknown"
+			}
+		}
+			
+		corps_commander = {
+			traits = {
+				cavalry_leader
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+	}
+	
+	RUS_konstantin_sakharov = {
+		name = RUS_konstantin_sakharov
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_unknown"
+			}
+		}
+			
+		corps_commander = {
+			traits = {
+				
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	
+	RUS_mikhail_khanzhin = {
+		name = RUS_mikhail_khanzhin
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_unknown"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+		
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = RUS_mikhail_khanzhin_high_command
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = { army_artillery_2 }
+			cost = 100
+		}
+		
+		advisor = {
+			slot = army_chief
+			idea_token = RUS_mikhail_khanzhin_army_chief
+			available = {
+				not_already_hired_except_as = army_chief
+			}
+			traits = { army_chief_offensive_2 }
+			cost = 100
+		}
+	}
+	
+	RUS_pavel_bermondt_avalov = {
+		name = RUS_pavel_bermondt_avalov
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_unknown"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				cavalry_officer
+				politically_connected
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	
+	RUS_ivan_romanovsky = {
+		name = RUS_ivan_romanovsky
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_unknown"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				old_guard
+				artillery_officer
+				career_officer
+			}
+			skill = 3
+			attack_skill = 4
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	
+	RUS_vasily_antonov = {
+		name = RUS_vasily_antonov
+		
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/Portrait_FER_Vasily_Antonov.png"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				war_hero
+				career_officer
+				cavalry_leader
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = RUS_vasily_antonov_high_command
+			traits = { army_cavalry_2 }
+			cost = 100
+		}
+	}
+	
+	### High Command ###
+	
+	
 }

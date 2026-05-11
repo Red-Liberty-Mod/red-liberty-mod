@@ -1,7 +1,33 @@
+naval_unit_role_ratios_minors = {
+	allowed = {
+		NOT = {
+			original_tag = GER
+			original_tag = ENG
+			original_tag = FRA
+			original_tag = JAP
+			original_tag = USA
+			original_tag = SOV
+		}
+	}
+	enable = { num_of_naval_factories > 0 }
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_screen
+		value = 10
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_submarine
+		value = 50
+	}
+}
 
 naval_unit_role_ratios_GER = {
 	allowed = {
-		has_dlc_mtg = yes
 		tag = GER
 	}
 	enable = { always = yes }
@@ -28,7 +54,6 @@ naval_unit_role_ratios_GER = {
 
 naval_unit_role_ratios_ENG = {
 	allowed = {
-		has_dlc_mtg = yes
 		tag = ENG
 	}
 	enable = { always = yes }
@@ -55,7 +80,6 @@ naval_unit_role_ratios_ENG = {
 
 naval_unit_role_ratios_FRA = {
 	allowed = {
-		has_dlc_mtg = yes
 		tag = FRA
 	}
 	enable = { always = yes }
@@ -75,7 +99,6 @@ naval_unit_role_ratios_FRA = {
 
 naval_unit_role_ratios_JAP = {
 	allowed = {
-		has_dlc_mtg = yes
 		tag = JAP
 	}
 	enable = { always = yes }
@@ -102,7 +125,6 @@ naval_unit_role_ratios_JAP = {
 
 naval_unit_role_ratios_USA = {
 	allowed = {
-		has_dlc_mtg = yes
 		tag = USA
 	}
 	enable = { always = yes }
@@ -145,10 +167,21 @@ naval_unit_role_ratios_USA = {
 	}
 }
 
-high_mine_threat = {
+naval_unit_role_ratios_SOV = {
 	allowed = {
-		has_dlc_mtg = yes
+		tag = SOV
 	}
+	enable = { always = yes }
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = naval_submarine
+		value = 100
+	}
+}
+
+high_mine_threat = {
 	enable = {
 		mine_threat > 0.2
 	}

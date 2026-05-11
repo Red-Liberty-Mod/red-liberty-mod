@@ -1,3 +1,211 @@
+AHE_saving_the_empire_category = {
+	
+	AHE_give_a_speech = {
+		
+		allowed = {
+			original_tag = AHE
+		}
+		
+		available = {
+			
+		}
+
+		cost = 25
+		days_re_enable = 30
+		
+		complete_effect = {
+			add_stability = 0.025
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	AHE_invest_into_influence = {
+		
+		allowed = {
+			original_tag = AHE
+		}
+		
+		available = {
+			
+		}
+		
+		days_remove = 30
+		
+		modifier = {
+			political_power_factor = 0.15
+			production_speed_buildings_factor = -0.05
+		}
+		
+		complete_effect = {
+			add_political_power = 10
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	AHE_anti_corruption = {
+		
+		allowed = {
+			original_tag = AHE
+		}
+		
+		available = {
+			
+		}
+
+		cost = 25
+		days_re_enable = 30
+		
+		complete_effect = {
+			add_stability = 0.025
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	AHE_reorganize_gendarmerie = {
+		
+		allowed = {
+			original_tag = AHE
+		}
+		
+		available = {
+			
+		}
+
+		cost = 25
+		days_re_enable = 30
+		
+		complete_effect = {
+			add_stability = 0.025
+			set_country_flag = AHE_reorganized_gendarmerie_flag
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	AHE_german_investment_mission = {
+		icon = GFX_decision_revolt
+
+		available = {
+			
+		}
+		
+		activation = {
+			
+		}
+		
+		is_good = yes
+		days_mission_timeout = 60
+		selectable_mission = yes
+		cost = 25
+		
+		complete_effect = {
+			random_owned_state = {
+				prioritize = { 4 152 153 }
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		
+		timeout_effect = {
+			random_owned_state = {
+				prioritize = { 9 43 75 89 109 }
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	AHE_radical_agitation_mission = {
+		icon = GFX_decision_revolt
+
+		available = {
+			
+		}
+		
+		activation = {
+			
+		}
+		
+		is_good = no
+		days_mission_timeout = 45
+		selectable_mission = yes
+		cost = 25
+		
+		complete_effect = {
+			
+		}
+		
+		timeout_effect = {
+			random_list = {
+				33 = {
+					add_popularity = {
+						ideology = revolutionary_socialism
+						popularity = 0.001
+					}
+				}
+				33 = {
+					add_popularity = {
+						ideology = democratic_socialism
+						popularity = 0.001
+					}
+				}
+				33 = {
+					add_popularity = {
+						ideology = fascism
+						popularity = 0.001
+					}
+				}
+			}
+		}
+	}
+	
+	AHE_ethnic_unrest_mission = {
+		icon = GFX_decision_revolt
+
+		available = {
+			
+		}
+		
+		activation = {
+			
+		}
+		
+		is_good = no
+		days_mission_timeout = 45
+		selectable_mission = yes
+		
+		custom_cost_trigger = {
+            command_power > 9
+        }
+		custom_cost_text = CP_10
+		
+		complete_effect = {
+			
+		}
+		
+		timeout_effect = {
+			add_stability = -0.025
+		}
+	}
+}
+
 AHE_austrian_revolution_category = {
 	
 	AHE_rote_front = {
@@ -10,21 +218,418 @@ AHE_austrian_revolution_category = {
 			has_socialist_govt = yes
 		}
 
-		cost = 0
+		cost = 10
 		
 		fire_only_once = yes
 
 		complete_effect = {
 			create_faction = "Red Front"
+			#add_to_faction = HUN
 		}
 		
 		ai_will_do = {
-			factor = 0
-			
-			modifier = {
-				add = 1000
-				date > 1936.11.1
+			factor = 10
+		}
+	}
+	
+	AHE_september_constitution_mission = {
+		
+		allowed = {
+			original_tag = AHE
+		}
+		
+		available = {
+			always = no
+		}
+		
+		activation = {
+			has_completed_focus = AHE_the_austrian_revolution
+			NOT = {
+				has_completed_focus = AHE_september_constitution
 			}
+		}
+		
+		is_good = yes
+		fire_only_once = yes
+		
+		days_mission_timeout = 20
+
+		timeout_effect = {
+			complete_national_focus = AHE_september_constitution
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	AHE_lower_austria_offensive = {
+		icon = hol_draw_up_staff_plans
+
+		allowed = {
+			original_tag = AHE
+		}
+
+		available = {
+			NOT = { has_full_control_of_state = 4 }
+			4 = {
+				OR = {
+					is_controlled_by = ROOT
+					any_neighbor_state = {
+						is_controlled_by = ROOT
+					}
+				}
+			}
+			NOT = {
+				has_country_flag = planning_offensive
+			}
+		}
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 4 } 
+ 			highlight_color_before_active = 3
+			highlight_color_while_active = 2
+		}
+
+		on_map_mode = map_only
+
+		cost = 0
+
+		fire_only_once = yes
+
+		days_remove = 14
+
+		modifier = {
+			
+		}
+
+		visible = {
+			has_global_flag = austrian_civil_war_started
+			NOT = { has_global_flag = austrian_civil_war_over }
+		}
+
+		complete_effect = {
+			set_country_flag = planning_offensive
+		}
+
+		remove_effect = {
+			4 = {
+				remove_dynamic_modifier = {
+					modifier = AHE_unplanned_offensive
+				}
+			}
+			clr_country_flag = planning_offensive
+		}
+
+		ai_will_do = {
+			base = 0.1
+			modifier = {
+				factor = 0
+				has_full_control_of_state = 4
+			}
+			modifier = {
+				factor = 10
+				divisions_in_state = {
+					state = 4
+					size > 0
+				}
+				NOT = {
+					has_full_control_of_state = 4
+				}
+			}
+		}
+	}
+	
+	AHE_upper_austria_offensive = {
+		icon = hol_draw_up_staff_plans
+
+		allowed = {
+			original_tag = AHE
+		}
+
+		available = {
+			NOT = { has_full_control_of_state = 152 }
+			152 = {
+				OR = {
+					is_controlled_by = ROOT
+					any_neighbor_state = {
+						is_controlled_by = ROOT
+					}
+				}
+			}
+			NOT = {
+				has_country_flag = planning_offensive
+			}
+		}
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 152 } 
+ 			highlight_color_before_active = 3
+			highlight_color_while_active = 2
+		}
+
+		on_map_mode = map_only
+
+		cost = 0
+
+		fire_only_once = yes
+
+		days_remove = 14
+
+		modifier = {
+			
+		}
+
+		visible = {
+			has_global_flag = austrian_civil_war_started
+			NOT = { has_global_flag = austrian_civil_war_over }
+		}
+
+		complete_effect = {
+			set_country_flag = planning_offensive
+		}
+
+		remove_effect = {
+			152 = {
+				remove_dynamic_modifier = {
+					modifier = AHE_unplanned_offensive
+				}
+			}
+			clr_country_flag = planning_offensive
+		}
+
+		ai_will_do = {
+			base = 0.1
+			modifier = {
+				factor = 0
+				has_full_control_of_state = 152
+			}
+			modifier = {
+				factor = 10
+				divisions_in_state = {
+					state = 152
+					size > 0
+				}
+				NOT = {
+					has_full_control_of_state = 152
+				}
+			}
+		}
+	}
+	
+	AHE_salzburg_offensive = {
+		icon = hol_draw_up_staff_plans
+
+		allowed = {
+			original_tag = AHE
+		}
+
+		available = {
+			NOT = { has_full_control_of_state = 963 }
+			963 = {
+				OR = {
+					is_controlled_by = ROOT
+					any_neighbor_state = {
+						is_controlled_by = ROOT
+					}
+				}
+			}
+			NOT = {
+				has_country_flag = planning_offensive
+			}
+		}
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 963 } 
+ 			highlight_color_before_active = 3
+			highlight_color_while_active = 2
+		}
+
+		on_map_mode = map_only
+
+		cost = 0
+
+		fire_only_once = yes
+
+		days_remove = 14
+
+		modifier = {
+			
+		}
+
+		visible = {
+			has_global_flag = austrian_civil_war_started
+			NOT = { has_global_flag = austrian_civil_war_over }
+		}
+
+		complete_effect = {
+			set_country_flag = planning_offensive
+		}
+
+		remove_effect = {
+			963 = {
+				remove_dynamic_modifier = {
+					modifier = AHE_unplanned_offensive
+				}
+			}
+			clr_country_flag = planning_offensive
+		}
+
+		ai_will_do = {
+			base = 0.1
+			modifier = {
+				factor = 0
+				has_full_control_of_state = 963
+			}
+			modifier = {
+				factor = 10
+				divisions_in_state = {
+					state = 963
+					size > 0
+				}
+				NOT = {
+					has_full_control_of_state = 963
+				}
+			}
+		}
+	}
+	
+	AHE_tyrol_offensive = {
+		icon = hol_draw_up_staff_plans
+
+		allowed = {
+			original_tag = AHE
+		}
+
+		available = {
+			NOT = { has_full_control_of_state = 153 }
+			153 = {
+				OR = {
+					is_controlled_by = ROOT
+					any_neighbor_state = {
+						is_controlled_by = ROOT
+					}
+				}
+			}
+			NOT = {
+				has_country_flag = planning_offensive
+			}
+		}
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 153 } 
+ 			highlight_color_before_active = 3
+			highlight_color_while_active = 2
+		}
+
+		on_map_mode = map_only
+
+		cost = 0
+
+		fire_only_once = yes
+
+		days_remove = 14
+
+		modifier = {
+			
+		}
+
+		visible = {
+			has_global_flag = austrian_civil_war_started
+			NOT = { has_global_flag = austrian_civil_war_over }
+		}
+
+		complete_effect = {
+			set_country_flag = planning_offensive
+		}
+
+		remove_effect = {
+			153 = {
+				remove_dynamic_modifier = {
+					modifier = AHE_unplanned_offensive
+				}
+			}
+			clr_country_flag = planning_offensive
+		}
+
+		ai_will_do = {
+			base = 0.1
+			modifier = {
+				factor = 0
+				has_full_control_of_state = 153
+			}
+			modifier = {
+				factor = 10
+				divisions_in_state = {
+					state = 153
+					size > 0
+				}
+				NOT = {
+					has_full_control_of_state = 153
+				}
+			}
+		}
+	}
+}
+
+generic_collapse_category = {
+	
+	generic_raid_armories = {
+		
+		allowed = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		days_remove = 14
+		fire_only_once = yes
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 500
+				producer = AHE
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 25
+				producer = AHE
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	generic_military_industry = {
+		
+		allowed = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		days_remove = 14
+		fire_only_once = yes
+		
+		remove_effect = {
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
 		}
 	}
 }

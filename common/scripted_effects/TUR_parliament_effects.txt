@@ -1,0 +1,233 @@
+TUR_recalc_parliament = {
+	
+	set_variable = { old_seats_total = seats_total }
+	
+	### COMMUNISTS ###
+	set_variable = {
+		communist_seats = party_popularity@vanguard_socialism
+	}
+	add_to_variable = {
+		communist_seats = party_popularity@revolutionary_socialism
+	}
+	if = {
+		limit = {
+			check_variable = { communist_seats < 0.1 }
+		}
+		multiply_variable = { communist_seats = 0.25 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { communist_seats < 0.2 }
+		}
+		multiply_variable = { communist_seats = 0.75 }
+	}
+	
+	### SOCIALISTS ###
+	set_variable = {
+		socialist_seats = party_popularity@democratic_socialism
+	}
+	add_to_variable = {
+		socialist_seats = party_popularity@social_democracy
+	}
+	if = {
+		limit = {
+			check_variable = { socialist_seats < 0.1 }
+		}
+		multiply_variable = { socialist_seats = 0.7 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { socialist_seats < 0.2 }
+		}
+		multiply_variable = { socialist_seats = 0.9 }
+	}
+	
+	### LIBERALS ###
+	set_variable = {
+		liberal_seats = party_popularity@progressive_liberalism
+	}
+	if = {
+		limit = {
+			check_variable = { liberal_seats < 0.1 }
+		}
+		multiply_variable = { socialist_seats = 0.9 }
+	}
+	
+	### MODERATES ###
+	set_variable = {
+		moderate_seats = party_popularity@liberal_conservatism
+	}
+	
+	### ISLAMISTS ###
+	set_variable = {
+		conservative_seats = party_popularity@national_conservatism
+	}
+	add_to_variable = {
+		conservative_seats = party_popularity@authoritarian_democracy
+	}
+	add_to_variable = {
+		conservative_seats = party_popularity@despotism
+	}
+	
+	### MINORITIES ###
+	set_variable = {
+		armenian_seats = 0.025
+	}
+	
+	### TOTALING AND ROUNDING ###
+	multiply_variable = {
+		communist_seats = old_seats_total
+	}
+	multiply_variable = {
+		socialist_seats = old_seats_total
+	}
+	multiply_variable = {
+		liberal_seats = old_seats_total
+	}
+	multiply_variable = {
+		moderate_seats = old_seats_total
+	}
+	multiply_variable = {
+		conservative_seats = old_seats_total
+	}
+	multiply_variable = {
+		armenian_seats = old_seats_total
+	}
+	
+	round_variable = communist_seats
+	round_variable = socialist_seats
+	round_variable = liberal_seats
+	round_variable = moderate_seats
+	round_variable = conservative_seats
+	round_variable = armenian_seats
+	
+	### FINISHING UP ###
+	set_variable = {
+		seats_total = 0
+	}
+	add_to_variable = {
+		seats_total = communist_seats
+	}
+	add_to_variable = {
+		seats_total = socialist_seats
+	}
+	add_to_variable = {
+		seats_total = liberal_seats
+	}
+	add_to_variable = {
+		seats_total = moderate_seats
+	}
+	add_to_variable = {
+		seats_total = conservative_seats
+	}
+	add_to_variable = {
+		seats_total = armenian_seats
+	}
+	
+	subtract_from_variable = { # checks for discrepancy
+		old_seats_total = seats_total
+	}
+	
+	if = { # fixes discrepancy
+		limit = {
+			NOT = {
+				check_variable = {
+					old_seats_total = 0
+				}
+			}
+		}
+		log = "[THIS.GetName] TUR_recalc_parliament discrepancy found: [?old_seats_total]"
+		
+		set_variable = {
+			partial_discrepency = old_seats_total
+		}
+		multiply_variable = {
+			partial_discrepency = 0.6
+		}
+		round_variable = partial_discrepency
+		
+		if = { # positive discrepency, too few seats
+			limit = {
+				check_variable = {
+					partial_discrepency > 0 #positive
+				}
+			}
+			
+			subtract_from_variable = {
+				old_seats_total = partial_discrepency
+			}
+			add_to_variable = {
+				moderate_seats = partial_discrepency
+			}
+			add_to_variable = {
+				conservative_seats = old_seats_total
+			}
+		}
+		else = { # negative discrepency, too many seats
+			subtract_from_variable = {
+				old_seats_total = partial_discrepency
+			}
+			add_to_variable = {
+				conservative_seats = old_seats_total
+			}
+			add_to_variable = {
+				moderate_seats = partial_discrepency
+			}
+		}
+	}
+	
+	set_variable = {
+		seats_total = 0
+	}
+	add_to_variable = {
+		seats_total = communist_seats
+	}
+	add_to_variable = {
+		seats_total = socialist_seats
+	}
+	add_to_variable = {
+		seats_total = liberal_seats
+	}
+	add_to_variable = {
+		seats_total = moderate_seats
+	}
+	add_to_variable = {
+		seats_total = conservative_seats
+	}
+	add_to_variable = {
+		seats_total = armenian_seats
+	}
+	
+	TUR_recalc_coalition_seats = yes
+}
+
+TUR_recalc_coalition_seats = {
+	
+	set_variable = {
+		coalition_seats = 0
+	}
+	if = {
+		limit = {
+			has_country_flag = social_democracy_coalition
+		}
+		add_to_variable = {
+			coalition_seats = socialist_seats
+		}
+	}
+	if = {
+		limit = {
+			has_country_flag = progressive_liberalism_coalition
+		}
+		add_to_variable = {
+			coalition_seats = liberal_seats
+		}
+	}
+	if = {
+		limit = {
+			has_country_flag = liberal_conservatism_coalition
+		}
+		add_to_variable = {
+			coalition_seats = moderate_seats
+		}
+	}
+}

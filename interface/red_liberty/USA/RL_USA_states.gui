@@ -1,0 +1,1041 @@
+guiTypes = {
+	containerWindowType = {
+		name = "USA_states_button_container"
+		position = { x = 120 y = 385 }
+
+		buttonType = {
+			name = "USA_states_button"
+			position = { x = 0 y = 0 }
+			spriteType = "GFX_USA_congress_reigns_supreme"
+			pdx_tooltip = "USA_electoral_map_tt"
+		}
+	}
+	
+	containerWindowType = {
+		name = "USA_states_map_window"
+		size = { width = 1200 height = 700 }
+		position = { x=-1100 y=-450 }
+		show_position = { x=-400 y=-450 }
+		
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
+
+		animation_time = 300
+		moveable = yes
+		show_sound = menu_open_window
+		click_to_front = yes
+
+		orientation = center
+		
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_tiled_window_thin_border2"
+		}
+		
+		containerWindowType = {
+			name = "USA_states_header_container"
+			size = { width = 0 height = 0 }
+			position = { x = 200 y = 4 }
+			
+			iconType = {
+				name = "USA_states_gui_header"
+				position = { x = 0 y = 0 }
+				spriteType = "GFX_header2"
+			}
+			
+			instantTextBoxType = {
+				name = "USA_states_gui_name"
+				position = { x = 113 y = 5 }
+				format = center
+				maxHeight = 50
+				maxWidth = 300
+				font = hoi_30header
+				text = "The United States"
+			}
+		}
+		
+		containerWindowType = {
+			name = "USA_states_button_container"
+			size = { width = 0 height = 0 }
+			position = { x = 332 y = 47 }
+			
+			buttonType = {
+				name = "USA_button_senate_view"
+				position = { x = 0 y = 0 }
+				spriteType = "GFX_army_deploy_button"
+				clicksound = click_default
+				buttonText = "Senate"
+				buttonFont = hoi_18mbs
+				pdx_tooltip = "USA_button_senate_view_tt"
+			}
+			
+			buttonType = {
+				name = "USA_button_house_view"
+				position = { x = 90 y = 0 }
+				spriteType = "GFX_army_deploy_button"
+				clicksound = click_default
+				buttonText = "House"
+				buttonFont = hoi_18mbs
+				pdx_tooltip = "USA_button_house_view_tt"
+			}
+			
+			buttonType = {
+				name = "USA_button_election_view"
+				position = { x = 180 y = 0 }
+				spriteType = "GFX_army_deploy_button"
+				clicksound = click_default
+				buttonText = "Election"
+				buttonFont = hoi_18mbs
+				pdx_tooltip = "USA_button_election_view_tt"
+			}
+		}
+		
+		containerWindowType = {
+			name = "USA_states_speaker_container"
+			size = { width = 0 height = 0 }
+			position = { x = 950 y = 80 }
+			
+			iconType = { # speaker of the house
+				name = "USA_states_gui_speaker"
+				position = { x = 0 y = 0 }
+				quadTextureSprite = ""
+				pdx_tooltip = "USA_position_name"
+				pdx_tooltip_delayed = "USA_position_desc"
+			}
+			
+			iconType = {
+				name = "USA_states_gui_speaker_frame"
+				spriteType = "GFX_pol_leader_frame"
+				position = { x = -8 y = -7 }		
+				alwaystransparent = yes
+			}
+			
+			instantTextBoxType = {
+				name = "USA_states_gui_speaker_title"
+				position = { x = -23 y = 220 }
+				format = center
+				maxHeight = 50
+				font = hoi_18mbs
+				text = "[USA_GetCongressTitle]"
+			}
+		}
+		
+		#containerWindowType = {
+		#	name = "USA_checkbox_container"
+		#	size = { width = 0 height = 0 }
+		#	position = { x = 25 y = 650 }
+		#	
+		#	checkboxType = {
+		#		name = "USA_hide_states_checkbox"
+		#		position = { x = 0 y = 0 }
+		#		quadTextureSprite = "GFX_generic_checkbox3"
+		#		clicksound = decisions_ui_button
+		#		pdx_tooltip = "USA_hide_states_checkbox_tt"
+		#	}
+		#	
+		#	instantTextBoxType = {
+		#		name = "USA_hide_states_checkbox_title"
+		#		position = { x = 30 y = 4 }
+		#		format = left
+		#		maxHeight = 50
+		#		font = hoi_16mbs
+		#		text = "Hide seats not up for election"
+		#	}
+		#}
+		
+		##################################################
+		
+		containerWindowType = {
+			name = "USA_states_gui_container"
+			size = { width = 0 height = 0 }
+			position = { x = -20 y = 0 }
+			
+			iconType = { # background
+				name = "USA_states_gui_BG"
+				position = { x = 119 y = 121 }
+				spriteType = "GFX_USA_states_gui_BG"
+			}
+			
+			### Alabama ###
+			containerWindowType = { # every state is composed of two layers
+				name = "USA_states_gui_367_container"
+				size = { width = 0 height = 0 }
+				position = { x = 627 y = 419 }
+				
+				iconType = { # the first layer has all the tooltips
+					name = "USA_states_gui_367_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "USA_states_gui_367_tt"
+					pdx_tooltip_delayed = "USA_states_gui_367_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_367_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes # prevents it from interfering with the tooltip
+				}
+			}
+			
+			### Arkansas ###
+			containerWindowType = {
+				name = "USA_states_gui_372_container"
+				size = { width = 0 height = 0 }
+				position = { x = 531 y = 397 }
+				
+				iconType = {
+					name = "USA_states_gui_372_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "USA_states_gui_372_tt"
+					pdx_tooltip_delayed = "USA_states_gui_372_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_372_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			### Arizona ###
+			containerWindowType = {
+				name = "USA_states_gui_377_container"
+				size = { width = 0 height = 0 }
+				position = { x = 222 y = 364 }
+				
+				iconType = {
+					name = "USA_states_gui_377_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "USA_states_gui_377_tt"
+					pdx_tooltip_delayed = "USA_states_gui_377_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_377_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_378_container"
+				size = { width = 0 height = 0 }
+				position = { x = 121 y = 242 }
+				
+				iconType = {
+					name = "USA_states_gui_378_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "USA_states_gui_378_tt"
+					pdx_tooltip_delayed = "USA_states_gui_378_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_378_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_382_container"
+				size = { width = 0 height = 0 }
+				position = { x = 321 y = 305 }
+				
+				iconType = {
+					name = "USA_states_gui_382_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "USA_states_gui_382_tt"
+					pdx_tooltip_delayed = "USA_states_gui_382_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_382_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_830_container"
+				size = { width = 0 height = 0 }
+				position = { x = 814 y = 256 }
+				
+				iconType = {
+					name = "USA_states_gui_830_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "USA_states_gui_830_tt"
+					pdx_tooltip_delayed = "USA_states_gui_830_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_830_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_833_container"
+				size = { width = 0 height = 0 }
+				position = { x = 794 y = 313 }
+				
+				iconType = {
+					name = "USA_states_gui_833_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "USA_states_gui_833_tt"
+					pdx_tooltip_delayed = "USA_states_gui_833_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_833_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			### Florida ###
+			containerWindowType = {
+				name = "USA_states_gui_366_container"
+				size = { width = 0 height = 0 }
+				position = { x = 642 y = 489 }
+				
+				iconType = {
+					name = "USA_states_gui_366_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "USA_states_gui_366_tt"
+					pdx_tooltip_delayed = "USA_states_gui_366_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_366_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			### Georgia ###
+			containerWindowType = {
+				name = "USA_states_gui_365_container"
+				size = { width = 0 height = 0 }
+				position = { x = 666 y = 415 } # lmao
+				
+				iconType = {
+					name = "USA_states_gui_365_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "USA_states_gui_365_tt"
+					pdx_tooltip_delayed = "USA_states_gui_365_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_365_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			### Iowa ###
+			containerWindowType = {
+				name = "USA_states_gui_392_container"
+				size = { width = 0 height = 0 }
+				position = { x = 502 y = 268 }
+				
+				iconType = {
+					name = "USA_states_gui_392_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "USA_states_gui_392_tt"
+					pdx_tooltip_delayed = "USA_states_gui_392_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_392_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			### Idaho ###
+			containerWindowType = {
+				name = "USA_states_gui_387_container"
+				size = { width = 0 height = 0 }
+				position = { x = 226 y = 141 }
+				
+				iconType = {
+					name = "USA_states_gui_387_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "USA_states_gui_387_tt"
+					pdx_tooltip_delayed = "USA_states_gui_387_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_387_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_395_container"
+				size = { width = 0 height = 0 }
+				position = { x = 572 y = 283 }
+				
+				iconType = {
+					name = "USA_states_gui_395_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_IL_tt"
+					pdx_tooltip_delayed = "USA_states_gui_IL_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_395_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_396_container"
+				size = { width = 0 height = 0 }
+				position = { x = 625 y = 294 }
+				
+				iconType = {
+					name = "USA_states_gui_396_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_IN_tt"
+					pdx_tooltip_delayed = "USA_states_gui_IN_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_396_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_383_container"
+				size = { width = 0 height = 0 }
+				position = { x = 422 y = 332 }
+				
+				iconType = {
+					name = "USA_states_gui_383_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_KS_tt"
+					pdx_tooltip_delayed = "USA_states_gui_KS_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_383_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_369_container"
+				size = { width = 0 height = 0 }
+				position = { x = 609 y = 341 }
+				
+				iconType = {
+					name = "USA_states_gui_369_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_KY_tt"
+					pdx_tooltip_delayed = "USA_states_gui_KY_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_369_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_371_container"
+				size = { width = 0 height = 0 }
+				position = { x = 540 y = 463 }
+				
+				iconType = {
+					name = "USA_states_gui_371_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_LA_tt"
+					pdx_tooltip_delayed = "USA_states_gui_LA_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_371_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_827_container"
+				size = { width = 0 height = 0 }
+				position = { x = 831 y = 149 }
+				
+				iconType = {
+					name = "USA_states_gui_827_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "USA_states_gui_827_tt"
+					pdx_tooltip_delayed = "USA_states_gui_827_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_827_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_357_container"
+				size = { width = 0 height = 0 }
+				position = { x = 813 y = 238 }
+				
+				iconType = {
+					name = "USA_states_gui_357_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_MA_tt"
+					pdx_tooltip_delayed = "USA_states_gui_MA_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_357_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_361_container"
+				size = { width = 0 height = 0 }
+				position = { x = 742 y = 309 }
+				
+				iconType = {
+					name = "USA_states_gui_361_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_MD_tt"
+					pdx_tooltip_delayed = "USA_states_gui_MD_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_361_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_393_container"
+				size = { width = 0 height = 0 }
+				position = { x = 583 y = 193 }
+				
+				iconType = {
+					name = "USA_states_gui_393_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_MI_tt"
+					pdx_tooltip_delayed = "USA_states_gui_MI_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_393_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_391_container"
+				size = { width = 0 height = 0 }
+				position = { x = 496 y = 163 }
+				
+				iconType = {
+					name = "USA_states_gui_391_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_MN_tt"
+					pdx_tooltip_delayed = "USA_states_gui_MN_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_391_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_370_container"
+				size = { width = 0 height = 0 }
+				position = { x = 579 y = 423 }
+				
+				iconType = {
+					name = "USA_states_gui_370_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_MS_tt"
+					pdx_tooltip_delayed = "USA_states_gui_MS_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_370_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_373_container"
+				size = { width = 0 height = 0 }
+				position = { x = 514 y = 322 }
+				
+				iconType = {
+					name = "USA_states_gui_373_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_MO_tt"
+					pdx_tooltip_delayed = "USA_states_gui_MO_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_373_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_388_container"
+				size = { width = 0 height = 0 }
+				position = { x = 263 y = 144 }
+				
+				iconType = {
+					name = "USA_states_gui_388_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_MT_tt"
+					pdx_tooltip_delayed = "USA_states_gui_MT_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_388_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_384_container"
+				size = { width = 0 height = 0 }
+				position = { x = 399 y = 274 }
+				
+				iconType = {
+					name = "USA_states_gui_384_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_NE_tt"
+					pdx_tooltip_delayed = "USA_states_gui_NE_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_384_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_379_container"
+				size = { width = 0 height = 0 }
+				position = { x = 173 y = 257 }
+				
+				iconType = {
+					name = "USA_states_gui_379_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_NV_tt"
+					pdx_tooltip_delayed = "USA_states_gui_NV_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_379_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_359_container"
+				size = { width = 0 height = 0 }
+				position = { x = 796 y = 276 }
+				
+				iconType = {
+					name = "USA_states_gui_359_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_NJ_tt"
+					pdx_tooltip_delayed = "USA_states_gui_NJ_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_359_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_358_container"
+				size = { width = 0 height = 0 }
+				position = { x = 730 y = 207 }
+				
+				iconType = {
+					name = "USA_states_gui_358_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_NY_tt"
+					pdx_tooltip_delayed = "USA_states_gui_NY_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_358_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_828_container"
+				size = { width = 0 height = 0 }
+				position = { x = 822 y = 195 }
+				
+				iconType = {
+					name = "USA_states_gui_828_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_NH_tt"
+					pdx_tooltip_delayed = "USA_states_gui_NH_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_828_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_363_container"
+				size = { width = 0 height = 0 }
+				position = { x = 684 y = 367 }
+				
+				iconType = {
+					name = "USA_states_gui_363_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_NC_tt"
+					pdx_tooltip_delayed = "USA_states_gui_NC_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_363_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_389_container"
+				size = { width = 0 height = 0 }
+				position = { x = 407 y = 166 }
+				
+				iconType = {
+					name = "USA_states_gui_389_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_ND_tt"
+					pdx_tooltip_delayed = "USA_states_gui_ND_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_389_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_261_container"
+				size = { width = 0 height = 0 }
+				position = { x = 664 y = 281 }
+				
+				iconType = {
+					name = "USA_states_gui_261_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_OH_tt"
+					pdx_tooltip_delayed = "USA_states_gui_OH_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_261_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_385_container"
+				size = { width = 0 height = 0 }
+				position = { x = 131 y = 168 }
+				
+				iconType = {
+					name = "USA_states_gui_385_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_OR_tt"
+					pdx_tooltip_delayed = "USA_states_gui_OR_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_385_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_360_container"
+				size = { width = 0 height = 0 }
+				position = { x = 721 y = 267 }
+				
+				iconType = {
+					name = "USA_states_gui_360_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_PA_tt"
+					pdx_tooltip_delayed = "USA_states_gui_PA_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_360_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_831_container"
+				size = { width = 0 height = 0 }
+				position = { x = 836 y = 255 }
+				
+				iconType = {
+					name = "USA_states_gui_831_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_RI_tt"
+					pdx_tooltip_delayed = "USA_states_gui_RI_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_831_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_364_container"
+				size = { width = 0 height = 0 }
+				position = { x = 700 y = 407 }
+				
+				iconType = {
+					name = "USA_states_gui_364_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_SC_tt"
+					pdx_tooltip_delayed = "USA_states_gui_SC_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_364_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_390_container"
+				size = { width = 0 height = 0 }
+				position = { x = 402 y = 220 }
+				
+				iconType = {
+					name = "USA_states_gui_390_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_SD_tt"
+					pdx_tooltip_delayed = "USA_states_gui_SD_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_390_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_368_container"
+				size = { width = 0 height = 0 }
+				position = { x = 598 y = 382 }
+				
+				iconType = {
+					name = "USA_states_gui_368_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_TN_tt"
+					pdx_tooltip_delayed = "USA_states_gui_TN_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_368_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_375_container"
+				size = { width = 0 height = 0 }
+				position = { x = 345 y = 396 }
+				
+				iconType = {
+					name = "USA_states_gui_375_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_TX_tt"
+					pdx_tooltip_delayed = "USA_states_gui_TX_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_375_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_376_container"
+				size = { width = 0 height = 0 }
+				position = { x = 306 y = 377 }
+				
+				iconType = {
+					name = "USA_states_gui_376_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_NM_tt"
+					pdx_tooltip_delayed = "USA_states_gui_NM_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_376_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_374_container"
+				size = { width = 0 height = 0 }
+				position = { x = 407 y = 386 }
+				
+				iconType = {
+					name = "USA_states_gui_374_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_OK_tt"
+					pdx_tooltip_delayed = "USA_states_gui_OK_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_374_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_380_container"
+				size = { width = 0 height = 0 }
+				position = { x = 249 y = 273 }
+				
+				iconType = {
+					name = "USA_states_gui_380_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_UT_tt"
+					pdx_tooltip_delayed = "USA_states_gui_UT_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_380_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_829_container"
+				size = { width = 0 height = 0 }
+				position = { x = 804 y = 202 }
+				
+				iconType = {
+					name = "USA_states_gui_829_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_VT_tt"
+					pdx_tooltip_delayed = "USA_states_gui_VT_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_829_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_362_container"
+				size = { width = 0 height = 0 }
+				position = { x = 699 y = 323 }
+				
+				iconType = {
+					name = "USA_states_gui_362_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_VA_tt"
+					pdx_tooltip_delayed = "USA_states_gui_VA_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_362_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_386_container"
+				size = { width = 0 height = 0 }
+				position = { x = 158 y = 124 }
+				
+				iconType = {
+					name = "USA_states_gui_386_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_WA_tt"
+					pdx_tooltip_delayed = "USA_states_gui_WA_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_386_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_832_container"
+				size = { width = 0 height = 0 }
+				position = { x = 701 y = 307 }
+				
+				iconType = {
+					name = "USA_states_gui_832_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_WV_tt"
+					pdx_tooltip_delayed = "USA_states_gui_WV_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_832_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_394_container"
+				size = { width = 0 height = 0 }
+				position = { x = 550 y = 205 }
+				
+				iconType = {
+					name = "USA_states_gui_394_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_WI_tt"
+					pdx_tooltip_delayed = "USA_states_gui_WI_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_394_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+			
+			containerWindowType = {
+				name = "USA_states_gui_381_container"
+				size = { width = 0 height = 0 }
+				position = { x = 304 y = 227 }
+				
+				iconType = {
+					name = "USA_states_gui_381_layer_1"
+					quadTextureSprite = ""
+					pdx_tooltip = "GFX_USA_states_gui_WY_tt"
+					pdx_tooltip_delayed = "USA_states_gui_WY_selected_info_tt"
+				}
+				iconType = {
+					name = "USA_states_gui_381_layer_2"
+					quadTextureSprite = ""
+					alwaystransparent = yes
+				}
+			}
+		}
+		
+		buttonType = {
+			name = "button_close"
+			position = { x = -45 y = 15 }
+			spriteType = "GFX_NV_btn_close"
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+			shortcut = "ESCAPE"
+			orientation = UPPER_RIGHT
+		}
+	}
+}

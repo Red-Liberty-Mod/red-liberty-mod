@@ -1,0 +1,103 @@
+CENT_unification_category = {
+	
+	CENT_unification_propaganda_self = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		
+		visible = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		cost = 20
+		days_remove = 14
+		days_re_enable = 30
+		
+		remove_effect = {
+			FROM = {
+				add_to_variable = {
+					tooltip = CENT_add_unification_progress
+					CENT_unification_support = 3
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 0.5
+				check_variable = { CENT_unification_support > 50 }
+			}
+		}
+	}
+	
+	CENT_anti_unification_propaganda_self = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		
+		visible = {
+			
+		}
+		
+		available = {
+			has_country_flag = CENT_opposes_unidication
+		}
+		
+		cost = 20
+		days_remove = 14
+		days_re_enable = 30
+		
+		remove_effect = {
+			FROM = {
+				add_to_variable = {
+					tooltip = CENT_add_unification_progress
+					CENT_unification_support = -3
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 0.5
+				check_variable = { CENT_unification_support < 50 }
+			}
+		}
+	}
+	
+	CENT_unification_propaganda = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		
+		visible = {
+			
+		}
+		
+		available = {
+			
+		}
+		
+		targets = { GUA HON ELS NIC COS }
+		
+		cost = 25
+		days_remove = 14
+		days_re_enable = 30
+		
+		remove_effect = {
+			FROM = {
+				add_to_variable = {
+					tooltip = CENT_add_unification_progress
+					CENT_unification_support = 3
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 0.5
+				check_variable = { CENT_unification_support > 50 }
+			}
+		}
+	}
+}

@@ -1,5 +1,6 @@
 ﻿capital = 2
 set_oob = "ITA"
+set_naval_oob = "ITA_naval_mtg"
 set_research_slots = 3
 set_stability = 0.8
 set_war_support = 0.7
@@ -13,7 +14,8 @@ set_technology = {
 	tech_mountaineers = 1
 	tech_trucks = 1
 	motorised_infantry = 1
-	camelry = 1
+	tech_camelry = 1
+	tech_assault_battalion = 1
 
 	tech_support = 1		
 	tech_engineers = 1
@@ -27,6 +29,34 @@ set_technology = {
 	fuel_refining = 1
 
 	basic_train = 1
+	
+	### Hulls ###
+	early_ship_hull_submarine = 1
+	basic_ship_hull_submarine = 1
+	early_ship_hull_light = 1
+	basic_ship_hull_light = 1
+	early_ship_hull_cruiser = 1
+	basic_ship_hull_cruiser = 1
+	early_ship_hull_heavy = 1
+	basic_ship_hull_heavy = 1
+	early_ship_hull_carrier = 1
+	coastal_defense_ships = 1
+
+	### Modules ###
+	basic_naval_mines = 1
+	submarine_mine_laying = 1
+	basic_depth_charges = 1
+	basic_torpedo = 1
+	basic_battery = 1
+	basic_light_battery = 1
+	basic_medium_battery = 1
+	basic_heavy_battery = 1
+	basic_cruiser_armor_scheme = 1
+	basic_heavy_armor_scheme = 1
+	improved_airplane_launcher = 1
+
+	### Transport ###
+	mtg_transport = 1
 }
 
 ### LaR techs ###
@@ -56,61 +86,6 @@ if = {
 		gwtank = 1
 		basic_light_tank = 1
 	}
-}
-
-### Navy - MtG ###
-if = {
-	limit = { has_dlc_mtg = yes }
-	set_technology = {
-		### Hulls ###
-		early_ship_hull_submarine = 1
-		basic_ship_hull_submarine = 1
-		early_ship_hull_light = 1
-		basic_ship_hull_light = 1
-		early_ship_hull_cruiser = 1
-		basic_ship_hull_cruiser = 1
-		early_ship_hull_heavy = 1
-		basic_ship_hull_heavy = 1
-		early_ship_hull_carrier = 1
-		coastal_defense_ships = 1
-
-		### Modules ###
-		basic_naval_mines = 1
-		submarine_mine_laying = 1
-		basic_depth_charges = 1
-		basic_torpedo = 1
-		basic_battery = 1
-		basic_light_battery = 1
-		basic_medium_battery = 1
-		basic_heavy_battery = 1
-		basic_cruiser_armor_scheme = 1
-		basic_heavy_armor_scheme = 1
-		improved_airplane_launcher = 1
-
-		### Transport ###
-		mtg_transport = 1
-	}
-	set_naval_oob = "ITA_naval_mtg"
-}
-
-### Navy - Non MtG ###
-if = {
-	limit = { has_dlc_mtg = no }
-	set_technology = {
-		### Hulls ###
-		early_submarine = 1
-		basic_submarine = 1
-		early_destroyer = 1
-		early_light_cruiser = 1
-		early_heavy_cruiser = 1
-		early_battleship = 1
-		basic_battleship = 1
-		early_battlecruiser = 1
-
-		### Transport ###
-		transport = 1
-	}
-	set_naval_oob = "ITA_naval_legacy"
 }
 
 ### Planes ###
@@ -150,7 +125,7 @@ add_opinion_modifier = {
 
 1935.8.3 = {
 	add_named_threat = {
-		threat = 5
+		threat = 3
 		name = ITA_ethiopia_war
 	}
 }
@@ -451,12 +426,24 @@ if = {
 			engine_type_slot = engine_1_1x
 			special_type_slot_1 = empty
 		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "G.50 'Freccia'" #
+		type = small_plane_airframe_1
+		design_team = mio:ITA_fiat_aviazione_organization
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			engine_type_slot = engine_2_1x
+			special_type_slot_1 = empty
+		}
 	}
 	create_equipment_variant = {
 		name = "Ca.111" #
 		type = small_plane_cas_airframe_0
 		modules = {
 			fixed_main_weapon_slot = small_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = light_mg_4x
 			engine_type_slot = engine_1_1x
 			special_type_slot_1 = empty
 		}
@@ -513,7 +500,7 @@ if = {
 		type = small_plane_cas_airframe_1
 		modules = {
 			fixed_main_weapon_slot = small_bomb_bay
-			fixed_auxiliary_weapon_slot_1 = light_mg_2x
+			fixed_auxiliary_weapon_slot_1 = light_mg_4x
 			engine_type_slot = engine_2_1x
 			special_type_slot_1 = empty
 		}
@@ -521,40 +508,40 @@ if = {
 	}
 	
 	### Land Planes ###
-	add_equipment_to_stockpile = {
-		type = small_plane_airframe_0
-		amount = 300
-		variant_name = "CR.32"
-		producer = ITA
-	}
-	add_equipment_to_stockpile = {
-		type = small_plane_cas_airframe_0
-		amount = 48
-		variant_name = "Ca.111"
-		producer = ITA
-	}
-	add_equipment_to_stockpile = {
-		type = medium_plane_airframe_0
-		amount = 64
-		variant_name = "Ca.101"
-		producer = ITA
-	}
-	add_equipment_to_stockpile = {
-		type = medium_plane_airframe_0
-		amount = 192
-		variant_name = "Ca.133"
-		producer = ITA
-	}
-	add_equipment_to_stockpile = {
-		type = medium_plane_airframe_1
-		amount = 72
-		variant_name = "SM.79"
-		producer = ITA
-	}
-	add_equipment_to_stockpile = {
-		type = medium_plane_airframe_1
-		amount = 32
-		variant_name = "SM.81"
-		producer = ITA
-	}
+	#add_equipment_to_stockpile = {
+	#	type = small_plane_airframe_0
+	#	amount = 300
+	#	variant_name = "CR.32"
+	#	producer = ITA
+	#}
+	#add_equipment_to_stockpile = {
+	#	type = small_plane_cas_airframe_0
+	#	amount = 48
+	#	variant_name = "Ca.111"
+	#	producer = ITA
+	#}
+	#add_equipment_to_stockpile = {
+	#	type = medium_plane_airframe_0
+	#	amount = 64
+	#	variant_name = "Ca.101"
+	#	producer = ITA
+	#}
+	#add_equipment_to_stockpile = {
+	#	type = medium_plane_airframe_0
+	#	amount = 192
+	#	variant_name = "Ca.133"
+	#	producer = ITA
+	#}
+	#add_equipment_to_stockpile = {
+	#	type = medium_plane_airframe_1
+	#	amount = 72
+	#	variant_name = "SM.79"
+	#	producer = ITA
+	#}
+	#add_equipment_to_stockpile = {
+	#	type = medium_plane_airframe_1
+	#	amount = 32
+	#	variant_name = "SM.81"
+	#	producer = ITA
+	#}
 }

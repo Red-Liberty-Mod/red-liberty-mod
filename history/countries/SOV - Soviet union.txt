@@ -1,19 +1,37 @@
 ﻿capital = 219
 
 oob = "SOV"
+set_naval_oob = "SOV_naval_mtg"
 
 set_country_flag = vanguard_socialism_coalition
 set_country_flag = revolutionary_socialism_coalition
 set_country_flag = democratic_socialism_coalition
+set_country_flag = despotism_coalition
 
 set_research_slots = 3
-set_stability = 0.5
+set_stability = 0.6
 set_war_support = 0.8
 starting_train_buffer = 2
 
+add_opinion_modifier = {
+    target = USA
+    modifier = SOV_bastion_of_capitalism
+}
+add_opinion_modifier = {
+    target = ENG
+    modifier = SOV_bastion_of_capitalism
+}
+add_opinion_modifier = {
+    target = GER
+    modifier = SOV_bastion_of_capitalism
+}
+add_opinion_modifier = {
+    target = FRA
+    modifier = SOV_bastion_of_capitalism
+}
+
 set_technology = {
 	infantry_weapons = 1
-	infantry_weapons1 = 1
 	tech_recon = 1
 	tech_support = 1		
 	tech_engineers = 1
@@ -25,17 +43,38 @@ set_technology = {
 	gw_artillery = 1
 	interwar_antiair = 1
 	
-	mass_assault = 1
-	fleet_in_being = 1
 	fuel_silos = 1
 	fuel_refining = 1
 	synth_oil_experiments = 1
 
 	basic_train = 1
+	
+	basic_naval_mines = 1
+	submarine_mine_laying = 1
+	early_ship_hull_light = 1
+	basic_ship_hull_light = 1
+	early_ship_hull_submarine = 1
+	basic_ship_hull_submarine = 1
+	early_ship_hull_cruiser = 1
+	basic_ship_hull_cruiser = 1
+	early_ship_hull_heavy = 1
+	early_ship_hull_carrier = 1
+	basic_battery = 1
+	basic_torpedo = 1
+	basic_depth_charges = 1
+	basic_secondary_battery = 1
+	mtg_transport = 1
 }
+
+complete_special_project = {
+	project = sp:sp_naval_midget_submarine
+	#scientist = USA_andrew_mckee
+	#state = 361
+}
+
 if = {
 	limit = {
-		has_dlc = "No Step Back"
+		has_dlc_nsb = yes
 	}
 	set_technology = {
 		gwtank_chassis = 1
@@ -53,55 +92,60 @@ if = {
 	}
 }
 if = {
-	limit = { has_dlc_mtg = yes }
-	set_technology = {
-		basic_naval_mines = 1
-		submarine_mine_laying = 1
-		early_ship_hull_light = 1
-		basic_ship_hull_light = 1
-		early_ship_hull_submarine = 1
-		basic_ship_hull_submarine = 1
-		early_ship_hull_cruiser = 1
-		early_ship_hull_heavy = 1
-		basic_battery = 1
-		basic_torpedo = 1
-		basic_depth_charges = 1
-		basic_secondary_battery = 1
-		mtg_transport = 1
-	}
-	load_oob = "SOV_naval_mtg"
-	else = {
-		set_technology = {
-			early_submarine = 1
-			basic_submarine = 1
-			early_destroyer = 1
-			early_light_cruiser = 1
-			early_heavy_cruiser = 1
-			early_battleship = 1
-			early_battlecruiser = 1
-			transport = 1
-		}
-	}
-}
-if = {
 	limit = {
-		has_dlc = "La Resistance"
+		has_dlc_lar = yes
 	}
 	set_technology = {
 		armored_car1 = 1
 	}
+}
+if = {
+	limit = {
+		has_dlc_bba = yes
+	}
+	set_technology = {
+		aa_lmg = 1
+		aa_cannon_1 = 1
+		engines_1 = 1
+		engines_2 = 1
+		early_bombs = 1
+		aircraft_construction = 1
+		iw_small_airframe = 1
+		basic_small_airframe = 1
+		iw_medium_airframe = 1
+		basic_medium_airframe = 1
+		iw_large_airframe = 1
+		bba_early_transport_plane = 1
+	}
+	else = {
+		set_technology = {
+			early_fighter = 1
+			early_bomber = 1
+			tactical_bomber1 = 1
+			CAS1 = 1
+			naval_bomber1 = 1
+			early_transport_plane = 1
+		}
+	}
+}
+
+add_breakthrough_progress = {
+	specialization = specialization_land
+	value = 0.5
+}
+add_breakthrough_progress = {
+	specialization = specialization_naval
+	value = 0.1
+}
+add_breakthrough_progress = {
+	specialization = specialization_air
+	value = 0.25
 }
 
 complete_special_project = {
 	project = sp:sp_land_flamethrower_tank
 	#scientist = USA_andrew_mckee
 	state = 219
-}
-
-add_equipment_to_stockpile = {
-    type = heavy_tank_equipment
-    amount = 10
-    producer = SOV
 }
 
 add_equipment_to_stockpile = {
@@ -122,23 +166,19 @@ set_popularities = {
 	anarchism = 0
 	vanguard_socialism = 18
 	revolutionary_socialism = 23
-	democratic_socialism = 22
-	social_democracy = 21
-	progressive_liberalism = 7
-	liberal_conservatism = 0
-	national_conservatism = 5
-	authoritarian_democracy = 4
-	despotism = 0
-	ultraconservatism = 0
+	democratic_socialism = 19
+	social_democracy = 8
+	progressive_liberalism = 10
+	liberal_conservatism = 8
+	national_conservatism = 3
+	authoritarian_democracy = 1
+	despotism = 6
+	ultraconservatism = 4
 	fascism = 0
 }
 
-SOV_init_parliament = yes
-SOV_setup_variables = yes
-SOV_refresh_parliament = yes
-SOV_calc_coalition = yes
-
 ### LEADERS ###
+recruit_character = SOV_life_and_labour_commune
 recruit_character = SOV_nikolai_bukharin
 recruit_character = SOV_grigory_sokolnikov
 recruit_character = SOV_sergei_kirov
@@ -152,15 +192,26 @@ recruit_character = SOV_lev_kamenev
 ### MINISTERS ###
 recruit_character = SOV_mikhail_kalinin
 recruit_character = SOV_yakov_sverdlov
+recruit_character = SOV_lazar_kaganovich
+recruit_character = SOV_maxim_litvinov
 recruit_character = SOV_anatoly_lunacharsky
 recruit_character = SOV_karl_radek
 recruit_character = SOV_martemyan_ryutin
 recruit_character = SOV_nikolai_yezhov
 recruit_character = SOV_grigory_zinoviev
 recruit_character = SOV_ivar_smilga
+recruit_character = SOV_alexandra_kollontai
+recruit_character = SOV_nadezhda_krupskaya
 
 activate_advisor = SOV_mikhail_kalinin_hog
-activate_advisor = SOV_yakov_sverdlov
+activate_advisor = SOV_yakov_sverdlov_political_advisor
+
+## Mensheviks ##
+recruit_character = SOV_fyodor_dan
+recruit_character = SOV_boris_nicolaevsky
+
+## Esers ##
+recruit_character = SOV_andrei_kolegayev
 
 ### GENERALS ###
 recruit_character = SOV_mikhail_tukhachevsky
@@ -181,56 +232,62 @@ recruit_character = SOV_mikhail_velikanov
 recruit_character = SOV_ivan_dubovoy
 recruit_character = SOV_ivan_fedko
 recruit_character = SOV_ivan_belov
+recruit_character = SOV_vitaly_primakov
+
+## Promotable ##
+recruit_character = SOV_georgy_zhukov
+
+### ADMIRALS ###
+recruit_character = SOV_lev_galler
+recruit_character = SOV_gordey_levchenko
+recruit_character = SOV_vladimir_kasatonov
+recruit_character = SOV_neon_antonov
+recruit_character = SOV_grigory_kireev
+
+### HIGH COMMAND ###
+recruit_character = SOV_boris_feldman
+recruit_character = SOV_yakov_alksnis
+recruit_character = SOV_aleksandr_novikov
+recruit_character = SOV_vladimir_orlov
+recruit_character = SOV_aleksandr_samoylo
+recruit_character = SOV_sergey_khudyakov
+recruit_character = SOV_vladimir_triandafillov
+recruit_character = SOV_alexander_svechin
+recruit_character = SOV_aleksandr_nemits
+
+### SCIENTISTS ###
+recruit_character = SOV_mikhail_koshkin
+recruit_character = SOV_igor_kurchatov
+recruit_character = SOV_abram_ioffe
+recruit_character = SOV_sergey_korolyov
+recruit_character = SOV_boris_stechkin
+recruit_character = SOV_arkady_nazarov
+recruit_character = SOV_vladimir_kotelnikov
 
 add_ideas = {
 	SOV_home_of_the_revolution
-	SOV_political_turmoil
-	SOV_nep
-	SOV_tsarist_captives
+	SOV_political_turmoil_1
+	SOV_nep_1
 	
-	limited_exports
+	trade_monopoly_1
 }
+
+SOV_setup_faction_mechanic = yes
+add_dynamic_modifier = {
+	modifier = SOV_factionalism_modifier
+}
+
 set_country_flag = conscription_banned
-set_country_flag = can_integrate_RUS
-set_country_flag = can_integrate_NRR
-set_country_flag = can_integrate_TMS
-set_country_flag = can_integrate_TKS
-set_country_flag = can_integrate_CRI
-set_country_flag = can_integrate_UKR
-set_country_flag = can_integrate_BLR
-set_country_flag = can_integrate_AZR
-set_country_flag = can_integrate_GEO
+set_variable = { can_integrate_RUS = 50 }
+set_variable = { can_integrate_NRR = 50 }
 
-create_navy_leader = {
-	name = "Lev Galler"
-	portrait_path = ""
-	traits = {
-		ironside
-		cruiser_captain
-		spotter
-		mine_craft
-	}
-	skill = 3
-	attack_skill = 3
-	defense_skill = 3
-	maneuvering_skill = 3
-	coordination_skill = 3
-}
-
-create_navy_leader = {
-	name = "Gordey Levchenko"
-	picture = ""
-	traits = {  }
-	skill = 2
-}
-
-
-create_navy_leader = {
-	name = "Vladimir Kasatonov"
-	picture = ""
-	traits = { seawolf }
-	skill = 2
-}
+#set_country_flag = can_integrate_TMS
+#set_country_flag = can_integrate_TKS
+#set_country_flag = can_integrate_CRI
+#set_country_flag = can_integrate_UKR
+#set_country_flag = can_integrate_BLR
+#set_country_flag = can_integrate_AZR
+#set_country_flag = can_integrate_GEO
 
 if = {
 	limit = {
@@ -328,7 +385,7 @@ if = {
 	create_equipment_variant = {
 		name = "KhT-26"
 		type = light_tank_flame_chassis_1
-		parent_version = 0
+		parent_version = 1
 		modules = {
 			main_armament_slot = flamethrower
 			turret_type_slot = tank_light_one_man_tank_turret
@@ -476,7 +533,7 @@ if = {
 			tank_nsb_armor_upgrade = 3
 			tank_nsb_engine_upgrade = 10
 		}
-		icon = "gfx/interface/technologies/SOV_basic_heavy_tank.dds"
+		icon = "GFX_SOV_medium_gwtank_medium"
 	}
 	create_equipment_variant = {
 		name = "T-35A"
@@ -499,5 +556,110 @@ if = {
 			tank_nsb_engine_upgrade = 10
 		}
 		icon = "GFX_SOV_basic_heavy_tank_medium"
+	}
+	
+	add_equipment_to_stockpile = {
+		type = heavy_tank_chassis_0
+		amount = 10
+		variant_name = "T-35A"
+		producer = SOV
+	}
+}
+
+if = {
+	limit = {
+		has_dlc_bba = yes
+	}
+	create_equipment_variant = {
+		name = "I-3"
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "I-15"
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = light_mg_4x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "I-16"
+		type = small_plane_airframe_1
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+		icon = "GFX_SOV_fighter1_medium"
+	}
+	create_equipment_variant = {
+		name = "DB-3"
+		type = medium_plane_airframe_0
+		design_team = mio:SOV_ilyushin_design_bureau_organization
+		modules = {
+			fixed_main_weapon_slot = medium_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = bomb_locks
+			engine_type_slot = engine_2_2x
+			special_type_slot_1 = lmg_defense_turret
+		}
+		icon = "GFX_SOV_early_bomber_medium"
+	}
+	create_equipment_variant = {
+		name = "TB-3"
+		type = large_plane_airframe_0
+		design_team = mio:SOV_tupolev_design_bureau_organization
+		modules = {
+			fixed_main_weapon_slot = large_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = empty
+			engine_type_slot = engine_1_4x
+			special_type_slot_1 = lmg_defense_turret_2x
+		}
+		icon = "GFX_SOV_transport_plane_equipment_1_medium"
+	}
+	create_equipment_variant = {
+		name = "ANT-40"
+		type = medium_plane_airframe_1
+		design_team = mio:SOV_tupolev_design_bureau_organization
+		modules = {
+			fixed_main_weapon_slot = medium_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = bomb_locks
+			engine_type_slot = engine_2_2x
+			special_type_slot_1 = lmg_defense_turret_2x
+		}
+		icon = "GFX_SOV_tactical_bomber1_medium"
+	}
+	
+	add_equipment_to_stockpile = {
+		type = small_plane_airframe_0
+		amount = 400
+		variant_name = "I-3"
+		producer = SOV
+	}
+	add_equipment_to_stockpile = {
+		type = small_plane_airframe_0
+		amount = 150
+		variant_name = "I-15"
+		producer = SOV
+	}
+	add_equipment_to_stockpile = {
+		type = small_plane_airframe_1
+		amount = 150
+		variant_name = "I-16"
+		producer = SOV
+	}
+	
+	add_equipment_to_stockpile = {
+		type = medium_plane_airframe_1
+		amount = 40
+		variant_name = "ANT-40"
+		producer = SOV
 	}
 }
