@@ -1,19 +1,32 @@
 ﻿division_template = {
-	name = "Infantry Brigade"		
-	#division_names_group = GEO_INF_01
-
-	# Note: Represents both regular infantry and militia units
+	name = "Kveiti Divizia"		
+	division_names_group = GEO_INF_01
+	
 	regiments = {
 		infantry = { x = 0 y = 0 }
 		infantry = { x = 0 y = 1 }
 		infantry = { x = 1 y = 0 }
 		infantry = { x = 1 y = 1 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
 	}
 }
 division_template = {
-	name = "Mountain Brigade"		
-	#division_names_group = GEO_MNT_01
-
+	name = "Kavaleriuli Divizia"
+	division_names_group = GEO_CAV_01
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+	}
+}
+division_template = {
+	name = "Samto Divizia"		
+	division_names_group = GEO_MTN_01
+	
 	regiments = {
 		mountaineers = { x = 0 y = 0 }
 		mountaineers = { x = 0 y = 1 }
@@ -21,7 +34,19 @@ division_template = {
 		mountaineers = { x = 1 y = 1 }
 	}
 }
-
+division_template = {
+	name = "Erovnuli Gvardiis Divizia"		
+	division_names_group = GEO_MIL_01
+	
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+	}
+}
 
 units = {
 	division = {
@@ -30,7 +55,7 @@ units = {
 			name_order = 1
 		}
 		location = 1599
-		division_template = "Infantry Brigade"
+		division_template = "Kveiti Divizia"
 		start_experience_factor = 0.2
 	}
 	division = {
@@ -39,7 +64,7 @@ units = {
 			name_order = 1
 		}
 		location = 3653
-		division_template = "Infantry Brigade"
+		division_template = "Kveiti Divizia"
 		start_experience_factor = 0.2
 	}
 	division = {
@@ -48,7 +73,7 @@ units = {
 			name_order = 1
 		}
 		location = 9663
-		division_template = "Mountain Brigade"
+		division_template = "Samto Divizia"
 		start_experience_factor = 0.2
 	}
 }

@@ -1,5 +1,20 @@
 characters = {
 	
+	GEO_leo_shengelaia = {
+		name = GEO_leo_shengelaia
+		
+		portraits = {
+			civilian = {
+				#large = ""
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_LEO_SHENGELAIA_DESC"
+			ideology = democratic_socialism_subtype
+		}
+	}
+	
 	GEO_victor_tevzaia = {
 		name = GEO_victor_tevzaia
 		
@@ -29,7 +44,7 @@ characters = {
 		
 		country_leader = {
 			desc = "POLITICS_NOE_ZHORDANIA_DESC"
-			ideology = progressive_liberalism_subtype
+			ideology = social_democracy_subtype
 			traits = {
 				
 			}
@@ -47,10 +62,43 @@ characters = {
 		
 		country_leader = {
 			desc = "POLITICS_NOE_RAMISHVILI_DESC"
+			ideology = social_democracy_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	GEO_iosif_baratashvili = {
+		name = GEO_iosif_baratashvili
+		
+		portraits = {
+			civilian = {
+				#large = ""
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_NOE_RAMISHVILI_DESC"
 			ideology = progressive_liberalism_subtype
 			traits = {
 				
 			}
+		}
+	}
+	
+	GEO_grigol_veshapeli = {
+		name = GEO_grigol_veshapeli
+		
+		portraits = {
+			civilian = {
+				#large = ""
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_GRIGOL_VESHAPELI_DESC"
+			ideology = national_conservatism_subtype
 		}
 	}
 	
@@ -69,6 +117,99 @@ characters = {
 			traits = {
 				
 			}
+		}
+	}
+	
+	### Generals ###
+	
+	GEO_aleksandre_dgebuadze = {
+		name = GEO_aleksandre_dgebuadze
+		
+		portraits = {
+			army = {
+				#large = ""
+				#small = ""
+			}
+		}
+		
+		field_marshal = {
+			traits = { aggressive_assaulter }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		
+		advisor = {
+			slot = army_chief
+			idea_token = GEO_aleksandre_dgebuadze_army_chief
+			traits = { army_chief_maneuver_1 }
+			cost = 50
+		}
+	}
+	
+	GEO_giorgi_khimshiashvili = {
+		name = GEO_giorgi_khimshiashvili
+		
+		portraits = {
+			army = {
+				#large = ""
+				#small = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				artillery_officer
+				cavalry_officer
+				organizer
+			}
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 3
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = GEO_giorgi_khimshiashvili_high_command
+			ledger = army
+			traits = { army_cavalry_1 }
+			cost = 50
+		}
+	}
+	
+	GEO_valerian_jugheli = {
+		name = GEO_valerian_jugheli
+
+		portraits = {
+			army = {
+				#large = ""
+				#small = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				war_hero
+				infantry_officer
+				trait_engineer
+			}
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 2
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = GEO_valerian_jugheli_high_command
+			ledger = army
+			traits = { army_regrouping_1 }
+			cost = 50
 		}
 	}
 }

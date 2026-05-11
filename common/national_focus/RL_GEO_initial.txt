@@ -2,8 +2,19 @@ shared_focus = {
     id = GEO_georgian_industrial_revolution
 	icon = GFX_goal_generic_production2
 	
-    x = 18
+    x = 8
 	y = 0
+	
+	offset = {
+        x = 4
+        y = 0
+        trigger = {
+			OR = {
+				has_focus_tree = GEO_fgl_tree
+				has_focus_tree = GEO_collab_tree
+			}
+        }
+    }
 	
 	cost = 10
     completion_reward = {
@@ -122,9 +133,10 @@ shared_focus = {
 		231 = {
 			add_building_construction = {
 				type = 	industrial_complex
-				level = 1
+				level = 2
 				instant_build = yes
 			}
+			add_extra_state_shared_building_slots = 2
 		}
 	}
 	
@@ -179,6 +191,7 @@ shared_focus = {
 				level = 1
 				instant_build = yes
 			}
+			add_extra_state_shared_building_slots = 1
 		}
 	}
 	
@@ -207,9 +220,10 @@ shared_focus = {
 		231 = {
 			add_building_construction = {
 				type = 	arms_factory
-				level = 1
+				level = 2
 				instant_build = yes
 			} 
+			add_extra_state_shared_building_slots = 2
 		}	
 	}
 	
@@ -290,7 +304,7 @@ shared_focus = {
 	id = GEO_finally_free
 	icon = GFX_GER_towards_a_brighter_future
 	
-	x = 3
+	x = 4
 	y = 0
 	
 	cost = 10	
@@ -821,7 +835,7 @@ shared_focus = {
 	id = GEO_under_the_german_boot
 	icon = GFX_GER_the_imperial_economic_plan
 	
-	x = 10
+	x = 4
 	y = 0
 	
 	cost = 10
@@ -1144,7 +1158,7 @@ shared_focus = {
 
 		completion_reward = {
 			hidden_effect = { add_stability = 0.05 }
-			custom_effect_tooltip = GEO_safe_and_stable_state_tooltip
+			custom_effect_tooltip = GEO_safe_and_stable_state_tt
 		}
 	}
 	
@@ -1256,7 +1270,7 @@ shared_focus = {
 		}
 
 		completion_reward = {
-			custom_effect_tooltip = GEO_restore_georgian_leadership_tooltip
+			custom_effect_tooltip = GEO_restore_georgian_leadership_tt
 			hidden_effect = {
 				add_stability = 0.1
 				retire_country_leader = yes
@@ -1305,7 +1319,7 @@ shared_focus = {
 		}
 
 		completion_reward = {
-		custom_effect_tooltip = GEO_continue_occupation_tootltip
+		custom_effect_tooltip = GEO_continue_occupation_tt
 			hidden_effect = {
 				add_stability = -0.15
 				GEO = { set_country_flag = GEO_occupation_government }
@@ -1345,7 +1359,7 @@ shared_focus = {
 		}
 
 		completion_reward = {
-		custom_effect_tooltip = GEO_stable_and_secure_tooltip
+		custom_effect_tooltip = GEO_stable_and_secure_tt
 			hidden_effect = { add_stability = 0.05 }
 		}
 	}
@@ -1383,7 +1397,7 @@ shared_focus = {
 		}
 
 		completion_reward = {
-		custom_effect_tooltip = GEO_best_friends_forever_tooltip
+		custom_effect_tooltip = GEO_best_friends_forever_tt
 			hidden_effect = { add_war_support = 0.08
 			add_stability = 0.02 }
 		}

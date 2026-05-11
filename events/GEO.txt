@@ -109,8 +109,8 @@ country_event = {
 				elections_allowed = yes
 			}
 			GER = { remove_from_faction = GEO }
-			add_opinion_modifier = { target = GER modifier = large_decrease }
 			remove_ideas = GEO_anti_german_unrest
+			load_focus_tree = GEO_fgl_tree
 		}
 	}
 }
@@ -473,6 +473,7 @@ country_event = {
 			GER = { remove_from_faction = GEO }
 			add_opinion_modifier = { target = GER modifier = large_decrease }
 			remove_ideas = GEO_anti_german_unrest
+			load_focus_tree = GEO_fgl_tree
 		}
 	}
 }
@@ -500,6 +501,7 @@ country_event = {
 			GER = { remove_from_faction = GEO }
 			add_opinion_modifier = { target = GER modifier = large_decrease }
 			remove_ideas = GEO_anti_german_unrest
+			load_focus_tree = GEO_fgl_tree
 		}
 	}
 }
@@ -519,7 +521,14 @@ country_event = {
 		ai_chance = { factor = 100 }
 		hidden_effect = {
 			GER = { puppet = GEO }
-			
+			set_politics = {
+				ruling_party = authoritarian_democracy
+				elections_allowed = no
+				last_election = "1935.12.17"
+				election_frequency = 48
+				long_name = GEO_authoritarian_democracy_long
+				name = GEO_authoritarian_democracy
+				}
 			create_country_leader = {
 				name = "German Occupation Government"
 				desc = ""
@@ -545,7 +554,7 @@ country_event = {
 	trigger = {
 		tag = GEO
 		has_government = progressive_liberalism
-		has_stability < 0.70
+		has_stability < 0.85
 		date < 1938.6.1
 	}
 
