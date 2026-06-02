@@ -66,6 +66,23 @@ characters = {
 		}
 	}
 	
+	JAP_fukumoto_kazuo = {
+		name = JAP_fukumoto_kazuo
+		
+		portraits = {
+			civilian = {
+				#large = ""
+				#small = ""
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_FUKUMOTO_KAZUO_DESC"
+			ideology = vanguard_socialism_subtype
+			traits = {  }
+		}
+	}
+	
 	JAP_kanson_arahata = {
 		name = JAP_kanson_arahata
 		
@@ -78,13 +95,23 @@ characters = {
 		
 		country_leader = {
 			desc = "POLITICS_KANSON_ARAHATA_DESC"
-			ideology = vanguard_socialism_subtype
+			ideology = revolutionary_socialism_subtype
 			traits = {  }
+		}
+	}
+	
+	JAP_aso_hisashi = {
+		name = JAP_aso_hisashi
+		
+		portraits = {
+			civilian = {
+				#large = ""
+			}
 		}
 		
 		country_leader = {
-			desc = "POLITICS_KANSON_ARAHATA_DESC"
-			ideology = revolutionary_socialism_subtype
+			desc = "POLITICS_ASO_HISASHI_DESC"
+			ideology = democratic_socialism_subtype
 			traits = {  }
 		}
 	}
@@ -100,7 +127,7 @@ characters = {
 		
 		country_leader = {
 			desc = "POLITICS_ABE_ISOO_DESC"
-			ideology = christian_socialism_subtype
+			ideology = social_democracy_subtype
 			traits = {  }
 		}
 	}
@@ -415,7 +442,7 @@ characters = {
 			slot = political_advisor
 			idea_token = JAP_inejiro_asanuma
 			available = {
-				has_socialist_govt = yes
+				has_leftist_govt = yes
 			}
 			traits = {
 				ideological_crusader
@@ -423,7 +450,30 @@ characters = {
 		}
 	}
 	
+	JAP_kagawa_toyohiko = {
+		name = JAP_kagawa_toyohiko
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/JAP/JAP_Kagawa_Toyohiko.png"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = JAP_kagawa_toyohiko_political_advisor
+			available = {
+				has_leftist_govt = yes
+			}
+			traits = {
+				JAP_saint_of_the_poor
+			}
+		}
+	}
+	
 	## Democrats ##
+	
 	JAP_minobe_tatsukichi = {
 		name = JAP_minobe_tatsukichi
 		
