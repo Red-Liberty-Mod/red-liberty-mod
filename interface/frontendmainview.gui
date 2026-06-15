@@ -86,7 +86,7 @@ guiTypes = {
 
 			background = {
 				name = "Background"
-				quadTextureSprite ="GFX_tiled_window"
+				quadTextureSprite ="GFX_tiled_window2_1b_border"
 			}
 			
 			checkboxType = {
@@ -128,7 +128,7 @@ guiTypes = {
 			}
 			
 				gridBoxType = {
-					position = { x = 10 y = 0 }
+					position = { x = 9 y = 0 }
 					name = "available_backgrounds"
 					size = { width = 200 height = 0 }
 					slotsize = { width = 200 height = 150 }
@@ -160,7 +160,7 @@ guiTypes = {
 			}
 		}
 	}
-	
+
 	containerWindowType = {
 		name = "unowned_dlc_item"
 		size = { width = 50 height = 50 }
@@ -194,9 +194,9 @@ guiTypes = {
 	
 	### MAIN MENU PANEL (DLC Ownership) 
 	containerWindowType = {
-		name  ="mainmenu_dlc_ownership"
+		name  = "mainmenu_dlc_ownership"
 		position = { x=5 y =0 }
-		size = { width = 370 height = 583}
+		size = { width = 370 height = 684}
 		Orientation = lower_left
 		origo = lower_left
 		
@@ -276,13 +276,14 @@ guiTypes = {
 			web_link = "https://discord.gg/MGEKThPHqH"
 		}
 		
-		iconType = {
+		iconType =
+		{
 			name ="pdx_int_logo"
 			spriteType = "GFX_pdx_int_logo"
 			position = { x= 135 y = 950 }
 		}		
-
-	}
+		
+	}		
 
 	### SINGLE PLAYER MENU
 	containerWindowType = {
@@ -306,7 +307,7 @@ guiTypes = {
 			clicksound = click_default
 			oversound = ui_menu_over
 		}
-
+		
 		iconType = {
 			name = "sp_continue_flag_left"
 			quadTextureSprite ="GFX_flag_small2_not_masked"
@@ -314,7 +315,7 @@ guiTypes = {
 			Orientation = "UPPER_LEFT"
 			alwaystransparent = yes
 		}
-
+		
 		iconType = {
 			name = "sp_continue_flag_left_overlay"
 			quadTextureSprite ="GFX_flag_small2_not_masked"
@@ -322,7 +323,7 @@ guiTypes = {
 			Orientation = "UPPER_LEFT"
 			alwaystransparent = yes
 		}
-
+		
 		iconType = {
 			name = "sp_continue_flag_right"
 			quadTextureSprite ="GFX_flag_small2_not_masked"
@@ -330,7 +331,7 @@ guiTypes = {
 			Orientation = "UPPER_LEFT"
 			alwaystransparent = yes
 		}
-
+		
 		iconType = {
 			name = "sp_continue_flag_right_overlay"
 			quadTextureSprite ="GFX_flag_small2_not_masked"
@@ -338,7 +339,7 @@ guiTypes = {
 			Orientation = "UPPER_LEFT"
 			alwaystransparent = yes
 		}
-
+		
 		ButtonType = {
 			name = "sp_new_button"
 			position = { x = 16 y = 58 }
@@ -348,7 +349,7 @@ guiTypes = {
 			clicksound = click_default
 			oversound = ui_menu_over
 		}
-
+		
 		ButtonType = {
 			name = "sp_load_button"
 			position = { x = 16 y = 98 }
@@ -358,7 +359,7 @@ guiTypes = {
 			clicksound = click_default
 			oversound = ui_menu_over
 		}
-
+		
 		## jank solution, should be completely offscreen but not throw an error
 		ButtonType = {
 			name = "sp_tutorial_button"
@@ -369,7 +370,7 @@ guiTypes = {
 			clicksound = click_default
 			oversound = ui_menu_over
 		}
-
+		
 		ButtonType = {
 			name = "sp_back_button"
 			position = { x = 16 y = 218 }
@@ -487,8 +488,8 @@ guiTypes = {
 
 		ButtonType = {
 			name = "credits_button"
-			position = { x = 16 y = 218 }
-			quadTextureSprite ="GFX_main_lobby_button"
+			position = {  x = 16 y = 218 }
+			quadTextureSprite ="GFX_main_lobby_button"	
 			buttonText = "FE_CREDITS"
 			buttonFont = "hoi_24header"
 			clicksound = click_default
@@ -498,7 +499,7 @@ guiTypes = {
 		ButtonType = {
 			name = "nudge_button"
 			position = { x = 16 y = 258 }
-			quadTextureSprite ="GFX_main_lobby_button"
+			quadTextureSprite ="GFX_main_lobby_button"	
 			buttonText = "Nudge!"
 			buttonFont = "hoi_24header"
 		}
@@ -507,19 +508,19 @@ guiTypes = {
 			name = "exit_button"
 			position = { x = 16 y = 300 }
 			quadTextureSprite ="GFX_main_lobby_button"
-			font = "hoi_24header"
-			text = "FE_EXIT"
+			font = "hoi_24header"			
+			text = "FE_EXIT"			
 			clicksound = click_default
 			oversound = ui_menu_over
-
+			
 		}
-		
+
 		iconType = {
 			name = "subscription_divider"
 			position = { x = 4 y = 296}
 			spriteType = "GFX_main_lobby_divider"
 		}
-		
+
 		containerWindowType = {
 			name = "subscription_widget"
 			position = { x = 16 y = 312 }
@@ -544,7 +545,8 @@ guiTypes = {
 			ButtonType = {
 				name = "show_subscription"
 				position = { x = 0 y = 0 }
-				quadTextureSprite ="GFX_subscription_widget_chinese"
+				quadTextureSprite = "GFX_subscription_widget_chinese"
+				frame = 10
 				buttonText = "SUBSCRIPTION_WIDGET_SIMP_CHINESE"
 				buttonFont = "hoi_24header"
 				multiline = yes
@@ -568,7 +570,7 @@ guiTypes = {
 			}
 		}
 	}
-
+	
 	containerWindowType = {
 		name = "mainmenu_social_buttons"
 		position = { x = -50 y = 25 }	

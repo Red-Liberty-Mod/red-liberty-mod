@@ -9,6 +9,7 @@ sub_units = {
 		need = { small_plane_airframe = 1 }
 		categories = { category_fighter }
 		land_air_wing_size = 96
+		mega_carrier_air_wing_size = 12
 	}
 	cv_fighter = {
 		sprite = light_plane
@@ -16,9 +17,11 @@ sub_units = {
 		active = yes
 		type = fighter
 		need = { cv_small_plane_airframe = 1 }
-		categories = { category_fighter }
+		categories = { category_fighter category_carrier_fighter }
 		carrier_air_wing_size = 12
+		submarine_carrier_air_wing_size = 3
 		land_air_wing_size = 96
+		mega_carrier_air_wing_size = 12
 	}
 
 	cas = {
@@ -29,6 +32,7 @@ sub_units = {
 		need = { small_plane_cas_airframe = 1 }
 		categories = { category_cas }
 		land_air_wing_size = 96
+		mega_carrier_air_wing_size = 12
 	}
 	cv_cas = {
 		sprite = light_plane
@@ -38,7 +42,9 @@ sub_units = {
 		need = { cv_small_plane_cas_airframe = 1 }
 		categories = { category_cas }
 		carrier_air_wing_size = 12
+		submarine_carrier_air_wing_size = 3
 		land_air_wing_size = 96
+		mega_carrier_air_wing_size = 12
 	}
 
 	nav_bomber = {
@@ -49,6 +55,7 @@ sub_units = {
 		need = { small_plane_naval_bomber_airframe = 1 }
 		categories = { category_nav_bomber }
 		land_air_wing_size = 96
+		mega_carrier_air_wing_size = 12
 	}
 	cv_nav_bomber = {
 		sprite = light_plane
@@ -58,7 +65,9 @@ sub_units = {
 		need = { cv_small_plane_naval_bomber_airframe = 1 }
 		categories = { category_nav_bomber }
 		carrier_air_wing_size = 12
+		submarine_carrier_air_wing_size = 3
 		land_air_wing_size = 96
+		mega_carrier_air_wing_size = 12
 	}
 
 	suicide_craft = {
@@ -68,6 +77,7 @@ sub_units = {
 		type = suicide
 		need = { small_plane_suicide_airframe = 1 }
 		land_air_wing_size = 96
+		mega_carrier_air_wing_size = 12
 	}
 	cv_suicide_craft = {
 		sprite = light_plane
@@ -76,7 +86,9 @@ sub_units = {
 		type = suicide
 		need = { cv_small_plane_suicide_airframe = 1 }
 		carrier_air_wing_size = 12
+		submarine_carrier_air_wing_size = 3
 		land_air_wing_size = 96
+		mega_carrier_air_wing_size = 12
 	}
 
 	# Medium airframe
@@ -89,6 +101,7 @@ sub_units = {
 		need = { medium_plane_airframe = 1 }
 		categories = { category_tac_bomber }
 		land_air_wing_size = 96
+		mega_carrier_air_wing_size = 12
 	}
 
 	heavy_fighter = {
@@ -99,6 +112,7 @@ sub_units = {
 		need = { medium_plane_fighter_airframe = 1 }
 		categories = { category_heavy_fighter }
 		land_air_wing_size = 96
+		mega_carrier_air_wing_size = 12
 	}
 
 	scout_plane = {
@@ -109,6 +123,7 @@ sub_units = {
 		need = { medium_plane_scout_plane_airframe = 1 }
 		categories = { category_scout_plane }
 		land_air_wing_size = 12
+		mega_carrier_air_wing_size = 12
 	}
 
 	# Large airframe
@@ -121,6 +136,7 @@ sub_units = {
 		need = { large_plane_airframe = 1 }
 		categories = { category_strat_bomber }
 		land_air_wing_size = 96
+		mega_carrier_air_wing_size = 12
 	}
 
 	maritime_patrol_plane = {
@@ -129,9 +145,12 @@ sub_units = {
 		active = yes
 		type = maritime_patrol_plane
 		need = { large_plane_maritime_patrol_plane_airframe = 1 }
-		categories = { category_strat_bomber }
+		categories = { category_strat_bomber category_maritime_patrol_bomber }
 		land_air_wing_size = 12
+		mega_carrier_air_wing_size = 12
 	}
+
+
 
 	# Non-BBA archetypes
 
@@ -143,6 +162,7 @@ sub_units = {
 		need = { jet_fighter_equipment = 1 }
 		categories = { category_fighter }
 		land_air_wing_size = 96
+		mega_carrier_air_wing_size = 12
 	}
 
 	jet_tac_bomber = {
@@ -153,6 +173,7 @@ sub_units = {
 		need = { jet_tac_bomber_equipment = 1 }
 		categories = { category_tac_bomber }
 		land_air_wing_size = 96
+		mega_carrier_air_wing_size = 12
 	}
 
 	jet_strat_bomber = {
@@ -163,6 +184,7 @@ sub_units = {
 		need = { jet_strat_bomber_equipment = 1 }
 		categories = { category_strat_bomber }
 		land_air_wing_size = 96
+		mega_carrier_air_wing_size = 12
 	}
 
 	rocket_interceptor = {
@@ -172,6 +194,7 @@ sub_units = {
 		type = interceptor
 		need = { rocket_interceptor_equipment = 1 }
 		land_air_wing_size = 96
+		mega_carrier_air_wing_size = 12
 	}
 
 	# Other
@@ -193,6 +216,7 @@ sub_units = {
 		need = { guided_missile_equipment = 1 }
 		land_air_wing_size = 100
 		carrier_air_wing_size = 10
+		submarine_carrier_air_wing_size = 10
 	}
 	
 	explosive_ammo = {
@@ -212,6 +236,7 @@ sub_units = {
 		need = { ballistic_missile_equipment = 1 }
 		land_air_wing_size = 100
 		carrier_air_wing_size = 10
+		submarine_carrier_air_wing_size = 10
 	}
 	
 	nuclear_missile = {
@@ -222,6 +247,7 @@ sub_units = {
 		need = { nuclear_missile_equipment = 1 }
 		land_air_wing_size = 1
 		carrier_air_wing_size = 1
+		submarine_carrier_air_wing_size = 1
 	}
 
 	sam_missile = {
@@ -232,6 +258,7 @@ sub_units = {
 		need = { sam_missile_equipment = 1 }
 		land_air_wing_size = 100
 		carrier_air_wing_size = 10
+		submarine_carrier_air_wing_size = 10
 	}
 
 	mothership = {
@@ -253,7 +280,7 @@ sub_units = {
 		need = { strat_bomber_intercontinental_equipment = 1 }
 		categories = { category_strat_bomber }
 		land_air_wing_size = 96
-		mega_carrier_air_wing_size = 6
+		mega_carrier_air_wing_size = 5
 	}
 
 }
