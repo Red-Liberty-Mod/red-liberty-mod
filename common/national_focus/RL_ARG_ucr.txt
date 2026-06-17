@@ -5,6 +5,13 @@ shared_focus = {
     x = 13
 	cost = 4
 	
+	offset = {
+		x = 12
+		trigger = {
+			has_focus_tree = ARG_initial_tree
+		}
+	}
+	
 	available = {
 		has_country_flag = ARG_ucr_victory_flag
 	}
@@ -289,6 +296,10 @@ shared_focus = {
 	
 	relative_position_id = ARG_resource_nationalization
 	prerequisite = { focus = ARG_resource_nationalization }
+	prerequisite = {
+		focus = ARG_reject_yrigoyenism
+		focus = ARG_embrace_his_memory
+	}
 	
     completion_reward = {
 		add_ideas = ARG_public_works_programme

@@ -2615,7 +2615,7 @@ shared_focus = {
     id = USA_war_in_europe
 	icon = GFX_USA_europe_aflame
 	
-    x = 11
+    x = 9
 	y = 0
 	cost = 6
 	
@@ -2792,7 +2792,7 @@ shared_focus = {
     id = USA_the_homefront
 	icon = GFX_USA_full_commitment
 	
-    x = 7
+    x = 6
 	y = 1
 	cost = 6
 	
@@ -2818,7 +2818,7 @@ shared_focus = {
     id = USA_office_of_war_information
 	icon = GFX_goal_generic_propaganda
 	
-    x = -5
+    x = -4
 	y = 1
 	cost = 6
 	
@@ -2929,7 +2929,7 @@ shared_focus = {
 	icon = GFX_focus_USA_double_v_campaign
 	
     x = -1
-	y = 1
+	y = 2
 	cost = 6
 	
 	relative_position_id = USA_office_of_war_information
@@ -2951,7 +2951,7 @@ shared_focus = {
     id = USA_just_war_theory
 	icon = GFX_focus_USA_just_war_theory
 	
-    x = 1
+    x = 0
 	y = 1
 	cost = 6
 	
@@ -2974,7 +2974,7 @@ shared_focus = {
     id = USA_work_with_hollywood
 	icon = GFX_USA_federal_project_one
 	
-    x = 3
+    x = 2
 	y = 1
 	cost = 6
 	
@@ -3081,12 +3081,35 @@ shared_focus = {
     id = USA_women_in_the_workforce
 	icon = GFX_focus_AUS_womens_education_initiative
 	
-    x = 2
+    x = 1
 	y = 2
 	cost = 6
 	
 	relative_position_id = USA_office_of_war_information
 	prerequisite = { focus = USA_office_of_war_information }
+	prerequisite = { focus = USA_office_of_civil_defense }
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 2
+			has_war = yes
+		}
+	}
+}
+
+shared_focus = {
+    id = USA_global_logistics_planning
+	icon = GFX_focus_USA_global_logistics_planning
+	
+    x = -1
+	y = 1
+	cost = 6
+	
+	relative_position_id = USA_office_of_civil_defense
 	prerequisite = { focus = USA_office_of_civil_defense }
     completion_reward = {
 		
