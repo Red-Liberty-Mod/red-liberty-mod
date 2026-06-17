@@ -8,10 +8,47 @@ bookmarks = {
 		default_country = "USA"
 		default = yes
 		
-		filters = { new_content continent }
+		sort_unplayed_first = no
+		include_majors_in_minor_list = no
+		apply_filter_to_majors = no
+		
+		filters = { label }
 		# filters can also contain 'label'
 		# in that case the countries below can have 'label = { label_1 }' or 'label = { label_1 label_2 }'
 		# all these labels will be gathered and displayed as filter buttons
+		
+		"ENG"={
+			history = "ENG_BREAD_AND_ROSES_DESC"
+			ideology = social_democracy
+			ideas = {
+				
+			}
+			focuses = {
+				
+			}
+		}
+		
+		"GER"={
+			history = "GER_BREAD_AND_ROSES_DESC"
+			ideology = authoritarian_democracy
+			ideas = {
+				
+			}
+			focuses = {
+				
+			}
+		}
+		
+		"AHE"={
+			history = "AHE_BREAD_AND_ROSES_DESC"
+			ideology = national_conservatism
+			ideas = {
+				
+			}
+			focuses = {
+				
+			}
+		}
 		
 		"USA"={
 			history = "USA_BREAD_AND_ROSES_DESC"
@@ -53,10 +90,31 @@ bookmarks = {
 				SOV_the_rightists
 				SOV_memories_of_moscow
 			}
-			new_content = yes
+		}
+		
+		"JAP"={
+			history = "JAP_BREAD_AND_ROSES_DESC"
+			ideology = national_conservatism
+			ideas = {
+				
+			}
+			focuses = {
+				
+			}
+		}
+		
+		"---"={
+			history = "OTHER_BREAD_AND_ROSES_DESC"
 		}
 		
 		### Minors ###
+		
+		ARG = {
+			minor = yes
+			history = ARG_BREAD_AND_ROSES_DESC
+			ideology = authoritarian_democracy
+			label = { new_content_label partial_content_label }
+		}
 		
 		BRA = {
 			minor = yes
@@ -71,6 +129,7 @@ bookmarks = {
 				BRA_establish_the_estado_novo
 				BRA_integralists_take_action
 			}
+			label = { new_content_label partial_content_label }
 		}
 		
 		UOB = {
@@ -85,24 +144,42 @@ bookmarks = {
 				UOB_purge_the_revisionists
 				UOB_forces_prestes_resignation
 			}
+			label = { new_content_label partial_content_label }
+		}
+		
+		GEO = {
+			minor = yes
+			history = GEO_BREAD_AND_ROSES_DESC
+			ideology = social_democracy
+			label = { new_content_label partial_content_label }
 		}
 		
 		YEM = {
 			minor = yes
 			history = YEM_BREAD_AND_ROSES_DESC
 			ideology = despotism
+			label = { new_content_label partial_content_label }
 		}
 		
 		ETH = {
 			minor = yes
 			history = ETH_BREAD_AND_ROSES_DESC
 			ideology = despotism
+			label = { new_content_label partial_content_label }
+		}
+		
+		SPR = {
+			minor = yes
+			history = SPR_BREAD_AND_ROSES_DESC
+			ideology = authoritarian_democracy
+			label = { new_content_label partial_content_label }
 		}
 		
 		TUR = {
 			minor = yes
 			history = TUR_BREAD_AND_ROSES_DESC
 			ideology = liberal_conservatism
+			label = { new_content_label partial_content_label }
 		}
 		
 		effect = {
