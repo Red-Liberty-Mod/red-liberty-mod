@@ -300,16 +300,16 @@ economic_efforts = {
 		}
 	}
 	
-	fight_poverty = {
-		icon = GFX_decision_hol_attract_foreign_investors
-		
-		cost = 50
-		days_re_enable = 300
-		
-		complete_effect = {
-			ECON_poverty_change_medium = yes
-		}
-	}
+	#fight_poverty = {
+	#	icon = GFX_decision_hol_attract_foreign_investors
+	#	
+	#	cost = 50
+	#	days_re_enable = 300
+	#	
+	#	complete_effect = {
+	#		ECON_poverty_change_medium = yes
+	#	}
+	#}
 	
 	seize_some_trains_woo = {
 		icon = GFX_decision_hol_draw_up_staff_plans
@@ -379,6 +379,101 @@ economic_efforts = {
 		
 		ai_will_do = {
 			base = 0
+		}
+	}
+	
+	emergency_relief_appropriation = {
+		icon = GFX_decision_eng_trade_unions_demand
+		
+		available = {
+			
+		}
+		
+		cost = 75
+		days_re_enable = 180
+		
+		complete_effect = {
+			add_stability = 0.03
+			ECON_poverty_change_medium = yes
+		}
+	}
+	
+	encourage_private_philanthropy = {
+		icon = GFX_decision_generic_fundraising
+		
+		available = {
+			has_idea = laissez_faire
+		}
+		
+		cost = 35
+		days_re_enable = 180
+		
+		complete_effect = {
+			ECON_poverty_change_small = yes
+		}
+	}
+	
+	deregulate_hiring = {
+		icon = GFX_decision_eng_trade_unions_support
+		
+		available = {
+			has_idea = laissez_faire
+		}
+		
+		cost = 50
+		days_remove = 30
+		days_re_enable = 180
+		
+		modifier = {
+			industrial_capacity_factory = 0.1
+		}
+		
+		remove_effect = {
+			ECON_poverty_change_small = yes
+		}
+	}
+	
+	finance_community_kitchens = {
+		icon = GFX_decision_generic_welfare
+		
+		available = {
+			OR = {
+				has_idea = local_relief
+				has_idea = mandated_charity
+			}
+		}
+		
+		cost = 35
+		days_remove = 30
+		days_re_enable = 120
+		
+		modifier = {
+			monthly_population = 0.03
+		}
+		
+		remove_effect = {
+			add_stability = 0.03
+			ECON_poverty_change_small = yes
+		}
+	}
+	
+	construct_public_housing = {
+		icon = GFX_decision_generic_construction
+		
+		available = {
+			has_idea = public_works_program
+		}
+		
+		cost = 35
+		days_remove = 30
+		days_re_enable = 180
+		
+		modifier = {
+			production_speed_buildings_factor = 0.1
+		}
+		
+		remove_effect = {
+			ECON_poverty_change_medium = yes
 		}
 	}
 }
