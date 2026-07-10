@@ -18,7 +18,12 @@ shared_focus = {
 	}
 	
     completion_reward = {
-		
+		unlock_decision_category_tooltip = SOV_science_meter_category
+        set_variable = { SOV_SCIENCE_level = 45 }
+		country_event = {
+			id = sov_technocrat.5
+			hours = 6
+		}
     }
 	
 	ai_will_do = {
@@ -38,8 +43,14 @@ shared_focus = {
 	prerequisite = { focus = SOV_red_star_rising }
     completion_reward = {
         add_political_power = 50
-		unlock_decision_category_tooltip = SOV_science_meter_category
-        set_variable = { SOV_SCIENCE_level = 45 }
+		add_to_variable = {
+			tooltip = SOV_SCIENCE_tt
+			SOV_SCIENCE_level = 5
+		}
+		country_event = {
+			id = sov_technocrat.6
+			hours = 6
+		}
     }
 	
 	ai_will_do = {
@@ -113,7 +124,10 @@ shared_focus = {
 	relative_position_id = SOV_society_as_a_system
 	prerequisite = { focus = SOV_society_as_a_system }
     completion_reward = {
-        
+        add_to_variable = {
+			tooltip = SOV_SCIENCE_tt
+			SOV_SCIENCE_level = 3
+		}
     }
 	
 	ai_will_do = {
@@ -420,7 +434,10 @@ shared_focus = {
 	prerequisite = { focus = SOV_the_gender_variable }
 	prerequisite = { focus = SOV_sexuality_as_a_social_fact }
     completion_reward = {
-        
+        add_to_variable = {
+			tooltip = SOV_SCIENCE_tt
+			SOV_SCIENCE_level = 5
+		}
     }
 	
 	ai_will_do = {

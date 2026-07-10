@@ -250,6 +250,10 @@ ECON_generate_state_poverty_from_national = {
     set_temp_variable = { total_raw_poverty = 0 }
 	# --- CONFIGURABLE WEIGHT ---
 	set_variable = { poverty_variation_weight = 0.5 }
+	if = {
+		limit = { check_variable = { poverty_rate > 85 } } # extremely poor countries have less variation, helps to prevent edge cases
+		subtract_from_variable = { poverty_variation_weight = 0.25 }
+	}
 	
     # --- Pass 1: Assign raw values & sum ---
     every_controlled_state = {
@@ -269,15 +273,15 @@ ECON_generate_state_poverty_from_national = {
         divide_temp_variable = { state_poverty_rate_temp = infra }		# poverty ~ 1/infra
 		
 		# --- Population factor ---
-		#set_temp_variable = { pop = state_population_k }
-		#multiply_temp_variable = { pop = 0.001 }
-		#if = {
-		#	limit = {
-		#		check_variable = { pop < 1 }
-		#	}
-		#	add_to_temp_variable = { pop = 1 }							# avoid div/0
-		#}
-		#divide_temp_variable = { state_poverty_rate_temp = pop }
+		set_temp_variable = { pop = state_population_k }
+		multiply_temp_variable = { pop = 0.001 }
+		if = {
+			limit = {
+				check_variable = { pop < 1 }
+			}
+			add_to_temp_variable = { pop = 1 }							# avoid div/0
+		}
+		divide_temp_variable = { state_poverty_rate_temp = pop }
 		#log = "[THIS.GetName]: pop - [?pop]"
 		
 		# --- Category factor ---
@@ -323,23 +327,23 @@ ECON_generate_state_poverty_from_national = {
         # Add to national total
         add_to_temp_variable = { PREV.total_raw_poverty = raw_poverty }
     }
-	#log = "total_raw_poverty - [?total_raw_poverty]"
+	log = "total_raw_poverty - [?total_raw_poverty]"
 	
     # --- Step 2: Calculate scale factor ---
     set_temp_variable = { target_total_poverty = poverty_rate }
     multiply_temp_variable = { target_total_poverty = total_states }
-    set_temp_variable = { poverty_scale_factor = target_total_poverty }
-    divide_temp_variable = { poverty_scale_factor = total_raw_poverty }
+    set_variable = { poverty_scale_factor = target_total_poverty }
+    divide_variable = { poverty_scale_factor = total_raw_poverty }
 	
-	#log = "total_states - [?total_states]"
-	#log = "poverty_scale_factor - [?poverty_scale_factor]"
+	log = "total_states - [?total_states]"
+	log = "poverty_scale_factor - [?poverty_scale_factor]"
 
     # --- Pass 2: Normalize to match national rate ---
     every_controlled_state = {
 		set_temp_variable = { final_poverty = raw_poverty }
-		#log = "final_poverty - [?final_poverty]"
+		log = "final_poverty - [?final_poverty]"
 		multiply_temp_variable = { final_poverty = PREV.poverty_scale_factor }
-		#log = "final_poverty - [?final_poverty]"
+		log = "final_poverty - [?final_poverty]"
 		
 		set_variable = { state_poverty_rate = final_poverty }
 		
@@ -371,6 +375,7 @@ ECON_generate_state_poverty_from_national = {
 		}
 		else = {
 			add_to_temp_variable = { PREV.free_states = 1 }
+			#log = "[THIS.GetName]: state_poverty_rate greater than 0 and less than 100"
 		}
 		
 		set_variable = { state_poverty_rate = p }
@@ -383,6 +388,7 @@ ECON_generate_state_poverty_from_national = {
 	# Step B: Redistribute remainder to free states
 	set_variable = { remainder = target_total_poverty }
 	subtract_from_variable = { remainder = clamped_total }
+	#log = "remainder - [?remainder]"
 	
 	if = {
 		limit = { check_variable = { free_states > 0 } }

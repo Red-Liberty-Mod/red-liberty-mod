@@ -184,7 +184,7 @@ news_event = { # vorbeck takes power - news
 
 country_event = { # election event
 	id = demo_mex.1
-	title = ""
+	title = demo_mex.1.title
 	desc = demo_mex.1.desc
 	
 	is_triggered_only = yes
@@ -196,7 +196,30 @@ country_event = { # election event
 	}
 
 	option = {
-		name = ""
+		name = demo_mex.1.a
+		
+		ai_chance = {
+			base = 6
+		}
+	}
+	
+	option = {
+		name = demo_mex.2.a
+		MEX = {
+			set_politics = {
+				ruling_party = democratic_socialism
+				last_election = "1936.7.1"
+				election_frequency = 48
+				elections_allowed = yes
+			}
+			clear_all_coalitions = yes
+			set_country_flag = democratic_socialism_coalition
+			set_country_flag = progressive_liberalism_coalition
+		}
+		
+		ai_chance = {
+			base = 4
+		}
 	}
 }
 
