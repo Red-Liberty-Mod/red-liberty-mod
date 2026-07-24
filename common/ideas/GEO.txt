@@ -1,7 +1,7 @@
 ideas = {
-	country = { 
-		
-		GEO_anti_german_unrest = {
+	country = {
+	
+		GEO_treaty_of_poti = {
 		
 			removal_cost = -1
 			
@@ -14,13 +14,21 @@ ideas = {
 			}
 			
 			modifier = {
-				stability_factor = -0.3
-				political_power_gain = -0.5
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.15
+				political_power_factor = -0.15
+			}
+			
+			targeted_modifier = {
+				tag = GER
+				trade_cost_for_target_factor = -0.4
+				extra_trade_to_target_factor = 0.2
 			}
 		}
 		
 		GEO_anti_german_unrest_1 = {
 			name = GEO_anti_german_unrest
+			picture = GEO_anti_german_unrest
 		
 			removal_cost = -1
 			
@@ -33,8 +41,27 @@ ideas = {
 			}
 			
 			modifier = {
-				stability_factor = -0.25
-				political_power_gain = -0.4
+				stability_weekly = -0.001
+			}
+		}
+		
+		GEO_anti_german_unrest_2 = {
+			name = GEO_anti_german_unrest
+			picture = GEO_anti_german_unrest
+		
+			removal_cost = -1
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = {
+				always = no
+			}
+			
+			modifier = {
+				stability_weekly = -0.002
+				political_power_gain = -0.1
 			}
 		}
 		
@@ -88,6 +115,8 @@ ideas = {
 			
 			modifier = {
 				production_speed_industrial_complex_factor = 0.05
+				production_speed_buildings_factor = 0.05
+				industrial_capacity_factory = 0.05
 			}
 		}
 		
@@ -106,6 +135,8 @@ ideas = {
 			
 			modifier = {
 				production_speed_industrial_complex_factor = 0.05
+				production_speed_buildings_factor = 0.05
+				industrial_capacity_factory = 0.05
 				consumer_goods_factor = -0.05
 			}
 		}
@@ -216,23 +247,6 @@ ideas = {
 			modifier = {
 				stability_weekly = 0.002
 				war_support_weekly = 0.002
-			}
-		}
-		
-		GEO_fortress_georgia = {
-		
-			removal_cost = -1
-			
-			allowed = {
-				always = no
-			}
-			
-			allowed_civil_war = {
-				always = yes
-			}
-			
-			modifier = {
-				production_speed_bunker_factor = 0.2
 			}
 		}
 		

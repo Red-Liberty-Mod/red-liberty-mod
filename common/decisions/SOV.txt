@@ -1,178 +1,1524 @@
-SOV_revolution_category = {
-	
-	SOV_declare_soviet_union = {
-	
-		icon = ger_mefo_bills
-		
-		visible = {
-			always = yes
+
+SOV_factionalism_category = {
+
+	SOV_form_a_new_government_mission = {
+		icon = GFX_decision_revolt
+
+		available = {
+			has_country_flag = SOV_bukharin_retired
 		}
 		
-		available = {
-			OR = {
-				KAZ = {
-					exists = no
-				}
-				UKR = {
-					exists = no
-				}
-				BLR = {
-					exists = no
-				}
+		activation = {
+			always = no
+		}
+		
+		fire_only_once = yes
+		is_good = no
+		days_mission_timeout = 120
+		
+		complete_effect = {
+			FER = {
+				country_event = far_east_forpol.3
 			}
 		}
 		
+		timeout_effect = {
+			FER = {
+				country_event = far_east_forpol.4
+			}
+		}
+	}
+	
+	SOV_moratorium_on_new_members = {
+		icon = GFX_decision_generic_political_discourse
+		
+		visible = {
+			has_completed_focus = SOV_strengthen_the_gensec
+		}
+		
+		cost = 25
+		fire_only_once = yes
+		
+		complete_effect = {
+			add_to_variable = {
+				tooltip = SOV_industrialist_influence_gain
+				SOV_industrialist_influence = 3
+			}
+		}
+		
+		remove_effect = {
+			SOV_reduce_turmoil = yes
+		}
+	}
+	
+	SOV_confiscate_sidearms = {
+		icon = GFX_decision_generic_assassination
+		
+		visible = {
+			has_completed_focus = SOV_strengthen_the_gensec
+		}
+		
 		cost = 15
+		fire_only_once = yes
+		days_remove = 30
+		
+		complete_effect = {
+			add_political_power = 50
+			add_stability = 0.01
+		}
+		
+		remove_effect = {
+			SOV_reduce_turmoil = yes
+		}
+	}
+	
+	SOV_strengthen_the_control_commission = {
+		icon = GFX_decision_SWI_no_elected_president
+		
+		visible = {
+			has_completed_focus = SOV_strengthen_the_gensec
+		}
+		
+		cost = 30
+		fire_only_once = yes
+		days_remove = 30
+		
+		complete_effect = {
+			add_to_variable = {
+				tooltip = SOV_industrialist_influence_gain
+				SOV_industrialist_influence = 5
+			}
+			add_stability = 0.03
+		}
+		
+		remove_effect = {
+			SOV_reduce_turmoil = yes
+		}
+	}
+	
+	SOV_dismantle_the_democrats = {
+		
+		visible = {
+			has_completed_focus = SOV_strengthen_the_gensec
+		}
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SOV_dismantle_the_democrats_trigger_tt
+				check_variable = { SOV_democrat_influence < 11 }
+			}
+		}
+		
+		cost = 50
+		fire_only_once = yes
+		days_remove = 14
 		
 		complete_effect = {
 			
 		}
-	}
-	
-	SOV_spread_revolution_asia = {
-	
-		icon = ger_mefo_bills
-		
-		visible = {
-			always = yes
-		}
-		
-		available = {
-			RUS = {
-				exists = no
-			}
-		}
-		
-		fire_only_once = yes
-		
-		days_remove = 30
-		
-		target_trigger = {
-            FROM = {
-                OR = {
-                    tag = KHV
-                    tag = KYR
-                    tag = TMS
-                }
-            }
-        }
-		
-		cost = 30
 		
 		remove_effect = {
-			SOV = {
-				declare_war_on = {
-					target = FROM
-					type = annex_everything
+			custom_effect_tooltip = SOV_dismantle_the_democrats_tt
+			SOV_remove_democrat_faction = yes
+		}
+	}
+	
+	SOV_organize_anarchist_veterans = {
+		icon = ger_mefo_bills
+
+		available = {
+			has_war = yes
+		}
+		
+		cost = 25
+		fire_only_once = yes
+		
+		complete_effect = {
+			#add_to_variable = {
+			#	tooltip = SOV_decist_influence_gain
+			#	SOV_decist_influence = 1
+			#}
+			custom_effect_tooltip = SOV_organize_anarchist_veterans_tt
+			hidden_effect = {
+				load_oob = "SOV_anarchist_veterans"
+				random_country_division = {
+					limit = {
+						AND = {
+							division_has_majority_template = cavalry
+							division_has_battalion_in_template = motorized
+						}
+					}
+					add_divisional_commander_xp = 500
+					#add_history_entry = {
+					#	key = my_history_entry
+					#	subject = "Test entry"
+					#	allow = no
+					#}
 				}
 			}
 		}
+		
 		ai_will_do = {
-			factor = 1
+			base = 10
 		}
 	}
 }
 
-
-SOV_regional_autonomy_category = {
+SOV_openness_category = {
 	
-	SOV_azerbaijani_autonomy = {
-	
+	SOV_invite_leaders_to_moscow = {
 		icon = ger_mefo_bills
 		
-		visible = {
-			SOV = { 
-					controls_state = 229
-					controls_state = 814
-					controls_state = 810
-					controls_state = 811
-					controls_state = 812
-				}
+		available = {
+			check_variable = { SOV_menshevik_integration_var > 2 }
+			check_variable = { SOV_left_sr_integration_var > 2 }
+			check_variable = { SOV_right_sr_integration_var > 2 }
 		}
 		
+		cost = 60
+		fire_only_once = yes
+		
+		complete_effect = {
+			add_to_variable = { SOV_openness_var = 5 }
+			add_to_variable = { SOV_menshevik_integration_var = 1 }
+			add_to_variable = { SOV_left_sr_integration_var = 1 }
+			add_to_variable = { SOV_right_sr_integration_var = 1 }
+		}
+	}
+}
+
+SOV_war_communism_category = {
+
+	SOV_crack_down_on_dissent = {
+		icon = ger_mefo_bills
+		
 		available = {
-			OR = {
-				SOV = { 
-					controls_state = 229
-					controls_state = 814
-					controls_state = 810
-					controls_state = 811
-					controls_state = 812
+			
+		}
+		
+		cost = 15
+		days_re_enable = 30
+		
+		complete_effect = {
+			add_stability = 0.025
+			add_days_mission_timeout = {
+				mission = SOV_rising_discontent
+				days = 10
+			}
+			random_controlled_state = {
+				limit = {
+					resistance > 0
 				}
+				add_resistance = -5
 			}
 		}
 		
-		fire_only_once = yes
-		
-		cost = 15
-		
-		complete_effect = {
-			release_puppet = AZR
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 2
+				SOV = {
+					has_stability < 0.5
+				}
+			}
 		}
 	}
 	
-	SOV_finnish_autonomy = {
-	
+	SOV_occupy_the_railways = {
 		icon = ger_mefo_bills
 		
-		visible = {
-			SOV = {
-				controls_state = 111
-				controls_state = 149
-				controls_state = 148
-				controls_state = 150
+		available = {
+			
+		}
+		
+		cost = 15
+		days_remove = 30
+		days_re_enable = 30
+		
+		modifier = {
+			supply_node_range = 0.1
+			production_speed_rail_way_factor = 0.1
+		}
+		
+		complete_effect = {
+			#add_stability = 0.025
+			#add_days_mission_timeout = {
+			#	mission = SOV_rising_discontent
+			#	days = 10
+			#}
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+	}
+	
+	SOV_extend_labor_duty = {
+		icon = ger_mefo_bills
+		
+		available = {
+			
+		}
+		
+		cost = 15
+		days_remove = 30
+		days_re_enable = 30
+		
+		modifier = {
+			industrial_capacity_factory = 0.1
+		}
+		
+		remove_effect = {
+			add_stability = -0.025
+			add_days_mission_timeout = {
+				mission = SOV_rising_discontent
+				days = -10
 			}
 		}
 		
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 0.5
+				SOV = {
+					has_war_support < 0.5
+				}
+			}
+		}
+	}
+	
+	SOV_food_rationing = {
+		icon = ger_mefo_bills
+		
 		available = {
-			OR = {
-				SOV = { 
-					controls_state = 111
-					controls_state = 149
-					controls_state = 148
-					controls_state = 150
+			
+		}
+		
+		cost = 15
+		days_remove = 30
+		days_re_enable = 30
+		
+		modifier = {
+			consumer_goods_factor = -0.1
+		}
+		
+		remove_effect = {
+			add_war_support = -0.025
+			add_days_mission_timeout = {
+				mission = SOV_rising_discontent
+				days = -10
+			}
+		}
+		
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 0.5
+				SOV = {
+					has_war_support < 0.5
+				}
+			}
+		}
+	}
+	
+	SOV_rising_discontent = {
+		icon = GFX_decision_revolt
+
+		available = {
+			has_global_flag = russian_civil_war_ended
+		}
+		
+		activation = {
+			has_completed_focus = SOV_war_communism
+		}
+		
+		fire_only_once = yes
+		is_good = no
+		days_mission_timeout = 180
+		
+		complete_effect = {
+			
+		}
+		
+		timeout_effect = {
+			
+		}
+	}
+}
+
+SOV_industrialization_category = {
+	
+	SOV_construct_volga_dam = {
+		icon = GFX_decision_generic_construction
+		
+		#state_target = yes
+		highlight_states = { highlight_state_targets = { state = 217 } } # Volgograd
+		
+		fire_only_once = yes
+		days_remove = 365
+		modifier = { consumer_goods_factor = 0.08 }
+		
+		custom_cost_text = manpower_cost_80k
+		custom_cost_trigger = {
+			has_manpower > 80000
+		}
+		
+		complete_effect = {
+			hidden_effect = { add_manpower = -80000 }
+		}
+		
+		remove_effect = {
+			hidden_effect = { add_manpower = 80000 }
+			217 = {
+				add_building_construction = {
+					type = dam
+					level = 1
+					province = 3555
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = {
+				localization_key = building_state_modifier|dam
+				INDENT = "    "
+			}
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+	}
+	
+	SOV_improve_roads_in_northern_russia = {
+		icon = GFX_decision_generic_construction
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 214
+				state = 263
+				state = 351
+			}
+		}
+		
+		cost = 30
+		fire_only_once = yes
+		days_remove = 120
+		modifier = { consumer_goods_factor = 0.04 }
+		
+		remove_effect = {
+			214 = { add_building_construction = { type = infrastructure level = 1 } } #Arkhangelsk
+			351 = { add_building_construction = { type = infrastructure level = 1 } } #Vologda
+			263 = { add_building_construction = { type = infrastructure level = 1 } } #Novgorod
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+	}
+	
+	SOV_improve_roads_in_central_russia = {
+		icon = GFX_decision_generic_construction
+		
+		cost = 30
+		fire_only_once = yes
+		days_remove = 120
+		modifier = { consumer_goods_factor = 0.04 }
+		
+		#state_target = yes
+		highlight_states = {
+			highlight_state_targets = {
+				state = 205 #
+				state = 260 #
+				state = 258 #
+				state = 252 #
+			}
+		}
+		
+		remove_effect = {
+			205 = {
+				add_building_construction = { type = infrastructure level = 1 } #Kaluga
+			}
+			260 = {
+				add_building_construction = { type = infrastructure level = 1 } #Voronezh
+			}
+			258 = {
+				add_building_construction = { type = infrastructure level = 1 } #Lipetsk
+			}
+			252 = {
+				add_building_construction = { type = infrastructure level = 1 } #Nizhny Novgorod
+			}
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+	}
+	
+	SOV_improve_roads_in_southern_russia = {
+		icon = GFX_decision_generic_construction
+		
+		#state_target = yes
+		highlight_states = {
+			highlight_state_targets = {
+				state = 218
+				state = 236
+				state = 237
+				state = 238
+			}
+		}
+		
+		cost = 30
+		fire_only_once = yes
+		days_remove = 120
+		modifier = { consumer_goods_factor = 0.04 }
+		
+		remove_effect = {
+			218 = { add_building_construction = { type = infrastructure level = 1 } } #Rostov
+			236 = { add_building_construction = { type = infrastructure level = 1 } } #Astrakhan
+			237 = { add_building_construction = { type = infrastructure level = 1 } } #Elista
+			238 = { add_building_construction = { type = infrastructure level = 1 } } #Velikoknyazhesk
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+	}
+	
+	SOV_volgograd_tractor_plant = {
+		icon = GFX_decision_generic_factory
+		
+		highlight_states = { highlight_state_targets = { state = 217 } }
+		
+		cost = 30
+		fire_only_once = yes
+		days_remove = 120
+		modifier = { consumer_goods_factor = 0.04 }
+		
+		remove_effect = {
+			217 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = { type = industrial_complex level = 3 }
+				add_building_construction = { type = infrastructure level = 1 }
+			}
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+	}
+	
+	SOV_kursk_tractor_plant = {
+		icon = GFX_decision_generic_factory
+		
+		highlight_states = { highlight_state_targets = { state = 220 } }
+		
+		cost = 30
+		fire_only_once = yes
+		days_remove = 60
+		modifier = { consumer_goods_factor = 0.04 }
+		
+		remove_effect = {
+			220 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { type = industrial_complex level = 2 }
+				add_building_construction = { type = infrastructure level = 1 }
+			}
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+	}
+	
+	SOV_lipetsk_metallurgical_plant = {
+		icon = GFX_decision_steel
+		
+		highlight_states = { highlight_state_targets = { state = 258 } } #Lipetsk
+		
+		cost = 30
+		fire_only_once = yes
+		days_remove = 60
+		modifier = { consumer_goods_factor = 0.04 }
+		
+		remove_effect = {
+			258 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 }
+				add_resource = {
+					type = steel
+					amount = 35
 				}
 			}
 		}
 		
+		ai_will_do = {
+			base = 10
+		}
+	}
+	
+	SOV_grozny_oil = {
+		icon = GFX_decision_oil
+		
+		available = {
+			has_tech = excavation1
+		}
+		
+		cost = 60
+		fire_only_once = yes
+		days_remove = 60
+		modifier = { consumer_goods_factor = 0.04 }
+		
+		highlight_states = { highlight_state_targets = { state = 232 } } #Chechnya
+		
+		remove_effect = {
+			232 = {
+				add_extra_state_shared_building_slots = 1
+				add_resource = {
+					type = oil
+					amount = 20
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+	}
+}
+
+SOV_revolution_category = {
+	
+	SOV_proclamation_of_the_soviet_union = {
+		icon = GFX_decision_SOV_secure_the_administration
+		
+		available = {
+			UKR = {
+				OR = {
+					is_subject_of = SOV
+					exists = no
+				}
+			}
+		}
+		
+		cost = 0
 		fire_only_once = yes
 		
-		cost = 15
+		complete_effect = {
+			add_stability = 0.1
+			add_war_support = 0.1
+			set_cosmetic_tag = SOV_soviet_union
+		}
+		
+		ai_will_do = {
+			base = 1000
+		}
+	}
+	
+	#SOV_form_cominform = {
+	#	icon = ger_mefo_bills
+	#	
+	#	available = {
+	#		RUS = {
+	#			exists = no
+	#		}
+	#	}
+	#	
+	#	cost = 0
+	#	fire_only_once = yes
+	#	
+	#	complete_effect = {
+	#		create_faction = "Communist International"
+	#		add_named_threat = {
+	#			threat = 3
+	#			name = SOV_form_cominform
+	#		}
+	#	}
+	#	
+	#	ai_will_do = {
+	#		base = 10
+	#	}
+	#}
+	
+	#SOV_strike_down_the_eagle = {
+	#	icon = ger_mefo_bills
+	#	
+	#	available = {
+	#		has_war = no
+	#		is_subject = no
+	#		if = {
+	#			limit = {
+	#				FRA = {
+	#					has_war_with = GER
+	#				}
+	#			}
+	#			fighting_army_strength_ratio = {
+	#				tag = GER
+	#				ratio > 1.25
+	#			}
+	#		}
+	#		else = {
+	#			fighting_army_strength_ratio = {
+	#				tag = GER
+	#				ratio > 1.5
+	#			}
+	#		}
+	#	}
+	#	
+	#	cost = 15
+	#	fire_only_once = yes
+	#	days_remove = 30
+	#	
+	#	war_with_on_remove = GER
+	#	
+	#	remove_effect = {
+	#		every_country = {
+	#			limit = {
+	#				OR = {
+	#					tag = GER
+	#					is_in_faction_with = GER
+	#					tag = BLR
+	#				}
+	#			}
+	#			SOV = {
+	#				declare_war_on = {
+	#					target = PREV
+	#					type = annex_everything
+	#				}
+	#			}
+	#		}
+	#		hidden_effect = {
+	#			news_event = {
+	#				id = worldnews_ww2.2
+	#				hours = 6
+	#			}
+	#			add_named_threat = {
+	#				threat = 15
+	#				name = SOV_strike_down_the_eagle
+	#			}
+	#		}
+	#	}
+	#	
+	#	ai_will_do = {
+	#		base = 10
+	#		modifier = {
+	#			factor = 2
+	#			date > 1941.1.1
+	#		}
+	#	}
+	#}
+	
+	SOV_attack_target = {
+		name = SOV_attack_target
+		icon = hol_draw_up_staff_plans
+		
+		allowed = { always = no }
+
+		available = {
+			threat > 0.5
+			OR = {
+				is_neighbor_of = FROM
+				FROM = { any_home_area_neighbor_country = { is_ally_with = ROOT } }
+			}
+			if = {
+				limit = {
+					FROM = {
+						OR = {
+							tag = TUR
+							is_in_faction = yes
+							is_guaranteed_by = GER
+						}
+					}
+				}
+				has_completed_focus = SOV_operation_meteor
+			}
+			NOT = { has_non_aggression_pact_with = FROM }
+			if = {
+				limit = { FROM = { tag = AZR } }
+				NOT = { has_non_aggression_pact_with = TUR }
+			}
+			NOT = { has_guaranteed = FROM }
+		}
+
+		visible = {
+			can_declare_war_on = FROM
+			FROM = { has_socialist_govt = no }
+		}
+
+		target_trigger = {
+			can_declare_war_on = FROM
+			FROM = { has_socialist_govt = no }
+		}
+		
+		cost = 20
+		days_remove = 30
+		fire_only_once = yes
+		cancel_if_not_visible = yes
+		war_with_target_on_remove = yes
+		fixed_random_seed = no
+
+		cancel_effect = {
+			log = "[GetLogRoot][GetLogFrom]: Decision cancel SOV_attack_target"
+			hidden_effect = { add_political_power = 10 }
+		}
+
+		complete_effect = {
+			log = "[GetLogRoot][GetLogFrom]: Decision complete SOV_attack_target"
+		}
+
+		remove_effect = {
+			log = "[GetLogRoot][GetLogFrom]: Decision remove SOV_attack_target"
+			declare_war_on = {
+				target = FROM
+				type = annex_everything
+			}
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+	}
+	
+	SOV_invite_alliance_target = {
+		icon = GFX_decision_generic_agreement
+		
+		allowed = { always = no } #activated by effect
+
+		available = {
+			FROM = { at_peace_or_same_major_enemies_as_ROOT = yes }
+		}
+
+		visible = {
+			is_faction_leader = yes
+			FROM = {
+				exists = yes
+				is_valid_peace_target = yes
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		
+		cost = 10
+		fire_only_once = yes
+		fixed_random_seed = no
 		
 		complete_effect = {
-			release_puppet = FIN
-			SOV = { transfer_state = 146 }
-			remove_ideas = FIN_bulwark_against_bolshevism
+			log = "[GetLogRoot][GetLogFrom]: Decision complete SOV_invite_alliance_target"
+			FROM = { country_event = { id = sov_forpol.10 hours = 6 } }
+		}
+		
+		ai_will_do = {
+			factor = 1000
+			modifier = {
+				factor = 0
+				FROM = { any_owned_state = { is_claim_or_core_of_ROOT = yes } }
+			}
+			modifier = {
+				factor = 0
+				surrender_progress > 0.05
+			}
+		}
+	}
+	
+	SOV_strategic_objective_kiev = {
+		icon = GFX_decision_infiltrate_state
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 202
+			}
+		}
+		
+		available = {
+			has_completed_focus = SOV_operation_meteor
+		}
+		
+		visible = {
+			NOT = {
+				OR = {
+					has_country_flag = SOV_strategic_objective_minsk_flag
+					has_country_flag = SOV_strategic_objective_riga_flag
+				}
+			}
+		}
+		
+		cost = 10
+		fire_only_once = yes
+		
+		complete_effect = {
+			set_country_flag = SOV_strategic_objective_kiev_flag
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+	}
+	
+	SOV_take_kiev = {
+		icon = hol_draw_up_staff_plans
+		
+		allowed = { always = no } # activated by event
+		available = {
+			202 = { is_controlled_by_ROOT_or_ally = yes }
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 202
+			}
+		}
+		
+		selectable_mission = no
+		is_good = no
+		days_mission_timeout = 120
+		
+		complete_effect = {
+			set_country_flag = SOV_taken_kiev_flag
+		}
+		
+		timeout_effect = {
+			add_war_support = -0.04
+			SOV_weaken_operation_meteor = yes
+		}
+	}
+	
+	SOV_strategic_objective_minsk = {
+		icon = GFX_decision_infiltrate_state
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 206
+			}
+		}
+		
+		available = {
+			has_completed_focus = SOV_operation_meteor
+		}
+		
+		visible = {
+			NOT = {
+				OR = {
+					has_country_flag = SOV_strategic_objective_kiev_flag
+					has_country_flag = SOV_strategic_objective_riga_flag
+				}
+			}
+		}
+		
+		cost = 10
+		fire_only_once = yes
+		
+		complete_effect = {
+			set_country_flag = SOV_strategic_objective_minsk_flag
+		}
+		
+		ai_will_do = {
+			base = 6
+		}
+	}
+	
+	SOV_take_minsk = {
+		icon = hol_draw_up_staff_plans
+		
+		allowed = { always = no } # activated by event
+		available = {
+			206 = { is_controlled_by_ROOT_or_ally = yes }
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 206
+			}
+		}
+		
+		selectable_mission = no
+		is_good = no
+		days_mission_timeout = 90
+		
+		complete_effect = {
+			set_country_flag = SOV_taken_minsk_flag
+		}
+		
+		timeout_effect = {
+			add_war_support = -0.04
+			SOV_weaken_operation_meteor = yes
+		}
+	}
+	
+	SOV_strategic_objective_riga = {
+		icon = GFX_decision_infiltrate_state
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 888
+			}
+		}
+		
+		available = {
+			has_completed_focus = SOV_operation_meteor
+		}
+		
+		visible = {
+			NOT = {
+				OR = {
+					has_country_flag = SOV_strategic_objective_kiev_flag
+					has_country_flag = SOV_strategic_objective_minsk_flag
+				}
+			}
+		}
+		
+		cost = 10
+		fire_only_once = yes
+		
+		complete_effect = {
+			set_country_flag = SOV_strategic_objective_riga_flag
+		}
+		
+		ai_will_do = {
+			base = 3
+		}
+	}
+	
+	SOV_take_riga = {
+		icon = hol_draw_up_staff_plans
+		
+		allowed = { always = no } # activated by event
+		available = {
+			888 = { is_controlled_by_ROOT_or_ally = yes }
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 888
+			}
+		}
+		
+		selectable_mission = no
+		is_good = no
+		days_mission_timeout = 60
+		
+		complete_effect = {
+			set_country_flag = SOV_taken_riga_flag
+		}
+		
+		timeout_effect = {
+			add_war_support = -0.04
+			SOV_weaken_operation_meteor = yes
+		}
+	}
+	
+	#SOV_launch_operation_meteor = {
+	#	icon = GFX_decision_generic_ignite_civil_war
+	#	
+	#	available = {
+	#		has_completed_focus = SOV_operation_meteor
+	#		has_war = no
+	#		is_subject = no
+	#		if = {
+	#			limit = {
+	#				FRA = {
+	#					has_war_with = GER
+	#				}
+	#			}
+	#			fighting_army_strength_ratio = {
+	#				tag = GER
+	#				ratio > 1.25
+	#			}
+	#		}
+	#		else = {
+	#			fighting_army_strength_ratio = {
+	#				tag = GER
+	#				ratio > 1.5
+	#			}
+	#		}
+	#	}
+	#	
+	#	cost = 15
+	#	fire_only_once = yes
+	#	days_remove = 30
+	#	
+	#	war_with_on_remove = GER
+	#	
+	#	remove_effect = {
+	#		every_country = {
+	#			limit = {
+	#				OR = {
+	#					tag = GER
+	#					is_in_faction_with = GER
+	#					tag = BLR
+	#				}
+	#			}
+	#			SOV = {
+	#				declare_war_on = {
+	#					target = PREV
+	#					type = annex_everything
+	#				}
+	#			}
+	#		}
+	#		SOV_activate_operation_meteor = yes
+	#		hidden_effect = {
+	#			news_event = {
+	#				id = worldnews_ww2.2
+	#				hours = 6
+	#			}
+	#			add_named_threat = {
+	#				threat = 15
+	#				name = SOV_strike_down_the_eagle
+	#			}
+	#		}
+	#	}
+	#	
+	#	ai_will_do = {
+	#		base = 10
+	#		modifier = {
+	#			factor = 2
+	#			date > 1941.1.1
+	#		}
+	#	}
+	#}
+}
+
+SOV_stavka_category = {
+	
+	SOV_form_state_defense_committee = {
+		icon = GFX_decision_SWI_no_elected_president
+		
+		available = {
+			has_war_with = GER
+		}
+		
+		visible = {
+			country_exists = GER
+		}
+		
+		cost = 100
+		days_remove = -1
+		remove_trigger = {
+			NOT = {
+				has_war_with = GER
+				country_exists = GER
+			}
+		}
+		
+		modifier = {
+			max_command_power = 50
+			planning_speed = 0.3
+			mobilization_speed = 0.3
+			mobilization_laws_cost_factor = -0.33
+			economy_cost_factor = -0.33
+			high_command_cost_factor = -0.33
+		}
+		
+		complete_effect = {
+			
+		}
+		
+		ai_will_do = {
+			base = 100
+		}
+	}
+	
+	SOV_fortify_leningrad = {
+		icon = GFX_decision_generic_fortification
+		
+		#allowed = { always = no }
+		
+		available = {
+			num_of_civilian_factories_available_for_projects > 0
+			controls_state = 195 #Petrograd
+			controls_state = 208 #Luga
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 195 #Petrograd
+				state = 208 #Luga
+			}
+		}
+		
+		cost = 10
+		days_remove = 60
+		fire_only_once = yes
+
+		modifier = {
+			civilian_factory_use = 1
+		}
+
+		remove_effect = {
+			195 = { #Leningrad
+				add_building_construction = { type = bunker province = 79 level = 2 }
+				add_building_construction = { type = bunker province = 6174 level = 2 }
+				add_building_construction = { type = bunker province = 11068 level = 2 }
+			}
+			208 = { #Luga
+				add_building_construction = { type = bunker province = 181 level = 2 }
+				add_building_construction = { type = bunker province = 6197 level = 2 }
+				add_building_construction = { type = bunker province = 11032 level = 2 }
+				add_building_construction = { type = bunker province = 11186 level = 2 }
+			}
+		}
+		
+		ai_will_do = {
+			base = 30
+		}
+	}
+	
+	SOV_fortify_moscow = {
+		icon = GFX_decision_generic_fortification
+		
+		#allowed = { always = no }
+		
+		available = {
+			num_of_civilian_factories_available_for_projects > 0
+			controls_state = 205 #Kaluga
+			controls_state = 219 #Moscow
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 205 #Kaluga
+				state = 219 #Moscow
+			}
+		}
+		
+		cost = 10
+		days_remove = 60
+		fire_only_once = yes
+
+		modifier = {
+			civilian_factory_use = 1
+		}
+
+		remove_effect = {
+			205 = { #Kaluga
+				add_building_construction = { type = bunker province = 274 level = 2 }
+				add_building_construction = { type = bunker province = 382 level = 2 }
+				add_building_construction = { type = bunker province = 11300 level = 2 }
+			}
+			219 = { #Moscow
+				add_building_construction = { type = bunker province = 366 level = 2 }
+				add_building_construction = { type = bunker province = 401 level = 2 }
+				add_building_construction = { type = bunker province = 3391 level = 2 }
+				add_building_construction = { type = bunker province = 6414 level = 2 }
+				add_building_construction = { type = bunker province = 11282 level = 2 }
+			}
+		}
+		
+		ai_will_do = {
+			base = 50
+		}
+	}
+	
+	SOV_promote_armor_officers = {
+		icon = GFX_decision_generic_army_support
+		
+		custom_cost_text = CP_25
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		fire_only_once = yes
+		
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+			set_country_flag = SOV_promote_armor_officers_flag
+		}
+		
+		ai_will_do = {
+			base = 10
+		}
+	}
+}
+
+SOV_evacuation_of_industry_category = {
+	
+	SOV_evacuate_industry = {
+		icon = generic_construction
+		
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = ROOT
+				is_core_of = ROOT
+				is_fully_controlled_by = ROOT
+				is_on_continent = europe
+				OR = {
+					has_state_category = town
+					has_state_category = large_town
+					has_state_category = city
+					has_state_category = large_city
+					has_state_category = megalopolis
+					has_state_category = metropolis
+				}
+				infrastructure > 4
+			}
+		}
+		
+		target_root_trigger = {
+			original_tag = SOV
+			has_civil_war = no
+		}
+		
+		available = {
+			FROM = {
+				is_fully_controlled_by = ROOT
+				infrastructure > 3
+			}
+			has_equipment = { train_equipment > SOV_industrial_relocation_trains_decision } #20 trains per factory
+		}
+		
+		visible = {
+			FROM = {
+				OR = { #Has at least 2 factories
+					arms_factory > 1
+					industrial_complex > 1
+					AND = {
+						arms_factory > 0
+						industrial_complex > 0
+					}
+				}
+			}
+		}
+		
+		cost = SOV_evacuate_industry_cost?25
+		days_remove = SOV_evacuate_industry_days?30
+		
+		complete_effect = {  #Attempt to remove 2 CIVS & 2 MILS
+			hidden_effect = {
+				add_equipment_to_stockpile = {
+					type = train_equipment
+					amount = SOV_industrial_relocation_trains_decision_negative
+					producer = SOV
+				}
+			}
+			custom_effect_tooltip = SOV_industry_relocation_trains_tt
+			custom_effect_tooltip = SOV_industry_relocation_complete_effect_tt
+			#REMOVE factories
+			FROM = {
+				hidden_effect = {
+					set_temp_variable = { SOV_factories_counter = 0 }
+
+					#Attempt to relocate 50%-50% of mils-civs
+					set_temp_variable = { SOV_half_the_factories_to_relocate = SOV.SOV_industrial_relocation_max_factories }
+					divide_temp_variable = { SOV_half_the_factories_to_relocate = 2 }
+					while_loop_effect = {
+						limit = {
+							check_variable = { SOV_factories_counter = SOV.SOV_industrial_relocation_max_factories compare = less_than }
+						}
+						if = { #GO MILS (if possible)
+							limit = {
+								check_variable = { SOV_factories_counter = SOV_half_the_factories_to_relocate compare = less_than }
+							}
+							if = {
+								limit = {
+									arms_factory > 0
+								}
+								remove_building = {
+									type = arms_factory
+									level = 1
+								}
+								if = {
+									limit = {
+										has_state_flag = SOV_mils_removed_flag
+									}
+									modify_state_flag = { flag = SOV_mils_removed_flag value = 1 }
+								}
+								else = {
+									set_state_flag = SOV_mils_removed_flag
+								}
+							}
+							else_if = {
+								limit = {
+									industrial_complex > 0
+								}
+								remove_building = {
+									type = industrial_complex
+									level = 1
+								}
+								if = {
+									limit = {
+										has_state_flag = SOV_civs_removed_flag
+									}
+									modify_state_flag = { flag = SOV_civs_removed_flag value = 1 }
+								}
+								else = {
+									set_state_flag = SOV_civs_removed_flag
+								}
+							}
+						}
+						else = { #GO CIVS (if possible)
+							if = {
+								limit = {
+									industrial_complex > 0
+								}
+								remove_building = {
+									type = industrial_complex
+									level = 1
+								}
+								if = {
+									limit = {
+										has_state_flag = SOV_civs_removed_flag
+									}
+									modify_state_flag = { flag = SOV_civs_removed_flag value = 1 }
+								}
+								else = {
+									set_state_flag = SOV_civs_removed_flag
+								}
+							}
+							else_if = {
+								limit = {
+									arms_factory > 0
+								}
+								remove_building = {
+									type = arms_factory
+									level = 1
+								}
+								if = {
+									limit = {
+										has_state_flag = SOV_mils_removed_flag
+									}
+									modify_state_flag = { flag = SOV_mils_removed_flag value = 1 }
+								}
+								else = {
+									set_state_flag = SOV_mils_removed_flag
+								}
+							}
+						}
+						add_to_temp_variable = { SOV_factories_counter = 1 }
+					}
+				}
+			}
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = SOV_industry_relocation_remove_effect_tt
+			#RELOCATE FACTORIES
+			FROM = {
+				set_temp_variable = { SOV_factories_counter = 0 }
+				#Factories attempt to get relocated in 2 different states
+				set_temp_variable = { SOV_half_the_factories_to_relocate = SOV.SOV_industrial_relocation_max_factories }
+				divide_temp_variable = { SOV_half_the_factories_to_relocate = 2 }
+				while_loop_effect = { #NOTE: Due to the seed not changing during the execution of this effect, the same state will always be chosen, UNLESS it runs out of slots -> That's the reason for this
+					limit = {
+						check_variable = { SOV_factories_counter = SOV_half_the_factories_to_relocate compare = less_than }
+					}
+					SOV_relocate_industry_in_appropriate_state_effect = yes
+					add_to_temp_variable = { SOV_factories_counter = 1 }
+				}
+			}
+			if = {
+				limit = { has_war = yes }
+				custom_effect_tooltip = SOV_relocate_industry_repair_tt
+				custom_effect_tooltip = SOV_relocate_industry_lose_control_tt
+			}
+		}
+	}
+}
+
+SOV_foreign_trade_category = {
+	
+	SOV_import_trucks = {
+		icon = ger_mefo_bills
+		
+		visible = {
+			always = yes
+		}
+		
+		available = {
+			
+		}
+		
+		cost = 15
+		days_remove = 14
+		
+		cosmetic_tag = USA
+		
+		modifier = {
+			civilian_factory_use = 1
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = 100
+				producer = USA
+			}
+		}
+	}
+	
+	SOV_import_industrial_equipment = {
+		icon = ger_mefo_bills
+		
+		visible = {
+			always = yes
+		}
+		
+		available = {
+			
+		}
+		
+		cost = 15
+		days_remove = 14
+		
+		cosmetic_tag = USA
+		
+		modifier = {
+			civilian_factory_use = 1
+		}
+		
+		remove_effect = {
 			
 		}
 	}
 	
-	SOV_georgian_autonomy = {
-	
+	SOV_import_convoys = {
 		icon = ger_mefo_bills
 		
 		visible = {
-			SOV = {
-				controls_state = 231
-				controls_state = 890
-			}
+			always = yes
 		}
 		
 		available = {
-			OR = {
-				SOV = { 
-					controls_state = 231
-					controls_state = 890
-				}
-			}
+			
 		}
 		
-		fire_only_once = yes
+		cost = 15
+		days_remove = 14
+		
+		cosmetic_tag = ENG
+		
+		modifier = {
+			civilian_factory_use = 1
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = convoy
+				amount = 15
+				producer = ENG
+			}
+		}
+	}
+	
+	SOV_import_electronics = {
+		icon = ger_mefo_bills
+		
+		visible = {
+			always = yes
+		}
+		
+		available = {
+			
+		}
 		
 		cost = 15
+		days_remove = 14
 		
-		complete_effect = {
-			release_puppet = GEO
+		cosmetic_tag = GER
+		
+		modifier = {
+			civilian_factory_use = 1
+		}
+		
+		remove_effect = {
+			
 		}
 	}
 }

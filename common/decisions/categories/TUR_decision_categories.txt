@@ -1,8 +1,58 @@
+TUR_straits_council_category = {
+	icon = generic_crisis
+	picture = GFX_decision_cat_picture_soviet_comecon
+	
+	allowed = {
+		OR = {
+			tag = TUR
+			tag = ENG
+			tag = FRA
+			tag = GER
+			tag = SCM
+			
+			tag = ITA
+			tag = GRE
+			tag = BUL
+			tag = ROM
+			tag = UKR
+			tag = GEO
+		}
+	}
+	
+	visible = {
+		TUR_straits_conference_is_over = no
+	}
+	
+	visible_when_empty = yes
+
+	priority = 100
+}
+
+TUR_parliament = {
+	icon = ENG_parliament
+	
+	allowed = {
+		tag = TUR
+	}
+	
+	visible = {
+		always = no
+	}
+	
+	visible_when_empty = yes
+
+	priority = 100
+}
+
 TUR_govt_influence_category = {
 	icon = ENG_parliament
 	
 	allowed = {
 		tag = TUR
+	}
+	
+	visible = {
+		always = no
 	}
 	
 	visible_when_empty = yes
@@ -15,6 +65,10 @@ TUR_inner_party_influence_category = {
 	
 	allowed = {
 		tag = TUR
+	}
+	
+	visible = {
+		always = no
 	}
 	
 	visible_when_empty = yes

@@ -6,12 +6,19 @@ set_technology = {
 	tech_recon = 1
 	tech_support = 1		
 	tech_mountaineers = 1
+	tech_trucks = 1
 	motorised_infantry = 1
 	gw_artillery = 1 
 	transport = 1 
 	mtg_transport = 1
 	
 	basic_train = 1
+}
+
+add_equipment_to_stockpile = {
+    type = motorized_equipment
+    amount = 200
+    producer = RUS
 }
 
 oob = "RUS"
@@ -29,7 +36,6 @@ add_ideas = {
 	limited_exports
 	limited_conscription
 	partial_economic_mobilisation
-	semi_industrial_economy
 }
 
 set_politics = {
@@ -64,22 +70,22 @@ recruit_character = RUS_vasily_boldyrev
 recruit_character = RUS_mikhail_diterikhs
 recruit_character = RUS_anatoly_pepelyayev
 recruit_character = RUS_grigory_semyonov
+recruit_character = RUS_vladimir_kappel
+recruit_character = RUS_alexander_dutov
+recruit_character = RUS_boris_annenkov
+recruit_character = RUS_konstantin_sakharov
+recruit_character = RUS_mikhail_khanzhin
+recruit_character = RUS_vasily_antonov
 
-ORE = {
-	give_military_access = RUS
+set_autonomy = {
+	target = TMS
+	autonomous_state = autonomy_RL_occupied_puppet
 }
-URL = {
-	give_military_access = RUS
+set_autonomy = {
+	target = KHV
+	autonomous_state = autonomy_RL_nominal_puppet
 }
-SCH = {
-	give_military_access = RUS
-}
-TRB = {
-	give_military_access = RUS
-}
-AMU = {
-	give_military_access = RUS
-}
-PRI = {
-	give_military_access = RUS
+set_autonomy = {
+	target = UZB
+	autonomous_state = autonomy_RL_nominal_puppet
 }

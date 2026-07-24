@@ -8,7 +8,7 @@ set_technology = {
 set_convoys = 0
 
 set_politics = {
-	ruling_party = despotism
+	ruling_party = authoritarian_democracy
 	last_election = "1936.1.1"
 	election_frequency = 48
 	elections_allowed = no
@@ -21,10 +21,59 @@ set_popularities = {
 	social_democracy = 0
 	progressive_liberalism = 0
 	liberal_conservatism = 0
-	national_conservatism = 0
-	authoritarian_democracy = 0
-	despotism = 100
+	national_conservatism = 30
+	authoritarian_democracy = 50
+	despotism = 20
 	ultraconservatism = 0
 	fascism = 0
+}
+
+create_country_leader = {
+	name = "Tiemoko Garan Kouyaté"
+	desc = ""
+	#picture = ""
+	ideology = vanguard_socialism_subtype
+	traits = {
+		
+	}
+}
+
+create_country_leader = {
+	name = "Fily Dabo Sissoko"
+	desc = ""
+	#picture = ""
+	ideology = authoritarian_democracy_subtype
+	traits = {
+		
+	}
+}
+
+### Templates ###
+division_template = {
+	name = "Malian Militia"
+	#division_names_group = FREN_MIL_01
+	regiments = {
+		irregular_infantry = { x = 0 y = 0 }
+		irregular_infantry = { x = 0 y = 1 }
+		irregular_infantry = { x = 0 y = 2 }
+		irregular_infantry = { x = 1 y = 0 }
+		irregular_infantry = { x = 1 y = 1 }
+		irregular_infantry = { x = 1 y = 2 }
+		irregular_infantry = { x = 2 y = 0 }
+		irregular_infantry = { x = 2 y = 1 }
+		irregular_infantry = { x = 2 y = 2 }
+	}
+}
+division_template = {
+	name = "Tuareg Cavalry"
+	#division_names_group = FREN_CAV_01
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+		cavalry = { x = 2 y = 0 }
 	}
 }

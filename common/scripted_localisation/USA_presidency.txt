@@ -1,0 +1,107 @@
+defined_text = {
+	name = GetPresidentAgenda
+	
+	text = {
+		trigger = {
+			norman_thomas_is_president = yes
+		}
+		localization_key = "USA_office_of_the_president_thomas"
+	}
+}
+
+defined_text = {
+	name = GetPresidentPopularity
+	
+	text = {
+		trigger = {
+			check_variable = { USA_president_popularity > 16 }
+		}
+		localization_key = "USA_broadly_popular"
+	}
+	text = {
+		trigger = {
+			check_variable = { USA_president_popularity > 12 }
+			check_variable = { USA_president_popularity < 17 }
+		}
+		localization_key = "USA_divides_opinions"
+	}
+	text = {
+		trigger = {
+			check_variable = { USA_president_popularity > 6 }
+			check_variable = { USA_president_popularity < 11 }
+		}
+		localization_key = "USA_unpopular"
+	}
+	text = {
+		trigger = {
+			check_variable = { USA_president_popularity < 7 }
+		}
+		localization_key = "USA_deeply_unpopular"
+	}
+}
+
+defined_text = {
+	name = GetAgenda1Status
+	
+	text = {
+		trigger = {
+			has_country_flag = USA_agenda_1_failed
+		}
+		localization_key = "USA_agenda_failed"
+	}
+	
+	text = {
+		trigger = {
+			has_country_flag = USA_agenda_1_complete
+		}
+		localization_key = "USA_agenda_complete"
+	}
+	
+	text = {
+		localization_key = "USA_agenda_not_started"
+    }
+}
+
+defined_text = {
+	name = GetAgenda2Status
+	
+	text = {
+		trigger = {
+			has_country_flag = USA_agenda_2_failed
+		}
+		localization_key = "USA_agenda_failed"
+	}
+	
+	text = {
+		trigger = {
+			has_country_flag = USA_agenda_2_complete
+		}
+		localization_key = "USA_agenda_complete"
+	}
+	
+	text = {
+		localization_key = "USA_agenda_not_started"
+    }
+}
+
+defined_text = {
+	name = GetAgenda3Status
+	
+	text = {
+		trigger = {
+			has_country_flag = USA_agenda_3_failed
+		}
+		localization_key = "USA_agenda_failed"
+	}
+	
+	text = {
+		trigger = {
+			has_country_flag = USA_agenda_3_complete
+		}
+		localization_key = "USA_agenda_complete"
+	}
+	
+	text = {
+		localization_key = "USA_agenda_not_started"
+    }
+}

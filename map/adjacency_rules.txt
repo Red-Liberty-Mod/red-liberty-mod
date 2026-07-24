@@ -316,7 +316,17 @@ adjacency_rule = {
 	}
 	
 	required_provinces = { 6389 317 3231 }
-	
+
+	is_disabled = {
+		58 = {
+			has_dynamic_modifier = {
+				modifier = kiel_canal_damaged_modifier
+				scope = THIS
+			}
+		}
+		tooltip = kiel_canal_damaged_tt
+	}	
+		
 	icon = 6389
 	offset = { -6 0 0 }
 }
@@ -498,4 +508,38 @@ adjacency_rule = {
 	
 	icon = 6979
 	offset = { 9 0 6 }
+}
+
+adjacency_rule = {
+	name = "VOLGA_CANAL"
+
+	contested = {
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	enemy = {
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	friend = {
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	neutral = {
+		army = no
+		navy = no
+		submarine = no
+		trade = yes
+	}
+	
+	required_provinces = { 757 3529 9417 9504 }
+	
+	icon = 3529
+	offset = { -4 0 0 }
 }

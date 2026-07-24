@@ -1,5 +1,41 @@
 characters = {
-
+	
+	GER_rudolf_rocker = {
+		name = GER_rudolf_rocker
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_GER_rudolf_rocker"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_RUDOLF_ROCKER_DESC"
+			ideology = anarchism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	GER_heinrich_brandler = {
+		name = GER_heinrich_brandler
+		
+		portraits = {
+			civilian = {
+				#large = "GFX_portrait_GER_heinrich_brandler"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_HEINRICH_BRANDLER_DESC"
+			ideology = right_communism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
 	GER_karl_liebknecht = {
 		name = GER_karl_liebknecht
 		
@@ -119,7 +155,7 @@ characters = {
 		
 		country_leader = {
 			desc = "POLITICS_KUNO_VON_WESTARP_DESC"
-			ideology = authoritarian_democracy_subtype
+			ideology = authoritarian_conservatism_subtype
 			traits = {
 				
 			}
@@ -149,7 +185,7 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				large = "GFX_portrait_GER_franz_seldte"
+				large = "gfx/leaders/GER/Portrait_GER_Franz_Seldte.png"
 			}
 		}
 		
@@ -169,33 +205,143 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				large = "GFX_portrait_GER_wilhelm_ii"
-				small = "GFX_minister_GER_wilhelm_ii"
+				large = "gfx/leaders/GER/Portrait_GER_Wilhelm_II_Hohenzollern.png"
+				small = "GFX/interface/ministers/GER/GER_Wilhelm_II.png"
+			}
+		}
+		
+		#country_leader = {
+		#	desc = "POLITICS_WILHELM_II_DESC"
+		#	ideology = absolute_monarchy_subtype
+		#	traits = {
+		#		
+		#	}
+		#}
+		
+		advisor = {
+			cost = 0
+			slot = head_of_government
+			idea_token = GER_wilhelm_ii_hog
+			ledger = civilian
+			can_be_fired = no
+			traits = {
+				GER_hog_old_nationalist
+			}
+		}
+	}
+	
+	GER_wilhelm_iii = {
+		name = GER_wilhelm_prince
+		
+		portraits = {
+			civilian = {
+				small = "GFX/interface/ministers/GER/GER_Wilhelm_III.png"
 			}
 		}
 		
 		advisor = {
-			slot = head_of_government
-			idea_token = GER_wilhelm_ii_hog
-			ledger = civilian
-			
 			cost = 0
+			slot = head_of_government
+			idea_token = GER_wilhelm_iii_hog
+			ledger = civilian
 			can_be_fired = no
-			
-			allowed = {
-				original_tag = GER
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
-				hog_controversial
+				
+			}
+		}
+	}
+	
+	GER_ludwig_kaas = {
+		name = GER_ludwig_kaas
+		
+		portraits = {
+			army = {
+				#small = ""
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = GER_ludwig_kaas_political_advisor
+			traits = {
+				
+			}
+		}
+	}
+	
+	GER_adam_stegerwald = {
+		name = GER_adam_stegerwald
+		
+		portraits = {
+			army = {
+				#small = ""
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = GER_adam_stegerwald_political_advisor
+			traits = {
+				mixed_economy_proponent
+			}
+		}
+	}
+	
+	GER_fritz_thyssen = {
+		name = GER_fritz_thyssen
+		
+		portraits = {
+			army = {
+				#small = ""
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = GER_fritz_thyssen_political_advisor
+			traits = {
+				steel_magnate
+			}
+		}
+	}
+	
+	GER_hjalmar_schacht = {
+		name = GER_hjalmar_schacht
+		
+		portraits = {
+			army = {
+				#small = ""
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = GER_hjalmar_schacht_political_advisor
+			traits = {
+				austerity_advocate
+			}
+		}
+	}
+	
+	GER_heinrich_class = {
+		name = GER_heinrich_class
+		
+		portraits = {
+			army = {
+				#small = ""
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = GER_heinrich_class_political_advisor
+			traits = {
+				ultranationalist_agitator
 			}
 		}
 	}
@@ -560,7 +706,7 @@ characters = {
 			idea_token = GER_oswald_lutz_high_command
 			slot = high_command
 			traits = {
-				
+				army_cavalry_2
 			}
 			cost = 100
 		}
@@ -679,6 +825,76 @@ characters = {
 			}
 			traits = { navy_submarine_2 }
 			cost = 100
+		}
+	}
+	
+	GER_erich_raeder = {
+		name = GER_erich_raeder
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_GER_erich_raeder"
+				small = "GFX_minister_GER_erich_raeder"
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				naval_lineage
+				ironside
+			}
+			skill = 4
+			attack_skill = 3
+			defense_skill = 2
+			maneuvering_skill = 4
+			coordination_skill = 4
+		}
+		
+		advisor = {
+			slot = navy_chief
+			idea_token = GER_erich_raeder_navy_chief
+			available = {
+				not_already_hired_except_as = navy_chief
+			}
+			traits = {
+				navy_chief_maneuver_3
+			}
+			cost = 200
+		}
+		
+		advisor = {
+			slot = theorist
+			ledger = navy
+			idea_token = GER_erich_raeder_theorist
+			available = {
+				not_already_hired_except_as = theorist
+			}
+			traits = {
+				naval_aviation_pioneer
+			}
+			cost = 100
+		}
+	}
+	
+	GER_lothar_von_arnauld = {
+		name = GER_lothar_von_arnauld
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_GER_lothar_von_arnauld"
+				small = "GFX_minister_GER_lothar_von_arnauld"
+			}
+		}
+		
+		navy_leader = {
+			traits = {
+				seawolf
+			}
+			skill = 4
+			attack_skill = 3
+			defense_skill = 4
+			maneuvering_skill = 3
+			coordination_skill = 3
 		}
 	}
 }

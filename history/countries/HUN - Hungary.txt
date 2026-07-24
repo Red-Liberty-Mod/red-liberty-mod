@@ -6,13 +6,25 @@ set_research_slots = 3
 set_stability = 0.7
 set_war_support = 0.6
 
-set_technology = {
+set_technology = { # copy of AHE
 	infantry_weapons = 1
 	infantry_weapons1 = 1
-	tech_support = 1		
+	tech_mountaineers = 1
+	tech_trucks = 1
+	motorised_infantry = 1
+	
 	tech_recon = 1
+	tech_support = 1		
+	tech_engineers = 1
+	
 	gw_artillery = 1
+	interwar_antiair = 1
+	
+	synth_oil_experiments = 1
 	fuel_silos = 1
+	fuel_refining = 1
+
+	basic_train = 1
 }
 
 set_politics = {
@@ -23,27 +35,58 @@ set_politics = {
 }
 set_popularities = {
 	anarchism = 0
-	vanguard_socialism = 7
-	revolutionary_socialism = 19
+	vanguard_socialism = 16
+	revolutionary_socialism = 7
 	democratic_socialism = 12
-	social_democracy = 52
+	social_democracy = 42
 	progressive_liberalism = 0
-	liberal_conservatism = 0
-	national_conservatism = 0
+	liberal_conservatism = 3
+	national_conservatism = 7
 	authoritarian_democracy = 10
 	despotism = 0
 	ultraconservatism = 0
-	fascism = 0
+	fascism = 3
 }
 
 add_ideas = {
 	HUN_red_dawn
 }
 
+set_country_flag = anarchism_coalition
+set_country_flag = vanguard_socialism_coalition
+set_country_flag = revolutionary_socialism_coalition
+set_country_flag = social_democracy_coalition
+
 ### Leaders ###
+recruit_character = HUN_sandor_csizmadia
 recruit_character = HUN_matyas_rakosi
+recruit_character = HUN_otto_korvin
 recruit_character = HUN_imre_sallai
 recruit_character = HUN_arpad_szakasits
 
 ### Generals ###
+recruit_character = HUN_vilmos_nagy_de_nagybaczon
 recruit_character = HUN_stefan_foris
+
+if = {
+	limit = {
+		has_dlc_nsb = yes
+	}
+	create_equipment_variant = {
+		name = "Straussler V-4"
+		type = light_tank_chassis_1
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_small_cannon
+			turret_type_slot = tank_light_two_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_gasoline_engine
+			radio_slot = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 2
+			tank_nsb_armor_upgrade = 2
+		}
+	}
+}

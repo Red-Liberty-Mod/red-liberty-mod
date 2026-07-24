@@ -1,0 +1,39 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			SOV = {
+				add_to_array = { country_info_array = 101 }
+				add_to_array = { country_info_array = 1 }
+				add_to_array = { country_info_array = 2 }
+				add_to_array = { country_info_array = 3 }
+				add_to_array = { country_info_folder_array_101 = 1 }
+				add_to_array = { country_info_folder_array_101 = 2 }
+				add_to_array = { country_info_folder_array_101 = 3 }
+			}
+			
+			SOV = {
+				set_variable = { SOV_party_infighting = 25 }
+				
+				set_variable = { SOV_industrialist_opinion = 19 }
+				set_variable = { SOV_rightist_opinion = 27 }
+				set_variable = { SOV_decist_opinion = 16 }
+				set_variable = { SOV_syndicalist_opinion = 13 }
+				set_variable = { SOV_democrat_opinion = 9 }
+				
+				set_variable = { SOV_industrialist_influence = 14 }
+				set_variable = { SOV_rightist_influence = 23 }
+				set_variable = { SOV_decist_influence = 11 }
+				set_variable = { SOV_syndicalist_influence = 19 }
+				set_variable = { SOV_democrat_influence = 7 }
+				
+				SOV_calc_faction_effects = yes
+			}
+		}
+	}
+	
+	on_weekly_SOV = {
+		effect = {
+			SOV_calc_faction_effects = yes
+		}
+	}
+}

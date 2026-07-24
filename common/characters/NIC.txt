@@ -12,7 +12,13 @@ characters = {
 		country_leader = {
 			desc = "POLITICS_AUGUSTO_SANDINO_DESC"
 			ideology = left_nationalism_subtype
-			traits = {  }
+			traits = { NIC_hero_of_las_segovias }
+		}
+		
+		country_leader = {
+			desc = "POLITICS_AUGUSTO_SANDINO_DESC"
+			ideology = agrarian_socialism_subtype
+			traits = { NIC_hero_of_las_segovias }
 		}
 		
 		corps_commander = {
@@ -32,7 +38,7 @@ characters = {
 		
 		portraits = {
 			civilian = {
-				large = "GFX_portrait_NIC_pedro_altamirano"
+				#large = "GFX_portrait_NIC_pedro_altamirano"
 			}
 		}
 		
@@ -45,6 +51,109 @@ characters = {
 			defense_skill = 2
 			planning_skill = 1
 			logistics_skill = 2
+		}
+		
+		advisor = {
+			slot = army_chief
+			idea_token = NIC_pedro_altamirano_army_chief
+			traits = { army_chief_defensive_2 }
+			cost = 100
+		}
+	}
+	
+	NIC_manuel_maria_giron = {
+		name = NIC_manuel_maria_giron
+		
+		portraits = {
+			civilian = {
+				#large = "GFX_portrait_NIC_manuel_maria_giron"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				militias_officer
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	
+	NIC_francisco_estrada_perez = {
+		name = NIC_francisco_estrada_perez
+		
+		portraits = {
+			army = {
+				#large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = { militias_officer organizer skilled_staffer }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+	}
+	
+	NIC_jose_santos_lopez = {
+		name = NIC_jose_santos_lopez
+		
+		portraits = {
+			army = {
+				#large = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = { militias_officer }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	
+	### High Command ###
+	
+	NIC_carlos_manuel_salgado = {
+		name = NIC_carlos_manuel_salgado
+		
+		portraits = {
+			army = {
+				#small = ""
+			}
+		}
+		
+		advisor = {
+			slot = army_chief
+			idea_token = NIC_carlos_manuel_salgado_army_chief
+			traits = { army_chief_organizational_2 }
+			cost = 100
+		}
+	}
+
+	NIC_jose_leon_diaz = {
+		name = NIC_jose_leon_diaz
+		
+		portraits = {
+			civilian = {
+				#small = ""
+			}
+		}
+		
+		advisor = {
+			slot = high_command
+			idea_token = NIC_jose_leon_diaz_high_command
+			ledger = army
+			traits = { army_logistics_2 }
+			cost = 100
 		}
 	}
 }

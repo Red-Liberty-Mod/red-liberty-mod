@@ -1,4 +1,10 @@
-﻿##### Division Templates #####
+﻿
+focus = {
+	current = "FRA_1936_election"
+	progress = 1
+}
+
+##### Division Templates #####
 division_template = {
 	name = "Division d'Infanterie"		
 	division_names_group = FRA_INF_01
@@ -14,10 +20,13 @@ division_template = {
 		infantry = { x = 2 y = 0 }
 		infantry = { x = 2 y = 1 }
 		infantry = { x = 2 y = 2 }
+		artillery_brigade = { x = 3 y = 0 }
+		artillery_brigade = { x = 3 y = 1 }
+		artillery_brigade = { x = 3 y = 2 }
 	}
 	support = {
-		artillery = { x = 0 y = 0 } 	# Heavy Arty Regiment had 2x 155mm battalions
-		engineer = { x = 0 y = 1 }
+		#artillery = { x = 0 y = 0 } 	# Heavy Arty Regiment had 2x 155mm battalions
+		engineer = { x = 0 y = 0 }
 	}
 }
 division_template = {
@@ -54,10 +63,13 @@ division_template = {
 		motorized = { x = 2 y = 0 }
 		motorized = { x = 2 y = 1 }
 		motorized = { x = 2 y = 2 }
+		mot_artillery_brigade = { x = 3 y = 0 }
+		mot_artillery_brigade = { x = 3 y = 1 }
+		mot_artillery_brigade = { x = 3 y = 2 }
 	}
 	support = {
 		mot_recon = { x = 0 y = 0 }      # Recon Group consisted of 26 ACs + motorcycles
-		artillery = { x = 0 y = 1 }  # Heavy Arty Regiment had 1x 155mm, 1x 105mm battalions
+		#artillery = { x = 0 y = 1 }  # Heavy Arty Regiment had 1x 155mm, 1x 105mm battalions
 		engineer = { x = 0 y = 1 }
 	}
 }
@@ -92,7 +104,7 @@ division_template = {
 		cavalry = { x = 1 y = 1 }
 	}
 	support = {
-		recon = { x = 0 y = 0 }      # Recon Group consisted of 64 ACs/scout cars
+		armored_car_recon = { x = 0 y = 0 }      # Recon Group consisted of 64 ACs/scout cars
 	}
 }
 division_template = {
@@ -100,7 +112,7 @@ division_template = {
 	division_names_group = FRA_MEC_01
 
 	regiments = {
-		light_armor = { x = 0 y = 0 }		# Bn. of Hotchkiss, then Souma (Med.) tanks
+		light_armor = { x = 0 y = 0 }		# Bn. of Hotchkiss, then Somua (Med.) tanks
 		light_armor = { x = 0 y = 1 }		# Bn. of Hotchkiss tanks
 		motorized = { x = 1 y = 0 }			# Brigade of 2x Rgts., 2 Bns. each (later 1 Rgt. of 3x Bns.)
 		motorized = { x = 1 y = 1 }
@@ -216,6 +228,15 @@ units = {
 		division_name = {
 			is_name_ordered = yes
 			name_order = 11
+		}
+		officer = {
+			name = "Aubert-Achille-Jules Frère"
+			portraits = {
+				army = {
+					large = "gfx/leaders/FRA/Portrait_FRA_Aubert_Frere.png"
+					small = "gfx/interface/ministers/FRA/military/FRA_Aubert_Frere.png"
+				}
+			}
 		}
 		location = 9490
 		division_template = "Division d'Infanterie" 	# Frontline, best equipment
@@ -869,39 +890,36 @@ units = {
 
 	##### Indochina Theatre #####
 	### Army Group: Troupes d'Indochine ### -- Saigon
-	division= {	# "Division de Tonkin"
-		division_name = {
-			is_name_ordered = yes
-			name_order = 91
-		}
-		location = 4401
-		division_template = "Division Coloniale"	# Colonial unit, reserve equipment
-		force_equipment_variants = { infantry_equipment_0 = { owner = "FRA" } }
-		start_experience_factor = 0.1
-		start_equipment_factor = 0.3
-
-	}
-	division= {	# "Division de Cochinchine-Cambodge"
-		division_name = {
-			is_name_ordered = yes
-			name_order = 92
-		}
-		location = 4075
-		division_template = "Division Coloniale" 	# Colonial unit, reserve equipment
-		force_equipment_variants = { infantry_equipment_0 = { owner = "FRA" } }
-		start_experience_factor = 0.1
-		start_equipment_factor = 0.3
-
-	}
-	division= {	
-		name = "Brigade d'Annam-Laos"	
-		location = 7376
-		division_template = "Brigade Coloniale" 	# Colonial unit, reserve equipment
-		force_equipment_variants = { infantry_equipment_0 = { owner = "FRA" } }
-		start_experience_factor = 0.1
-		start_equipment_factor = 0.3
-
-	}
+	#division= {	# "Division de Tonkin"
+	#	division_name = {
+	#		is_name_ordered = yes
+	#		name_order = 91
+	#	}
+	#	location = 4401
+	#	division_template = "Division Coloniale"	# Colonial unit, reserve equipment
+	#	force_equipment_variants = { infantry_equipment_0 = { owner = "FRA" } }
+	#	start_experience_factor = 0.1
+	#	start_equipment_factor = 0.3
+	#}
+	#division= {	# "Division de Cochinchine-Cambodge"
+	#	division_name = {
+	#		is_name_ordered = yes
+	#		name_order = 92
+	#	}
+	#	location = 4075
+	#	division_template = "Division Coloniale" 	# Colonial unit, reserve equipment
+	#	force_equipment_variants = { infantry_equipment_0 = { owner = "FRA" } }
+	#	start_experience_factor = 0.1
+	#	start_equipment_factor = 0.3
+	#}
+	#division= {	
+	#	name = "Brigade d'Annam-Laos"	
+	#	location = 7376
+	#	division_template = "Brigade Coloniale" 	# Colonial unit, reserve equipment
+	#	force_equipment_variants = { infantry_equipment_0 = { owner = "FRA" } }
+	#	start_experience_factor = 0.1
+	#	start_equipment_factor = 0.3
+	#}
 	
 	division= {	
 		name = "1ère B1 Brigade Cuirassée"	#B1 brigade
@@ -927,6 +945,7 @@ instant_effect = {
 		requested_factories = 2
 		progress = 0.1
 		efficiency = 50
+		industrial_manufacturer = mio:FRA_mas_organization
 	}
 
 	add_equipment_production = {
@@ -958,6 +977,7 @@ instant_effect = {
 		requested_factories = 1
 		progress = 0.4
 		efficiency = 50
+		industrial_manufacturer = mio:FRA_renault_organization
 	}
 
 	add_equipment_production = {

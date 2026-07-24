@@ -1,0 +1,48 @@
+################################### 
+
+#   #  ##  ### ### ###  ### ### #   
+## ## #  #  #  #   #  #  #  #   #   
+# # # ####  #  ##  ###   #  ##  #   
+#   # #  #  #  #   #  #  #  #   #   
+#   # #  #  #  ### #  # ### ### ### 
+
+
+###################################
+
+LIB_mauser_organization = {
+	name = GER_mauser_organization
+	include = generic_infantry_equipment_organization
+	icon = GFX_idea_mauser
+	allowed = {	 
+		tag = LIB
+	}
+	available = {
+		GER_export_mio_trigger = yes
+		FROM = {
+			has_completed_focus = LIB_import_small_arms
+		}
+	}
+}
+
+LIB_ford_motor_company_organization = {
+	name = USA_ford_motor_company_organization
+	include = generic_motorized_mechanized_organization
+	icon = GFX_idea_ford_motor_company
+	
+	allowed = {	 
+		tag = LIB
+	}
+	
+	available = {
+		USA_export_mio_trigger = yes
+		FROM = {
+			has_completed_focus = LIB_import_automobiles
+		}
+	}
+	
+	initial_trait = {
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
+	}
+}

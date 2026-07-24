@@ -18,3 +18,35 @@ GER_improve_debt = {
 		}
 	}
 }
+
+GER_create_ukraine_occupation = {
+	hidden_effect = {
+		GER = {
+			#set_autonomy = {
+			#	target = UKR
+			#	autonomy_state = autonomy_RL_occupied_puppet
+			#}
+			puppet = UKR
+		}
+		
+		UKR = {
+			#set_cosmetic_tag = KOR_occupied
+			
+			set_politics = {
+				ruling_party = despotism
+				elections_allowed = no
+				#long_name = KOR_occupation_authority
+				#name = KOR_occupation_authority
+			}
+			set_popularities = {
+				vanguard_socialism = 8
+				democratic_socialism = 22
+				social_democracy = 10
+				liberal_conservatism = 5
+				national_conservatism = 7
+				authoritarian_democracy = 16
+				despotism = 32
+			}
+		}
+	}
+}

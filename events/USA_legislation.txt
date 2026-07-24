@@ -171,7 +171,7 @@ country_event = { # farm tenant act
 				is_great_plains_state = yes
 			}
 			custom_effect_tooltip = USA_decrease_SPA_popularity_low
-			add_to_variable = { socialist_popularity = 0.03 }
+			add_to_variable = { socialist_popularity = -0.03 }
 		}
 		every_owned_state = {
 			limit = {
@@ -181,7 +181,7 @@ country_event = { # farm tenant act
 				}
 			}
 			custom_effect_tooltip = USA_decrease_SPA_popularity_low
-			add_to_variable = { socialist_popularity = 0.01 }
+			add_to_variable = { socialist_popularity = -0.01 }
 		}
 		
 		USA_bill_clear = yes # ALWAYS DO THIS
@@ -220,9 +220,12 @@ country_event = { # court packing plan
 		trigger = { has_country_flag = bill_passed }
 		set_country_flag = court_packing_plan_passed
 		
-		add_ideas = {
-			USA_stacked_supreme_court
+		add_to_variable = {
+			tooltip = USA_court_lean_more_reformist
+			var = supreme_court_lean
+			value = 6
 		}
+		USA_clamp_supreme_court = yes
 		
 		hidden_effect = {
 			every_owned_state = {
@@ -558,8 +561,17 @@ country_event = { # voting rights act
 	option = { # bill passes
 		name = us_bill.11.a
 		trigger = { has_country_flag = bill_passed }
-		add_stability = 0.2
 		set_country_flag = voting_rights_act_passed		
+		
+		every_owned_state = {
+			limit = {
+				can_have_elections_in_state = yes
+				is_deep_south_state = yes
+			}
+			custom_effect_tooltip = USA_increase_SPA_popularity_low
+			add_to_variable = { socialist_popularity = 0.03 }
+		}
+		
 		USA_bill_clear = yes # ALWAYS DO THIS
 	}
 	
@@ -776,10 +788,7 @@ country_event = { # national healthcare act
 		name = us_bill.16.a
 		trigger = { has_country_flag = bill_passed }
 		
-		swap_ideas = {
-			remove_idea = USA_safety_net_large
-			add_idea = USA_safety_net_welfare_state
-		}
+		improve_safety_net = yes
 		
 		USA_bill_clear = yes # ALWAYS DO THIS
 	}
@@ -787,6 +796,15 @@ country_event = { # national healthcare act
 	option = { # bill fails
 		name = us_bill.16.b
 		trigger = { NOT = { has_country_flag = bill_passed } }
+		
+		hidden_effect = {
+			country_event = {
+				id = united_states_thomas.44
+				days = 120
+				random_days = 30
+			}
+		}
+		
 		USA_bill_clear = yes # ALWAYS DO THIS
 	}
 }
@@ -910,11 +928,33 @@ country_event = { #
 		trigger = { has_country_flag = bill_passed }
 		complete_national_focus = USA_congress_reigns_supreme
 		set_country_flag = USA_war_declaration_passed
+		
+		add_to_war = {
+			targeted_alliance = FRA
+			enemy = GER
+			hostility_reason = asked_to_join
+		}
+		
+		USA_bill_clear = yes # ALWAYS DO THIS
+	}
+	
+	option = { # bill passes
+		name = us_bill.19.b
+		trigger = { has_country_flag = bill_passed }
+		complete_national_focus = USA_congress_reigns_supreme
+		set_country_flag = USA_war_declaration_passed
+		
+		add_to_war = {
+			targeted_alliance = GER
+			enemy = FRA
+			hostility_reason = asked_to_join
+		}
+		
 		USA_bill_clear = yes # ALWAYS DO THIS
 	}
 	
 	option = { # bill fails
-		name = us_bill.19.b
+		name = us_bill.19.c
 		trigger = { NOT = { has_country_flag = bill_passed } }
 		complete_national_focus = USA_peace_in_our_time
 		set_country_flag = USA_war_declaration_failed
@@ -1101,6 +1141,7 @@ country_event = { # naval act
 country_event = { # filibuster debug event
 	id = us_bill.1000
 	title = us_bill.1000.title
+	desc = us_bill.1000.desc
 	
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event us_bill.1000"
@@ -1125,7 +1166,7 @@ country_event = { # activates filibuster
 	desc = us_bill.1001.desc
 	
 	immediate = {
-		log = "[GetDateText]: [Root.GetName]: event us_bill.1000"
+		log = "[GetDateText]: [Root.GetName]: event us_bill.1001"
 	}
 
 	is_triggered_only = yes
@@ -1133,5 +1174,22 @@ country_event = { # activates filibuster
 	option = {
 		name = us_bill.1001.a
 		USA_activate_filibuster = yes
+	}
+}
+
+country_event = { # disables filibuster
+	id = us_bill.1002
+	title = us_bill.1002.title
+	desc = us_bill.1002.desc
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event us_bill.1002"
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = us_bill.1002.a
+		USA_clear_filibuster = yes
 	}
 }

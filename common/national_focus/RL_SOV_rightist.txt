@@ -1,0 +1,435 @@
+shared_focus = {
+    id = SOV_the_rightists
+	icon = GFX_SOV_the_rightists
+	
+    x = 4
+	y = 0
+	cost = 5
+	
+	offset = {
+		x = 9
+		y = 8
+		trigger = {
+			has_focus_tree = SOV_initial_tree
+		}
+	}
+	
+	available = {
+		has_country_flag = SOV_rightists_flag
+	}
+	
+    completion_reward = {
+		swap_ideas = {
+			remove_idea = SOV_political_turmoil_1
+			add_idea = SOV_political_turmoil_2
+		}
+		country_event = {
+			id = sov_rightist.1
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+    id = SOV_crackdown_on_factionalism
+	icon = GFX_focus_generic_communist_discourse
+	
+    x = -3
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_the_rightists
+	prerequisite = { focus = SOV_the_rightists }
+	
+    completion_reward = {
+		add_political_power = 25
+		swap_ideas = {
+			remove_idea = SOV_political_turmoil_2
+			add_idea = SOV_political_turmoil_3
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+    id = SOV_gradual_industrialization
+	icon = GFX_focus_generic_state_economy
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_the_rightists
+	prerequisite = { focus = SOV_the_rightists }
+	
+    completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.25
+			uses = 2
+			category = industry
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_urban_state = yes
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		country_event = {
+			id = sov_rightist.2
+			days = 90
+			random_days = 25
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
+	}
+}
+
+shared_focus = {
+    id = SOV_acknowledge_the_shortcomings
+	icon = GFX_SOV_acknowledge_the_shortcomings
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_the_rightists
+	prerequisite = { focus = SOV_the_rightists }
+	
+    completion_reward = {
+		swap_ideas = {
+			remove_idea = SOV_nep_1
+			add_idea = SOV_nep_2
+		}
+		country_event = {
+			id = sov_rightist.5
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
+	}
+}
+
+shared_focus = {
+    id = SOV_strengthen_the_ruble
+	icon = GFX_focus_generic_banking
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_acknowledge_the_shortcomings
+	prerequisite = { focus = SOV_acknowledge_the_shortcomings }
+	
+    completion_reward = {
+		if = {
+			limit = {
+				has_idea = SOV_nep_3b
+			}
+			swap_ideas = {
+				remove_idea = SOV_nep_3b
+				add_idea = SOV_nep_4
+			}
+		}
+		else = {
+			swap_ideas = {
+				remove_idea = SOV_nep_2
+				add_idea = SOV_nep_3a
+			}
+		}
+		country_event = {
+			id = sov_rightist.3
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
+	}
+}
+
+shared_focus = {
+    id = SOV_streamline_the_bureaucracy
+	icon = GFX_SOV_acknowledge_the_shortcomings
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_acknowledge_the_shortcomings
+	prerequisite = { focus = SOV_acknowledge_the_shortcomings }
+	
+    completion_reward = {
+		country_event = {
+			id = sov_rightist.4
+			hours = 6
+		}
+		add_political_power = 75
+		
+		add_to_variable = { SOV_technocrat_influence = 1 }
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+}
+
+shared_focus = {
+    id = SOV_planning_and_output_incentives
+	icon = GFX_SOV_acknowledge_the_shortcomings
+	
+    x = 3
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_acknowledge_the_shortcomings
+	prerequisite = { focus = SOV_acknowledge_the_shortcomings }
+	
+    completion_reward = {
+		if = {
+			limit = {
+				has_idea = SOV_nep_3a
+			}
+			swap_ideas = {
+				remove_idea = SOV_nep_3a
+				add_idea = SOV_nep_4
+			}
+		}
+		else = {
+			swap_ideas = {
+				remove_idea = SOV_nep_2
+				add_idea = SOV_nep_3b
+			}
+		}
+		country_event = {
+			id = sov_rightist.6
+			hours = 6
+		}
+		
+		add_to_variable = { SOV_technocrat_influence = 1 }
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_modernize_the_farms
+	icon = GFX_focus_generic_agrarian_reform
+	
+    x = 0
+	y = 2
+	cost = 5
+	
+	relative_position_id = SOV_gradual_industrialization
+	prerequisite = { focus = SOV_gradual_industrialization }
+	prerequisite = { focus = SOV_strengthen_the_ruble }
+	
+    completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.25
+			uses = 1
+			category = cat_production
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_RESEARCH
+	}
+}
+
+shared_focus = {
+    id = SOV_loosen_grain_quotas
+	icon = GFX_SOV_acknowledge_the_shortcomings
+	
+    x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_streamline_the_bureaucracy
+	prerequisite = { focus = SOV_streamline_the_bureaucracy }
+	
+    completion_reward = {
+		add_stability = 0.05
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_STABILITY
+	}
+}
+
+shared_focus = {
+    id = SOV_loosen_trade_regulations
+	icon = GFX_goal_generic_positive_trade_relations
+	
+    x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = SOV_streamline_the_bureaucracy
+	prerequisite = { focus = SOV_streamline_the_bureaucracy }
+	
+    completion_reward = {
+		swap_ideas = {
+			remove_idea = trade_monopoly_1
+			add_idea = trade_monopoly_2
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_import_international_expertise
+	icon = GFX_focus_generic_research
+	
+    x = -1
+	y = 1
+	cost = 6
+	
+	relative_position_id = SOV_modernize_the_farms
+	prerequisite = { focus = SOV_modernize_the_farms }
+	
+    completion_reward = {
+		add_to_variable = { SOV_technocrat_influence = 1 }
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_organic_collectivization
+	icon = GFX_SOV_organic_collectivization
+	
+    x = 1
+	y = 1
+	cost = 6
+	
+	relative_position_id = SOV_modernize_the_farms
+	prerequisite = { focus = SOV_modernize_the_farms }
+	prerequisite = { focus = SOV_loosen_grain_quotas }
+	
+    completion_reward = {
+		random_owned_controlled_state = {
+			limit = {
+				is_rural_state = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_rural_state = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_rural_state = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		country_event = {
+			id = sov_rightist.7
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_join_the_world_market
+	icon = GFX_SOV_acknowledge_the_shortcomings
+	
+    x = 1
+	y = 1
+	cost = 6
+	
+	relative_position_id = SOV_loosen_grain_quotas
+	prerequisite = { focus = SOV_loosen_trade_regulations }
+	prerequisite = { focus = SOV_loosen_grain_quotas }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SOV_built_to_last
+	icon = GFX_SOV_built_to_last
+	
+    x = 0
+	y = 1
+	cost = 6
+	
+	relative_position_id = SOV_organic_collectivization
+	prerequisite = { focus = SOV_organic_collectivization }
+	prerequisite = { focus = SOV_import_international_expertise }
+	prerequisite = { focus = SOV_join_the_world_market }
+	
+    completion_reward = {
+		add_to_variable = { SOV_technocrat_influence = 1 }
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}

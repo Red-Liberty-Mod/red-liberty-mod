@@ -6,133 +6,132 @@ GER_recalc_parliament = {
 	}
 	
 	set_variable = {
-		authsoc_mps = party_popularity@vanguard_socialism
+		left_mps = party_popularity@vanguard_socialism
+	}
+	add_to_variable = {
+		left_mps = party_popularity@revolutionary_socialism
+	}
+	multiply_variable = {
+		left_mps = 0.1
 	}
 	
 	set_variable = {
-		revsoc_mps = party_popularity@revolutionary_socialism
+		spd_mps = party_popularity@democratic_socialism
+	}
+	add_to_variable = {
+		spd_mps = party_popularity@social_democracy
 	}
 	
 	set_variable = {
-		demsoc_mps = party_popularity@democratic_socialism
+		fvp_mps = party_popularity@progressive_liberalism
+	}
+	multiply_variable = {
+		fvp_mps = 0.9
 	}
 	
 	set_variable = {
-		socdem_mps = party_popularity@social_democracy
+		nlp_mps = party_popularity@liberal_conservatism
+	}
+	multiply_variable = {
+		nlp_mps = 0.9
 	}
 	
 	set_variable = {
-		liberal_mps = party_popularity@progressive_liberalism
+		dzp_mps = party_popularity@national_conservatism
 	}
 	
 	set_variable = {
-		national_liberal_mps = party_popularity@liberal_conservatism
+		dkp_mps = party_popularity@authoritarian_democracy
 	}
 	
 	set_variable = {
-		conservative_mps = party_popularity@national_conservatism
+		dvlp_mps = party_popularity@despotism
+	}
+	add_to_variable = {
+		dvlp_mps = party_popularity@ultraconservatism
+	}
+	multiply_variable = {
+		dvlp_mps = 0.8
 	}
 	
 	set_variable = {
-		authoritarian_mps = party_popularity@authoritarian_democracy
+		dsbdf_mps = party_popularity@fascism
 	}
-	
-	set_variable = {
-		despotist_mps = party_popularity@despotism
-	}
-	
-	set_variable = {
-		far_auth_mps = party_popularity@ultraconservatism
-	}
-	
-	set_variable = {
-		fascist_mps = party_popularity@fascism
+	multiply_variable = {
+		dsbdf_mps = 0.1
 	}
 	
 	#Gets seats
 	multiply_variable = {
-		authsoc_mps = mps_total
+		left_mps = mps_total
 	}
 	multiply_variable = {
-		revsoc_mps = mps_total
+		spd_mps = mps_total
 	}
 	multiply_variable = {
-		demsoc_mps = mps_total
+		fvp_mps = mps_total
 	}
 	multiply_variable = {
-		socdem_mps = mps_total
+		nlp_mps = mps_total
 	}
 	multiply_variable = {
-		liberal_mps = mps_total
+		dzp_mps = mps_total
 	}
 	multiply_variable = {
-		national_liberal_mps = mps_total
+		dkp_mps = mps_total
 	}
 	multiply_variable = {
-		conservative_mps = mps_total
+		dvlp_mps = mps_total
 	}
 	multiply_variable = {
-		authoritarian_mps = mps_total
-	}
-	multiply_variable = {
-		despotist_mps = mps_total
-	}
-	multiply_variable = {
-		far_auth_mps = mps_total
-	}
-	multiply_variable = {
-		fascist_mps = mps_total
+		dsbdf_mps = mps_total
 	}
 	
 	#rounds
-	round_variable = authsoc_mps
-	round_variable = revsoc_mps
-	round_variable = demsoc_mps
-	round_variable = socdem_mps
-	round_variable = liberal_mps
-	round_variable = national_liberal_mps
-	round_variable = conservative_mps
-	round_variable = authoritarian_mps
-	round_variable = despotist_mps
-	round_variable = far_auth_mps
-	round_variable = fascist_mps
+	round_variable = left_mps
+	round_variable = spd_mps
+	round_variable = fvp_mps
+	round_variable = nlp_mps
+	round_variable = dzp_mps
+	round_variable = dkp_mps
+	round_variable = dvlp_mps
+	round_variable = dsbdf_mps
 	
 	#Gets new total seat value
 	set_variable = {
 		mps_total = 0
 	}
 	add_to_variable = {
-		mps_total = authsoc_mps
+		mps_total = left_mps
 	}
 	add_to_variable = {
-		mps_total = revsoc_mps
+		mps_total = spd_mps
 	}
 	add_to_variable = {
-		mps_total = demsoc_mps
+		mps_total = fvp_mps
 	}
 	add_to_variable = {
-		mps_total = socdem_mps
+		mps_total = nlp_mps
 	}
 	add_to_variable = {
-		mps_total = liberal_mps
+		mps_total = dzp_mps
 	}
 	add_to_variable = {
-		mps_total = national_liberal_mps
+		mps_total = dkp_mps
 	}
 	add_to_variable = {
-		mps_total = conservative_mps
+		mps_total = dvlp_mps
 	}
 	add_to_variable = {
-		mps_total = authoritarian_mps
+		mps_total = dsbdf_mps
+	}
+	
+	### minor parties ###
+	add_to_variable = {
+		mps_total = minority_mps
 	}
 	add_to_variable = {
-		mps_total = despotist_mps
-	}
-	add_to_variable = {
-		mps_total = far_auth_mps
-	}
-	add_to_variable = {
-		mps_total = fascist_mps
+		mps_total = guelph_mps
 	}
 	
 	#gets discrepency
@@ -157,7 +156,7 @@ GER_recalc_parliament = {
 				has_government = vanguard_socialism
 			}
 			add_to_variable = {
-				authsoc_mps = GER_old_mps_total
+				kpd_mps = GER_old_mps_total
 			}
 		}
 		else_if = {
@@ -165,23 +164,18 @@ GER_recalc_parliament = {
 				has_government = revolutionary_socialism
 			}
 			add_to_variable = {
-				revsoc_mps = GER_old_mps_total
+				sapd_mps = GER_old_mps_total
 			}
 		}
 		else_if = {
 			limit = {
-				has_government = democratic_socialism
+				OR = {
+					has_government = democratic_socialism
+					has_government = social_democracy
+				}
 			}
 			add_to_variable = {
-				demsoc_mps = GER_old_mps_total
-			}
-		}
-		else_if = {
-			limit = {
-				has_government = social_democracy
-			}
-			add_to_variable = {
-				socdem_mps = GER_old_mps_total
+				spd_mps = GER_old_mps_total
 			}
 		}
 		else_if = {
@@ -189,7 +183,7 @@ GER_recalc_parliament = {
 				has_government = progressive_liberalism
 			}
 			add_to_variable = {
-				liberal_mps = GER_old_mps_total
+				fvp_mps = GER_old_mps_total
 			}
 		}
 		else_if = {
@@ -197,7 +191,7 @@ GER_recalc_parliament = {
 				has_government = liberal_conservatism
 			}
 			add_to_variable = {
-				national_liberal_mps = GER_old_mps_total
+				nlp_mps = GER_old_mps_total
 			}
 		}
 		else_if = {
@@ -207,7 +201,7 @@ GER_recalc_parliament = {
 				}
 			}
 			add_to_variable = {
-				conservative_mps = GER_old_mps_total
+				dzp_mps = GER_old_mps_total
 			}
 		}
 		else_if = {
@@ -217,27 +211,18 @@ GER_recalc_parliament = {
 				}
 			}
 			add_to_variable = {
-				authoritarian_mps = GER_old_mps_total
+				dkp_mps = GER_old_mps_total
 			}
 		}
 		else_if = {
 			limit = {
 				OR = {
 					has_government = despotism
-				}
-			}
-			add_to_variable = {
-				despotist_mps = GER_old_mps_total
-			}
-		}
-		else_if = {
-			limit = {
-				OR = {
 					has_government = ultraconservatism
 				}
 			}
 			add_to_variable = {
-				far_auth_mps = GER_old_mps_total
+				dvlp_mps = GER_old_mps_total
 			}
 		}
 		else_if = {
@@ -245,7 +230,7 @@ GER_recalc_parliament = {
 				has_government = fascism
 			}
 			add_to_variable = {
-				fascist_mps = GER_old_mps_total
+				dsbdf_mps = GER_old_mps_total
 			}
 		}
 	}

@@ -10,6 +10,10 @@ ideologies = {
 			anarcho_socialism_subtype = {
 				can_be_randomly_selected = no
 			}
+			
+			anarcho_syndicalism_subtype = {
+				can_be_randomly_selected = no
+			}
 		}
 		
 		dynamic_faction_names = {
@@ -49,15 +53,19 @@ ideologies = {
 				
 			}
 		
-			leninism_subtype = {
-				can_be_randomly_selected = no
-			}
-		
-			marxism_leninism_subtype = {
+			leninism_subtype = { # leninism
 				can_be_randomly_selected = no
 			}
 			
-			right_communism_subtype = {
+			bolshevik_leninism_subtype = { # trotskyism
+				can_be_randomly_selected = no
+			}
+		
+			marxism_leninism_subtype = { # stalinism
+				can_be_randomly_selected = no
+			}
+			
+			right_communism_subtype = { # bukharinism
 				can_be_randomly_selected = no
 			}
 			
@@ -91,7 +99,9 @@ ideologies = {
 			airforce_intel_to_others = 7.5
 		}
 		
-		ai_neutral = yes
+		ai_communist = yes
+		ai_ideology_wanted_units_factor = 1.2
+		ai_give_core_state_control_threshold = 10 # Extra threshold value added to DIPLOMATIC_ACTION_PROPOSE_SCORE for this ideology to give back core state control to other country
 	}
 	
 	revolutionary_socialism = {
@@ -111,9 +121,14 @@ ideologies = {
 			
 			syndicalism_subtype = {
 				can_be_randomly_selected = no
+				#color = { 120 30 30 }
 			}
 			
 			scientific_socialism_subtype = {
+				can_be_randomly_selected = no
+			}
+			
+			technocratic_communism_subtype = {
 				can_be_randomly_selected = no
 			}
 			
@@ -123,6 +138,7 @@ ideologies = {
 			
 			left_communism_subtype = {
 				can_be_randomly_selected = no
+				#color = { 120 30 30 }
 			}
 		}
 		
@@ -150,7 +166,9 @@ ideologies = {
 		}
 		
 		war_impact_on_world_tension = 1
-		ai_neutral = yes
+		ai_communist = yes
+		ai_ideology_wanted_units_factor = 1.2
+		ai_give_core_state_control_threshold = 10 # Extra threshold value added to DIPLOMATIC_ACTION_PROPOSE_SCORE for this ideology to give back core state control to other country
 	}
 	
 	democratic_socialism = {
@@ -179,6 +197,19 @@ ideologies = {
 			austromarxism_subtype = {
 				can_be_randomly_selected = no
 			}
+			
+			moderate_bolshevism_subtype = {
+				can_be_randomly_selected = no
+				#color = { 150 80 80 }
+			}
+			
+			classical_social_democracy_subtype = {
+				can_be_randomly_selected = no
+			}
+			
+			african_socialism_subtype = {
+				can_be_randomly_selected = no
+			}
 		}
 		
 		dynamic_faction_names = {
@@ -203,7 +234,8 @@ ideologies = {
 			airforce_intel_to_others = 5.0
 		}
 		
-		ai_neutral = yes
+		ai_communist = yes
+		ai_give_core_state_control_threshold = 10 # Extra threshold value added to DIPLOMATIC_ACTION_PROPOSE_SCORE for this ideology to give back core state control to other country
 	}
 	
 	social_democracy = {
@@ -251,7 +283,8 @@ ideologies = {
 		}
 		
 		war_impact_on_world_tension = 1
-		ai_neutral = yes
+		ai_ideology_wanted_units_factor = 1.1
+		ai_democratic = yes
 	}
 	
 	progressive_liberalism = {
@@ -266,6 +299,10 @@ ideologies = {
 			}
 			
 			liberal_radicalism_subtype = {
+				can_be_randomly_selected = no
+			}
+			
+			social_liberalism_subtype = {
 				can_be_randomly_selected = no
 			}
 		}
@@ -294,7 +331,8 @@ ideologies = {
 			airforce_intel_to_others = 5.0
 		}
 		
-		ai_neutral = yes
+		ai_democratic = yes
+		ai_ideology_wanted_units_factor = 1.1
 	}
 	
 	liberal_conservatism = {
@@ -343,7 +381,8 @@ ideologies = {
 		}
 		
 		war_impact_on_world_tension = 1
-		ai_neutral = yes
+		ai_democratic = yes
+		ai_ideology_wanted_units_factor = 1.1
 	}
 	
 	national_conservatism = {
@@ -355,6 +394,7 @@ ideologies = {
 			
 			christian_democracy_subtype = {
 				can_be_randomly_selected = no
+				color = { 225 150 100 }
 			}
 			
 			conservative_populism_subtype = {
@@ -388,7 +428,8 @@ ideologies = {
 			airforce_intel_to_others = 5.0
 		}
 		
-		ai_neutral = yes
+		ai_democratic = yes
+		ai_ideology_wanted_units_factor = 1.1
 	}
 	
 	authoritarian_democracy = {
@@ -416,13 +457,31 @@ ideologies = {
 			
 			right_wing_populism_subtype = {
 				can_be_randomly_selected = no
+				#color = { 110 130 165 }
 			}
 			
 			muslim_democracy_subtype = {
 				can_be_randomly_selected = no
+				color = { 155 165 155 }
 			}
 			
 			semi_constitutional_monarchy_subtype = {
+				can_be_randomly_selected = no
+			}
+			
+			authoritarian_conservatism_subtype = {
+				can_be_randomly_selected = no
+			}
+			
+			authoritarian_developmentalism_subtype = {
+				can_be_randomly_selected = no
+			}
+			
+			southern_paternalism_subtype = {
+				can_be_randomly_selected = no
+			}
+			
+			illiberal_democracy_subtype = {
 				can_be_randomly_selected = no
 			}
 		}
@@ -448,6 +507,7 @@ ideologies = {
 		}
 		
 		ai_neutral = yes
+		ai_ideology_wanted_units_factor = 1.15
 	}
 	
 	despotism = {
@@ -461,12 +521,9 @@ ideologies = {
 				can_be_randomly_selected = no
 			}
 			
-			fundamentalist_theocracy_subtype = {
-				can_be_randomly_selected = no
-			}
-			
 			absolute_monarchy_subtype = {
 				can_be_randomly_selected = no
+				color = { 100 71 115 }
 			}
 			
 			warlordism_subtype = {
@@ -482,6 +539,16 @@ ideologies = {
 			}
 			
 			military_socialism_subtype = {
+				can_be_randomly_selected = no
+				color = { 136 34 46 }
+			}
+			
+			theocracy_subtype = {
+				can_be_randomly_selected = no
+				color = { 70 70 70 }
+			}
+			
+			integral_nationalism_subtype = {
 				can_be_randomly_selected = no
 			}
 		}
@@ -507,6 +574,7 @@ ideologies = {
 		}
 		
 		ai_neutral = yes
+		ai_ideology_wanted_units_factor = 1.2
 	}
 	
 	ultraconservatism = {
@@ -514,6 +582,11 @@ ideologies = {
 		types = { 
 			ultraconservatism_subtype = {
 			
+			}
+			
+			fundamentalism_subtype = {
+				can_be_randomly_selected = no
+				#color = { 150 175 195 }
 			}
 			
 			carlism_subtype = {
@@ -553,14 +626,20 @@ ideologies = {
 			airforce_intel_to_others = 7.5
 		}
 		
-		ai_neutral = yes
+		ai_fascist = yes
+		ai_ideology_wanted_units_factor = 1.3
 	}
 	
 	fascism = {
 	
-		types = { 
+		types = {
 			fascism_subtype = {
+				
+			}
 			
+			esoteric_fascism_subtype = {
+				can_be_randomly_selected = no
+				color = { 90 55 85 }
 			}
 			
 			imperial_socialism_subtype = {
@@ -606,5 +685,6 @@ ideologies = {
 		
 		war_impact_on_world_tension = 1
 		ai_fascist = yes
+		ai_ideology_wanted_units_factor = 1.6
 	}
 }

@@ -1,53 +1,63 @@
 characters = {
-
-	CHI_rongyao = {
-		name = CHI_rongyao
+	
+	CHI_cai_yuanpei = {
+		name = CHI_cai_yuanpei
 		
 		portraits = {
 			civilian = {
-				large = "gfx/leaders/CHI/Portrait_CHI_Yuan_Keding.png"
+				large = "GFX_portrait_unknown"
 			}
 		}
 		
 		country_leader = {
-			desc = "POLITICS_RONGYAO_DESC"
-			ideology = authoritarian_democracy_subtype
+			desc = "POLITICS_CAI_YUANPEI_DESC"
+			ideology = anarchism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	CHI_bo_gu = {
+		name = CHI_bo_gu
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_unknown"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_BO_GU_DESC"
+			ideology = leninism_subtype
 			traits = {
 				
 			}
 		}
 		
 		country_leader = {
-			desc = "POLITICS_RONGYAO_DESC"
-			ideology = military_government_subtype
+			desc = "POLITICS_BO_GU_DESC"
+			ideology = revolutionary_socialism_subtype
 			traits = {
 				
 			}
 		}
+	}
+	
+	CHI_jiang_kanghu = {
+		name = CHI_jiang_kanghu
 		
-		advisor = {
-			cost = 100
-			
-			slot = head_of_government
-			idea_token = CHI_rongyao_hog
-			ledger = civilian
-			
-			removal_cost = -1
-			
-			allowed = {
-				original_tag = CHI
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_unknown"
 			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
+		}
+		
+		country_leader = {
+			desc = "POLITICS_JIANG_KANGHU_DESC"
+			ideology = democratic_socialism_subtype
 			traits = {
-				hog_backroom_backstabber
+				
 			}
 		}
 	}
@@ -72,25 +82,9 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
 			slot = head_of_government
 			idea_token = CHI_wang_jingwei_hog
 			ledger = civilian
-			
-			removal_cost = -1
-			
-			allowed = {
-				original_tag = CHI
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
 				hog_intelligentsia
 			}
@@ -107,29 +101,65 @@ characters = {
 			}
 		}
 		
+		country_leader = {
+			desc = "POLITICS_TATSUNOSUKE_TAKASAKI_DESC"
+			ideology = liberal_conservatism_subtype
+			traits = {
+				
+			}
+		}
+		
 		advisor = {
 			cost = 100
-			
 			slot = head_of_government
 			idea_token = CHI_tatsunosuke_takasaki_hog
 			ledger = civilian
-			
-			removal_cost = -1
-			
-			allowed = {
-				original_tag = CHI
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
 				hog_corporate_suit
+			}
+		}
+	}
+	
+	CHI_li_huang = {
+		name = CHI_li_huang
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_CHI_li_huang"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_LI_HUANG_DESC"
+			ideology = national_conservatism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	CHI_rongyao = {
+		name = CHI_rongyao
+		
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/CHI/Portrait_CHI_Yuan_Keding.png"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_RONGYAO_DESC"
+			ideology = authoritarian_democracy_subtype
+			traits = {
+				
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_RONGYAO_DESC"
+			ideology = military_government_subtype
+			traits = {
+				
 			}
 		}
 	}
@@ -146,28 +176,127 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
 			slot = head_of_government
 			idea_token = CHI_zhang_zuolin_hog
 			ledger = civilian
-			
-			removal_cost = -1
-			
-			allowed = {
-				original_tag = CHI
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
 				hog_old_general
 			}
+		}
+	}
+	
+	CHI_zhang_binglin = {
+		name = CHI_zhang_binglin
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_CHI_zhang_binglin"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_ZHANG_BINGLIN_DESC"
+			ideology = fascism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
+	### Generals ###
+	
+	CHI_duan_qirui = {
+		name = CHI_duan_qirui
+		
+		portraits = {
+			army = {
+				large = "gfx/leaders/CHI/Portrait_CHI_Duan_Qirui.tga"
+				#small = ""
+			}
+		}
+		
+		field_marshal = {
+			traits = {
+				CHI_anhui_officer
+				career_officer
+				politically_connected
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
+		}
+	}
+	
+	CHI_feng_yuxiang = {
+		name = CHI_feng_yuxiang
+		
+		portraits = {
+			army = {
+				#large = ""
+				#small = ""
+			}
+		}
+		
+		field_marshal = {
+			traits = {
+				CHI_zhili_officer
+				infantry_leader
+				aggressive_assaulter
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	
+	CHI_duan_zhigui = {
+		name = CHI_duan_zhigui
+		
+		portraits = {
+			army = {
+				large = "gfx/leaders/CHI/Portrait_CHI_Duan_Zhigui.tga"
+				#small = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				CHI_anhui_officer
+				career_officer
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	
+	CHI_xu_shuzheng = {
+		name = CHI_xu_shuzheng
+		
+		portraits = {
+			army = {
+				large = "gfx/leaders/CHI/Portrait_CHI_Xu_Shuzheng.tga"
+				#small = ""
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				CHI_anhui_officer
+				politically_connected
+				career_officer
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
 		}
 	}
 }

@@ -1,0 +1,440 @@
+shared_focus = {
+    id = SPR_the_burden_of_office
+	icon = GFX_focus_SPR_the_burden_of_office
+	
+    x = 6
+	y = 0
+	
+	cost = 4
+    completion_reward = {
+		country_event = {
+			id = spain_intro.1
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_reaffirm_the_crowns_authority
+	icon = GFX_focus_rom_royal_dictatorship
+	
+    x = -4
+	y = 1
+	
+	cost = 5
+	relative_position_id = SPR_the_burden_of_office
+	prerequisite = { focus = SPR_the_burden_of_office }
+	
+    completion_reward = {
+		add_stability = 0.05
+		country_event = {
+			id = spain_intro.2
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_STABILITY
+	}
+}
+
+shared_focus = {
+    id = SPR_stabilize_the_pesata
+	icon = GFX_focus_generic_currency_reforms
+	
+    x = 0
+	y = 1
+	
+	cost = 5
+	relative_position_id = SPR_the_burden_of_office
+	prerequisite = { focus = SPR_the_burden_of_office }
+	
+    completion_reward = {
+		swap_ideas = {
+			remove_idea = SPR_stagnant_economy_1
+			add_idea = SPR_stagnant_economy_2
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
+	}
+}
+
+shared_focus = {
+    id = SPR_negotiate_with_the_socialists
+	icon = GFX_focus_generic_solidarity
+	
+    x = 2
+	y = 1
+	
+	cost = 4
+	relative_position_id = SPR_the_burden_of_office
+	prerequisite = { focus = SPR_the_burden_of_office }
+	
+    completion_reward = {
+		add_stability = 0.05
+		country_event = {
+			id = spain_intro.3
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_STABILITY
+	}
+}
+
+shared_focus = {
+    id = SPR_reinforce_the_guardia_civil
+	icon = GFX_focus_chi_army_reform
+	
+    x = 4
+	y = 1
+	
+	cost = 4
+	relative_position_id = SPR_the_burden_of_office
+	prerequisite = { focus = SPR_the_burden_of_office }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_shuffle_the_cabinet
+	icon = GFX_focus_SPR_reaffirm_the_crowns_authority
+	
+    x = -1
+	y = 1
+	
+	cost = 4
+	relative_position_id = SPR_reaffirm_the_crowns_authority
+	prerequisite = { focus = SPR_reaffirm_the_crowns_authority }
+	
+    completion_reward = {
+		add_stability = 0.05
+		add_popularity = {
+			ideology = despotism
+			popularity = -0.02
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_STABILITY
+	}
+}
+
+shared_focus = {
+    id = SPR_summon_the_cortes
+	icon = GFX_focus_generic_parliament
+	
+    x = 1
+	y = 1
+	
+	cost = 4
+	relative_position_id = SPR_reaffirm_the_crowns_authority
+	prerequisite = { focus = SPR_reaffirm_the_crowns_authority }
+	
+    completion_reward = {
+		add_political_power = 50
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_industrial_patronage
+	icon = GFX_focus_generic_state_economy
+	
+    x = -1
+	y = 1
+	
+	cost = 4
+	relative_position_id = SPR_stabilize_the_pesata
+	prerequisite = { focus = SPR_stabilize_the_pesata }
+	
+    completion_reward = {
+		random_owned_controlled_state = {
+			limit = {
+				is_urban_state = yes
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
+	}
+}
+
+shared_focus = {
+    id = SPR_peasant_relief_measures
+	icon = GFX_focus_generic_agrarian_reform
+	
+    x = 1
+	y = 1
+	
+	cost = 4
+	relative_position_id = SPR_stabilize_the_pesata
+	prerequisite = { focus = SPR_stabilize_the_pesata }
+	
+    completion_reward = {
+		ECON_poverty_change_medium = yes
+		country_event = {
+			id = spain_intro.4
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_police_the_anarchists
+	icon = GFX_focus_SPR_reaffirm_the_crowns_authority
+	
+    x = 1
+	y = 1
+	
+	cost = 4
+	relative_position_id = SPR_negotiate_with_the_socialists
+	prerequisite = { focus = SPR_negotiate_with_the_socialists }
+	prerequisite = { focus = SPR_reinforce_the_guardia_civil }
+	
+    completion_reward = {
+		add_stability = 0.03
+		add_popularity = {
+			ideology = anarchism
+			popularity = -0.02
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_STABILITY
+	}
+}
+
+shared_focus = {
+    id = SPR_the_catalonia_question
+	icon = GFX_focus_SPR_reaffirm_the_crowns_authority
+	
+    x = 1
+	y = 1
+	
+	cost = 4
+	relative_position_id = SPR_reinforce_the_guardia_civil
+	prerequisite = { focus = SPR_reinforce_the_guardia_civil }
+	
+    completion_reward = {
+		country_event = {
+			id = spain_intro.5
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_the_royal_tour
+	icon = GFX_focus_SPR_reaffirm_the_crowns_authority
+	
+    x = 1
+	y = 1
+	
+	cost = 4
+	relative_position_id = SPR_shuffle_the_cabinet
+	prerequisite = { focus = SPR_shuffle_the_cabinet }
+	prerequisite = { focus = SPR_summon_the_cortes }
+	
+    completion_reward = {
+		country_event = {
+			id = spain_intro.6
+			hours = 6
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_balance_the_budget
+	icon = GFX_focus_generic_banking
+	
+    x = 1
+	y = 1
+	
+	cost = 4
+	relative_position_id = SPR_summon_the_cortes
+	prerequisite = { focus = SPR_summon_the_cortes }
+	prerequisite = { focus = SPR_industrial_patronage }
+	
+    completion_reward = {
+		add_stability = 0.1
+		add_political_power = 50
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+	
+	search_filters = {
+		FOCUS_FILTER_STABILITY
+	}
+}
+
+shared_focus = {
+    id = SPR_promote_foreign_investment
+	icon = GFX_focus_generic_bridge
+	
+    x = 1
+	y = 1
+	
+	cost = 4
+	relative_position_id = SPR_industrial_patronage
+	prerequisite = { focus = SPR_industrial_patronage }
+	prerequisite = { focus = SPR_peasant_relief_measures }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_suppress_republican_sentiments
+	icon = GFX_focus_SPR_suppress_republican_sentiments
+	
+    x = 1
+	y = 1
+	
+	cost = 4
+	relative_position_id = SPR_police_the_anarchists
+	prerequisite = { focus = SPR_police_the_anarchists }
+	prerequisite = { focus = SPR_the_catalonia_question }
+	
+    completion_reward = {
+		add_popularity = {
+			ideology = social_democracy
+			popularity = -0.015
+		}
+		add_popularity = {
+			ideology = progressive_liberalism
+			popularity = -0.015
+		}
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_elections_under_the_crown
+	icon = GFX_focus_SPR_reaffirm_the_crowns_authority
+	
+    x = 0
+	y = 1
+	cost = 4
+	
+	available = {
+		has_stability > 0.5
+		
+		set_temp_variable = { repubpop = party_popularity@social_democracy }
+		add_to_temp_variable = { repubpop = party_popularity@progressive_liberalism }
+		check_variable = { repubpop < 0.3 }
+		
+		custom_trigger_tooltip = {
+			tooltip = SPR_elections_under_the_crown_trigger_tt
+			check_variable = { repubpop < 0.3 }
+		}
+	}
+	
+	relative_position_id = SPR_balance_the_budget
+	prerequisite = { focus = SPR_the_royal_tour }
+	prerequisite = { focus = SPR_balance_the_budget }
+	prerequisite = { focus = SPR_promote_foreign_investment }
+	mutually_exclusive = { focus = SPR_hold_the_streets }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+shared_focus = {
+    id = SPR_hold_the_streets
+	icon = GFX_focus_SPR_hold_the_streets
+	
+    x = 0
+	y = 1
+	
+	cost = 4
+	relative_position_id = SPR_suppress_republican_sentiments
+	prerequisite = { focus = SPR_suppress_republican_sentiments }
+	mutually_exclusive = { focus = SPR_elections_under_the_crown }
+	
+    completion_reward = {
+		
+    }
+	
+	ai_will_do = {
+		base = 10
+		modifier = {
+			factor = 0
+			has_stability > 0.5
+		}
+	}
+}

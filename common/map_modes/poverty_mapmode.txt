@@ -26,6 +26,76 @@ scripted_map_modes = {
 			}
 		}
 		
+		#bottom = {
+		#	type = country
+		#	color = {
+		#		FROM = {
+		#			if = {
+		#				limit = {
+		#					has_country_flag = unindustrialized_nation
+		#				}
+		#				set_temp_variable = { red = 1 }
+		#				set_temp_variable = { blue = 0 }
+		#				set_temp_variable = { green = 0 }
+		#				set_temp_variable = { alpha = 0.15 }
+		#			}
+		#			else_if = {
+		#				limit = {
+		#					has_country_flag = unindustrialized_nation
+		#				}
+		#				set_temp_variable = { red = 0 }
+		#				set_temp_variable = { blue = 1 }
+		#				set_temp_variable = { green = 0 }
+		#				set_temp_variable = { alpha = 0.15 }
+		#			}
+		#			else = {
+		#				set_temp_variable = { red = 0 }
+		#				set_temp_variable = { blue = 0 }
+		#				set_temp_variable = { green = 0 }
+		#				set_temp_variable = { alpha = 0.15 }
+		#			}
+		#		}
+		#	}
+		#	thickness = no
+		#}
+		
+		update_daily = no
+	}
+	
+	state_poverty_map_mode = {
+		top = {
+			type = state
+
+			color = {
+				set_temp_variable = { poverty_factor?0 = FROM.state_poverty_rate }
+				divide_temp_variable = { poverty_factor = 100 }
+				
+				set_temp_variable = { red = poverty_factor }
+				set_temp_variable = { green = 1 }
+				subtract_from_temp_variable = { green = poverty_factor }
+				set_temp_variable = { blue = 0 }
+				set_temp_variable = { alpha = 1 }
+				
+				# only needed if thickness = yes on parent
+				# specify layer thickness
+				set_temp_variable = { thickness = 10.0 }
+				
+				# if set border will pulsate
+				set_temp_variable = { highlighted = 0 }
+				
+				#always = yes
+			}
+
+			thickness = no
+
+			targets = {
+				target_array = global.states
+			}
+		}
+
+		far_text = state
+		near_text = state
+
 		update_daily = no
 	}
 }

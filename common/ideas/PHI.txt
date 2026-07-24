@@ -1,6 +1,34 @@
 ideas = {
 	country = { 
 		
+		PHI_fragmented_archipelago = {
+			
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				stability_factor = -0.15
+				political_power_factor = -0.1
+				production_speed_buildings_factor = -0.2
+			}
+		}
+		
+		PHI_agrarian_inequality = {
+			picture = generic_agrarian_reform
+			
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				stability_factor = -0.2
+				conscription_factor = 0.1
+				democratic_socialism_drift = 0.01
+				revolutionary_socialism_drift = 0.01
+			}
+		}
+		
 		PHI_towards_independence = {
 		
 			removal_cost = -1
@@ -16,6 +44,26 @@ ideas = {
 			modifier = {
 				stability_factor = 0.1
 				war_support_factor = -0.1
+			}
+		}
+		
+		PHI_stalled_land_reform = {
+			picture = generic_agrarian_reform
+		
+			removal_cost = -1
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				industrial_capacity_factory = -0.05
+				consumer_goods_factor = 0.1
+				monthly_population = -0.1
 			}
 		}
 		

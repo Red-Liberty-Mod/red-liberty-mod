@@ -1,5 +1,6 @@
 ﻿capital = 2
 set_oob = "ITA"
+set_naval_oob = "ITA_naval_mtg"
 set_research_slots = 3
 set_stability = 0.8
 set_war_support = 0.7
@@ -11,8 +12,10 @@ set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
 	tech_mountaineers = 1
+	tech_trucks = 1
 	motorised_infantry = 1
-	camelry = 1
+	tech_camelry = 1
+	tech_assault_battalion = 1
 
 	tech_support = 1		
 	tech_engineers = 1
@@ -26,6 +29,34 @@ set_technology = {
 	fuel_refining = 1
 
 	basic_train = 1
+	
+	### Hulls ###
+	early_ship_hull_submarine = 1
+	basic_ship_hull_submarine = 1
+	early_ship_hull_light = 1
+	basic_ship_hull_light = 1
+	early_ship_hull_cruiser = 1
+	basic_ship_hull_cruiser = 1
+	early_ship_hull_heavy = 1
+	basic_ship_hull_heavy = 1
+	early_ship_hull_carrier = 1
+	coastal_defense_ships = 1
+
+	### Modules ###
+	basic_naval_mines = 1
+	submarine_mine_laying = 1
+	basic_depth_charges = 1
+	basic_torpedo = 1
+	basic_battery = 1
+	basic_light_battery = 1
+	basic_medium_battery = 1
+	basic_heavy_battery = 1
+	basic_cruiser_armor_scheme = 1
+	basic_heavy_armor_scheme = 1
+	improved_airplane_launcher = 1
+
+	### Transport ###
+	mtg_transport = 1
 }
 
 ### LaR techs ###
@@ -57,64 +88,9 @@ if = {
 	}
 }
 
-### Navy - MtG ###
-if = {
-	limit = { has_dlc_mtg = yes }
-	set_technology = {
-		### Hulls ###
-		early_ship_hull_submarine = 1
-		basic_ship_hull_submarine = 1
-		early_ship_hull_light = 1
-		basic_ship_hull_light = 1
-		early_ship_hull_cruiser = 1
-		basic_ship_hull_cruiser = 1
-		early_ship_hull_heavy = 1
-		basic_ship_hull_heavy = 1
-
-		### Modules ###
-		basic_naval_mines = 1
-		submarine_mine_laying = 1
-		basic_depth_charges = 1
-		basic_torpedo = 1
-		basic_battery = 1
-		basic_light_battery = 1
-		basic_medium_battery = 1
-		basic_heavy_battery = 1
-		basic_cruiser_armor_scheme = 1
-		basic_heavy_armor_scheme = 1
-		improved_airplane_launcher = 1
-
-		### Transport ###
-		mtg_transport = 1
-	}
-	ITA_load_naval_variants = yes
-	set_naval_oob = "ITA_naval_mtg"
-}
-
-### Navy - Non MtG ###
-if = {
-	limit = { has_dlc_mtg = no }
-	set_technology = {
-		### Hulls ###
-		early_submarine = 1
-		basic_submarine = 1
-		early_destroyer = 1
-		early_light_cruiser = 1
-		early_heavy_cruiser = 1
-		early_battleship = 1
-		basic_battleship = 1
-		early_battlecruiser = 1
-
-		### Transport ###
-		transport = 1
-	}
-	set_naval_oob = "ITA_naval_legacy"
-}
-
-### Planes - BBA ###
+### Planes ###
 if = {
 	limit = { has_dlc_bba = yes }
-	set_air_oob = "ITA_air_bba"
 	set_technology = {
 		aa_lmg = 1
 		early_bombs = 1
@@ -126,17 +102,15 @@ if = {
 		basic_small_airframe = 1
 		basic_medium_airframe = 1
 	}
-}
-
-### Planes - non BBA ###
-if = {
-	limit = { has_dlc_bba = no }
-	set_air_oob = "ITA_air_legacy"
-	set_technology = {
-		early_fighter = 1
-		early_bomber = 1
-		naval_bomber1 = 1
-		CAS1 = 1
+	set_air_oob = "ITA_air_bba"
+	else = {
+		set_technology = {
+			early_fighter = 1
+			early_bomber = 1
+			naval_bomber1 = 1
+			CAS1 = 1
+		}
+		set_air_oob = "ITA_air_legacy"
 	}
 }
 
@@ -151,7 +125,7 @@ add_opinion_modifier = {
 
 1935.8.3 = {
 	add_named_threat = {
-		threat = 5
+		threat = 3
 		name = ITA_ethiopia_war
 	}
 }
@@ -165,7 +139,6 @@ if = {
 		type = annex_everything
 	}
 }
-set_variable = { ITA_deploy_gas_cost = 10 }
 
 271 = {
 	ITA = {
@@ -236,33 +209,20 @@ set_popularities = {
 	fascism = 34
 }
 
-#set_power_balance = {
-#	id = ITA_italo_ethiopian_war_balance
-#	set_default = yes
-#}
+set_power_balance = {
+	id = ITA_italo_ethiopian_war_balance
+	set_default = yes
+}
 #add_power_balance_modifier = {
 #	id = ITA_italo_ethiopian_war_balance
 #	modifier = ITA_war_balance
 #}
+set_variable = { ITA_deploy_gas_cost = 10 }
 
 set_country_flag = authoritarian_democracy_coalition
 set_country_flag = despotism_coalition
 set_country_flag = ultraconservatism_coalition
 set_country_flag = fascism_coalition
-
-### Monarchs ###
-recruit_character = ITA_vittorio_emmanuel_iii
-recruit_character = ITA_umberto_ii
-
-### Leaders ###
-recruit_character = ITA_ruggero_greico
-recruit_character = ITA_alessandro_pertini
-recruit_character = ITA_ferruccio_parri
-recruit_character = ITA_randolfo_pacciardi
-recruit_character = ITA_luigi_einaudi
-recruit_character = ITA_alcide_de_gasperi
-recruit_character = ITA_pietro_badoglio
-recruit_character = ITA_benito_mussolini
 
 add_ideas = {
 	ITA_disorganized_general_staff
@@ -276,215 +236,59 @@ add_ideas = {
 	ITA_vittorio_emmanuel_iii_hog
 }
 
-create_field_marshal = {
-	name = "Emilio De Bono"
-	picture = ""
-	traits = {
-		war_hero
-		old_guard
-		thorough_planner
-		organizer
-	}
-	skill = 2
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 3
-	logistics_skill = 3
-}
+### Monarchs ###
+recruit_character = ITA_vittorio_emmanuel_iii
+recruit_character = ITA_umberto_ii
+
+activate_advisor = ITA_vittorio_emmanuel_iii_hog
+
+### Leaders ###
+recruit_character = ITA_ruggero_greico
+recruit_character = ITA_dino_mariani
+recruit_character = ITA_alessandro_pertini
+recruit_character = ITA_ferruccio_parri
+recruit_character = ITA_randolfo_pacciardi
+recruit_character = ITA_luigi_einaudi
+recruit_character = ITA_alcide_de_gasperi
+recruit_character = ITA_pietro_badoglio
+recruit_character = ITA_benito_mussolini
+recruit_character = ITA_italo_balbo
 
 ### Generals ###
+recruit_character = ITA_emilio_de_bono
+recruit_character = ITA_rodolfo_graziani
+recruit_character = ITA_ettore_bastico
+recruit_character = ITA_annibale_bergonzoli
+recruit_character = ITA_alberto_pariani
+recruit_character = ITA_sebastiano_visconti_prasca
+recruit_character = ITA_arnaldo_azzi
+recruit_character = ITA_enrico_riccardi
+recruit_character = ITA_gabriele_nasci
+recruit_character = ITA_italo_gariboldi
+recruit_character = ITA_venanzio_gabrotti
+recruit_character = ITA_ugo_cavallero
+recruit_character = ITA_giovanni_messi
+recruit_character = ITA_ubaldo_soddu
 
-create_corps_commander = {
-	name = "Rodolfo Graziani"
-	picture = ""
-	traits = {
-		offensive_doctrine
-		organizer
-		armor_officer
-		fast_planner
-	}
-	skill = 4
-	attack_skill = 4
-	defense_skill = 3
-	planning_skill = 3
-	logistics_skill = 2
-}
+### Admirals ###
+recruit_character = ITA_domenico_cavagnari
+recruit_character = ITA_inigo_campioni
+recruit_character = ITA_giuseppe_fioravanzo
+recruit_character = ITA_carlo_bergamini
+recruit_character = ITA_angelo_iachino
 
+activate_advisor = ITA_domenico_cavagnari
 
-create_corps_commander = {
-	name = "Ettore Bastico"
-	picture = ""
-	traits = {
-		trickster
-		career_officer
-	}
-	skill = 4
-	attack_skill = 3
-	defense_skill = 3
-	planning_skill = 4
-	logistics_skill = 3
-}
+### Air Force ###
+recruit_character = ITA_giuseppe_valle
+recruit_character = ITA_rino_corso_fougier
+recruit_character = ITA_francesco_pricolo
 
-create_corps_commander = {
-	name = "Annibale Bergonzoli"
-	picture = ""
-	traits = {
-		war_hero
-		brilliant_strategist
-	}
-	skill = 3
-	attack_skill = 3
-	defense_skill = 4
-	planning_skill = 3
-	logistics_skill = 3
-}
+activate_advisor = ITA_giuseppe_valle
 
-create_corps_commander = {
-	name = "Alberto Pariani"
-	picture = ""
-	traits = {
-		organizer
-		trait_mountaineer
-	}
-	skill = 3
-	attack_skill = 2
-	defense_skill = 4
-	planning_skill = 2
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Sebastiano Visconti Prasca"
-	picture = ""
-	traits = {
-		career_officer
-		inflexible_strategist
-	}
-	skill = 2
-	attack_skill = 1
-	defense_skill = 3
-	planning_skill = 1
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Arnaldo Azzi"
-	picture = ""
-	traits = {
-		armor_officer
-		panzer_leader
-	}
-	skill = 2
-	attack_skill = 3
-	defense_skill = 1
-	planning_skill = 2
-	logistics_skill = 1
-}
-create_corps_commander = {
-	name = "Enrico Riccardi"
-	picture = ""
-	traits = { }
-	skill = 2
-	attack_skill = 1
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Gabriele Nasci"
-	picture = ""
-	traits = { trait_mountaineer }
-	skill = 3
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 3
-	logistics_skill = 3
-}
-create_corps_commander = {
-	name = "Italo Gariboldi"
-	picture = ""
-	traits = { hill_fighter }
-	skill = 2
-	attack_skill = 2
-	defense_skill = 3
-	planning_skill = 2
-	logistics_skill = 2
-}
-create_corps_commander = {
-	name = "Venanzio Gabriotti"
-	picture = ""
-	traits = { commando }
-	skill = 2
-	attack_skill = 1
-	defense_skill = 1
-	planning_skill = 2
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Fedele de Giorgis"
-	picture = ""
-	traits = {
-		career_officer
-		trait_cautious
-	}
-	skill = 1
-	attack_skill = 1
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Ugo Cavallero"
-	picture = ""
-	traits = {  old_guard trait_cautious career_officer }
-	skill = 2
-	attack_skill = 1
-	defense_skill = 1
-	planning_skill = 2
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Giovanni Messe"
-	picture = ""
-	traits = {
-		armor_officer
-		war_hero
-	}
-	skill = 4
-	attack_skill = 4
-	defense_skill = 3
-	planning_skill = 2
-	logistics_skill = 4
-}
-
-create_corps_commander = {
-	name = "Ubaldo Soddu"
-	picture = ""
-	traits = { career_officer trait_cautious }
-	skill = 1
-	attack_skill = 1
-	defense_skill = 1
-	planning_skill = 1
-	logistics_skill = 1
-}
-
-create_corps_commander = {
-	name = "Italo Balbo"
-	picture = ""
-	traits = {
-		career_officer
-		politically_connected
-	}
-	skill = 3
-	attack_skill = 3
-	defense_skill = 2
-	planning_skill = 3
-	logistics_skill = 3
-}
+### High Command ###
+recruit_character = ITA_federico_baistrocchi
+activate_advisor = ITA_federico_baistrocchi
 
 ### Royals ###
 
@@ -508,63 +312,6 @@ create_corps_commander = {
 	defense_skill = 2
 	planning_skill = 2
 	logistics_skill = 3
-}
-
-### Admirals ###
-
-create_navy_leader = {
-	name = "Inigo Campioni"
-		picture = "Portrait_Italy_Inigo_Campioni.dds"
-	traits = { battleship_adherent superior_tactician spotter }
-	skill = 3
-	attack_skill = 2
-	defense_skill = 2
-	maneuvering_skill = 3
-	coordination_skill = 3
-}
-
-create_navy_leader = {
-	name = "Alberto Da Zara"
-		picture = "Portrait_Italy_Alberto_Da_Zara.dds"
-	traits = { gentlemanly superior_tactician }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 2
-	maneuvering_skill = 3
-	coordination_skill = 2
-}
-
-create_navy_leader = {
-	name = "Giuseppe Fioravanzo"
-		picture = "Portrait_Italy_Giuseppe_Fioravanzo.dds"
-	traits = { aviation_enthusiast blockade_runner }
-	skill = 3
-	attack_skill = 2
-	defense_skill = 2
-	maneuvering_skill = 4
-	coordination_skill = 2
-}
-
-create_navy_leader = {
-	name = "Carlo Bergamini"
-		picture = "Portrait_Italy_Carlo_Bergamini.dds"
-	traits = { battleship_adherent gunnery_expert ironside }
-	skill = 2
-	attack_skill = 3
-	defense_skill = 1
-	maneuvering_skill = 2
-	coordination_skill = 1
-}
-
-create_navy_leader = {
-	name = "Angelo Iachino"
-		picture = "Portrait_Italy_Angelo_Iachino.dds"
-	traits = { bold navy_career_officer superior_tactician spotter }
-	skill = 2
-	attack_skill = 2
-	defense_skill = 1
-	maneuvering_skill = 3
-	coordination_skill = 1
 }
 
 if = {
@@ -679,12 +426,24 @@ if = {
 			engine_type_slot = engine_1_1x
 			special_type_slot_1 = empty
 		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "G.50 'Freccia'" #
+		type = small_plane_airframe_1
+		design_team = mio:ITA_fiat_aviazione_organization
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			engine_type_slot = engine_2_1x
+			special_type_slot_1 = empty
+		}
 	}
 	create_equipment_variant = {
 		name = "Ca.111" #
 		type = small_plane_cas_airframe_0
 		modules = {
 			fixed_main_weapon_slot = small_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = light_mg_4x
 			engine_type_slot = engine_1_1x
 			special_type_slot_1 = empty
 		}
@@ -741,7 +500,7 @@ if = {
 		type = small_plane_cas_airframe_1
 		modules = {
 			fixed_main_weapon_slot = small_bomb_bay
-			fixed_auxiliary_weapon_slot_1 = light_mg_2x
+			fixed_auxiliary_weapon_slot_1 = light_mg_4x
 			engine_type_slot = engine_2_1x
 			special_type_slot_1 = empty
 		}
@@ -749,40 +508,40 @@ if = {
 	}
 	
 	### Land Planes ###
-	add_equipment_to_stockpile = {
-		type = small_plane_airframe_0
-		amount = 300
-		variant_name = "CR.32"
-		producer = ITA
-	}
-	add_equipment_to_stockpile = {
-		type = small_plane_cas_airframe_0
-		amount = 48
-		variant_name = "Ca.111"
-		producer = ITA
-	}
-	add_equipment_to_stockpile = {
-		type = medium_plane_airframe_0
-		amount = 64
-		variant_name = "Ca.101"
-		producer = ITA
-	}
-	add_equipment_to_stockpile = {
-		type = medium_plane_airframe_0
-		amount = 192
-		variant_name = "Ca.133"
-		producer = ITA
-	}
-	add_equipment_to_stockpile = {
-		type = medium_plane_airframe_1
-		amount = 72
-		variant_name = "SM.79"
-		producer = ITA
-	}
-	add_equipment_to_stockpile = {
-		type = medium_plane_airframe_1
-		amount = 32
-		variant_name = "SM.81"
-		producer = ITA
-	}
+	#add_equipment_to_stockpile = {
+	#	type = small_plane_airframe_0
+	#	amount = 300
+	#	variant_name = "CR.32"
+	#	producer = ITA
+	#}
+	#add_equipment_to_stockpile = {
+	#	type = small_plane_cas_airframe_0
+	#	amount = 48
+	#	variant_name = "Ca.111"
+	#	producer = ITA
+	#}
+	#add_equipment_to_stockpile = {
+	#	type = medium_plane_airframe_0
+	#	amount = 64
+	#	variant_name = "Ca.101"
+	#	producer = ITA
+	#}
+	#add_equipment_to_stockpile = {
+	#	type = medium_plane_airframe_0
+	#	amount = 192
+	#	variant_name = "Ca.133"
+	#	producer = ITA
+	#}
+	#add_equipment_to_stockpile = {
+	#	type = medium_plane_airframe_1
+	#	amount = 72
+	#	variant_name = "SM.79"
+	#	producer = ITA
+	#}
+	#add_equipment_to_stockpile = {
+	#	type = medium_plane_airframe_1
+	#	amount = 32
+	#	variant_name = "SM.81"
+	#	producer = ITA
+	#}
 }

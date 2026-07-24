@@ -1,0 +1,47 @@
+faction_manifest_indochinese_liberation = {
+	name = faction_manifest_indochinese_liberation_name
+	description = faction_manifest_indochinese_liberation_desc
+	is_manifest = yes
+	ratio_progress = {
+		total_amount_collection = collection:all_indochinese_states
+		completed_amount_collection = collection:all_controlled_indochinese_states
+		scale = {
+			army_core_attack_factor = 0.1
+			army_core_defence_factor = 0.1
+		}
+	}
+}
+
+faction_goal_secure_coast = {
+	name = faction_goal_secure_coast_name
+	description = faction_goal_secure_coast_desc
+	category = short_term
+	group = FOCUS_FILTER_CONSOLIDATION
+	
+	allowed = {
+		OR = {
+			tag = VIN
+			tag = LAO
+			tag = CAM
+		}
+	}
+	visible = {
+		
+	}
+	available = {
+
+	}
+	completed = {
+		671 = {
+			is_controlled_by_ROOT_or_ally = yes
+			coastal_bunker > 2
+		}
+	}
+	complete_effect = {
+		add_faction_power_projection = 100
+		custom_effect_tooltip = ALL_FACTION_MEMBERS
+		every_faction_member = {
+			add_war_support = 0.1
+		}
+	}
+}

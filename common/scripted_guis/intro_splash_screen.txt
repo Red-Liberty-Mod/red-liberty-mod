@@ -11,7 +11,7 @@ scripted_gui = {
 		dynamic_lists = {
 			entry_gridbox = {
 				array = country_info_array
-				entry_container = "country_info_entry"
+				entry_container = [GetCountryInfoEntryContainer]
 				value = f
 				index = g
 			}
@@ -24,16 +24,97 @@ scripted_gui = {
 		}
 		
 		effects = {
-			folder_button_click = {
+			content_button_click = {
 				set_variable = { country_info_selected = f }
+			}
+			folder_button_click = {
+				### EXPANDS ###
+				if = {
+					limit = {
+						set_temp_variable = { check = g }
+						add_to_temp_variable = { check = 1 }
+						OR = {
+							check_variable = { country_info_array^check > 100 }
+							check_variable = { country_info_array^check = 0 }
+						}
+					}
+					
+					## Removes entries after the folder ##
+					for_each_loop = {
+						array = country_info_array
+						if = {
+							limit = {
+								check_variable = { i > g }
+							}
+							add_to_array = { removed = v }
+						}
+					}
+					for_each_loop = {
+						array = removed
+						if = {
+							limit = {
+								is_in_array = { array = country_info_array value = v }
+							}
+							remove_from_array = { array = country_info_array value = v }
+						}
+					}
+					
+					meta_effect = {
+						text = {
+							for_each_loop = {
+								array = country_info_folder_array_[FOLDER]
+								add_to_array = { country_info_array = v }
+							}
+						}
+						FOLDER = "[?f]"
+					}
+					
+					## Readds previously removed entries ##
+					for_each_loop = {
+						array = removed
+						add_to_array = { country_info_array = v }
+					}
+					clear_array = removed
+				}
+				### COLLAPSES ###
+				else = {
+					meta_effect = {
+						text = {
+							for_each_loop = {
+								array = country_info_folder_array_[FOLDER]
+								if = {
+									limit = {
+										is_in_array = { array = country_info_array value = v }
+									}
+									remove_from_array = { array = country_info_array value = v }
+								}
+							}
+						}
+						FOLDER = "[?f]"
+					}
+				}
 			}
 			
 			button_credits_click = {
 				set_variable = { country_info_selected = 0 }
 			}
-			
 			button_close_click = {
 				clr_country_flag = open_intro_splash_screen
+			}
+		}
+	}
+	
+	intro_splash_button = {
+		window_name = "reopen_button_container"
+		context_type = player_context
+		
+		visible = {
+			always = yes
+		}
+		
+		effects = {
+			reopen_button_click = {
+				set_country_flag = open_intro_splash_screen
 			}
 		}
 	}

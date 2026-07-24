@@ -1,14 +1,13 @@
 ﻿capital = 769
+set_research_slots = 1
 
-# Starting tech
 set_technology = {
 	infantry_weapons = 1
+	tech_irregulars = 1
 }
 
-set_convoys = 0
-
 set_politics = {
-	ruling_party = revolutionary_socialism
+	ruling_party = despotism
 	last_election = "1936.1.1"
 	election_frequency = 48
 	elections_allowed = no
@@ -17,13 +16,35 @@ set_popularities = {
 	anarchism = 0
 	vanguard_socialism = 2
 	revolutionary_socialism = 4
-	democratic_socialism = 17
-	social_democracy = 28
+	democratic_socialism = 2
+	social_democracy = 2
 	progressive_liberalism = 6
 	liberal_conservatism = 4
-	national_conservatism = 21
-	authoritarian_democracy = 2
-	despotism = 2
+	national_conservatism = 17
+	authoritarian_democracy = 21
+	despotism = 28
 	ultraconservatism = 5
 	fascism = 9
+}
+
+set_cosmetic_tag = BRD_kingdom
+
+create_country_leader = {
+	name = "Mwambutsa IV Bangiricenge"
+	desc = ""
+	picture = "GFX_portrait_unknown"
+	ideology = absolute_monarchy_subtype
+	traits = {
+		
+	}
+}
+
+division_template = {
+	name = "Kikosi cha Wanagambo"
+	regiments = {
+		irregular_infantry = { x = 0 y = 0 }
+		irregular_infantry = { x = 0 y = 1 }
+		irregular_infantry = { x = 1 y = 0 }
+		irregular_infantry = { x = 1 y = 1 }
+	}
 }

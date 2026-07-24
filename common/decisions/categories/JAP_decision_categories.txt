@@ -5,12 +5,25 @@ JAP_house_of_reps_category = {
 		tag = JAP
 	}
 	visible = {
-		always = yes
+		always = no
 	}
 	
 	visible_when_empty = yes
 	
 	priority = 100
+}
+
+JAP_foreign_policy = {
+	icon = usa_congress
+	
+	allowed = {
+		tag = JAP
+	}
+	
+	visible = {
+		always = yes
+	}
+	visible_when_empty = yes
 }
 
 JAP_liberal_socialist_influence_category = {
@@ -19,10 +32,12 @@ JAP_liberal_socialist_influence_category = {
 	allowed = {
 		tag = JAP
 	}
+	
 	visible = {
-		always = yes
-		has_completed_focus = JAP_showa_democracy
+		#always = yes
+		has_country_flag = JAP_coalition_mechanic_enabled
 	}
+	visible_when_empty = yes
 }
 
 JAP_hidden_ai_stuff = {

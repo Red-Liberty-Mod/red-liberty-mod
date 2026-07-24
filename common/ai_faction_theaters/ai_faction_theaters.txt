@@ -1,0 +1,103 @@
+warsaw_pact_eastern_europe = {
+	name = warsaw_pact_theatre_eastern_europe
+	regions = {
+		13 		#Finland
+		37 		#Baltic States
+		38 		#Poland
+		130 	#Ukraine
+		131 	#Belarus
+		132 	#Western Russia
+		133 	#Central Russia
+		134		#Transcaucasia
+		135 	#North Caucasus
+		137 	#Caspian Lowlands
+		215		#Karelia
+		238		#Southern Ukraine
+	}
+	#can_skip_first_region = yes
+	preferred_countries = {
+		UKR BLR BAL LIT POL AUS FIN GER GEO AZR ARM
+	}
+	cancel = {
+		OR = {
+			NOT = { has_war_with = SOV }
+			NOT = { has_war_with = RUS }
+		}
+	}
+
+	ai_will_do = {
+		base = 0
+		modifier = {
+			add = 100
+			original_tag = GER
+		}
+	}
+}
+
+warsaw_pact_northern_europe = {
+	name = warsaw_pact_theatre_northern_europe
+	regions = {
+		6		#Northern Germany
+		10		#Southern Sweden
+		11		#Southern Norway
+		192		#Northern Sweden
+		207		#Danish Belts
+	}
+	#can_skip_first_region = yes
+	preferred_countries = {
+		GER NOR DEN SWE FIN
+	}
+	cancel = {
+		NOT = {
+			any_enemy_country = {
+				any_owned_state = {
+					OR = {
+						region = 6		#Northern Germany
+						region = 10		#Southern Sweden
+						region = 11		#Southern Norway
+						region = 192	#Northern Sweden
+						region = 207	#Danish Belts
+					}
+				}
+			}
+		}
+
+	}
+
+	ai_will_do = {
+		base = 0
+		modifier = {
+			add = 90
+			original_tag = GER
+		}
+	}
+}
+
+entente_western_europe = {
+	name = entente_theatre_western_europe
+	regions = {
+		1 		#Southern England
+		5 		#Low Countries
+		7		#Western Germany
+		16 		#North Sea
+		18 		#English Channel
+		19	 	#Northern France
+		43 		#Western Approaches
+		208 	#Western France
+	}
+	#can_skip_first_region = yes
+	preferred_countries = {
+		ENG FRA BEL USA HOL RAJ SPR AST SAF IRE
+	}
+	cancel = {
+		NOT = { has_war_with = GER }
+	}
+
+	ai_will_do = {
+		base = 0
+		modifier = {
+			add = 90
+			tag = ENG
+		}
+	}
+}

@@ -2,6 +2,7 @@ characters = {
 	
 	### USA HAS RESERVED LEGACY IDS 1-100 ###
 	
+	## the man himself ##
 	USA_norman_thomas = {
 		name = USA_norman_thomas
 		
@@ -14,7 +15,11 @@ characters = {
 		country_leader = {
 			desc = "POLITICS_NORMAN_THOMAS_DESC"
 			ideology = christian_socialism_subtype
-			traits = { the_last_idealist }
+			traits = {
+				USA_all_inclusive_socialist_active
+				USA_the_last_idealist_inactive
+				USA_americas_promise_inactive
+			}
 		}
 	}
 	
@@ -51,22 +56,6 @@ characters = {
 		}
 	}
 	
-	USA_william_foster = {
-		name = USA_william_foster
-		
-		portraits = {
-			civilian = {
-				large = "GFX_portrait_USA_william_foster"
-			}
-		}
-		
-		country_leader = {
-			desc = "POLITICS_WILLIAM_FOSTER_DESC"
-			ideology = revolutionary_autocracy_subtype
-			traits = {  }
-		}
-	}
-	
 	USA_earl_russell_browder = {
 		name = USA_earl_russell_browder
 		
@@ -78,35 +67,47 @@ characters = {
 		}
 		
 		advisor = {
-			cost = 100
-			
 			slot = head_of_government
 			idea_token = USA_earl_browder_hog
 			ledger = civilian
-			
 			cost = 0
 			can_be_fired = no
-			
-			allowed = {
-				original_tag = USA
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
 				hog_flamboyant_tough_guy
 			}
 		}
 		
 		country_leader = {
+			ideology = revolutionary_socialism_subtype
+			traits = {  }
+		}
+	}
+	
+	USA_william_foster = {
+		name = USA_william_foster
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_USA_william_foster"
+				small = "gfx/interface/ministers/USA/USA_William_Foster.png"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_WILLIAM_FOSTER_DESC"
 			ideology = syndicalism_subtype
 			traits = {  }
+		}
+		
+		advisor = {
+			slot = head_of_government
+			idea_token = USA_william_foster_hog
+			ledger = civilian
+			cost = 0
+			can_be_fired = no
+			traits = {
+				hog_ambitious_union_boss
+			}
 		}
 	}
 	
@@ -120,30 +121,22 @@ characters = {
 		}
 		
 		advisor = {
-			cost = 100
-			
 			slot = head_of_government
 			idea_token = USA_jack_reed_hog
 			ledger = civilian
-			
 			cost = 0
 			can_be_fired = no
-			
-			allowed = {
-				original_tag = USA
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
 				hog_silent_workhorse
 			}
+			modifier = {
+				#power_balance_daily = -0.001
+			}
+		}
+		
+		country_leader = {
+			ideology = syndicalism_subtype
+			traits = {  }
 		}
 	}
 	
@@ -157,27 +150,11 @@ characters = {
 		}
 		
 		advisor = {
-			cost = 100
-			
+			cost = 0
 			slot = head_of_government
 			idea_token = USA_henry_wallace_hog
 			ledger = civilian
-			
-			cost = 0
 			can_be_fired = no
-			
-			allowed = {
-				original_tag = USA
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
 				hog_naive_optimist
 			}
@@ -185,7 +162,7 @@ characters = {
 		
 		country_leader = {
 			desc = "POLITICS_HENRY_WALLACE_DESC"
-			ideology = sewer_socialism_subtype
+			ideology = social_democracy_subtype
 			traits = {  }
 		}
 	}
@@ -206,19 +183,47 @@ characters = {
 		}
 	}
 	
-	USA_alben_william_barkley = {
+	USA_franklin_delano_roosevelt = {
+		name = USA_franklin_delano_roosevelt
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_USA_franklin_delano_roosevelt"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_FRANKLIN_ROOSEVELT_DESC"
+			ideology = social_liberalism_subtype
+			traits = {  }
+		}
+	}
+	
+	USA_alben_william_barkley = { # replaces FDR if he leaves the senate
 		name = USA_alben_william_barkley
 		
 		portraits = {
 			civilian = {
 				large = "GFX_portrait_USA_alben_william_barkley"
+				small = "gfx/interface/ministers/USA/USA_Alben_Barkley.png"
 			}
 		}
 		
 		country_leader = {
 			desc = "POLITICS_ALBEN_BARKLEY_DESC"
-			ideology = progressive_liberalism_subtype
+			ideology = social_liberalism_subtype
 			traits = {  }
+		}
+		
+		advisor = {
+			cost = 0
+			slot = head_of_government
+			idea_token = USA_alben_william_barkley_hog
+			ledger = civilian
+			can_be_fired = no
+			traits = {
+				
+			}
 		}
 	}
 	
@@ -250,6 +255,22 @@ characters = {
 		country_leader = {
 			desc = "POLITICS_LISTER_HILL_DESC"
 			ideology = paternalistic_conservatism_subtype
+			traits = {  }
+		}
+	}
+	
+	USA_eugene_talmadge = {
+		name = USA_eugene_talmadge
+		
+		portraits = {
+			civilian = {
+				#large = "GFX_portrait_USA_charles_lindbergh"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_EUGENE_TALMADGE_DESC"
+			ideology = southern_paternalism_subtype
 			traits = {  }
 		}
 	}
@@ -302,7 +323,44 @@ characters = {
 		}
 	}
 	
+	USA_george_deatherage = {
+		name = USA_george_deatherage
+		
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_USA_george_deatherage"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_GEORGE_DEATHERAGE_DESC"
+			ideology = fascism_subtype
+			traits = {  }
+		}
+	}
+	
 	### VICE PRESIDENTS ###
+	
+	USA_clarence_senior = {
+		name = USA_clarence_senior
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/USA/USA_Clarence_Senior.png"
+			}
+		}
+		
+		advisor = {
+			cost = 0
+			slot = head_of_government
+			idea_token = USA_clarence_senior_hog
+			ledger = civilian
+			can_be_fired = no
+			traits = {
+				hog_political_protege
+			}
+		}
+	}
 	
 	USA_john_nance_garner = {
 		name = USA_john_nance_garner
@@ -314,35 +372,41 @@ characters = {
 		}
 		
 		advisor = {
-			cost = 100
-			
+			cost = 0
 			slot = head_of_government
 			idea_token = USA_john_nance_garner_hog
 			ledger = civilian
-			
-			cost = 0
 			can_be_fired = no
-			
-			allowed = {
-				original_tag = USA
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
 				hog_smiling_oilman
 			}
 		}
 	}
 	
+	USA_harry_flood_byrd_sr = {
+		name = USA_harry_flood_byrd_sr
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/USA/USA_Harry_Byrd_Sr.png"
+			}
+		}
+		
+		advisor = {
+			cost = 0
+			slot = head_of_government
+			idea_token = USA_harry_flood_byrd_sr_hog
+			ledger = civilian
+			can_be_fired = no
+			traits = {
+				
+			}
+		}
+	}
+	
 	### MINISTERS ###
 	
+	## Trotskyists ##
 	USA_max_shachtman = {
 		name = USA_max_shachtman
 		
@@ -354,471 +418,20 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
 			slot = political_advisor
-			idea_token = USA_max_shachtman_for
+			idea_token = USA_max_shachtman_political_advisor
 			ledger = civilian
-			
-			allowed = {
-				original_tag = USA
-			}
-			
-			visible = {
-				
-			}
-			
 			available = {
-				
+				#power_balance_value = {
+				#	id = USA_socialist_party_balance
+				#	value < -0.15
+				#}
 			}
-			
-			traits = {
-				for_political_appointment
-			}
-		}
-	}
-	
-	USA_eugene_dennis = {
-		name = USA_eugene_dennis
-		
-		portraits = {
-			civilian = {
-				small = "gfx/interface/ministers/USA/USA_Eugene_Dennis.png"
-			}
-		}
-		
-		advisor = {
-			cost = 100
-			
-			slot = political_advisor
-			idea_token = USA_eugene_dennis
-			ledger = civilian
-			
-			allowed = {
-				original_tag = USA
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
 				
 			}
 		}
 	}
-	
-	USA_paul_mattick = {
-		name = USA_paul_mattick
-		
-		portraits = {
-			civilian = {
-				small = "gfx/interface/ministers/USA/USA_Paul_Mattick.png"
-			}
-		}
-		
-		advisor = {
-			cost = 100
-			
-			slot = political_advisor
-			idea_token = USA_paul_mattick
-			ledger = civilian
-			
-			allowed = {
-				original_tag = USA
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
-			traits = {
-				
-			}
-		}
-	}
-	
-	USA_maynard_krueger = {
-		name = USA_maynard_krueger
-		
-		portraits = {
-			civilian = {
-				small = "gfx/interface/ministers/USA/USA_Maynard_Krueger.png"
-			}
-		}
-		
-		advisor = {
-			cost = 100
-			
-			slot = political_advisor
-			idea_token = USA_maynard_krueger
-			ledger = civilian
-			
-			allowed = {
-				original_tag = USA
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
-			traits = {
-				
-			}
-		}
-	}
-	
-	USA_sumner_welles = {
-		name = USA_sumner_welles
-		
-		portraits = {
-			civilian = {
-				small = "gfx/interface/ministers/USA/USA_Sumner_Welles.png"
-			}
-		}
-		
-		advisor = {
-			cost = 100
-			
-			slot = political_advisor
-			idea_token = USA_sumner_welles_for
-			ledger = civilian
-			
-			allowed = {
-				original_tag = USA
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
-			traits = {
-				for_seasoned_ambassador
-			}
-		}
-	}
-	
-	USA_scott_nearing = {
-		name = USA_scott_nearing
-		
-		portraits = {
-			civilian = {
-				small = "gfx/interface/ministers/USA/USA_Scott_Nearing.png"
-			}
-		}
-		
-		advisor = {
-			cost = 100
-			
-			slot = political_advisor
-			idea_token = USA_scott_nearing_eco
-			ledger = civilian
-			
-			allowed = {
-				original_tag = USA
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
-			traits = {
-				eco_mixed_economy
-			}
-		}
-	}
-	
-	USA_norman_lermond = {
-		name = USA_norman_lermond
-		
-		portraits = {
-			civilian = {
-				small = "gfx/interface/ministers/USA/USA_Norman_Lermond.png"
-			}
-		}
-		
-		advisor = {
-			cost = 100
-			
-			slot = political_advisor
-			idea_token = USA_norman_lermond_eco
-			ledger = civilian
-			
-			allowed = {
-				original_tag = USA
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
-			traits = {
-				eco_naturalist
-			}
-		}
-	}
-	
-	USA_john_lewis = {
-		name = USA_john_lewis
-		
-		portraits = {
-			civilian = {
-				small = "gfx/interface/ministers/USA/USA_John_L_Lewis.png"
-			}
-		}
-		
-		advisor = {
-			cost = 100
-			
-			slot = political_advisor
-			idea_token = USA_john_lewis_eco
-			ledger = civilian
-			
-			allowed = {
-				original_tag = USA
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
-			traits = {
-				eco_union_man
-			}
-		}
-	}
-	
-	USA_max_hayes = {
-		name = USA_max_hayes
-		
-		portraits = {
-			civilian = {
-				small = "gfx/interface/ministers/USA/USA_Max_Hayes.png"
-			}
-		}
-		
-		advisor = {
-			cost = 100
-			
-			slot = political_advisor
-			idea_token = USA_max_hayes_eco
-			ledger = civilian
-			
-			allowed = {
-				original_tag = USA
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
-			traits = {
-				eco_union_man
-			}
-		}
-	}
-	
-	USA_harry_hopkins = {
-		name = USA_harry_hopkins
-		
-		portraits = {
-			civilian = {
-				small = "gfx/interface/ministers/USA/USA_Harry_Hopkins.png"
-			}
-		}
-		
-		advisor = {
-			cost = 100
-			
-			slot = political_advisor
-			idea_token = USA_harry_hopkins_eco
-			ledger = civilian
-			
-			allowed = {
-				original_tag = USA
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
-			traits = {
-				eco_relief_coordinator
-			}
-		}
-	}
-	
-	USA_john_abt = {
-		name = USA_john_abt
-		
-		portraits = {
-			civilian = {
-				small = "gfx/interface/ministers/USA/USA_John_Abt.png"
-			}
-		}
-		
-		advisor = {
-			cost = 100
-			
-			slot = political_advisor
-			idea_token = USA_john_abt_sec
-			ledger = civilian
-			
-			allowed = {
-				original_tag = USA
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
-			traits = {
-				sec_silent_lawyer
-			}
-		}
-	}
-	
-	USA_john_dewey = {
-		name = USA_john_dewey
-		
-		portraits = {
-			civilian = {
-				small = "gfx/interface/ministers/USA/USA_John_Dewey.png"
-			}
-		}
-		
-		advisor = {
-			cost = 100
-			
-			slot = political_advisor
-			idea_token = USA_john_dewey_edu
-			ledger = civilian
-			
-			allowed = {
-				original_tag = USA
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				has_completed_focus = USA_right_to_learn
-			}
-			
-			traits = {
-				edu_educational_reformer
-			}
-		}
-	}
-	
-	USA_lee_pressman = {
-		name = USA_lee_pressman
-		
-		portraits = {
-			civilian = {
-				small = "gfx/interface/ministers/USA/USA_Lee_Pressman.png"
-			}
-		}
-		
-		advisor = {
-			cost = 100
-			
-			slot = political_advisor
-			idea_token = USA_lee_pressman_sec
-			ledger = civilian
-			
-			allowed = {
-				original_tag = USA
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
-			traits = {
-				
-			}
-		}
-	}
-	
-	USA_joseph_arthur_padway = {
-		name = USA_joseph_arthur_padway
-		
-		portraits = {
-			civilian = {
-				small = "gfx/interface/ministers/USA/USA_Joseph_Arthur_Padway.png"
-			}
-		}
-		
-		advisor = {
-			cost = 100
-			
-			slot = political_advisor
-			idea_token = USA_joseph_arthur_padway_sec
-			ledger = civilian
-			
-			allowed = {
-				original_tag = USA
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
-			traits = {
-				sec_man_of_the_people
-			}
-		}
-	}
-	
 	USA_martin_abern = {
 		name = USA_martin_abern
 		
@@ -830,28 +443,288 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
 			slot = political_advisor
-			idea_token = USA_martin_abern
+			idea_token = USA_martin_abern_political_advisor
 			ledger = civilian
-			
-			allowed = {
-				original_tag = USA
-			}
-			
-			visible = {
-				
-			}
-			
 			available = {
-				
+				#is_power_balance_in_range = {
+				#	id = USA_socialist_party_balance
+				#	range < USA_thomas_balanced
+				#}
 			}
-			
+			on_add = {
+				USA_spa_left_small = yes
+			}
+			traits = {
+				ideological_crusader
+			}
+		}
+	}
+	
+	## Marxists ##
+	USA_john_abt = {
+		name = USA_john_abt
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/USA/USA_John_Abt.png"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = USA_john_abt_political_advisor
+			ledger = civilian
 			traits = {
 				
 			}
 		}
 	}
+	USA_lee_pressman = {
+		name = USA_lee_pressman
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/USA/USA_Lee_Pressman.png"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = USA_lee_pressman_political_advisor
+			ledger = civilian
+			traits = {
+				
+			}
+		}
+	}
+	
+	## Thomasites ##
+	USA_maynard_krueger = {
+		name = USA_maynard_krueger
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/USA/USA_Maynard_Krueger.png"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = USA_maynard_krueger_political_advisor
+			ledger = civilian
+			visible = {
+				has_country_leader = {
+					character = USA_norman_thomas
+					ruling_only = yes
+				}
+			}
+			traits = {
+				mixed_economy_proponent
+			}
+		}
+	}
+	USA_john_dewey = {
+		name = USA_john_dewey
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/USA/USA_John_Dewey.png"
+			}
+		}
+		
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			idea_token = USA_john_dewey_political_advisor
+			ledger = civilian
+			visible = {
+				has_country_leader = {
+					character = USA_norman_thomas
+					ruling_only = yes
+				}
+			}
+			available = {
+				has_completed_focus = USA_right_to_learn
+			}
+			traits = {
+				educational_reformer
+			}
+		}
+	}
+	
+	## Old Guard ##
+	USA_jasper_mclevy = {
+		name = USA_jasper_mclevy
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/USA/USA_Jasper_McLevy.png"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = USA_jasper_mclevy_political_advisor
+			ledger = civilian
+			available = {
+				#is_power_balance_in_range = {
+				#	id = USA_socialist_party_balance
+				#	range > USA_thomas_balanced
+				#}
+			}
+			on_add = {
+				USA_spa_right_small = yes
+			}
+			traits = {
+				balanced_budget_advocate
+			}
+		}
+	}
+	USA_max_hayes = {
+		name = USA_max_hayes
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/USA/USA_Max_Hayes.png"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = USA_max_hayes_political_advisor
+			ledger = civilian
+			on_add = {
+				USA_spa_right_small = yes
+			}
+			traits = {
+				trade_unionist
+			}
+		}
+	}
+	
+	## Shared - Socialist ###
+	USA_asa_philip_randolph = {
+		name = USA_asa_philip_randolph
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/USA/USA_Asa_Philip_Randolph.png"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = USA_asa_philip_randolph_political_advisor
+			ledger = civilian
+			traits = {
+				popular_advocate
+			}
+		}
+	}
+	USA_sumner_welles = {
+		name = USA_sumner_welles
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/USA/USA_Sumner_Welles.png"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = USA_sumner_welles_political_advisor
+			ledger = civilian
+			traits = {
+				accomplished_diplomat
+			}
+		}
+	}
+	USA_john_lewis = {
+		name = USA_john_lewis
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/USA/USA_John_L_Lewis.png"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = USA_john_lewis_political_advisor
+			ledger = civilian
+			traits = {
+				
+			}
+		}
+	}
+	USA_harry_hopkins = {
+		name = USA_harry_hopkins
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/USA/USA_Harry_Hopkins.png"
+			}
+		}
+		
+		advisor = {
+			cost = 75
+			slot = political_advisor
+			idea_token = USA_harry_hopkins_political_advisor
+			ledger = civilian
+			traits = {
+				relief_coordinator
+			}
+		}
+	}
+	USA_joseph_arthur_padway = {
+		name = USA_joseph_arthur_padway
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/USA/USA_Joseph_Arthur_Padway.png"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = USA_joseph_arthur_padway_political_advisor
+			ledger = civilian
+			traits = {
+				compassionate_gentleman
+			}
+		}
+	}
+	USA_john_andrew_simpson = {
+		name = USA_john_andrew_simpson
+		
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/USA/USA_John_Andrew_Simpson.png"
+			}
+		}
+		
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			idea_token = USA_john_andrew_simpson_political_advisor
+			ledger = civilian
+			traits = {
+				agricultural_economist
+			}
+		}
+	}
+	
+	## Shared ##
 	
 	USA_john_edgar_hoover = {
 		name = USA_john_edgar_hoover
@@ -864,21 +737,11 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
 			slot = political_advisor
-			idea_token = USA_john_edgar_hoover
+			idea_token = USA_john_edgar_hoover_political_advisor
 			ledger = civilian
-			
-			allowed = {
-				original_tag = USA
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
-				fbi_director
+				USA_fbi_director
 			}
 		}
 	}
@@ -894,57 +757,72 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
 			slot = political_advisor
-			idea_token = USA_william_donovan_sec
+			idea_token = USA_william_donovan_political_advisor
 			ledger = civilian
-			
-			allowed = {
-				original_tag = USA
-			}
-			
 			available = {
 				has_completed_focus = USA_found_the_oci
 			}
-			
-			visible = {
-				
-			}
-			
 			traits = {
-				sec_spymaster
+				spymaster
 			}
 		}
 	}
 	
-	USA_howard_lovecraft = {
-		name = USA_howard_lovecraft
+	USA_smedley_butler = {
+		name = USA_smedley_butler
 		
 		portraits = {
 			civilian = {
-				small = "gfx/interface/ministers/USA/USA_Howard_Lovecraft.png"
+				small = "gfx/interface/ministers/USA/USA_Smedley_Butler.png"
+			}
+			army = {
+				large = "gfx/leaders/USA/Portrait_USA_Smedley_Butler.png"
+				small = "gfx/interface/ministers/USA/military/USA_Smedley_Butler.png"
 			}
 		}
 		
 		advisor = {
 			cost = 100
-			
 			slot = political_advisor
-			idea_token = USA_howard_lovecraft_for
+			idea_token = USA_smedley_butler_political_advisor
 			ledger = civilian
-			
-			allowed = {
-				original_tag = USA
-			}
-			
 			available = {
-				
+				has_completed_focus = USA_butler_reform_plan
 			}
-			
 			traits = {
-				for_apologetic_clerk
+				USA_maverick_marine
 			}
 		}
+		
+		#advisor = {
+		#	cost = 100
+		#	slot = army_chief
+		#	idea_token = USA_smedley_butler_army_chief
+		#	ledger = army
+		#	available = {
+		#		not_already_hired_except_as = army_chief
+		#	}
+		#	traits = {
+		#		army_chief_reform_2
+		#	}
+		#}
+
+		#field_marshal = {
+		#	traits = {
+		#		career_officer
+		#		offensive_doctrine
+		#		inspirational_leader
+		#		commando
+		#		naval_invader
+		#	}
+		#	skill = 3
+		#	attack_skill = 2
+		#	defense_skill = 1
+		#	planning_skill = 3
+		#	logistics_skill = 3
+		#	legacy_id = 3
+		#}
 	}
 	
 	### GENERALS ###
@@ -961,19 +839,9 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
 			slot = army_chief
 			idea_token = USA_douglas_macarthur_army_chief
 			ledger = army
-			
-			allowed = {
-				original_tag = USA
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
 				army_chief_offensive_2
 			}
@@ -1014,15 +882,9 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
 			slot = army_chief
 			idea_token = USA_malin_craig_army_chief
 			ledger = army
-			
-			allowed = {
-				original_tag = USA
-			}
-			
 			traits = {
 				army_chief_planning_2
 			}
@@ -1043,80 +905,6 @@ characters = {
 		}
 	}
 	
-	USA_smedley_butler = {
-		name = USA_smedley_butler
-		
-		portraits = {
-			civilian = {
-				small = "gfx/interface/ministers/USA/USA_Smedley_Butler.png"
-			}
-			army = {
-				large = "gfx/leaders/USA/Portrait_USA_Smedley_Butler.png"
-				small = "gfx/interface/ministers/USA/military/USA_Smedley_Butler.png"
-			}
-		}
-		
-		advisor = {
-			cost = 100
-			
-			slot = political_advisor
-			idea_token = USA_smedley_butler_sec
-			ledger = civilian
-			
-			allowed = {
-				original_tag = USA
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				has_completed_focus = USA_butler_reform_plan
-			}
-			
-			traits = {
-				sec_maverick_marine
-			}
-		}
-		
-		#advisor = {
-		#	cost = 100
-		#	
-		#	slot = army_chief
-		#	idea_token = USA_smedley_butler_army_chief
-		#	ledger = army
-		#	
-		#	allowed = {
-		#		original_tag = USA
-		#	}
-		#	
-		#	available = {
-		#		not_already_hired_except_as = army_chief
-		#	}
-		#	
-		#	traits = {
-		#		army_chief_reform_2
-		#	}
-		#}
-
-		#field_marshal = {
-		#	traits = {
-		#		career_officer
-		#		offensive_doctrine
-		#		inspirational_leader
-		#		commando
-		#		naval_invader
-		#	}
-		#	skill = 3
-		#	attack_skill = 2
-		#	defense_skill = 1
-		#	planning_skill = 3
-		#	logistics_skill = 3
-		#	legacy_id = 3
-		#}
-	}
-	
 	USA_henry_harley_arnold = {
 		name = USA_henry_harley_arnold
 		
@@ -1129,19 +917,12 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
 			slot = air_chief
 			idea_token = USA_henry_harley_arnold_air_chief
 			ledger = air
-			
-			allowed = {
-				original_tag = USA
-			}
-			
 			available = {
 				not_already_hired_except_as = air_chief
 			}
-			
 			traits = {
 				air_chief_reform_2
 			}
@@ -1149,38 +930,31 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
 			slot = theorist
 			idea_token = USA_henry_harley_arnold_theorist
 			ledger = air
-			
-			allowed = {
-				original_tag = USA
-			}
-			
 			available = {
 				not_already_hired_except_as = theorist
 			}
-			
 			traits = {
 				air_warfare_theorist
 			}
 		}
 
-		corps_commander = {
-			traits = {
-				career_officer
-				politically_connected
-				inspirational_leader
-				organizer
-			}
-			skill = 4
-			attack_skill = 4
-			defense_skill = 3
-			planning_skill = 3
-			logistics_skill = 3
-			legacy_id = 4
-		}
+		#corps_commander = {
+		#	traits = {
+		#		career_officer
+		#		politically_connected
+		#		inspirational_leader
+		#		organizer
+		#	}
+		#	skill = 4
+		#	attack_skill = 4
+		#	defense_skill = 3
+		#	planning_skill = 3
+		#	logistics_skill = 3
+		#	legacy_id = 4
+		#}
 	}
 	
 	USA_walter_krueger = {
@@ -1242,19 +1016,9 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
 			slot = army_chief
 			idea_token = USA_john_dewitt_army_chief
 			ledger = army
-			
-			allowed = {
-				original_tag = USA
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
 				army_chief_defensive_2
 			}
@@ -1286,15 +1050,9 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
 			slot = high_command
 			idea_token = USA_william_cole_high_command
 			ledger = army
-			
-			allowed = {
-				original_tag = USA
-			}
-			
 			traits = {
 				army_artillery_2
 			}
@@ -1306,11 +1064,35 @@ characters = {
 				artillery_officer
 			}
 			skill = 2
-			attack_skill = 2
-			defense_skill = 2
+			attack_skill = 1
+			defense_skill = 1
 			planning_skill = 3
 			logistics_skill = 2
 			legacy_id = 8
+		}
+	}
+	
+	USA_johnson_hagood = {
+		name = USA_johnson_hagood
+		
+		portraits = {
+			army = {
+				large = "gfx/leaders/USA/Portrait_USA_Johnson_Hagood.png"
+				small = "gfx/interface/ministers/USA/military/USA_Johnson_Hagood.png"
+			}
+		}
+
+		corps_commander = {
+			traits = {
+				career_officer
+				artillery_officer
+				organizer
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 3
+			logistics_skill = 1
 		}
 	}
 	
@@ -1326,15 +1108,9 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
 			slot = high_command
 			idea_token = USA_hugh_drum_high_command
 			ledger = army
-			
-			allowed = {
-				original_tag = USA
-			}
-			
 			traits = {
 				army_entrenchment_2
 			}
@@ -1412,19 +1188,9 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
 			slot = army_chief
 			idea_token = USA_stanley_embick_army_chief
 			ledger = army
-			
-			allowed = {
-				original_tag = USA
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
 				army_chief_organizational_2
 			}
@@ -1435,11 +1201,11 @@ characters = {
 				old_guard
 				career_officer
 			}
-			skill = 1
+			skill = 3
 			attack_skill = 1
-			defense_skill = 1
-			planning_skill = 2
-			logistics_skill = 1
+			defense_skill = 2
+			planning_skill = 4
+			logistics_skill = 3
 			legacy_id = 12
 		}
 	}
@@ -1494,19 +1260,9 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
 			slot = high_command
 			idea_token = USA_fox_conner_high_command
 			ledger = army
-			
-			allowed = {
-				original_tag = USA
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
 				army_logistics_2
 			}
@@ -1525,19 +1281,12 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
-			slot = air_chief
-			idea_token = USA_frank_maxwell_andrews_air_chief
+			slot = high_command
+			idea_token = USA_frank_maxwell_andrews_high_command
 			ledger = air
-			
-			allowed = {
-				original_tag = USA
-			}
-			
 			available = {
 				has_completed_focus = USA_independent_air_force
 			}
-			
 			traits = {
 				air_strategic_bombing_2
 			}
@@ -1566,19 +1315,12 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
 			slot = air_chief
 			idea_token = USA_oscar_westover_air_chief
 			ledger = air
-			
-			allowed = {
-				original_tag = USA
-			}
-			
 			available = {
 				has_completed_focus = USA_under_the_army
 			}
-			
 			traits = {
 				air_chief_ground_support_2
 			}
@@ -1635,10 +1377,55 @@ characters = {
 			}
 			skill = 2
 			attack_skill = 1
-			defense_skill = 1
+			defense_skill = 2
 			planning_skill = 2
 			logistics_skill = 2
 			legacy_id = 18
+		}
+	}
+	
+	USA_dennis_edward_nolan = {
+		name = USA_dennis_edward_nolan
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_USA_dennis_edward_nolan"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				old_guard
+				career_officer
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	
+	USA_guy_henry_jr = {
+		name = USA_guy_henry_jr
+		
+		portraits = {
+			army = {
+				large = "gfx/leaders/USA/Portrait_USA_Guy_Vernor_Henry_Jr.png"
+			}
+		}
+		
+		corps_commander = {
+			traits = {
+				career_officer
+				cavalry_officer
+				cavalry_leader
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
 		}
 	}
 	
@@ -1648,7 +1435,7 @@ characters = {
 		name = USA_ernest_king
 		
 		portraits = {
-			army = {
+			navy = {
 				large = "gfx/leaders/USA/Portrait_USA_Ernest_King.png"
 				small = "gfx/interface/ministers/USA/military/USA_Ernest_King.png"
 			}
@@ -1656,21 +1443,14 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
 			slot = navy_chief
 			idea_token = USA_ernest_king_navy_chief
 			ledger = navy
-			
-			allowed = {
-				original_tag = USA
-			}
-			
 			available = {
 				not_already_hired_except_as = navy_chief
 			}
-			
 			traits = {
-				navy_carrier_2
+				navy_chief_naval_aviation_2
 			}
 		}
 
@@ -1690,12 +1470,10 @@ characters = {
 		}
 		
 		advisor = {
-			cost = 100
-			
+			cost = 150
 			slot = theorist
 			idea_token = USA_ernest_joseph_king_theorist
 			ledger = navy
-			
 			available = {
 				not_already_hired_except_as = theorist
 				has_completed_focus = USA_naval_air_is_the_future
@@ -1710,7 +1488,7 @@ characters = {
 		name = USA_william_leahy
 		
 		portraits = {
-			army = {
+			navy = {
 				large = "gfx/leaders/USA/Portrait_USA_William_Leahy.png"
 				small = "gfx/interface/ministers/USA/military/USA_William_Leahy.png"
 			}
@@ -1718,17 +1496,11 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
 			slot = navy_chief
 			idea_token = USA_william_leahy_chief
 			ledger = navy
-			
-			allowed = {
-				original_tag = USA
-			}
-			
 			traits = {
-				navy_capital_ship_2
+				navy_chief_maneuver_2
 			}
 		}
 		
@@ -1751,7 +1523,7 @@ characters = {
 		name = USA_harold_stark
 		
 		portraits = {
-			army = {
+			navy = {
 				large = "gfx/leaders/USA/Portrait_USA_Harold_Stark.png"
 				small = "gfx/interface/ministers/USA/military/USA_Harold_Stark.png"
 			}
@@ -1759,15 +1531,9 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
 			slot = navy_chief
 			idea_token = USA_harold_stark_navy_chief
 			ledger = navy
-			
-			allowed = {
-				original_tag = USA
-			}
-			
 			traits = {
 				navy_chief_reform_2
 			}
@@ -1790,7 +1556,7 @@ characters = {
 		name = USA_frank_jack_fletcher
 		
 		portraits = {
-			army = {
+			navy = {
 				large = "gfx/leaders/USA/Portrait_USA_Frank_J_Fletcher.png"
 				small = "gfx/interface/ministers/USA/military/USA_Frank_Jack_Fletcher.png"
 			}
@@ -1798,11 +1564,9 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
 			slot = theorist
 			idea_token = USA_frank_jack_fletcher_theorist
 			ledger = navy
-			
 			available = {
 				not_already_hired_except_as = theorist
 			}
@@ -1813,11 +1577,9 @@ characters = {
 		
 		advisor = {
 			cost = 100
-			
 			slot = high_command
 			idea_token = USA_frank_jack_fletcher_high_command
 			ledger = navy
-			
 			available = {
 				not_already_hired_except_as = high_command
 			}
@@ -1843,7 +1605,7 @@ characters = {
 		name = USA_william_standley
 		
 		portraits = {
-			army = {
+			navy = {
 				large = "gfx/leaders/USA/Portrait_USA_William_Standley.png"
 				small = "gfx/interface/ministers/USA/military/USA_William_Standley.png"
 			}
@@ -1854,7 +1616,6 @@ characters = {
 			slot = navy_chief
 			idea_token = USA_william_standley_navy_chief
 			ledger = navy
-			
 			traits = {
 				navy_chief_decisive_battle_2
 			}
@@ -1878,9 +1639,8 @@ characters = {
 		name = USA_arthur_hepburn
 		
 		portraits = {
-			army = {
-				large = "gfx/leaders/USA/Portrait_USA_arthur_hepburn.png"
-				small = "gfx/interface/ministers/USA/military/USA_arthur_hepburn.png"
+			navy = {
+				large = "gfx/leaders/USA/Portrait_USA_Arthur_Japy_Hepburn.png"
 			}
 		}
 		
@@ -1899,13 +1659,32 @@ characters = {
 	
 	### High Command ###
 	
+	USA_leon_kromer = {
+		name = USA_leon_kromer
+		
+		portraits = {
+			army = {
+				small = "gfx/interface/ministers/USA/military/USA_Leon_Kromer.png"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = high_command
+			idea_token = USA_leon_kromer_high_command
+			ledger = army
+			traits = {
+				army_cavalry_2
+			}
+		}
+	}
+	
 	USA_thomas_charles_hart = {
 		name = USA_thomas_charles_hart
 		
 		portraits = {
 			army = {
-				large = "gfx/leaders/USA/Portrait_USA_thomas_charles_hart.png"
-				small = "gfx/interface/ministers/USA/military/USA_thomas_charles_hart.png"
+				small = "gfx/interface/ministers/USA/military/USA_Thomas_Charles_Hart.png"
 			}
 		}
 		
@@ -1914,7 +1693,6 @@ characters = {
 			slot = high_command
 			idea_token = USA_thomas_charles_hart_high_command
 			ledger = navy
-			
 			traits = {
 				navy_submarine_2
 			}
@@ -1935,7 +1713,6 @@ characters = {
 			slot = high_command
 			idea_token = USA_henry_conger_pratt_high_command
 			ledger = air
-			
 			traits = {
 				air_pilot_training_2
 			}
@@ -1944,31 +1721,179 @@ characters = {
 	
 	### Theorists ###
 	
-	USA_julius_robert_oppenheimer = {
-		name = USA_julius_robert_oppenheimer
+	USA_robert_olds = {
+		name = USA_robert_olds
 		
 		portraits = {
 			army = {
-				small = "GFX_idea_robert_oppenheimer"
+				small = "gfx/interface/ministers/USA/military/USA_Robert_Olds.png"
 			}
 		}
 		
-		advisor={
-			cost = 100
+		advisor = {
+			cost = 150
 			slot = theorist
-			idea_token = USA_julius_robert_oppenheimer
+			idea_token = USA_robert_olds_theorist
 			ledger = army
-			
-			allowed = {
-				original_tag = USA
-			}
-			
 			available = {
-				has_completed_focus = USA_the_best_and_brightest
+				has_completed_focus = USA_strat_destruction
 			}
-			
 			traits = {
-				nuclear_scientist
+				victory_through_airpower
+			}
+		}
+	}
+	
+	### Special ###
+	
+	USA_john_robinson = { # starts in ethiopia
+		name = USA_john_robinson
+		
+		portraits = {
+			army = {
+				small = "GFX_minister_USA_john_robinson"
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = air_chief
+			idea_token = USA_john_robinson_air_chief
+			ledger = air
+			traits = {
+				air_pilot_training_2
+			}
+		}
+	}
+	
+	### THE SCIENCE TEAM ###
+	
+	USA_julius_robert_oppenheimer = {
+		name = USA_julius_robert_oppenheimer
+		portraits = {
+			army = {
+				large = "gfx/leaders/USA/scientist/portrait_USA_robert_oppenheimer.dds"
+				small = GFX_idea_robert_oppenheimer
+			}
+		}
+
+		scientist = {
+			traits = { scientist_trait_nuclear_specialist scientist_trait_brilliant_theorist }
+			skills = {
+				specialization_nuclear = 2
+			}
+		}
+	}
+
+	USA_robert_goddard = {
+		name = USA_robert_goddard
+		portraits = {
+			army = {
+				large = "gfx/leaders/USA/scientist/portrait_USA_robert_goddard.dds"
+				small = GFX_idea_robert_goddard
+			}
+		}
+
+		scientist = {
+			traits = { scientist_trait_rocketry_specialist scientist_trait_bright }
+			skills = {
+				specialization_air = 3
+			}
+		}
+	}
+
+	USA_leslie_skinner = {
+		name = USA_leslie_skinner
+		portraits = {
+			army = {
+				large = "gfx/leaders/USA/scientist/portrait_USA_leslie_skinner.dds"
+			}
+		}
+
+		scientist = {
+			traits = { scientist_trait_rocketry_specialist scientist_trait_gifted_engineer }
+			skills = {
+				specialization_air = 2
+			}
+		}
+	}
+
+	USA_edward_curtis_wells = {
+		name = USA_edward_curtis_wells
+		portraits = {
+			army = {
+				large = "gfx/leaders/USA/scientist/portrait_USA_edward_curtis_wells.dds"
+			}
+		}
+
+		scientist = {
+			traits = { scientist_trait_aircraft_specialist }
+			skills = {
+				specialization_air = 2
+			}
+		}
+	}
+
+	USA_william_francis_gibbs = {
+		name = USA_william_francis_gibbs
+		portraits = {
+			army = {
+				large = "gfx/leaders/USA/scientist/portrait_USA_william_francis_gibbs.dds"
+			}
+		}
+
+		scientist = {
+			traits = { scientist_trait_surface_ship_specialist }
+			skills = {
+				specialization_naval = 2
+			}
+		}
+	}
+
+	USA_andrew_mckee = {
+		name = USA_andrew_mckee
+		portraits = {
+			army = {
+				large = "gfx/leaders/USA/scientist/portrait_USA_andrew_mckee.dds"
+			}
+		}
+
+		scientist = {
+			traits = { scientist_trait_submarine_specialist }
+			skills = {
+				specialization_naval = 2
+			}
+		}
+	}
+
+	USA_john_walter_christie = {
+		name = USA_john_walter_christie
+		portraits = {
+			army = {
+				large = "gfx/leaders/USA/scientist/portrait_USA_john_walter_christie.dds"
+			}
+		}
+
+		scientist = {
+			traits = { scientist_trait_armored_specialist scientist_trait_gifted_engineer }
+			skills = {
+				specialization_land = 2
+			}
+		}
+	}
+
+	USA_vannevar_bush = {
+		name = USA_vannevar_bush
+		portraits = {
+			army = {
+				large = "gfx/leaders/USA/scientist/portrait_USA_vannevar_bush.dds"
+			}
+		}
+
+		scientist = {
+			traits = { scientist_trait_electronics_specialist }
+			skills = {
+				specialization_air = 2
 			}
 		}
 	}

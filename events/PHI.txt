@@ -1,0 +1,26 @@
+add_namespace = PHI_skeleton
+
+
+country_event = { # 
+	id = PHI_skeleton.1
+	title = PHI_skeleton.title
+	desc = PHI_skeleton.1.desc
+
+	is_triggered_only = yes
+	
+	option = { # 
+		name = PHI_skeleton.1.a
+		PHI = {
+			set_politics = {
+				ruling_party = despotism
+				last_election = "1938.5.1"
+				election_frequency = 48
+				elections_allowed = no
+			}
+			add_popularity = {
+				ideology = despotism
+				popularity = 0.05
+			}
+		}
+	}
+}

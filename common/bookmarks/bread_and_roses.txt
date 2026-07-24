@@ -8,6 +8,50 @@ bookmarks = {
 		default_country = "USA"
 		default = yes
 		
+		sort_unplayed_first = no
+		include_majors_in_minor_list = no
+		apply_filter_to_majors = no
+		
+		filters = { label }
+		# filters can also contain 'label'
+		# in that case the countries below can have 'label = { label_1 }' or 'label = { label_1 label_2 }'
+		# all these labels will be gathered and displayed as filter buttons
+		
+		"ENG"={
+			history = "ENG_BREAD_AND_ROSES_DESC"
+			ideology = social_democracy
+			ideas = {
+				
+			}
+			focuses = {
+				
+			}
+		}
+		
+		"GER"={
+			history = "GER_BREAD_AND_ROSES_DESC"
+			ideology = authoritarian_democracy
+			override_leader_portrait = GER_wilhelm_ii
+			ideas = {
+				
+			}
+			focuses = {
+				
+			}
+		}
+		
+		"AHE"={
+			history = "AHE_BREAD_AND_ROSES_DESC"
+			ideology = national_conservatism
+			override_leader_portrait = AUS_karl_i
+			ideas = {
+				
+			}
+			focuses = {
+				
+			}
+		}
+		
 		"USA"={
 			history = "USA_BREAD_AND_ROSES_DESC"
 			ideology = democratic_socialism
@@ -16,10 +60,145 @@ bookmarks = {
 				USA_the_great_depression_1
 			}
 			focuses = {
-				USA_of_industry
-				USA_pacific_war
-				USA_end_wage_discrimination
+				
 			}
+		}
+		
+		"FRA"={
+			history = "FRA_BREAD_AND_ROSES_DESC"
+			ideology = progressive_liberalism
+			ideas = {
+				FRA_revanchisme
+			}
+			focuses = {
+				FRA_popular_front
+				FRA_national_union
+				FRA_la_croix_brule_brulante
+			}
+		}
+		
+		"SOV"={
+			history = "SOV_BREAD_AND_ROSES_DESC"
+			ideology = vanguard_socialism
+			ideas = {
+				SOV_home_of_the_revolution
+				SOV_political_turmoil_1
+				SOV_nep_1
+			}
+			focuses = {
+				SOV_the_centralists
+				SOV_the_rightists
+				SOV_memories_of_moscow
+			}
+		}
+		
+		"JAP"={
+			history = "JAP_BREAD_AND_ROSES_DESC"
+			ideology = national_conservatism
+			override_leader_portrait = JAP_hirohito_showa
+			ideas = {
+				JAP_taisho_democracy
+				JAP_military_influence
+				JAP_echoes_of_the_depression
+			}
+			focuses = {
+				JAP_preservation_of_constitutional_governance
+				JAP_dawn_of_showa_democracy
+				JAP_spiders_web
+			}
+		}
+		
+		"---"={
+			history = "OTHER_BREAD_AND_ROSES_DESC"
+		}
+		
+		### Minors ###
+		
+		ARG = {
+			minor = yes
+			history = ARG_BREAD_AND_ROSES_DESC
+			ideology = authoritarian_democracy
+			label = { new_content_label partial_content_label }
+		}
+		
+		BRA = {
+			minor = yes
+			history = BRA_BREAD_AND_ROSES_DESC
+			ideology = authoritarian_democracy
+			ideas = {
+				BRA_civil_war
+				BRA_right_wing_coalition
+			}
+			focuses = {
+				BRA_purge_the_rightists
+				BRA_establish_the_estado_novo
+				BRA_integralists_take_action
+			}
+			label = { new_content_label partial_content_label }
+		}
+		
+		UOB = {
+			minor = yes
+			history = UOB_BREAD_AND_ROSES_DESC
+			ideology = authoritarian_democracy
+			ideas = {
+				UOB_civil_war
+				UOB_left_wing_coalition
+			}
+			focuses = {
+				UOB_purge_the_revisionists
+				UOB_forces_prestes_resignation
+			}
+			label = { new_content_label partial_content_label }
+		}
+		
+		ETH = {
+			minor = yes
+			history = ETH_BREAD_AND_ROSES_DESC
+			ideology = despotism
+			label = { new_content_label partial_content_label }
+		}
+		
+		GEO = {
+			minor = yes
+			history = GEO_BREAD_AND_ROSES_DESC
+			ideology = social_democracy
+			label = { new_content_label partial_content_label }
+		}
+		
+		IRE = {
+			minor = yes
+			history = IRE_BREAD_AND_ROSES_DESC
+			ideology = national_conservatism
+			label = { new_content_label partial_content_label }
+		}
+		
+		LIB = {
+			minor = yes
+			history = LIB_BREAD_AND_ROSES_DESC
+			ideology = social_democracy
+			label = { new_content_label partial_content_label }
+		}
+		
+		SPR = {
+			minor = yes
+			history = SPR_BREAD_AND_ROSES_DESC
+			ideology = authoritarian_democracy
+			label = { new_content_label partial_content_label }
+		}
+		
+		TUR = {
+			minor = yes
+			history = TUR_BREAD_AND_ROSES_DESC
+			ideology = liberal_conservatism
+			label = { new_content_label partial_content_label }
+		}
+		
+		YEM = {
+			minor = yes
+			history = YEM_BREAD_AND_ROSES_DESC
+			ideology = despotism
+			label = { new_content_label partial_content_label }
 		}
 		
 		effect = {

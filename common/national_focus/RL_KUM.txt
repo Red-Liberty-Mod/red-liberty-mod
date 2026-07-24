@@ -1,0 +1,364 @@
+focus_tree = {
+	id = kumul_khanate
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = KUM
+		}
+	}
+	
+	shared_focus = KUM_the_khanate
+	shared_focus = KUM_civil_war
+}
+
+shared_focus = {
+	id = KUM_the_khanate
+	icon = GFX_goal_unknown
+	
+	x = 13
+	y = 0
+	cost = 10
+	
+	available = {
+		has_war = no
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+	id = KUM_reform
+	icon = GFX_focus_hol_the_foundations_of_defense
+	
+	x = -3
+	y = 1
+	cost = 10
+	
+	relative_position_id = KUM_the_khanate
+	prerequisite = { focus = KUM_the_khanate }
+	mutually_exclusive = { focus = KUM_autocracy }
+	
+	completion_reward = {
+		add_political_power = -50
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+	
+shared_focus = {
+	id = KUM_autocracy
+	icon = GFX_focus_rom_royal_dictatorship
+	
+	x = 3
+	y = 1
+	cost = 10
+	
+	relative_position_id = KUM_the_khanate
+	prerequisite = { focus = KUM_the_khanate }
+	mutually_exclusive = { focus = KUM_reform }
+	
+	completion_reward = {
+		add_political_power = 100
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+	
+shared_focus = {
+	id = KUM_invest_in_the_begs
+	icon = GFX_goal_unknown
+	
+	x = -1
+	y = 1
+	cost = 10
+	
+	relative_position_id = KUM_reform
+	prerequisite = { focus = KUM_reform }
+	
+	completion_reward = {
+		add_popularity = {
+			ideology = national_conservatism
+			popularity = 0.03
+		}
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+	
+shared_focus = {
+	id = KUM_lessons_from_the_west
+	icon = GFX_goal_unknown
+	
+	x = 1
+	y = 1
+	cost = 10
+	
+	relative_position_id = KUM_reform
+	prerequisite = { focus = KUM_reform }
+	completion_reward = {
+		add_stability = 0.05
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+	id = KUM_necessary_change
+	icon = GFX_goal_unknown
+	
+	x = 3
+	y = 1
+	cost = 10
+	
+	relative_position_id = KUM_reform
+	prerequisite = { 
+		focus = KUM_reform 
+		focus = KUM_autocracy 
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+	id = KUM_ensure_loyalty
+	icon = GFX_focus_generic_military_mission
+	
+	x = -1
+	y = 1
+	cost = 10
+	
+	relative_position_id = KUM_autocracy
+	prerequisite = { focus = KUM_autocracy }
+	
+	completion_reward = {
+		add_popularity = {
+			ideology = despotism
+			popularity = 0.03
+		}
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+	id = KUM_reform_the_advisory_council
+	icon = GFX_focus_generic_self_management
+	
+	x = 1
+	y = 1
+	cost = 10
+	
+	relative_position_id = KUM_autocracy
+	prerequisite = { focus = KUM_autocracy }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+	id = KUM_abolish_the_advisory_council
+	icon = GFX_focus_rom_handle_king
+	x = 1
+	y = 1
+	cost = 10
+	
+	relative_position_id = KUM_invest_in_the_begs
+	prerequisite = { focus = KUM_invest_in_the_begs }
+	prerequisite = { focus = KUM_lessons_from_the_west }
+	
+	completion_reward = {
+		add_political_power = -50
+		set_party_name = {
+			ideology = authoritarian_democracy
+			name = KUM_authoritarian_democracy_party_alt
+			long_name = KUM_authoritarian_democracy_party_alt
+		}
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+	id = KUM_public_schooling
+	icon = GFX_goal_unknown
+	
+	x = -1
+	y = 1
+	cost = 5
+	
+	relative_position_id = KUM_necessary_change
+	prerequisite = { focus = KUM_necessary_change }
+	
+	completion_reward = {
+		add_research_slot = 1
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+	id = KUM_contain_nationalism
+	icon = GFX_goal_unknown
+	
+	x = 1
+	y = 1
+	cost = 5
+	
+	relative_position_id = KUM_necessary_change
+	prerequisite = { focus = KUM_necessary_change }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+	id = KUM_create_a_royal_guard
+	icon = GFX_focus_generic_little_entente
+	
+	x = 1
+	y = 1
+	cost = 10
+	
+	relative_position_id = KUM_ensure_loyalty
+	prerequisite = { focus = KUM_reform_the_advisory_council }
+	prerequisite = { focus = KUM_ensure_loyalty }
+	
+	completion_reward = {
+		#add_ideas = {
+		#	KUM_royal_guard
+		#}
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+	id = KUM_writing_a_constitution
+	icon = GFX_goal_generic_forceful_treaty
+	
+	x = 0
+	y = 1
+	cost = 10
+	
+	relative_position_id = KUM_abolish_the_advisory_council
+	prerequisite = { focus = KUM_abolish_the_advisory_council }
+	
+	completion_reward = {
+		#add_ideas = {
+		#	KUM_constitution
+		#}
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+	id = KUM_divine_right
+	icon = GFX_goal_unknown
+	
+	x = 1
+	y = 1
+	cost = 10
+	
+	relative_position_id = KUM_public_schooling
+	prerequisite = { 
+		focus = KUM_public_schooling 
+		focus = KUM_contain_nationalism 
+	}
+	
+	completion_reward = {
+		add_political_power = 50
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+	id = KUM_end_the_power_struggle
+	icon = GFX_goal_unknown
+	
+	x = 0
+	y = 1
+	cost = 10
+	
+	relative_position_id = KUM_create_a_royal_guard
+	prerequisite = { focus = KUM_create_a_royal_guard }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+	id = KUM_a_modern_khanate
+	icon = GFX_goal_unknown
+	
+	x = 2
+	y = 1
+	cost = 10
+	
+	relative_position_id = KUM_writing_a_constitution
+	prerequisite = { focus = KUM_writing_a_constitution }
+	prerequisite = { focus = KUM_divine_right }
+	mutually_exclusive = { focus = KUM_benevolent_autocracy }
+	
+	completion_reward = {
+		set_politics = {
+			ruling_party = authoritarian_democracy
+		}
+		custom_effect_tooltip = add_authdem_coalition_tt
+		set_country_flag = authoritarian_democrat_coalition
+		custom_effect_tooltip = add_pataut_coalition_tt
+		set_country_flag = paternal_autocrat_coalition
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+shared_focus = {
+	id = KUM_benevolent_autocracy
+	icon = GFX_goal_unknown
+	
+	x = -2
+	y = 1
+	cost = 10
+	
+	relative_position_id = KUM_end_the_power_struggle
+	prerequisite = { focus = KUM_divine_right }
+	prerequisite = { focus = KUM_end_the_power_struggle }
+	mutually_exclusive = { focus = KUM_a_modern_khanate }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+	

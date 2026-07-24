@@ -1,0 +1,331 @@
+joint_focus = {
+    id = GCOL_treaty_of_barranquilla
+	icon = GFX_goal_unknown
+	text_icon = joint_focus_style
+	
+    x = 0
+	y = 0
+	cost = 8
+	
+	offset = {
+		x = 18
+		trigger = {
+			has_focus_tree = generic_focus
+		}
+	}
+	
+	allow_branch = {
+		OR = {
+			original_tag = COL
+			original_tag = VEN
+			original_tag = ECU
+		}
+	}
+	
+	available = {
+		custom_override_tooltip = {
+			tooltip = GCOL_treaty_of_barranquilla_trigger_tt
+			COL = {
+				OR = {
+					has_government = democratic_socialism
+					has_government = social_democracy
+					has_government = progressive_liberalism
+				}
+				is_in_faction = no
+				is_subject = no
+				has_capitulated = no
+			}
+			VEN = {
+				OR = {
+					has_government = democratic_socialism
+					has_government = social_democracy
+					has_government = progressive_liberalism
+				}
+				is_in_faction = no
+				is_subject = no
+				has_capitulated = no
+			}
+			ECU = {
+				OR = {
+					has_government = democratic_socialism
+					has_government = social_democracy
+					has_government = progressive_liberalism
+				}
+				is_in_faction = no
+				is_subject = no
+				has_capitulated = no
+			}
+		}
+	}
+	
+	joint_trigger = {
+		OR = {
+			original_tag = COL
+			original_tag = VEN
+			original_tag = ECU
+		}
+	}
+	
+    completion_reward = {
+        
+    }
+	completion_reward_joint_originator = {
+		add_political_power = 100
+	}
+	completion_reward_joint_member = {
+		add_political_power = 50
+	}
+	
+	ai_will_do = {
+		base = 1000
+	}
+}
+
+joint_focus = {
+    id = GCOL_joint_military_excercises
+	icon = GFX_goal_unknown
+	text_icon = joint_focus_style
+	
+    x = -1
+	y = 1
+	cost = 8
+	
+	relative_position_id = GCOL_treaty_of_barranquilla
+	prerequisite = { focus = GCOL_treaty_of_barranquilla }
+	
+	joint_trigger = {
+		OR = {
+			original_tag = COL
+			original_tag = VEN
+			original_tag = ECU
+		}
+	}
+	
+	completion_reward = {
+        add_war_support = 0.05
+    }
+	completion_reward_joint_originator = {
+		army_experience = 25
+	}
+	completion_reward_joint_member = {
+		army_experience = 20
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+joint_focus = {
+    id = GCOL_free_trade_agreement
+	icon = GFX_goal_unknown
+	text_icon = joint_focus_style
+	
+    x = 1
+	y = 1
+	cost = 8
+	
+	relative_position_id = GCOL_treaty_of_barranquilla
+	prerequisite = { focus = GCOL_treaty_of_barranquilla }
+	
+	joint_trigger = {
+		OR = {
+			original_tag = COL
+			original_tag = VEN
+			original_tag = ECU
+		}
+	}
+	
+	completion_reward = {
+        
+    }
+	completion_reward_joint_originator = {
+		random_owned_state = {
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 2
+		}
+	}
+	completion_reward_joint_member = {
+		random_owned_state = {
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+joint_focus = {
+    id = GCOL_united_parliament
+	icon = GFX_goal_unknown
+	text_icon = joint_focus_style
+	
+    x = -1
+	y = 1
+	cost = 8
+	
+	relative_position_id = GCOL_joint_military_excercises
+	prerequisite = { focus = GCOL_joint_military_excercises }
+	
+	joint_trigger = {
+		OR = {
+			original_tag = COL
+			original_tag = VEN
+			original_tag = ECU
+		}
+	}
+	
+	completion_reward = {
+        
+    }
+	completion_reward_joint_originator = {
+		add_stability = 0.075
+	}
+	completion_reward_joint_member = {
+		add_stability = 0.05
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+joint_focus = {
+    id = GCOL_technological_cooperation
+	icon = GFX_goal_unknown
+	text_icon = joint_focus_style
+	
+    x = 1
+	y = 1
+	cost = 8
+	
+	relative_position_id = GCOL_joint_military_excercises
+	prerequisite = { focus = GCOL_joint_military_excercises }
+	
+	joint_trigger = {
+		OR = {
+			original_tag = COL
+			original_tag = VEN
+			original_tag = ECU
+		}
+	}
+	
+	completion_reward = {
+        add_tech_bonus = {
+			name = GCOL_technological_cooperation
+			bonus = 1
+			uses = 1
+			category = industry
+		}
+    }
+	completion_reward_joint_originator = {
+		
+	}
+	completion_reward_joint_member = {
+		
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+joint_focus = {
+    id = GCOL_passport_convention
+	icon = GFX_goal_unknown
+	text_icon = joint_focus_style
+	
+    x = 1
+	y = 1
+	cost = 8
+	
+	relative_position_id = GCOL_free_trade_agreement
+	prerequisite = { focus = GCOL_free_trade_agreement }
+	
+	joint_trigger = {
+		OR = {
+			original_tag = COL
+			original_tag = VEN
+			original_tag = ECU
+		}
+	}
+	
+	completion_reward = {
+        
+    }
+	completion_reward_joint_originator = {
+		
+	}
+	completion_reward_joint_member = {
+		
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}
+
+joint_focus = {
+    id = GCOL_restore_gran_colombia
+	icon = GFX_goal_unknown
+	text_icon = joint_focus_style
+	
+    x = 0
+	y = 1
+	cost = 8
+	
+	relative_position_id = GCOL_technological_cooperation
+	prerequisite = { focus = GCOL_united_parliament }
+	prerequisite = { focus = GCOL_technological_cooperation }
+	prerequisite = { focus = GCOL_passport_convention }
+	
+	joint_trigger = {
+		OR = {
+			original_tag = COL
+			original_tag = VEN
+			original_tag = ECU
+		}
+	}
+	
+	completion_reward = {
+
+    }
+	completion_reward_joint_originator = {
+		if = {
+			limit = { tag = COL }
+			annex_country = {
+				target = VEN
+			}
+		}
+		else_if = {
+			limit = { tag = VEN }
+			annex_country = {
+				target = COL
+			}
+		}
+		else_if = {
+			limit = { tag = ECU }
+			annex_country = {
+				target = COL
+			}
+		}
+		set_cosmetic_tag = COL_gran_colombia
+	}
+	completion_reward_joint_member = {
+		
+	}
+	
+	ai_will_do = {
+		base = 10
+	}
+}

@@ -1,14 +1,30 @@
 on_actions = {
 	on_startup = {
 		effect = {
+			
 			### POLITICAL SETUP ###
 			USA = {
-				add_to_array = { country_info_array = 1 }
-				add_to_array = { country_info_array = 2 }
-				add_to_array = { country_info_array = 3 }
-				add_to_array = { country_info_array = 4 }
-				add_to_array = { country_info_array = 5 }
-				add_to_array = { country_info_array = 6 }
+				add_to_array = { country_info_array = 101 }
+				#add_to_array = { country_info_array = 1 }
+				#add_to_array = { country_info_array = 2 }
+				#add_to_array = { country_info_array = 3 }
+				#add_to_array = { country_info_array = 4 }
+				#add_to_array = { country_info_array = 5 }
+				add_to_array = { country_info_folder_array_101 = 1 }
+				add_to_array = { country_info_folder_array_101 = 2 }
+				add_to_array = { country_info_folder_array_101 = 3 }
+				add_to_array = { country_info_folder_array_101 = 4 }
+				add_to_array = { country_info_folder_array_101 = 5 }
+				
+				add_to_array = { country_info_array = 102 }
+				#add_to_array = { country_info_array = 6 }
+				add_to_array = { country_info_folder_array_102 = 6 }
+				
+				add_to_array = { country_info_array = 103 }
+				#add_to_array = { country_info_array = 50 }
+				#add_to_array = { country_info_array = 51 }
+				add_to_array = { country_info_folder_array_103 = 50 }
+				add_to_array = { country_info_folder_array_103 = 51 }
 			}
 			
 			USA = {
@@ -19,6 +35,10 @@ on_actions = {
 				}
 			}
 			USA = {
+				# President
+				set_variable = { USA_president_popularity = 23 }
+				
+				# Congress
 				set_variable = { senators_total = 96 }
 				set_variable = { representatives_total = 483 }
 				USA_congress_quorum = yes
@@ -52,11 +72,19 @@ on_actions = {
 					modifier = USA_house_control_modifier
 				}
 				USA_calc_congress_control = yes
+				
+				# Supreme Court
+				set_variable = { supreme_court_lean = -6 } # LEAN
+				
+				country_event = { # Chief Justice Devanter Dies
+					id = united_states_supreme_court.3
+					days = 1865
+				}
+				country_event = { # Court strikes down the NRTA
+					id = united_states_supreme_court.10
+					days = 213
+				}
 			}
-			
-			#USA = {
-			#	USA_calc_poverty_goal = yes
-			#}
 			
 			USA = {
 				##### ELECTION EVENTS #####
@@ -92,6 +120,18 @@ on_actions = {
 			}
 			
 			USA = {
+				### COTTON STRIKE ###
+				country_event = {
+					id = united_states.7
+					days = 530
+					random_days = 30
+				}
+				country_event = {
+					id = united_states.16
+					days = 160
+					random_days = 14
+				}
+				
 				### SPA EVENTS ###
 				country_event = {
 					id = united_states_thomas.1
@@ -144,10 +184,10 @@ on_actions = {
 				#}
 				
 				### MANHATTAN PROJECT ###
-				country_event = { # manhattan project start
-					id = united_states_mproject.1
-					days = 1809 # december 14, 1940
-				}
+				#country_event = { # manhattan project start
+				#	id = united_states_mproject.1
+				#	days = 1809 # december 14, 1940
+				#}
 			}
 			
 			USA = {
@@ -193,30 +233,81 @@ on_actions = {
 				country_event = { # the pale poison
 					id = united_states_flavor.11
 					days = 900
-					random_days = 30
+					random_days = 30 # early to mid 1938
 				}
-				country_event = {  # charles lindbergh returns
+				country_event = { # charles lindbergh returns
 					id = united_states_flavor.12
 					days = 1100
-					random_days = 30
+					random_days = 30 # late 1938
+				}
+				country_event = { # formation of the ANC
+					id = united_states_flavor.14
+					days = 520
+					random_days = 60 # mid 1937
+				}
+				country_event = { # seversky reorganized as republic aviation
+					id = united_states_flavor.16
+					days = 1350
+					random_days = 15 # september 1939
 				}
 			}
 			
-			### produce distribution ###
+			### misc variables ###
 			USA = {
 				set_variable = { USA_produce_units = 3 }
 				set_variable = { USA_produce_decay_rate = 55 }
+				
+				set_variable = { USA_poverty_threshold = 55 }
 			}
 			
-			### DUST BOWL SETUP ###
+			### MODIFIERS ###
+			360 = {
+				add_dynamic_modifier = {
+					modifier = USA_anthracite_coal_fields
+				}
+			}
+			363 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+				add_dynamic_modifier = {
+					modifier = USA_silver_legion_presence
+				}
+			}
+			365 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+				add_dynamic_modifier = {
+					modifier = USA_klan_presence
+				}
+			}
+			367 = {
+				add_dynamic_modifier = {
+					modifier = USA_klan_presence
+				}
+			}
+			368 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
+			369 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
+			370 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
 			374 = {
 				add_dynamic_modifier = {
 					modifier = USA_dust_bowl_modifier
 				}
-			}
-			383 = {
 				add_dynamic_modifier = {
-					modifier = USA_dust_bowl_modifier
+					modifier = USA_dry_state
 				}
 			}
 			376 = {
@@ -224,14 +315,66 @@ on_actions = {
 					modifier = USA_dust_bowl_modifier
 				}
 			}
+			377 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
 			382 = {
 				add_dynamic_modifier = {
 					modifier = USA_dust_bowl_modifier
 				}
+				add_dynamic_modifier = {
+					modifier = uranium_deposits
+				}
 			}
-			852 = {
+			383 = {
 				add_dynamic_modifier = {
 					modifier = USA_dust_bowl_modifier
+				}
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
+			385 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+				add_dynamic_modifier = {
+					modifier = USA_klan_presence
+				}
+			}
+			388 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
+			390 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
+			393 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+				add_dynamic_modifier = {
+					modifier = USA_black_legion_presence
+				}
+			}
+			396 = {
+				add_dynamic_modifier = {
+					modifier = USA_klan_presence
+				}
+			}
+			832 = {
+				add_dynamic_modifier = {
+					modifier = USA_dry_state
+				}
+			}
+			827 = {
+				add_dynamic_modifier = {
+					modifier = USA_klan_presence
 				}
 			}
 		}
@@ -255,47 +398,77 @@ on_actions = {
 		effect = {
 			if = {
 				limit = {
-					has_country_flag = USA_insurgency_start
+					check_variable = { USA.poverty_rate < USA_poverty_threshold }
 				}
-				random_list = {
-					75 = {
-						random_owned_controlled_state = {
-							limit = {
-								has_state_flag = USA_active_insurgency
-								infrastructure > 0
-							}
-							damage_building = {
-								type = infrastructure
-								damage = 1
-							}
-						}
-					}
-					25 = {
-						
+				USA = {
+					subtract_from_variable = { USA_poverty_threshold = 5 }
+					country_event = {
+						id = united_states.15
+						hours = 6
 					}
 				}
-				random_list = {
-					75 = {
-						random_owned_controlled_state = {
-							limit = {
-								has_state_flag = USA_active_insurgency
-								infrastructure > 0
-							}
-							damage_building = {
-								type = industrial_complex
-								damage = 1
-							}
+			}
+			
+			### Agenda Checks ###
+			if = {
+				limit = {
+					norman_thomas_is_president = yes
+					USA_norman_thomas = {
+						NOT = { has_character_flag = USA_thomas_agenda_completed_flag }
+					}
+				}
+				
+				## Agenda 1 ##
+				if = {
+					limit = {
+						USA_norman_thomas = { has_trait = USA_all_inclusive_socialist_inactive }
+						USA_thomas_agenda_1_active = yes
+					}
+					remove_country_leader_trait = USA_all_inclusive_socialist_inactive
+					add_country_leader_trait = USA_all_inclusive_socialist_active
+				}
+				else_if = {
+					limit = {
+						USA_norman_thomas = { has_trait = USA_all_inclusive_socialist_active }
+						USA_thomas_agenda_1_active = no
+					}
+					remove_country_leader_trait = USA_all_inclusive_socialist_active
+					add_country_leader_trait = USA_all_inclusive_socialist_inactive
+				}
+				
+				## Agenda 2 ##
+				if = {
+					limit = {
+						USA_norman_thomas = { has_trait = USA_the_last_idealist_inactive }
+						USA_thomas_agenda_2_active = yes
+					}
+					remove_country_leader_trait = USA_the_last_idealist_inactive
+					add_country_leader_trait = USA_the_last_idealist_active
+				}
+				else_if = {
+					limit = {
+						USA_norman_thomas = { has_trait = USA_the_last_idealist_active }
+						USA_thomas_agenda_2_active = no
+					}
+					remove_country_leader_trait = USA_the_last_idealist_active
+					add_country_leader_trait = USA_the_last_idealist_inactive
+				}
+				
+				USA_norman_thomas = {
+					if = {
+						limit = {
+							has_trait = USA_all_inclusive_socialist_active
+							has_trait = USA_the_last_idealist_active
+							has_trait = USA_americas_promise_active
 						}
 					}
-					25 = {
-						
-					}
+					set_character_flag = USA_thomas_agenda_completed_flag
 				}
 			}
 		}
 	}
 	
-	on_monthly_USA { # update - kwik mafs
+	on_monthly_USA = { # update - kwik mafs
 		effect = {
 			if = {
 				limit = {
@@ -314,11 +487,43 @@ on_actions = {
 			USA_calculate_senators = yes
 			USA_calc_congress_control = yes
 			
-			if = {
-				limit = {
-					check_variable = { USA_mproject_phase > 0 }
+			#if = {
+			#	limit = {
+			#		check_variable = { USA_mproject_phase > 0 }
+			#	}
+			#	USA_mproject_monthly_pulse = yes
+			#}
+			
+			### very hacky method to naturally improve the spirit over time ###
+			#add_to_variable = { USA_month_counter = 1 }
+			#if = {
+			#	limit = {
+			#		check_variable = { USA_month_counter = 12 }
+			#	}
+			#	set_variable = { USA_month_counter = 0 }
+			#	if = {
+			#		limit = {
+			#			has_country_flag = social_security_passed
+			#		}
+			#		improve_great_depression = yes
+			#	}
+			#}
+
+			### Supreme Court Retirements ###
+			random_list = {
+				5 = {
+					country_event = {
+						id = united_states_supreme_court.1
+						random_days = 14
+					}
+					set_country_flag = {
+						flag = USA_justice_retired
+						days = 90
+					}
 				}
-				USA_mproject_monthly_pulse = yes
+				95 = {
+					
+				}
 			}
 		}
 	}

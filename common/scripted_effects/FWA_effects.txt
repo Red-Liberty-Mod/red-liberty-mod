@@ -1,0 +1,105 @@
+FWA_spawn_revolt_armies = {
+	if = {
+		limit = { original_tag = CHA }
+		capital_scope = {
+			create_unit = {
+				division = "division_template = \"Chadian Militia\" start_experience_factor = 0.1"
+				owner = PREV
+			}
+			create_unit = {
+				division = "division_template = \"Tuareg Cavalry\" start_experience_factor = 0.1"
+				owner = PREV
+				count = 2
+			}
+		}
+	}
+	else_if = {
+		limit = { original_tag = GNA }
+		capital_scope = {
+			create_unit = {
+				division = "division_template = \"Guinean Militia\" start_experience_factor = 0.1"
+				owner = PREV
+				count = 3
+			}
+		}
+	}
+	else_if = {
+		limit = { original_tag = IVO }
+		capital_scope = {
+			create_unit = {
+				division = "division_template = \"Ivorian Militia\" start_experience_factor = 0.1"
+				owner = PREV
+				count = 3
+			}
+		}
+	}
+	else_if = {
+		limit = { original_tag = MLI }
+		capital_scope = {
+			create_unit = {
+				division = "division_template = \"Malian Militia\" start_experience_factor = 0.1"
+				owner = PREV
+				count = 3
+			}
+		}
+		random_owned_controlled_state = {
+			prioritize = { 1095 } #Timbuktu
+			create_unit = {
+				division = "division_template = \"Tuareg Cavalry\" start_experience_factor = 0.1"
+				owner = PREV
+			}
+		}
+	}
+	else_if = {
+		limit = { original_tag = MRT }
+		capital_scope = {
+			create_unit = {
+				division = "division_template = \"Mauritanian Militia\" start_experience_factor = 0.1"
+				owner = PREV
+			}
+			create_unit = {
+				division = "division_template = \"Mauritanian Cavalry\" start_experience_factor = 0.1"
+				owner = PREV
+				count = 2
+			}
+		}
+	}
+	else_if = {
+		limit = { original_tag = NGR }
+		capital_scope = {
+			create_unit = {
+				division = "division_template = \"Nigerien Militia\" start_experience_factor = 0.1"
+				owner = PREV
+			}
+			create_unit = {
+				division = "division_template = \"Tuareg Cavalry\" start_experience_factor = 0.1"
+				owner = PREV
+				count = 2
+			}
+		}
+	}
+	else_if = {
+		limit = { original_tag = SEN }
+		capital_scope = {
+			create_unit = {
+				division = "division_template = \"Senegalese Militia\" start_experience_factor = 0.1"
+				owner = PREV
+				count = 3
+			}
+			create_unit = {
+				division = "division_template = \"Senegalese Infantry\" start_experience_factor = 0.1"
+				owner = PREV
+			}
+		}
+	}
+	else_if = {
+		limit = { original_tag = VOL }
+		capital_scope = {
+			create_unit = {
+				division = "division_template = \"Burkinabe Militia\" start_experience_factor = 0.1"
+				owner = PREV
+				count = 4
+			}
+		}
+	}
+}

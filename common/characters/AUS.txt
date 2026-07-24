@@ -18,20 +18,30 @@ characters = {
 		}
 	}
 	
+	AUS_ernst_kirchweger = {
+		name = AUS_ernst_kirchweger
+	
+		portraits = {
+			civilian = {
+				#large = ""
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_ERNST_KIRCHWEGER_DESC"
+			ideology = revolutionary_socialism_subtype
+			traits = {
+				
+			}
+		}
+	}
+	
 	AUS_karl_renner = {
 		name = AUS_karl_renner
 	
 		portraits = {
 			civilian = {
 				large = "gfx/leaders/AHE/Portrait_AHE_Karl_Renner.png"
-			}
-		}
-		
-		country_leader = {
-			desc = "POLITICS_KARL_RENNER_DESC"
-			ideology = revolutionary_socialism_subtype
-			traits = {
-				
 			}
 		}
 		
@@ -77,13 +87,31 @@ characters = {
 	
 		portraits = {
 			civilian = {
-				large = "GFX_portrait_AUS_carl_vaugoin"
+				large = "gfx/leaders/AHE/Portrait_AHE_Carl_Vaugoin.png"
 			}
 		}
 		
 		country_leader = {
 			desc = "POLITICS_CARL_VAUGOIN_DESC"
 			ideology = christian_democracy_subtype
+			traits = {
+				great_compromiser
+			}
+		}
+	}
+	
+	AUS_johann_schober = {
+		name = AUS_johann_schober
+	
+		portraits = {
+			civilian = {
+				#large = "gfx/leaders/AHE/Portrait_AHE_Carl_Vaugoin.png"
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_JOHANN_SCHOBER_DESC"
+			ideology = authoritarian_democracy_subtype
 			traits = {
 				
 			}
@@ -119,26 +147,9 @@ characters = {
 			slot = head_of_government
 			idea_token = AUS_karl_i_hog
 			ledger = civilian
-			
 			can_be_fired = no
-			
-			allowed = {
-				OR = {
-					original_tag = AUS
-					original_tag = AHE
-				}
-			}
-			
-			visible = {
-				
-			}
-			
-			available = {
-				
-			}
-			
 			traits = {
-				hog_constitutionalist
+				hog_tepid_reformist
 			}
 		}
 	}
@@ -616,6 +627,10 @@ characters = {
 		}
 		
 		corps_commander = {
+			visible = {
+				has_socialist_govt = yes
+			}
+		
 			traits = {
 				career_officer
 				militias_officer
@@ -636,6 +651,10 @@ characters = {
 				not_already_hired_except_as = army_chief
 			}
 			
+			visible = {
+				has_socialist_govt = yes
+			}
+			
 			traits = {
 				army_chief_morale_2
 			}
@@ -648,6 +667,10 @@ characters = {
 			
 			available = {
 				not_already_hired_except_as = high_command
+			}
+			
+			visible = {
+				has_socialist_govt = yes
 			}
 			
 			traits = {
@@ -667,6 +690,10 @@ characters = {
 		}
 		
 		corps_commander = {
+			visible = {
+				has_socialist_govt = yes
+			}
+		
 			traits = {
 				militias_officer
 				organizer
@@ -685,6 +712,10 @@ characters = {
 			
 			available = {
 				
+			}
+			
+			visible = {
+				has_socialist_govt = yes
 			}
 			
 			traits = {
@@ -714,6 +745,55 @@ characters = {
 			defense_skill = 2
 			planning_skill = 2
 			logistics_skill = 3
+		}
+	}
+	
+	### Admirals ###
+	
+	AUS_georg_von_trapp = {
+		name = AUS_georg_von_trapp
+		
+		portraits = {
+			army = {
+				large = "GFX_portrait_AUS_georg_von_trapp"
+				small = "GFX_minister_AUS_georg_von_trapp"
+			}
+		}
+		
+		advisor = {
+			slot = navy_chief
+			idea_token = AUS_georg_von_trapp_navy_chief
+			available = {
+				not_already_hired_except_as = navy_chief
+			}
+			traits = { navy_chief_commerce_raiding_3 }
+			cost = 200
+		}
+		
+		advisor = {
+			slot = theorist
+			idea_token = AUS_georg_von_trapp_theorist
+			ledger = navy
+			available = {
+				not_already_hired_except_as = theorist
+			}
+			traits = { submarine_specialist }
+			cost = 150
+		}
+		
+		navy_leader = {
+			traits = {
+				navy_media_personality
+				bold
+				seawolf
+				silent_hunter
+				spotter
+			}
+			skill = 4
+			attack_skill = 4
+			defense_skill = 3
+			maneuvering_skill = 3
+			coordination_skill = 3
 		}
 	}
 }

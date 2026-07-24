@@ -1,6 +1,6 @@
 ﻿capital = 754
 
-oob = "empty"
+oob = "XSM"
 
 # Starting tech
 set_technology = {
@@ -19,27 +19,30 @@ set_popularities = {
 	vanguard_socialism = 0
 	revolutionary_socialism = 0
 	democratic_socialism = 0
-	social_democracy = 24
-	progressive_liberalism = 14
-	liberal_conservatism = 0
-	national_conservatism = 0
-	ultraconservatism = 16
-	authoritarian_democracy = 10
+	social_democracy = 0
+	progressive_liberalism = 0
+	liberal_conservatism = 7
+	national_conservatism = 24
+	authoritarian_democracy = 17
 	despotism = 36
+	ultraconservatism = 16
 	fascism = 0
 }
 
+set_country_flag = authoritarian_democracy_coalition
+set_country_flag = despotism_coalition
+set_country_flag = ultraconservatism_coalition
+
 add_ideas = {
 	XSM_xibei_san_ma
+	XSM_overstretched_army
 }
 
-create_country_leader = {
-	name = "Ma Hongkui"
-	desc = "POLITICS_MA_HONGKUI_DESC"
-	picture = "gfx/leaders/XSM/Portrait_XSM_Ma_Hongkui.png"
-	expire = "1965.1.1"
-	ideology = warlordism_subtype
-	traits = {
-		#
-	}
-}
+### LEADERS ###
+recruit_character = XSM_ma_hongbin
+recruit_character = XSM_ma_hongkui
+recruit_character = XSM_ma_bufang
+
+### GENERALS ###
+recruit_character = XSM_ma_biao
+recruit_character = XSM_ma_dunjing

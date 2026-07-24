@@ -2,12 +2,13 @@ KMT_uprising_start = {
 	hidden_effect = {
 		
 		KMT = {
-			add_state_core = 593
-			add_state_core = 592
-			add_state_core = 939
+			add_state_core = 594
+			add_state_core = 599
+			transfer_state = 594
+			transfer_state = 599
+			set_province_controller = 7067
 			
-			transfer_state = 593
-			transfer_state = 592
+			set_cosmetic_tag = KMT_guangxi
 		
 			declare_war_on = {
 				target = GUD
@@ -15,10 +16,11 @@ KMT_uprising_start = {
 			}
 			
 			load_oob = "KMT"
+			country_lock_all_division_template = no
 			
-			delete_unit_template_and_units = {
-				division_template = "Zhili Juntuan"
-				disband = yes
+			add_timed_idea = {
+				idea = KMT_nationalist_fervor
+				days = 90
 			}
 		}
 	}

@@ -27,4 +27,39 @@ scripted_gui = {
 			}
 		}
 	}
+	
+	IRE_paramilitary_scripted_gui = {
+		window_name = "IRE_paramilitary_gui"
+		context_type = decision_category
+		
+		triggers = {
+			ica_leader_dead_visible = {
+				has_country_flag = IRE_ica_pacified
+			}
+		}
+
+		dynamic_lists = {
+			
+		}
+
+		properties = {
+			ira_strength_progressbar = {
+				frame = IRE.IRE_ira_strength
+			}
+			ica_strength_progressbar = {
+				frame = IRE.IRE_ica_strength
+			}
+			
+			ira_leader = {
+				image = [GetIRALeader]
+			}
+			ica_leader = {
+				image = [GetICALeader]
+			}
+		}
+		
+		effects = {
+			
+		}
+	}
 }

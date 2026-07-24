@@ -1,0 +1,69 @@
+USA_support_FRA = {
+	
+	allowed = {
+		OR = {
+			original_tag = USA
+		}
+	}
+	enable = {
+		FRA = {
+			has_war_with = GER
+			has_capitulated = no
+		}
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = FRA
+		value = 150
+	}
+}
+
+USA_support_ENG = {
+	
+	allowed = {
+		OR = {
+			original_tag = USA
+		}
+	}
+	enable = {
+		ENG = {
+			has_war_with = GER
+			has_capitulated = no
+		}
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = FRA
+		value = 150
+	}
+}
+
+USA_send_volunteers_to_FRA = {
+	
+	allowed = {
+		OR = {
+			original_tag = USA
+		}
+	}
+	enable = {
+		FRA = {
+			has_war_with = GER
+			has_capitulated = no
+		}
+		has_completed_focus = USA_aef
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = FRA
+		value = 150
+	}
+}

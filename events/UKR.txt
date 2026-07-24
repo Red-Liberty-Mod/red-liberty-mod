@@ -1,0 +1,48 @@
+add_namespace = ukraine_skeleton
+
+country_event = { # secret negotiations
+	id = ukraine_skeleton.1
+	title = ukraine_skeleton.1.title
+	desc = ukraine_skeleton.1.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = ukraine_skeleton.1.a
+		UKR = {
+			custom_effect_tooltip = UKR_secret_negotiations_success_tt
+			set_country_flag = UKR_secret_negotiations_success
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	
+	option = {
+		name = ukraine_skeleton.1.b
+		add_war_support = 0.05
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+country_event = { # 
+	id = ukraine_skeleton.2
+	title = ukraine_skeleton.2.title
+	desc = ukraine_skeleton.2.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = ukraine_skeleton.2.a
+		SOV = {
+			add_to_faction = UKR
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+}

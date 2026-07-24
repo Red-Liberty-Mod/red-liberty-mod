@@ -1,92 +1,151 @@
 JAP_liberal_socialist_influence_category = {
 
-	JAP_strengthen_oversight = {
-	
-		icon = ger_mefo_bills
-		
-		visible = {
-			always = yes
+	JAP_fulfill_campaign_promises_mission = {
+		icon = GFX_decision_eng_trade_unions_support
+
+		available = {
+			has_completed_focus = JAP_support_small_business
+			has_completed_focus = JAP_repeal_the_peace_preservation_laws
 		}
+		
+		activation = {
+			always = no
+		}
+		
+		fire_only_once = yes
+		is_good = no
+		days_mission_timeout = 365
+		
+		complete_effect = {
+			add_to_variable = {
+				JAP_coalition_stability = 10
+				tooltip = JAP_coalition_change_tt
+			}
+			add_popularity = {
+				ideology = progressive_liberalism
+				popularity = 0.03
+			}
+		}
+		
+		timeout_effect = {
+			add_to_variable = {
+				JAP_coalition_stability = -10
+				tooltip = JAP_coalition_change_tt
+			}
+			add_popularity = {
+				ideology = progressive_liberalism
+				popularity = -0.03
+			}
+		}
+	}
+	
+	JAP_leadership_challenge_mission = {
+		icon = GFX_decision_eng_trade_unions_demand
+
+		available = {
+			custom_override_tooltip = {
+				tooltip = JAP_avoid_leadership_challenge_tt
+				check_variable = { JAP_coalition_stability > 30 }
+			}
+		}
+		
+		activation = {
+			has_country_flag = JAP_coalition_mechanic_enabled
+			check_variable = { JAP_coalition_stability < 31 }
+		}
+		
+		fire_only_once = yes
+		is_good = no
+		days_mission_timeout = 50
+		
+		timeout_effect = {
+			country_event = japan_saito.50
+		}
+	}
+	
+	JAP_make_public_appearances = {
 		
 		cost = 25
+		days_remove = 7
+		days_re_enable = 60
 		
 		complete_effect = {
-			
+			add_to_variable = {
+				JAP_coalition_stability = 1
+				tooltip = JAP_coalition_change_tt
+			}
+		}
+		
+		remove_effect = {
+			add_to_variable = {
+				JAP_coalition_stability = 2
+				tooltip = JAP_coalition_change_tt
+			}
 		}
 	}
 	
-	JAP_deregulate_corps = {
-	
-		icon = ger_mefo_bills
-		
-		visible = {
-			always = yes
-		}
+	JAP_grant_token_concessions = {
 		
 		cost = 25
+		days_remove = 7
+		days_re_enable = 60
 		
 		complete_effect = {
-			
+			add_to_variable = {
+				JAP_coalition_stability = 1
+				tooltip = JAP_coalition_change_tt
+			}
+		}
+		
+		remove_effect = {
+			add_to_variable = {
+				JAP_coalition_stability = 2
+				tooltip = JAP_coalition_change_tt
+			}
+		}
+	}
+}
+
+JAP_foreign_policy = {
+
+	JAP_proclaim_the_co_prosperity_sphere = {
+		
+		cost = 0
+		fire_only_once = yes
+		
+		complete_effect = {
+			create_faction_from_template = faction_template_coprosperity_sphere
+			add_to_faction = SIA
+		}
+		
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1938.3.1
+			}
 		}
 	}
 	
-	JAP_expand_welfare = {
-	
-		icon = ger_mefo_bills
+	JAP_invite_vietnam = {
 		
-		visible = {
-			always = yes
+		cost = 0
+		fire_only_once = yes
+		
+		available = {
+			is_faction_leader = yes
+			VIN = {
+				exists = yes
+				has_war = no
+			}
 		}
-		
-		cost = 25
 		
 		complete_effect = {
-			
-		}
-	}
-	
-	JAP_cut_welfare = {
-	
-		icon = ger_mefo_bills
-		
-		visible = {
-			always = yes
+			add_to_faction = VIN
 		}
 		
-		cost = 25
-		
-		complete_effect = {
-			
-		}
-	}
-	
-	JAP_deliver_campaign_promises = {
-	
-		icon = ger_mefo_bills
-		
-		visible = {
-			always = yes
-		}
-		
-		cost = 50
-		
-		complete_effect = {
-			
-		}
-	}
-	
-	JAP_default_campaign_promises = {
-	
-		icon = ger_mefo_bills
-		
-		visible = {
-			always = yes
-		}
-		
-		cost = 50
-		
-		complete_effect = {
-			
+		ai_will_do = {
+			factor = 10
 		}
 	}
 }
@@ -97,9 +156,7 @@ JAP_hidden_ai_stuff = {
 
 		allowed = {
 			original_tag = JAP
-			JAP = {
-				is_ai = yes
-			}
+			is_ai = yes
 		}
 
 		available = {

@@ -4,6 +4,7 @@
 
 add_namespace = anatolia
 add_namespace = anatalia_flavour
+add_namespace = anatalia_conference
 
 country_event = { # intro event
 	id = anatolia.1
@@ -169,5 +170,412 @@ country_event = { # adnans homesickness
 	option = {
 		name = anatolia.11.a
 		load_focus_tree = TUR_adivar_crisis_tree
+	}
+}
+
+country_event = { # response from the commission
+	id = anatolia.12
+	title = anatolia.12.title
+	desc = anatolia.12.desc
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = anatolia.12.a
+	}
+}
+
+### CONSTANTINOPLE CONFERENCE
+
+country_event = { # decide turkish ai for mechanic
+	id = anatalia_conference.0
+	title = anatalia_conference.0.title
+	desc = anatalia_conference.0.desc
+	
+	is_triggered_only = yes
+	hidden = yes
+	
+	option = { # conciliatory
+		name = anatalia_conference.0.a
+		set_country_flag = TUR_conference_ai_conciliatory
+		
+		ai_chance = {
+			base = 8
+		}
+	}
+	
+	option = { # aggressive
+		name = anatalia_conference.0.b
+		set_country_flag = TUR_conference_ai_aggressive
+		
+		ai_chance = {
+			base = 2
+		}
+	}
+}
+
+country_event = { # conference opens
+	id = anatalia_conference.1
+	title = anatalia_conference.1.title
+	desc = anatalia_conference.1.desc
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = anatalia_conference.1.a
+	}
+}
+
+country_event = { # conference opens - ENG and FRA
+	id = anatalia_conference.2
+	title = anatalia_conference.2.title
+	desc = anatalia_conference.2.desc
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { # accept
+		name = anatalia_conference.2.a
+		
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 10
+				check_variable = { TUR.TUR_atmosphere_var > 65 }
+			}
+			modifier = {
+				add = 5
+				check_variable = { TUR.TUR_atmosphere_var > 40 }
+			}
+		}
+	}
+	
+	option = { # reject
+		name = anatalia_conference.2.b
+		
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 10
+				check_variable = { TUR.TUR_atmosphere_var < 26 }
+			}
+		}
+	}
+}
+
+country_event = { # hidden event to decide outcome
+	id = anatalia_conference.3
+	title = anatalia_conference.3.title
+	desc = anatalia_conference.3.desc
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	hidden = yes
+	
+	option = { # 
+		name = anatalia_conference.3.a
+		trigger = {
+			check_variable = { TUR_atmosphere_var > 70 }
+		}
+		country_event = anatalia_conference.20
+	}
+	
+	option = { # 
+		name = anatalia_conference.3.b
+		trigger = {
+			check_variable = { TUR_atmosphere_var > 45 }
+		}
+		country_event = anatalia_conference.30
+	}
+	
+	option = { # 
+		name = anatalia_conference.3.c
+		trigger = {
+			check_variable = { TUR_atmosphere_var > 24 }
+		}
+		country_event = anatalia_conference.40
+	}
+	
+	option = { # 
+		name = anatalia_conference.3.d
+		trigger = {
+			check_variable = { TUR_atmosphere_var < 25 }
+		}
+		country_event = anatalia_conference.50
+	}
+}
+
+country_event = { # constructive negotiations
+	id = anatalia_conference.20
+	title = anatalia_conference.20.title
+	desc = anatalia_conference.20.desc
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { # press for full sovereignty
+		name = anatalia_conference.20.a
+		if = {
+			limit = { check_variable = { TUR_nationalist_pressure_var < 70 } }
+			country_event = {
+				id = anatalia_conference.21
+				hours = 6
+			}
+		}
+		else = {
+			country_event = {
+				id = anatalia_conference.31
+				hours = 6
+			}
+		}
+		
+		ai_chance = {
+			base = 1
+		}
+	}
+	
+	option = { # accept the agreement as-is
+		name = anatalia_conference.20.b
+		country_event = {
+			id = anatalia_conference.22
+			hours = 6
+		}
+		
+		ai_chance = {
+			base = 9
+		}
+	}
+}
+
+country_event = { # conference successful
+	id = anatalia_conference.21
+	title = anatalia_conference.21.title
+	desc = anatalia_conference.21.desc
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = anatalia_conference.21.a
+		add_stability = 0.03
+		add_political_power = 35
+		TUR = {
+			annex_country = {
+				target = SCM
+			}
+		}
+		hidden_effect = {
+			set_global_flag = TUR_straits_conference_over_success
+			news_event = {
+				id = worldnews_middleeast.1
+				hours = 6
+			}
+		}
+	}
+}
+
+country_event = { # conference successful
+	id = anatalia_conference.22
+	title = anatalia_conference.22.title
+	desc = anatalia_conference.22.desc
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = anatalia_conference.22.a
+		add_stability = 0.05
+		add_political_power = 50
+		TUR = {
+			annex_country = {
+				target = SCM
+			}
+		}
+		hidden_effect = {
+			set_global_flag = TUR_straits_conference_over_success
+			news_event = {
+				id = worldnews_middleeast.1
+				hours = 6
+			}
+		}
+	}
+}
+
+country_event = { # talks are tense, yet productive
+	id = anatalia_conference.30
+	title = anatalia_conference.30.title
+	desc = anatalia_conference.30.desc
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { # accept the terms
+		name = anatalia_conference.30.a
+		country_event = {
+			id = anatalia_conference.31
+			hours = 6
+		}
+		
+		ai_chance = {
+			base = 6
+		}
+	}
+	
+	option = { # delay for better terms
+		name = anatalia_conference.30.b
+		add_to_variable = {
+			tooltip = TUR_atmosphere_var_tt
+			TUR_atmosphere_var = -5
+		}
+		hidden_effect = {
+			if = {
+				limit = { check_variable = { TUR_atmosphere_var < 46 } }
+				country_event = {
+					id = anatalia_conference.40
+					hours = 6
+				}
+			}
+			else = {
+				country_event = {
+					id = anatalia_conference.32
+					hours = 6
+				}
+			}
+		}
+		
+		ai_chance = {
+			base = 4
+			modifier = {
+				factor = 2
+				check_variable = { TUR_atmosphere_var > 50 }
+			}
+		}
+	}
+}
+
+country_event = { # compromise ending
+	id = anatalia_conference.31
+	title = anatalia_conference.31.title
+	desc = anatalia_conference.31.desc
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { # accept the terms
+		name = anatalia_conference.31.a
+		TUR = {
+			annex_country = {
+				target = SCM
+			}
+		}
+		hidden_effect = {
+			set_global_flag = TUR_straits_conference_over_success
+			news_event = {
+				id = worldnews_middleeast.1
+				hours = 6
+			}
+		}
+	}
+}
+
+country_event = { # better compromise ending
+	id = anatalia_conference.32
+	title = anatalia_conference.32.title
+	desc = anatalia_conference.32.desc
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { # accept the terms
+		name = anatalia_conference.32.a
+		add_stability = 0.03
+		TUR = {
+			annex_country = {
+				target = SCM
+			}
+		}
+		hidden_effect = {
+			set_global_flag = TUR_straits_conference_over_success
+			news_event = {
+				id = worldnews_middleeast.1
+				hours = 6
+			}
+		}
+	}
+}
+
+country_event = { # negotiations stall - last chance
+	id = anatalia_conference.40
+	title = anatalia_conference.40.title
+	desc = anatalia_conference.40.desc
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { # walk away
+		name = anatalia_conference.40.a
+		country_event = {
+			id = anatalia_conference.50
+			hours = 6
+		}
+		
+		ai_chance = {
+			base = 2
+		}
+	}
+	
+	option = { # make last-minute concessions
+		name = anatalia_conference.40.b
+		add_to_variable = {
+			tooltip = TUR_atmosphere_var_tt
+			TUR_atmosphere_var = 10
+		}
+		hidden_effect = {
+			if = {
+				limit = { check_variable = { TUR_atmosphere_var > 45 } }
+				country_event = {
+					id = anatalia_conference.30
+					hours = 6
+				}
+			}
+			else = {
+				country_event = {
+					id = anatalia_conference.50
+					hours = 6
+				}
+			}
+		}
+		
+		ai_chance = {
+			base = 8
+		}
+	}
+}
+
+country_event = { # conference failed
+	id = anatalia_conference.50
+	title = anatalia_conference.50.title
+	desc = anatalia_conference.50.desc
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = anatalia_conference.50.a
+		add_political_power = -100
+		add_stability = -0.1
+		add_named_threat = {
+			threat = 5
+			name = TUR_failed_conference
+		}
+		hidden_effect = {
+			set_global_flag = TUR_straits_conference_over_failed
+			news_event = {
+				id = worldnews_middleeast.2
+				hours = 6
+			}
+		}
 	}
 }

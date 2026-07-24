@@ -83,26 +83,64 @@ guiTypes = {
     }
 	
 	containerWindowType = {
-		name = "country_info_entry"
+		name = "country_info_folder_entry"
 		size = { width = 150 height = 36 }
 		
 		buttonType = {
 			name = "folder_button"
 			spriteType = "GFX_trade_filter_btn_country"
 			clicksound = "decisions_ui_tab"
-			pdx_tooltip = "country_intro_label_tt"
+			pdx_tooltip = "country_intro_folder_label_tt"
 		}
 		
 		instantTextBoxType = {
 			name = "folder_text"
-			position = { x = 5 y = 0 }
-			text = [GetCountryInfoEntryTitle]
-			font = "hoi_20bs"
+			position = { x = 22 y = 0 }
+			text = [GetCountryInfoFolderTitle]
+			#font = "hoi_26mbs"
 			maxwidth = 150
 			maxheight = 30
 			vertical_alignment = center
 			fixedsize = yes
 			alwaystransparent = yes
+		}
+	}
+	
+	containerWindowType = {
+		name = "country_info_content_entry"
+		size = { width = 150 height = 36 }
+		
+		buttonType = {
+			name = "content_button"
+			spriteType = "GFX_trade_filter_btn_country"
+			clicksound = "decisions_ui_tab"
+			pdx_tooltip = "country_intro_content_label_tt"
+		}
+		
+		instantTextBoxType = {
+			name = "content_text"
+			position = { x = 8 y = 0 }
+			text = [GetCountryInfoEntryTitle]
+			#font = "hoi_16bs"
+			maxwidth = 150
+			maxheight = 30
+			vertical_alignment = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+	}
+	
+	containerWindowType = {
+        name = "reopen_button_container"
+        position = { x = 1510 y = 6 }
+		size = { width = 20 height = 20 }
+		orientation = UPPER_LEFT
+		
+		buttonType = {
+			name = "reopen_button"
+			position = { x = 0 y = 0 }
+			spriteType = "GFX_help_button"
+			pdx_tooltip = "reopen_button_tt"
 		}
 	}
 }

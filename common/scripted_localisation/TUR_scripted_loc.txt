@@ -1,0 +1,77 @@
+defined_text = {
+	name = GetCouncilMemberStatus
+	
+	text = {
+		trigger = {
+			OR = {
+				tag = TUR
+				tag = ENG
+				tag = FRA
+				tag = GER
+			}
+		}
+		localization_key = "TUR_straits_council_member"
+	}
+	
+	text = {
+		localization_key = "TUR_straits_council_observer"
+    }
+}
+
+defined_text = {
+	name = TUR_GetAtmosphere
+	
+	text = {
+		trigger = {
+			check_variable = { TUR_atmosphere_var > 65 }
+		}
+		localization_key = "TUR_atmosphere_cooperative"
+	}
+	text = {
+		trigger = {
+			check_variable = { TUR_atmosphere_var > 40 }
+		}
+		localization_key = "TUR_atmosphere_cautious"
+	}
+	text = {
+		trigger = {
+			check_variable = { TUR_atmosphere_var > 25 }
+		}
+		localization_key = "TUR_atmosphere_tense"
+	}
+	text = {
+		trigger = {
+			check_variable = { TUR_atmosphere_var > 0 }
+		}
+		localization_key = "TUR_atmosphere_crisis"
+	}
+}
+
+defined_text = {
+	name = TUR_GetNationalistPressure
+	
+	text = {
+		trigger = {
+			check_variable = { TUR_nationalist_pressure_var > 75 }
+		}
+		localization_key = "TUR_nationalist_pressure_overwhelming"
+	}
+	text = {
+		trigger = {
+			check_variable = { TUR_nationalist_pressure_var > 55 }
+		}
+		localization_key = "TUR_nationalist_pressure_concerning"
+	}
+	text = {
+		trigger = {
+			check_variable = { TUR_nationalist_pressure_var > 35 }
+		}
+		localization_key = "TUR_nationalist_pressure_notable"
+	}
+	text = {
+		trigger = {
+			check_variable = { TUR_nationalist_pressure_var > 0 }
+		}
+		localization_key = "TUR_nationalist_pressure_insignificant"
+	}
+}

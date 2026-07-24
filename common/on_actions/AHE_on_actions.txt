@@ -9,6 +9,81 @@ on_actions = {
 				add_to_array = { country_info_array = 5 }
 				add_to_array = { country_info_array = 6 }
 			}
+			
+			69 = {
+				add_dynamic_modifier = {
+					modifier = uranium_deposits
+				}
+			}
+			
+			#AHE = {
+			#	every_owned_state = {
+			#		limit = {
+			#			is_core_of = HUN
+			#		}
+			#		add_dynamic_modifier = {
+			#			modifier = AHE_crown_of_st_stephen
+			#		}
+			#	}
+			#}
+			
+			AHE = {
+				country_event = {
+					id = AHE_prewar.1
+					days = 21
+					random_days = 7
+				}
+				country_event = {
+					id = AHE_prewar.2
+					days = 35
+					random_days = 7
+				}
+				country_event = {
+					id = AHE_prewar.3
+					days = 42
+					random_days = 7
+				}
+				country_event = {
+					id = AHE_prewar.4
+					days = 56
+					random_days = 7
+				}
+				country_event = {
+					id = AHE_prewar.5
+					days = 77
+					random_days = 7
+				}
+				country_event = {
+					id = AHE_prewar.6
+					days = 90
+					random_days = 7
+				}
+				country_event = {
+					id = AHE_prewar.7
+					days = 105
+					random_days = 7
+				}
+				country_event = {
+					id = AHE_prewar.8
+					days = 135
+					random_days = 7
+				}
+				country_event = {
+					id = AHE_prewar.9
+					days = 170
+					random_days = 7
+				}
+			}
+		}
+	}
+	
+	on_weekly_AHE = {
+		effect = {
+			if = {
+				limit = { has_global_flag = austrian_civil_war_started }
+				add_to_variable = { global.austria_escalation = 1 }
+				AHE_calc_escalation_progressbar = yes
+			}
 		}
 	}
 }

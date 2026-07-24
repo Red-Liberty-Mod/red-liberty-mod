@@ -1,0 +1,59 @@
+add_namespace = bukhara_skeleton
+
+country_event = { # revolutionaries overthrow the emir
+	id = bukhara_skeleton.1
+	title = bukhara_skeleton.1.title
+	desc = bukhara_skeleton.1.desc
+	
+	trigger = {
+		tag = UZB
+		SOV = {
+			controls_state = 843
+		}
+		UZB = {
+			exists = yes
+		}
+	}
+	fire_only_once = yes
+
+	option = {
+		name = bukhara_skeleton.1.a
+		RUS = {
+			end_puppet = UZB
+		}
+		UZB = {
+			set_politics = {
+				ruling_party = vanguard_socialism
+				last_election = "1936.1.1"
+				election_frequency = 48
+				elections_allowed = no
+			}
+			set_cosmetic_tag = UZB_soviet_republic
+		}
+		SOV = {
+			country_event = bukhara_skeleton.2
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+country_event = { # revolutionaries overthrow the emir
+	id = bukhara_skeleton.2
+	title = bukhara_skeleton.2.title
+	desc = bukhara_skeleton.2.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = bukhara_skeleton.2.a
+		SOV = {
+			puppet = UZB
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+}

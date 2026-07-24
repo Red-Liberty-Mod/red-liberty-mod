@@ -1,11 +1,15 @@
 shared_focus = {
-    id = AHE_winds_of_change
-	icon = GFX_AHE_winds_of_change
+    id = AHE_the_end_of_empire
+	icon = GFX_FRA_old_enemy_new_possibilities
 	
-    x = 8
+    x = 9
 	y = 0
-	
 	cost = 3
+	
+	available = {
+		AHE_disaster_struck = no
+	}
+	
     completion_reward = {
         
     }
@@ -16,18 +20,19 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = AHE_look_to_the_left
-	icon = GFX_AHE_look_to_the_left
+    id = AHE_infiltrate_the_sdap
+	icon = GFX_AHE_infiltrate_the_sdap
 	
-    x = -2
+    x = -7
 	y = 1
+	cost = 3
 	
-	cost = 5
-	relative_position_id = AHE_winds_of_change
-	prerequisite = { focus = AHE_winds_of_change }
-	mutually_exclusive = {
-		focus = AHE_look_to_the_right
+	available = {
+		AHE_disaster_struck = no
 	}
+	
+	relative_position_id = AHE_the_end_of_empire
+	prerequisite = { focus = AHE_the_end_of_empire }
     completion_reward = {
         
     }
@@ -38,17 +43,69 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = AHE_rally_the_workers
-	icon = GFX_AHE_rally_the_workers
+    id = AHE_infiltrate_the_unity_party
+	icon = GFX_AHE_infiltrate_the_unity_party
+	
+    x = -5
+	y = 1
+	cost = 3
+	
+	available = {
+		AHE_disaster_struck = no
+	}
+	
+	relative_position_id = AHE_the_end_of_empire
+	prerequisite = { focus = AHE_the_end_of_empire }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_curtail_dissent
+	icon = GFX_focus_RAJ_union_busting
+	
+    x = -3
+	y = 1
+	cost = 3
+	
+	available = {
+		AHE_disaster_struck = no
+	}
+	
+	relative_position_id = AHE_the_end_of_empire
+	prerequisite = { focus = AHE_the_end_of_empire }
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_urge_for_calm
+	icon = GFX_focus_AUS_diplomatic_effort
 	
     x = -1
 	y = 1
+	cost = 3
 	
-	cost = 5
-	relative_position_id = AHE_look_to_the_left
-	prerequisite = { focus = AHE_look_to_the_left }
+	available = {
+		AHE_disaster_struck = no
+	}
+	
+	relative_position_id = AHE_the_end_of_empire
+	prerequisite = { focus = AHE_the_end_of_empire }
+	mutually_exclusive = { focus = AHE_conduct_wargames }
+	
     completion_reward = {
-        
+        add_stability = 0.075
     }
 	
 	ai_will_do = {
@@ -57,15 +114,71 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = AHE_the_nationalities_question
-	icon = GFX_AHE_the_nationalities_question
+    id = AHE_conduct_wargames
+	icon = GFX_focus_generic_army_doctrines_2
 	
     x = 1
 	y = 1
+	cost = 3
 	
-	cost = 5
-	relative_position_id = AHE_look_to_the_left
-	prerequisite = { focus = AHE_look_to_the_left }
+	available = {
+		AHE_disaster_struck = no
+	}
+	
+	relative_position_id = AHE_the_end_of_empire
+	prerequisite = { focus = AHE_the_end_of_empire }
+	mutually_exclusive = { focus = AHE_urge_for_calm }
+	
+    completion_reward = {
+        army_experience = 25
+		add_war_support = 0.05
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_national_austerity
+	icon = GFX_focus_AUS_economic_resuscitation
+	
+    x = 3
+	y = 1
+	cost = 3
+	
+	available = {
+		AHE_disaster_struck = no
+	}
+	
+	relative_position_id = AHE_the_end_of_empire
+	prerequisite = { focus = AHE_the_end_of_empire }
+    completion_reward = {
+        add_timed_idea = {
+			idea = AHE_austerity_regime
+			days = 90
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_secure_german_aid
+	icon = GFX_focus_chi_army_reform
+	
+    x = 5
+	y = 1
+	cost = 3
+	
+	available = {
+		AHE_disaster_struck = no
+	}
+	
+	relative_position_id = AHE_the_end_of_empire
+	prerequisite = { focus = AHE_the_end_of_empire }
     completion_reward = {
         
     }
@@ -76,16 +189,20 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = AHE_state_and_nation
-	icon = GFX_AHE_state_and_nation
+    id = AHE_strategic_arrests
+	icon = GFX_FRA_outlaw_paramilitaries
 	
     x = 1
 	y = 1
+	cost = 3
 	
-	cost = 5
-	relative_position_id = AHE_rally_the_workers
-	prerequisite = { focus = AHE_rally_the_workers }
-	prerequisite = { focus = AHE_the_nationalities_question }
+	available = {
+		AHE_disaster_struck = no
+	}
+	
+	relative_position_id = AHE_infiltrate_the_sdap
+	prerequisite = { focus = AHE_infiltrate_the_sdap }
+	prerequisite = { focus = AHE_infiltrate_the_unity_party }
     completion_reward = {
         
     }
@@ -96,56 +213,21 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = AHE_look_to_the_right
-	icon = GFX_AHE_look_to_the_right
-	
-    x = 2
-	y = 1
-	
-	cost = 5
-	relative_position_id = AHE_winds_of_change
-	prerequisite = { focus = AHE_winds_of_change }
-	mutually_exclusive = {
-		focus = AHE_look_to_the_left
-	}
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = AHE_float_coalition_idea
-	icon = GFX_AHE_float_coalition_idea
-	
-    x = 1
-	y = 1
-	
-	cost = 5
-	relative_position_id = AHE_look_to_the_right
-	prerequisite = { focus = AHE_look_to_the_right }
-    completion_reward = {
-        
-    }
-	
-	ai_will_do = {
-		factor = 10
-	}
-}
-
-shared_focus = {
-    id = AHE_states_rights
-	icon = GFX_AHE_states_rights
+    id = AHE_recall_distant_garrisons
+	icon = GFX_AHE_recall_distant_garrisons
 	
     x = -1
 	y = 1
+	cost = 3
 	
-	cost = 5
-	relative_position_id = AHE_look_to_the_right
-	prerequisite = { focus = AHE_look_to_the_right }
+	available = {
+		AHE_disaster_struck = no
+	}
+	
+	relative_position_id = AHE_curtail_dissent
+	prerequisite = { focus = AHE_curtail_dissent }
+	mutually_exclusive = { focus = AHE_empower_the_military_police }
+	
     completion_reward = {
         
     }
@@ -156,18 +238,283 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = AHE_from_many_one
-	icon = GFX_AHE_from_many_one
+    id = AHE_empower_the_military_police
+	icon = GFX_focus_generic_full_social_mobilization
 	
     x = 1
 	y = 1
+	cost = 3
 	
-	cost = 5
-	relative_position_id = AHE_states_rights
-	prerequisite = { focus = AHE_float_coalition_idea }
-	prerequisite = { focus = AHE_states_rights }
+	available = {
+		AHE_disaster_struck = no
+	}
+	
+	relative_position_id = AHE_curtail_dissent
+	prerequisite = { focus = AHE_curtail_dissent }
+	mutually_exclusive = { focus = AHE_recall_distant_garrisons }
+	
     completion_reward = {
         
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_fortify_the_italian_border
+	icon = GFX_goal_fortify_the_westwall
+	
+    x = 1
+	y = 1
+	cost = 3
+	
+	available = {
+		AHE_disaster_struck = no
+	}
+	
+	relative_position_id = AHE_urge_for_calm
+	prerequisite = {
+		focus = AHE_urge_for_calm
+		focus = AHE_conduct_wargames
+	}
+	
+    completion_reward = {
+        875 = {
+			add_building_construction = {
+				type = bunker
+				level = 1
+				instant_build = yes
+				province = 9598
+			}
+			add_building_construction = {
+				type = anti_air_building
+				level = 1
+				instant_build = yes
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_invest_in_the_people
+	icon = GFX_focus_generic_full_employment
+	
+    x = -1
+	y = 1
+	cost = 3
+	
+	available = {
+		AHE_disaster_struck = no
+	}
+	
+	relative_position_id = AHE_national_austerity
+	prerequisite = {
+		focus = AHE_national_austerity
+		focus = AHE_secure_german_aid
+	}
+	mutually_exclusive = { focus = AHE_rapid_rearmament }
+	
+    completion_reward = {
+        random_owned_controlled_state = {
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_rapid_rearmament
+	icon = GFX_focus_secret_rearmament
+	
+    x = -1
+	y = 1
+	cost = 3
+	
+	available = {
+		AHE_disaster_struck = no
+	}
+	
+	relative_position_id = AHE_secure_german_aid
+	prerequisite = { focus = AHE_secure_german_aid }
+	mutually_exclusive = { focus = AHE_invest_in_the_people }
+	
+    completion_reward = {
+        random_owned_controlled_state = {
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_stock_the_arsenals
+	icon = GFX_focus_RAJ_mountain_guns
+	
+    x = 1
+	y = 1
+	cost = 3
+	
+	available = {
+		AHE_disaster_struck = no
+	}
+	
+	relative_position_id = AHE_secure_german_aid
+	prerequisite = {
+		focus = AHE_national_austerity
+		focus = AHE_secure_german_aid
+	}
+	
+    completion_reward = {
+        add_equipment_to_stockpile = {
+			type = infantry_equipment_1
+			amount = 2000
+			producer = AHE
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_target_government_corruption
+	icon = GFX_focus_ARG_crackdown_on_corruption
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	available = {
+		AHE_disaster_struck = no
+	}
+	
+	relative_position_id = AHE_strategic_arrests
+	prerequisite = { focus = AHE_strategic_arrests }
+	prerequisite = {
+		focus = AHE_recall_distant_garrisons
+		focus = AHE_empower_the_military_police
+	}
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_fortify_salzburg
+	icon = GFX_goal_generic_fortify_city
+	
+    x = 1
+	y = 1
+	cost = 3
+	
+	available = {
+		AHE_disaster_struck = no
+	}
+	
+	relative_position_id = AHE_recall_distant_garrisons
+	prerequisite = {
+		focus = AHE_recall_distant_garrisons
+		focus = AHE_empower_the_military_police
+	}
+	
+    completion_reward = {
+        963 = {
+			add_building_construction = {
+				type = bunker
+				level = 2
+				instant_build = yes
+				province = 688
+			}
+			add_building_construction = {
+				type = anti_air_building
+				level = 1
+				instant_build = yes
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_enforce_the_treaty_of_belgrade
+	icon = GFX_FRA_study_foreign_designs
+	
+    x = 0
+	y = 1
+	cost = 4
+	
+	available = {
+		AHE_disaster_struck = no
+	}
+	
+	relative_position_id = AHE_fortify_the_italian_border
+	prerequisite = { focus = AHE_fortify_the_italian_border }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = AHE_relocate_the_gold_reserves
+	icon = GFX_focus_usa_reestablish_the_gold_standard
+	
+    x = 1
+	y = 1
+	cost = 4
+	
+	available = {
+		AHE_disaster_struck = no
+	}
+	
+	relative_position_id = AHE_invest_in_the_people
+	prerequisite = {
+		focus = AHE_invest_in_the_people
+		focus = AHE_rapid_rearmament
+	}
+	
+    completion_reward = {
+        SWI = {
+			add_to_variable = {
+				SWI_available_investments = 1
+				tooltip = SWI_investments_change_tt
+			}
+		}
     }
 	
 	ai_will_do = {

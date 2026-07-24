@@ -1,0 +1,70 @@
+@soi_icon_x_pos = 360
+@soi_icon_y_pos = -25
+@soi_text_x_pos = 80
+@soi_text_y_pos = -25
+
+guiTypes = {
+	containerWindowType = {
+		name = "state_of_interest_container"
+
+		iconType = {
+			name = "state_of_interest_header"
+			spriteType = GFX_state_of_interest_header
+			position = { x = 0 y = -11 }
+			alwaystransparent = yes
+		}
+	}
+	
+	containerWindowType = {
+		name = "state_of_interest_chinese_province"
+
+		instantTextBoxType = {
+			name = "chinese_state_title"
+			text = "[THIS.GetName]"
+			font = hoi_36header
+			format = center
+
+			position = { x = @soi_text_x_pos  y = -4 }
+			maxWidth = 330
+			maxHeight = 30
+		}
+
+		instantTextBoxType = {
+			name = "chinese_province_title"
+			text = "chinese_province_title"
+			font = hoi_24header
+			format = center
+
+			position = { x = @soi_text_x_pos  y = 20 }
+			maxWidth = 330
+			maxHeight = 30
+		}
+	}
+	
+	containerWindowType = {
+		name = "state_of_interest_german_state"
+
+		instantTextBoxType = {
+			name = "german_state_title"
+			text = "[THIS.GetName]"
+			font = hoi_36header
+			format = center
+
+			position = { x = @soi_text_x_pos  y = -4 }
+			maxWidth = 330
+			maxHeight = 30
+		}
+
+		instantTextBoxType = {
+			name = "GER_state_title"
+			text = "german_state_title"
+			font = hoi_24header
+			format = center
+
+			position = { x = @soi_text_x_pos  y = 20 }
+			maxWidth = 330
+			maxHeight = 30
+		}
+	}
+}
+

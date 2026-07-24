@@ -1,5 +1,35 @@
 add_namespace = liberia
+add_namespace = liberia_skeleton
 
+country_event = {
+	id = liberia_skeleton.1
+	title = liberia_skeleton.1.title
+	desc = liberia_skeleton.1.desc
+	picture = GFX_report_event_african_soldiers
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = liberia_skeleton.1.a
+		add_stability = 0.05
+		ai_chance = {
+			base = 7
+		}
+	}
+
+	option = { #
+		name = liberia_skeleton.1.b
+		set_politics = {
+			ruling_party = fascism
+		}
+		ai_chance = {
+			base = 3
+		}
+	}		
+}
+
+###
 country_event = {
 	id = liberia.1
 	title = libiera.1.title

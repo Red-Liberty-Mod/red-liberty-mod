@@ -155,10 +155,34 @@ characters = {
 		
 		country_leader = {
 			desc = "POLITICS_GABRIEL_TERRA_DESC"
-			ideology = authoritarian_democracy_subtype
+			ideology = authoritarian_developmentalism_subtype
 			traits = {
 				
 			}
+		}
+	}
+	
+	URG_alfredo_baldomir_ferrari = {
+		name = URG_alfredo_baldomir_ferrari
+		
+		portraits = {
+			civilian = {
+				#large = ""
+			}
+		}
+		
+		country_leader = {
+			desc = "POLITICS_ALFREDO_BALDOMIR_DESC"
+			ideology = despotism_subtype
+		}
+		
+		corps_commander = {
+			traits = { politically_connected trait_cautious organizer }
+			skill = 3
+			attack_skill = 1
+			defense_skill = 4
+			planning_skill = 4
+			logistics_skill = 1
 		}
 	}
 	
@@ -176,6 +200,28 @@ characters = {
 			ideology = clerical_fascism_subtype
 			traits = {
 				
+			}
+		}
+	}
+	
+	### Advisors ###
+	
+	URG_cesar_charlone = {
+		name = URG_cesar_charlone
+		
+		portraits = {
+			civilian = {
+				#small = ""
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = political_advisor
+			idea_token = URG_cesar_charlone_political_advisor
+			ledger = civilian
+			traits = {
+				corporatist_economist
 			}
 		}
 	}

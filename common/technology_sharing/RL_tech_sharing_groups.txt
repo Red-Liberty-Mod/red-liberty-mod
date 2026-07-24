@@ -1,0 +1,58 @@
+technology_sharing_group = {
+	id = latin_entente_research
+	name = latin_entente_research_name
+	desc = latin_entente_research_desc
+	picture = GFX_technology_sharing_default
+    
+	research_sharing_per_country_bonus = 0.04
+
+    available = {
+        is_in_faction_with = FRA
+    }
+}
+
+technology_sharing_group = {
+	id = china_empire_research
+	name = china_empire_research_name
+	desc = china_empire_research_desc
+	picture = GFX_technology_sharing_default
+    
+	research_sharing_per_country_bonus = 0.05
+
+    available = {
+        CHI = { is_ally_with = ROOT }
+    }
+}
+
+technology_sharing_group = {
+	id = league_of_american_states_research
+	name = league_of_american_states_research_name
+	desc = league_of_american_states_research_desc
+	picture = GFX_technology_sharing_default
+    
+	research_sharing_per_country_bonus = 0.05
+	categories = {
+		electronics
+		industry
+	}
+
+    available = {
+        is_in_league_of_american_states = yes
+    }
+}
+
+technology_sharing_group = {
+	id = french_colonies_research
+	name = french_colonies_research_name
+	desc = french_colonies_research_desc
+	picture = GFX_idea_FRAC_loyal_to_paris
+    
+	research_sharing_per_country_bonus = 0.03
+
+    available = {
+        OR = {
+			tag = FRA
+			is_puppet_of = FRA
+		}
+    }
+}

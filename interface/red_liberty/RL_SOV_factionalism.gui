@@ -1,0 +1,84 @@
+@FACTION_TEXT_X = 55
+@LOYALTY_TEXT_X = 230
+@POPULARITY_TEXT_X = 350
+@FACTION_ICONS_X = 10
+@FACTION_NAMES_X = 55
+@HEADERS_Y = 0
+
+guiTypes = {
+	
+	containerWindowType = {
+		name = "SOV_factionalism_decision_ui_window"
+		position = { x = 15 y = 0 }
+		size = { width = 100% height = 270 }
+		
+		instantTextBoxType = {
+			name = "SOV_opinion_header"
+			position = { x = 240 y = @HEADERS_Y }
+			font = "hoi_18mbs"
+			text = "Opinion"
+			format = center
+			maxHeight = 24
+			maxwidth = 110
+		}
+		instantTextBoxType = {
+			name = "SOV_influence_header"
+			position = { x = 360 y = @HEADERS_Y }
+			font = "hoi_18mbs"
+			text = "Influence"
+			format = center
+			maxHeight = 24
+			maxwidth = 110
+		}
+		
+		gridBoxType = {
+			name = "SOV_faction_gridbox"
+			position = { x = 10 y = 30 }
+			size = { width = 100%% height = 270 }
+			orientation = upper_left
+			slotsize = { width = 200 height = 50 }
+			format = "UPPER_LEFT"
+			max_slots_horizontal = 1
+		}
+	}
+	
+	containerWindowType = {
+		name = "SOV_factionalism_faction_container"
+		position = { x = 0 y = 0 }
+		size = { width = 70 height = 70 }
+		
+		iconType = {
+			name = "SOV_faction_icon"
+			spriteType = ""
+			position = { x = 0 y = 0 }
+			pdx_tooltip = "SOV_Get_Faction_Desc" # for some reason scripted loc doesnt work directly
+			scale = 0.57
+		}
+		instantTextBoxType = {
+			name = "SOV_faction_name"
+			position = { x = @FACTION_NAMES_X y = 8 }
+			font = "hoi_18mbs"
+			text = "[SOV_GetFactionName]"
+			format = left
+			maxHeight = 24
+			pdx_tooltip = "SOV_Get_Faction_Desc" # for some reason scripted loc doesnt work directly
+		}
+		instantTextBoxType = {
+			name = "SOV_faction_opinion_status"
+			position = { x = @LOYALTY_TEXT_X y = 8 }
+			font = "hoi_18mbs"
+			text = "[SOV_GetFactionOpinion]"
+			format = center
+			maxwidth = 110
+		}
+		instantTextBoxType = {
+			name = "SOV_faction_influence_status"
+			position = { x = @POPULARITY_TEXT_X y = 8 }
+			font = "hoi_18mbs"
+			text = "[SOV_GetFactionInfluence]"
+			format = center
+			maxwidth = 110
+		}
+	}
+}
+

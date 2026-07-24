@@ -1,0 +1,65 @@
+guiTypes = {
+	
+	containerWindowType = {
+		name = "SWI_banking_gui"
+		position = { x = 0 y = 0 }
+		size = { width = 490 height = 110 }
+		
+		orientation = center
+		
+		#background = {
+		#	name = "Background"
+		#	quadTextureSprite = "GFX_tiled_window_thin_border2"
+		#}
+		
+		instantTextBoxType = {
+			name = "SWI_total_investments"
+			#size = { width = 0 height = 0 }
+			position = { x = 225 y = 5 }
+			#maxWidth = 10
+			#maxHeight = 10
+			font = hoi_30header
+			text = "[?SWI_available_investments]"
+		}
+		
+		containerWindowType = {
+			name = "SWI_banking_container"
+			size = { width = 0 height = 0 }
+			position = { x = 185 y = 25 }
+			
+			iconType = {
+				name = "SWI_banking_info_icon"
+				position = { x = 0 y = 0 }
+				spriteType = "GFX_focus_usa_reestablish_the_gold_standard"
+				pdx_tooltip = "SWI_banking_info_icon_tt"
+				scale = 1
+			}
+		}
+		
+		iconType = {
+			name = "SWI_mil_icon"
+			position = { x = 145 y = 28 }
+			spriteType = "GFX_military_factory_icon"
+		}
+		buttonType = {
+			name = "SWI_banking_mils_button"
+			position = { x = 140 y = 55 }
+			spriteType = "GFX_production_line_arrow_left"
+			clicksound = click_default
+			pdx_tooltip = "SWI_banking_mils_button_tt"
+		}
+		
+		iconType = {
+			name = "SWI_civ_icon"
+			position = { x = 295 y = 28 }
+			spriteType = "GFX_non_available_factory_icon"
+		}
+		buttonType = {
+			name = "SWI_banking_civs_button"
+			position = { x = 295 y = 55 }
+			spriteType = "GFX_production_line_arrow_right"
+			clicksound = click_default
+			pdx_tooltip = "SWI_banking_civs_button_tt"
+		}
+	}
+}

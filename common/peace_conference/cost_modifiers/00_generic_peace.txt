@@ -3,8 +3,18 @@
 
 peace_action_modifiers = {
 
-    ### Take States
+	player_led_peace_conference = {
+		category = events_or_focuses
+		peace_action_type = { take_states liberate puppet force_government take_navy }
+		enable = {
+			has_game_rule = { rule = scripted_peace option = PLAYER_LED }
+			pc_is_on_winning_side = yes
+			is_ai = no
+		}
+		cost_multiplier = 0
+	}
 
+    ### Take States
     # Is Core of Taker, and taker is not Puppet of someone
     generic_is_core = {
         category = is_core

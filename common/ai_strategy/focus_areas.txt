@@ -1,3 +1,30 @@
+less_focus_on_non_neighbour_fronts = {
+	enable = {
+		is_in_faction = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		country_trigger = { NOT = { is_neighbor_of = FROM } }
+		value = -50
+	}
+}
+
+zero_focus_on_non_neighbour_fronts_if_losing_war = {
+	enable = {
+		is_in_faction = yes
+		surrender_progress > 0.3
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		country_trigger = { NOT = { is_neighbor_of = FROM } }
+		value = -50
+	}
+}
+
 FRA_area_priority = {
 
 	allowed = {
@@ -7,6 +34,7 @@ FRA_area_priority = {
 	enable = {
 		always = yes
 	}
+	abort_when_not_enabled = yes
 
 	ai_strategy = {
 		type = area_priority
@@ -78,6 +106,7 @@ GER_area_priority = {
 	enable = {
 		always = yes
 	}
+	abort_when_not_enabled = yes
 
 	ai_strategy = {
 		type = area_priority
@@ -149,6 +178,7 @@ ENG_area_priority = {
 	enable = {
 		always = yes
 	}
+	abort_when_not_enabled = yes
 	
 	ai_strategy = {
 		type = area_priority
@@ -220,6 +250,7 @@ USA_area_priority = {
 	enable = {
 		always = yes
 	}
+	abort_when_not_enabled = yes
 	
 	ai_strategy = {
 		type = area_priority

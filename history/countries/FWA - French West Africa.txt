@@ -12,6 +12,7 @@ set_technology = {
 }
 
 set_research_slots = 1
+add_to_tech_sharing_group = french_colonies_research
 
 set_politics = {
 	ruling_party = despotism
@@ -35,16 +36,75 @@ set_popularities = {
 }
 
 add_ideas = {
-	FRAC_loyal_to_paris
+	FWA_peanut_economy
 	
 	colonial_army
+	colonial_extraction
+	forced_labor
+}
+
+add_offsite_building = { type = industrial_complex level = 1 }
+
+556 = {
+	start_resistance = yes
+	set_compliance = 70
+	set_resistance = 7
+	set_garrison_strength = 1.0
+}
+778 = {
+	start_resistance = yes
+	set_compliance = 70
+	set_resistance = 4
+	set_garrison_strength = 1.0
+}
+780 = {
+	start_resistance = yes
+	set_compliance = 70
+	set_resistance = 5
+	set_garrison_strength = 1.0
+}
+
+### LEADERS ###
+recruit_character = FWA_joseph_jules_brevie
+recruit_character = FWA_marcel_de_coppet
+recruit_character = FWA_leon_geismar
+recruit_character = FWA_pierre_boisson
+
+create_country_leader = {
+	name = "Lamine Arfang Senghor"
+	desc = ""
+	picture = "GFX_portrait_unknown"
+	ideology = revolutionary_socialism_subtype
+	traits = {
+		
+	}
 }
 
 create_country_leader = {
-	name = "Joseph-Jules Brévié"
+	name = "Amadou Lamine-Guèye"
 	desc = ""
-	picture = "gfx/leaders/FRA/Portrait_FRA_Jules_Brevie.png"
-	ideology = despotism_subtype
+	picture = "GFX_portrait_unknown"
+	ideology = african_socialism_subtype
+	traits = {
+		
+	}
+}
+
+create_country_leader = {
+	name = "Blaise Diagne"
+	desc = ""
+	picture = "GFX_portrait_unknown"
+	ideology = social_democracy_subtype
+	traits = {
+		
+	}
+}
+
+create_country_leader = {
+	name = "Ngalandou Diouf"
+	desc = ""
+	picture = "GFX_portrait_unknown"
+	ideology = paternalistic_conservatism_subtype
 	traits = {
 		
 	}

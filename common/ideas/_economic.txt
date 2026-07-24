@@ -4,6 +4,34 @@ ideas = {
 		law = yes
 		use_list_view = yes
 		
+		colonial_extraction = {
+			
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_expected_value = 0.4
+				production_speed_arms_factory_factor = -0.5
+				production_speed_industrial_complex_factor = -0.15
+				industrial_capacity_factory = -0.25
+				industrial_capacity_dockyard = -0.25
+				production_factory_max_efficiency_factor = -0.25
+				civilian_intel_to_others = 15
+				research_speed_factor = -0.2
+				cic_to_overlord_factor = 0.3
+				
+				factory_energy_consumption = -0.1
+			}
+			
+			allowed_to_remove = {
+				is_subject = no
+			}
+			
+			cancel_if_invalid = no
+		}
+		
 		undisturbed_isolation = {
 			
 			allowed = {
@@ -12,7 +40,7 @@ ideas = {
 			removal_cost = -1
 		
 			modifier = {
-				consumer_goods_factor = 0.5
+				consumer_goods_expected_value = 0.5
 				production_speed_industrial_complex_factor = 0.25
 				production_speed_arms_factory_factor = -0.5
 				production_speed_dockyard_factor = -0.5
@@ -23,6 +51,8 @@ ideas = {
 				fuel_gain_factor = -0.6
 				agency_upgrade_time = 1.0
 				civilian_intel_to_others = 10
+				
+				factory_energy_consumption = -0.3
 			}
 			
 			allowed_to_remove = {
@@ -43,7 +73,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				consumer_goods_factor = 0.4
+				consumer_goods_expected_value = 0.4
 				production_speed_industrial_complex_factor = 0.2
 				production_speed_arms_factory_factor = -0.5
 				production_speed_dockyard_factor = -0.4
@@ -54,6 +84,8 @@ ideas = {
 				fuel_gain_factor = -0.5
 				agency_upgrade_time = 0.8
 				civilian_intel_to_others = 5
+				
+				factory_energy_consumption = -0.3
 			}
 			allowed_to_remove = {
 				OR = {
@@ -71,7 +103,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				consumer_goods_factor = 0.35
+				consumer_goods_expected_value = 0.35
 				production_speed_arms_factory_factor = -0.5
 				production_speed_industrial_complex_factor = 0.15
 				industrial_capacity_factory = -0.20
@@ -81,6 +113,8 @@ ideas = {
 				max_fuel_factor = -0.25
 				fuel_gain_factor = -0.4
 				civilian_intel_to_others = 5
+				
+				factory_energy_consumption = -0.3
 			}
 			
 			default = yes
@@ -106,13 +140,17 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				consumer_goods_factor = 0.3
+				consumer_goods_expected_value = 0.3
 				production_speed_arms_factory_factor = -0.15
 				industrial_capacity_factory = -0.05
 				industrial_capacity_dockyard = -0.05
 				production_factory_max_efficiency_factor = -0.05
 				political_power_gain = -0.05
 				fuel_gain_factor = -0.25
+				
+				factory_energy_consumption = -0.15
+				
+				poverty_effect_factor = -0.05
 			}
 			
 			cancel_if_invalid = no
@@ -156,12 +194,14 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				consumer_goods_factor = 0.25
+				consumer_goods_expected_value = 0.25
 				industrial_capacity_factory = 0.05
 				industrial_capacity_dockyard = 0.05
 				production_speed_industrial_complex_factor = -0.25
 				political_power_gain = -0.15
 				fuel_gain_factor = -0.1
+				
+				poverty_effect_factor = -0.1
 			}
 			
 			cancel_if_invalid = no
@@ -205,13 +245,17 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				consumer_goods_factor = 0.2
+				consumer_goods_expected_value = 0.2
 				production_speed_arms_factory_factor = 0.30
 				production_speed_industrial_complex_factor = -0.40
 				industrial_capacity_factory = 0.10
 				industrial_capacity_dockyard = 0.10
 				production_factory_max_efficiency_factor = 0.05
 				political_power_gain = -0.25
+				
+				factory_energy_consumption = 0.25
+				
+				poverty_effect_factor = -0.15
 			}
 			
 			cancel_if_invalid = no
@@ -263,13 +307,17 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				consumer_goods_factor = 0.10
+				consumer_goods_expected_value = 0.10
 				production_speed_arms_factory_factor = 0.50
 				production_speed_industrial_complex_factor = -0.50
 				industrial_capacity_factory = 0.20
 				industrial_capacity_dockyard = 0.20
 				production_factory_max_efficiency_factor = 0.10
 				political_power_gain = -0.50
+				
+				factory_energy_consumption = 0.5
+				
+				poverty_effect_factor = -0.2
 			}
 			
 			cancel_if_invalid = no
@@ -298,16 +346,7 @@ ideas = {
 						has_idea = limited_conscription
 					}
 				}
-
-				# Germany needs to be careful
-				modifier = {
-					factor = 0
-
-					tag = GER
-					NOT = { has_tech = volkssturm }
-					has_war = yes
-					date < 1944.01.01
-				}
+				
 				modifier = {
 					factor = 0
 
@@ -350,10 +389,11 @@ ideas = {
 				civilian_intel_to_others = 40.0
 				navy_intel_to_others = 40.0
 				agency_upgrade_time = 0.15
+				cic_construction_boost_factor = 0.15
 			}
 			
 			allowed_to_remove = {
-				
+				has_war = yes
 			}
 			
 			cancel_if_invalid = no
@@ -383,6 +423,7 @@ ideas = {
 				research_speed_factor = 0.075
 				civilian_intel_to_others = 40.0
 				navy_intel_to_others = 20.0
+				cic_construction_boost_factor = 0.05
 			}
 			
 			cancel_if_invalid = no
@@ -434,6 +475,7 @@ ideas = {
 				research_speed_factor = 0.05
 				civilian_intel_to_others = 20.0
 				navy_intel_to_others = 10.0
+				cic_construction_boost_factor = 0.1
 			}
 			
 			default = yes
@@ -478,6 +520,7 @@ ideas = {
 				research_speed_factor = 0.01
 				civilian_intel_to_others = 10.0
 				navy_intel_to_others = 5
+				cic_construction_boost_factor = -0.05
 			}
 			
 			cancel_if_invalid = no
@@ -511,11 +554,75 @@ ideas = {
    			}
 		}
 		
+		trade_monopoly_1 = {
+			name = trade_monopoly
+			
+			allowed = {
+				always = no
+			}
+
+			available = {
+				
+			}
+			
+			removal_cost = -1
+			picture = trade_monopoly
+
+			modifier = {
+				min_export = 0.15
+				drift_defence_factor = 0.15
+				civilian_intel_to_others = 5
+				navy_intel_to_others = 5
+			}
+			
+			allowed_to_remove = {
+				always = no
+			}
+			
+			cancel_if_invalid = no
+		}
+		
+		trade_monopoly_2 = {
+			name = trade_monopoly
+			
+			allowed = {
+				always = no
+			}
+
+			available = {
+				
+			}
+			
+			removal_cost = -1
+			picture = trade_monopoly
+
+			modifier = {
+				min_export = 0.2
+				drift_defence_factor = 0.1
+				industrial_capacity_factory = 0.05
+				industrial_capacity_dockyard = 0.05
+				production_speed_buildings_factor = 0.05
+				research_speed_factor = 0.01
+				civilian_intel_to_others = 7.5
+				navy_intel_to_others = 7.5
+			}
+			
+			allowed_to_remove = {
+				always = no
+			}
+			
+			cancel_if_invalid = no
+		}
+		
 		closed_economy = {
 			
 			
 			available = {
 				has_war = yes
+				OR = {
+					has_idea = war_economy
+					has_idea = tot_economic_mobilisation
+				}
 			}
 			
 			cost = 150
@@ -526,40 +633,22 @@ ideas = {
 				min_export = 0
 				drift_defence_factor = 0.1
 				consumer_goods_factor = -0.05
+				cic_construction_boost_factor = -0.1
 			}
 			
-			on_add = {
-				custom_effect_tooltip = closed_economy_TT
+			#on_add = {
+			#	custom_effect_tooltip = closed_economy_TT
+			#}
+			
+			rule = {
+				can_access_market = no
+				desc = can_not_access_market_closed_economy
 			}
 			
 			cancel_if_invalid = no
 
 			ai_will_do = {
-   				factor = 1
-
-   				modifier = {
-					factor = 0
-					
-					is_major = no
-					is_in_faction = yes
-					has_war = yes
-				}
-
-				# minors not at war should want to get the bonuses from free trade
-				modifier = {
-					factor = 0
-					
-					is_major = no
-					has_war = no
-				}
-				
-				modifier = {
-					factor = 0
-					
-					# don't take if we have a reasonable sized ally
-					# since they will require our trades
-					has_large_ally_not_pick_closed_economy = yes
-				}
+   				factor = 0
    			}
 		}
 	}
