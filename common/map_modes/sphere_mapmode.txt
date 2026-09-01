@@ -36,6 +36,14 @@ scripted_map_modes = {
 					set_temp_variable = { green = 0.24 }
 					set_temp_variable = { blue = 0.30 }
 				}
+				else_if = {
+					limit = {
+						is_in_array = { global.british_empire_members = FROM.id }
+					}
+					set_temp_variable = { red = 0.5 }
+					set_temp_variable = { green = 0.35 }
+					set_temp_variable = { blue = 0.35 }
+				}
 				else = {
 					set_temp_variable = { red = 0.5 }
 					set_temp_variable = { green = 0.5 }

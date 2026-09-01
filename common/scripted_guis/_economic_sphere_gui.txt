@@ -1,0 +1,25 @@
+scripted_gui = {
+
+	economic_spheres_mapicon = {
+		context_type = country_mapicon
+		window_name = economic_spheres_mapicon_window
+		mapmode = economic_spheres_map_mode
+
+		mapicon_targets = {
+			target_array = global.countries
+			target_trigger = {
+				FROM = { is_economic_sphere_leader = yes }
+			}
+		}
+
+		effects = {
+			
+		}
+
+		properties = {
+			economic_spheres_mapicon_button = {
+				image = "[THIS.GetSphereIcon]"
+			}
+		}
+	}
+}

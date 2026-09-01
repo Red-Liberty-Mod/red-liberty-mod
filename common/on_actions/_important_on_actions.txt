@@ -61,6 +61,20 @@ on_actions = {
 				
 				ECON_reload_poverty_effects = yes
 				ECON_calculate_poverty_dampener_effect = yes
+				
+				### Industry Equivalents Setup ###
+				if = {
+					limit = {
+						NOT = {
+							has_dynamic_modifier = {
+								modifier = industry_equivalent_modifier
+							}
+						}
+					}
+					add_dynamic_modifier = {
+						modifier = industry_equivalent_modifier
+					}
+				}
 			}
 		}
 	}

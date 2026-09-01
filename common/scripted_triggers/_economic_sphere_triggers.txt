@@ -5,6 +5,8 @@ is_in_economic_sphere = {
 			is_in_array = { global.mitteleuropa_members = FROM.id }
 			is_in_array = { global.latin_union_members = FROM.id }
 			is_in_array = { global.organization_of_american_states_members = FROM.id }
+			is_in_array = { global.comintern_members = FROM.id }
+			is_in_array = { global.british_empire_members = FROM.id }
 		}
 	}
 }
@@ -41,6 +43,10 @@ is_in_same_economic_sphere_as_ROOT = {
 				is_in_array = { global.comintern_members = ROOT.id }
 				is_in_array = { global.comintern_members = THIS.id }
 			}
+			AND = {
+				is_in_array = { global.british_empire_members = ROOT.id }
+				is_in_array = { global.british_empire_members = THIS.id }
+			}
 		}
 	}
 }
@@ -67,6 +73,10 @@ is_in_same_economic_sphere_as_PREV = {
 			AND = {
 				is_in_array = { global.comintern_members = PREV.id }
 				is_in_array = { global.comintern_members = THIS.id }
+			}
+			AND = {
+				is_in_array = { global.british_empire_members = PREV.id }
+				is_in_array = { global.british_empire_members = THIS.id }
 			}
 		}
 	}
@@ -95,10 +105,20 @@ is_in_same_economic_sphere_as_FROM = {
 				is_in_array = { global.comintern_members = FROM.id }
 				is_in_array = { global.comintern_members = THIS.id }
 			}
+			AND = {
+				is_in_array = { global.british_empire_members = FROM.id }
+				is_in_array = { global.british_empire_members = THIS.id }
+			}
 		}
 	}
 }
 
+is_in_mitteleuropa = {
+	custom_trigger_tooltip = {
+		tooltip = is_in_mitteleuropa_tt
+		is_in_array = { global.mitteleuropa_members = FROM.id }
+	}
+}
 is_in_latin_union = {
 	custom_trigger_tooltip = {
 		tooltip = is_in_latin_union_tt

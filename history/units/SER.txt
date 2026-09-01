@@ -1,7 +1,6 @@
 ﻿##### Division Templates #####
 division_template = {
 	name = "Pešadijske Divizije"
-
 	division_names_group = SER_INF_01
 
 	regiments = {
@@ -13,7 +12,19 @@ division_template = {
 		infantry = { x = 1 y = 2 }
 	}
 }
+division_template = {
+	name = "Konjicka Divizija"
+	division_names_group = SER_CAV_01
 
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+	}
+}
 division_template = {
 	name = "Milicija"
 
@@ -31,46 +42,40 @@ division_template = {
 
 ###### OOB ######
 units = {
-	division= {
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
 		location = 11586
 		division_template = "Pešadijske Divizije"
-		start_experience_factor = 0.85
-		start_equipment_factor = 0.8
+		start_experience_factor = 0.1
 	}
-	division= {
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
 		location = 6953
 		division_template = "Pešadijske Divizije"
-		start_experience_factor = 0.85
-		start_equipment_factor = 0.8
+		start_experience_factor = 0.1
 	}
-	division= {
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
 		location = 9809
 		division_template = "Pešadijske Divizije"
-		start_experience_factor = 0.85
-		start_equipment_factor = 0.8
+		start_experience_factor = 0.1
 	}
-	division= {
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
 		location = 11586
-		division_template = "Milicija"
-		start_experience_factor = 0.85
-		start_equipment_factor = 0.8
-	}
-	division= {
-		location = 11586
-		division_template = "Milicija"
-		start_experience_factor = 0.85
-		start_equipment_factor = 0.8
-	}
-	division= {
-		location = 6953
-		division_template = "Milicija"
-		start_experience_factor = 0.85
-		start_equipment_factor = 0.8
-	}
-	division= {
-		location = 9874
-		division_template = "Milicija"
-		start_experience_factor = 0.85
-		start_equipment_factor = 0.8
+		division_template = "Konjicka Divizija"
+		start_experience_factor = 0.1
 	}
 }

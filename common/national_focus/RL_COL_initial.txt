@@ -1,0 +1,270 @@
+shared_focus = {
+    id = COL_the_liberal_revolution
+	icon = GFX_focus_COL_the_liberal_revolution
+	
+    x = 2
+	y = 0
+	cost = 4
+	
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = COL_reform_labor_policy
+	icon = GFX_focus_COL_reform_labor_policy
+	
+    x = -1
+	y = 1
+	cost = 6
+	
+	relative_position_id = COL_the_liberal_revolution
+	prerequisite = { focus = COL_the_liberal_revolution }
+	
+    completion_reward = {
+        add_stability = 0.05
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = COL_democratize_education
+	icon = GFX_focus_COL_democratize_education
+	
+    x = 1
+	y = 1
+	cost = 6
+	
+	relative_position_id = COL_the_liberal_revolution
+	prerequisite = { focus = COL_the_liberal_revolution }
+	
+    completion_reward = {
+        add_popularity = {
+			ideology = authoritarian_democracy
+			popularity = -0.02
+		}
+		add_popularity = {
+			ideology = ultraconservatism
+			popularity = -0.02
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = COL_social_reform
+	icon = GFX_focus_COL_social_reform
+	
+    x = 3
+	y = 1
+	cost = 6
+	
+	relative_position_id = COL_the_liberal_revolution
+	prerequisite = { focus = COL_the_liberal_revolution }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = COL_income_tax
+	icon = GFX_focus_COL_income_tax
+	
+    x = -1
+	y = 1
+	cost = 6
+	
+	relative_position_id = COL_reform_labor_policy
+	prerequisite = { focus = COL_reform_labor_policy }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = COL_promote_union_membership
+	icon = GFX_focus_COL_promote_union_membership
+	
+    x = 1
+	y = 1
+	cost = 6
+	
+	relative_position_id = COL_reform_labor_policy
+	prerequisite = { focus = COL_reform_labor_policy }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = COL_reform_the_penal_code
+	icon = GFX_focus_COL_reform_the_penal_code
+	
+    x = -1
+	y = 1
+	cost = 6
+	
+	relative_position_id = COL_social_reform
+	prerequisite = { focus = COL_social_reform }
+	
+    completion_reward = {
+        add_stability = 0.1
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = COL_womens_rights
+	icon = GFX_focus_COL_womens_rights
+	
+    x = 1
+	y = 1
+	cost = 6
+	
+	relative_position_id = COL_social_reform
+	prerequisite = { focus = COL_social_reform }
+	
+    completion_reward = {
+        if = {
+			limit = { has_idea = COL_revolution_on_the_march_3 }
+			swap_ideas = {
+				remove_idea = COL_revolution_on_the_march_3
+				add_idea = COL_revolution_on_the_march_4
+			}
+		}
+		else = {
+			swap_ideas = {
+				remove_idea = COL_revolution_on_the_march_1
+				add_idea = COL_revolution_on_the_march_3
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = COL_land_reform
+	icon = GFX_focus_COL_land_reform
+	
+    x = 1
+	y = 1
+	cost = 6
+	
+	relative_position_id = COL_income_tax
+	prerequisite = { focus = COL_income_tax }
+	prerequisite = { focus = COL_promote_union_membership }
+	
+    completion_reward = {
+        if = {
+			limit = { has_idea = COL_revolution_on_the_march_2 }
+			swap_ideas = {
+				remove_idea = COL_revolution_on_the_march_2
+				add_idea = COL_revolution_on_the_march_4
+			}
+		}
+		else = {
+			swap_ideas = {
+				remove_idea = COL_revolution_on_the_march_1
+				add_idea = COL_revolution_on_the_march_2
+			}
+		}
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = COL_rural_schools
+	icon = GFX_focus_COL_rural_schools
+	
+    x = 0
+	y = 2
+	cost = 6
+	
+	relative_position_id = COL_democratize_education
+	prerequisite = { focus = COL_democratize_education }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = COL_modernize_the_national_police
+	icon = GFX_focus_COL_modernize_the_national_police
+	
+    x = 1
+	y = 1
+	cost = 6
+	
+	relative_position_id = COL_reform_the_penal_code
+	prerequisite = { focus = COL_reform_the_penal_code }
+	prerequisite = { focus = COL_womens_rights }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+shared_focus = {
+    id = COL_public_works
+	icon = GFX_focus_COL_public_works
+	
+    x = 0
+	y = 2
+	cost = 6
+	
+	relative_position_id = COL_promote_union_membership
+	prerequisite = { focus = COL_promote_union_membership }
+	
+    completion_reward = {
+        
+    }
+	
+	ai_will_do = {
+		factor = 10
+	}
+}

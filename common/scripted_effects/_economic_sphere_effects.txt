@@ -214,3 +214,67 @@ remove_THIS_from_comintern_sphere = {
 		}
 	}
 }
+
+### British Sphere ###
+create_british_empire_sphere = {
+	custom_override_tooltip = {
+		tooltip = create_british_empire_sphere_tt
+		ENG = {
+			add_THIS_to_british_empire_sphere = yes
+			set_variable = { econ_sphere_member_status_var = @MEMBER_STATUS_LEADER }
+		}
+		
+		CAN = { add_THIS_to_british_empire_sphere = yes }
+		NFL = { add_THIS_to_british_empire_sphere = yes }
+		SAF = { add_THIS_to_british_empire_sphere = yes }
+		AST = { add_THIS_to_british_empire_sphere = yes }
+		NZL = { add_THIS_to_british_empire_sphere = yes }
+		RAJ = { add_THIS_to_british_empire_sphere = yes }
+		OMA = { add_THIS_to_british_empire_sphere = yes }
+		IRQ = { add_THIS_to_british_empire_sphere = yes }
+		MAL = { add_THIS_to_british_empire_sphere = yes }
+		SRW = { add_THIS_to_british_empire_sphere = yes }
+		
+		ARG = {
+			add_THIS_to_british_empire_sphere = yes
+			set_variable = { econ_sphere_member_status_var = @MEMBER_STATUS_OBSERVER }
+		}
+		EGY = {
+			add_THIS_to_british_empire_sphere = yes
+			set_variable = { econ_sphere_member_status_var = @MEMBER_STATUS_OBSERVER }
+		}
+		NEP = {
+			add_THIS_to_british_empire_sphere = yes
+			set_variable = { econ_sphere_member_status_var = @MEMBER_STATUS_OBSERVER }
+		}
+		BHU = {
+			add_THIS_to_british_empire_sphere = yes
+			set_variable = { econ_sphere_member_status_var = @MEMBER_STATUS_OBSERVER }
+		}
+		TIB = {
+			add_THIS_to_british_empire_sphere = yes
+			set_variable = { econ_sphere_member_status_var = @MEMBER_STATUS_OBSERVER }
+		}
+	}
+	
+}
+add_THIS_to_british_empire_sphere = {
+	custom_effect_tooltip = add_to_comintern_tt
+	add_to_array = { global.british_empire_members = THIS }
+	set_variable = { econ_sphere_member_status_var = 2 }
+	log = "[GetDateText]: [THIS.GetName]: effect add_THIS_to_british_empire_sphere"
+	
+	for_each_scope_loop = {
+		array = global.british_empire_members
+		if = {
+			limit = {
+				NOT = { has_market_access_with = PREV }
+				NOT = { tag = PREV }
+			}
+			diplomatic_relation = {
+				country = PREV
+				relation = market_access_rights
+			}
+		}
+	}
+}

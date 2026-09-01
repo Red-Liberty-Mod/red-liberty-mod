@@ -4213,7 +4213,7 @@ news_event = {
 	}
 }
 
-country_event = { # apra-led civil war
+country_event = { # apra-led revolution
 	id = demo_pru.1
 	title = demo_pru.1.title
 	desc = demo_pru.1.desc
@@ -4223,30 +4223,29 @@ country_event = { # apra-led civil war
 	option = { # succeeds
 		name = demo_pru.1.a
 		PRU = {
-			remove_ideas = PRU_growing_aprista_movement
-			start_civil_war = {
-				ideology = democratic_socialism
-				size = 0.1
-				army_ratio = 0.5
-				navy_ratio = 0
-				air_ratio = 1
-				
-				save_global_event_target_as = socialist_peru
-				set_cosmetic_tag = PRU_socialist
+			set_politics = {
+				ruling_party = democratic_socialism
+				elections_allowed = no
 			}
-		}
-		CHL = {
-			set_country_flag = may_send_volunteers_to_SRP
-		}
-		UOB = {
-			set_country_flag = may_send_volunteers_to_SRP
+			add_popularity = {
+				ideology = democratic_socialism
+				popularity = 0.1
+			}
+			remove_ideas = PRU_growing_aprista_movement
 		}
 		random_other_country = {
 			limit = { is_ai = yes }
 			news_event = { id = demo_pru.2 hours = 6 }
 		}
 		ai_chance = {
-			base = 10
+			base = 60
+		}
+	}
+	
+	option = { # fails
+		name = demo_pru.1.b
+		ai_chance = {
+			base = 40
 		}
 	}
 }
@@ -4265,7 +4264,7 @@ news_event = {
 	}
 }
 
-country_event = { # movement for the liberation of the
+country_event = { # declaration of the popular front
 	id = demo_chl.1
 	title = demo_chl.1.title
 	desc = demo_chl.1.desc
@@ -4275,21 +4274,26 @@ country_event = { # movement for the liberation of the
 	option = { # succeeds
 		name = demo_chl.1.a
 		CHL = {
-			create_faction = "Movement for Liberation"
+			create_faction_from_template = faction_template_american_popular_front
 			add_named_threat = { 
 				threat = 3
 				name = CHL_liberation_movement
 			}
 		}
-		every_other_country = {
+		if = {
 			limit = {
-				is_in_south_america = yes
-				has_war = no
-				has_socialist_govt = yes
+				UOB = { has_war = no }
 			}
-			CHL = {
-				add_to_faction = PREV
+			CHL = { add_to_faction = UOB }
+		}
+		if = {
+			limit = {
+				SRP = {
+					exists = yes
+					has_war = no
+				}
 			}
+			CHL = { add_to_faction = SRP }
 		}
 		random_other_country = {
 			limit = { is_ai = yes }

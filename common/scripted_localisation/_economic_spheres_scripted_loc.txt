@@ -23,8 +23,16 @@ defined_text = {
 	text = {
 		trigger = {
 			check_variable = { econ_sphere_member_status_var = 3 }
+			NOT = { is_in_array = { global.british_empire_members = THIS.id } }
 		}
 		localization_key = econ_sphere_observer
+	}
+	text = {
+		trigger = {
+			check_variable = { econ_sphere_member_status_var = 3 }
+			is_in_array = { global.british_empire_members = THIS.id }
+		}
+		localization_key = econ_sphere_influenced_state
 	}
 	text = {
 		localization_key = econ_sphere_not_member
@@ -57,5 +65,35 @@ defined_text = {
 		}
 		localization_key = econ_sphere_comintern_name_def
 	}
+	text = {
+		trigger = {
+			is_in_array = { global.british_empire_members = THIS.id }
+		}
+		localization_key = econ_sphere_british_empire_name_def
+	}
 }
 
+defined_text = {
+	name = GetSphereIcon
+	text = {
+		trigger = {
+			tag = GER
+			is_economic_sphere_leader = yes
+		}
+		localization_key = "GFX_focus_ger_revive_kaiserreich"
+	}
+	text = {
+		trigger = {
+			tag = SOV
+			is_economic_sphere_leader = yes
+		}
+		localization_key = "GFX_focus_SOV_the_comecon"
+	}
+	text = {
+		trigger = {
+			tag = ENG
+			is_economic_sphere_leader = yes
+		}
+		localization_key = "GFX_focus_eng_imperial_federation"
+	}
+}

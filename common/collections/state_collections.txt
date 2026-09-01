@@ -20,6 +20,13 @@ every_state_in_south_america = {
 	}
 	name = every_state_in_south_america
 }
+all_controlled_state_in_south_america = {
+	input = collection:every_state_in_south_america
+	operators = {
+		limit = { owner = { is_ally_with = ROOT } }
+	}
+	name = all_controlled_state_in_south_america
+}
 every_state_in_australia = {
 	input = game:all_states
 	operators = {

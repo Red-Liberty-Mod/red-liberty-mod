@@ -86,6 +86,10 @@ shared_focus = {
 	y = 1
 	cost = 5
 	
+	available = {
+		is_in_mitteleuropa = yes
+	}
+	
 	prerequisite = { focus = GEO_renegotiate_the_treaty_of_poti }
 	relative_position_id = GEO_renegotiate_the_treaty_of_poti
 
@@ -161,8 +165,10 @@ shared_focus = {
 	y = 1
 	cost = 8	
 	
-	prerequisite = { focus = GEO_expand_poti_harbor }
-	prerequisite = { focus = GEO_investments_from_germany }
+	prerequisite = {
+		focus = GEO_expand_poti_harbor
+		focus = GEO_investments_from_germany
+	}
 	relative_position_id = GEO_expand_poti_harbor
 
 	completion_reward = {

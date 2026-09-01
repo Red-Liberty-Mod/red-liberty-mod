@@ -1,10 +1,26 @@
 ideas = {
 	country = { 
 		
+		PRU_wake_of_the_leticia_war = {
+			picture = chi_wargaming_division
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				stability_factor = -0.05
+				conscription_factor = -0.35
+				army_attack_factor = -0.1
+			}
+		}
+		
 		PRU_growing_aprista_movement = {
 			picture = PRU_aprista_movement
-			
-			removal_cost = -1
 			
 			allowed = {
 				always = no
@@ -18,6 +34,24 @@ ideas = {
 				stability_factor = -0.1
 				political_power_gain = -0.1
 				democratic_socialism_drift = 0.02
+			}
+		}
+		
+		PRU_landed_highlands = {
+			picture = generic_agrarian_reform
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				monthly_population = -0.1
+				production_speed_arms_factory_factor = -0.1
+				production_speed_industrial_complex_factor = -0.1
 			}
 		}
 	}
