@@ -4,7 +4,6 @@ technologies = {
 	
 		production_factory_max_efficiency_factor = 0.1
 		equipment_conversion_speed = 0.2
-
 		
 		path = {
 			leads_to_tech = improved_machine_tools 
@@ -45,15 +44,10 @@ technologies = {
 		equipment_conversion_speed = 0.2
 
 		path = {
-			leads_to_tech = advanced_machine_tools 
+			leads_to_tech = advanced_machine_tools
 			research_cost_coeff = 1
 		}
 
-		path = {
-			leads_to_tech = improved_equipment_conversion
-			research_cost_coeff = 1
-		}
-		
 		research_cost = 1.5
 		start_year = 1937
 		
@@ -214,85 +208,213 @@ technologies = {
 		}
 	}
 
-	#Conversion branch - Enabled in DoD - Repurposed for Coal Energy Gain in NCNS - To be replaced in future
-	improved_equipment_conversion = {
-		energy_gain_factor = 0.15
-		#equipment_conversion_speed = 0.40
+	#### Power branch ####
+	power_high_pressure_boilers = {
+		power_from_coal_factor = 0.50
 
 		path = {
-			leads_to_tech = advanced_equipment_conversion
+			leads_to_tech = power_hydrogen_cooled_generators
 			research_cost_coeff = 1
 		}
-		
-		research_cost = 2
-		start_year = 1937
-		
+
+		research_cost = 1.0
+		start_year = 1933
+
 		folder = {
 			name = industry_folder
-			position = { x = 2 y = 4 }
+			position = { x = 7 y = 0 }
 		}
 
 		ai_will_do = {
 			factor = 1
 
 			modifier = {
-				factor = 2
-				date > "1937.1.1"
-			}
-
-			modifier = {
-				factor = 2
-				coal > 0
-			}
-			modifier = {
-				factor = 2
-				coal > 8
+				factor = 10
+				energy_ratio < 0.95
 			}
 		}
-		
+
 		categories = {
 			industry
 			cat_production
 			construction_tech
-			excavation_tech		
+			excavation_tech
 		}
 	}
-	
-	advanced_equipment_conversion = {
-		energy_gain_factor = 0.15
-		#equipment_conversion_speed = 0.40
 
-		research_cost = 2
-		start_year = 1939
-		
+	power_hydrogen_cooled_generators = {
+		power_generation_factor = 0.10
+
+		path = {
+			leads_to_tech = power_steam_reheating
+			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = power_large_hydro_turbines
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.5
+		start_year = 1937
+
 		folder = {
 			name = industry_folder
-			position = { x = 2 y = 6 }
+			position = { x = 7 y = 4 }
 		}
-		
+
 		ai_will_do = {
 			factor = 1
 
 			modifier = {
-				factor = 2
-				date > "1939.1.1"
-			}
-
-			modifier = {
-				factor = 2
-				coal > 0
-			}
-			modifier = {
-				factor = 2
-				coal > 8
+				factor = 10
+				energy_ratio < 0.95
 			}
 		}
-		
+
 		categories = {
 			industry
 			cat_production
 			construction_tech
-			excavation_tech	
+		}
+	}
+
+	power_large_hydro_turbines = {
+		power_from_dams_factor = 0.35
+
+		path = {
+			leads_to_tech = power_grid_interconnection
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.5
+		start_year = 1938
+
+		folder = {
+			name = industry_folder
+			position = { x = 9 y = 6 }
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0
+				NOT = { power_from_dams > 0 }
+			}
+
+			modifier = {
+				factor = 10
+				energy_ratio < 0.95
+			}
+		}
+
+		categories = {
+			industry
+			cat_production
+			construction_tech
+		}
+	}
+
+	power_grid_interconnection = {
+		power_from_dams_factor = 0.35
+
+		research_cost = 2
+		start_year = 1940
+
+		folder = {
+			name = industry_folder
+			position = { x = 9 y = 8 }
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0
+				NOT = { power_from_dams > 0 }
+			}
+
+			modifier = {
+				factor = 10
+				energy_ratio < 0.95
+			}
+		}
+
+		categories = {
+			industry
+			cat_production
+			construction_tech
+		}
+	}
+
+	power_steam_reheating = {
+		power_generation_factor = 0.10
+
+		path = {
+			leads_to_tech = power_supercritical_steam
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 1941
+
+		folder = {
+			name = industry_folder
+			position = { x = 7 y = 8 }
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 10
+				energy_ratio < 0.95
+			}
+		}
+
+		categories = {
+			industry
+			cat_production
+			construction_tech
+		}
+	}
+
+	power_supercritical_steam = {
+		power_from_coal_factor = 1.0
+
+		research_cost = 3
+		start_year = 1944
+
+		folder = {
+			name = industry_folder
+			position = { x = 7 y = 10 }
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 5
+
+				has_resources_in_country = {
+					resource = coal
+					amount > 0
+					only_imported = yes
+				}
+			}
+
+			modifier = {
+				factor = 10
+				energy_ratio < 0.95
+			}
+		}
+
+		categories = {
+			industry
+			cat_production
+			construction_tech
+			excavation_tech
 		}
 	}
 
@@ -301,6 +423,8 @@ technologies = {
 
 		industrial_capacity_factory = 0.15
 		industrial_capacity_dockyard = 0.1
+		#industrial_capacity_factory_powered = 0.075 
+		#industrial_capacity_dockyard_powered = 0.05 
 		global_building_slots_factor = 0.20
 		
 		path = {
@@ -316,7 +440,7 @@ technologies = {
 		
 		folder = {
 			name = industry_folder
-			position = { x = 4 y = 2 }
+			position = { x = 3 y = 2 }
 		}
 		
 		ai_will_do = {
@@ -372,6 +496,8 @@ technologies = {
 
 		industrial_capacity_factory = 0.15
 		industrial_capacity_dockyard = 0.1
+		#industrial_capacity_factory_powered = 0.1 
+		#industrial_capacity_dockyard_powered = 0.075 
 		global_building_slots_factor = 0.20
 		
 		path = {
@@ -384,7 +510,7 @@ technologies = {
 		
 		folder = {
 			name = industry_folder
-			position = { x = 4 y = 4 }
+			position = { x = 3 y = 4 }
 		}
 		
 		ai_will_do = {
@@ -411,6 +537,8 @@ technologies = {
 
 		industrial_capacity_factory = 0.15
 		industrial_capacity_dockyard = 0.1
+		#industrial_capacity_factory_powered = 0.125 
+		#industrial_capacity_dockyard_powered = 0.1 
 		global_building_slots_factor = 0.20
 		
 		path = {
@@ -423,7 +551,7 @@ technologies = {
 		
 		folder = {
 			name = industry_folder
-			position = { x = 4 y = 6 }
+			position = { x = 3 y = 6 }
 		}
 		
 		ai_will_do = {
@@ -449,6 +577,8 @@ technologies = {
 
 		industrial_capacity_factory = 0.15
 		industrial_capacity_dockyard = 0.1
+		#industrial_capacity_factory_powered = 0.15 
+		#industrial_capacity_dockyard_powered = 0.1 
 		global_building_slots_factor = 0.20
 		
 		path = {
@@ -461,7 +591,7 @@ technologies = {
 		
 		folder = {
 			name = industry_folder
-			position = { x = 4 y = 8 }
+			position = { x = 3 y = 8 }
 		}
 		
 		ai_will_do = {
@@ -487,6 +617,8 @@ technologies = {
 
 		industrial_capacity_factory = 0.15
 		industrial_capacity_dockyard = 0.1
+		#industrial_capacity_factory_powered = 0.15 
+		#industrial_capacity_dockyard_powered = 0.1 
 		global_building_slots_factor = 0.20
 		
 		research_cost = 2
@@ -494,7 +626,7 @@ technologies = {
 		
 		folder = {
 			name = industry_folder
-			position = { x = 4 y = 10 }
+			position = { x = 3 y = 10 }
 		}
 		
 		ai_will_do = {
@@ -525,6 +657,8 @@ technologies = {
 
 		industrial_capacity_factory = 0.1
 		industrial_capacity_dockyard = 0.1
+		#industrial_capacity_factory_powered = 0.05 
+		#industrial_capacity_dockyard_powered = 0.05 
 		line_change_production_efficiency_factor = 0.1
 		production_factory_start_efficiency_factor = 0.05
 		industry_air_damage_factor = -0.15
@@ -543,7 +677,7 @@ technologies = {
 		
 		folder = {
 			name = industry_folder
-			position = { x = 6 y = 2 }
+			position = { x = 5 y = 2 }
 		}
 		
 		ai_will_do = {
@@ -599,6 +733,8 @@ technologies = {
 
 		industrial_capacity_factory = 0.1
 		industrial_capacity_dockyard = 0.1
+		#industrial_capacity_factory_powered = 0.075 
+		#industrial_capacity_dockyard_powered = 0.075 
 		line_change_production_efficiency_factor = 0.1
 		production_factory_start_efficiency_factor = 0.05
 		industry_air_damage_factor = -0.10
@@ -614,7 +750,7 @@ technologies = {
 		
 		folder = {
 			name = industry_folder
-			position = { x = 6 y = 4 }
+			position = { x = 5 y = 4 }
 		}
 		
 		ai_will_do = {
@@ -640,6 +776,8 @@ technologies = {
 
 		industrial_capacity_factory = 0.1
 		industrial_capacity_dockyard = 0.1
+		#industrial_capacity_factory_powered = 0.075 #TODO SEA set value
+		#industrial_capacity_dockyard_powered = 0.075 #TODO SEA set value
 		line_change_production_efficiency_factor = 0.1
 		production_factory_start_efficiency_factor = 0.05
 		industry_air_damage_factor = -0.10
@@ -655,7 +793,7 @@ technologies = {
 		
 		folder = {
 			name = industry_folder
-			position = { x = 6 y = 6 }
+			position = { x = 5 y = 6 }
 		}
 		
 		ai_will_do = {
@@ -681,6 +819,8 @@ technologies = {
 
 		industrial_capacity_factory = 0.1
 		industrial_capacity_dockyard = 0.1
+		#industrial_capacity_factory_powered = 0.1 
+		#industrial_capacity_dockyard_powered = 0.1 
 		line_change_production_efficiency_factor = 0.1
 		production_factory_start_efficiency_factor = 0.05
 		industry_air_damage_factor = -0.10
@@ -696,7 +836,7 @@ technologies = {
 		
 		folder = {
 			name = industry_folder
-			position = { x = 6 y = 8 }
+			position = { x = 5 y = 8 }
 		}
 		
 		ai_will_do = {
@@ -722,6 +862,8 @@ technologies = {
 
 		industrial_capacity_factory = 0.1
 		industrial_capacity_dockyard = 0.1
+		#industrial_capacity_factory_powered = 0.1 
+		#industrial_capacity_dockyard_powered = 0.1 
 		line_change_production_efficiency_factor = 0.1
 		production_factory_start_efficiency_factor = 0.05
 		industry_air_damage_factor = -0.10
@@ -733,7 +875,7 @@ technologies = {
 		
 		folder = {
 			name = industry_folder
-			position = { x = 6 y = 10 }
+			position = { x = 5 y = 10 }
 		}
 		
 		ai_will_do = {
@@ -918,7 +1060,7 @@ technologies = {
 	}
 
 	fuel_refining2 = {
-		
+
 		fuel_gain_factor = 0.2
 		fuel_gain_factor_from_states = 0.1
 
@@ -1293,6 +1435,7 @@ technologies = {
 	advanced_oil_processing = {
 
 		fuel_gain_factor_from_states = 0.5
+		#enable_power_from_oil = yes  (maybe in the future, requires more UI/UX work)
 
 		path = {
 			leads_to_tech = modern_oil_processing
@@ -1438,6 +1581,11 @@ technologies = {
 				factor = 0.5
 				rubber > 30
 			}			
+			modifier = {
+				factor = 25
+				original_tag = GER	
+				date > "1938.1.1"	
+			}
 		}
 		
 		ai_research_weights = {
@@ -1618,6 +1766,7 @@ technologies = {
 	construction1 = {
 		
 		production_speed_buildings_factor = 0.1
+		#production_speed_buildings_powered_factor = 0.05 
 		industry_repair_factor = 0.10
 
 		path = {
@@ -1707,6 +1856,7 @@ technologies = {
 	construction2 = {
 
 		production_speed_buildings_factor = 0.1
+		#production_speed_buildings_powered_factor = 0.075 
 		industry_repair_factor = 0.10
 		
 		path = {
@@ -1799,6 +1949,7 @@ technologies = {
 	construction3 = {
 
 		production_speed_buildings_factor = 0.1
+		#production_speed_buildings_powered_factor = 0.075
 		industry_repair_factor = 0.10
 		path = {
 			leads_to_tech = construction4 
@@ -1901,6 +2052,7 @@ technologies = {
 	construction4 = {
 
 		production_speed_buildings_factor = 0.1
+		#production_speed_buildings_powered_factor = 0.1 
 		industry_repair_factor = 0.10
 
 		on_research_complete = {
@@ -1999,6 +2151,7 @@ technologies = {
 	construction5 = {
 
 		production_speed_buildings_factor = 0.1
+		#production_speed_buildings_powered_factor = 0.1
 		industry_repair_factor = 0.10
 		
 		path = {
